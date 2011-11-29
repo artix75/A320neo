@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!-- Airbus A320 for FlightGear -->
+<!-- Radio Frequency Pedestal Panel -->
+
+<PropertyList>
+
+	<path>../../../Models/Instruments/Radiopanel/Radiopanel.ac</path>
+
+	<!-- PARAMETERS -->
+	<params>
+		<selected-mhz>instrumentation/nav[0]/frequencies/selected-mhz</selected-mhz>
+		<standby-mhz>instrumentation/nav[0]/frequencies/standby-mhz</standby-mhz>
+		<script-small-step-up><![CDATA[
+		 var setting = getprop("instrumentation/nav[0]/frequencies/standby-mhz");
+		 var max = 117.95;
+		 if (setting < max)
+		  {
+		  setprop("instrumentation/nav[0]/frequencies/standby-mhz", setting += 0.05);
+		  }
+		 if (setting > max)
+		  {
+		  setprop("instrumentation/nav[0]/frequencies/standby-mhz", max);
+		  }
+		]]></script-small-step-up>
+		<script-small-step-down><![CDATA[
+		 var setting = getprop("instrumentation/nav[0]/frequencies/standby-mhz");
+		 var min = 108;
+		 if (setting > min)
+		  {
+		  setprop("instrumentation/nav[0]/frequencies/standby-mhz", setting -= 0.05);
+		  }
+		 if (setting < min)
+		  {
+		  setprop("instrumentation/nav[0]/frequencies/standby-mhz", min);
+		  }
+		]]></script-small-step-down>
+		<script-big-step-up><![CDATA[
+		 var setting = getprop("instrumentation/nav[0]/frequencies/standby-mhz");
+		 var max = 117.95;
+		 if (setting < max)
+		  {
+		  setprop("instrumentation/nav[0]/frequencies/standby-mhz", setting += 1);
+		  }
+		 if (setting > max)
+		  {
+		  setprop("instrumentation/nav[0]/frequencies/standby-mhz", max);
+		  }
+		]]></script-big-step-up>
+		<script-big-step-down><![CDATA[
+		 var setting = getprop("instrumentation/nav[0]/frequencies/standby-mhz");
+		 var min = 108;
+		 if (setting > min)
+		  {
+		  setprop("instrumentation/nav[0]/frequencies/standby-mhz", setting -= 1);
+		  }
+		 if (setting < min)
+		  {
+		  setprop("instrumentation/nav[0]/frequencies/standby-mhz", min);
+		  }
+		]]></script-big-step-down>
+		<script-swap>
+		 var setting1 = getprop("instrumentation/nav[0]/frequencies/selected-mhz");
+		 var setting2 = getprop("instrumentation/nav[0]/frequencies/standby-mhz");
+		 setprop("instrumentation/nav[0]/frequencies/standby-mhz", setting1);
+		 setprop("instrumentation/nav[0]/frequencies/selected-mhz", setting2);
+		</script-swap>
+	</params>
+
+	<!-- ANIMATIONS -->
+	<!-- Active frequency -->
+	<animation>
+		<name>Active frequency 100's</name>
+		<type>textranslate</type>
+		<object-name>Active100</object-name>
+		<property alias="../../params/selected-mhz" />
+		<factor>0.001</factor>
+		<step>100</step>
+		<axis>
+			<x>0</x>
+			<y>1</y>
+		</axis>
+	</animation>
+	<animation>
+		<name>Active frequency 10's</name>
+		<type>textranslate</type>
+		<object-name>Active10</object-name>
+		<property alias="../../params/selected-mhz" />
+		<factor>0.01</factor>
+		<step>10</step>
+		<axis>
+			<x>0</x>
+			<y>1</y>
+		</axis>
+	</animation>
+	<animation>
+		<name>Active frequency 1's</name>
+		<type>textranslate</type>
+		<object-name>Active1</object-name>
+		<property alias="../../params/selected-mhz" />
+		<factor>0.1</factor>
+		<step>1</step>
+		<axis>
+			<x>0</x>
+			<y>1</y>
+		</axis>
+	</animation>
+	<animation>
+		<name>Active frequency .1's</name>
+		<type>textranslate</type>
+		<object-name>Active.1</object-name>
+		<property alias="../../params/selected-mhz" />
+		<step>0.1</step>
+		<axis>
+			<x>0</x>
+			<y>1</y>
+		</axis>
+	</animation>
+	<animation>
+		<name>Active frequency .01's</name>
+		<type>textranslate</type>
+		<object-name>Active.01</object-name>
+		<property alias="../../params/selected-mhz" />
+		<factor>10</factor>
+		<step>0.01</step>
+		<axis>
+			<x>0</x>
+			<y>1</y>
+		</axis>
+	</animation>
+
+	<!-- Frequency swap button -->
+	<animation>
+		<name>Swap button pick</name>
+		<type>pick</type>
+		<object-name>Swap</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>nasal</command>
+				<script alias="../../../../params/script-swap" />
+			</binding>
+		</action>
+	</animation>
+
+	<!-- Standby frequency -->
+	<animation>
+		<name>Standby frequency 100's</name>
+		<type>textranslate</type>
+		<object-name>Standby100</object-name>
+		<property alias="../../params/standby-mhz" />
+		<factor>0.001</factor>
+		<step>100</step>
+		<axis>
+			<x>0</x>
+			<y>1</y>
+		</axis>
+	</animation>
+	<animation>
+		<name>Standby frequency 10's</name>
+		<type>textranslate</type>
+		<object-name>Standby10</object-name>
+		<property alias="../../params/standby-mhz" />
+		<factor>0.01</factor>
+		<step>10</step>
+		<axis>
+			<x>0</x>
+			<y>1</y>
+		</axis>
+	</animation>
+	<animation>
+		<name>Standby frequency 1's</name>
+		<type>textranslate</type>
+		<object-name>Standby1</object-name>
+		<property alias="../../params/standby-mhz" />
+		<factor>0.1</factor>
+		<step>1</step>
+		<axis>
+			<x>0</x>
+			<y>1</y>
+		</axis>
+	</animation>
+	<animation>
+		<name>Standby frequency .1's</name>
+		<type>textranslate</type>
+		<object-name>Standby.1</object-name>
+		<property alias="../../params/standby-mhz" />
+		<step>0.1</step>
+		<axis>
+			<x>0</x>
+			<y>1</y>
+		</axis>
+	</animation>
+	<animation>
+		<name>Standby frequency .01's</name>
+		<type>textranslate</type>
+		<object-name>Standby.01</object-name>
+		<property alias="../../params/standby-mhz" />
+		<factor>10</factor>
+		<step>0.01</step>
+		<axis>
+			<x>0</x>
+			<y>1</y>
+		</axis>
+	</animation>
+
+	<!-- Frequency adjust knob -->
+	<animation>
+		<name>Small step knob</name>
+		<type>pick</type>
+		<object-name>SmallKnob</object-name>
+		<action>
+			<button>0</button>
+			<button>3</button>
+			<repeatable type="bool">true</repeatable>
+			<binding>
+				<command>nasal</command>
+				<script alias="../../../../params/script-small-step-up" />
+			</binding>
+		</action>
+		<action>
+			<button>1</button>
+			<button>4</button>
+			<repeatable type="bool">true</repeatable>
+			<binding>
+				<command>nasal</command>
+				<script alias="../../../../params/script-small-step-down" />
+			</binding>
+		</action>
+	</animation>
+	<animation>
+		<name>Big step knob</name>
+		<type>pick</type>
+		<object-name>BigKnob</object-name>
+		<action>
+			<button>0</button>
+			<button>3</button>
+			<repeatable type="bool">true</repeatable>
+			<binding>
+				<command>nasal</command>
+				<script alias="../../../../params/script-big-step-up" />
+			</binding>
+		</action>
+		<action>
+			<button>1</button>
+			<button>4</button>
+			<repeatable type="bool">true</repeatable>
+			<binding>
+				<command>nasal</command>
+				<script alias="../../../../params/script-big-step-down" />
+			</binding>
+		</action>
+	</animation>
+
+</PropertyList>

@@ -1,0 +1,371 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<PropertyList>
+
+	<name>Startup</name>
+	<description>Learn how to start the engines and prepare for takeoff in this ultra-modern twinjet.</description>
+	<presets>
+		<on-ground type="bool">true</on-ground>
+	</presets>
+
+	<init>
+		<set>
+			<property>controls/gear/brake-parking</property>
+			<value type="bool">true</value>
+		</set>
+		<set>
+			<property>controls/engines/engine[0]/throttle</property>
+			<value>0</value>
+		</set>
+		<set>
+			<property>controls/engines/engine[1]/throttle</property>
+			<value>0</value>
+		</set>
+		<set>
+			<property>engines/engine[0]/running</property>
+			<value type="bool">false</value>
+		</set>
+		<set>
+			<property>engines/engine[1]/running</property>
+			<value type="bool">false</value>
+		</set>
+	</init>
+
+	<step>
+		<message>Welcome aboard the Airbus A320, one of the most sophisticated narrowbody jetliners of
+the modern age!</message>
+	</step>
+
+	<step>
+		<message>In this tutorial, we will learn how to start the engines and prepare for takeoff.
+First, ensure all doors are closed (click them to open/close) and all passengers and
+cargo have been loaded.</message>
+	</step>
+
+	<step>
+		<message>The electrical system is currently dormant. Reach up to the overhead panel and turn
+on external power. This will give us electrical power on the ground, but will be useless
+once we start moving!</message>
+		<view>
+			<heading-offset-deg>293.0</heading-offset-deg>
+			<pitch-offset-deg>30.9</pitch-offset-deg>
+			<roll-offset-deg>0.0</roll-offset-deg>
+			<x-offset-m>-0.5</x-offset-m>
+			<y-offset-m>2.4</y-offset-m>
+			<z-offset-m>-13.9</z-offset-m>
+			<field-of-view>24.1</field-of-view>
+		</view>
+		<marker>
+			<x-m>4.7283</x-m>
+			<y-m>0.0408</y-m>
+			<z-m>1.0292</z-m>
+			<scale>1.6000</scale>
+		</marker>
+		<exit>
+			<condition>
+				<property>controls/electric/external-power</property>
+			</condition>
+		</exit>
+	</step>
+
+	<step>
+		<message>To start the engines, we need to turn on the APU (auxilary power unit). Turn the APU starter
+switch on.</message>
+		<view>
+			<heading-offset-deg>309.6</heading-offset-deg>
+			<pitch-offset-deg>19.8</pitch-offset-deg>
+			<roll-offset-deg>0.0</roll-offset-deg>
+			<x-offset-m>-0.5</x-offset-m>
+			<y-offset-m>2.4</y-offset-m>
+			<z-offset-m>-13.9</z-offset-m>
+			<field-of-view>24.1</field-of-view>
+		</view>
+		<marker>
+			<x-m>4.5108</x-m>
+			<y-m>0.0008</y-m>
+			<z-m>0.8908</z-m>
+			<scale>1.6000</scale>
+		</marker>
+		<exit>
+			<condition>
+				<property>controls/APU/starter</property>
+			</condition>
+		</exit>
+	</step>
+
+	<step>
+		<message>Turn the APU master switch on.</message>
+		<view>
+			<heading-offset-deg>309.6</heading-offset-deg>
+			<pitch-offset-deg>19.8</pitch-offset-deg>
+			<roll-offset-deg>0.0</roll-offset-deg>
+			<x-offset-m>-0.5</x-offset-m>
+			<y-offset-m>2.4</y-offset-m>
+			<z-offset-m>-13.9</z-offset-m>
+			<field-of-view>24.1</field-of-view>
+		</view>
+		<marker>
+			<x-m>4.5383</x-m>
+			<y-m>0.0008</y-m>
+			<z-m>0.9092</z-m>
+			<scale>1.6000</scale>
+		</marker>
+		<exit>
+			<condition>
+				<property>controls/APU/master-switch</property>
+			</condition>
+		</exit>
+	</step>
+
+	<step>
+		<message>The APU will now spool up. During this time, "APU STARTING" will appear on the EICAS. When
+the APU is fully started, "APU RUNNING" will appear.</message>
+		<exit>
+			<condition>
+				<property>engines/apu/running</property>
+			</condition>
+		</exit>
+	</step>
+
+	<step>
+		<message>Turn on the APU electric generator, which will provide electrical power to the airplane
+without external assistance. Turn off the external power switch, as we don't need external
+power anymore.</message>
+		<view>
+			<heading-offset-deg>297.0</heading-offset-deg>
+			<pitch-offset-deg>34.5</pitch-offset-deg>
+			<roll-offset-deg>0.0</roll-offset-deg>
+			<x-offset-m>-0.5</x-offset-m>
+			<y-offset-m>2.4</y-offset-m>
+			<z-offset-m>-13.9</z-offset-m>
+			<field-of-view>24.1</field-of-view>
+		</view>
+		<marker>
+			<x-m>4.7292</x-m>
+			<y-m>-0.0442</y-m>
+			<z-m>1.0233</z-m>
+			<scale>1.6</scale>
+		</marker>
+		<exit>
+			<condition>
+				<and>
+					<property>controls/electric/APU-generator</property>
+					<not>
+						<property>controls/electric/external-power</property>
+					</not>
+				</and>
+			</condition>
+		</exit>
+	</step>
+
+	<step>
+		<message>Now let's start the engines. Set the engine start switch to ignition/start
+mode (click it once).</message>
+		<view>
+			<heading-offset-deg>294.3</heading-offset-deg>
+			<pitch-offset-deg>-53.7</pitch-offset-deg>
+			<roll-offset-deg>0.0</roll-offset-deg>
+			<x-offset-m>-0.5</x-offset-m>
+			<y-offset-m>2.4</y-offset-m>
+			<z-offset-m>-13.9</z-offset-m>
+			<field-of-view>21.6</field-of-view>
+		</view>
+		<marker>
+			<x-m>4.7275</x-m>
+			<y-m>-0.0008</y-m>
+			<z-m>-0.1300</z-m>
+			<scale>2.6667</scale>
+		</marker>
+		<exit>
+			<condition>
+				<equals>
+					<property>controls/engines/engine-start-switch</property>
+					<value>2</value>
+				</equals>
+			</condition>
+		</exit>
+	</step>
+
+	<step>
+		<message>Wait a few seconds for ignition to begin, and then switch the engine master
+switches to on.</message>
+		<marker>
+			<x-m>4.6917</x-m>
+			<y-m>0.0017</y-m>
+			<z-m>-0.1192</z-m>
+			<scale>3.3833</scale>
+		</marker>
+		<exit>
+			<condition>
+				<and>
+					<not>
+						<property>controls/engines/engine[0]/cutoff</property>
+					</not>
+					<not>
+						<property>controls/engines/engine[1]/cutoff</property>
+					</not>
+				</and>
+			</condition>
+		</exit>
+	</step>
+
+	<step>
+		<message>Now wait for the engines to spool up to 30% N1 and become responsive.</message>
+		<view>
+			<heading-offset-deg>328.0</heading-offset-deg>
+			<pitch-offset-deg>-22.5</pitch-offset-deg>
+			<roll-offset-deg>0.0</roll-offset-deg>
+			<x-offset-m>-0.5</x-offset-m>
+			<y-offset-m>2.4</y-offset-m>
+			<z-offset-m>-13.9</z-offset-m>
+			<field-of-view>13.9</field-of-view>
+		</view>
+		<exit>
+			<condition>
+				<and>
+					<property>engines/engine[0]/running</property>
+					<property>engines/engine[1]/running</property>
+				</and>
+			</condition>
+		</exit>
+	</step>
+
+	<step>
+		<message>Set the engine start switch back to normal mode (middle-click it once).</message>
+		<view>
+			<heading-offset-deg>294.3</heading-offset-deg>
+			<pitch-offset-deg>-53.7</pitch-offset-deg>
+			<roll-offset-deg>0.0</roll-offset-deg>
+			<x-offset-m>-0.5</x-offset-m>
+			<y-offset-m>2.4</y-offset-m>
+			<z-offset-m>-13.9</z-offset-m>
+			<field-of-view>21.6</field-of-view>
+		</view>
+		<marker>
+			<x-m>4.7275</x-m>
+			<y-m>-0.0008</y-m>
+			<z-m>-0.1300</z-m>
+			<scale>2.6667</scale>
+		</marker>
+		<exit>
+			<condition>
+				<equals>
+					<property>controls/engines/engine-start-switch</property>
+					<value>1</value>
+				</equals>
+			</condition>
+		</exit>
+	</step>
+
+	<step>
+		<message>Now that the engines are running, turn on the engine 1 electric generator.</message>
+		<view>
+			<heading-offset-deg>295.2</heading-offset-deg>
+			<pitch-offset-deg>33.0</pitch-offset-deg>
+			<roll-offset-deg>0.0</roll-offset-deg>
+			<x-offset-m>-0.5</x-offset-m>
+			<y-offset-m>2.4</y-offset-m>
+			<z-offset-m>-13.9</z-offset-m>
+			<field-of-view>24.1</field-of-view>
+		</view>
+		<marker>
+			<x-m>4.7292</x-m>
+			<y-m>-0.1017</y-m>
+			<z-m>1.0233</z-m>
+			<scale>1.6</scale>
+		</marker>
+		<exit>
+			<condition>
+				<property>controls/electric/engine[0]/generator</property>
+			</condition>
+		</exit>
+	</step>
+
+	<step>
+		<message>Turn on the engine 2 electric generator.</message>
+		<marker>
+			<x-m>4.7292</x-m>
+			<y-m>0.0983</y-m>
+			<z-m>1.0233</z-m>
+			<scale>1.6</scale>
+		</marker>
+		<exit>
+			<condition>
+				<property>controls/electric/engine[1]/generator</property>
+			</condition>
+		</exit>
+	</step>
+
+	<step>
+		<message>We are now generating electrical power through the engines.  Turn off
+the APU generator, as it is no longer needed.</message>
+		<exit>
+			<condition>
+				<not>
+					<property>controls/electric/APU-generator</property>
+				</not>
+			</condition>
+		</exit>
+	</step>
+
+	<step>
+		<message>We don't need the APU anymore, so shut it down; turn the APU starter
+switch and the APU master switch off.</message>
+		<view>
+			<heading-offset-deg>309.6</heading-offset-deg>
+			<pitch-offset-deg>19.8</pitch-offset-deg>
+			<roll-offset-deg>0.0</roll-offset-deg>
+			<x-offset-m>-0.5</x-offset-m>
+			<y-offset-m>2.4</y-offset-m>
+			<z-offset-m>-13.9</z-offset-m>
+			<field-of-view>24.1</field-of-view>
+		</view>
+		<exit>
+			<condition>
+				<and>
+					<not>
+						<property>controls/APU/starter</property>
+					</not>
+					<not>
+						<property>controls/APU/master-switch</property>
+					</not>
+				</and>
+			</condition>
+		</exit>
+	</step>
+
+	<step>
+		<message>Now turn on the fasten seatbelt sign- just a standard precaution. ;)</message>
+		<view>
+			<heading-offset-deg>308.3</heading-offset-deg>
+			<pitch-offset-deg>18.0</pitch-offset-deg>
+			<roll-offset-deg>0.0</roll-offset-deg>
+			<x-offset-m>-0.5</x-offset-m>
+			<y-offset-m>2.4</y-offset-m>
+			<z-offset-m>-13.9</z-offset-m>
+			<field-of-view>24.1</field-of-view>
+		</view>
+		<marker>
+			<x-m>4.5242</x-m>
+			<y-m>0.0200</y-m>
+			<z-m>0.8850</z-m>
+			<scale>2.0667</scale>
+		</marker>
+		<exit>
+			<condition>
+				<property>controls/switches/seatbelt-sign</property>
+			</condition>
+		</exit>
+	</step>
+
+	<step>
+		<message>One last thing before we taxi; turn on the appropriate aircraft lights. For
+taxiing, strobe lights and beacon lights should be turned on and the nav/logo lights
+should be set to either 1 or 2.</message>
+	</step>
+
+	<end>
+		<message>Congratulations! You have successfully started an A320 without sending an ACARS fault message to Airbus.</message>
+	</end>
+
+</PropertyList>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<PropertyList>
+
+	<path>../../../Models/Instruments/Stby-ASI/Stby-ASI.ac</path>
+
+	<!-- ANIMATIONS -->
+	<!-- Lighting -->
+	<animation>
+		<name>Instrument illumination</name>
+		<type>material</type>
+		<object-name>Face</object-name>
+		<object-name>Needle</object-name>
+		<object-name>riminside</object-name>
+		<emission>
+			<red>0.4</red>
+			<green>0.35</green>
+			<blue>0.21</blue>
+			<factor-prop>controls/lighting/instruments-norm</factor-prop>
+		</emission>
+	</animation>
+
+	<!-- ASI needle -->
+	<animation>
+		<name>Airspeed needle</name>
+		<type>rotate</type>
+		<object-name>Needle</object-name>
+		<property>instrumentation/airspeed-indicator/indicated-speed-kt</property>
+		<interpolation>
+			<entry><ind>0</ind><dep>10.5</dep></entry>
+			<entry><ind>60</ind><dep>0</dep></entry>
+			<entry><ind>450</ind><dep>-331.5</dep></entry>
+		</interpolation>
+		<axis>
+			<x>1</x>
+			<y>0</y>
+			<z>0</z>
+		</axis>
+	</animation>
+
+</PropertyList>

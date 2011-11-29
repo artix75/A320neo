@@ -1,0 +1,1100 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!-- Airbus A320 for FlightGear -->
+<!-- Mode Control Panel -->
+
+<PropertyList>
+
+	<path>../../../Models/Instruments/MCP/MCP.ac</path>
+
+	<!-- ANIMATIONS -->
+	<!-- Power on/off -->
+	<animation>
+		<name>Power on/off</name>
+		<type>select</type>
+		<object-name>LEDScreensOff</object-name>
+		<condition>
+			<less-than>
+				<property>systems/electrical/outputs/efis</property>
+				<value>15</value>
+			</less-than>
+		</condition>
+	</animation>
+
+	<!-- Altimeter pressure setting -->
+	<animation>
+		<name>Altitude pressure 10's</name>
+		<type>textranslate</type>
+		<object-name>AltPressure10</object-name>
+		<property>instrumentation/altimeter/setting-inhg</property>
+		<factor>0.01</factor>
+		<step>10</step>
+		<axis>
+			<x>0</x>
+			<y>1</y>
+		</axis>
+	</animation>
+	<animation>
+		<name>Altitude pressure 1's</name>
+		<type>textranslate</type>
+		<object-name>AltPressure1</object-name>
+		<property>instrumentation/altimeter/setting-inhg</property>
+		<factor>0.1</factor>
+		<step>1</step>
+		<axis>
+			<x>0</x>
+			<y>1</y>
+		</axis>
+	</animation>
+	<animation>
+		<name>Altitude pressure .1's</name>
+		<type>textranslate</type>
+		<object-name>AltPressure.1</object-name>
+		<property>instrumentation/altimeter/setting-inhg</property>
+		<step>0.1</step>
+		<axis>
+			<x>0</x>
+			<y>1</y>
+		</axis>
+	</animation>
+	<animation>
+		<name>Altitude pressure .01's</name>
+		<type>textranslate</type>
+		<object-name>AltPressure.01</object-name>
+		<property>instrumentation/altimeter/setting-inhg</property>
+		<factor>10</factor>
+		<step>0.01</step>
+		<axis>
+			<x>0</x>
+			<y>1</y>
+		</axis>
+	</animation>
+
+	<animation>
+		<name>Altimeter pressure knobs pick</name>
+		<type>pick</type>
+		<object-name>AltPressureKnbL</object-name>
+		<object-name>AltPressureKnbR</object-name>
+		<action>
+			<button>0</button>
+			<button>3</button>
+			<repeatable type="bool">true</repeatable>
+			<binding>
+				<command>property-adjust</command>
+				<property>instrumentation/altimeter/setting-inhg</property>
+				<step>0.01</step>
+				<max>99.99</max>
+			</binding>
+		</action>
+		<action>
+			<button>1</button>
+			<button>4</button>
+			<repeatable type="bool">true</repeatable>
+			<binding>
+				<command>property-adjust</command>
+				<property>instrumentation/altimeter/setting-inhg</property>
+				<step>-0.01</step>
+				<min>0</min>
+			</binding>
+		</action>
+	</animation>
+	<animation>
+		<name>Altimeter pressure left knob rotate</name>
+		<type>rotate</type>
+		<object-name>AltPressureKnbL</object-name>
+		<property>instrumentation/altimeter/setting-inhg</property>
+		<factor>100</factor>
+		<axis>
+			<x>-1</x>
+			<y>0</y>
+			<z>0</z>
+		</axis>
+		<center>
+			<x-m>0</x-m>
+			<y-m>-0.204</y-m>
+			<z-m>-0.015</z-m>
+		</center>
+	</animation>
+	<animation>
+		<name>Altimeter pressure right knob rotate</name>
+		<type>rotate</type>
+		<object-name>AltPressureKnbR</object-name>
+		<property>instrumentation/altimeter/setting-inhg</property>
+		<factor>100</factor>
+		<axis>
+			<x>-1</x>
+			<y>0</y>
+			<z>0</z>
+		</axis>
+		<center>
+			<x-m>0</x-m>
+			<y-m>0.204</y-m>
+			<z-m>-0.015</z-m>
+		</center>
+	</animation>
+
+	<!-- Flight director -->
+	<animation>
+		<name>Flight director button pick</name>
+		<type>pick</type>
+		<object-name>FDBtns</object-name>
+		<object-name>FDBtnLts</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-toggle</command>
+				<property>autopilot/settings/flight-director</property>
+			</binding>
+		</action>
+	</animation>
+	<animation>
+		<name>Flight director button light</name>
+		<type>select</type>
+		<object-name>FDBtnLts</object-name>
+		<condition>
+			<property>autopilot/settings/flight-director</property>
+		</condition>
+	</animation>
+
+	<!-- ILS -->
+	<animation>
+		<name>ILS button pick</name>
+		<type>pick</type>
+		<object-name>ILSBtns</object-name>
+		<object-name>ILSBtnLts</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-toggle</command>
+				<property>instrumentation/pfd/ils</property>
+			</binding>
+		</action>
+	</animation>
+	<animation>
+		<name>ILS button light</name>
+		<type>select</type>
+		<object-name>ILSBtnLts</object-name>
+		<condition>
+			<property>instrumentation/pfd/ils</property>
+		</condition>
+	</animation>
+
+	<!-- MFD control panel -->
+	<animation>
+		<name>NAV display 1 switches pick</name>
+		<type>pick</type>
+		<object-name>NAV1SwtchL</object-name>
+		<object-name>NAV1SwtchR</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-cycle</command>
+				<property>instrumentation/mfd/nav-display[0]</property>
+				<value type="int">2</value>
+				<value type="int">0</value>
+				<value type="int">1</value>
+			</binding>
+		</action>
+	</animation>
+	<animation>
+		<name>NAV display 1 left switch rotate</name>
+		<type>rotate</type>
+		<object-name>NAV1SwtchL</object-name>
+		<property>instrumentation/mfd/nav-display[0]</property>
+		<interpolation>
+			<entry><ind>0</ind><dep>0</dep></entry>
+			<entry><ind>1</ind><dep>25</dep></entry>
+			<entry><ind>2</ind><dep>-25</dep></entry>
+		</interpolation>
+		<axis>
+			<x>0</x>
+			<y>0</y>
+			<z>1</z>
+		</axis>
+		<center>
+			<x-m>0</x-m>
+			<y-m>-0.169</y-m>
+			<z-m>0</z-m>
+		</center>
+	</animation>
+	<animation>
+		<name>NAV display 1 right switch rotate</name>
+		<type>rotate</type>
+		<object-name>NAV1SwtchR</object-name>
+		<property>instrumentation/mfd/nav-display[0]</property>
+		<interpolation>
+			<entry><ind>0</ind><dep>0</dep></entry>
+			<entry><ind>1</ind><dep>25</dep></entry>
+			<entry><ind>2</ind><dep>-25</dep></entry>
+		</interpolation>
+		<axis>
+			<x>0</x>
+			<y>0</y>
+			<z>1</z>
+		</axis>
+		<center>
+			<x-m>0</x-m>
+			<y-m>0.126</y-m>
+			<z-m>0</z-m>
+		</center>
+	</animation>
+
+	<animation>
+		<name>NAV display 2 switches pick</name>
+		<type>pick</type>
+		<object-name>NAV2SwtchL</object-name>
+		<object-name>NAV2SwtchR</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-cycle</command>
+				<property>instrumentation/mfd/nav-display[1]</property>
+				<value type="int">2</value>
+				<value type="int">0</value>
+				<value type="int">1</value>
+			</binding>
+		</action>
+	</animation>
+	<animation>
+		<name>NAV display 2 left switch rotate</name>
+		<type>rotate</type>
+		<object-name>NAV2SwtchL</object-name>
+		<property>instrumentation/mfd/nav-display[1]</property>
+		<interpolation>
+			<entry><ind>0</ind><dep>0</dep></entry>
+			<entry><ind>1</ind><dep>25</dep></entry>
+			<entry><ind>2</ind><dep>-25</dep></entry>
+		</interpolation>
+		<axis>
+			<x>0</x>
+			<y>0</y>
+			<z>1</z>
+		</axis>
+		<center>
+			<x-m>0</x-m>
+			<y-m>-0.126</y-m>
+			<z-m>0</z-m>
+		</center>
+	</animation>
+	<animation>
+		<name>NAV display 2 right switch rotate</name>
+		<type>rotate</type>
+		<object-name>NAV2SwtchR</object-name>
+		<property>instrumentation/mfd/nav-display[1]</property>
+		<interpolation>
+			<entry><ind>0</ind><dep>0</dep></entry>
+			<entry><ind>1</ind><dep>25</dep></entry>
+			<entry><ind>2</ind><dep>-25</dep></entry>
+		</interpolation>
+		<axis>
+			<x>0</x>
+			<y>0</y>
+			<z>1</z>
+		</axis>
+		<center>
+			<x-m>0</x-m>
+			<y-m>0.169</y-m>
+			<z-m>0</z-m>
+		</center>
+	</animation>
+
+	<!-- Speed hold -->
+	<animation>
+		<name>IAS/Mach pick</name>
+		<type>pick</type>
+		<object-name>IAS-Mach</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-cycle</command>
+				<property>autopilot/settings/speed-mode</property>
+				<value type="int">0</value>
+				<value type="int">1</value>
+			</binding>
+		</action>
+	</animation>
+
+	<animation>
+		<name>IAS setting select</name>
+		<type>select</type>
+		<object-name>IAS100</object-name>
+		<object-name>IAS10</object-name>
+		<object-name>IAS1</object-name>
+		<object-name>Spd</object-name>
+		<condition>
+			<equals>
+				<property>autopilot/settings/speed-mode</property>
+				<value>0</value>
+			</equals>
+		</condition>
+	</animation>
+	<animation>
+		<name>IAS setting 100's</name>
+		<type>textranslate</type>
+		<object-name>IAS100</object-name>
+		<property>autopilot/settings/target-speed-kt</property>
+		<factor>0.001</factor>
+		<step>100</step>
+		<axis>
+			<x>0</x>
+			<y>1</y>
+		</axis>
+	</animation>
+	<animation>
+		<name>IAS setting 10's</name>
+		<type>textranslate</type>
+		<object-name>IAS10</object-name>
+		<property>autopilot/settings/target-speed-kt</property>
+		<factor>0.01</factor>
+		<step>10</step>
+		<axis>
+			<x>0</x>
+			<y>1</y>
+		</axis>
+	</animation>
+	<animation>
+		<name>IAS setting 1's</name>
+		<type>textranslate</type>
+		<object-name>IAS1</object-name>
+		<property>autopilot/settings/target-speed-kt</property>
+		<factor>0.1</factor>
+		<step>1</step>
+		<axis>
+			<x>0</x>
+			<y>1</y>
+		</axis>
+	</animation>
+
+	<animation>
+		<name>Mach setting select</name>
+		<type>select</type>
+		<object-name>Mach1</object-name>
+		<object-name>Mach.1</object-name>
+		<object-name>Mach.01</object-name>
+		<object-name>Mach</object-name>
+		<condition>
+			<equals>
+				<property>autopilot/settings/speed-mode</property>
+				<value>1</value>
+			</equals>
+		</condition>
+	</animation>
+	<animation>
+		<name>Mach setting 1's</name>
+		<type>textranslate</type>
+		<object-name>Mach1</object-name>
+		<property>autopilot/settings/target-speed-mach</property>
+		<factor>0.1</factor>
+		<step>1</step>
+		<axis>
+			<x>0</x>
+			<y>1</y>
+		</axis>
+	</animation>
+	<animation>
+		<name>Mach setting .1's</name>
+		<type>textranslate</type>
+		<object-name>Mach.1</object-name>
+		<property>autopilot/settings/target-speed-mach</property>
+		<step>0.1</step>
+		<axis>
+			<x>0</x>
+			<y>1</y>
+		</axis>
+	</animation>
+	<animation>
+		<name>Mach setting .01's</name>
+		<type>textranslate</type>
+		<object-name>Mach.01</object-name>
+		<property>autopilot/settings/target-speed-mach</property>
+		<factor>10</factor>
+		<step>0.01</step>
+		<axis>
+			<x>0</x>
+			<y>1</y>
+		</axis>
+	</animation>
+
+	<animation>
+		<name>Speed knob pick</name>
+		<type>pick</type>
+		<object-name>SpdKnb</object-name>
+		<action>
+			<button>0</button>
+			<button>3</button>
+			<repeatable type="bool">true</repeatable>
+			<binding>
+				<command>nasal</command>
+				<script><![CDATA[
+				 var setting = getprop("autopilot/settings/speed-mode");
+				 if (setting == "0")
+				  {
+				  var newSpeed = getprop("autopilot/settings/target-speed-kt") + 1;
+				  if (newSpeed <= 999)
+				   {
+				   setprop("autopilot/settings/target-speed-kt", newSpeed);
+				   }
+				  }
+				 elsif (setting == "1")
+				  {
+				  var newSpeed = getprop("autopilot/settings/target-speed-mach") + 0.01;
+				  if (newSpeed <= 9.99)
+				   {
+				   setprop("autopilot/settings/target-speed-mach", newSpeed);
+				   }
+				  }
+				]]></script>
+			</binding>
+		</action>
+		<action>
+			<button>1</button>
+			<button>4</button>
+			<repeatable type="bool">true</repeatable>
+			<binding>
+				<command>nasal</command>
+				<script><![CDATA[
+				 var setting = getprop("autopilot/settings/speed-mode");
+				 if (setting == "0")
+				  {
+				  var newSpeed = getprop("autopilot/settings/target-speed-kt") - 1;
+				  if (newSpeed >= 0)
+				   {
+				   setprop("autopilot/settings/target-speed-kt", newSpeed);
+				   }
+				  }
+				 elsif (setting == "1")
+				  {
+				  var newSpeed = getprop("autopilot/settings/target-speed-mach") - 0.01;
+				  if (newSpeed >= 0)
+				   {
+				   setprop("autopilot/settings/target-speed-mach", newSpeed);
+				   }
+				  }
+				]]></script>
+			</binding>
+		</action>
+	</animation>
+	<animation>
+		<name>Speed knob kt rotate</name>
+		<type>rotate</type>
+		<object-name>SpdKnb</object-name>
+		<property>autopilot/settings/target-speed-kt</property>
+		<factor>2</factor>
+		<axis>
+			<x>-1</x>
+			<y>0</y>
+			<z>0</z>
+		</axis>
+		<center>
+			<x-m>0</x-m>
+			<y-m>-0.083</y-m>
+			<z-m>-0.015</z-m>
+		</center>
+	</animation>
+	<animation>
+		<name>Speed knob Mach rotate</name>
+		<type>rotate</type>
+		<object-name>SpdKnb</object-name>
+		<property>autopilot/settings/target-speed-mach</property>
+		<factor>2000</factor>
+		<axis>
+			<x>1</x>
+			<y>0</y>
+			<z>0</z>
+		</axis>
+		<center>
+			<x-m>0</x-m>
+			<y-m>-0.083</y-m>
+			<z-m>-0.015</z-m>
+		</center>
+	</animation>
+
+	<!-- Heading hold -->
+	<animation>
+		<name>Heading/track pick</name>
+		<type>pick</type>
+		<object-name>Hdg-Trk</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-cycle</command>
+				<property>autopilot/settings/heading-mode</property>
+				<value type="int">0</value>
+				<value type="int">1</value>
+			</binding>
+		</action>
+	</animation>
+
+	<animation>
+		<name>Heading setting 100's</name>
+		<type>textranslate</type>
+		<object-name>Hdg100</object-name>
+		<property>autopilot/settings/heading-bug-deg</property>
+		<factor>0.001</factor>
+		<step>100</step>
+		<axis>
+			<x>0</x>
+			<y>1</y>
+		</axis>
+	</animation>
+	<animation>
+		<name>Heading setting 10's</name>
+		<type>textranslate</type>
+		<object-name>Hdg10</object-name>
+		<property>autopilot/settings/heading-bug-deg</property>
+		<factor>0.01</factor>
+		<step>10</step>
+		<axis>
+			<x>0</x>
+			<y>1</y>
+		</axis>
+	</animation>
+	<animation>
+		<name>Heading setting 1's</name>
+		<type>textranslate</type>
+		<object-name>Hdg1</object-name>
+		<property>autopilot/settings/heading-bug-deg</property>
+		<factor>0.1</factor>
+		<step>1</step>
+		<axis>
+			<x>0</x>
+			<y>1</y>
+		</axis>
+	</animation>
+
+	<animation>
+		<name>Magnetic heading setting select</name>
+		<type>select</type>
+		<object-name>Hdg</object-name>
+		<condition>
+			<equals>
+				<property>autopilot/settings/heading-mode</property>
+				<value>0</value>
+			</equals>
+		</condition>
+	</animation>
+	<animation>
+		<name>Ground track heading setting select</name>
+		<type>select</type>
+		<object-name>Trk</object-name>
+		<condition>
+			<equals>
+				<property>autopilot/settings/heading-mode</property>
+				<value>1</value>
+			</equals>
+		</condition>
+	</animation>
+
+	<animation>
+		<name>Heading knob pick</name>
+		<type>pick</type>
+		<object-name>HdgKnb</object-name>
+		<action>
+			<button>0</button>
+			<button>3</button>
+			<repeatable type="bool">true</repeatable>
+			<binding>
+				<command>property-adjust</command>
+				<property>autopilot/settings/heading-bug-deg</property>
+				<step type="double">1</step>
+				<max>360</max>
+			</binding>
+			<binding>
+				<command>nasal</command>
+				<script>
+				 if (getprop("autopilot/settings/heading-bug-deg") == 360)
+				  {
+				  setprop("autopilot/settings/heading-bug-deg", 0);
+				  }
+				</script>
+			</binding>
+		</action>
+		<action>
+			<button>1</button>
+			<button>4</button>
+			<repeatable type="bool">true</repeatable>
+			<binding>
+				<command>property-adjust</command>
+				<property>autopilot/settings/heading-bug-deg</property>
+				<step type="double">-1</step>
+				<min>0</min>
+			</binding>
+			<binding>
+				<command>nasal</command>
+				<script>
+				 if (getprop("autopilot/settings/heading-bug-deg") == 0)
+				  {
+				  setprop("autopilot/settings/heading-bug-deg", 360);
+				  }
+				</script>
+			</binding>
+		</action>
+	</animation>
+	<animation>
+		<name>Heading knob rotate</name>
+		<type>rotate</type>
+		<object-name>HdgKnb</object-name>
+		<property>autopilot/settings/heading-bug-deg</property>
+		<factor>3</factor>
+		<axis>
+			<x>-1</x>
+			<y>0</y>
+			<z>0</z>
+		</axis>
+		<center>
+			<x-m>0</x-m>
+			<y-m>-0.046</y-m>
+			<z-m>-0.015</z-m>
+		</center>
+	</animation>
+
+	<animation>
+		<name>LNAV button pick</name>
+		<type>pick</type>
+		<object-name>LNAVBtn</object-name>
+		<object-name>LNAVBtnLt</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>nasal</command>
+				<script>
+				 var node = props.globals.getNode("/autopilot/settings/heading", 1);
+				 if (node.getValue() == "true-heading-hold")
+				  {
+				  node.setValue("dg-heading-hold");
+				  }
+				 else
+				  {
+				  node.setValue("true-heading-hold");
+				  }
+				</script>
+			</binding>
+		</action>
+	</animation>
+	<animation>
+		<name>LNAV button light</name>
+		<type>select</type>
+		<object-name>LNAVBtnLt</object-name>
+		<condition>
+			<equals>
+				<property>autopilot/settings/heading</property>
+				<value>true-heading-hold</value>
+			</equals>
+		</condition>
+	</animation>
+
+	<animation>
+		<name>LOC button pick</name>
+		<type>pick</type>
+		<object-name>LOCBtn</object-name>
+		<object-name>LOCBtnLt</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>nasal</command>
+				<script>
+				 var node = props.globals.getNode("/autopilot/settings/heading", 1);
+				 if (node.getValue() == "nav1-hold")
+				  {
+				  node.setValue("dg-heading-hold");
+				  }
+				 else
+				  {
+				  node.setValue("nav1-hold");
+				  }
+				</script>
+			</binding>
+		</action>
+	</animation>
+	<animation>
+		<name>LOC button light</name>
+		<type>select</type>
+		<object-name>LOCBtnLt</object-name>
+		<condition>
+			<equals>
+				<property>autopilot/settings/heading</property>
+				<value>nav1-hold</value>
+			</equals>
+		</condition>
+	</animation>
+
+	<!-- Main autopilot controls -->
+	<animation>
+		<name>Autopilot engage buttons pick</name>
+		<type>pick</type>
+		<object-name>APBtns</object-name>
+		<object-name>APBtnLts</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-toggle</command>
+				<property>autopilot/settings/engaged</property>
+			</binding>
+		</action>
+	</animation>
+	<animation>
+		<name>Autopilot engage button lights</name>
+		<type>select</type>
+		<object-name>APBtnLts</object-name>
+		<condition>
+			<property>autopilot/settings/engaged</property>
+		</condition>
+	</animation>
+
+	<animation>
+		<name>Autothrottle engage button pick</name>
+		<type>pick</type>
+		<object-name>ATBtn</object-name>
+		<object-name>ATBtnLt</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-toggle</command>
+				<property>autopilot/settings/autothrottle</property>
+			</binding>
+		</action>
+	</animation>
+	<animation>
+		<name>Autothrottle engage button light</name>
+		<type>select</type>
+		<object-name>ATBtnLt</object-name>
+		<condition>
+			<property>autopilot/settings/autothrottle</property>
+		</condition>
+	</animation>
+
+	<!-- Altitude hold -->
+	<animation>
+		<name>Altitude setting 10,000's</name>
+		<type>textranslate</type>
+		<object-name>Alt10000</object-name>
+		<property>autopilot/settings/target-altitude-ft</property>
+		<factor>0.00001</factor>
+		<step>10000</step>
+		<axis>
+			<x>0</x>
+			<y>1</y>
+		</axis>
+	</animation>
+	<animation>
+		<name>Altitude setting 1,000's</name>
+		<type>textranslate</type>
+		<object-name>Alt1000</object-name>
+		<property>autopilot/settings/target-altitude-ft</property>
+		<factor>0.0001</factor>
+		<step>1000</step>
+		<axis>
+			<x>0</x>
+			<y>1</y>
+		</axis>
+	</animation>
+	<animation>
+		<name>Altitude setting 100's</name>
+		<type>textranslate</type>
+		<object-name>Alt100</object-name>
+		<property>autopilot/settings/target-altitude-ft</property>
+		<factor>0.001</factor>
+		<step>100</step>
+		<axis>
+			<x>0</x>
+			<y>1</y>
+		</axis>
+	</animation>
+	<animation>
+		<name>Altitude setting 10's</name>
+		<type>textranslate</type>
+		<object-name>Alt10</object-name>
+		<property>autopilot/settings/target-altitude-ft</property>
+		<factor>0.01</factor>
+		<step>10</step>
+		<axis>
+			<x>0</x>
+			<y>1</y>
+		</axis>
+	</animation>
+	<animation>
+		<name>Altitude setting 1's</name>
+		<type>textranslate</type>
+		<object-name>Alt1</object-name>
+		<property>autopilot/settings/target-altitude-ft</property>
+		<factor>0.1</factor>
+		<step>1</step>
+		<axis>
+			<x>0</x>
+			<y>1</y>
+		</axis>
+	</animation>
+
+	<animation>
+		<name>Altitude knob pick</name>
+		<type>pick</type>
+		<object-name>AltKnb</object-name>
+		<action>
+			<button>0</button>
+			<button>3</button>
+			<repeatable type="bool">true</repeatable>
+			<binding>
+				<command>property-adjust</command>
+				<property>autopilot/settings/target-altitude-ft</property>
+				<step type="double">100</step>
+				<max>99999</max>
+			</binding>
+		</action>
+		<action>
+			<button>1</button>
+			<button>4</button>
+			<repeatable type="bool">true</repeatable>
+			<binding>
+				<command>property-adjust</command>
+				<property>autopilot/settings/target-altitude-ft</property>
+				<step type="double">-100</step>
+				<min>0</min>
+			</binding>
+		</action>
+	</animation>
+	<animation>
+		<name>Altitude knob rotate</name>
+		<type>rotate</type>
+		<object-name>AltKnb</object-name>
+		<property>autopilot/settings/target-altitude-ft</property>
+		<factor>0.36</factor>
+		<axis>
+			<x>1</x>
+			<y>0</y>
+			<z>0</z>
+		</axis>
+		<center>
+			<x-m>0</x-m>
+			<y-m>0.035</y-m>
+			<z-m>-0.015</z-m>
+		</center>
+	</animation>
+
+	<!-- Vertical speed hold -->
+	<animation>
+		<name>Positive vertical speed setting select</name>
+		<type>select</type>
+		<object-name>VS1000</object-name>
+		<object-name>VS100</object-name>
+		<object-name>VS10</object-name>
+		<object-name>VS1</object-name>
+		<condition>
+			<greater-than-equals>
+				<property>autopilot/settings/vertical-speed-fpm</property>
+				<value>0</value>
+			</greater-than-equals>
+		</condition>
+	</animation>
+	<animation>
+		<name>Vertical speed setting 1,000's</name>
+		<type>textranslate</type>
+		<object-name>VS1000</object-name>
+		<property>autopilot/settings/vertical-speed-fpm</property>
+		<factor>0.0001</factor>
+		<step>1000</step>
+		<axis>
+			<x>0</x>
+			<y>1</y>
+		</axis>
+	</animation>
+	<animation>
+		<name>Vertical speed setting 100's</name>
+		<type>textranslate</type>
+		<object-name>VS100</object-name>
+		<property>autopilot/settings/vertical-speed-fpm</property>
+		<factor>0.001</factor>
+		<step>100</step>
+		<axis>
+			<x>0</x>
+			<y>1</y>
+		</axis>
+	</animation>
+	<animation>
+		<name>Vertical speed setting 10's</name>
+		<type>textranslate</type>
+		<object-name>VS10</object-name>
+		<property>autopilot/settings/vertical-speed-fpm</property>
+		<factor>0.01</factor>
+		<step>10</step>
+		<axis>
+			<x>0</x>
+			<y>1</y>
+		</axis>
+	</animation>
+	<animation>
+		<name>Vertical speed setting 1's</name>
+		<type>textranslate</type>
+		<object-name>VS1</object-name>
+		<property>autopilot/settings/vertical-speed-fpm</property>
+		<factor>0.1</factor>
+		<step>1</step>
+		<axis>
+			<x>0</x>
+			<y>1</y>
+		</axis>
+	</animation>
+	<animation>
+		<name>Negative vertical speed setting select</name>
+		<type>select</type>
+		<object-name>VS-1000</object-name>
+		<object-name>VS-100</object-name>
+		<object-name>VS-10</object-name>
+		<object-name>VS-1</object-name>
+		<object-name>VS-</object-name>
+		<condition>
+			<less-than>
+				<property>autopilot/settings/vertical-speed-fpm</property>
+				<value>0</value>
+			</less-than>
+		</condition>
+	</animation>
+	<animation>
+		<name>Negative vertical speed setting 1,000's</name>
+		<type>textranslate</type>
+		<object-name>VS-1000</object-name>
+		<property>autopilot/settings/vertical-speed-fpm</property>
+		<factor>0.0001</factor>
+		<step>1000</step>
+		<axis>
+			<x>0</x>
+			<y>-1</y>
+		</axis>
+	</animation>
+	<animation>
+		<name>Negative vertical speed setting 100's</name>
+		<type>textranslate</type>
+		<object-name>VS-100</object-name>
+		<property>autopilot/settings/vertical-speed-fpm</property>
+		<factor>0.001</factor>
+		<step>100</step>
+		<axis>
+			<x>0</x>
+			<y>-1</y>
+		</axis>
+	</animation>
+	<animation>
+		<name>Negative vertical speed setting 10's</name>
+		<type>textranslate</type>
+		<object-name>VS-10</object-name>
+		<property>autopilot/settings/vertical-speed-fpm</property>
+		<factor>0.01</factor>
+		<step>10</step>
+		<axis>
+			<x>0</x>
+			<y>-1</y>
+		</axis>
+	</animation>
+	<animation>
+		<name>Negative vertical speed setting 1's</name>
+		<type>textranslate</type>
+		<object-name>VS-1</object-name>
+		<property>autopilot/settings/vertical-speed-fpm</property>
+		<factor>0.1</factor>
+		<step>1</step>
+		<axis>
+			<x>0</x>
+			<y>-1</y>
+		</axis>
+	</animation>
+
+	<animation>
+		<name>Vertical speed knob pick</name>
+		<type>pick</type>
+		<object-name>VSKnb</object-name>
+		<action>
+			<button>0</button>
+			<button>3</button>
+			<repeatable type="bool">true</repeatable>
+			<binding>
+				<command>property-adjust</command>
+				<property>autopilot/settings/vertical-speed-fpm</property>
+				<step type="double">100</step>
+				<max>9999</max>
+			</binding>
+		</action>
+		<action>
+			<button>1</button>
+			<button>4</button>
+			<repeatable type="bool">true</repeatable>
+			<binding>
+				<command>property-adjust</command>
+				<property>autopilot/settings/vertical-speed-fpm</property>
+				<step type="double">-100</step>
+				<min>-9999</min>
+			</binding>
+		</action>
+	</animation>
+	<animation>
+		<name>Vertical speed knob rotate</name>
+		<type>rotate</type>
+		<object-name>VSKnb</object-name>
+		<property>autopilot/settings/vertical-speed-fpm</property>
+		<factor>0.12</factor>
+		<axis>
+			<x>1</x>
+			<y>0</y>
+			<z>0</z>
+		</axis>
+		<center>
+			<x-m>0</x-m>
+			<y-m>0.081</y-m>
+			<z-m>-0.015</z-m>
+		</center>
+	</animation>
+
+	<animation>
+		<name>Approach hold button pick</name>
+		<type>pick</type>
+		<object-name>APPRBtn</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>nasal</command>
+				<script>
+				 var hdgNode = props.globals.getNode("/autopilot/settings/heading", 1);
+				 var altNode = props.globals.getNode("/autopilot/settings/altitude", 1);
+
+				 if (altNode.getValue() == "gs1-hold")
+				  {
+				  hdgNode.setValue("dg-heading-hold");
+				  altNode.setValue("altitude-hold");
+				  }
+				 else
+				  {
+				  hdgNode.setValue("nav1-hold");
+				  altNode.setValue("gs1-hold");
+				  }
+				</script>
+			</binding>
+		</action>
+	</animation>
+	<animation>
+		<name>Approach hold button light</name>
+		<type>select</type>
+		<object-name>APPRBtnLt</object-name>
+		<condition>
+			<and>
+				<equals>
+					<property>autopilot/settings/heading</property>
+					<value>nav1-hold</value>
+				</equals>
+				<equals>
+					<property>autopilot/settings/altitude</property>
+					<value>gs1-hold</value>
+				</equals>
+			</and>
+		</condition>
+	</animation>
+
+</PropertyList>

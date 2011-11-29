@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<PropertyList include="a320.nacelle.leapx.right.xml">
+
+	<offsets>
+		<heading-deg>-1</heading-deg>
+	</offsets>
+
+	<model>
+		<path>Aircraft/A320neo/Engines/XMLs/a320.pylon.leapx.right.xml</path>
+	</model>
+
+	<model>
+		<path>Aircraft/A320neo/Engines/XMLs/a320.cfmleapx.xml</path>
+	</model>
+
+	<model>
+		<name>Contrail</name>
+		<path>Aircraft/A320neo/XMLs/Effects/contrail-eng2.xml</path>
+		<offsets>
+			<x-m>5.137</x-m>
+			<y-m>0</y-m>
+			<z-m>0</z-m>
+		</offsets>
+	</model>
+
+	<model>
+		<name>Engine fire</name>
+		<path>Aircraft/A320neo/XMLs/Effects/enginefire.xml</path>
+		<offsets>
+			<x-m>3.316</x-m>
+			<y-m>0</y-m>
+			<z-m>0</z-m>
+		</offsets>
+		<condition>
+			<property>engines/engine[1]/on-fire</property>
+		</condition>
+	</model>
+
+	<animation>
+		<name>Fan</name>
+		<type>spin</type>
+		<object-name>cone</object-name>
+		<object-name>fan</object-name>
+		<factor>67</factor>
+		<property>engines/engine[1]/n1</property>
+		<axis>
+			<x>-1</x>
+			<y>0</y>
+			<z>0</z>
+		</axis>
+	</animation>
+
+</PropertyList>

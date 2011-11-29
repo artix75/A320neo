@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+	<path>../Models/cfmleapx.ac</path>
+	<!--texture-path>../Textures/Livery/House</texture-path-->
+
+	<!-- Reflection Shader -->
+	<effect>
+		<inherits-from>Effects/NEOreflect</inherits-from>
+		<object-name>cone</object-name>
+		<object-name>fan</object-name>
+	</effect>
+	
+</PropertyList>

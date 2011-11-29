@@ -1,0 +1,1334 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+
+	<path>../../Models/FlightDeck/a320neo.flightdeck.ac</path>
+
+	<!-- EXTRA MODELS -->
+	<model>
+		<path>Aircraft/A320neo/XMLs/Instruments/PFD/PFD.xml</path>
+		<offsets>
+			<x-m>-17.173</x-m>
+			<y-m>-0.55</y-m>
+			<z-m>-1.99</z-m>
+			<pitch-deg>-15.0</pitch-deg>
+		</offsets>
+	</model>
+	
+	<model>
+		<path>Aircraft/A320neo/XMLs/Instruments/MFD/MFD.xml</path>
+		<offsets>
+			<x-m>-17.173</x-m>
+			<y-m>-0.35</y-m>
+			<z-m>-1.99</z-m>
+			<pitch-deg>-15.0</pitch-deg>
+		</offsets>
+	</model>
+	
+	<model>
+		<path>Aircraft/A320neo/XMLs/Instruments/MFD/MFD.xml</path>
+		<offsets>
+			<x-m>-17.173</x-m>
+			<y-m>0.35</y-m>
+			<z-m>-1.99</z-m>
+			<pitch-deg>-15.0</pitch-deg>
+		</offsets>
+	</model>
+	
+	<model>
+		<path>Aircraft/A320neo/XMLs/Instruments/PFD/PFD.xml</path>
+		<offsets>
+			<x-m>-17.173</x-m>
+			<y-m>0.55</y-m>
+			<z-m>-1.99</z-m>
+			<pitch-deg>-15.0</pitch-deg>
+		</offsets>
+	</model>
+
+	<model>
+		<path>Aircraft/A320neo/XMLs/Instruments/EICAS/EICAS.xml</path>
+		<offsets>
+			<x-m>-17.173</x-m>
+			<y-m>0</y-m>
+			<z-m>-1.99</z-m>
+			<pitch-deg>-15.0</pitch-deg>
+		</offsets>
+	</model>
+
+	<model>
+		<path>Aircraft/A320neo/XMLs/Instruments/EICAS/EICAS.xml</path>
+		<offsets>
+			<x-m>-17.125</x-m>
+			<y-m>0</y-m>
+			<z-m>-2.17</z-m>
+			<pitch-deg>-15.0</pitch-deg>
+		</offsets>
+	</model>
+
+	<model>
+		<name>MCP</name>
+		<path>Aircraft/A320neo/XMLs/Instruments/MCP/MCP.xml</path>
+		<offsets>
+			<x-m>-16.907</x-m>
+			<y-m>0</y-m>
+			<z-m>-1.723</z-m>
+			<pitch-deg>-15.0</pitch-deg>
+		</offsets>
+	</model>
+
+	<model>
+		<path>Aircraft/A320neo/XMLs/Instruments/Stby-AI/Stby-AI.xml</path>
+		<offsets>
+			<x-m>-17.17</x-m>
+			<y-m>-0.15</y-m>
+			<z-m>-2</z-m>
+			<pitch-deg>-15.0</pitch-deg>
+		</offsets>
+	</model>
+
+	<model>
+		<path>Aircraft/A320neo/XMLs/Instruments/Stby-ASI/Stby-ASI.xml</path>
+		<offsets>
+			<x-m>-17.184</x-m>
+			<y-m>-0.215</y-m>
+			<z-m>-1.949</z-m>
+			<pitch-deg>-15.0</pitch-deg>
+		</offsets>
+	</model>
+
+	<model>
+		<path>Aircraft/A320neo/XMLs/Instruments/Altimeter/altimeter.xml</path>
+		<offsets>
+			<x-m>-17.17</x-m>
+			<y-m>-0.215</y-m>
+			<z-m>-2.014</z-m>
+			<pitch-deg>-15.0</pitch-deg>
+		</offsets>
+	</model>
+
+	<model>
+		<path>Aircraft/A320neo/XMLs/Instruments/VOR/VOR.xml</path>
+		<offsets>
+			<x-m>-17.136</x-m>
+			<y-m>-0.15</y-m>
+			<z-m>-2.114</z-m>
+			<pitch-deg>-15.0</pitch-deg>
+		</offsets>
+	</model>
+
+	<model>
+		<name>Pilot CDU</name>
+		<path>Aircraft/Instruments-3d/cdu/boeing.xml</path>
+		<offsets>
+			<x-m>-16.971</x-m>
+			<y-m>-0.186</y-m>
+			<z-m>-2.292</z-m>
+			<pitch-deg>-78</pitch-deg>
+		</offsets>
+		<overlay>
+			<texture>boeing_grey.png</texture>
+		</overlay>
+	</model>
+
+	<model>
+		<name>Copilot CDU</name>
+		<path>Aircraft/Instruments-3d/cdu/boeing.xml</path>
+		<offsets>
+			<x-m>-16.971</x-m>
+			<y-m>0.186</y-m>
+			<z-m>-2.292</z-m>
+			<pitch-deg>-78</pitch-deg>
+		</offsets>
+		<overlay>
+			<texture>boeing_grey.png</texture>
+		</overlay>
+	</model>
+
+	<model>
+		<path>Aircraft/A320neo/XMLs/Instruments/SwitchECAMpanel/SwitchECAMpanel.xml</path>
+		<offsets>
+			<x-m>-17.031</x-m>
+			<y-m>0</y-m>
+			<z-m>-2.278</z-m>
+			<pitch-deg>-78</pitch-deg>
+		</offsets>
+	</model>
+
+	<model>
+		<path>Aircraft/A320neo/XMLs/Instruments/OHpanel/OHpanel.xml</path>
+		<offsets>
+			<x-m>-16.55</x-m>
+			<y-m>0</y-m>
+			<z-m>-1.19</z-m>
+			<pitch-deg>58</pitch-deg>
+		</offsets>
+	</model>
+
+	<model>
+		<name>Pilot radio panel</name>
+		<path>Aircraft/A320neo/XMLs/Instruments/Radiopanel/Radiopanel.xml</path>
+		<offsets>
+			<x-m>-16.811</x-m>
+			<y-m>-0.187</y-m>
+			<z-m>-2.325</z-m>
+			<pitch-deg>-78</pitch-deg>
+		</offsets>
+		<overlay>
+			<params>
+				<selected-mhz>instrumentation/nav[0]/frequencies/selected-mhz</selected-mhz>
+				<standby-mhz>instrumentation/nav[0]/frequencies/standby-mhz</standby-mhz>
+				<script-small-step-up><![CDATA[
+				 var setting = getprop("instrumentation/nav[0]/frequencies/standby-mhz");
+				 var max = 117.95;
+				 if (setting < max)
+				  {
+				  setprop("instrumentation/nav[0]/frequencies/standby-mhz", setting + 0.05);
+				  }
+				 if (setting > max)
+				  {
+				  setprop("instrumentation/nav[0]/frequencies/standby-mhz", max);
+				  }
+				]]></script-small-step-up>
+				<script-small-step-down><![CDATA[
+				 var setting = getprop("instrumentation/nav[0]/frequencies/standby-mhz");
+				 var min = 108;
+				 if (setting > min)
+				  {
+				  setprop("instrumentation/nav[0]/frequencies/standby-mhz", setting - 0.05);
+				  }
+				 if (setting < min)
+				  {
+				  setprop("instrumentation/nav[0]/frequencies/standby-mhz", min);
+				  }
+				]]></script-small-step-down>
+				<script-big-step-up><![CDATA[
+				 var setting = getprop("instrumentation/nav[0]/frequencies/standby-mhz");
+				 var max = 117.95;
+				 if (setting < max)
+				  {
+				  setprop("instrumentation/nav[0]/frequencies/standby-mhz", setting + 1);
+				  }
+				 if (setting > max)
+				  {
+				  setprop("instrumentation/nav[0]/frequencies/standby-mhz", max);
+				  }
+				]]></script-big-step-up>
+				<script-big-step-down><![CDATA[
+				 var setting = getprop("instrumentation/nav[0]/frequencies/standby-mhz");
+				 var min = 108;
+				 if (setting > min)
+				  {
+				  setprop("instrumentation/nav[0]/frequencies/standby-mhz", setting - 1);
+				  }
+				 if (setting < min)
+				  {
+				  setprop("instrumentation/nav[0]/frequencies/standby-mhz", min);
+				  }
+				]]></script-big-step-down>
+				<script-swap>
+				 var setting1 = getprop("instrumentation/nav[0]/frequencies/selected-mhz");
+				 var setting2 = getprop("instrumentation/nav[0]/frequencies/standby-mhz");
+				 setprop("instrumentation/nav[0]/frequencies/standby-mhz", setting1);
+				 setprop("instrumentation/nav[0]/frequencies/selected-mhz", setting2);
+				</script-swap>
+			</params>
+		</overlay>
+	</model>
+
+	<model>
+		<name>Copilot radio panel</name>
+		<path>Aircraft/A320neo/XMLs/Instruments/Radiopanel/Radiopanel.xml</path>
+		<offsets>
+			<x-m>-16.811</x-m>
+			<y-m>0.187</y-m>
+			<z-m>-2.325</z-m>
+			<pitch-deg>-78</pitch-deg>
+		</offsets>
+		<overlay>
+			<params>
+				<selected-mhz>instrumentation/nav[1]/frequencies/selected-mhz</selected-mhz>
+				<standby-mhz>instrumentation/nav[1]/frequencies/standby-mhz</standby-mhz>
+				<script-small-step-up><![CDATA[
+				 var setting = getprop("instrumentation/nav[1]/frequencies/standby-mhz");
+				 var max = 117.95;
+				 if (setting < max)
+				  {
+				  setprop("instrumentation/nav[1]/frequencies/standby-mhz", setting + 0.05);
+				  }
+				 if (setting > max)
+				  {
+				  setprop("instrumentation/nav[1]/frequencies/standby-mhz", max);
+				  }
+				]]></script-small-step-up>
+				<script-small-step-down><![CDATA[
+				 var setting = getprop("instrumentation/nav[1]/frequencies/standby-mhz");
+				 var min = 108;
+				 if (setting > min)
+				  {
+				  setprop("instrumentation/nav[1]/frequencies/standby-mhz", setting - 0.05);
+				  }
+				 if (setting < min)
+				  {
+				  setprop("instrumentation/nav[1]/frequencies/standby-mhz", min);
+				  }
+				]]></script-small-step-down>
+				<script-big-step-up><![CDATA[
+				 var setting = getprop("instrumentation/nav[1]/frequencies/standby-mhz");
+				 var max = 117.95;
+				 if (setting < max)
+				  {
+				  setprop("instrumentation/nav[1]/frequencies/standby-mhz", setting + 1);
+				  }
+				 if (setting > max)
+				  {
+				  setprop("instrumentation/nav[1]/frequencies/standby-mhz", max);
+				  }
+				]]></script-big-step-up>
+				<script-big-step-down><![CDATA[
+				 var setting = getprop("instrumentation/nav[1]/frequencies/standby-mhz");
+				 var min = 108;
+				 if (setting > min)
+				  {
+				  setprop("instrumentation/nav[1]/frequencies/standby-mhz", setting - 1);
+				  }
+				 if (setting < min)
+				  {
+				  setprop("instrumentation/nav[1]/frequencies/standby-mhz", min);
+				  }
+				]]></script-big-step-down>
+				<script-swap>
+				 var setting1 = getprop("instrumentation/nav[1]/frequencies/selected-mhz");
+				 var setting2 = getprop("instrumentation/nav[1]/frequencies/standby-mhz");
+				 setprop("instrumentation/nav[1]/frequencies/standby-mhz", setting1);
+				 setprop("instrumentation/nav[1]/frequencies/selected-mhz", setting2);
+				</script-swap>
+			</params>
+		</overlay>
+	</model>
+
+	<!-- ANIMATIONS -->
+	<!-- Dome lighting -->
+	<animation>
+		<name>Dome illumination</name>
+		<type>material</type>
+		<object-name>Cockpit</object-name>
+		<object-name>MCP</object-name>
+<!--		<object-name>Pilot CDU</object-name>
+		<object-name>Copilot CDU</object-name>-->
+		<object-name>Pilot radio panel</object-name>
+		<object-name>Copilot radio panel</object-name>
+		<emission>
+			<red>0.5</red>
+			<green>0.5</green>
+			<blue>0.5</blue>
+			<factor-prop>controls/lighting/dome-norm</factor-prop>
+		</emission>
+	</animation>
+
+	<!-- Panel lighting -->
+	<animation>
+		<name>Panel lighting select</name>
+		<type>select</type>
+		<object-name>PanelMarkingLts</object-name>
+		<condition>
+			<or>
+				<not>
+					<property>controls/lighting/dome-norm</property>
+				</not>
+				<and>
+					<equals>
+						<property>controls/lighting/dome-norm</property>
+						<value>0.5</value>
+					</equals>
+					<greater-than>
+						<property>controls/lighting/main-panel-pedestal-norm</property>
+						<value>0.25</value>
+					</greater-than>
+				</and>
+				<and>
+					<equals>
+						<property>controls/lighting/dome-norm</property>
+						<value>1</value>
+					</equals>
+					<greater-than>
+						<property>controls/lighting/main-panel-pedestal-norm</property>
+						<value>0.5</value>
+					</greater-than>
+				</and>
+			</or>
+		</condition>
+	</animation>
+	<animation>
+		<name>Panel no lighting select</name>
+		<type>select</type>
+		<object-name>PanelMarkings</object-name>
+		<condition>
+			<or>
+				<and>
+					<equals>
+						<property>controls/lighting/dome-norm</property>
+						<value>0.5</value>
+					</equals>
+					<less-than-equals>
+						<property>controls/lighting/main-panel-pedestal-norm</property>
+						<value>0.25</value>
+					</less-than-equals>
+				</and>
+				<and>
+					<equals>
+						<property>controls/lighting/dome-norm</property>
+						<value>1</value>
+					</equals>
+					<less-than-equals>
+						<property>controls/lighting/main-panel-pedestal-norm</property>
+						<value>0.5</value>
+					</less-than-equals>
+				</and>
+			</or>
+		</condition>
+	</animation>
+	<animation>
+		<name>Panel lighting</name>
+		<type>material</type>
+		<object-name>PanelMarkingLts</object-name>
+		<emission>
+			<red>1</red>
+			<green>1</green>
+			<blue>1</blue>
+			<factor-prop>controls/lighting/main-panel-pedestal-norm</factor-prop>
+		</emission>
+	</animation>
+
+	<!-- Master caution -->
+	<animation>
+		<name>Master caution pick</name>
+		<type>pick</type>
+		<object-name>MasterCaution</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-toggle</command>
+				<property>sim/alarms/master-caution</property>
+			</binding>
+		</action>
+	</animation>
+	<animation>
+		<name>Master caution textranslate</name>
+		<type>textranslate</type>
+		<object-name>MasterCaution</object-name>
+		<property>sim/alarms/master-caution</property>
+		<factor>0.25</factor>
+		<axis>
+			<x>-1</x>
+			<y>0</y>
+		</axis>
+	</animation>
+
+	<!-- Landing gear indicator lights -->
+	<animation>
+		<name>Left landing gear unlocked</name>
+		<type>select</type>
+		<object-name>GearLTransit</object-name>
+		<condition>
+			<and>
+				<greater-than>
+					<property>gear/gear[1]/position-norm</property>
+					<value>0</value>
+				</greater-than>
+				<less-than>
+					<property>gear/gear[1]/position-norm</property>
+					<value>1</value>
+				</less-than>
+			</and>
+		</condition>
+	</animation>
+	<animation>
+		<name>Left landing gear down</name>
+		<type>select</type>
+		<object-name>GearLDown</object-name>
+		<condition>
+			<equals>
+				<property>gear/gear[1]/position-norm</property>
+				<value>1</value>
+			</equals>
+		</condition>
+	</animation>
+	<animation>
+		<name>Nose landing gear unlocked</name>
+		<type>select</type>
+		<object-name>GearNTransit</object-name>
+		<condition>
+			<and>
+				<greater-than>
+					<property>gear/gear[0]/position-norm</property>
+					<value>0</value>
+				</greater-than>
+				<less-than>
+					<property>gear/gear[0]/position-norm</property>
+					<value>1</value>
+				</less-than>
+			</and>
+		</condition>
+	</animation>
+	<animation>
+		<name>Nose landing gear down</name>
+		<type>select</type>
+		<object-name>GearNDown</object-name>
+		<condition>
+			<equals>
+				<property>gear/gear[0]/position-norm</property>
+				<value>1</value>
+			</equals>
+		</condition>
+	</animation>
+	<animation>
+		<name>Right landing gear unlocked</name>
+		<type>select</type>
+		<object-name>GearRTransit</object-name>
+		<condition>
+			<and>
+				<greater-than>
+					<property>gear/gear[2]/position-norm</property>
+					<value>0</value>
+				</greater-than>
+				<less-than>
+					<property>gear/gear[2]/position-norm</property>
+					<value>1</value>
+				</less-than>
+			</and>
+		</condition>
+	</animation>
+	<animation>
+		<name>Right landing gear down</name>
+		<type>select</type>
+		<object-name>GearRDown</object-name>
+		<condition>
+			<equals>
+				<property>gear/gear[2]/position-norm</property>
+				<value>1</value>
+			</equals>
+		</condition>
+	</animation>
+
+	<!-- Autobrake controls -->
+	<animation>
+		<name>Autobrake low pick</name>
+		<type>pick</type>
+		<object-name>AutobrakeLoBtn</object-name>
+		<object-name>AutobrakeLoDecel</object-name>
+		<object-name>AutobrakeLoOn</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-cycle</command>
+				<property>autopilot/autobrake/step</property>
+				<value type="int">1</value>
+				<value type="int">0</value>
+			</binding>
+		</action>
+	</animation>
+	<animation>
+		<name>Autobrake low decel</name>
+		<type>select</type>
+		<object-name>AutobrakeLoDecel</object-name>
+		<condition>
+			<and>
+				<property>autopilot/autobrake/engaged</property>
+				<equals>
+					<property>autopilot/autobrake/step</property>
+					<value>1</value>
+				</equals>
+			</and>
+		</condition>
+	</animation>
+	<animation>
+		<name>Autobrake low on</name>
+		<type>select</type>
+		<object-name>AutobrakeLoOn</object-name>
+		<condition>
+			<equals>
+				<property>autopilot/autobrake/step</property>
+				<value>1</value>
+			</equals>
+		</condition>
+	</animation>
+
+	<animation>
+		<name>Autobrake medium pick</name>
+		<type>pick</type>
+		<object-name>AutobrakeMeBtn</object-name>
+		<object-name>AutobrakeMeDecel</object-name>
+		<object-name>AutobrakeMeOn</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-cycle</command>
+				<property>autopilot/autobrake/step</property>
+				<value type="int">2</value>
+				<value type="int">0</value>
+			</binding>
+		</action>
+	</animation>
+	<animation>
+		<name>Autobrake medium decel</name>
+		<type>select</type>
+		<object-name>AutobrakeMeDecel</object-name>
+		<condition>
+			<and>
+				<property>autopilot/autobrake/engaged</property>
+				<equals>
+					<property>autopilot/autobrake/step</property>
+					<value>2</value>
+				</equals>
+			</and>
+		</condition>
+	</animation>
+	<animation>
+		<name>Autobrake medium on</name>
+		<type>select</type>
+		<object-name>AutobrakeMeOn</object-name>
+		<condition>
+			<equals>
+				<property>autopilot/autobrake/step</property>
+				<value>2</value>
+			</equals>
+		</condition>
+	</animation>
+
+	<animation>
+		<name>Autobrake maximum pick</name>
+		<type>pick</type>
+		<object-name>AutobrakeHiBtn</object-name>
+		<object-name>AutobrakeHiDecel</object-name>
+		<object-name>AutobrakeHiOn</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-cycle</command>
+				<property>autopilot/autobrake/step</property>
+				<value type="int">3</value>
+				<value type="int">0</value>
+			</binding>
+		</action>
+	</animation>
+	<animation>
+		<name>Autobrake max decel</name>
+		<type>select</type>
+		<object-name>AutobrakeHiDecel</object-name>
+		<condition>
+			<and>
+				<property>autopilot/autobrake/engaged</property>
+				<property>autopilot/autobrake/max-selected</property>
+			</and>
+		</condition>
+	</animation>
+	<animation>
+		<name>Autobrake max on</name>
+		<type>select</type>
+		<object-name>AutobrakeHiOn</object-name>
+		<condition>
+			<property>autopilot/autobrake/max-selected</property>
+		</condition>
+	</animation>
+
+	<!-- Landing gear lever -->
+	<animation>
+		<name>Landing gear lever pick</name>
+		<type>pick</type>
+		<object-name>GearLever</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-toggle</command>
+				<property>controls/gear/gear-down</property>
+			</binding>
+		</action>
+	</animation>
+	<animation>
+		<name>Landing gear lever rotate</name>
+		<type>rotate</type>
+		<object-name>GearLever</object-name>
+		<property>controls/gear/gear-down</property>
+		<factor>78</factor>
+		<center>
+			<x-m>-17.173</x-m>
+			<y-m>0</y-m>
+			<z-m>-2.125</z-m>
+		</center>
+		<axis>
+			<x>0</x>
+			<y>1</y>
+			<z>0</z>
+		</axis>
+	</animation>
+
+	<!-- Flight controls -->
+	<animation>
+		<name>Pitch trim wheel pick</name>
+		<type>pick</type>
+		<object-name>TrimWheel</object-name>
+		<action>
+			<button>0</button>
+			<button>3</button>
+			<repeatable type="bool">true</repeatable>
+			<binding>
+				<command>property-adjust</command>
+				<property>controls/flight/elevator-trim</property>
+				<step>0.005</step>
+				<max>1</max>
+			</binding>
+		</action>
+		<action>
+			<button>1</button>
+			<button>4</button>
+			<repeatable type="bool">true</repeatable>
+			<binding>
+				<command>property-adjust</command>
+				<property>controls/flight/elevator-trim</property>
+				<step>-0.005</step>
+				<min>-1</min>
+			</binding>
+		</action>
+	</animation>
+	<animation>
+		<name>Pitch trim wheel rotate</name>
+		<type>rotate</type>
+		<object-name>TrimWheel</object-name>
+		<property>controls/flight/elevator-trim</property>
+		<interpolation>
+			<entry><ind>-1</ind><dep>0</dep></entry>
+			<entry><ind>1</ind><dep>-150</dep></entry>
+		</interpolation>
+		<center>
+			<x-m>-16.77082</x-m>
+			<y-m>0</y-m>
+			<z-m>-2.36997</z-m>
+		</center>
+		<axis>
+			<x>0</x>
+			<y>1</y>
+			<z>0</z>
+		</axis>
+	</animation>
+
+	<animation>
+		<name>Engine 1 thrust lever pick</name>
+		<type>pick</type>
+		<object-name>ThrottleLeft</object-name>
+		<action>
+			<button>0</button>
+			<button>3</button>
+			<repeatable type="bool">true</repeatable>
+			<binding>
+				<command>property-adjust</command>
+				<property>controls/engines/engine[0]/throttle</property>
+				<step>0.01</step>
+				<max>1</max>
+			</binding>
+		</action>
+		<action>
+			<button>1</button>
+			<button>4</button>
+			<repeatable type="bool">true</repeatable>
+			<binding>
+				<command>property-adjust</command>
+				<property>controls/engines/engine[0]/throttle</property>
+				<step>-0.01</step>
+				<min>0</min>
+			</binding>
+		</action>
+	</animation>
+	<animation>
+		<name>Engine 1 thrust lever rotate</name>
+		<type>rotate</type>
+		<object-name>ThrottleLeft</object-name>
+		<property>controls/engines/engine[0]/throttle</property>
+		<factor>-55</factor>
+		<center>
+			<x-m>-16.771</x-m>
+			<y-m>0</y-m>
+			<z-m>-2.370</z-m>
+		</center>
+		<axis>
+			<x>0</x>
+			<y>1</y>
+			<z>0</z>
+		</axis>
+	</animation>
+	
+	<animation>
+		<name>Engine 2 thrust lever pick</name>
+		<type>pick</type>
+		<object-name>ThrottleRight</object-name>
+		<action>
+			<button>0</button>
+			<button>3</button>
+			<repeatable type="bool">true</repeatable>
+			<binding>
+				<command>property-adjust</command>
+				<property>controls/engines/engine[1]/throttle</property>
+				<step>0.01</step>
+				<max>1</max>
+			</binding>
+		</action>
+		<action>
+			<button>1</button>
+			<button>4</button>
+			<repeatable type="bool">true</repeatable>
+			<binding>
+				<command>property-adjust</command>
+				<property>controls/engines/engine[1]/throttle</property>
+				<step>-0.01</step>
+				<min>0</min>
+			</binding>
+		</action>
+	</animation>
+	<animation>
+		<name>Engine 2 thrust lever rotate</name>
+		<type>rotate</type>
+		<object-name>ThrottleRight</object-name>
+		<property>controls/engines/engine[1]/throttle</property>
+		<factor>-55</factor>
+		<center>
+			<x-m>-16.771</x-m>
+			<y-m>0</y-m>
+			<z-m>-2.370</z-m>
+		</center>
+		<axis>
+			<x>0</x>
+			<y>1</y>
+			<z>0</z>
+		</axis>
+	</animation>
+	
+	<animation>
+		<type>translate</type>
+		<object-name>PedalLeft</object-name>
+		<property>controls/flight/rudder</property>
+		<factor>0.10</factor>
+		<axis>
+			<x>1.0</x>
+			<y>0.0</y>
+			<z>0.0</z>
+		</axis>
+	</animation>
+	
+	<animation>
+		<type>translate</type>
+		<object-name>PedalRight</object-name>
+		<property>controls/flight/rudder</property>
+		<factor>-0.10</factor>
+		<axis>
+			<x>1.0</x>
+			<y>0.0</y>
+			<z>0.0</z>
+		</axis>
+	</animation>
+	
+	<animation>
+		<type>rotate</type>
+		<object-name>StickLeft</object-name>
+		<property>controls/flight/aileron</property>
+		<factor>25</factor>
+		<center>
+			<x-m>0</x-m>
+			<y-m>-0.86</y-m>
+			<z-m>-2.215</z-m>
+		</center>
+		<axis>
+			<x>-1</x>
+			<y>0</y>
+			<z>0</z>
+		</axis>
+	</animation>
+	<animation>
+		<type>rotate</type>
+		<object-name>StickRight</object-name>
+		<property>controls/flight/aileron</property>
+		<factor>25</factor>
+		<center>
+			<x-m>0</x-m>
+			<y-m>0.86</y-m>
+			<z-m>-2.215</z-m>
+		</center>
+		<axis>
+			<x>-1</x>
+			<y>0</y>
+			<z>0</z>
+		</axis>
+	</animation>
+	<animation>
+		<type>rotate</type>
+		<object-name>StickLeft</object-name>
+		<object-name>StickRight</object-name>
+		<property>controls/flight/elevator</property>
+		<factor>20</factor>
+		<center>
+			<x-m>-16.801</x-m>
+			<y-m>0</y-m>
+			<z-m>-2.215</z-m>
+		</center>
+		<axis>
+			<x>0</x>
+			<y>-1</y>
+			<z>0</z>
+		</axis>
+	</animation>
+	
+	<animation>
+		<type>rotate</type>
+		<object-name>FlapLever</object-name>
+		<property>controls/flight/flaps</property>
+		<factor>80</factor>
+		<center>
+			<x-m>-16.518</x-m>
+			<y-m>0.085</y-m>
+			<z-m>-2.401</z-m>
+		</center>
+		<axis>
+			<x>0</x>
+			<y>1</y>
+			<z>0</z>
+		</axis>
+	</animation>
+
+	<!-- Lighting controls -->
+	<animation>
+		<name>Main panel/pedestal light knob pick</name>
+		<type>pick</type>
+		<object-name>MarkingsLtKnb</object-name>
+		<action>
+			<button>0</button>
+			<button>3</button>
+			<repeatable type="bool">true</repeatable>
+			<binding>
+				<command>property-adjust</command>
+				<property>controls/lighting/main-panel-pedestal-norm</property>
+				<step>0.05</step>
+				<max>1</max>
+			</binding>
+		</action>
+		<action>
+			<button>1</button>
+			<button>4</button>
+			<repeatable type="bool">true</repeatable>
+			<binding>
+				<command>property-adjust</command>
+				<property>controls/lighting/main-panel-pedestal-norm</property>
+				<step>-0.05</step>
+				<min>0</min>
+			</binding>
+		</action>
+	</animation>
+	<animation>
+		<name>Main panel/pedestal light knob rotate</name>
+		<type>rotate</type>
+		<object-name>MarkingsLtKnb</object-name>
+		<property>controls/lighting/main-panel-pedestal-norm</property>
+		<interpolation>
+			<entry><ind>0</ind><dep>-130</dep></entry>
+			<entry><ind>1</ind><dep>130</dep></entry>
+		</interpolation>
+		<axis>
+			<x1-m>-16.64802</x1-m>
+			<y1-m>-0.183</y1-m>
+			<z1-m>-2.34536</z1-m>
+			<x2-m>-16.65106</x2-m>
+			<y2-m>-0.183</y2-m>
+			<z2-m>-2.35964</z2-m>
+		</axis>
+	</animation>
+
+	<!-- Engine controls -->
+	<animation>
+		<name>Engine start knob pick</name>
+		<type>pick</type>
+		<object-name>EngStartKnob</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-adjust</command>
+				<property>controls/engines/engine-start-switch</property>
+				<step>1</step>
+				<max>2</max>
+			</binding>
+		</action>
+		<action>
+			<button>1</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-adjust</command>
+				<property>controls/engines/engine-start-switch</property>
+				<step>-1</step>
+				<min>0</min>
+			</binding>
+		</action>
+	</animation>
+	<animation>
+		<name>Engine start knob rotate</name>
+		<type>rotate</type>
+		<object-name>EngStartKnob</object-name>
+		<property>controls/engines/engine-start-switch</property>
+		<interpolation>
+			<entry><ind>0</ind><dep>-55</dep></entry>
+			<entry><ind>1</ind><dep>0</dep></entry>
+			<entry><ind>2</ind><dep>55</dep></entry>
+		</interpolation>
+		<axis>
+			<x1-m>-16.5926</x1-m>
+			<y1-m>0</y1-m>
+			<z1-m>-2.3629</z1-m>
+			<x2-m>-16.59445</x2-m>
+			<y2-m>0</y2-m>
+			<z2-m>-2.37173</z2-m>
+		</axis>
+	</animation>
+
+	<animation>
+		<name>Engine 1 cutoff switch pick</name>
+		<type>pick</type>
+		<object-name>Eng1Cutoff</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-toggle</command>
+				<property>controls/engines/engine[0]/cutoff-switch</property>
+			</binding>
+		</action>
+	</animation>
+	<animation>
+		<name>Engine 1 cutoff switch rotate</name>
+		<type>rotate</type>
+		<object-name>Eng1Cutoff</object-name>
+		<property>controls/engines/engine[0]/cutoff-switch</property>
+		<interpolation>
+			<entry><ind>0</ind><dep>-40</dep></entry>
+			<entry><ind>1</ind><dep>0</dep></entry>
+		</interpolation>
+		<center>
+			<x-m>-16.629</x-m>
+			<y-m>0</y-m>
+			<z-m>-2.366</z-m>
+		</center>
+		<axis>
+			<x>0</x>
+			<y>1</y>
+			<z>0</z>
+		</axis>
+	</animation>
+	<animation>
+		<name>Engine 2 cutoff switch pick</name>
+		<type>pick</type>
+		<object-name>Eng2Cutoff</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-toggle</command>
+				<property>controls/engines/engine[1]/cutoff-switch</property>
+			</binding>
+		</action>
+	</animation>
+	<animation>
+		<name>Engine 2 cutoff switch rotate</name>
+		<type>rotate</type>
+		<object-name>Eng2Cutoff</object-name>
+		<property>controls/engines/engine[1]/cutoff-switch</property>
+		<interpolation>
+			<entry><ind>0</ind><dep>-40</dep></entry>
+			<entry><ind>1</ind><dep>0</dep></entry>
+		</interpolation>
+		<center>
+			<x-m>-16.629</x-m>
+			<y-m>0</y-m>
+			<z-m>-2.366</z-m>
+		</center>
+		<axis>
+			<x>0</x>
+			<y>1</y>
+			<z>0</z>
+		</axis>
+	</animation>
+
+	<animation>
+		<name>Speedbrake lever pick</name>
+		<type>pick</type>
+		<object-name>SpeedbrakeLever</object-name>
+		<object-name>SpeedbrakeLeverTrack</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-cycle</command>
+				<property>controls/flight/speedbrake-lever</property>
+				<value>0</value>
+				<value>0.5</value>
+				<value>1</value>
+			</binding>
+		</action>
+		<action>
+			<button>1</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-toggle</command>
+				<property>controls/flight/ground-spoilers-armed</property>
+			</binding>
+		</action>
+	</animation>
+	<animation>
+		<name>Speedbrake lever x translate</name>
+		<type>translate</type>
+		<object-name>SpeedbrakeLever</object-name>
+		<property>controls/flight/speedbrake-lever</property>
+		<factor>0.048</factor>
+		<axis>
+			<x1-m>-16.548</x1-m>
+			<y1-m>0</y1-m>
+			<z1-m>-2.378</z1-m>
+			<x2-m>-16.49</x2-m>
+			<y2-m>0</y2-m>
+			<z2-m>-2.383</z2-m>
+		</axis>
+	</animation>
+	<animation>
+		<name>Speedbrake lever z translate</name>
+		<type>translate</type>
+		<object-name>SpeedbrakeLever</object-name>
+		<property>controls/flight/ground-spoilers-armed</property>
+		<factor>0.005</factor>
+		<axis>
+			<x1-m>-16.543</x1-m>
+			<y1-m>0</y1-m>
+			<z1-m>-2.384</z1-m>
+			<x2-m>-16.541</x2-m>
+			<y2-m>0</y2-m>
+			<z2-m>-2.358</z2-m>
+		</axis>
+	</animation>
+
+	<!-- Rudder trim -->
+	<animation>
+		<name>Rudder trim knob pick</name>
+		<type>pick</type>
+		<object-name>RudTrimKnob</object-name>
+		<action>
+			<button>0</button>
+			<button>3</button>
+			<repeatable type="bool">true</repeatable>
+			<binding>
+				<command>property-adjust</command>
+				<property>controls/flight/rudder-trim</property>
+				<step>0.05</step>
+				<max>1</max>
+			</binding>
+		</action>
+		<action>
+			<button>1</button>
+			<button>4</button>
+			<repeatable type="bool">true</repeatable>
+			<binding>
+				<command>property-adjust</command>
+				<property>controls/flight/rudder-trim</property>
+				<step>-0.05</step>
+				<min>-1</min>
+			</binding>
+		</action>
+	</animation>
+	<animation>
+		<name>Rudder trim knob rotate</name>
+		<type>rotate</type>
+		<object-name>RudTrimKnob</object-name>
+		<property>controls/flight/rudder-trim</property>
+		<factor>37</factor>
+		<axis>
+			<x1-m>-16.491</x1-m>
+			<y1-m>0.017</y1-m>
+			<z1-m>-2.371</z1-m>
+			<x2-m>-16.492</x2-m>
+			<y2-m>0.017</y2-m>
+			<z2-m>-2.383</z2-m>
+		</axis>
+	</animation>
+
+	<animation>
+		<name>Rudder trim reset</name>
+		<type>pick</type>
+		<object-name>RudTrimReset</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-assign</command>
+				<property>controls/flight/rudder-trim</property>
+				<value>0</value>
+			</binding>
+		</action>
+	</animation>
+
+	<animation>
+		<name>Rudder trim direction select</name>
+		<type>select</type>
+		<object-name>RudTrimL</object-name>
+		<object-name>RudTrimR</object-name>
+		<condition>
+			<or>
+				<greater-than>
+					<property>controls/flight/rudder-trim</property>
+					<value>0</value>
+				</greater-than>
+				<less-than>
+					<property>controls/flight/rudder-trim</property>
+					<value>0</value>
+				</less-than>
+			</or>
+		</condition>
+	</animation>
+
+	<animation>
+		<name>Rudder trim left select</name>
+		<type>select</type>
+		<object-name>RudTrim10L</object-name>
+		<object-name>RudTrim1L</object-name>
+		<object-name>RudTrimL</object-name>
+		<condition>
+			<less-than>
+				<property>controls/flight/rudder-trim</property>
+				<value>0</value>
+			</less-than>
+		</condition>
+	</animation>
+	<animation>
+		<name>Rudder trim left display 10's</name>
+		<type>textranslate</type>
+		<object-name>RudTrim10L</object-name>
+		<property>controls/flight/rudder-trim</property>
+		<factor>0.2</factor>
+		<step>0.5</step>
+		<axis>
+			<x>0</x>
+			<y>-1</y>
+		</axis>
+	</animation>
+	<animation>
+		<name>Rudder trim left display 1's</name>
+		<type>textranslate</type>
+		<object-name>RudTrim1L</object-name>
+		<property>controls/flight/rudder-trim</property>
+		<factor>2</factor>
+		<step>0.05</step>
+		<axis>
+			<x>0</x>
+			<y>-1</y>
+		</axis>
+	</animation>
+
+	<animation>
+		<name>Rudder trim right select</name>
+		<type>select</type>
+		<object-name>RudTrim10R</object-name>
+		<object-name>RudTrim1R</object-name>
+		<object-name>RudTrimR</object-name>
+		<condition>
+			<greater-than-equals>
+				<property>controls/flight/rudder-trim</property>
+				<value>0</value>
+			</greater-than-equals>
+		</condition>
+	</animation>
+	<animation>
+		<name>Rudder trim right display 10's</name>
+		<type>textranslate</type>
+		<object-name>RudTrim10R</object-name>
+		<property>controls/flight/rudder-trim</property>
+		<factor>0.2</factor>
+		<step>0.5</step>
+		<axis>
+			<x>0</x>
+			<y>1</y>
+		</axis>
+	</animation>
+	<animation>
+		<name>Rudder trim right display 1's</name>
+		<type>textranslate</type>
+		<object-name>RudTrim1R</object-name>
+		<property>controls/flight/rudder-trim</property>
+		<factor>2</factor>
+		<step>0.05</step>
+		<axis>
+			<x>0</x>
+			<y>1</y>
+		</axis>
+	</animation>
+
+	<!-- Parking brake -->
+	<animation>
+		<name>Parking brake pick</name>
+		<type>pick</type>
+		<object-name>ParkingBrake</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-toggle</command>
+				<property>controls/gear/brake-parking</property>
+			</binding>
+		</action>
+	</animation>
+	<animation>
+		<name>Parking brake rotate</name>
+		<type>rotate</type>
+		<object-name>ParkingBrake</object-name>
+		<property>controls/gear/brake-parking</property>
+		<factor>90</factor>
+		<axis>
+			<x1-m>-16.415</x1-m>
+			<y1-m>0.013</y1-m>
+			<z1-m>-2.386</z1-m>
+			<x2-m>-16.415</x2-m>
+			<y2-m>0.013</y2-m>
+			<z2-m>-2.39</z2-m>
+		</axis>
+	</animation>
+
+	<!-- Seats -->
+	<animation>
+		<name>Armrests pick</name>
+		<type>pick</type>
+		<object-name>Armrests</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>nasal</command>
+				<script>
+				 systems.armrests.toggle();
+				</script>
+			</binding>
+		</action>
+	</animation>
+	<animation>
+		<name>Armrests rotate</name>
+		<type>rotate</type>
+		<object-name>Armrests</object-name>
+		<property>sim/model/door-positions/armrests/position-norm</property>
+		<factor>97</factor>
+		<center>
+			<x-m>-15.96</x-m>
+			<y-m>0</y-m>
+			<z-m>-2.116</z-m>
+		</center>
+		<axis>
+			<x>0</x>
+			<y>1</y>
+			<z>0</z>
+		</axis>
+	</animation>
+
+</PropertyList>
