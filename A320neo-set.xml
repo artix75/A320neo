@@ -4,7 +4,7 @@
 
 	<sim>
 		<description>Airbus A320NEO with CFM LeapX engines</description>
-		<author>Narendran and Malik (A320neo), Ryan and Ampere (base A320)</author>
+		<author>Narendran, Malik and Jon A. Ortuondo(A320neo), Ryan and Ampere (base A320)</author>
 		<status>beta</status>
 		<flight-model>jsb</flight-model>
 		<aero>A320NEO</aero>
