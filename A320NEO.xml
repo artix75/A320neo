@@ -5,10 +5,15 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 xsi:noNamespaceSchemaLocation="http://jsbsim.sourceforge.net/JSBSim.xsd">
 
 <fileheader>
-	<author> Unknown </author>
-	<filecreationdate> 2003-01-01 </filecreationdate>
-	<version> Version </version>
-	<description> Airbus A320neo </description>
+	<author> Bicyus (Jon Ortuondo) </author>
+	<email> bicyus@gmail.com </email>
+	<author> Omega95 </author>
+	<author> Many unknown others (Please, fill in) </author>
+	<filecreationdate> 2012-01-03 </filecreationdate>
+	<version> 0.98 </version>
+	<description> Airbus A320neo With Sharklets and CFM LEAP-X High ByPass Turbofan Engine </description>
+	<note> Fork from the A320-Family aircraft project (Thanks to all authors) </note>
+	<limitation></limitation>
 </fileheader>
 
 <metrics>
@@ -485,7 +490,8 @@ xsi:noNamespaceSchemaLocation="http://jsbsim.sourceforge.net/JSBSim.xsd">
 	</aerosurface_scale>
 	</channel>
 	<channel name="Yaw">
-	<!-- <pure_gain name="Yaw Damper Rate">
+	<!-- Testing on Ground steering Rudder bug
+	<pure_gain name="Yaw Damper Rate">
 		<input>velocities/r-rad_sec</input>
 		<gain>2</gain>
 	</pure_gain>
