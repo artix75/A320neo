@@ -84,6 +84,13 @@ file, these values will be used (they are hardcoded).
 		<suction>/systems/vacuum/suction-inhg</suction>
 	</heading-indicator>
 
+<!-- Bicyus Testing  
+	<heading-indicator-dg>
+		<name>heading-indicator-dg</name>
+		<number>0</number>
+	</heading-indicator-dg>
+-->
+
 	<KT-70>
 		<name>kt-70</name>
 		<number>0</number>
