@@ -32,7 +32,8 @@
 		<path>Aircraft/A320neo/XMLs/LandingGears/a320.nlg.xml</path>
 		<offsets>
 			<x-m>7.83</x-m>
-			<z-m>-1.8306008</z-m>
+			<!-- <z-m>-1.8306008</z-m> Didn't touch ground -->
+			<z-m>-2</z-m>
 		</offsets>
 	</model>
 

@@ -382,6 +382,26 @@
 		<weight n="1">
 			<name>PAX</name>
 			<weight-lb alias="/fdm/jsbsim/inertia/pointmass-weight-lbs[1]" />
+			<min-lb type="double">0</min-lb>
+			<max-lb type="double">39500</max-lb>
+		</weight>
+		<weight n="2">
+			<name>Fwd Cargo</name>
+			<weight-lb alias="/fdm/jsbsim/inertia/pointmass-weight-lbs[2]" />
+			<min-lb type="double">0</min-lb>
+			<max-lb type="double">7500.12</max-lb>
+		</weight>
+		<weight n="3">
+			<name>Aft Cargo</name>
+			<weight-lb alias="/fdm/jsbsim/inertia/pointmass-weight-lbs[3]" />
+			<min-lb type="double">0</min-lb>
+			<max-lb type="double">10000.16</max-lb>
+		</weight>
+		<weight n="4">
+			<name>Rear Bulk Cargo</name>
+			<weight-lb alias="/fdm/jsbsim/inertia/pointmass-weight-lbs[4]" />
+			<min-lb type="double">0</min-lb>
+			<max-lb type="double">3300.32</max-lb>
 		</weight>
 	</payload>
 

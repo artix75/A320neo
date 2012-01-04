@@ -49,7 +49,8 @@ xsi:noNamespaceSchemaLocation="http://jsbsim.sourceforge.net/JSBSim.xsd">
 	<ixy unit="SLUG*FT2">         0 </ixy>
 	<ixz unit="SLUG*FT2">         0 </ixz>
 	<iyz unit="SLUG*FT2">         0 </iyz>
-	<emptywt unit="LBS" >     87274 </emptywt>
+	<!-- <emptywt unit="LBS" >     87274 </emptywt> -->
+	<emptywt unit="LBS">90927</emptywt> <!-- #ref-1 page 67, WV016 -->
 	<location name="CG" unit="IN">
 	<x> 642.122 </x>
 	<y> 0 </y>
@@ -57,7 +58,7 @@ xsi:noNamespaceSchemaLocation="http://jsbsim.sourceforge.net/JSBSim.xsd">
 	</location>
 
 	<pointmass name="Crew">
-		<weight unit="LBS">600</weight>
+		<weight unit="LBS">400</weight> <!-- What is this? too heavy for 2 pilots and to weak for all the crowd-->
 		<location name="POINTMASS" unit="IN">
 			<x>200</x>
 			<y>0</y>
@@ -65,60 +66,105 @@ xsi:noNamespaceSchemaLocation="http://jsbsim.sourceforge.net/JSBSim.xsd">
 		</location>
 	</pointmass>
 	<pointmass name="PAX">
-		<weight unit="LBS">39500</weight>
+		<weight unit="LBS">19750</weight> <!-- 39500 lbs** looks too heavy. maybe low it and give a long cilinder shape. need to do some maths-->
 		<location name="POINTMASS" unit="IN">
 			<x>705</x>
 			<y>0</y>
 			<z>0</z>
 		</location>
 	</pointmass>
+<!-- NEW Pointmasses -->
+	<pointmass name="Fwd Cargo">
+		<weight unit="LBS">3750</weight> <!-- #REF-3 page 19, MAX 3402 kilograms = 7500.12616 lbs -->
+		<location name="POINTMASS" unit="IN"> 
+			<!-- #REF-1 page 88+98,
+			x= (door form nose(8.16m))-(door with(1.816m)/2)+(Cargo compartment lenght(4.953m)/2)
+			x= 9.7285 meters = 383.011811 in
+			-->
+			<x>383.01</x>
+			<y>0</y>
+			<z>-59.05</z> <!-- Aprox lower deck 1.5 meters = 59.0551181 in -->
+		</location>
+	</pointmass>
+
+	<pointmass name="Aft Cargo">
+		<weight unit="LBS">5000</weight> <!-- #REF-3 page 19, MAX 4536 kilograms = 10000.1682 lbs -->
+		<location name="POINTMASS" unit="IN"> 
+			<!-- #REF-1 page 88+98,
+			x= (door form nose(22.69m))-(door with(1.816m)/2)
+			x= 21.78200 meters = 857.559055 in
+			-->
+			<x>857.55</x>
+			<y>0</y>
+			<z>-59.05</z> <!-- Aprox lower deck 1.5 meters = 59.0551181 in -->
+		</location>
+	</pointmass>
+	<pointmass name="Rear Bulk Cargo">
+		<weight unit="LBS">1650</weight> <!-- #REF-3 page 19, MAX 1497 kilograms = 3300.32006 lbs -->
+		<location name="POINTMASS" unit="IN"> 
+			<!-- #REF-1 page 88+102,
+			x= (door form nose(22.69m))+(door with(1.816m)/2)+( Dist. between rear doors(2.19))+(Aprox to compartment center (2m))
+			x= 27.78800 meters = 1 094.01575 in
+			-->
+			<x>1094</x>
+			<y>0</y>
+			<z>-39.37</z> <!-- Aprox bulk lower deck 1 meter = 39.3700787 in -->
+		</location>
+	</pointmass>
+
 </mass_balance>
 
 <ground_reactions>
+	<!-- REF-1 page 165 + 271 - Grounding points Need review -->
 	<contact type="BOGEY" name="NOSE_LG">
-	<location unit="IN">
-		<x> 197.6772 </x>
-		<y> 0 </y>
-		<z> -137.9617 </z>
-	</location>
-	<static_friction> 0.9 </static_friction>
-	<dynamic_friction> 0.8 </dynamic_friction>
-	<rolling_friction> 0.1 </rolling_friction>
-	<spring_coeff unit="LBS/FT"> 50935.5 </spring_coeff>
-	<damping_coeff unit="LBS/FT/SEC"> 16978.5 </damping_coeff>
-	<max_steer unit="DEG"> 55 </max_steer>
-	<brake_group> NONE </brake_group>
-	<retractable>1</retractable>
+		<location unit="IN">
+			<x> 197.6772 </x>
+			<y> 0 </y>
+			<z> -137.9617 </z> 
+		</location>
+		<static_friction> 0.9 </static_friction>
+		<dynamic_friction> 0.8 </dynamic_friction>
+		<rolling_friction> 0.02 </rolling_friction>
+		<spring_coeff unit="LBS/FT"> 50935.5 </spring_coeff>
+		<damping_coeff unit="LBS/FT/SEC"> 16978.5 </damping_coeff>
+		<max_steer unit="DEG"> 70 </max_steer> <!-- REF-1 page 133 -->
+		<brake_group> NONE </brake_group>
+		<retractable>1</retractable>
 	</contact>
 	<contact type="BOGEY" name="LEFT_MLG">
-	<location unit="IN">
-		<x> 699.9243 </x>
-		<y> -149.4094 </y>
-		<z> -152.6824 </z>
-	</location>
-	<static_friction> 0.5 </static_friction>
-	<dynamic_friction> 0.8 </dynamic_friction>
-	<rolling_friction> 0.02 </rolling_friction>
-	<spring_coeff unit="LBS/FT"> 169785 </spring_coeff>
-	<damping_coeff unit="LBS/FT/SEC"> 33957 </damping_coeff>
-	<max_steer unit="DEG"> 0.0 </max_steer>
-	<brake_group> LEFT </brake_group>
-	<retractable>1</retractable>
+		<location unit="IN">
+			<!--<x> 699.9243 </x>-->
+			<x> 695.3149 </x>
+			<y> -149.4094 </y>
+			<z> -152.6824 </z>
+		</location>
+<!-- 		<static_friction> 0.5 </static_friction>  WHAT??? less static than dinamyc friction?-->
+		<static_friction> 0.9 </static_friction>
+		<dynamic_friction> 0.8 </dynamic_friction>
+		<rolling_friction> 0.02 </rolling_friction>
+		<spring_coeff unit="LBS/FT"> 169785 </spring_coeff>
+		<damping_coeff unit="LBS/FT/SEC"> 33957 </damping_coeff>
+		<max_steer unit="DEG"> 0.0 </max_steer>
+		<brake_group> LEFT </brake_group>
+		<retractable>1</retractable>
 	</contact>
 	<contact type="BOGEY" name="RIGHT_MLG">
-	<location unit="IN">
-		<x> 697.3425 </x>
-		<y> 149.4094 </y>
-		<z> -152.6824</z>
-	</location>
-	<static_friction> 0.5 </static_friction>
-	<dynamic_friction> 0.8 </dynamic_friction>
-	<rolling_friction> 0.02 </rolling_friction>
-	<spring_coeff unit="LBS/FT"> 169785 </spring_coeff>
-	<damping_coeff unit="LBS/FT/SEC"> 33957 </damping_coeff>
-	<max_steer unit="DEG"> 0.0 </max_steer>
-	<brake_group> RIGHT </brake_group>
-	<retractable>1</retractable>
+		<location unit="IN">
+			<!-- <x> 697.3425 </x> It should be right left simetric
+			<x> 699.9243 </x> -->
+			<x> 695.3149 </x>
+			<y> 149.4094 </y>
+			<z> -152.6824 </z>
+		</location>
+<!-- 		<static_friction> 0.5 </static_friction>  WHAT??? less static than dinamyc friction?-->
+		<static_friction> 0.9 </static_friction>
+		<dynamic_friction> 0.8 </dynamic_friction>
+		<rolling_friction> 0.02 </rolling_friction>
+		<spring_coeff unit="LBS/FT"> 169785 </spring_coeff>
+		<damping_coeff unit="LBS/FT/SEC"> 33957 </damping_coeff>
+		<max_steer unit="DEG"> 0.0 </max_steer>
+		<brake_group> RIGHT </brake_group>
+		<retractable>1</retractable>
 	</contact>
 
 	<contact type="STRUCTURE" name="NOSE_1">
