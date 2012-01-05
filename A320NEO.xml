@@ -58,7 +58,7 @@ xsi:noNamespaceSchemaLocation="http://jsbsim.sourceforge.net/JSBSim.xsd">
 	</location>
 
 	<pointmass name="Crew">
-		<weight unit="LBS">400</weight> <!-- What is this? too heavy for 2 pilots and to weak for all the crowd-->
+		<weight unit="LBS">400</weight> <!-- MAX: 600lbs-->
 		<location name="POINTMASS" unit="IN">
 			<x>200</x>
 			<y>0</y>
@@ -66,7 +66,7 @@ xsi:noNamespaceSchemaLocation="http://jsbsim.sourceforge.net/JSBSim.xsd">
 		</location>
 	</pointmass>
 	<pointmass name="PAX">
-		<weight unit="LBS">19750</weight> <!-- 39500 lbs** looks too heavy. maybe low it and give a long cilinder shape. need to do some maths-->
+		<weight unit="LBS">19750</weight> <!-- MAX: 39500 lbs ** looks too heavy. maybe low it and give a long cilinder shape. need to do some maths-->
 		<location name="POINTMASS" unit="IN">
 			<x>705</x>
 			<y>0</y>

@@ -523,6 +523,10 @@
 	<instrumentation>
 		<cdu>
 			<display>IDENT</display>
+			<ident>
+				<model>Airbus A320-neo</model>
+				<engines>CFM LEAP-X</engines>
+			</ident>
 			<input />
 			<serviceable type="bool">true</serviceable>
 		</cdu>
@@ -822,21 +826,5 @@
 			<hood-rot>3</hood-rot>
 		</jetway-pos>
 	</aircraft>
-
-	<payload>
-		<weight n="1">
-			<min-lb type="double">0</min-lb>
-			<max-lb type="double">39500</max-lb>
-		</weight>
-	</payload>
-
-	<instrumentation>
-		<cdu>
-			<ident>
-				<model>A320NEO</model>
-				<engines>CFM LeapX</engines>
-			</ident>
-		</cdu>
-	</instrumentation>
 
 </PropertyList>
