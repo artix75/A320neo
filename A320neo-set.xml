@@ -29,13 +29,37 @@
 
 		<tutorials include="Tutorials/a320-tutorials.xml" />
 
-		<!-- Flaps only go up to 35 degrees for the 200 -->
+
+		<!-- Flaps only go up to 35 degrees for the 320-200. 40º for 319-2xx
+
+		#REF-2 page 18 
+			
+		Conf.	Slats/Flaps	VFE(kt)		FOR:
+		1	18/0  		230		Intermediate approach and take off
+			*18/10		215
+		2	22/15		200		Take Off, Approach
+		3	22/22		185		Take Off, Approach, Landing
+		FULL	27/35		177		Landing
+
+		* Auto flap retraction at 210kt in takeoff configuration
+		-->
 		<flaps>
+			<!-- Only goes to 26º¿?
 			<setting>0.00</setting>
 			<setting>0.25</setting>
-			<setting>0.375</setting>
+ 			<setting>0.375</setting>
 			<setting>0.5</setting>
-			<setting>0.875</setting>
+			<setting>0.875</setting> 
+			-->
+			<!-- As there ar no Slats, i'll combine both ¿does it make sense?
+				still reach max 30º
+			-->
+			<setting>0.00</setting><!-- -->
+			<setting>0.29</setting><!-- 18+0=18 ->  0.290 -->
+			<setting>0.596</setting><!-- 22+15=37 -> 0.596 -->
+			<setting>0.645</setting><!-- 22+22=44 -> 0.645 -->
+			<setting>1</setting><!-- 27+35=62 -> 1 -->
+	
 		</flaps>
 
 		<view>
@@ -43,9 +67,11 @@
 			<internal archive="y">true</internal>
 			<config>
 				<x-offset-m archive="y">-0.525</x-offset-m>
-				<y-offset-m archive="y">2.2635023</y-offset-m>
-				<z-offset-m archive="y">-13.8829</z-offset-m>
-				<pitch-offset-deg archive="y">-15.0</pitch-offset-deg>
+<!--				<y-offset-m archive="y">2.2635023</y-offset-m>
+				<z-offset-m archive="y">-13.8829</z-offset-m> -->
+				<y-offset-m archive="y">2.30</y-offset-m>
+				<z-offset-m archive="y">-13.60</z-offset-m>
+				<pitch-offset-deg archive="y">-10.0</pitch-offset-deg>
 			</config>
 		</view>
 		<view n="100">
@@ -436,6 +462,7 @@
 		</APU>
 		<electric>
 			<avionics-switch type="bool">true</avionics-switch>
+
 		</electric>
 		<engines>
 			<engine-start-switch type="int">1</engine-start-switch>
@@ -785,6 +812,10 @@
 	</input>
 
 	<nasal>
+		<a320neo>
+			<file>Aircraft/Generic/limits.nas</file>
+			<file>Aircraft/A320neo/Nasal/copilot.nas</file>
+		</a320neo>
 		<systems>
 			<file>Aircraft/A320neo/Nasal/systems.nas</file>
 		</systems>
@@ -818,6 +849,39 @@
 		</dual_control>
 	</nasal>
 
+	<limits>
+		<mass-and-balance> <!-- #ref-1 page67 WV016 -->
+			<maximum-ramp-mass-lbs>162922</maximum-ramp-mass-lbs>
+			<maximum-takeoff-mass-lbs>1629040</maximum-takeoff-mass-lbs>
+			<maximum-landing-mass-lbs>145505</maximum-landing-mass-lbs>
+			<maximum-zero-fuel-mass-lbs>137789</maximum-zero-fuel-mass-lbs>
+		</mass-and-balance>
+		<max-flap-extension-speed>
+			<flaps>0.29</flaps>
+			<speed>230</speed>
+		</max-flap-extension-speed>
+		<max-flap-extension-speed>
+			<flaps>0.596</flaps>
+			<speed>200</speed>
+		</max-flap-extension-speed>
+		<max-flap-extension-speed>
+			<flaps>0.645</flaps>
+			<speed>185</speed>
+		</max-flap-extension-speed>
+		<max-flap-extension-speed>
+			<flaps>1</flaps>
+			<speed>177</speed>
+		</max-flap-extension-speed>
+		
+		 
+		<vne>370</vne>
+		 
+		<max-gear-extension-speed>250</max-gear-extension-speed>
+		 
+		<max-positive-g>2.5</max-positive-g>
+		<max-negative-g>-1</max-negative-g>
+ 
+	</limits>
 	<aircraft>
 		<jetway-pos>
 			<x-tra>-1.95</x-tra>

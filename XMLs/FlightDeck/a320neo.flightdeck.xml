@@ -56,7 +56,7 @@
 	</model>
 
 	<model>
-		<path>Aircraft/A320neo/XMLs/Instruments/EICAS/EICAS.xml</path>
+		<path>Aircraft/A320neo/XMLs/Instruments/EICAS/EICAS_lower.xml</path>
 		<offsets>
 			<x-m>-17.125</x-m>
 			<y-m>0</y-m>

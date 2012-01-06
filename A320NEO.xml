@@ -73,9 +73,13 @@ xsi:noNamespaceSchemaLocation="http://jsbsim.sourceforge.net/JSBSim.xsd">
 			<z>0</z>
 		</location>
 	</pointmass>
-<!-- NEW Pointmasses -->
+<!-- NEW Pointmasses Start Weights for good CG -->
 	<pointmass name="Fwd Cargo">
 		<weight unit="LBS">3750</weight> <!-- #REF-3 page 19, MAX 3402 kilograms = 7500.12616 lbs -->
+		<form shape="cylinder">
+			<radius unit="M"> 1.24 </radius>
+			<length unit="M"> 4.95 </length>
+		</form> 
 		<location name="POINTMASS" unit="IN"> 
 			<!-- #REF-1 page 88+98,
 			x= (door form nose(8.16m))-(door with(1.816m)/2)+(Cargo compartment lenght(4.953m)/2)
@@ -88,7 +92,11 @@ xsi:noNamespaceSchemaLocation="http://jsbsim.sourceforge.net/JSBSim.xsd">
 	</pointmass>
 
 	<pointmass name="Aft Cargo">
-		<weight unit="LBS">5000</weight> <!-- #REF-3 page 19, MAX 4536 kilograms = 10000.1682 lbs -->
+		<weight unit="LBS">0</weight> <!-- #REF-3 page 19, MAX 4536 kilograms = 10000.1682 lbs -->
+		<form shape="cylinder">
+			<radius unit="M"> 1.24 </radius>
+			<length unit="M"> 6.6 </length>
+		</form> 
 		<location name="POINTMASS" unit="IN"> 
 			<!-- #REF-1 page 88+98,
 			x= (door form nose(22.69m))-(door with(1.816m)/2)
@@ -100,7 +108,11 @@ xsi:noNamespaceSchemaLocation="http://jsbsim.sourceforge.net/JSBSim.xsd">
 		</location>
 	</pointmass>
 	<pointmass name="Rear Bulk Cargo">
-		<weight unit="LBS">1650</weight> <!-- #REF-3 page 19, MAX 1497 kilograms = 3300.32006 lbs -->
+		<weight unit="LBS">0</weight> <!-- #REF-3 page 19, MAX 1497 kilograms = 3300.32006 lbs -->
+		<form shape="cylinder">
+			<radius unit="M"> 1.24 </radius>
+			<length unit="M"> 2 </length>
+		</form> 
 		<location name="POINTMASS" unit="IN"> 
 			<!-- #REF-1 page 88+102,
 			x= (door form nose(22.69m))+(door with(1.816m)/2)+( Dist. between rear doors(2.19))+(Aprox to compartment center (2m))
