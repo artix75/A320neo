@@ -5,7 +5,7 @@
 
 <PropertyList>
 
-	<path>../../../Models/Instruments/EICAS/EICAS.ac</path>
+	<path>../../../Models/Instruments/EICAS/EICAS_lower.ac</path>
 
 	<!-- 3D TEXT -->
 	<text>

@@ -16,7 +16,7 @@
 	</model>
 	
 	<model>
-		<path>Aircraft/A320neo/XMLs/Instruments/MFD/MFD.xml</path>
+	<path>Aircraft/A320neo/XMLs/Instruments/MFD/MFD.xml</path>
 		<offsets>
 			<x-m>-17.173</x-m>
 			<y-m>-0.35</y-m>

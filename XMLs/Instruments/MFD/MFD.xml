@@ -1017,7 +1017,7 @@
 		</axis>
 		<center>
 			<x-m>0</x-m>
-			<y-m>0</y-m>
+			<y-m>0</y-m><!-- in A321 <y-m>-0.012</y-m> -->
 			<z-m>-0.05</z-m>
 		</center>
 	</animation>
@@ -1050,7 +1050,7 @@
 		<center>
 			<x-m>0</x-m>
 			<y-m>0</y-m>
-			<z-m>-0.059</z-m>
+			<z-m>-0.059</z-m><!-- <z-m>-0.065</z-m> -->
 		</center>
 	</animation>
 	<animation>

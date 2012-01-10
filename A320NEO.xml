@@ -67,6 +67,10 @@ xsi:noNamespaceSchemaLocation="http://jsbsim.sourceforge.net/JSBSim.xsd">
 	</pointmass>
 	<pointmass name="PAX">
 		<weight unit="LBS">19750</weight> <!-- MAX: 39500 lbs ** looks too heavy. maybe low it and give a long cilinder shape. need to do some maths-->
+		<form shape="cylinder">
+			<radius unit="M"> 2.13 </radius>
+			<length unit="M"> 24.44 </length>
+		</form>
 		<location name="POINTMASS" unit="IN">
 			<x>705</x>
 			<y>0</y>
