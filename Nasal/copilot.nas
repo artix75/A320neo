@@ -26,7 +26,7 @@ setlistener("/sim/signals/fdm-initialized", func {
                 me.V1announced = 1;
  
         } elsif ((airspeed != nil) and (VR != nil) and (airspeed > VR) and (me.VRannounced == 0)) {
-            me.announce("VR!");
+            me.announce("Vr Rotate!");
                 me.VRannounced = 1;
  
         } elsif ((airspeed != nil) and (V2 != nil) and (airspeed > V2) and (me.V2announced == 0)) {

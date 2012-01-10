@@ -46,9 +46,9 @@
 	</model>
 
 	<model>
-		<path>Aircraft/A320neo/XMLs/Instruments/EICAS/EICAS.xml</path>
+		<path>Aircraft/A320neo/XMLs/Instruments/EICAS/EICAS_Airbus.xml</path>
 		<offsets>
-			<x-m>-17.173</x-m>
+			<x-m>-17.168</x-m><!-- -17.173 -->
 			<y-m>0</y-m>
 			<z-m>-1.99</z-m>
 			<pitch-deg>-15.0</pitch-deg>
@@ -56,9 +56,9 @@
 	</model>
 
 	<model>
-		<path>Aircraft/A320neo/XMLs/Instruments/EICAS/EICAS_lower.xml</path>
+		<path>Aircraft/A320neo/XMLs/Instruments/ECAM/ECAM.xml</path>
 		<offsets>
-			<x-m>-17.125</x-m>
+			<x-m>-17.120</x-m><!-- -17.125 -->
 			<y-m>0</y-m>
 			<z-m>-2.17</z-m>
 			<pitch-deg>-15.0</pitch-deg>
