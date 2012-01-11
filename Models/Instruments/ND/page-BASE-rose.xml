@@ -66,6 +66,35 @@
 			</transformations>
 		</layer>
 
+		<layer>
+			<name>aircraft</name>
+			<emissive>true</emissive>
+			<w>30</w>
+			<h>30</h>
+			<texture>
+				<path>Aircraft/A320neo/Models/Instruments/ND/res/A320neo_symbols.png</path>
+
+				<!-- Orign is down left-->
+				<x1>0.824</x1>
+				<y1>0.656</y1>
+				<x2>1</x2>
+				<y2>0.832</y2>
+			</texture>
+			<transformations>
+				<!-- ROSE center -->
+				<transformation>
+					<type>y-shift</type>
+					<offset>-12</offset>
+				</transformation>
+				<!-- Rotate fro for track -->
+				<!--transformation>
+					<type>rotation</type>
+					<property>autopilot/internal/fdm-heading-bug-error-deg</property>
+				</transformation-->
+
+			</transformations>
+		</layer>
+
 
 	</layers>
 </PropertyList>

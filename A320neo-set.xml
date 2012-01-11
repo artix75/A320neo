@@ -621,7 +621,9 @@
 				<V2 type="double">0</V2>
 			</vspeeds>
 		</fmc>
-
+		<dme n="1">
+			<serviceable type="bool">true</serviceable>
+		</dme>
 		<nav-compass>
 			<nav-display n="0" type="int">0</nav-display>
 			<nav-display n="1" type="int">0</nav-display>
@@ -659,17 +661,17 @@
 			</voice>
 		</mk-viii>
 		<radar>
-<!--
-// those properties are used by a radar instrument of a MFD
-    // input switch = OFF | TST | STBY | ON
-    // input mode = WX | WXA | MAP
-    // output status = STBY | TEST | WX | WXA | MAP | blank
-    // input lightning = true | false
-    // input TRK = +/- n degrees
-    // input TILT = +/- n degree
-    // input autotilt = true | false
-    // input range = n nm (20/40/80)
-    // input display-mode = arc | rose | map | plan | BSCAN-->
+			<!--
+			// those properties are used by a radar instrument of a MFD
+			// input switch = OFF | TST | STBY | ON
+			// input mode = WX | WXA | MAP
+			// output status = STBY | TEST | WX | WXA | MAP | blank
+			// input lightning = true | false
+			// input TRK = +/- n degrees
+			// input TILT = +/- n degree
+			// input autotilt = true | false
+			// input range = n nm (20/40/80)
+			// input display-mode = arc | rose | map | plan | BSCAN-->
 
 			<switch type="string">ON</switch>
 			<mode-control type="int">1</mode-control>

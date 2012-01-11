@@ -81,14 +81,14 @@
 	<model>
 		<path>Aircraft/A320neo/Models/Instruments/Stby-AI/Stby-AI.xml</path>
 		<offsets>
-			<x-m>-17.17</x-m>
+			<x-m>-17.169</x-m>
 			<y-m>-0.15</y-m>
-			<z-m>-2</z-m>
+			<z-m>-2.011</z-m>
 			<pitch-deg>-15.0</pitch-deg>
 		</offsets>
 	</model>
 
-	<model>
+	<!--model>
 		<path>Aircraft/A320neo/Models/Instruments/Stby-ASI/Stby-ASI.xml</path>
 		<offsets>
 			<x-m>-17.184</x-m>
@@ -96,9 +96,9 @@
 			<z-m>-1.949</z-m>
 			<pitch-deg>-15.0</pitch-deg>
 		</offsets>
-	</model>
+	</model-->
 
-	<model>
+	<!--model>
 		<path>Aircraft/A320neo/Models/Instruments/Altimeter/altimeter.xml</path>
 		<offsets>
 			<x-m>-17.17</x-m>
@@ -106,14 +106,14 @@
 			<z-m>-2.014</z-m>
 			<pitch-deg>-15.0</pitch-deg>
 		</offsets>
-	</model>
+	</model-->
 
 	<model>
 		<path>Aircraft/A320neo/Models/Instruments/VOR/VOR.xml</path>
 		<offsets>
-			<x-m>-17.136</x-m>
+			<x-m>-17.140</x-m>
 			<y-m>-0.15</y-m>
-			<z-m>-2.114</z-m>
+			<z-m>-2.116</z-m>
 			<pitch-deg>-15.0</pitch-deg>
 		</offsets>
 	</model>

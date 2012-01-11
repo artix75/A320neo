@@ -220,5 +220,379 @@
 			<emissive>true</emissive>
 		</layer>
 
+
+
+
+
+<!-- ############################################# TEXT   ############################################### -->
+
+		<layer>
+			<name>VORNAV</name>
+			<type>text</type>
+			<font>arial_black</font>
+			<point-size>8</point-size>
+			<color>
+			<red>1.0</red>
+			<green>0.5</green>
+			<blue>0.5</blue>
+			</color>
+			
+			<chunks>
+				<chunk>
+					<type>literal</type>
+					<text>ILS APP</text>
+					<!--alignment>center-center</alignment-->
+				</chunk>
+			</chunks>
+			<transformations>
+				<transformation>
+					<type>x-shift</type>
+					<offset>-20</offset>
+				</transformation>
+				<transformation>
+					<type>y-shift</type>
+					<offset>118</offset>
+				</transformation>
+			</transformations>
+		</layer>
+
+
+<!-- ######################## TOP LEFT ############################## -->
+
+		<layer>
+			<name>ILS 1</name>
+			<condition>
+				<equals>
+					<property>instrumentation/efis[0]/input/vor-adf-1</property>
+					<value>1</value>
+				</equals>			
+
+			</condition>
+			<type>text</type>
+			<font>arial_black</font>
+			<point-size>7</point-size>
+			<color>
+			<red>1.0</red>
+			<green>1.0</green>
+			<blue>1.0</blue>
+			</color>
+			<chunks>
+				<chunk>
+				<type>literal</type>
+				<text>ILS 1</text>
+				</chunk>
+			</chunks>
+			<transformations>
+				<transformation>
+					<type>x-shift</type>
+					<offset>55</offset>
+				</transformation>
+				<transformation>
+					<type>y-shift</type>
+					<offset>118</offset>
+				</transformation>
+			</transformations>
+		</layer>
+
+		<layer>
+			<condition>
+				<equals>
+					<property>instrumentation/efis[0]/input/vor-adf-1</property>
+					<value>1</value>
+				</equals>			
+
+			</condition>
+			<name>VORfreq</name>
+			<type>text</type>
+			<font>arial_black</font>
+			<point-size>7</point-size>
+			<color>
+				<red>0.0</red>
+				<green>1.0</green>
+				<blue>0.0</blue>
+			</color>
+			<chunks>
+				<chunk>
+					<type>text-value</type>
+					<property>instrumentation/nav/frequencies/selected-mhz</property>
+				</chunk>
+			</chunks>
+			<transformations>
+				<transformation>
+					<type>x-shift</type>
+					<offset>85</offset>
+				</transformation>
+				<transformation>
+					<type>y-shift</type>
+					<offset>118</offset>
+				</transformation>
+			</transformations>
+		</layer>
+		<layer>
+			<name>crs</name>
+			<type>text</type>
+			<font>arial_black</font>
+			<point-size>7</point-size>
+			<color>
+				<red>1.0</red>
+				<green>1.0</green>
+				<blue>1.0</blue>
+			</color>
+			<chunks>
+				<chunk>
+					<type>literal</type>
+					<text>CRS</text>
+				</chunk>
+			</chunks>
+			<transformations>
+				<transformation>
+					<type>x-shift</type>
+					<offset>60</offset>
+				</transformation>
+				<transformation>
+					<type>y-shift</type>
+					<offset>108</offset>
+				</transformation>
+			</transformations>
+		</layer>
+
+
+		<layer>
+			<condition>
+				<equals>
+					<property>instrumentation/efis[0]/input/vor-adf-1</property>
+					<value>1</value>
+				</equals>			
+
+			</condition>
+			<name>VOR RADIAL</name>
+			<type>text</type>
+			<font>arial_black</font>
+			<point-size>7</point-size>
+			<color>
+				<red>0.0</red>
+				<green>1.0</green>
+				<blue>0.0</blue>
+			</color>
+			<chunks>
+				<chunk>
+					<type>number-value</type>
+					<property>instrumentation/nav/radials/target-radial-deg</property>
+					<format>%03.0f</format>
+				</chunk>
+			</chunks>
+			<transformations>
+				<transformation>
+					<type>x-shift</type>
+					<offset>85</offset>
+				</transformation>
+				<transformation>
+					<type>y-shift</type>
+					<offset>108</offset>
+				</transformation>
+			</transformations>
+		</layer>
+
+		<layer>
+			<condition>
+				<and>
+					<equals>
+						<property>instrumentation/efis[0]/input/vor-adf-1</property>
+						<value>1</value>
+					</equals>
+					<equals>
+						<property>instrumentation/nav[0]/in-range</property>
+						<value>1</value>
+					</equals>			
+				</and>
+			</condition>
+			<name>VOR Ident</name>
+			<type>text</type>
+			<font>arial_black</font>
+			<point-size>7</point-size>
+			<color>
+				<red>1.0</red>
+				<green>1.0</green>
+				<blue>1.0</blue>
+			</color>
+			<chunks>
+				<chunk>
+					<type>text-value</type>
+					<property>instrumentation/nav/nav-id</property>
+				</chunk>
+			</chunks>
+			<transformations>
+				<transformation>
+					<type>x-shift</type>
+					<offset>85</offset>
+				</transformation>
+				<transformation>
+					<type>y-shift</type>
+					<offset>98</offset>
+				</transformation>
+			</transformations>
+		</layer>
+
+
+<!-- ######### BOTTOM RIGHT ########## -->
+	<!-- VOR1 Icon-->
+		<layer>
+			<condition>
+				<equals>
+					<property>instrumentation/efis[0]/input/vor-adf-1</property>
+					<value>1</value>
+				</equals>			
+
+			</condition>
+			<name>VOR1</name>
+			<emissive>true</emissive>
+			<w>10</w>
+			<h>20</h>
+			<texture>
+				<path>Aircraft/A320neo/Models/Instruments/ND/res/A320neo_symbols.png</path>
+
+				<!-- Orign is down left-->
+				<x1>0.634</x1>
+				<y1>0.833</y1>
+				<x2>0.734</x2>
+				<y2>1</y2>
+
+			</texture>
+			<transformations>
+				<transformation>
+					<type>x-shift</type>
+					<offset>-120</offset>
+				</transformation>
+				<transformation>
+					<type>y-shift</type>
+					<offset>-108</offset>
+				</transformation>
+			</transformations>
+		</layer>
+	
+	<!-- VOR1 Name -->
+		<layer>
+			<name>VOR1</name>
+			<condition>
+				<equals>
+					<property>instrumentation/efis[0]/input/vor-adf-1</property>
+					<value>1</value>
+				</equals>			
+
+			</condition>
+			<type>text</type>
+			<font>arial_black</font>
+			<point-size>7</point-size>
+			<color>
+				<red>1.0</red>
+				<green>1.0</green>
+				<blue>1.0</blue>
+			</color>
+			<chunks>
+				<chunk>
+					<type>literal</type>
+					<text>ILS 1</text>
+				</chunk>
+			</chunks>
+			<transformations>
+				<transformation>
+					<type>x-shift</type>
+					<offset>-110</offset>
+				</transformation>
+				<transformation>
+					<type>y-shift</type>
+					<offset>-108</offset>
+				</transformation>
+			</transformations>
+		</layer>
+
+	
+	<!-- VOR/ADF IDENT -->
+		<layer>
+			<name>VOR Ident</name>
+			<condition>
+				<and>
+					<equals>
+						<property>instrumentation/efis[0]/input/vor-adf-1</property>
+						<value>1</value>
+					</equals>
+					<equals>
+						<property>instrumentation/nav[0]/in-range</property>
+						<value>1</value>
+					</equals>			
+				</and>
+			</condition>
+			<type>text</type>
+			<font>arial_black</font>
+			<point-size>7</point-size>
+			<color>
+				<red>1.0</red>
+				<green>1.0</green>
+				<blue>1.0</blue>
+			</color>
+			<chunks>
+				<chunk>
+					<type>text-value</type>
+					<property>instrumentation/nav/nav-id</property>
+				</chunk>
+			</chunks>
+			<transformations>
+				<transformation>
+					<type>x-shift</type>
+					<offset>-110</offset>
+				</transformation>
+				<transformation>
+					<type>y-shift</type>
+					<offset>-118</offset>
+				</transformation>
+			</transformations>
+		</layer>
+
+
+
+	<!-- DME Distance -->
+		<layer>
+			<condition>
+				<and>
+					<equals>
+						<property>instrumentation/efis[0]/input/vor-adf-1</property>
+						<value>1</value>
+					</equals>
+					<equals>
+						<property>instrumentation/dme[0]/in-range</property>
+						<value>1</value>
+					</equals>			
+				</and>
+			</condition>
+			<name>VOR dist</name>
+			<type>text</type>
+			<font>arial_black</font>
+			<point-size>7</point-size>
+			<color>
+				<red>0.0</red>
+				<green>1.0</green>
+				<blue>0.0</blue>
+			</color>
+			<chunks>
+				<chunk>
+					<type>number-value</type>
+					<property>/instrumentation/dme/indicated-distance-nm</property>
+					<!--scale>0.000539</scale-->
+					<format>%03.1f</format>
+				</chunk>
+			</chunks>
+			<transformations>
+				<transformation>
+					<type>x-shift</type>
+					<offset>-110</offset>
+				</transformation>
+				<transformation>
+					<type>y-shift</type>
+					<offset>-128</offset>
+				</transformation>
+			</transformations>
+		</layer>
+
+
 	</layers>
 </PropertyList>

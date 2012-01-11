@@ -11,7 +11,7 @@
 		<name>Elevator Surface</name>
 		<debug type="bool">false</debug>
 		<enable>
-			<property>/autopilot/internal/altitude-hold</property>
+			<property>/autopilot/settings/engaged</property>
 			<value type="bool">true</value>
 		</enable>
 		<input>
@@ -20,13 +20,7 @@
 		</input>
 		<reference>
 			<!--prop>/autopilot/internal/target-climb-rate-fps</prop-->
-			
-			<expression>
-				<sum>
-					<property>/autopilot/internal/target-pitch-deg</property>
-					<property>/autopilot/internal/target-pitch-deg-gain2</property>
-				</sum>
-			</expression>
+			<property>/autopilot/internal/target-pitch-deg</property>
 		</reference>
 		<output>
 			<!--prop>/controls/flight/elevator-trim</prop-->
@@ -175,7 +169,9 @@
 			<value>nav1-hold</value>
 		</enable>
 		<input>
-			<prop>/autopilot/internal/nav1-track-error-deg</prop>
+			<!--prop>/autopilot/internal/nav1-track-error-deg</prop-->
+			<prop>/autopilot/internal/nav1-heading-error-deg</prop>
+
 		</input>
 		<reference>
 			<value>0</value>
@@ -433,8 +429,21 @@
 		<name>Glideslope hold</name>
 		<debug type="bool">false</debug>
 		<enable>
-			<prop>autopilot/settings/altitude</prop>
-			<value>gs1-hold</value>
+			<condition>
+			<and>
+				<equals>
+					<property>autopilot/settings/altitude</property>
+					<value>gs1-hold</value>	
+				</equals>
+				<not>
+					<or>
+						<property>/gear/gear[0]/wow</property>
+						<property>/gear/gear[1]/wow</property>
+						<property>/gear/gear[2]/wow</property>
+					</or>
+				</not>
+			</and>
+			</condition>
 		</enable>
 		<input>
 			<prop>/velocities/vertical-speed-fps</prop>
@@ -446,14 +455,14 @@
 			<prop>/autopilot/internal/target-pitch-deg</prop>
 		</output>
 		<config>
-			<Kp>-0.0075</Kp>
+			<Kp>0.075</Kp>
 			<beta>1</beta>
 			<alpha>0.1</alpha>
 			<gamma>0</gamma>
-			<Ti>10</Ti>
+			<Ti>1</Ti>
 			<Td>0.00001</Td>
-			<u_min>-1</u_min>
-			<u_max>1</u_max>
+			<u_min>-15</u_min>
+			<u_max>15</u_max>
 
 		<!--	<Kp>-0.0045</Kp>
 			<beta>1</beta>

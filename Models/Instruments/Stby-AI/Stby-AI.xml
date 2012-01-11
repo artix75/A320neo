@@ -2,17 +2,17 @@
 
 <PropertyList>
 
-	<path>res/Stby-AI.ac</path>
+	<path>res/Stby-AI2.ac</path>
 
  	<!-- ANIMATIONS -->
 	<!-- Lighting -->
 	<animation>
 		<name>Instrument illumination</name>
 		<type>material</type>
-		<object-name>ball</object-name>
-		<object-name>riminside</object-name>
-		<object-name>rollarrow</object-name>
-		<object-name>rollindex</object-name>
+		<object-name>StbyAIface</object-name>
+		<!--object-name>StbyAIbezel</object-name>
+		<object-name>StbyAIframe</object-name>
+		<object-name>rollindex</object-name-->
 		<emission>
 			<red>0.4</red>
 			<green>0.35</green>
@@ -25,7 +25,7 @@
 	<animation>
 		<name>Attitude indicator</name>
 		<type>texmultiple</type>
-		<object-name>ball</object-name>
+		<object-name>StbyAIface</object-name>
 		<transform>
 			<subtype>textranslate</subtype>
 			<property>orientation/pitch-deg</property>

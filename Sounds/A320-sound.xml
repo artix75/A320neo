@@ -854,6 +854,7 @@
 			</condition>
 			<volume>
 				<property>/sim/sound/effects/volume</property>
+				<factor>1.5</factor>
 			</volume>
 		</v1>
 		<roll>
