@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
-<!-- Airbus A320 for FlightGear -->
-<!-- Electronic Indication and Crew Alert System -->
+<!-- Airbus A320 neo for FlightGear -->
+<!-- ECAM Engine -->
 
-<PropertyList>
+<PropertyList>	
+	<name>Engines</name>
+	<w-base>256</w-base>
+	<h-base>256</h-base>
 
-	<path>../../../Models/Instruments/ECAM/ECAM.ac</path>
-
-	<!-- 3D TEXT -->
+	<layers>
+		<layer><!-- 3D TEXT -->
 	<text>
 		<name>Engine 1 N1</name>
 		<offsets>
@@ -401,5 +403,7 @@
 			<property>engines/apu/running</property>
 		</condition>
 	</animation>
+</layer>
+	</layers>
 
 </PropertyList>

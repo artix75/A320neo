@@ -1,0 +1,289 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!-- Airbus A320 for FlightGear -->
+<!-- Autopilot Switching/ECAM Pedestal Panel -->
+
+<PropertyList>
+
+	<path>res/ECAM-Switches.ac</path>
+
+	<!-- ANIMATIONS -->
+	<!-- Dome lighting -->
+	<animation>
+		<name>Dome illumination</name>
+		<type>material</type>
+		<object-name>AirDataKnob</object-name>
+		<object-name>AttHdgKnob</object-name>
+		<object-name>Buttons</object-name>
+		<object-name>ECAMLowerKnob</object-name>
+		<object-name>ECAMUpperKnob</object-name>
+		<object-name>EISDMCKnob</object-name>
+		<object-name>Markings</object-name>
+		<object-name>Panel</object-name>
+		<object-name>XFRKnob</object-name>
+		<emission>
+			<red>0.5</red>
+			<green>0.5</green>
+			<blue>0.5</blue>
+			<factor-prop>controls/lighting/dome-norm</factor-prop>
+		</emission>
+	</animation>
+
+	<!-- Panel lighting -->
+	<animation>
+		<name>Panel lighting select</name>
+		<type>select</type>
+		<object-name>MarkingLts</object-name>
+		<condition>
+			<or>
+				<not>
+					<property>controls/lighting/dome-norm</property>
+				</not>
+				<and>
+					<equals>
+						<property>controls/lighting/dome-norm</property>
+						<value>0.5</value>
+					</equals>
+					<greater-than>
+						<property>controls/lighting/main-panel-pedestal-norm</property>
+						<value>0.25</value>
+					</greater-than>
+				</and>
+				<and>
+					<equals>
+						<property>controls/lighting/dome-norm</property>
+						<value>1</value>
+					</equals>
+					<greater-than>
+						<property>controls/lighting/main-panel-pedestal-norm</property>
+						<value>0.5</value>
+					</greater-than>
+				</and>
+			</or>
+		</condition>
+	</animation>
+	<animation>
+		<name>Panel no lighting select</name>
+		<type>select</type>
+		<object-name>Markings</object-name>
+		<condition>
+			<or>
+				<and>
+					<equals>
+						<property>controls/lighting/dome-norm</property>
+						<value>0.5</value>
+					</equals>
+					<less-than-equals>
+						<property>controls/lighting/main-panel-pedestal-norm</property>
+						<value>0.25</value>
+					</less-than-equals>
+				</and>
+				<and>
+					<equals>
+						<property>controls/lighting/dome-norm</property>
+						<value>1</value>
+					</equals>
+					<less-than-equals>
+						<property>controls/lighting/main-panel-pedestal-norm</property>
+						<value>0.5</value>
+					</less-than-equals>
+				</and>
+			</or>
+		</condition>
+	</animation>
+	<animation>
+		<name>Panel lighting</name>
+		<type>material</type>
+		<object-name>MarkingLts</object-name>
+		<emission>
+			<red>1</red>
+			<green>1</green>
+			<blue>1</blue>
+			<factor-prop>controls/lighting/main-panel-pedestal-norm</factor-prop>
+		</emission>
+	</animation>
+
+
+<!-- ECAM Switching pannel buttons -->
+
+	<animation>
+		<name>ECAM Engine</name>
+		<type>pick</type>
+		<object-name>btENG</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-assign</command>
+				<property>/instrumentation/efis/ecam/display-mode</property>
+				<value>ENG</value>
+			</binding>
+		</action>
+	</animation>
+
+	<animation>
+		<name>ECAM Bleed</name>
+		<type>pick</type>
+		<object-name>btBLEED</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-assign</command>
+				<property>/instrumentation/efis/ecam/display-mode</property>
+				<value>BLEED</value>
+			</binding>
+		</action>
+	</animation>
+
+	<animation>
+		<name>ECAM Pressure</name>
+		<type>pick</type>
+		<object-name>btPRESS</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-assign</command>
+				<property>/instrumentation/efis/ecam/display-mode</property>
+				<value>PRESS</value>
+			</binding>
+		</action>
+	</animation>
+
+	<animation>
+		<name>ECAM Electrical</name>
+		<type>pick</type>
+		<object-name>btELEC</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-assign</command>
+				<property>/instrumentation/efis/ecam/display-mode</property>
+				<value>ELEC</value>
+			</binding>
+		</action>
+	</animation>
+
+	<animation>
+		<name>ECAM Hydraulic</name>
+		<type>pick</type>
+		<object-name>btHYD</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-assign</command>
+				<property>/instrumentation/efis/ecam/display-mode</property>
+				<value>HYD</value>
+			</binding>
+		</action>
+	</animation>
+
+	<animation>
+		<name>ECAM Fuel</name>
+		<type>pick</type>
+		<object-name>btFUEL</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-assign</command>
+				<property>/instrumentation/efis/ecam/display-mode</property>
+				<value>FUEL</value>
+			</binding>
+		</action>
+	</animation>
+
+	<animation>
+		<name>ECAM APU</name>
+		<type>pick</type>
+		<object-name>btAPU</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-assign</command>
+				<property>/instrumentation/efis/ecam/display-mode</property>
+				<value>APU</value>
+			</binding>
+		</action>
+	</animation>
+
+	<animation>
+		<name>ECAM Air Conditioning</name>
+		<type>pick</type>
+		<object-name>btCOND</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-assign</command>
+				<property>/instrumentation/efis/ecam/display-mode</property>
+				<value>COND</value>
+			</binding>
+		</action>
+	</animation>
+
+	<animation>
+		<name>ECAM Doors</name>
+		<type>pick</type>
+		<object-name>btDOOR</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-assign</command>
+				<property>/instrumentation/efis/ecam/display-mode</property>
+				<value>DOOR</value>
+			</binding>
+		</action>
+	</animation>
+
+	<animation>
+		<name>ECAM WHEELS</name>
+		<type>pick</type>
+		<object-name>btWHEEL</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-assign</command>
+				<property>/instrumentation/efis/ecam/display-mode</property>
+				<value>WHEEL</value>
+			</binding>
+		</action>
+	</animation>
+
+	<animation>
+		<name>ECAM Flight Controls</name>
+		<type>pick</type>
+		<object-name>btFCTL</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-assign</command>
+				<property>/instrumentation/efis/ecam/display-mode</property>
+				<value>FCTL</value>
+			</binding>
+		</action>
+	</animation>
+
+	<animation>
+		<name>ECAM Flight Controls</name>
+		<type>pick</type>
+		<object-name>btALL</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-assign</command>
+				<property>/instrumentation/efis/ecam/display-mode</property>
+				<value>ALL</value>
+			</binding>
+		</action>
+	</animation>
+
+</PropertyList>

@@ -46,7 +46,7 @@
 	</model>
 
 	<model>
-		<path>Aircraft/A320neo/XMLs/Instruments/EICAS/EICAS_Airbus.xml</path>
+		<path>Aircraft/A320neo/Models/Instruments/EICAS/EICAS_Airbus.xml</path>
 		<offsets>
 			<x-m>-17.168</x-m><!-- -17.173 -->
 			<y-m>0</y-m>
@@ -56,7 +56,7 @@
 	</model>
 
 	<model>
-		<path>Aircraft/A320neo/XMLs/Instruments/ECAM/ECAM.xml</path>
+		<path>Aircraft/A320neo/Models/Instruments/ECAM/ECAM.xml</path>
 		<offsets>
 			<x-m>-17.120</x-m><!-- -17.125 -->
 			<y-m>0</y-m>
@@ -145,7 +145,7 @@
 	</model>
 
 	<model>
-		<path>Aircraft/A320neo/XMLs/Instruments/SwitchECAMpanel/SwitchECAMpanel.xml</path>
+		<path>Aircraft/A320neo/Models/Instruments/ECAM-Switches/ECAM-Switches.xml</path>
 		<offsets>
 			<x-m>-17.031</x-m>
 			<y-m>0</y-m>

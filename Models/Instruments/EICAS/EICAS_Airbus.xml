@@ -5,17 +5,17 @@
 
 <PropertyList>
 
-	<path>../../../Models/Instruments/EICAS/EICAS_Airbus.ac</path>
+	<path>res/EICAS_Airbus.ac</path>
 
 	<!-- 3D TEXT -->
 	<text>
 		<name>Engine 1 N1</name>
 		<offsets>
-			<x-m>0.0002</x-m>
-			<y-m>-0.062</y-m>
-			<z-m>0.055</z-m>
+			<x-m>0.001</x-m>
+			<y-m>-0.045</y-m>
+			<z-m>0.0718</z-m>
 		</offsets>
-		<alignment>left-center</alignment>
+		<alignment>right-center</alignment>
 		<axis-alignment>yz-plane</axis-alignment>
 		<type type="string">number-value</type>
 		<format type="string">%3.1f</format>
@@ -31,11 +31,11 @@
 	<text>
 		<name>Engine 2 N1</name>
 		<offsets>
-			<x-m>0.0002</x-m>
-			<y-m>-0.001</y-m>
-			<z-m>0.055</z-m>
+			<x-m>0.001</x-m>
+			<y-m>0.021</y-m>
+			<z-m>0.0718</z-m>
 		</offsets>
-		<alignment>left-center</alignment>
+		<alignment>right-center</alignment>
 		<axis-alignment>yz-plane</axis-alignment>
 		<type type="string">number-value</type>
 		<format type="string">%3.1f</format>
@@ -52,11 +52,11 @@
 	<text>
 		<name>Engine 1 EGT</name>
 		<offsets>
-			<x-m>0.0002</x-m>
-			<y-m>-0.062</y-m>
-			<z-m>0.024</z-m>
+			<x-m>0.001</x-m>
+			<y-m>-0.045</y-m>
+			<z-m>0.0245</z-m>
 		</offsets>
-		<alignment>left-center</alignment>
+		<alignment>right-center</alignment>
 		<axis-alignment>yz-plane</axis-alignment>
 		<type type="string">number-value</type>
 		<format type="string">%3.1f</format>
@@ -72,11 +72,11 @@
 	<text>
 		<name>Engine 2 EGT</name>
 		<offsets>
-			<x-m>0.0002</x-m>
-			<y-m>-0.001</y-m>
-			<z-m>0.024</z-m>
+			<x-m>0.001</x-m>
+			<y-m>0.0201</y-m>
+			<z-m>0.0245</z-m>
 		</offsets>
-		<alignment>left-center</alignment>
+		<alignment>right-center</alignment>
 		<axis-alignment>yz-plane</axis-alignment>
 		<type type="string">number-value</type>
 		<format type="string">%3.1f</format>
@@ -93,8 +93,8 @@
 	<text>
 		<name>Engine 1 N2</name>
 		<offsets>
-			<x-m>0.0001</x-m>
-			<y-m>-0.048</y-m>
+			<x-m>0.001</x-m>
+			<y-m>-0.0602</y-m>
 			<z-m>0.01</z-m>
 		</offsets>
 		<alignment>right-center</alignment>
@@ -113,8 +113,8 @@
 	<text>
 		<name>Engine 2 N2</name>
 		<offsets>
-			<x-m>0.0001</x-m>
-			<y-m>-0.014</y-m>
+			<x-m>0.001</x-m>
+			<y-m>-0.0075</y-m>
 			<z-m>0.01</z-m>
 		</offsets>
 		<alignment>left-center</alignment>
@@ -134,9 +134,9 @@
 	<text>
 		<name>Engine 1 FF</name>
 		<offsets>
-			<x-m>0.0001</x-m>
-			<y-m>-0.048</y-m>
-			<z-m>-0.003</z-m>
+			<x-m>0.001</x-m>
+			<y-m>-0.0602</y-m>
+			<z-m>-0.005</z-m>
 		</offsets>
 		<alignment>right-center</alignment>
 		<axis-alignment>yz-plane</axis-alignment>
@@ -154,9 +154,9 @@
 	<text>
 		<name>Engine 2 FF</name>
 		<offsets>
-			<x-m>0.0001</x-m>
-			<y-m>-0.014</y-m>
-			<z-m>-0.003</z-m>
+			<x-m>0.001</x-m>
+			<y-m>-0.0075</y-m>
+			<z-m>-0.005</z-m>
 		</offsets>
 		<alignment>left-center</alignment>
 		<axis-alignment>yz-plane</axis-alignment>
@@ -175,11 +175,11 @@
 	<text>
 		<name>Fuel on board</name>
 		<offsets>
-			<x-m>0.0001</x-m>
-			<y-m>-0.057</y-m>
-			<z-m>-0.015</z-m>
+			<x-m>0.001</x-m>
+			<y-m>0.075</y-m>
+			<z-m>0.045</z-m>
 		</offsets>
-		<alignment>left-center</alignment>
+		<alignment>right-center</alignment>
 		<axis-alignment>yz-plane</axis-alignment>
 		<type type="string">number-value</type>
 		<format type="string">%5.1f</format>
@@ -195,11 +195,11 @@
 	<text>
 		<name>Flaps degrees</name>
 		<offsets>
-			<x-m>0.0001</x-m>
-			<y-m>0.052</y-m>
-			<z-m>-0.015</z-m>
+			<x-m>0.001</x-m>
+			<y-m>0.071</y-m>
+			<z-m>0.0216</z-m>
 		</offsets>
-		<alignment>left-center</alignment>
+		<alignment>right-center</alignment>
 		<axis-alignment>yz-plane</axis-alignment>
 		<type type="string">number-value</type>
 		<format type="string">%2.0f</format>
@@ -289,8 +289,8 @@
 		</axis>
 		<center>
 			<x-m>0</x-m>
-			<y-m>-0.0623</y-m>
-			<z-m>0.05945</z-m>
+			<y-m>-0.0659</y-m>
+			<z-m>0.07612</z-m>
 		</center>
 	</animation>
 	<animation>
@@ -309,8 +309,8 @@
 		</axis>
 		<center>
 			<x-m>0</x-m>
-			<y-m>−0.0552</y-m>
-			<z-m>0.05945</z-m>
+			<y-m>0.00077</y-m>
+			<z-m>0.07612</z-m>
 		</center>
 	</animation>
 
@@ -331,8 +331,8 @@
 		</axis>
 		<center>
 			<x-m>0</x-m>
-			<y-m>-0.0623</y-m>
-			<z-m>0.02927</z-m>
+			<y-m>-0.06582</y-m>
+			<z-m>0.02928</z-m>
 		</center>
 	</animation>
 	<animation>
@@ -352,7 +352,7 @@
 		<center>
 			<x-m>0</x-m>
 			<y-m>−0.0282</y-m>
-			<z-m>0.02927</z-m>
+			<z-m>0.02965</z-m>
 		</center>
 	</animation>
 
