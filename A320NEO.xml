@@ -387,11 +387,12 @@ YAW MOI_________3950000______23089847_______24848934
 		<pitch> 2.2 </pitch>
 		<yaw> 1 </yaw>
 	</orient>
-	<feed>1</feed>
+<!--	<feed>1</feed>
 	<feed>2</feed>
 	<feed>3</feed>
 	<feed>4</feed>
-	<feed>5</feed>
+	<feed>5</feed> -->
+	<feed>7</feed>
 	<thruster file="direct">
 		<location unit="IN">
 		<x> 589.735 </x>
@@ -416,11 +417,12 @@ YAW MOI_________3950000______23089847_______24848934
 		<pitch> 2.2 </pitch>
 		<yaw> -1 </yaw>
 	</orient>
-	<feed>1</feed>
+<!--	<feed>1</feed>
 	<feed>2</feed>
 	<feed>3</feed>
 	<feed>4</feed>
-	<feed>5</feed>
+	<feed>5</feed> -->
+	<feed>8</feed>
 	<thruster file="direct">
 		<location unit="IN">
 		<x> 589.735 </x>
@@ -436,7 +438,7 @@ YAW MOI_________3950000______23089847_______24848934
 	</engine>
 
 
-	<tank type="FUEL">    <!-- Left Tank (Surge) -->
+	<tank type="FUEL">    <!-- Left Tank (Wing tip Ventilation Surge) -->
 		<location unit="IN">
 			<x> 788.4322 </x>
 			<y> -574.4148 </y>
@@ -445,7 +447,7 @@ YAW MOI_________3950000______23089847_______24848934
 		<capacity unit="LBS"> 328.13 </capacity><!-- need review -->
 		<contents unit="LBS"> 0 </contents>
 		
-		<priority>1</priority>
+		<priority>0</priority>
 		<type>JET-A1</type>
 		<temperature>50</temperature>
 	</tank>
@@ -515,7 +517,7 @@ YAW MOI_________3950000______23089847_______24848934
 		<type>JET-A1</type>
 		<temperature>50</temperature>
 	</tank>
-	<tank type="FUEL">    <!-- Right Tank (Surge) -->
+	<tank type="FUEL">    <!-- Right Tank (Wing tip Ventilation Surge) -->
 		<location unit="IN">
 			<x> 788.4322 </x>
 			<y> 574.4148 </y>
@@ -523,13 +525,36 @@ YAW MOI_________3950000______23089847_______24848934
 		</location>
 		<capacity unit="LBS"> 328.13 </capacity><!-- need review -->
 		<contents unit="LBS"> 0 </contents>
-		<priority>1</priority>
+		<priority>0</priority>
 		<type>JET-A1</type>
 		<temperature>50</temperature>
+	</tank>
+	<tank type="FUEL">    <!-- LEFT FUEL PIPES (Engine 1 feed from this) -->
+		<!--location unit="IN">
+			<x> 788.4322 </x>
+			<y> 574.4148 </y>
+			<z> 3.1080 </z>
+		</location-->
+		<capacity unit="LBS"> 328.13 </capacity><!-- need review -->
+		<contents unit="LBS"> 0 </contents>
+		<priority>1</priority>
+		<type>JET-A1</type>
+	</tank>
+	<tank type="FUEL">    <!-- RIGHT FUEL PIPES (Engine 2 feed from this) -->
+		<!--location unit="IN">
+			<x> 788.4322 </x>
+			<y> 574.4148 </y>
+			<z> 3.1080 </z>
+		</location-->
+		<capacity unit="LBS"> 328.13 </capacity><!-- need review -->
+		<contents unit="LBS"> 0 </contents>
+		<priority>1</priority>
+		<type>JET-A1</type>
 	</tank>
 </propulsion>
 
 <system file="pushback" />
+<system file="a320-fuel" />
 
 <flight_control name="FCS: A320">
 	<channel name="Pitch">

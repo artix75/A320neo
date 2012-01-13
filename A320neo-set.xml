@@ -4,7 +4,7 @@
 
 	<sim>
 		<description>Airbus A320neo With Sharklets and CFM LEAP-X High ByPass Turbofan Engine</description>
-		<author>Narendran, Malik and Jon A. Ortuondo(Bicyus) (A320neo), Ryan and Ampere (base A320)</author>
+		<author>Narendran, Malik and Jon A. Ortuondo(Bicyus), [based on A320-family]</author>
 		<status>beta</status>
 		<flight-model>jsb</flight-model>
 		<aero>A320NEO</aero>
@@ -219,6 +219,10 @@
 				<name>Spoilers</name>
 				<path>Aircraft/A320neo/Systems/a320-spoilers.xml</path>
 			</autopilot>
+			<!--<fuel>
+				<name>fuel</name>
+				<path>Aircraft/A320neo/Systems/a320-fuel.xml</path>
+			</fuel>-->
 		</systems>
 
 		<chase-distance-m>-60</chase-distance-m>
@@ -392,22 +396,28 @@
 				<name>Left Wing Vent</name>
 			</tank>
 			<tank n="1">
-				<name>LH Outer</name>
+				<name>Left Wing Outer</name>
 			</tank>
 			<tank n="2">
-				<name>LH Inner</name>
+				<name>Left Wing Inner</name>
 			</tank>
 			<tank n="3">
 				<name>Center</name>
 			</tank>
 			<tank n="4">
-				<name>RH Inner</name>
+				<name>Right Wing Inner</name>
 			</tank>
 			<tank n="5">
-				<name>RH Outer</name>
+				<name>Right Wing Outer</name>
 			</tank>
 			<tank n="6">
-				<name>RH Vent</name>
+				<name>Right Wing Vent</name>
+			</tank>
+			<tank n="7">
+				<name>Left Pipes</name>
+			</tank>
+			<tank n="8">
+				<name>Right Pipes</name>
 			</tank>
 		</fuel>
 	</consumables>
