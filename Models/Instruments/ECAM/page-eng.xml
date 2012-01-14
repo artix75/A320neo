@@ -13,7 +13,7 @@
 	<text>
 		<name>Engine 1 N1</name>
 		<offsets>
-			<x-m>0.0002</x-m>
+			<x-m>0.01</x-m>
 			<y-m>-0.029</y-m>
 			<z-m>0.053</z-m>
 		</offsets>
