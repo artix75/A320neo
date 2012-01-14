@@ -47,15 +47,17 @@
 				<x-m>0.01</x-m>
 				<y-m>-0.029</y-m>
 				<z-m>0.053</z-m>
-			</offsets -->
+			</offsets -->     <x1>0.0</x1>
+     <y1>1.0</y1>
+
 				</chunk>
 			</chunks>
-			<transformations>
+			<!-- transformations>
 				<transformation>
 					<type>y-shift</type>
 					<offset>20</offset>
 				</transformation>
-			</transformations>
+			</transformations -->
 
 
 

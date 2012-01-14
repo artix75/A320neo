@@ -22,6 +22,63 @@
 			</texture>
 			<emissive>true</emissive>
 		</layer>
+
+		<layer>
+			
+			<type>text</type>
+			<name>Engine 1 OIL PSI</name>
+	 		<color>
+		        	<red>0.1</red>
+		        	<green>1.0</green>
+		        	<blue>0.1</blue>
+		    	</color>
+
+			<chunks>
+				<chunk>
+				    <type>number-value</type>
+				    <property>engines/engine[0]/oil-pressure-psi</property>
+					<format type="string">%3.0f</format>
+				</chunk>
+			</chunks>
+			<transformations>
+				<transformation>
+					<type>y-shift</type>
+					<offset>-11</offset>
+				</transformation>
+				<transformation>
+					<type>x-shift</type>
+					<offset>-84</offset>
+				</transformation>
+			</transformations>
+		</layer>
+		<layer>
+			
+			<type>text</type>
+			<name>Engine 2 OIL PSI</name>
+	 		<color>
+		        	<red>0.1</red>
+		        	<green>1.0</green>
+		        	<blue>0.1</blue>
+		    	</color>
+
+			<chunks>
+				<chunk>
+					<type>number-value</type>
+					<property>engines/engine[1]/oil-pressure-psi</property>
+					<format type="string">%3.0f</format>
+				</chunk>
+			</chunks>
+			<transformations>
+				<transformation>
+					<type>y-shift</type>
+					<offset>-11</offset>
+				</transformation>
+				<transformation>
+					<type>x-shift</type>
+					<offset>4</offset>
+				</transformation>
+			</transformations>
+		</layer>
 	</layers>
 
 
