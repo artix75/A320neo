@@ -25,6 +25,7 @@ file, these values will be used (they are hardcoded).
 
 <PropertyList>
 
+
 	<adf>
 		<name>adf</name>
 		<number>0</number>

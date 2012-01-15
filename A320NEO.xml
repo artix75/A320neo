@@ -50,12 +50,39 @@ xsi:noNamespaceSchemaLocation="http://jsbsim.sourceforge.net/JSBSim.xsd">
 	<ixz unit="SLUG*FT2">         0 </ixz>
 	<iyz unit="SLUG*FT2">         0 </iyz>
 	<!-- <emptywt unit="LBS" >     87274 </emptywt> -->
-	<emptywt unit="LBS">90927</emptywt> <!-- #ref-1 page 67, WV016 -->
+	<emptywt unit="LBS">80431</emptywt> <!-- #ref-1 page 67, WV016. 90927lbs - 5248x2 (engines)=80431lbs-->
 	<location name="CG" unit="IN">
 	<x> 642.122 </x>
 	<y> 0 </y>
 	<z> -41.7398 </z>
 	</location>
+
+
+
+	<pointmass name="Engine1">
+		<weight unit="LBS">5248</weight>
+		<form shape="cylinder">
+			<radius unit="M"> 1.31 </radius>
+			<length unit="M"> 5 </length>
+		</form>
+		<location name="POINTMASS" unit="IN">
+			<x>589.735</x>	
+			<y>-226.575</y>
+			<z>-45.567</z>
+		</location>
+	</pointmass>
+	<pointmass name="Engine2">
+		<weight unit="LBS">5248</weight>
+		<form shape="cylinder">
+			<radius unit="M"> 1.31 </radius>
+			<length unit="M"> 5 </length>
+		</form>
+		<location name="POINTMASS" unit="IN">
+			<x>589.735</x>	
+			<y>226.575</y>
+			<z>-45.567</z>
+		</location>
+	</pointmass>
 
 	<pointmass name="Crew">
 		<weight unit="LBS">400</weight> <!-- MAX: 600lbs-->
