@@ -21,6 +21,18 @@
 		<object-name>Markings</object-name>
 		<object-name>Panel</object-name>
 		<object-name>XFRKnob</object-name>
+		<object-name>btENG</object-name>
+		<object-name>btPRESS</object-name>
+		<object-name>btBLEED</object-name>
+		<object-name>btELEC</object-name>
+		<object-name>btHYD</object-name>
+		<object-name>btFUEL</object-name>
+		<object-name>btAPU</object-name>
+		<object-name>btCOND</object-name>
+		<object-name>btDOOR</object-name>
+		<object-name>btWHEEL</object-name>
+		<object-name>btFCTL</object-name>
+		<object-name>btALL</object-name>
 		<emission>
 			<red>0.5</red>
 			<green>0.5</green>

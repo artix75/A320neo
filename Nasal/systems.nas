@@ -189,6 +189,8 @@ var startup = func
  setprop("controls/electric/engine[1]/generator", 1);
  setprop("controls/engines/engine[0]/cutoff-switch", 1);
  setprop("controls/engines/engine[1]/cutoff-switch", 1);
+ setprop("controls/fuel/tank[2]/boost-pump", 1);
+ setprop("controls/fuel/tank[4]/boost-pump", 1);
  setprop("controls/APU/master-switch", 1);
  setprop("controls/APU/starter", 1);
 

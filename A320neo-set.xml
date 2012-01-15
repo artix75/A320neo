@@ -219,10 +219,6 @@
 				<name>Spoilers</name>
 				<path>Aircraft/A320neo/Systems/a320-spoilers.xml</path>
 			</autopilot>
-			<!--<fuel>
-				<name>fuel</name>
-				<path>Aircraft/A320neo/Systems/a320-fuel.xml</path>
-			</fuel>-->
 		</systems>
 
 		<chase-distance-m>-60</chase-distance-m>

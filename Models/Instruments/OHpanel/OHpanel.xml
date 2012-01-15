@@ -447,10 +447,10 @@
 	</animation>
 
 	<animation>
-		<name>Center fuel tank pumps pick</name>
+		<name>Center fuel tank pumps 1 pick</name>
 		<type>pick</type>
-		<object-name>CFuelTankBtn1</object-name>
-		<object-name>CFuelTankBtn2</object-name>
+		<object-name>CFuelTank1Btn1</object-name>
+		<object-name>CFuelTank1Btn2</object-name>
 		<action>
 			<button>0</button>
 			<repeatable type="bool">false</repeatable>
@@ -462,11 +462,41 @@
 		</action>
 	</animation>
 	<animation>
-		<name>Center fuel tank pumps off</name>
+		<name>Center fuel tank pumps 1 off</name>
 		<type>textranslate</type>
-		<object-name>CFuelTankBtn2</object-name>
+		<object-name>CFuelTank1Btn2</object-name>
 		<!--property>consumables/fuel/tank[3]/selected</property-->
 		<property>controls/fuel/tank[3]/boost-pump[0]</property>
+		<interpolation>
+			<entry><ind>0</ind><dep>0.5</dep></entry>
+			<entry><ind>1</ind><dep>0</dep></entry>
+		</interpolation>
+		<axis>
+			<x>1</x>
+			<y>0</y>
+		</axis>
+	</animation>
+	<animation>
+		<name>Center fuel tank pumps 2 pick</name>
+		<type>pick</type>
+		<object-name>CFuelTank2Btn1</object-name>
+		<object-name>CFuelTank2Btn2</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-toggle</command>
+				<!--property>consumables/fuel/tank[3]/selected</property-->
+				<property>controls/fuel/tank[3]/boost-pump[1]</property>
+			</binding>
+		</action>
+	</animation>
+	<animation>
+		<name>Center fuel tank pumps 2 off</name>
+		<type>textranslate</type>
+		<object-name>CFuelTank2Btn2</object-name>
+		<!--property>consumables/fuel/tank[3]/selected</property-->
+		<property>controls/fuel/tank[3]/boost-pump[1]</property>
 		<interpolation>
 			<entry><ind>0</ind><dep>0.5</dep></entry>
 			<entry><ind>1</ind><dep>0</dep></entry>
@@ -480,8 +510,8 @@
 	<animation>
 		<name>X-Feed Valve</name>
 		<type>pick</type>
-		<object-name>FuelXfeedBtn</object-name>
-
+		<object-name>FuelXfeedBtn1</object-name>
+		<object-name>FuelXfeedBtn2</object-name>
 		<action>
 			<button>0</button>
 			<repeatable type="bool">false</repeatable>
@@ -492,9 +522,9 @@
 		</action>
 	</animation>
 	<animation>
-		<name>Center fuel tank pumps off</name>
+		<name>X-Feed Valve off</name>
 		<type>textranslate</type>
-		<object-name>FuelXfeedBtn</object-name>
+		<object-name>FuelXfeedBtn1</object-name>
 
 		<property>controls/fuel/x-feed</property>
 		<!-- interpolation>

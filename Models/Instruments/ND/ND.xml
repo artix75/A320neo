@@ -7,7 +7,7 @@
         <path>Aircraft/A320neo/Models/Instruments/ND/Display.xml</path>
 	<condition>
 		<greater-than>
-			<property>systems/electrical/outputs/efis</property>
+			<property>/systems/electrical/outputs/efis</property>
 			<value>15</value>
 		</greater-than>
 	</condition>
