@@ -5454,7 +5454,7 @@ OBJECT poly
 name "FlapLever"
 data 9
 Plane.125
-texture "cockpit-1.png"
+texture "cockpit-0.png"
 crease 30.000000
 numvert 32
 -16.5414 -2.35645 -0.067475
@@ -10079,7 +10079,7 @@ OBJECT poly
 name "ParkingBrake_1"
 data 8
 Cube.024
-texture "cockpit-1.png"
+texture "cockpit-0.png"
 crease 30.000000
 numvert 46
 -16.4194 -2.38569 -0.015442
@@ -10413,7 +10413,7 @@ OBJECT poly
 name "PedalLeft"
 data 9
 PedalLeft
-texture "cockpit-1.png"
+texture "cockpit-0.png"
 crease 30.000000
 numvert 16
 -17.221 -2.704 0.625
@@ -10522,7 +10522,7 @@ OBJECT poly
 name "PedalRight"
 data 10
 PedalRight
-texture "cockpit-1.png"
+texture "cockpit-0.png"
 crease 30.000000
 numvert 16
 -17.221 -2.704 0.265
@@ -17472,7 +17472,7 @@ OBJECT poly
 name "SpeedbrakeLever"
 data 12
 Cylinder.003
-texture "cockpit-1.png"
+texture "cockpit-0.png"
 crease 30.000000
 numvert 88
 -16.5451 -2.34797 0.070682
@@ -18172,7 +18172,7 @@ OBJECT poly
 name "StickLeft"
 data 9
 Plane.120
-texture "cockpit-1.png"
+texture "cockpit-0.png"
 crease 30.000000
 numvert 20
 -16.7835 -2.155 0.8425
@@ -18306,7 +18306,7 @@ OBJECT poly
 name "StickRight"
 data 9
 Plane.119
-texture "cockpit-1.png"
+texture "cockpit-0.png"
 crease 30.000000
 numvert 20
 -16.779 -2.122 -0.894
@@ -18575,7 +18575,7 @@ OBJECT poly
 name "ThrottleLeft_1"
 data 9
 Plane.115
-texture "cockpit-1.png"
+texture "cockpit-0.png"
 crease 30.000000
 numvert 40
 -16.7004 -2.27575 0.00999999
@@ -19429,7 +19429,7 @@ OBJECT poly
 name "ThrottleRight_1"
 data 9
 Plane.116
-texture "cockpit-1.png"
+texture "cockpit-0.png"
 crease 30.000000
 numvert 40
 -16.7004 -2.27575 -0.00999999
