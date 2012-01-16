@@ -4,6 +4,22 @@
 
 	<path>res/a320neo.interior.ac</path>
 
+<!-- LIGHT -->
+	<animation>
+		<name>Interior illumination</name>
+		<type>material</type>
+		<object-name>OverheadBins</object-name>
+		<object-name>Cabin</object-name>
+		
+		<emission>
+			<red>1</red>
+			<green>1</green>
+			<blue>1</blue>
+			<factor-prop>controls/lighting/dome-norm</factor-prop>
+		</emission>
+	</animation>
+
+
 	<!-- ANIMATIONS -->
 	<!-- PAX doors -->
 	<animation>

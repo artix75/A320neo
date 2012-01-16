@@ -12,20 +12,26 @@
 		<instrument include="page-BASE-rose.xml">
 			<!-- BASE/Common Instrument for ROSE style -->
 			<condition>
-				<or>
-					<equals>
-						<property>instrumentation/efis[0]/nd/display-mode</property>
-						<value>ILS</value>
-					</equals>
-					<equals>
-						<property>instrumentation/efis[0]/nd/display-mode</property>
-						<value>VOR</value>
-					</equals>
-					<equals>
-						<property>instrumentation/efis[0]/nd/display-mode</property>
-						<value>NAV</value>
-					</equals>
-				</or>
+				<and>
+					<greater-than>
+					    <property>systems/electrical/outputs/efis</property>
+					    <value>15</value>
+					</greater-than>
+					<or>
+						<equals>
+							<property>instrumentation/efis[0]/nd/display-mode</property>
+							<value>ILS</value>
+						</equals>
+						<equals>
+							<property>instrumentation/efis[0]/nd/display-mode</property>
+							<value>VOR</value>
+						</equals>
+						<equals>
+							<property>instrumentation/efis[0]/nd/display-mode</property>
+							<value>NAV</value>
+						</equals>
+					</or>
+				</and>
 			</condition>
 			<name>ROSEbase</name>
 			<x>128</x>
@@ -36,10 +42,16 @@
 		<instrument include="page-ILS.xml">
 			<!-- ILS -->
 			<condition>
-				<equals>
-					<property>instrumentation/efis[0]/nd/display-mode</property>
-					<value>ILS</value>
-				</equals>
+				<and>
+					<greater-than>
+					    <property>systems/electrical/outputs/efis</property>
+					    <value>15</value>
+					</greater-than>
+					<equals>
+						<property>instrumentation/efis[0]/nd/display-mode</property>
+						<value>ILS</value>
+					</equals>
+				</and>
 			</condition>
 			<name>ILS</name>
 			<x>128</x>
@@ -50,10 +62,16 @@
 		<instrument include="page-VOR.xml">
 			<!-- VOR  -->
 			<condition>
-				<equals>
-					<property>instrumentation/efis[0]/nd/display-mode</property>
-					<value>VOR</value>
-				</equals>
+				<and>
+					<greater-than>
+					    <property>systems/electrical/outputs/efis</property>
+					    <value>15</value>
+					</greater-than>
+					<equals>
+						<property>instrumentation/efis[0]/nd/display-mode</property>
+						<value>VOR</value>
+					</equals>
+				</and>
 			</condition>
 			<name>ILS</name>
 			<x>128</x>
@@ -64,10 +82,16 @@
 		<instrument include="page-NAV.xml">
 			<!-- NAV -->
 			<condition>
-				<equals>
-					<property>instrumentation/efis[0]/nd/display-mode</property>
-					<value>NAV</value>
-				</equals>
+				<and>
+					<greater-than>
+					    <property>systems/electrical/outputs/efis</property>
+					    <value>15</value>
+					</greater-than>
+					<equals>
+						<property>instrumentation/efis[0]/nd/display-mode</property>
+						<value>NAV</value>
+					</equals>
+				</and>
 			</condition>
 			<name>NAV</name>
 			<x>128</x>
@@ -79,10 +103,16 @@
 		<instrument include="page-VOR-text.xml">
 			<!--  -->
 			<condition>
-				<equals>
-					<property>instrumentation/efis[0]/nd/display-mode</property>
-					<value>VOR</value>
-				</equals>
+				<and>
+					<greater-than>
+					    <property>systems/electrical/outputs/efis</property>
+					    <value>15</value>
+					</greater-than>
+					<equals>
+						<property>instrumentation/efis[0]/nd/display-mode</property>
+						<value>VOR</value>
+					</equals>
+				</and>
 			</condition>
 			<name>VORtext</name>
 			<x>128</x>
@@ -100,10 +130,16 @@
 		<instrument include="page-ARC.xml">
 			<!-- ARC -->
 			<condition>
-				<equals>
-					<property>instrumentation/efis[0]/nd/display-mode</property>
-					<value>ARC</value>
-				</equals>
+				<and>
+					<greater-than>
+					    <property>systems/electrical/outputs/efis</property>
+					    <value>15</value>
+					</greater-than>
+					<equals>
+						<property>instrumentation/efis[0]/nd/display-mode</property>
+						<value>ARC</value>
+					</equals>
+				</and>
 			</condition>
 			<name>NAV</name>
 			<x>128</x>
@@ -114,14 +150,13 @@
 
 		
 
-		<instrument include="page-COMMON-text.xml">
-			<!--  
+		<instrument include="page-COMMON-text.xml"> 
 			<condition>
-				<equals>
-					<property>instrumentation/efis[0]/nd/display-mode</property>
-					<value>VOR</value>
-				</equals>
-			</condition>-->
+					<greater-than>
+					    <property>systems/electrical/outputs/efis</property>
+					    <value>15</value>
+					</greater-than>
+			</condition>
 			<name>VORtext</name>
 			<x>128</x>
 			<y>128</y>
