@@ -18,7 +18,7 @@
 		</condition>
 		<volume>
 			<property>engines/engine[0]/thrust-lbs</property>
-			<factor>0.000015</factor>
+			<factor>0.0000015</factor>
 			<min>0.0</min>
 			<max>0.8</max>
 		</volume>
@@ -45,7 +45,7 @@
         </condition>
         <volume>
             <property>engines/engine[0]/thrust-lbs</property>
-            <factor>0.000015</factor>
+            <factor>0.0000015</factor>
             <min>0.0</min>
             <max>0.8</max>
         </volume>
@@ -82,7 +82,7 @@
 		</pitch>
 		<volume>
 			<property>engines/engine[0]/n1</property>
-			<factor>0.1</factor>
+			<factor>0.01</factor>
 			<min>0.3</min>
 			<max>0.8</max>
 		</volume>
@@ -109,7 +109,7 @@
         </condition>
         <volume>
             <property>engines/engine[1]/n1</property>
-            <factor>0.1</factor>
+            <factor>0.01</factor>
             <min>0.3</min>
             <max>0.8</max>
         </volume>
@@ -151,7 +151,7 @@
 			</pitch>
 			<volume>
 				<property>engines/engine[0]/n1</property>
-				<factor>0.1</factor>
+				<factor>0.01</factor>
 				<min>0</min>
 				<max>0.6</max>
 			</volume>
@@ -185,7 +185,7 @@
         </pitch>
         <volume>
             <property>engines/engine[1]/n1</property>
-            <factor>0.1</factor>
+            <factor>0.01</factor>
             <min>0</min>
             <max>0.6</max>
         </volume>
@@ -222,8 +222,8 @@
 			</condition>
 			<volume>
 				<property>engines/engine[0]/n1</property>
-				<!--type>log</type-->
-				<offset>-0.3</offset>
+				<type>log</type>
+				<!--offset>-0.3</offset-->
 				<factor>0.10</factor>
 				<min>0.0</min>
 				<max>1</max>
@@ -260,8 +260,8 @@
         </condition>
         <volume>
            <property>engines/engine[0]/n1</property>
-				<!--type>log</type-->
-				<offset>-0.3</offset>
+				<type>log</type>
+				<!--offset>-0.3</offset-->
 				<factor>0.10</factor>
 				<min>0.0</min>
 				<max>1</max>
@@ -305,7 +305,7 @@
 			</pitch>
 			<volume>
 				<property>engines/engine[0]/thrust-lbs</property>
-				<factor>0.000015</factor>
+				<factor>0.0000015</factor>
 				<min>0</min>
 				<max>0.8</max>
 			</volume>
@@ -344,7 +344,7 @@
         </pitch>
         <volume>
             <property>engines/engine[1]/thrust-lbs</property>
-            <factor>0.000015</factor>
+            <factor>0.0000015</factor>
             <min>0</min>
             <max>0.8</max>
         </volume>
@@ -538,7 +538,7 @@
         <max-dist>40.0</max-dist>
     </squeal0>
 
-    <squeal1>
+    <!--squeal1>
       <name>squeal</name>
 		<mode>looped</mode>
       <path>Aircraft/A320neo/Sounds/res/Roll.wav</path>
@@ -565,7 +565,7 @@
       </pitch>
       <reference-dist>100</reference-dist>
       <max-dist>1000</max-dist>
-    </squeal1>
+    </squeal1-->
 
 
 
@@ -885,8 +885,8 @@
 				<property>/velocities/groundspeed-kt</property>
 				<!--offset>0</offset-->
 				<type>log</type>
-				<factor>0.30</factor>
-				<min>0.2</min>
+				<factor>0.28</factor>
+				<min>0.1</min>
 				<max>1.5</max>
 			</pitch>
 		</roll>
