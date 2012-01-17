@@ -668,7 +668,7 @@
 		<object-name>Fuselage</object-name>
 		<property-base>sim/model/livery</property-base>
 		<texture-prop>texture-path[0]</texture-prop>
-		<texture>A321-AWE.png</texture>
+		<texture>Liveries/A321neo-AWE.png</texture>
 	</animation>
 
 	<!-- Nasal code -->

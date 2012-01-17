@@ -5,11 +5,11 @@
 	<path>res/a320neo.winglets.ac</path>
 
 	<!-- Reflection Shader -->
-	<effect>
+	<!--effect>
 		<inherits-from>Aircraft/A320neo/Models/Effects/NEOreflect</inherits-from>
 		<object-name>WingletL</object-name>
 		<object-name>WingletR</object-name>
-	</effect>
+	</effect-->
 
 	<!-- LIVERY SELECT -->
 	<!-- Animation -->
@@ -19,7 +19,7 @@
 		<object-name>WingletR</object-name>
 		<property-base>sim/model/livery</property-base>
 		<texture-prop>texture-path[1]</texture-prop>
-		<texture>Liveries/A320-Blank.png</texture>
+		<texture>Liveries/A320neo-Airbus.png</texture>
 	</animation>
 
 	<!-- Nasal code -->

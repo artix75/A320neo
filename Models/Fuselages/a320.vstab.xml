@@ -4,11 +4,11 @@
 
 	<path>res/a320.vstab.ac</path>
 
-	<effect>
+	<!--effect>
 		<inherits-from>Aircraft/A320neo/Models/Effects/NEOreflect</inherits-from>
 		<object-name>Vstab</object-name>
 		<object-name>Rudder</object-name>
-	</effect>
+	</effect-->
 
 	<!-- Animation for the rudder -->
 	<animation>

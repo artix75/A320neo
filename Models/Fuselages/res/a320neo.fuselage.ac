@@ -10,7 +10,7 @@ kids 610
 OBJECT poly
 name "cylinder"
 loc 5.0233 -9.12923 10.3215
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 45.000000
 numvert 100
 0.041275 -0.765631 -2.0997
@@ -1030,7 +1030,7 @@ kids 0
 OBJECT poly
 name "cylinder"
 loc 4.81772 -9.44779 10.7368
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 45.000000
 numvert 100
 0.127859 0.00242472 -2.80282
@@ -2050,7 +2050,7 @@ kids 0
 OBJECT poly
 name "cylinder"
 loc 4.81772 -9.44779 10.7368
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 45.000000
 numvert 100
 0.041275 -0.00131941 0.0580924
@@ -3070,7 +3070,7 @@ kids 0
 OBJECT poly
 name "cylinder"
 loc 5.0233 -9.87343 10.4523
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 45.000000
 numvert 100
 0.127859 -0.021548 0.0662925
@@ -4090,7 +4090,7 @@ kids 0
 OBJECT poly
 name "cylinder"
 loc 4.74382 -10.1551 9.9376
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 45.000000
 numvert 200
 0.041275 -0.0441774 -1.17355
@@ -6124,7 +6124,7 @@ name "Windsheild"
 loc 17.123 -7.73883 9.36092
 data 20
 Object03_4 - Default
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 numvert 58
 -12.3813 0.255765 0.752381
@@ -6420,7 +6420,7 @@ name "NGActuator"
 loc -5.64137 0.651554 1.58773
 data 9
 Mesh.1240
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -6428,7 +6428,7 @@ name "NGActuator"
 loc -5.64137 15.5515 1.58773
 data 9
 Mesh.1240
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -6436,7 +6436,7 @@ name "NGActuator"
 loc -5.64137 25.8515 13.0877
 data 9
 Mesh.1240
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -6444,7 +6444,7 @@ name "NGActuator"
 loc -5.64137 12.5515 1.58773
 data 9
 Mesh.1577
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -6452,7 +6452,7 @@ name "Derive.001"
 loc -8.10239 -6.49644 1.56894
 data 9
 Mesh.1144
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 45.000000
 kids 0
 OBJECT poly
@@ -6460,7 +6460,7 @@ name "NGActuator"
 loc -8.10239 -6.49644 1.56894
 data 9
 Mesh.1240
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -6468,7 +6468,7 @@ name "NGActuator"
 loc -9.20934 9.33362 1.56894
 data 9
 Mesh.1240
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -6476,7 +6476,7 @@ name "NGActuator"
 loc -9.97451 20.2766 13.0689
 data 9
 Mesh.1240
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -6484,7 +6484,7 @@ name "NGActuator"
 loc -8.98646 6.14642 1.56894
 data 9
 Mesh.1577
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -6492,7 +6492,7 @@ name "doorlhaft"
 loc -0.123084 -13.3048 1.58773
 data 10
 Circle.019
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -6500,7 +6500,7 @@ name "doorlhaft.001"
 loc -0.123084 -13.3048 1.58773
 data 10
 Circle.004
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -6508,7 +6508,7 @@ name "doorlhaft.002"
 loc -0.123084 -13.3048 1.58773
 data 10
 Circle.005
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -6516,7 +6516,7 @@ name "doorlhaft.003"
 loc -0.123084 -13.3048 1.58773
 data 10
 Circle.006
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -6524,7 +6524,7 @@ name "doorlhaft.004"
 loc -0.123084 -13.3048 1.58773
 data 10
 Circle.015
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -6532,7 +6532,7 @@ name "doorlhfwd"
 loc -0.123084 -13.3048 1.58773
 data 10
 Circle.007
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -6540,7 +6540,7 @@ name "doorlhfwd.001"
 loc -0.123084 -13.3048 1.58773
 data 10
 Circle.011
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -6548,7 +6548,7 @@ name "doorlhfwd.002"
 loc -0.123084 -13.3048 1.58773
 data 10
 Circle.017
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -6556,7 +6556,7 @@ name "slat2"
 loc -0.123084 -13.3048 1.58773
 data 8
 Mesh.021
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -6564,7 +6564,7 @@ name "doorlhaft"
 loc 0.128371 -4.95245 1.58773
 data 10
 Circle.019
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -6572,7 +6572,7 @@ name "doorlhaft.001"
 loc 0.128371 -4.95245 1.58773
 data 10
 Circle.001
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -6580,7 +6580,7 @@ name "doorlhaft.002"
 loc 0.128371 -4.95245 1.58773
 data 6
 Circle
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -6588,7 +6588,7 @@ name "doorlhaft.003"
 loc 0.128371 -4.95245 1.58773
 data 10
 Circle.004
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -6596,7 +6596,7 @@ name "doorlhaft.004"
 loc 0.128371 -4.95245 1.58773
 data 10
 Circle.015
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -6604,7 +6604,7 @@ name "doorlhfwd"
 loc 0.128371 -4.95245 1.58773
 data 10
 Circle.005
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -6612,7 +6612,7 @@ name "doorlhfwd.001"
 loc 0.128371 -4.95245 1.58773
 data 10
 Circle.011
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -6620,7 +6620,7 @@ name "doorlhfwd.002"
 loc 0.128371 -4.95245 1.58773
 data 10
 Circle.017
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -6628,7 +6628,7 @@ name "slat2"
 loc 0.128371 -4.95245 1.58773
 data 8
 Mesh.023
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -6636,7 +6636,7 @@ name "NGActuator"
 loc 0.14162 -0.673426 -19.0475
 data 9
 Mesh.1240
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -6644,7 +6644,7 @@ name "NGActuator"
 loc 0.14162 14.2265 -19.0475
 data 9
 Mesh.1240
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -6652,7 +6652,7 @@ name "NGActuator"
 loc -11.3584 24.5265 -19.0475
 data 9
 Mesh.1240
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -6660,7 +6660,7 @@ name "NGActuator"
 loc 0.14162 11.2265 -19.0475
 data 9
 Mesh.1577
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -6668,7 +6668,7 @@ name "NGActuator"
 loc 0.141619 20.4913 -15.1051
 data 9
 Mesh.1240
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -6676,7 +6676,7 @@ name "NGActuator"
 loc 0.141619 35.3913 -15.1051
 data 9
 Mesh.1240
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -6684,7 +6684,7 @@ name "NGActuator"
 loc -11.3584 45.6915 -15.1051
 data 9
 Mesh.1240
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -6692,7 +6692,7 @@ name "NGActuator"
 loc 0.141619 32.3913 -15.1051
 data 9
 Mesh.1577
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -6700,7 +6700,7 @@ name "doorlhaft"
 loc 0.14162 0.0408545 -19.1504
 data 10
 Circle.019
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -6708,7 +6708,7 @@ name "doorlhaft.001"
 loc 0.14162 0.0408545 -19.1504
 data 10
 Circle.004
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -6716,7 +6716,7 @@ name "doorlhaft.002"
 loc 0.14162 0.0408545 -19.1504
 data 10
 Circle.005
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -6724,7 +6724,7 @@ name "doorlhaft.003"
 loc 0.14162 0.0408545 -19.1504
 data 10
 Circle.006
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -6732,7 +6732,7 @@ name "doorlhaft.004"
 loc 0.14162 0.0408545 -19.1504
 data 10
 Circle.015
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -6740,7 +6740,7 @@ name "doorlhfwd"
 loc 0.14162 0.0408545 -19.1504
 data 10
 Circle.007
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -6748,7 +6748,7 @@ name "doorlhfwd.001"
 loc 0.14162 0.0408545 -19.1504
 data 10
 Circle.011
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -6756,7 +6756,7 @@ name "doorlhfwd.002"
 loc 0.14162 0.0408545 -19.1504
 data 10
 Circle.017
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -6764,7 +6764,7 @@ name "slat2"
 loc 0.14162 0.0408545 -19.1504
 data 8
 Mesh.021
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -6772,7 +6772,7 @@ name "doorlhaft"
 loc 8.9874 -6.6838 -22.1989
 data 10
 Circle.019
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -6780,7 +6780,7 @@ name "doorlhaft.001"
 loc 8.9874 -6.6838 -22.1989
 data 10
 Circle.004
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -6788,7 +6788,7 @@ name "doorlhaft.002"
 loc 8.9874 -6.6838 -22.1989
 data 10
 Circle.005
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -6796,7 +6796,7 @@ name "doorlhaft.003"
 loc 8.9874 -6.6838 -22.1989
 data 10
 Circle.006
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -6804,7 +6804,7 @@ name "doorlhaft.004"
 loc 8.9874 -6.6838 -22.1989
 data 10
 Circle.015
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -6812,7 +6812,7 @@ name "doorlhfwd"
 loc 8.9874 -6.6838 -22.1989
 data 10
 Circle.007
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -6820,7 +6820,7 @@ name "doorlhfwd.001"
 loc 8.9874 -6.6838 -22.1989
 data 10
 Circle.011
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -6828,7 +6828,7 @@ name "doorlhfwd.002"
 loc 8.9874 -6.6838 -22.1989
 data 10
 Circle.017
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -6836,7 +6836,7 @@ name "slat2"
 loc 8.9874 -6.6838 -22.1989
 data 8
 Mesh.021
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -6844,7 +6844,7 @@ name "doorlhaft"
 loc 16.5872 -6.6838 -29.8043
 data 10
 Circle.019
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -6852,7 +6852,7 @@ name "doorlhaft.001"
 loc 16.5872 -6.6838 -29.8043
 data 10
 Circle.004
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -6860,7 +6860,7 @@ name "doorlhaft.002"
 loc 16.5872 -6.6838 -29.8043
 data 10
 Circle.005
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -6868,7 +6868,7 @@ name "doorlhaft.003"
 loc 16.5872 -6.6838 -29.8043
 data 10
 Circle.006
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -6876,7 +6876,7 @@ name "doorlhaft.004"
 loc 16.5872 -6.6838 -29.8043
 data 10
 Circle.015
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -6884,7 +6884,7 @@ name "doorlhfwd"
 loc 16.5872 -6.6838 -29.8043
 data 10
 Circle.007
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -6892,7 +6892,7 @@ name "doorlhfwd.001"
 loc 16.5872 -6.6838 -29.8043
 data 10
 Circle.011
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -6900,7 +6900,7 @@ name "doorlhfwd.002"
 loc 16.5872 -6.6838 -29.8043
 data 10
 Circle.017
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -6908,7 +6908,7 @@ name "slat2"
 loc 16.5872 -6.6838 -29.8043
 data 8
 Mesh.021
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -6916,7 +6916,7 @@ name "NGActuator"
 loc -0.123084 -0.565276 1.48486
 data 9
 Mesh.1240
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -6924,7 +6924,7 @@ name "NGActuator"
 loc -0.123084 14.3347 1.48486
 data 9
 Mesh.1240
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -6932,7 +6932,7 @@ name "NGActuator"
 loc 11.3769 24.6347 1.48486
 data 9
 Mesh.1240
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -6940,7 +6940,7 @@ name "NGActuator"
 loc -0.123084 11.3347 1.48486
 data 9
 Mesh.1577
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -6948,7 +6948,7 @@ name "NGActuator"
 loc -0.123083 20.5995 -2.45758
 data 9
 Mesh.1240
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -6956,7 +6956,7 @@ name "NGActuator"
 loc -0.123083 35.4995 -2.45758
 data 9
 Mesh.1240
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -6964,7 +6964,7 @@ name "NGActuator"
 loc 11.3769 45.7996 -2.45758
 data 9
 Mesh.1240
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -6972,7 +6972,7 @@ name "NGActuator"
 loc -0.123083 32.4995 -2.45758
 data 9
 Mesh.1577
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -6980,7 +6980,7 @@ name "doorlhaft"
 loc -0.123084 0.149004 1.58773
 data 10
 Circle.019
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -6988,7 +6988,7 @@ name "doorlhaft.001"
 loc -0.123084 0.149004 1.58773
 data 10
 Circle.004
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -6996,7 +6996,7 @@ name "doorlhaft.002"
 loc -0.123084 0.149004 1.58773
 data 10
 Circle.005
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -7004,7 +7004,7 @@ name "doorlhaft.003"
 loc -0.123084 0.149004 1.58773
 data 10
 Circle.006
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -7012,7 +7012,7 @@ name "doorlhaft.004"
 loc -0.123084 0.149004 1.58773
 data 10
 Circle.015
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -7020,7 +7020,7 @@ name "doorlhfwd"
 loc -0.123084 0.149004 1.58773
 data 10
 Circle.007
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -7028,7 +7028,7 @@ name "doorlhfwd.001"
 loc -0.123084 0.149004 1.58773
 data 10
 Circle.011
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -7036,7 +7036,7 @@ name "doorlhfwd.002"
 loc -0.123084 0.149004 1.58773
 data 10
 Circle.017
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -7044,7 +7044,7 @@ name "slat2"
 loc -0.123084 0.149004 1.58773
 data 8
 Mesh.021
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -7052,7 +7052,7 @@ name "doorlhaft"
 loc -8.96888 -6.57565 4.63626
 data 10
 Circle.019
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -7060,7 +7060,7 @@ name "doorlhaft.001"
 loc -8.96888 -6.57565 4.63626
 data 10
 Circle.004
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -7068,7 +7068,7 @@ name "doorlhaft.002"
 loc -8.96888 -6.57565 4.63626
 data 10
 Circle.005
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -7076,7 +7076,7 @@ name "doorlhaft.003"
 loc -8.96888 -6.57565 4.63626
 data 10
 Circle.006
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -7084,7 +7084,7 @@ name "doorlhaft.004"
 loc -8.96888 -6.57565 4.63626
 data 10
 Circle.015
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -7092,7 +7092,7 @@ name "doorlhfwd"
 loc -8.96888 -6.57565 4.63626
 data 10
 Circle.007
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -7100,7 +7100,7 @@ name "doorlhfwd.001"
 loc -8.96888 -6.57565 4.63626
 data 10
 Circle.011
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -7108,7 +7108,7 @@ name "doorlhfwd.002"
 loc -8.96888 -6.57565 4.63626
 data 10
 Circle.017
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -7116,7 +7116,7 @@ name "slat2"
 loc -8.96888 -6.57565 4.63626
 data 8
 Mesh.021
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -7124,7 +7124,7 @@ name "doorlhaft"
 loc -16.5687 -6.57565 12.2416
 data 10
 Circle.019
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -7132,7 +7132,7 @@ name "doorlhaft.001"
 loc -16.5687 -6.57565 12.2416
 data 10
 Circle.004
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -7140,7 +7140,7 @@ name "doorlhaft.002"
 loc -16.5687 -6.57565 12.2416
 data 10
 Circle.005
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -7148,7 +7148,7 @@ name "doorlhaft.003"
 loc -16.5687 -6.57565 12.2416
 data 10
 Circle.006
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -7156,7 +7156,7 @@ name "doorlhaft.004"
 loc -16.5687 -6.57565 12.2416
 data 10
 Circle.015
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -7164,7 +7164,7 @@ name "doorlhfwd"
 loc -16.5687 -6.57565 12.2416
 data 10
 Circle.007
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -7172,7 +7172,7 @@ name "doorlhfwd.001"
 loc -16.5687 -6.57565 12.2416
 data 10
 Circle.011
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -7180,7 +7180,7 @@ name "doorlhfwd.002"
 loc -16.5687 -6.57565 12.2416
 data 10
 Circle.017
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -7188,7 +7188,7 @@ name "slat2"
 loc -16.5687 -6.57565 12.2416
 data 8
 Mesh.021
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -7196,7 +7196,7 @@ name "NGActuator"
 loc -5.48233 0.651554 1.4287
 data 9
 Mesh.1240
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -7204,7 +7204,7 @@ name "NGActuator"
 loc -5.48233 15.5515 1.4287
 data 9
 Mesh.1240
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -7212,7 +7212,7 @@ name "NGActuator"
 loc -5.48233 25.8515 12.9286
 data 9
 Mesh.1240
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -7220,7 +7220,7 @@ name "NGActuator"
 loc -5.48233 12.5515 1.4287
 data 9
 Mesh.1577
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -7228,7 +7228,7 @@ name "Derive.001"
 loc -7.94335 -6.49644 1.40991
 data 9
 Mesh.1144
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 45.000000
 kids 0
 OBJECT poly
@@ -7236,7 +7236,7 @@ name "NGActuator"
 loc -7.94335 -6.49644 1.40991
 data 9
 Mesh.1240
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -7244,7 +7244,7 @@ name "NGActuator"
 loc -9.0503 9.33362 1.40991
 data 9
 Mesh.1240
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -7252,7 +7252,7 @@ name "NGActuator"
 loc -9.81551 20.2766 12.9098
 data 9
 Mesh.1240
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -7260,7 +7260,7 @@ name "NGActuator"
 loc -8.82742 6.14642 1.40991
 data 9
 Mesh.1577
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -7268,7 +7268,7 @@ name "doorlhaft"
 loc 0.0359515 -13.3048 1.4287
 data 10
 Circle.019
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -7276,7 +7276,7 @@ name "doorlhaft.001"
 loc 0.0359515 -13.3048 1.4287
 data 10
 Circle.004
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -7284,7 +7284,7 @@ name "doorlhaft.002"
 loc 0.0359515 -13.3048 1.4287
 data 10
 Circle.005
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -7292,7 +7292,7 @@ name "doorlhaft.003"
 loc 0.0359515 -13.3048 1.4287
 data 10
 Circle.006
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -7300,7 +7300,7 @@ name "doorlhaft.004"
 loc 0.0359515 -13.3048 1.4287
 data 10
 Circle.015
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -7308,7 +7308,7 @@ name "doorlhfwd"
 loc 0.0359515 -13.3048 1.4287
 data 10
 Circle.007
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -7316,7 +7316,7 @@ name "doorlhfwd.001"
 loc 0.0359515 -13.3048 1.4287
 data 10
 Circle.011
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -7324,7 +7324,7 @@ name "doorlhfwd.002"
 loc 0.0359515 -13.3048 1.4287
 data 10
 Circle.017
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -7332,7 +7332,7 @@ name "slat2"
 loc 0.0359515 -13.3048 1.4287
 data 8
 Mesh.021
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -7340,7 +7340,7 @@ name "doorlhaft"
 loc 0.287407 -4.95245 1.4287
 data 10
 Circle.019
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -7348,7 +7348,7 @@ name "doorlhaft.001"
 loc 0.287407 -4.95245 1.4287
 data 10
 Circle.001
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -7356,7 +7356,7 @@ name "doorlhaft.002"
 loc 0.287407 -4.95245 1.4287
 data 6
 Circle
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -7364,7 +7364,7 @@ name "doorlhaft.003"
 loc 0.287407 -4.95245 1.4287
 data 10
 Circle.004
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -7372,7 +7372,7 @@ name "doorlhaft.004"
 loc 0.287407 -4.95245 1.4287
 data 10
 Circle.015
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -7380,7 +7380,7 @@ name "doorlhfwd"
 loc 0.287407 -4.95245 1.4287
 data 10
 Circle.005
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -7388,7 +7388,7 @@ name "doorlhfwd.001"
 loc 0.287407 -4.95245 1.4287
 data 10
 Circle.011
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -7396,7 +7396,7 @@ name "doorlhfwd.002"
 loc 0.287407 -4.95245 1.4287
 data 10
 Circle.017
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -7404,7 +7404,7 @@ name "slat2"
 loc 0.287407 -4.95245 1.4287
 data 8
 Mesh.023
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -7412,7 +7412,7 @@ name "NGActuator"
 loc 0.30065 -0.673426 -19.2065
 data 9
 Mesh.1240
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -7420,7 +7420,7 @@ name "NGActuator"
 loc 0.30065 14.2265 -19.2065
 data 9
 Mesh.1240
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -7428,7 +7428,7 @@ name "NGActuator"
 loc -11.1993 24.5265 -19.2065
 data 9
 Mesh.1240
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -7436,7 +7436,7 @@ name "NGActuator"
 loc 0.30065 11.2265 -19.2065
 data 9
 Mesh.1577
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -7444,7 +7444,7 @@ name "NGActuator"
 loc 0.300651 20.4913 -15.2641
 data 9
 Mesh.1240
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -7452,7 +7452,7 @@ name "NGActuator"
 loc 0.300651 35.3913 -15.2641
 data 9
 Mesh.1240
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -7460,7 +7460,7 @@ name "NGActuator"
 loc -11.1993 45.6915 -15.2641
 data 9
 Mesh.1240
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -7468,7 +7468,7 @@ name "NGActuator"
 loc 0.300651 32.3913 -15.2641
 data 9
 Mesh.1577
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -7476,7 +7476,7 @@ name "doorlhaft"
 loc 0.30065 0.0408545 -19.3094
 data 10
 Circle.019
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -7484,7 +7484,7 @@ name "doorlhaft.001"
 loc 0.30065 0.0408545 -19.3094
 data 10
 Circle.004
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -7492,7 +7492,7 @@ name "doorlhaft.002"
 loc 0.30065 0.0408545 -19.3094
 data 10
 Circle.005
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -7500,7 +7500,7 @@ name "doorlhaft.003"
 loc 0.30065 0.0408545 -19.3094
 data 10
 Circle.006
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -7508,7 +7508,7 @@ name "doorlhaft.004"
 loc 0.30065 0.0408545 -19.3094
 data 10
 Circle.015
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -7516,7 +7516,7 @@ name "doorlhfwd"
 loc 0.30065 0.0408545 -19.3094
 data 10
 Circle.007
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -7524,7 +7524,7 @@ name "doorlhfwd.001"
 loc 0.30065 0.0408545 -19.3094
 data 10
 Circle.011
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -7532,7 +7532,7 @@ name "doorlhfwd.002"
 loc 0.30065 0.0408545 -19.3094
 data 10
 Circle.017
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -7540,7 +7540,7 @@ name "slat2"
 loc 0.30065 0.0408545 -19.3094
 data 8
 Mesh.021
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -7548,7 +7548,7 @@ name "doorlhaft"
 loc 9.14643 -6.6838 -22.358
 data 10
 Circle.019
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -7556,7 +7556,7 @@ name "doorlhaft.001"
 loc 9.14643 -6.6838 -22.358
 data 10
 Circle.004
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -7564,7 +7564,7 @@ name "doorlhaft.002"
 loc 9.14643 -6.6838 -22.358
 data 10
 Circle.005
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -7572,7 +7572,7 @@ name "doorlhaft.003"
 loc 9.14643 -6.6838 -22.358
 data 10
 Circle.006
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -7580,7 +7580,7 @@ name "doorlhaft.004"
 loc 9.14643 -6.6838 -22.358
 data 10
 Circle.015
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -7588,7 +7588,7 @@ name "doorlhfwd"
 loc 9.14643 -6.6838 -22.358
 data 10
 Circle.007
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -7596,7 +7596,7 @@ name "doorlhfwd.001"
 loc 9.14643 -6.6838 -22.358
 data 10
 Circle.011
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -7604,7 +7604,7 @@ name "doorlhfwd.002"
 loc 9.14643 -6.6838 -22.358
 data 10
 Circle.017
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -7612,7 +7612,7 @@ name "slat2"
 loc 9.14643 -6.6838 -22.358
 data 8
 Mesh.021
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -7620,7 +7620,7 @@ name "doorlhaft"
 loc 16.7462 -6.6838 -29.9634
 data 10
 Circle.019
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -7628,7 +7628,7 @@ name "doorlhaft.001"
 loc 16.7462 -6.6838 -29.9634
 data 10
 Circle.004
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -7636,7 +7636,7 @@ name "doorlhaft.002"
 loc 16.7462 -6.6838 -29.9634
 data 10
 Circle.005
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -7644,7 +7644,7 @@ name "doorlhaft.003"
 loc 16.7462 -6.6838 -29.9634
 data 10
 Circle.006
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -7652,7 +7652,7 @@ name "doorlhaft.004"
 loc 16.7462 -6.6838 -29.9634
 data 10
 Circle.015
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -7660,7 +7660,7 @@ name "doorlhfwd"
 loc 16.7462 -6.6838 -29.9634
 data 10
 Circle.007
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -7668,7 +7668,7 @@ name "doorlhfwd.001"
 loc 16.7462 -6.6838 -29.9634
 data 10
 Circle.011
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -7676,7 +7676,7 @@ name "doorlhfwd.002"
 loc 16.7462 -6.6838 -29.9634
 data 10
 Circle.017
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -7684,7 +7684,7 @@ name "slat2"
 loc 16.7462 -6.6838 -29.9634
 data 8
 Mesh.021
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -7692,7 +7692,7 @@ name "NGActuator"
 loc 0.0359515 -0.565276 1.32583
 data 9
 Mesh.1240
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -7700,7 +7700,7 @@ name "NGActuator"
 loc 0.0359515 14.3347 1.32583
 data 9
 Mesh.1240
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -7708,7 +7708,7 @@ name "NGActuator"
 loc 11.536 24.6347 1.32583
 data 9
 Mesh.1240
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -7716,7 +7716,7 @@ name "NGActuator"
 loc 0.0359515 11.3347 1.32583
 data 9
 Mesh.1577
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -7724,7 +7724,7 @@ name "NGActuator"
 loc 0.0359508 20.5995 -2.61658
 data 9
 Mesh.1240
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -7732,7 +7732,7 @@ name "NGActuator"
 loc 0.0359508 35.4995 -2.61658
 data 9
 Mesh.1240
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -7740,7 +7740,7 @@ name "NGActuator"
 loc 11.536 45.7996 -2.61658
 data 9
 Mesh.1240
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -7748,7 +7748,7 @@ name "NGActuator"
 loc 0.0359508 32.4995 -2.61658
 data 9
 Mesh.1577
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -7756,7 +7756,7 @@ name "doorlhaft"
 loc 0.0359515 0.149004 1.4287
 data 10
 Circle.019
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -7764,7 +7764,7 @@ name "doorlhaft.001"
 loc 0.0359515 0.149004 1.4287
 data 10
 Circle.004
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -7772,7 +7772,7 @@ name "doorlhaft.002"
 loc 0.0359515 0.149004 1.4287
 data 10
 Circle.005
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -7780,7 +7780,7 @@ name "doorlhaft.003"
 loc 0.0359515 0.149004 1.4287
 data 10
 Circle.006
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -7788,7 +7788,7 @@ name "doorlhaft.004"
 loc 0.0359515 0.149004 1.4287
 data 10
 Circle.015
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -7796,7 +7796,7 @@ name "doorlhfwd"
 loc 0.0359515 0.149004 1.4287
 data 10
 Circle.007
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -7804,7 +7804,7 @@ name "doorlhfwd.001"
 loc 0.0359515 0.149004 1.4287
 data 10
 Circle.011
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -7812,7 +7812,7 @@ name "doorlhfwd.002"
 loc 0.0359515 0.149004 1.4287
 data 10
 Circle.017
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -7820,7 +7820,7 @@ name "slat2"
 loc 0.0359515 0.149004 1.4287
 data 8
 Mesh.021
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -7828,7 +7828,7 @@ name "doorlhaft"
 loc -8.80984 -6.57565 4.47723
 data 10
 Circle.019
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -7836,7 +7836,7 @@ name "doorlhaft.001"
 loc -8.80984 -6.57565 4.47723
 data 10
 Circle.004
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -7844,7 +7844,7 @@ name "doorlhaft.002"
 loc -8.80984 -6.57565 4.47723
 data 10
 Circle.005
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -7852,7 +7852,7 @@ name "doorlhaft.003"
 loc -8.80984 -6.57565 4.47723
 data 10
 Circle.006
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -7860,7 +7860,7 @@ name "doorlhaft.004"
 loc -8.80984 -6.57565 4.47723
 data 10
 Circle.015
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -7868,7 +7868,7 @@ name "doorlhfwd"
 loc -8.80984 -6.57565 4.47723
 data 10
 Circle.007
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -7876,7 +7876,7 @@ name "doorlhfwd.001"
 loc -8.80984 -6.57565 4.47723
 data 10
 Circle.011
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -7884,7 +7884,7 @@ name "doorlhfwd.002"
 loc -8.80984 -6.57565 4.47723
 data 10
 Circle.017
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -7892,7 +7892,7 @@ name "slat2"
 loc -8.80984 -6.57565 4.47723
 data 8
 Mesh.021
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -7900,7 +7900,7 @@ name "doorlhaft"
 loc -16.4096 -6.57565 12.0825
 data 10
 Circle.019
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -7908,7 +7908,7 @@ name "doorlhaft.001"
 loc -16.4096 -6.57565 12.0825
 data 10
 Circle.004
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -7916,7 +7916,7 @@ name "doorlhaft.002"
 loc -16.4096 -6.57565 12.0825
 data 10
 Circle.005
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -7924,7 +7924,7 @@ name "doorlhaft.003"
 loc -16.4096 -6.57565 12.0825
 data 10
 Circle.006
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -7932,7 +7932,7 @@ name "doorlhaft.004"
 loc -16.4096 -6.57565 12.0825
 data 10
 Circle.015
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -7940,7 +7940,7 @@ name "doorlhfwd"
 loc -16.4096 -6.57565 12.0825
 data 10
 Circle.007
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -7948,7 +7948,7 @@ name "doorlhfwd.001"
 loc -16.4096 -6.57565 12.0825
 data 10
 Circle.011
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -7956,7 +7956,7 @@ name "doorlhfwd.002"
 loc -16.4096 -6.57565 12.0825
 data 10
 Circle.017
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -7964,7 +7964,7 @@ name "slat2"
 loc -16.4096 -6.57565 12.0825
 data 8
 Mesh.021
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -7972,7 +7972,7 @@ name "NGActuator"
 loc -5.64137 0.651554 9.5218
 data 9
 Mesh.1240
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -7980,7 +7980,7 @@ name "NGActuator"
 loc -5.64137 15.5515 9.5218
 data 9
 Mesh.1240
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -7988,7 +7988,7 @@ name "NGActuator"
 loc -5.64137 25.8515 21.0218
 data 9
 Mesh.1240
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -7996,7 +7996,7 @@ name "NGActuator"
 loc -5.64137 12.5515 9.5218
 data 9
 Mesh.1577
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -8004,7 +8004,7 @@ name "Derive.001"
 loc -8.10239 -6.49644 9.50301
 data 9
 Mesh.1144
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 45.000000
 kids 0
 OBJECT poly
@@ -8012,7 +8012,7 @@ name "NGActuator"
 loc -8.10239 -6.49644 9.50301
 data 9
 Mesh.1240
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -8020,7 +8020,7 @@ name "NGActuator"
 loc -9.20934 9.33362 9.50301
 data 9
 Mesh.1240
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -8028,7 +8028,7 @@ name "NGActuator"
 loc -9.97451 20.2766 21.003
 data 9
 Mesh.1240
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -8036,7 +8036,7 @@ name "NGActuator"
 loc -8.98646 6.14642 9.50301
 data 9
 Mesh.1577
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -8044,7 +8044,7 @@ name "doorlhaft"
 loc -0.123084 -13.3048 9.5218
 data 10
 Circle.019
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -8052,7 +8052,7 @@ name "doorlhaft.001"
 loc -0.123084 -13.3048 9.5218
 data 10
 Circle.004
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -8060,7 +8060,7 @@ name "doorlhaft.002"
 loc -0.123084 -13.3048 9.5218
 data 10
 Circle.005
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -8068,7 +8068,7 @@ name "doorlhaft.003"
 loc -0.123084 -13.3048 9.5218
 data 10
 Circle.006
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -8076,7 +8076,7 @@ name "doorlhaft.004"
 loc -0.123084 -13.3048 9.5218
 data 10
 Circle.015
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -8084,7 +8084,7 @@ name "doorlhfwd"
 loc -0.123084 -13.3048 9.5218
 data 10
 Circle.007
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -8092,7 +8092,7 @@ name "doorlhfwd.001"
 loc -0.123084 -13.3048 9.5218
 data 10
 Circle.011
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -8100,7 +8100,7 @@ name "doorlhfwd.002"
 loc -0.123084 -13.3048 9.5218
 data 10
 Circle.017
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -8108,7 +8108,7 @@ name "slat2"
 loc -0.123084 -13.3048 9.5218
 data 8
 Mesh.021
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -8116,7 +8116,7 @@ name "doorlhaft"
 loc 0.128371 -4.95245 9.5218
 data 10
 Circle.019
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -8124,7 +8124,7 @@ name "doorlhaft.001"
 loc 0.128371 -4.95245 9.5218
 data 10
 Circle.001
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -8132,7 +8132,7 @@ name "doorlhaft.002"
 loc 0.128371 -4.95245 9.5218
 data 6
 Circle
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -8140,7 +8140,7 @@ name "doorlhaft.003"
 loc 0.128371 -4.95245 9.5218
 data 10
 Circle.004
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -8148,7 +8148,7 @@ name "doorlhaft.004"
 loc 0.128371 -4.95245 9.5218
 data 10
 Circle.015
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -8156,7 +8156,7 @@ name "doorlhfwd"
 loc 0.128371 -4.95245 9.5218
 data 10
 Circle.005
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -8164,7 +8164,7 @@ name "doorlhfwd.001"
 loc 0.128371 -4.95245 9.5218
 data 10
 Circle.011
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -8172,7 +8172,7 @@ name "doorlhfwd.002"
 loc 0.128371 -4.95245 9.5218
 data 10
 Circle.017
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -8180,7 +8180,7 @@ name "slat2"
 loc 0.128371 -4.95245 9.5218
 data 8
 Mesh.023
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -8188,7 +8188,7 @@ name "NGActuator"
 loc 0.14162 -0.673426 -11.1134
 data 9
 Mesh.1240
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -8196,7 +8196,7 @@ name "NGActuator"
 loc 0.14162 14.2265 -11.1134
 data 9
 Mesh.1240
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -8204,7 +8204,7 @@ name "NGActuator"
 loc -11.3584 24.5265 -11.1134
 data 9
 Mesh.1240
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -8212,7 +8212,7 @@ name "NGActuator"
 loc 0.14162 11.2265 -11.1134
 data 9
 Mesh.1577
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -8220,7 +8220,7 @@ name "NGActuator"
 loc 0.141619 20.4913 -7.17098
 data 9
 Mesh.1240
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -8228,7 +8228,7 @@ name "NGActuator"
 loc 0.141619 35.3913 -7.17098
 data 9
 Mesh.1240
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -8236,7 +8236,7 @@ name "NGActuator"
 loc -11.3584 45.6915 -7.17098
 data 9
 Mesh.1240
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -8244,7 +8244,7 @@ name "NGActuator"
 loc 0.141619 32.3913 -7.17098
 data 9
 Mesh.1577
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -8252,7 +8252,7 @@ name "doorlhaft"
 loc 0.14162 0.0408545 -11.2163
 data 10
 Circle.019
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -8260,7 +8260,7 @@ name "doorlhaft.001"
 loc 0.14162 0.0408545 -11.2163
 data 10
 Circle.004
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -8268,7 +8268,7 @@ name "doorlhaft.002"
 loc 0.14162 0.0408545 -11.2163
 data 10
 Circle.005
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -8276,7 +8276,7 @@ name "doorlhaft.003"
 loc 0.14162 0.0408545 -11.2163
 data 10
 Circle.006
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -8284,7 +8284,7 @@ name "doorlhaft.004"
 loc 0.14162 0.0408545 -11.2163
 data 10
 Circle.015
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -8292,7 +8292,7 @@ name "doorlhfwd"
 loc 0.14162 0.0408545 -11.2163
 data 10
 Circle.007
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -8300,7 +8300,7 @@ name "doorlhfwd.001"
 loc 0.14162 0.0408545 -11.2163
 data 10
 Circle.011
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -8308,7 +8308,7 @@ name "doorlhfwd.002"
 loc 0.14162 0.0408545 -11.2163
 data 10
 Circle.017
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -8316,7 +8316,7 @@ name "slat2"
 loc 0.14162 0.0408545 -11.2163
 data 8
 Mesh.021
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -8324,7 +8324,7 @@ name "doorlhaft"
 loc 8.9874 -6.6838 -14.2648
 data 10
 Circle.019
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -8332,7 +8332,7 @@ name "doorlhaft.001"
 loc 8.9874 -6.6838 -14.2648
 data 10
 Circle.004
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -8340,7 +8340,7 @@ name "doorlhaft.002"
 loc 8.9874 -6.6838 -14.2648
 data 10
 Circle.005
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -8348,7 +8348,7 @@ name "doorlhaft.003"
 loc 8.9874 -6.6838 -14.2648
 data 10
 Circle.006
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -8356,7 +8356,7 @@ name "doorlhaft.004"
 loc 8.9874 -6.6838 -14.2648
 data 10
 Circle.015
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -8364,7 +8364,7 @@ name "doorlhfwd"
 loc 8.9874 -6.6838 -14.2648
 data 10
 Circle.007
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -8372,7 +8372,7 @@ name "doorlhfwd.001"
 loc 8.9874 -6.6838 -14.2648
 data 10
 Circle.011
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -8380,7 +8380,7 @@ name "doorlhfwd.002"
 loc 8.9874 -6.6838 -14.2648
 data 10
 Circle.017
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -8388,7 +8388,7 @@ name "slat2"
 loc 8.9874 -6.6838 -14.2648
 data 8
 Mesh.021
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -8396,7 +8396,7 @@ name "doorlhaft"
 loc 16.5872 -6.6838 -21.8702
 data 10
 Circle.019
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -8404,7 +8404,7 @@ name "doorlhaft.001"
 loc 16.5872 -6.6838 -21.8702
 data 10
 Circle.004
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -8412,7 +8412,7 @@ name "doorlhaft.002"
 loc 16.5872 -6.6838 -21.8702
 data 10
 Circle.005
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -8420,7 +8420,7 @@ name "doorlhaft.003"
 loc 16.5872 -6.6838 -21.8702
 data 10
 Circle.006
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -8428,7 +8428,7 @@ name "doorlhaft.004"
 loc 16.5872 -6.6838 -21.8702
 data 10
 Circle.015
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -8436,7 +8436,7 @@ name "doorlhfwd"
 loc 16.5872 -6.6838 -21.8702
 data 10
 Circle.007
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -8444,7 +8444,7 @@ name "doorlhfwd.001"
 loc 16.5872 -6.6838 -21.8702
 data 10
 Circle.011
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -8452,7 +8452,7 @@ name "doorlhfwd.002"
 loc 16.5872 -6.6838 -21.8702
 data 10
 Circle.017
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -8460,7 +8460,7 @@ name "slat2"
 loc 16.5872 -6.6838 -21.8702
 data 8
 Mesh.021
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -8468,7 +8468,7 @@ name "NGActuator"
 loc -0.123084 -0.565276 9.41893
 data 9
 Mesh.1240
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -8476,7 +8476,7 @@ name "NGActuator"
 loc -0.123084 14.3347 9.41893
 data 9
 Mesh.1240
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -8484,7 +8484,7 @@ name "NGActuator"
 loc 11.3769 24.6347 9.41893
 data 9
 Mesh.1240
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -8492,7 +8492,7 @@ name "NGActuator"
 loc -0.123084 11.3347 9.41893
 data 9
 Mesh.1577
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -8500,7 +8500,7 @@ name "NGActuator"
 loc -0.123083 20.5995 5.47653
 data 9
 Mesh.1240
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -8508,7 +8508,7 @@ name "NGActuator"
 loc -0.123083 35.4995 5.47653
 data 9
 Mesh.1240
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -8516,7 +8516,7 @@ name "NGActuator"
 loc 11.3769 45.7996 5.47653
 data 9
 Mesh.1240
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -8524,7 +8524,7 @@ name "NGActuator"
 loc -0.123083 32.4995 5.47653
 data 9
 Mesh.1577
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -8532,7 +8532,7 @@ name "doorlhaft"
 loc -0.123084 0.149004 9.5218
 data 10
 Circle.019
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -8540,7 +8540,7 @@ name "doorlhaft.001"
 loc -0.123084 0.149004 9.5218
 data 10
 Circle.004
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -8548,7 +8548,7 @@ name "doorlhaft.002"
 loc -0.123084 0.149004 9.5218
 data 10
 Circle.005
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -8556,7 +8556,7 @@ name "doorlhaft.003"
 loc -0.123084 0.149004 9.5218
 data 10
 Circle.006
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -8564,7 +8564,7 @@ name "doorlhaft.004"
 loc -0.123084 0.149004 9.5218
 data 10
 Circle.015
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -8572,7 +8572,7 @@ name "doorlhfwd"
 loc -0.123084 0.149004 9.5218
 data 10
 Circle.007
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -8580,7 +8580,7 @@ name "doorlhfwd.001"
 loc -0.123084 0.149004 9.5218
 data 10
 Circle.011
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -8588,7 +8588,7 @@ name "doorlhfwd.002"
 loc -0.123084 0.149004 9.5218
 data 10
 Circle.017
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -8596,7 +8596,7 @@ name "slat2"
 loc -0.123084 0.149004 9.5218
 data 8
 Mesh.021
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -8604,7 +8604,7 @@ name "doorlhaft"
 loc -8.96888 -6.57565 12.5703
 data 10
 Circle.019
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -8612,7 +8612,7 @@ name "doorlhaft.001"
 loc -8.96888 -6.57565 12.5703
 data 10
 Circle.004
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -8620,7 +8620,7 @@ name "doorlhaft.002"
 loc -8.96888 -6.57565 12.5703
 data 10
 Circle.005
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -8628,7 +8628,7 @@ name "doorlhaft.003"
 loc -8.96888 -6.57565 12.5703
 data 10
 Circle.006
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -8636,7 +8636,7 @@ name "doorlhaft.004"
 loc -8.96888 -6.57565 12.5703
 data 10
 Circle.015
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -8644,7 +8644,7 @@ name "doorlhfwd"
 loc -8.96888 -6.57565 12.5703
 data 10
 Circle.007
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -8652,7 +8652,7 @@ name "doorlhfwd.001"
 loc -8.96888 -6.57565 12.5703
 data 10
 Circle.011
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -8660,7 +8660,7 @@ name "doorlhfwd.002"
 loc -8.96888 -6.57565 12.5703
 data 10
 Circle.017
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -8668,7 +8668,7 @@ name "slat2"
 loc -8.96888 -6.57565 12.5703
 data 8
 Mesh.021
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -8676,7 +8676,7 @@ name "doorlhaft"
 loc -16.5687 -6.57565 20.1757
 data 10
 Circle.019
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -8684,7 +8684,7 @@ name "doorlhaft.001"
 loc -16.5687 -6.57565 20.1757
 data 10
 Circle.004
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -8692,7 +8692,7 @@ name "doorlhaft.002"
 loc -16.5687 -6.57565 20.1757
 data 10
 Circle.005
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -8700,7 +8700,7 @@ name "doorlhaft.003"
 loc -16.5687 -6.57565 20.1757
 data 10
 Circle.006
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -8708,7 +8708,7 @@ name "doorlhaft.004"
 loc -16.5687 -6.57565 20.1757
 data 10
 Circle.015
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -8716,7 +8716,7 @@ name "doorlhfwd"
 loc -16.5687 -6.57565 20.1757
 data 10
 Circle.007
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -8724,7 +8724,7 @@ name "doorlhfwd.001"
 loc -16.5687 -6.57565 20.1757
 data 10
 Circle.011
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -8732,7 +8732,7 @@ name "doorlhfwd.002"
 loc -16.5687 -6.57565 20.1757
 data 10
 Circle.017
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -8740,7 +8740,7 @@ name "slat2"
 loc -16.5687 -6.57565 20.1757
 data 8
 Mesh.021
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -8748,7 +8748,7 @@ name "NGActuator"
 loc -5.48233 0.651554 9.36277
 data 9
 Mesh.1240
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -8756,7 +8756,7 @@ name "NGActuator"
 loc -5.48233 15.5515 9.36277
 data 9
 Mesh.1240
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -8764,7 +8764,7 @@ name "NGActuator"
 loc -5.48233 25.8515 20.8627
 data 9
 Mesh.1240
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -8772,7 +8772,7 @@ name "NGActuator"
 loc -5.48233 12.5515 9.36277
 data 9
 Mesh.1577
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -8780,7 +8780,7 @@ name "Derive.001"
 loc -7.94335 -6.49644 9.34398
 data 9
 Mesh.1144
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 45.000000
 kids 0
 OBJECT poly
@@ -8788,7 +8788,7 @@ name "NGActuator"
 loc -7.94335 -6.49644 9.34398
 data 9
 Mesh.1240
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -8796,7 +8796,7 @@ name "NGActuator"
 loc -9.0503 9.33362 9.34398
 data 9
 Mesh.1240
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -8804,7 +8804,7 @@ name "NGActuator"
 loc -9.81551 20.2766 20.8439
 data 9
 Mesh.1240
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -8812,7 +8812,7 @@ name "NGActuator"
 loc -8.82742 6.14642 9.34398
 data 9
 Mesh.1577
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -8820,7 +8820,7 @@ name "doorlhaft"
 loc 0.0359515 -13.3048 9.36277
 data 10
 Circle.019
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -8828,7 +8828,7 @@ name "doorlhaft.001"
 loc 0.0359515 -13.3048 9.36277
 data 10
 Circle.004
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -8836,7 +8836,7 @@ name "doorlhaft.002"
 loc 0.0359515 -13.3048 9.36277
 data 10
 Circle.005
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -8844,7 +8844,7 @@ name "doorlhaft.003"
 loc 0.0359515 -13.3048 9.36277
 data 10
 Circle.006
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -8852,7 +8852,7 @@ name "doorlhaft.004"
 loc 0.0359515 -13.3048 9.36277
 data 10
 Circle.015
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -8860,7 +8860,7 @@ name "doorlhfwd"
 loc 0.0359515 -13.3048 9.36277
 data 10
 Circle.007
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -8868,7 +8868,7 @@ name "doorlhfwd.001"
 loc 0.0359515 -13.3048 9.36277
 data 10
 Circle.011
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -8876,7 +8876,7 @@ name "doorlhfwd.002"
 loc 0.0359515 -13.3048 9.36277
 data 10
 Circle.017
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -8884,7 +8884,7 @@ name "slat2"
 loc 0.0359515 -13.3048 9.36277
 data 8
 Mesh.021
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -8892,7 +8892,7 @@ name "doorlhaft"
 loc 0.287407 -4.95245 9.36277
 data 10
 Circle.019
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -8900,7 +8900,7 @@ name "doorlhaft.001"
 loc 0.287407 -4.95245 9.36277
 data 10
 Circle.001
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -8908,7 +8908,7 @@ name "doorlhaft.002"
 loc 0.287407 -4.95245 9.36277
 data 6
 Circle
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -8916,7 +8916,7 @@ name "doorlhaft.003"
 loc 0.287407 -4.95245 9.36277
 data 10
 Circle.004
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -8924,7 +8924,7 @@ name "doorlhaft.004"
 loc 0.287407 -4.95245 9.36277
 data 10
 Circle.015
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -8932,7 +8932,7 @@ name "doorlhfwd"
 loc 0.287407 -4.95245 9.36277
 data 10
 Circle.005
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -8940,7 +8940,7 @@ name "doorlhfwd.001"
 loc 0.287407 -4.95245 9.36277
 data 10
 Circle.011
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -8948,7 +8948,7 @@ name "doorlhfwd.002"
 loc 0.287407 -4.95245 9.36277
 data 10
 Circle.017
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -8956,7 +8956,7 @@ name "slat2"
 loc 0.287407 -4.95245 9.36277
 data 8
 Mesh.023
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -8964,7 +8964,7 @@ name "NGActuator"
 loc 0.30065 -0.673426 -11.2724
 data 9
 Mesh.1240
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -8972,7 +8972,7 @@ name "NGActuator"
 loc 0.30065 14.2265 -11.2724
 data 9
 Mesh.1240
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -8980,7 +8980,7 @@ name "NGActuator"
 loc -11.1993 24.5265 -11.2724
 data 9
 Mesh.1240
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -8988,7 +8988,7 @@ name "NGActuator"
 loc 0.30065 11.2265 -11.2724
 data 9
 Mesh.1577
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -8996,7 +8996,7 @@ name "NGActuator"
 loc 0.300651 20.4913 -7.32998
 data 9
 Mesh.1240
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -9004,7 +9004,7 @@ name "NGActuator"
 loc 0.300651 35.3913 -7.32998
 data 9
 Mesh.1240
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -9012,7 +9012,7 @@ name "NGActuator"
 loc -11.1993 45.6915 -7.32998
 data 9
 Mesh.1240
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -9020,7 +9020,7 @@ name "NGActuator"
 loc 0.300651 32.3913 -7.32998
 data 9
 Mesh.1577
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -9028,7 +9028,7 @@ name "doorlhaft"
 loc 0.30065 0.0408545 -11.3753
 data 10
 Circle.019
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -9036,7 +9036,7 @@ name "doorlhaft.001"
 loc 0.30065 0.0408545 -11.3753
 data 10
 Circle.004
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -9044,7 +9044,7 @@ name "doorlhaft.002"
 loc 0.30065 0.0408545 -11.3753
 data 10
 Circle.005
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -9052,7 +9052,7 @@ name "doorlhaft.003"
 loc 0.30065 0.0408545 -11.3753
 data 10
 Circle.006
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -9060,7 +9060,7 @@ name "doorlhaft.004"
 loc 0.30065 0.0408545 -11.3753
 data 10
 Circle.015
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -9068,7 +9068,7 @@ name "doorlhfwd"
 loc 0.30065 0.0408545 -11.3753
 data 10
 Circle.007
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -9076,7 +9076,7 @@ name "doorlhfwd.001"
 loc 0.30065 0.0408545 -11.3753
 data 10
 Circle.011
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -9084,7 +9084,7 @@ name "doorlhfwd.002"
 loc 0.30065 0.0408545 -11.3753
 data 10
 Circle.017
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -9092,7 +9092,7 @@ name "slat2"
 loc 0.30065 0.0408545 -11.3753
 data 8
 Mesh.021
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -9100,7 +9100,7 @@ name "doorlhaft"
 loc 9.14643 -6.6838 -14.4239
 data 10
 Circle.019
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -9108,7 +9108,7 @@ name "doorlhaft.001"
 loc 9.14643 -6.6838 -14.4239
 data 10
 Circle.004
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -9116,7 +9116,7 @@ name "doorlhaft.002"
 loc 9.14643 -6.6838 -14.4239
 data 10
 Circle.005
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -9124,7 +9124,7 @@ name "doorlhaft.003"
 loc 9.14643 -6.6838 -14.4239
 data 10
 Circle.006
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -9132,7 +9132,7 @@ name "doorlhaft.004"
 loc 9.14643 -6.6838 -14.4239
 data 10
 Circle.015
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -9140,7 +9140,7 @@ name "doorlhfwd"
 loc 9.14643 -6.6838 -14.4239
 data 10
 Circle.007
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -9148,7 +9148,7 @@ name "doorlhfwd.001"
 loc 9.14643 -6.6838 -14.4239
 data 10
 Circle.011
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -9156,7 +9156,7 @@ name "doorlhfwd.002"
 loc 9.14643 -6.6838 -14.4239
 data 10
 Circle.017
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -9164,7 +9164,7 @@ name "slat2"
 loc 9.14643 -6.6838 -14.4239
 data 8
 Mesh.021
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -9172,7 +9172,7 @@ name "doorlhaft"
 loc 16.7462 -6.6838 -22.0293
 data 10
 Circle.019
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -9180,7 +9180,7 @@ name "doorlhaft.001"
 loc 16.7462 -6.6838 -22.0293
 data 10
 Circle.004
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -9188,7 +9188,7 @@ name "doorlhaft.002"
 loc 16.7462 -6.6838 -22.0293
 data 10
 Circle.005
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -9196,7 +9196,7 @@ name "doorlhaft.003"
 loc 16.7462 -6.6838 -22.0293
 data 10
 Circle.006
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -9204,7 +9204,7 @@ name "doorlhaft.004"
 loc 16.7462 -6.6838 -22.0293
 data 10
 Circle.015
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -9212,7 +9212,7 @@ name "doorlhfwd"
 loc 16.7462 -6.6838 -22.0293
 data 10
 Circle.007
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -9220,7 +9220,7 @@ name "doorlhfwd.001"
 loc 16.7462 -6.6838 -22.0293
 data 10
 Circle.011
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -9228,7 +9228,7 @@ name "doorlhfwd.002"
 loc 16.7462 -6.6838 -22.0293
 data 10
 Circle.017
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -9236,7 +9236,7 @@ name "slat2"
 loc 16.7462 -6.6838 -22.0293
 data 8
 Mesh.021
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -9244,7 +9244,7 @@ name "NGActuator"
 loc 0.0359515 -0.565276 9.2599
 data 9
 Mesh.1240
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -9252,7 +9252,7 @@ name "NGActuator"
 loc 0.0359515 14.3347 9.2599
 data 9
 Mesh.1240
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -9260,7 +9260,7 @@ name "NGActuator"
 loc 11.536 24.6347 9.2599
 data 9
 Mesh.1240
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -9268,7 +9268,7 @@ name "NGActuator"
 loc 0.0359515 11.3347 9.2599
 data 9
 Mesh.1577
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -9276,7 +9276,7 @@ name "NGActuator"
 loc 0.0359508 20.5995 5.3175
 data 9
 Mesh.1240
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -9284,7 +9284,7 @@ name "NGActuator"
 loc 0.0359508 35.4995 5.3175
 data 9
 Mesh.1240
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -9292,7 +9292,7 @@ name "NGActuator"
 loc 11.536 45.7996 5.3175
 data 9
 Mesh.1240
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -9300,7 +9300,7 @@ name "NGActuator"
 loc 0.0359508 32.4995 5.3175
 data 9
 Mesh.1577
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -9308,7 +9308,7 @@ name "doorlhaft"
 loc 0.0359515 0.149004 9.36277
 data 10
 Circle.019
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -9316,7 +9316,7 @@ name "doorlhaft.001"
 loc 0.0359515 0.149004 9.36277
 data 10
 Circle.004
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -9324,7 +9324,7 @@ name "doorlhaft.002"
 loc 0.0359515 0.149004 9.36277
 data 10
 Circle.005
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -9332,7 +9332,7 @@ name "doorlhaft.003"
 loc 0.0359515 0.149004 9.36277
 data 10
 Circle.006
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -9340,7 +9340,7 @@ name "doorlhaft.004"
 loc 0.0359515 0.149004 9.36277
 data 10
 Circle.015
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -9348,7 +9348,7 @@ name "doorlhfwd"
 loc 0.0359515 0.149004 9.36277
 data 10
 Circle.007
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -9356,7 +9356,7 @@ name "doorlhfwd.001"
 loc 0.0359515 0.149004 9.36277
 data 10
 Circle.011
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -9364,7 +9364,7 @@ name "doorlhfwd.002"
 loc 0.0359515 0.149004 9.36277
 data 10
 Circle.017
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -9372,7 +9372,7 @@ name "slat2"
 loc 0.0359515 0.149004 9.36277
 data 8
 Mesh.021
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -9380,7 +9380,7 @@ name "doorlhaft"
 loc -8.80984 -6.57565 12.4113
 data 10
 Circle.019
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -9388,7 +9388,7 @@ name "doorlhaft.001"
 loc -8.80984 -6.57565 12.4113
 data 10
 Circle.004
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -9396,7 +9396,7 @@ name "doorlhaft.002"
 loc -8.80984 -6.57565 12.4113
 data 10
 Circle.005
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -9404,7 +9404,7 @@ name "doorlhaft.003"
 loc -8.80984 -6.57565 12.4113
 data 10
 Circle.006
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -9412,7 +9412,7 @@ name "doorlhaft.004"
 loc -8.80984 -6.57565 12.4113
 data 10
 Circle.015
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -9420,7 +9420,7 @@ name "doorlhfwd"
 loc -8.80984 -6.57565 12.4113
 data 10
 Circle.007
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -9428,7 +9428,7 @@ name "doorlhfwd.001"
 loc -8.80984 -6.57565 12.4113
 data 10
 Circle.011
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -9436,7 +9436,7 @@ name "doorlhfwd.002"
 loc -8.80984 -6.57565 12.4113
 data 10
 Circle.017
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -9444,7 +9444,7 @@ name "slat2"
 loc -8.80984 -6.57565 12.4113
 data 8
 Mesh.021
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -9452,7 +9452,7 @@ name "doorlhaft"
 loc -16.4096 -6.57565 20.0166
 data 10
 Circle.019
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -9460,7 +9460,7 @@ name "doorlhaft.001"
 loc -16.4096 -6.57565 20.0166
 data 10
 Circle.004
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -9468,7 +9468,7 @@ name "doorlhaft.002"
 loc -16.4096 -6.57565 20.0166
 data 10
 Circle.005
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -9476,7 +9476,7 @@ name "doorlhaft.003"
 loc -16.4096 -6.57565 20.0166
 data 10
 Circle.006
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -9484,7 +9484,7 @@ name "doorlhaft.004"
 loc -16.4096 -6.57565 20.0166
 data 10
 Circle.015
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -9492,7 +9492,7 @@ name "doorlhfwd"
 loc -16.4096 -6.57565 20.0166
 data 10
 Circle.007
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -9500,7 +9500,7 @@ name "doorlhfwd.001"
 loc -16.4096 -6.57565 20.0166
 data 10
 Circle.011
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -9508,7 +9508,7 @@ name "doorlhfwd.002"
 loc -16.4096 -6.57565 20.0166
 data 10
 Circle.017
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -9516,7 +9516,7 @@ name "slat2"
 loc -16.4096 -6.57565 20.0166
 data 8
 Mesh.021
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -9524,7 +9524,7 @@ name "NGActuator"
 loc -5.64137 0.651554 9.5218
 data 9
 Mesh.1240
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -9532,7 +9532,7 @@ name "NGActuator"
 loc -5.64137 15.5515 9.5218
 data 9
 Mesh.1240
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -9540,7 +9540,7 @@ name "NGActuator"
 loc -5.64137 25.8515 21.0218
 data 9
 Mesh.1240
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -9548,7 +9548,7 @@ name "NGActuator"
 loc -5.64137 12.5515 9.5218
 data 9
 Mesh.1577
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -9556,7 +9556,7 @@ name "Derive.001"
 loc -8.10239 -6.49644 9.50301
 data 9
 Mesh.1144
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 45.000000
 kids 0
 OBJECT poly
@@ -9564,7 +9564,7 @@ name "NGActuator"
 loc -8.10239 -6.49644 9.50301
 data 9
 Mesh.1240
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -9572,7 +9572,7 @@ name "NGActuator"
 loc -9.20934 9.33362 9.50301
 data 9
 Mesh.1240
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -9580,7 +9580,7 @@ name "NGActuator"
 loc -9.97451 20.2766 21.003
 data 9
 Mesh.1240
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -9588,7 +9588,7 @@ name "NGActuator"
 loc -8.98646 6.14642 9.50301
 data 9
 Mesh.1577
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -9596,7 +9596,7 @@ name "doorlhaft"
 loc -0.123084 -13.3048 9.5218
 data 10
 Circle.019
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -9604,7 +9604,7 @@ name "doorlhaft.001"
 loc -0.123084 -13.3048 9.5218
 data 10
 Circle.004
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -9612,7 +9612,7 @@ name "doorlhaft.002"
 loc -0.123084 -13.3048 9.5218
 data 10
 Circle.005
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -9620,7 +9620,7 @@ name "doorlhaft.003"
 loc -0.123084 -13.3048 9.5218
 data 10
 Circle.006
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -9628,7 +9628,7 @@ name "doorlhaft.004"
 loc -0.123084 -13.3048 9.5218
 data 10
 Circle.015
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -9636,7 +9636,7 @@ name "doorlhfwd"
 loc -0.123084 -13.3048 9.5218
 data 10
 Circle.007
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -9644,7 +9644,7 @@ name "doorlhfwd.001"
 loc -0.123084 -13.3048 9.5218
 data 10
 Circle.011
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -9652,7 +9652,7 @@ name "doorlhfwd.002"
 loc -0.123084 -13.3048 9.5218
 data 10
 Circle.017
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -9660,7 +9660,7 @@ name "slat2"
 loc -0.123084 -13.3048 9.5218
 data 8
 Mesh.021
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -9668,7 +9668,7 @@ name "doorlhaft"
 loc 0.128371 -4.95245 9.5218
 data 10
 Circle.019
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -9676,7 +9676,7 @@ name "doorlhaft.001"
 loc 0.128371 -4.95245 9.5218
 data 10
 Circle.001
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -9684,7 +9684,7 @@ name "doorlhaft.002"
 loc 0.128371 -4.95245 9.5218
 data 6
 Circle
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -9692,7 +9692,7 @@ name "doorlhaft.003"
 loc 0.128371 -4.95245 9.5218
 data 10
 Circle.004
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -9700,7 +9700,7 @@ name "doorlhaft.004"
 loc 0.128371 -4.95245 9.5218
 data 10
 Circle.015
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -9708,7 +9708,7 @@ name "doorlhfwd"
 loc 0.128371 -4.95245 9.5218
 data 10
 Circle.005
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -9716,7 +9716,7 @@ name "doorlhfwd.001"
 loc 0.128371 -4.95245 9.5218
 data 10
 Circle.011
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -9724,7 +9724,7 @@ name "doorlhfwd.002"
 loc 0.128371 -4.95245 9.5218
 data 10
 Circle.017
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -9732,7 +9732,7 @@ name "slat2"
 loc 0.128371 -4.95245 9.5218
 data 8
 Mesh.023
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -9740,7 +9740,7 @@ name "NGActuator"
 loc 0.14162 -0.673426 -11.1134
 data 9
 Mesh.1240
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -9748,7 +9748,7 @@ name "NGActuator"
 loc 0.14162 14.2265 -11.1134
 data 9
 Mesh.1240
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -9756,7 +9756,7 @@ name "NGActuator"
 loc -11.3584 24.5265 -11.1134
 data 9
 Mesh.1240
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -9764,7 +9764,7 @@ name "NGActuator"
 loc 0.14162 11.2265 -11.1134
 data 9
 Mesh.1577
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -9772,7 +9772,7 @@ name "NGActuator"
 loc 0.141619 20.4913 -7.17098
 data 9
 Mesh.1240
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -9780,7 +9780,7 @@ name "NGActuator"
 loc 0.141619 35.3913 -7.17098
 data 9
 Mesh.1240
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -9788,7 +9788,7 @@ name "NGActuator"
 loc -11.3584 45.6915 -7.17098
 data 9
 Mesh.1240
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -9796,7 +9796,7 @@ name "NGActuator"
 loc 0.141619 32.3913 -7.17098
 data 9
 Mesh.1577
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -9804,7 +9804,7 @@ name "doorlhaft"
 loc 0.14162 0.0408545 -11.2163
 data 10
 Circle.019
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -9812,7 +9812,7 @@ name "doorlhaft.001"
 loc 0.14162 0.0408545 -11.2163
 data 10
 Circle.004
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -9820,7 +9820,7 @@ name "doorlhaft.002"
 loc 0.14162 0.0408545 -11.2163
 data 10
 Circle.005
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -9828,7 +9828,7 @@ name "doorlhaft.003"
 loc 0.14162 0.0408545 -11.2163
 data 10
 Circle.006
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -9836,7 +9836,7 @@ name "doorlhaft.004"
 loc 0.14162 0.0408545 -11.2163
 data 10
 Circle.015
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -9844,7 +9844,7 @@ name "doorlhfwd"
 loc 0.14162 0.0408545 -11.2163
 data 10
 Circle.007
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -9852,7 +9852,7 @@ name "doorlhfwd.001"
 loc 0.14162 0.0408545 -11.2163
 data 10
 Circle.011
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -9860,7 +9860,7 @@ name "doorlhfwd.002"
 loc 0.14162 0.0408545 -11.2163
 data 10
 Circle.017
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -9868,7 +9868,7 @@ name "slat2"
 loc 0.14162 0.0408545 -11.2163
 data 8
 Mesh.021
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -9876,7 +9876,7 @@ name "doorlhaft"
 loc 8.9874 -6.6838 -14.2648
 data 10
 Circle.019
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -9884,7 +9884,7 @@ name "doorlhaft.001"
 loc 8.9874 -6.6838 -14.2648
 data 10
 Circle.004
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -9892,7 +9892,7 @@ name "doorlhaft.002"
 loc 8.9874 -6.6838 -14.2648
 data 10
 Circle.005
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -9900,7 +9900,7 @@ name "doorlhaft.003"
 loc 8.9874 -6.6838 -14.2648
 data 10
 Circle.006
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -9908,7 +9908,7 @@ name "doorlhaft.004"
 loc 8.9874 -6.6838 -14.2648
 data 10
 Circle.015
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -9916,7 +9916,7 @@ name "doorlhfwd"
 loc 8.9874 -6.6838 -14.2648
 data 10
 Circle.007
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -9924,7 +9924,7 @@ name "doorlhfwd.001"
 loc 8.9874 -6.6838 -14.2648
 data 10
 Circle.011
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -9932,7 +9932,7 @@ name "doorlhfwd.002"
 loc 8.9874 -6.6838 -14.2648
 data 10
 Circle.017
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -9940,7 +9940,7 @@ name "slat2"
 loc 8.9874 -6.6838 -14.2648
 data 8
 Mesh.021
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -9948,7 +9948,7 @@ name "doorlhaft"
 loc 16.5872 -6.6838 -21.8702
 data 10
 Circle.019
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -9956,7 +9956,7 @@ name "doorlhaft.001"
 loc 16.5872 -6.6838 -21.8702
 data 10
 Circle.004
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -9964,7 +9964,7 @@ name "doorlhaft.002"
 loc 16.5872 -6.6838 -21.8702
 data 10
 Circle.005
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -9972,7 +9972,7 @@ name "doorlhaft.003"
 loc 16.5872 -6.6838 -21.8702
 data 10
 Circle.006
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -9980,7 +9980,7 @@ name "doorlhaft.004"
 loc 16.5872 -6.6838 -21.8702
 data 10
 Circle.015
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -9988,7 +9988,7 @@ name "doorlhfwd"
 loc 16.5872 -6.6838 -21.8702
 data 10
 Circle.007
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -9996,7 +9996,7 @@ name "doorlhfwd.001"
 loc 16.5872 -6.6838 -21.8702
 data 10
 Circle.011
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -10004,7 +10004,7 @@ name "doorlhfwd.002"
 loc 16.5872 -6.6838 -21.8702
 data 10
 Circle.017
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -10012,7 +10012,7 @@ name "slat2"
 loc 16.5872 -6.6838 -21.8702
 data 8
 Mesh.021
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -10020,7 +10020,7 @@ name "NGActuator"
 loc -0.123084 -0.565276 9.41893
 data 9
 Mesh.1240
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -10028,7 +10028,7 @@ name "NGActuator"
 loc -0.123084 14.3347 9.41893
 data 9
 Mesh.1240
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -10036,7 +10036,7 @@ name "NGActuator"
 loc 11.3769 24.6347 9.41893
 data 9
 Mesh.1240
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -10044,7 +10044,7 @@ name "NGActuator"
 loc -0.123084 11.3347 9.41893
 data 9
 Mesh.1577
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -10052,7 +10052,7 @@ name "NGActuator"
 loc -0.123083 20.5995 5.47653
 data 9
 Mesh.1240
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -10060,7 +10060,7 @@ name "NGActuator"
 loc -0.123083 35.4995 5.47653
 data 9
 Mesh.1240
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -10068,7 +10068,7 @@ name "NGActuator"
 loc 11.3769 45.7996 5.47653
 data 9
 Mesh.1240
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -10076,7 +10076,7 @@ name "NGActuator"
 loc -0.123083 32.4995 5.47653
 data 9
 Mesh.1577
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -10084,7 +10084,7 @@ name "doorlhaft"
 loc -0.123084 0.149004 9.5218
 data 10
 Circle.019
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -10092,7 +10092,7 @@ name "doorlhaft.001"
 loc -0.123084 0.149004 9.5218
 data 10
 Circle.004
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -10100,7 +10100,7 @@ name "doorlhaft.002"
 loc -0.123084 0.149004 9.5218
 data 10
 Circle.005
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -10108,7 +10108,7 @@ name "doorlhaft.003"
 loc -0.123084 0.149004 9.5218
 data 10
 Circle.006
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -10116,7 +10116,7 @@ name "doorlhaft.004"
 loc -0.123084 0.149004 9.5218
 data 10
 Circle.015
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -10124,7 +10124,7 @@ name "doorlhfwd"
 loc -0.123084 0.149004 9.5218
 data 10
 Circle.007
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -10132,7 +10132,7 @@ name "doorlhfwd.001"
 loc -0.123084 0.149004 9.5218
 data 10
 Circle.011
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -10140,7 +10140,7 @@ name "doorlhfwd.002"
 loc -0.123084 0.149004 9.5218
 data 10
 Circle.017
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -10148,7 +10148,7 @@ name "slat2"
 loc -0.123084 0.149004 9.5218
 data 8
 Mesh.021
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -10156,7 +10156,7 @@ name "doorlhaft"
 loc -8.96888 -6.57565 12.5703
 data 10
 Circle.019
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -10164,7 +10164,7 @@ name "doorlhaft.001"
 loc -8.96888 -6.57565 12.5703
 data 10
 Circle.004
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -10172,7 +10172,7 @@ name "doorlhaft.002"
 loc -8.96888 -6.57565 12.5703
 data 10
 Circle.005
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -10180,7 +10180,7 @@ name "doorlhaft.003"
 loc -8.96888 -6.57565 12.5703
 data 10
 Circle.006
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -10188,7 +10188,7 @@ name "doorlhaft.004"
 loc -8.96888 -6.57565 12.5703
 data 10
 Circle.015
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -10196,7 +10196,7 @@ name "doorlhfwd"
 loc -8.96888 -6.57565 12.5703
 data 10
 Circle.007
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -10204,7 +10204,7 @@ name "doorlhfwd.001"
 loc -8.96888 -6.57565 12.5703
 data 10
 Circle.011
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -10212,7 +10212,7 @@ name "doorlhfwd.002"
 loc -8.96888 -6.57565 12.5703
 data 10
 Circle.017
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -10220,7 +10220,7 @@ name "slat2"
 loc -8.96888 -6.57565 12.5703
 data 8
 Mesh.021
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -10228,7 +10228,7 @@ name "doorlhaft"
 loc -16.5687 -6.57565 20.1757
 data 10
 Circle.019
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -10236,7 +10236,7 @@ name "doorlhaft.001"
 loc -16.5687 -6.57565 20.1757
 data 10
 Circle.004
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -10244,7 +10244,7 @@ name "doorlhaft.002"
 loc -16.5687 -6.57565 20.1757
 data 10
 Circle.005
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -10252,7 +10252,7 @@ name "doorlhaft.003"
 loc -16.5687 -6.57565 20.1757
 data 10
 Circle.006
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -10260,7 +10260,7 @@ name "doorlhaft.004"
 loc -16.5687 -6.57565 20.1757
 data 10
 Circle.015
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -10268,7 +10268,7 @@ name "doorlhfwd"
 loc -16.5687 -6.57565 20.1757
 data 10
 Circle.007
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -10276,7 +10276,7 @@ name "doorlhfwd.001"
 loc -16.5687 -6.57565 20.1757
 data 10
 Circle.011
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -10284,7 +10284,7 @@ name "doorlhfwd.002"
 loc -16.5687 -6.57565 20.1757
 data 10
 Circle.017
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -10292,7 +10292,7 @@ name "slat2"
 loc -16.5687 -6.57565 20.1757
 data 8
 Mesh.021
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -10300,7 +10300,7 @@ name "NGActuator"
 loc -5.48233 0.651554 9.36277
 data 9
 Mesh.1240
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -10308,7 +10308,7 @@ name "NGActuator"
 loc -5.48233 15.5515 9.36277
 data 9
 Mesh.1240
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -10316,7 +10316,7 @@ name "NGActuator"
 loc -5.48233 25.8515 20.8627
 data 9
 Mesh.1240
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -10324,7 +10324,7 @@ name "NGActuator"
 loc -5.48233 12.5515 9.36277
 data 9
 Mesh.1577
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -10332,7 +10332,7 @@ name "Derive.001"
 loc -7.94335 -6.49644 9.34398
 data 9
 Mesh.1144
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 45.000000
 kids 0
 OBJECT poly
@@ -10340,7 +10340,7 @@ name "NGActuator"
 loc -7.94335 -6.49644 9.34398
 data 9
 Mesh.1240
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -10348,7 +10348,7 @@ name "NGActuator"
 loc -9.0503 9.33362 9.34398
 data 9
 Mesh.1240
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -10356,7 +10356,7 @@ name "NGActuator"
 loc -9.81551 20.2766 20.8439
 data 9
 Mesh.1240
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -10364,7 +10364,7 @@ name "NGActuator"
 loc -8.82742 6.14642 9.34398
 data 9
 Mesh.1577
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -10372,7 +10372,7 @@ name "doorlhaft"
 loc 0.0359515 -13.3048 9.36277
 data 10
 Circle.019
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -10380,7 +10380,7 @@ name "doorlhaft.001"
 loc 0.0359515 -13.3048 9.36277
 data 10
 Circle.004
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -10388,7 +10388,7 @@ name "doorlhaft.002"
 loc 0.0359515 -13.3048 9.36277
 data 10
 Circle.005
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -10396,7 +10396,7 @@ name "doorlhaft.003"
 loc 0.0359515 -13.3048 9.36277
 data 10
 Circle.006
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -10404,7 +10404,7 @@ name "doorlhaft.004"
 loc 0.0359515 -13.3048 9.36277
 data 10
 Circle.015
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -10412,7 +10412,7 @@ name "doorlhfwd"
 loc 0.0359515 -13.3048 9.36277
 data 10
 Circle.007
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -10420,7 +10420,7 @@ name "doorlhfwd.001"
 loc 0.0359515 -13.3048 9.36277
 data 10
 Circle.011
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -10428,7 +10428,7 @@ name "doorlhfwd.002"
 loc 0.0359515 -13.3048 9.36277
 data 10
 Circle.017
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -10436,7 +10436,7 @@ name "slat2"
 loc 0.0359515 -13.3048 9.36277
 data 8
 Mesh.021
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -10444,7 +10444,7 @@ name "doorlhaft"
 loc 0.287407 -4.95245 9.36277
 data 10
 Circle.019
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -10452,7 +10452,7 @@ name "doorlhaft.001"
 loc 0.287407 -4.95245 9.36277
 data 10
 Circle.001
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -10460,7 +10460,7 @@ name "doorlhaft.002"
 loc 0.287407 -4.95245 9.36277
 data 6
 Circle
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -10468,7 +10468,7 @@ name "doorlhaft.003"
 loc 0.287407 -4.95245 9.36277
 data 10
 Circle.004
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -10476,7 +10476,7 @@ name "doorlhaft.004"
 loc 0.287407 -4.95245 9.36277
 data 10
 Circle.015
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -10484,7 +10484,7 @@ name "doorlhfwd"
 loc 0.287407 -4.95245 9.36277
 data 10
 Circle.005
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -10492,7 +10492,7 @@ name "doorlhfwd.001"
 loc 0.287407 -4.95245 9.36277
 data 10
 Circle.011
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -10500,7 +10500,7 @@ name "doorlhfwd.002"
 loc 0.287407 -4.95245 9.36277
 data 10
 Circle.017
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -10508,7 +10508,7 @@ name "slat2"
 loc 0.287407 -4.95245 9.36277
 data 8
 Mesh.023
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -10516,7 +10516,7 @@ name "NGActuator"
 loc 0.30065 -0.673426 -11.2724
 data 9
 Mesh.1240
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -10524,7 +10524,7 @@ name "NGActuator"
 loc 0.30065 14.2265 -11.2724
 data 9
 Mesh.1240
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -10532,7 +10532,7 @@ name "NGActuator"
 loc -11.1993 24.5265 -11.2724
 data 9
 Mesh.1240
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -10540,7 +10540,7 @@ name "NGActuator"
 loc 0.30065 11.2265 -11.2724
 data 9
 Mesh.1577
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -10548,7 +10548,7 @@ name "NGActuator"
 loc 0.300651 20.4913 -7.32998
 data 9
 Mesh.1240
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -10556,7 +10556,7 @@ name "NGActuator"
 loc 0.300651 35.3913 -7.32998
 data 9
 Mesh.1240
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -10564,7 +10564,7 @@ name "NGActuator"
 loc -11.1993 45.6915 -7.32998
 data 9
 Mesh.1240
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -10572,7 +10572,7 @@ name "NGActuator"
 loc 0.300651 32.3913 -7.32998
 data 9
 Mesh.1577
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -10580,7 +10580,7 @@ name "doorlhaft"
 loc 0.30065 0.0408545 -11.3753
 data 10
 Circle.019
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -10588,7 +10588,7 @@ name "doorlhaft.001"
 loc 0.30065 0.0408545 -11.3753
 data 10
 Circle.004
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -10596,7 +10596,7 @@ name "doorlhaft.002"
 loc 0.30065 0.0408545 -11.3753
 data 10
 Circle.005
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -10604,7 +10604,7 @@ name "doorlhaft.003"
 loc 0.30065 0.0408545 -11.3753
 data 10
 Circle.006
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -10612,7 +10612,7 @@ name "doorlhaft.004"
 loc 0.30065 0.0408545 -11.3753
 data 10
 Circle.015
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -10620,7 +10620,7 @@ name "doorlhfwd"
 loc 0.30065 0.0408545 -11.3753
 data 10
 Circle.007
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -10628,7 +10628,7 @@ name "doorlhfwd.001"
 loc 0.30065 0.0408545 -11.3753
 data 10
 Circle.011
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -10636,7 +10636,7 @@ name "doorlhfwd.002"
 loc 0.30065 0.0408545 -11.3753
 data 10
 Circle.017
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -10644,7 +10644,7 @@ name "slat2"
 loc 0.30065 0.0408545 -11.3753
 data 8
 Mesh.021
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -10652,7 +10652,7 @@ name "doorlhaft"
 loc 9.14643 -6.6838 -14.4239
 data 10
 Circle.019
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -10660,7 +10660,7 @@ name "doorlhaft.001"
 loc 9.14643 -6.6838 -14.4239
 data 10
 Circle.004
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -10668,7 +10668,7 @@ name "doorlhaft.002"
 loc 9.14643 -6.6838 -14.4239
 data 10
 Circle.005
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -10676,7 +10676,7 @@ name "doorlhaft.003"
 loc 9.14643 -6.6838 -14.4239
 data 10
 Circle.006
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -10684,7 +10684,7 @@ name "doorlhaft.004"
 loc 9.14643 -6.6838 -14.4239
 data 10
 Circle.015
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -10692,7 +10692,7 @@ name "doorlhfwd"
 loc 9.14643 -6.6838 -14.4239
 data 10
 Circle.007
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -10700,7 +10700,7 @@ name "doorlhfwd.001"
 loc 9.14643 -6.6838 -14.4239
 data 10
 Circle.011
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -10708,7 +10708,7 @@ name "doorlhfwd.002"
 loc 9.14643 -6.6838 -14.4239
 data 10
 Circle.017
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -10716,7 +10716,7 @@ name "slat2"
 loc 9.14643 -6.6838 -14.4239
 data 8
 Mesh.021
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -10724,7 +10724,7 @@ name "doorlhaft"
 loc 16.7462 -6.6838 -22.0293
 data 10
 Circle.019
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -10732,7 +10732,7 @@ name "doorlhaft.001"
 loc 16.7462 -6.6838 -22.0293
 data 10
 Circle.004
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -10740,7 +10740,7 @@ name "doorlhaft.002"
 loc 16.7462 -6.6838 -22.0293
 data 10
 Circle.005
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -10748,7 +10748,7 @@ name "doorlhaft.003"
 loc 16.7462 -6.6838 -22.0293
 data 10
 Circle.006
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -10756,7 +10756,7 @@ name "doorlhaft.004"
 loc 16.7462 -6.6838 -22.0293
 data 10
 Circle.015
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -10764,7 +10764,7 @@ name "doorlhfwd"
 loc 16.7462 -6.6838 -22.0293
 data 10
 Circle.007
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -10772,7 +10772,7 @@ name "doorlhfwd.001"
 loc 16.7462 -6.6838 -22.0293
 data 10
 Circle.011
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -10780,7 +10780,7 @@ name "doorlhfwd.002"
 loc 16.7462 -6.6838 -22.0293
 data 10
 Circle.017
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -10788,7 +10788,7 @@ name "slat2"
 loc 16.7462 -6.6838 -22.0293
 data 8
 Mesh.021
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -10796,7 +10796,7 @@ name "NGActuator"
 loc 0.0359515 -0.565276 9.2599
 data 9
 Mesh.1240
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -10804,7 +10804,7 @@ name "NGActuator"
 loc 0.0359515 14.3347 9.2599
 data 9
 Mesh.1240
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -10812,7 +10812,7 @@ name "NGActuator"
 loc 11.536 24.6347 9.2599
 data 9
 Mesh.1240
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -10820,7 +10820,7 @@ name "NGActuator"
 loc 0.0359515 11.3347 9.2599
 data 9
 Mesh.1577
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -10828,7 +10828,7 @@ name "NGActuator"
 loc 0.0359508 20.5995 5.3175
 data 9
 Mesh.1240
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -10836,7 +10836,7 @@ name "NGActuator"
 loc 0.0359508 35.4995 5.3175
 data 9
 Mesh.1240
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -10844,7 +10844,7 @@ name "NGActuator"
 loc 11.536 45.7996 5.3175
 data 9
 Mesh.1240
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -10852,7 +10852,7 @@ name "NGActuator"
 loc 0.0359508 32.4995 5.3175
 data 9
 Mesh.1577
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -10860,7 +10860,7 @@ name "doorlhaft"
 loc 0.0359515 0.149004 9.36277
 data 10
 Circle.019
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -10868,7 +10868,7 @@ name "doorlhaft.001"
 loc 0.0359515 0.149004 9.36277
 data 10
 Circle.004
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -10876,7 +10876,7 @@ name "doorlhaft.002"
 loc 0.0359515 0.149004 9.36277
 data 10
 Circle.005
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -10884,7 +10884,7 @@ name "doorlhaft.003"
 loc 0.0359515 0.149004 9.36277
 data 10
 Circle.006
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -10892,7 +10892,7 @@ name "doorlhaft.004"
 loc 0.0359515 0.149004 9.36277
 data 10
 Circle.015
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -10900,7 +10900,7 @@ name "doorlhfwd"
 loc 0.0359515 0.149004 9.36277
 data 10
 Circle.007
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -10908,7 +10908,7 @@ name "doorlhfwd.001"
 loc 0.0359515 0.149004 9.36277
 data 10
 Circle.011
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -10916,7 +10916,7 @@ name "doorlhfwd.002"
 loc 0.0359515 0.149004 9.36277
 data 10
 Circle.017
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -10924,7 +10924,7 @@ name "slat2"
 loc 0.0359515 0.149004 9.36277
 data 8
 Mesh.021
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -10932,7 +10932,7 @@ name "doorlhaft"
 loc -8.80984 -6.57565 12.4113
 data 10
 Circle.019
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -10940,7 +10940,7 @@ name "doorlhaft.001"
 loc -8.80984 -6.57565 12.4113
 data 10
 Circle.004
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -10948,7 +10948,7 @@ name "doorlhaft.002"
 loc -8.80984 -6.57565 12.4113
 data 10
 Circle.005
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -10956,7 +10956,7 @@ name "doorlhaft.003"
 loc -8.80984 -6.57565 12.4113
 data 10
 Circle.006
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -10964,7 +10964,7 @@ name "doorlhaft.004"
 loc -8.80984 -6.57565 12.4113
 data 10
 Circle.015
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -10972,7 +10972,7 @@ name "doorlhfwd"
 loc -8.80984 -6.57565 12.4113
 data 10
 Circle.007
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -10980,7 +10980,7 @@ name "doorlhfwd.001"
 loc -8.80984 -6.57565 12.4113
 data 10
 Circle.011
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -10988,7 +10988,7 @@ name "doorlhfwd.002"
 loc -8.80984 -6.57565 12.4113
 data 10
 Circle.017
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -10996,7 +10996,7 @@ name "slat2"
 loc -8.80984 -6.57565 12.4113
 data 8
 Mesh.021
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -11004,7 +11004,7 @@ name "doorlhaft"
 loc -16.4096 -6.57565 20.0166
 data 10
 Circle.019
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -11012,7 +11012,7 @@ name "doorlhaft.001"
 loc -16.4096 -6.57565 20.0166
 data 10
 Circle.004
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -11020,7 +11020,7 @@ name "doorlhaft.002"
 loc -16.4096 -6.57565 20.0166
 data 10
 Circle.005
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -11028,7 +11028,7 @@ name "doorlhaft.003"
 loc -16.4096 -6.57565 20.0166
 data 10
 Circle.006
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -11036,7 +11036,7 @@ name "doorlhaft.004"
 loc -16.4096 -6.57565 20.0166
 data 10
 Circle.015
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -11044,7 +11044,7 @@ name "doorlhfwd"
 loc -16.4096 -6.57565 20.0166
 data 10
 Circle.007
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -11052,7 +11052,7 @@ name "doorlhfwd.001"
 loc -16.4096 -6.57565 20.0166
 data 10
 Circle.011
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -11060,7 +11060,7 @@ name "doorlhfwd.002"
 loc -16.4096 -6.57565 20.0166
 data 10
 Circle.017
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -11068,7 +11068,7 @@ name "slat2"
 loc -16.4096 -6.57565 20.0166
 data 8
 Mesh.021
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 kids 0
 OBJECT poly
@@ -11076,7 +11076,7 @@ name "Windsheild"
 loc 17.123 -7.73883 9.36092
 data 20
 Object03_4 - Default
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 numvert 3398
 -6.0893 -0.1419 -1.86237
@@ -53340,7 +53340,7 @@ name "GearNFwdDoorL"
 loc 5.33424 -10.4533 9.36092
 data 8
 Mesh.031
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 subdiv 1
 numvert 10
@@ -53415,7 +53415,7 @@ name "GearNFwdDoorR"
 loc 5.33414 -10.4533 8.86092
 data 8
 Mesh.031
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 subdiv 1
 numvert 13
@@ -53503,7 +53503,7 @@ kids 0
 OBJECT poly
 name "Fuselage"
 loc 26.5586 -6.31335 9.33209
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 45.000000
 subdiv 2
 numvert 47
@@ -53853,7 +53853,7 @@ kids 0
 OBJECT poly
 name "Fuselage"
 loc 23.9499 -6.39736 9.31585
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 45.000000
 subdiv 2
 numvert 47
@@ -54203,7 +54203,7 @@ kids 0
 OBJECT poly
 name "Fuselage"
 loc 10.4708 -10.7474 9.33209
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 45.000000
 subdiv 2
 numvert 47
@@ -54553,7 +54553,7 @@ kids 0
 OBJECT poly
 name "Fuselage"
 loc 25.6696 -10.578 9.33209
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 45.000000
 subdiv 2
 numvert 47
@@ -54903,7 +54903,7 @@ kids 0
 OBJECT poly
 name "Fuselage"
 loc 7.92843 -6.45949 9.33209
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 45.000000
 subdiv 2
 numvert 47
@@ -55255,7 +55255,7 @@ name "GearNWell"
 loc 6.88261 -10.4353 8.86092
 data 18
 NG BAY_2 - Default
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 subdiv 1
 numvert 20
@@ -55397,7 +55397,7 @@ OBJECT poly
 name "CockpitFrame"
 data 19
 COCKPIT_3 - Default
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 subdiv 1
 numvert 16
@@ -55496,7 +55496,7 @@ name "DoorL1"
 loc 7.16641 -8.82011 10.4361
 data 8
 Mesh.031
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 subdiv 1
 numvert 28
@@ -55691,7 +55691,7 @@ name "DoorL4"
 loc 31.6634 -8.84216 10.4754
 data 8
 Mesh.031
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 subdiv 1
 numvert 37
@@ -55955,7 +55955,7 @@ name "DoorR4"
 loc 31.6634 -8.84216 7.55886
 data 8
 Mesh.031
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 subdiv 1
 numvert 37
@@ -56219,7 +56219,7 @@ name "DoorR1"
 loc 7.16641 -8.82011 7.40263
 data 8
 Mesh.031
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 subdiv 1
 numvert 28
@@ -56414,7 +56414,7 @@ name "GearRDoor"
 loc 19.2634 -10.8336 7.39847
 data 8
 Mesh.031
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 subdiv 1
 numvert 19
@@ -56558,7 +56558,7 @@ name "GearLDoor"
 loc 19.2634 -10.8336 9.82559
 data 8
 Mesh.031
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 subdiv 1
 numvert 19
@@ -56702,7 +56702,7 @@ name "GearNAftDoorR"
 loc 7.65531 -10.4675 8.97478
 data 8
 Mesh.031
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 subdiv 1
 numvert 5
@@ -56736,7 +56736,7 @@ name "GearNWell"
 loc 6.88261 -10.3452 9.86092
 data 18
 NG BAY_2 - Default
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 subdiv 1
 numvert 4
@@ -56763,7 +56763,7 @@ name "GearNAftDoorL"
 loc 7.65531 -10.4675 9.36092
 data 8
 Mesh.031
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 subdiv 1
 numvert 4
@@ -56790,7 +56790,7 @@ name "GearNFwdDoorL"
 loc 5.33424 -10.4533 9.36092
 data 8
 Mesh.031
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 subdiv 1
 numvert 13
@@ -56904,7 +56904,7 @@ name "GearNFwdDoorR"
 loc 5.33414 -10.4533 8.86092
 data 8
 Mesh.031
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 subdiv 1
 numvert 13
@@ -57018,7 +57018,7 @@ name "Fuselage"
 loc 21.3547 -8.56964 9.36092
 data 8
 Mesh.031
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 subdiv 1
 numvert 4566

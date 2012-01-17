@@ -9,7 +9,7 @@ OBJECT poly
 name "Vstab"
 data 19
 LEADING_3 - Default
-texture "A320NEO-Blank.png"
+texture "A320neo.png"
 texrep 1 1
 crease 30.000000
 numvert 222
@@ -3119,7 +3119,7 @@ OBJECT poly
 name "Rudder_1"
 data 17
 LEADING_3 - Defau
-texture "A320NEO-Blank.png"
+texture "A320neo.png"
 texrep 1 1
 crease 30.000000
 numvert 52

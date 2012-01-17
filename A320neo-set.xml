@@ -16,8 +16,8 @@
 			<livery>
 				<file>Liveries/A320neo-Blank</file>
 				<texture>Liveries/A320neo-Blank.png</texture>
-				<texture-path n="0">../Liveries/A320neo-Blank.png</texture-path>
-				<texture-path n="1">../Liveries/A320neo-Blank.png</texture-path>
+				<texture-path>../Liveries/A320neo-Blank.png</texture-path>
+				<!--texture-path n="1">../Liveries/A320neo-Blank.png</texture-path-->
 			</livery>
 	            	<door n="0">
 		                <position-x-m>-11.3399</position-x-m>

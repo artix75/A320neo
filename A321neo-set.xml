@@ -16,8 +16,8 @@
 			<livery>
 				<file>Liveries/A321neo-Blank</file>
 				<texture>Liveries/A321neo-Blank.png</texture>
-				<texture-path n="0">../Liveries/A321neo-Blank.png</texture-path>
-				<texture-path n="1">../Liveries/A321neo-Blank.png</texture-path>
+				<texture-path>../Liveries/A321neo-Blank.png</texture-path>
+				<!--texture-path n="1">../Liveries/A321neo-Blank.png</texture-path-->
 			</livery>
 			<door n="0">
 				<position-x-m>-16.3399</position-x-m>
@@ -64,6 +64,11 @@
 			<setting>0.645</setting><!-- 22+22=44 -> 0.645 -->
 			<setting>1</setting><!-- 27+35=62 -> 1 -->
 		</flaps>
+	<!--airport>
+		<runways>
+			<start-offset-m>50</start-offset-m>
+		</runways>
+	</airport-->
 
 		<view>
 			<name>Pilot View</name>

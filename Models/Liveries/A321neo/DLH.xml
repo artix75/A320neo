@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<PropertyList>
+	<sim>
+		<model>
+			<livery>
+				<name>Lufthansa</name>
+				<texture>Liveries/A321neo-DLH.png</texture>
+			</livery>
+		</model>
+	</sim>
+</PropertyList>

@@ -9,7 +9,7 @@ OBJECT poly
 name "Hstabs"
 data 17
 HSTAB_1 - Default
-texture "A320-NWA.png"
+texture "A320neo.png"
 texrep 1 1
 crease 30.000000
 numvert 310
@@ -3221,7 +3221,7 @@ OBJECT poly
 name "ElevatorL"
 data 21
 HSTAB_1 - Default.002
-texture "A320-NWA.png"
+texture "A320neo.png"
 texrep 1 1
 crease 30.000000
 numvert 58
@@ -3925,7 +3925,7 @@ OBJECT poly
 name "ElevatorR"
 data 21
 HSTAB_1 - Default.003
-texture "A320-NWA.png"
+texture "A320neo.png"
 texrep 1 1
 crease 30.000000
 numvert 58
@@ -4629,7 +4629,7 @@ OBJECT poly
 name "HstabFlapL"
 data 21
 HSTAB_1 - Default.001
-texture "A320-NWA.png"
+texture "A320neo.png"
 texrep 1 1
 crease 30.000000
 numvert 22
@@ -4781,7 +4781,7 @@ OBJECT poly
 name "HstabFlapR"
 data 21
 HSTAB_1 - Default.004
-texture "A320-NWA.png"
+texture "A320neo.png"
 texrep 1 1
 crease 30.000000
 numvert 22

@@ -48,7 +48,7 @@
 		<object-name>Nacelle</object-name>
 		<object-name>Reverser</object-name>
 		<property-base>sim/model/livery</property-base>
-		<texture-prop>texture-path[1]</texture-prop>
+		<texture-prop>texture-path</texture-prop>
 		<texture>Liveries/A320NEO-Blank.png</texture>
 	</animation>
 

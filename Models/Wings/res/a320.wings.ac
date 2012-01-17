@@ -6,7 +6,7 @@ OBJECT poly
 name "FairingPylons"
 data 21
 WINGS.TOP_1 - Def.020
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 numvert 536
 6.42682 0.732247 12.0387
@@ -4164,7 +4164,7 @@ OBJECT poly
 name "Wings"
 data 21
 WINGS.TOP_1 - Default
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 numvert 543
 7.66492 0.966661 -13.4077
@@ -11244,7 +11244,7 @@ OBJECT poly
 name "AileronL"
 data 21
 WINGS.TOP_1 - Def.012
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 numvert 6
 9.126 1.27312 16.3251
@@ -11295,7 +11295,7 @@ OBJECT poly
 name "AileronR"
 data 21
 WINGS.TOP_1 - Def.013
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 numvert 6
 9.126 1.27312 -16.3289
@@ -11346,7 +11346,7 @@ OBJECT poly
 name "FairingL1"
 data 21
 WINGS.TOP_1 - Def.024
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 numvert 74
 4.4975 -0.002122 4.75934
@@ -12094,7 +12094,7 @@ OBJECT poly
 name "FairingL2"
 data 21
 WINGS.TOP_1 - Def.025
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 numvert 81
 6.15874 0.019678 8.4574
@@ -12910,7 +12910,7 @@ OBJECT poly
 name "FairingL3"
 data 21
 WINGS.TOP_1 - Def.026
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 numvert 77
 6.44113 0.506122 12.0006
@@ -13710,7 +13710,7 @@ OBJECT poly
 name "FairingR1"
 data 21
 WINGS.TOP_1 - Def.023
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 numvert 74
 4.4975 -0.002122 -4.76314
@@ -14458,7 +14458,7 @@ OBJECT poly
 name "FairingR2"
 data 21
 WINGS.TOP_1 - Def.022
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 numvert 81
 6.15874 0.019678 -8.4612
@@ -15274,7 +15274,7 @@ OBJECT poly
 name "FairingR3"
 data 21
 WINGS.TOP_1 - Def.021
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 numvert 77
 6.44113 0.506122 -12.0044
@@ -16074,7 +16074,7 @@ OBJECT poly
 name "FlapL1"
 data 21
 WINGS.TOP_1 - Def.017
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 numvert 37
 5.08072 0.255748 6.24852
@@ -16431,7 +16431,7 @@ OBJECT poly
 name "FlapL2"
 data 21
 WINGS.TOP_1 - Def.016
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 numvert 25
 6.0828 0.353666 6.3331
@@ -16723,7 +16723,7 @@ OBJECT poly
 name "FlapR1"
 data 21
 WINGS.TOP_1 - Def.015
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 numvert 37
 5.102 0.181275 -5.64669
@@ -17080,7 +17080,7 @@ OBJECT poly
 name "FlapR2"
 data 21
 WINGS.TOP_1 - Def.014
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 numvert 25
 6.0828 0.353666 -6.3369
@@ -17372,7 +17372,7 @@ OBJECT poly
 name "Flaps1"
 data 21
 WINGS.TOP_1 - Def.018
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 numvert 16
 4.92373 -0.073503 -1.8699
@@ -17481,7 +17481,7 @@ OBJECT poly
 name "SlatL1"
 data 21
 WINGS.TOP_1 - Def.006
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 numvert 30
 0.500318 0.225628 2.29198
@@ -17856,7 +17856,7 @@ OBJECT poly
 name "SlatL2"
 data 21
 WINGS.TOP_1 - Def.007
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 numvert 59
 2.26119 0.398289 6.23101
@@ -18602,7 +18602,7 @@ OBJECT poly
 name "SlatL3"
 data 21
 WINGS.TOP_1 - Def.008
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 numvert 42
 4.62308 0.844268 10.7363
@@ -19133,7 +19133,7 @@ OBJECT poly
 name "SlatL4"
 data 21
 WINGS.TOP_1 - Def.009
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 numvert 43
 5.76033 1.00572 13.008
@@ -19677,7 +19677,7 @@ OBJECT poly
 name "SlatL5"
 data 21
 WINGS.TOP_1 - Def.010
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 numvert 39
 6.38717 1.15646 13.9608
@@ -20169,7 +20169,7 @@ OBJECT poly
 name "SlatR1"
 data 21
 WINGS.TOP_1 - Def.001
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 numvert 30
 0.500318 0.225628 -2.29578
@@ -20544,7 +20544,7 @@ OBJECT poly
 name "SlatR2"
 data 21
 WINGS.TOP_1 - Def.002
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 numvert 59
 2.26119 0.398288 -6.23481
@@ -21290,7 +21290,7 @@ OBJECT poly
 name "SlatR3"
 data 21
 WINGS.TOP_1 - Def.003
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 numvert 42
 4.62308 0.844268 -10.7401
@@ -21821,7 +21821,7 @@ OBJECT poly
 name "SlatR4"
 data 21
 WINGS.TOP_1 - Def.004
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 numvert 43
 5.76033 1.00572 -13.0118
@@ -22365,7 +22365,7 @@ OBJECT poly
 name "SlatR5"
 data 21
 WINGS.TOP_1 - Def.005
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 numvert 39
 6.38717 1.15646 -13.9646
@@ -22857,7 +22857,7 @@ OBJECT poly
 name "SpoilerL1"
 data 21
 WINGS.TOP_1 - Def.031
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 numvert 7
 4.88097 0.242627 4.45312
@@ -22933,7 +22933,7 @@ OBJECT poly
 name "SpoilerL2"
 data 21
 WINGS.TOP_1 - Def.030
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 numvert 6
 5.68029 0.707827 8.56069
@@ -22996,7 +22996,7 @@ OBJECT poly
 name "SpoilerL3"
 data 21
 WINGS.TOP_1 - Def.029
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 numvert 6
 6.86366 0.752658 9.92875
@@ -23059,7 +23059,7 @@ OBJECT poly
 name "SpoilerL4"
 data 21
 WINGS.TOP_1 - Def.028
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 numvert 6
 6.25856 0.874889 10.1575
@@ -23122,7 +23122,7 @@ OBJECT poly
 name "SpoilerL5"
 data 21
 WINGS.TOP_1 - Def.027
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 numvert 7
 7.29888 1.11518 13.0529
@@ -23198,7 +23198,7 @@ OBJECT poly
 name "SpoilerR1"
 data 21
 WINGS.TOP_1 - Def.032
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 numvert 14
 5.53165 0.190761 -4.4613
@@ -23323,7 +23323,7 @@ OBJECT poly
 name "SpoilerR2"
 data 21
 WINGS.TOP_1 - Def.033
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 numvert 6
 5.68029 0.707828 -8.56449
@@ -23386,7 +23386,7 @@ OBJECT poly
 name "SpoilerR3"
 data 21
 WINGS.TOP_1 - Def.034
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 numvert 6
 6.24815 0.833512 -10.147
@@ -23449,7 +23449,7 @@ OBJECT poly
 name "SpoilerR4"
 data 21
 WINGS.TOP_1 - Def.035
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 numvert 6
 6.25856 0.874889 -10.1613
@@ -23512,7 +23512,7 @@ OBJECT poly
 name "SpoilerR5"
 data 21
 WINGS.TOP_1 - Def.036
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 numvert 7
 7.29888 1.11518 -13.0567
@@ -23588,7 +23588,7 @@ OBJECT poly
 name "Wingtips"
 data 21
 WINGS.TOP_1 - Def.011
-texture "A320-NWA.png"
+texture "A320neo.png"
 crease 30.000000
 numvert 108
 7.98502 1.40596 16.6645

@@ -5,7 +5,7 @@ kids 1
 OBJECT poly
 name "WingletL"
 loc 8.95265 2.54009 17.0944
-texture "A320NEO-Blank.png"
+texture "A320neo.png"
 crease 45.000000
 numvert 434
 1.27361 1.27313 -34.7012
