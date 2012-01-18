@@ -2,7 +2,7 @@
 
 <PropertyList>
 
-	<path>../../Models/Interior/a319.interior.ac</path>
+	<path>res/a321.interior.ac</path>
 
 	<!-- ANIMATIONS -->
 	<!-- PAX doors -->
@@ -103,7 +103,103 @@
 	</animation>
 
 	<animation>
-		<name>PAX left-back door pick</name>
+		<name>PAX left door 2 pick</name>
+		<type>pick</type>
+		<object-name>DoorL2</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>nasal</command>
+				<script>
+				 systems.triggerDoor(systems.doorl2, "doorl2", "PAX left (main)");
+				</script>
+			</binding>
+		</action>
+	</animation>
+	<animation>
+		<name>PAX left door 2 x translate</name>
+		<type>translate</type>
+		<object-name>DoorL2</object-name>
+		<property>sim/model/door-positions/doorl2/position-norm</property>
+		<interpolation>
+			<entry><ind>0</ind><dep>0</dep></entry>
+			<entry><ind>0.25</ind><dep>0</dep></entry>
+			<entry><ind>1</ind><dep>-0.85</dep></entry>
+		</interpolation>
+		<axis>
+			<x>1</x>
+			<y>0</y>
+			<z>0</z>
+		</axis>
+	</animation>
+	<animation>
+		<name>PAX left door 2 y translate</name>
+		<type>translate</type>
+		<object-name>DoorL2</object-name>
+		<property>sim/model/door-positions/doorl2/position-norm</property>
+		<interpolation>
+			<entry><ind>0</ind><dep>0</dep></entry>
+			<entry><ind>0.25</ind><dep>-0.2</dep></entry>
+			<entry><ind>1</ind><dep>-0.2</dep></entry>
+		</interpolation>
+		<axis>
+			<x>0</x>
+			<y>1</y>
+			<z>0</z>
+		</axis>
+	</animation>
+
+	<animation>
+		<name>PAX right door 2 pick</name>
+		<type>pick</type>
+		<object-name>DoorR2</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>nasal</command>
+				<script>
+				 systems.triggerDoor(systems.doorr2, "doorr2", "PAX right");
+				</script>
+			</binding>
+		</action>
+	</animation>
+	<animation>
+		<name>PAX right door 2 x translate</name>
+		<type>translate</type>
+		<object-name>DoorR2</object-name>
+		<property>sim/model/door-positions/doorr2/position-norm</property>
+		<interpolation>
+			<entry><ind>0</ind><dep>0</dep></entry>
+			<entry><ind>0.25</ind><dep>0</dep></entry>
+			<entry><ind>1</ind><dep>-0.85</dep></entry>
+		</interpolation>
+		<axis>
+			<x>1</x>
+			<y>0</y>
+			<z>0</z>
+		</axis>
+	</animation>
+	<animation>
+		<name>PAX right door 2 y translate</name>
+		<type>translate</type>
+		<object-name>DoorR2</object-name>
+		<property>sim/model/door-positions/doorr2/position-norm</property>
+		<interpolation>
+			<entry><ind>0</ind><dep>0</dep></entry>
+			<entry><ind>0.25</ind><dep>0.2</dep></entry>
+			<entry><ind>1</ind><dep>0.2</dep></entry>
+		</interpolation>
+		<axis>
+			<x>0</x>
+			<y>1</y>
+			<z>0</z>
+		</axis>
+	</animation>
+
+	<animation>
+		<name>PAX left door 3 pick</name>
 		<type>pick</type>
 		<object-name>DoorL3</object-name>
 		<action>
@@ -118,7 +214,7 @@
 		</action>
 	</animation>
 	<animation>
-		<name>PAX left-back door x translate</name>
+		<name>PAX left door 3 x translate</name>
 		<type>translate</type>
 		<object-name>DoorL3</object-name>
 		<property>sim/model/door-positions/doorl3/position-norm</property>
@@ -134,7 +230,7 @@
 		</axis>
 	</animation>
 	<animation>
-		<name>PAX left-back door y translate</name>
+		<name>PAX left door 3 y translate</name>
 		<type>translate</type>
 		<object-name>DoorL3</object-name>
 		<property>sim/model/door-positions/doorl3/position-norm</property>
@@ -151,7 +247,7 @@
 	</animation>
 
 	<animation>
-		<name>PAX right-back door pick</name>
+		<name>PAX right door 3 pick</name>
 		<type>pick</type>
 		<object-name>DoorR3</object-name>
 		<action>
@@ -166,7 +262,7 @@
 		</action>
 	</animation>
 	<animation>
-		<name>PAX right-back door x translate</name>
+		<name>PAX right door 3 x translate</name>
 		<type>translate</type>
 		<object-name>DoorR3</object-name>
 		<property>sim/model/door-positions/doorr3/position-norm</property>
@@ -182,10 +278,106 @@
 		</axis>
 	</animation>
 	<animation>
-		<name>PAX right-back door y translate</name>
+		<name>PAX right door 3 y translate</name>
 		<type>translate</type>
 		<object-name>DoorR3</object-name>
 		<property>sim/model/door-positions/doorr3/position-norm</property>
+		<interpolation>
+			<entry><ind>0</ind><dep>0</dep></entry>
+			<entry><ind>0.25</ind><dep>0.2</dep></entry>
+			<entry><ind>1</ind><dep>0.2</dep></entry>
+		</interpolation>
+		<axis>
+			<x>0</x>
+			<y>1</y>
+			<z>0</z>
+		</axis>
+	</animation>
+
+	<animation>
+		<name>PAX left-back door pick</name>
+		<type>pick</type>
+		<object-name>DoorL4</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>nasal</command>
+				<script>
+				 systems.triggerDoor(systems.doorl4, "doorl4", "PAX left-back");
+				</script>
+			</binding>
+		</action>
+	</animation>
+	<animation>
+		<name>PAX left-back door x translate</name>
+		<type>translate</type>
+		<object-name>DoorL4</object-name>
+		<property>sim/model/door-positions/doorl4/position-norm</property>
+		<interpolation>
+			<entry><ind>0</ind><dep>0</dep></entry>
+			<entry><ind>0.25</ind><dep>0</dep></entry>
+			<entry><ind>1</ind><dep>-1</dep></entry>
+		</interpolation>
+		<axis>
+			<x>1</x>
+			<y>0</y>
+			<z>0</z>
+		</axis>
+	</animation>
+	<animation>
+		<name>PAX left-back door y translate</name>
+		<type>translate</type>
+		<object-name>DoorL4</object-name>
+		<property>sim/model/door-positions/doorl4/position-norm</property>
+		<interpolation>
+			<entry><ind>0</ind><dep>0</dep></entry>
+			<entry><ind>0.25</ind><dep>-0.2</dep></entry>
+			<entry><ind>1</ind><dep>-0.2</dep></entry>
+		</interpolation>
+		<axis>
+			<x>0</x>
+			<y>1</y>
+			<z>0</z>
+		</axis>
+	</animation>
+
+	<animation>
+		<name>PAX right-back door pick</name>
+		<type>pick</type>
+		<object-name>DoorR4</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>nasal</command>
+				<script>
+				 systems.triggerDoor(systems.doorr4, "doorr4", "PAX right-back");
+				</script>
+			</binding>
+		</action>
+	</animation>
+	<animation>
+		<name>PAX right-back door x translate</name>
+		<type>translate</type>
+		<object-name>DoorR4</object-name>
+		<property>sim/model/door-positions/doorr4/position-norm</property>
+		<interpolation>
+			<entry><ind>0</ind><dep>0</dep></entry>
+			<entry><ind>0.25</ind><dep>0</dep></entry>
+			<entry><ind>1</ind><dep>-1</dep></entry>
+		</interpolation>
+		<axis>
+			<x>1</x>
+			<y>0</y>
+			<z>0</z>
+		</axis>
+	</animation>
+	<animation>
+		<name>PAX right-back door y translate</name>
+		<type>translate</type>
+		<object-name>DoorR4</object-name>
+		<property>sim/model/door-positions/doorr4/position-norm</property>
 		<interpolation>
 			<entry><ind>0</ind><dep>0</dep></entry>
 			<entry><ind>0.25</ind><dep>0.2</dep></entry>
@@ -246,18 +438,18 @@
 		<object-name>GearNFwdDoorL</object-name>
 		<property>gear/gear[0]/position-norm</property>
 		<interpolation>
-			<entry><ind>0.0</ind><dep>0.0</dep></entry>
+			<entry><ind>0.0z</ind><dep>0.0</dep></entry>
 			<entry><ind>0.2</ind><dep>90.0</dep></entry>
 			<entry><ind>0.8</ind><dep>90.0</dep></entry>
 			<entry><ind>1.0</ind><dep>0.0</dep></entry>
 		</interpolation>
 		<axis>
 			
-			<x1-m>9.199</x1-m>
+			<x1-m>3.329</x1-m>
 			<y1-m>-0.5</y1-m>
 			<z1-m>-2.0649564</z1-m>
 			
-			<x2-m>6.994</x2-m>
+			<x2-m>1.124</x2-m>
 			<y2-m>-0.5</y2-m>
 			<z2-m>-1.9179121</z2-m>
 			
@@ -275,11 +467,11 @@
 		</interpolation>
 		<axis>
 			
-			<x1-m>9.677</x1-m>
+			<x1-m>3.807</x1-m>
 			<y1-m>-0.5</y1-m>
 			<z1-m>-2.0790732</z1-m>
 			
-			<x2-m>9.699</x2-m>
+			<x2-m>3.329</x2-m>
 			<y2-m>-0.5</y2-m>
 			<z2-m>-2.0649564</z2-m>
 			
@@ -298,15 +490,12 @@
 			<entry><ind>1.0</ind><dep>0.0</dep></entry>
 		</interpolation>
 		<axis>
-			
-			<x1-m>6.994</x1-m>
+			<x1-m>1.124</x1-m>
 			<y1-m>0.5</y1-m>
 			<z1-m>-1.9179121</z1-m>
-			
-			<x2-m>9.199</x2-m>
+			<x2-m>3.329</x2-m>
 			<y2-m>0.5</y2-m>
 			<z2-m>-2.0649564</z2-m>
-			
 		</axis>
 	</animation>
 	
@@ -320,15 +509,12 @@
 			<entry><ind>0.8</ind><dep>45.0</dep></entry>
 		</interpolation>
 		<axis>
-			
-			<x1-m>9.199</x1-m>
+			<x1-m>3.329</x1-m>
 			<y1-m>0.5</y1-m>
 			<z1-m>-2.0649564</z1-m>
-			
-			<x2-m>9.677</x2-m>
+			<x2-m>3.807</x2-m>
 			<y2-m>0.5</y2-m>
 			<z2-m>-2.0790732</z2-m>
-			
 		</axis>
 	</animation>
 	
@@ -339,14 +525,17 @@
 		<property>gear/gear[0]/position-norm</property>
 		<interpolation>
 			<entry><ind>0.2</ind><dep>0.0</dep></entry>
-			<entry><ind>0.8</ind><dep>92.0</dep></entry>
+			<entry><ind>0.8</ind><dep>-92.0</dep></entry>
 		</interpolation>
 		<center>
-			<x-m>9.43</x-m>
+			<x-m>3.56</x-m>
+			<y-m>0</y-m>
 			<z-m>-1.8306008</z-m>
 		</center>
 		<axis>
-			<y>-1</y>
+			<x>0</x>
+			<y>1</y>
+			<z>0</z>
 		</axis>
 	</animation>
 	
