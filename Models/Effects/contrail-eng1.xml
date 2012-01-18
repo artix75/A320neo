@@ -3,7 +3,7 @@
 <PropertyList>
  <particlesystem>
    <name>smoke</name>
-   <texture>../../Models/Effects/smoke.png</texture>
+   <texture>res/smoke.png</texture>
 
    <emissive type="bool">false</emissive>
    <lighting type="bool">false</lighting>
@@ -11,7 +11,7 @@
    <condition>
      <and>
        <greater-than>
-         <property>engines/engine[1]/n2</property>
+         <property>engines/engine[0]/n2</property>
          <value>50</value>
        </greater-than>
        <greater-than>

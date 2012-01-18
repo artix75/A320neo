@@ -72,7 +72,7 @@
 
 	<model>
 		<name>Contrail</name>
-		<path>Aircraft/A320neo/XMLs/Effects/contrail-eng2.xml</path>
+		<path>Aircraft/A320neo/Models/Effects/contrail-eng2.xml</path>
 		<offsets>
 			<x-m>5.137</x-m>
 			<y-m>0</y-m>
@@ -82,7 +82,7 @@
 
 	<model>
 		<name>Engine fire</name>
-		<path>Aircraft/A320neo/XMLs/Effects/enginefire.xml</path>
+		<path>Aircraft/A320neo/Models/Effects/enginefire.xml</path>
 		<offsets>
 			<x-m>3.316</x-m>
 			<y-m>0</y-m>

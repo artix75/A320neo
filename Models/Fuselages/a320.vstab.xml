@@ -2,7 +2,7 @@
 
 <PropertyList>
 
-	<path>../Models/a320.vstab.ac</path>
+	<path>res/a320.vstab.ac</path>
 
 	<effect>
 		<inherits-from>Effects/NEOreflect</inherits-from>

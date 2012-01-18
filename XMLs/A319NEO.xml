@@ -9,7 +9,7 @@
 
 	<model>
 		<name>Fuselage</name>
-		<path>Aircraft/A320neo/XMLs/a319neo.fuselage.xml</path>
+		<path>Aircraft/A320neo/Models/Fuselage/a319neo.fuselage.xml</path>
 	</model>
 
 	<!-- Separate Flightdeck to fit the modified nose -->
@@ -75,7 +75,7 @@
 
 	<model>
 		<name>Horizontal Stabilizer</name>
-		<path>Aircraft/A320neo/XMLs/a320.hstab.xml</path>
+		<path>Aircraft/A320neo/Models/Fuselage/a320.hstab.xml</path>
 		<offsets>
 			<x-m>32.0212207</x-m>
 			<pitch-deg>0.0</pitch-deg>
@@ -84,7 +84,7 @@
 
 	<model>
 		<name>Vertical Stabilizer</name>
-		<path>Aircraft/A320neo/XMLs/a320.vstab.xml</path>
+		<path>Aircraft/A320neo/Models/Fuselage/a320.vstab.xml</path>
 		<offsets>
 			<x-m>30.1235728</x-m>
 		</offsets>

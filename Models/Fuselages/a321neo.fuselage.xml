@@ -2,7 +2,7 @@
 
 <PropertyList>
 
-	<path>../Models/a321neo.fuselage.ac</path>
+	<path>res/a321neo.fuselage.ac</path>
 
 	<!-- Reflection Shader -->
 	<effect>
@@ -13,7 +13,7 @@
 	<!-- APU fire -->
 	<model>
 		<name>APU fire</name>
-		<path>Aircraft/A320neo/XMLs/Effects/enginefire.xml</path>
+		<path>Aircraft/A320neo/Models/Effects/enginefire.xml</path>
 		<offsets>
 			<x-m>41.57</x-m>
 			<y-m>0</y-m>
