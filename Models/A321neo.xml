@@ -22,10 +22,10 @@
 		</offsets>
 	</model>
 
-<!--	<model>
+	<model>
 		<name>Interior</name>
-		<path>Aircraft/A320neo/Models/Interior/a320neo.interior.xml</path>
-	</model> -->
+		<path>Aircraft/A320neo/Models/Interior/a321.interior.xml</path>
+	</model>
 
 	<model>
 		<name>Nose Gear</name>
@@ -57,7 +57,7 @@
 	</model>
 
 	<model>
-		<path>Aircraft/A320neo/Models/Wings/a320.wings.iae.xml</path>
+		<path>Aircraft/A320neo/Models/Wings/a320.wings.xml</path>
 		<offsets>
 			<x-m>15.280</x-m>
 			<z-m>-1.06019</z-m>
@@ -200,7 +200,7 @@
 	<!-- Dual control -->
 	<nasal>
 		<load>
-		 aircraft_dual_control.pilot_type = "Aircraft/A320neo/Models/A320NEO.xml";
+		 aircraft_dual_control.pilot_type = "Aircraft/A320neo/Models/A321NEO.xml";
 		</load>
 	</nasal>
 

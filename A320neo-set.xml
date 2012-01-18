@@ -7,17 +7,17 @@
 		<author>Narendran, Malik and Jon A. Ortuondo(Bicyus), [based on A320-family]</author>
 		<status>beta</status>
 		<flight-model>jsb</flight-model>
-		<aero>A320NEO</aero>
+		<aero>A320neo</aero>
 		<variant>NEO</variant>
 		<engine>CFM LeapX</engine>
 
 		<model>
 			<path>Aircraft/A320neo/Models/A320neo.xml</path>
 			<livery>
-				<file>Liveries/A320NEO-Blank</file>
-				<texture>Liveries/A320NEO-Blank.png</texture>
-				<texture-path n="0">../Models/Liveries/A320NEO-Blank.png</texture-path>
-				<texture-path n="1">../../Models/Liveries/A320NEO-Blank.png</texture-path>
+				<file>Liveries/A320neo-Blank</file>
+				<texture>Liveries/A320neo-Blank.png</texture>
+				<texture-path n="0">../Liveries/A320neo-Blank.png</texture-path>
+				<texture-path n="1">../Liveries/A320neo-Blank.png</texture-path>
 			</livery>
 	            	<door n="0">
 		                <position-x-m>-11.3399</position-x-m>

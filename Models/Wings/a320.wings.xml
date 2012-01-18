@@ -304,13 +304,84 @@
 		</center>
 	</animation>
 
+
+
+	<!-- SLATS -->
+
+
+	<animation>
+		<name>Left Slat 1</name>
+		<type>rotate</type>
+		<object-name>SlatL1</object-name>
+		<object-name>SlatL2</object-name>
+		<object-name>SlatL3</object-name>
+		<object-name>SlatL4</object-name>
+		<object-name>SlatL5</object-name>
+		<property>surface-positions/flap-pos-norm</property>
+		<!--interpolation>
+			<entry><ind>0.0</ind><dep>0</dep></entry>
+			<entry><ind>0.375</ind><dep>-42.787875</dep></entry>
+			<entry><ind>1.0</ind><dep>-79.101</dep></entry>
+		</interpolation-->
+		<factor>10</factor>
+		<axis>
+			<!--x1-m>0.62</x1-m>
+			<y1-m>-2.31</y1-m>
+			<z1-m>-1.55</z1-m>
+			<x2-m>7.87</x2-m>
+			<y2-m>-16.33</y2-m>
+			<z2-m>-0.31</z2-m-->
+			<x1-m>1.02</x1-m>
+			<y1-m>-2.31</y1-m>
+			<z1-m>-1.55</z1-m>
+			<x2-m>8.27</x2-m>
+			<y2-m>-16.33</y2-m>
+			<z2-m>0</z2-m>
+		</axis>
+	</animation>
+	<animation>
+		<name>Right Slats</name>
+		<type>rotate</type>
+		<object-name>SlatR1</object-name>
+		<object-name>SlatR2</object-name>
+		<object-name>SlatR3</object-name>
+		<object-name>SlatR4</object-name>
+		<object-name>SlatR5</object-name>
+		<property>surface-positions/flap-pos-norm</property>
+		<!--interpolation>
+			<entry><ind>0.0</ind><dep>0</dep></entry>
+			<entry><ind>0.375</ind><dep>-42.787875</dep></entry>
+			<entry><ind>1.0</ind><dep>-79.101</dep></entry>
+		</interpolation-->
+		<factor>-10</factor>
+		<axis>
+			<!--x1-m>0.62</x1-m>
+			<y1-m>-2.31</y1-m>
+			<z1-m>-1.55</z1-m>
+			<x2-m>7.87</x2-m>
+			<y2-m>-16.33</y2-m>
+			<z2-m>-0.31</z2-m-->
+			<x1-m>1.02</x1-m>
+			<y1-m>2.31</y1-m>
+			<z1-m>-1.55</z1-m>
+			<x2-m>8.27</x2-m>
+			<y2-m>16.33</y2-m>
+			<z2-m>0</z2-m>
+		</axis>
+	</animation>
+
+
 	<!-- Speedbrakes/spoilers -->
 	<animation>
 		<name>Left spoiler 1</name>
 		<type>rotate</type>
 		<object-name>SpoilerL1</object-name>
 		<property>surface-positions/speedbrake-pos-norm</property>
-		<factor>30</factor>
+		<interpolation>
+			<entry><ind>0</ind><dep>0</dep></entry>
+			<entry><ind>0.6</ind><dep>0</dep></entry>
+			<entry><ind>1</ind><dep>65</dep></entry>
+		</interpolation>
 		<axis>
 			<x1-m>4.879</x1-m>
 			<y1-m>-4.455</y1-m>
@@ -325,7 +396,11 @@
 		<type>rotate</type>
 		<object-name>SpoilerL2</object-name>
 		<property>surface-positions/speedbrake-pos-norm</property>
-		<factor>30</factor>
+		<interpolation>
+			<entry><ind>0</ind><dep>0</dep></entry>
+			<entry><ind>0.55</ind><dep>40</dep></entry>
+			<entry><ind>1</ind><dep>60</dep></entry>
+		</interpolation>
 		<axis>
 			<x1-m>5.084</x1-m>
 			<y1-m>-6.905</y1-m>
@@ -340,7 +415,11 @@
 		<type>rotate</type>
 		<object-name>SpoilerL3</object-name>
 		<property>surface-positions/speedbrake-pos-norm</property>
-		<factor>30</factor>
+		<interpolation>
+			<entry><ind>0</ind><dep>0</dep></entry>
+			<entry><ind>0.5</ind><dep>40</dep></entry>
+			<entry><ind>1</ind><dep>60</dep></entry>
+		</interpolation>
 		<axis>
 			<x1-m>5.685</x1-m>
 			<y1-m>-8.581</y1-m>
@@ -355,7 +434,11 @@
 		<type>rotate</type>
 		<object-name>SpoilerL4</object-name>
 		<property>surface-positions/speedbrake-pos-norm</property>
-		<factor>30</factor>
+		<interpolation>
+			<entry><ind>0</ind><dep>0</dep></entry>
+			<entry><ind>0.4</ind><dep>40</dep></entry>
+			<entry><ind>1</ind><dep>60</dep></entry>
+		</interpolation>
 		<axis>
 			<x1-m>6.253</x1-m>
 			<y1-m>-10.164</y1-m>
@@ -370,7 +453,11 @@
 		<type>rotate</type>
 		<object-name>SpoilerL5</object-name>
 		<property>surface-positions/speedbrake-pos-norm</property>
-		<factor>30</factor>
+		<interpolation>
+			<entry><ind>0</ind><dep>0</dep></entry>
+			<entry><ind>0.6</ind><dep>0</dep></entry>
+			<entry><ind>1</ind><dep>60</dep></entry>
+		</interpolation>
 		<axis>
 			<x1-m>6.776</x1-m>
 			<y1-m>-11.622</y1-m>
@@ -385,7 +472,11 @@
 		<type>rotate</type>
 		<object-name>SpoilerR1</object-name>
 		<property>surface-positions/speedbrake-pos-norm</property>
-		<factor>30</factor>
+		<interpolation>
+			<entry><ind>0</ind><dep>0</dep></entry>
+			<entry><ind>0.6</ind><dep>0</dep></entry>
+			<entry><ind>1</ind><dep>65</dep></entry>
+		</interpolation>
 		<axis>
 			<x1-m>4.879</x1-m>
 			<y1-m>6.201</y1-m>
@@ -400,7 +491,11 @@
 		<type>rotate</type>
 		<object-name>SpoilerR2</object-name>
 		<property>surface-positions/speedbrake-pos-norm</property>
-		<factor>30</factor>
+		<interpolation>
+			<entry><ind>0</ind><dep>0</dep></entry>
+			<entry><ind>0.55</ind><dep>40</dep></entry>
+			<entry><ind>1</ind><dep>60</dep></entry>
+		</interpolation>
 		<axis>
 			<x1-m>5.678</x1-m>
 			<y1-m>8.563</y1-m>
@@ -415,7 +510,11 @@
 		<type>rotate</type>
 		<object-name>SpoilerR3</object-name>
 		<property>surface-positions/speedbrake-pos-norm</property>
-		<factor>30</factor>
+		<interpolation>
+			<entry><ind>0</ind><dep>0</dep></entry>
+			<entry><ind>0.5</ind><dep>40</dep></entry>
+			<entry><ind>1</ind><dep>60</dep></entry>
+		</interpolation>
 		<axis>
 			<x1-m>6.246</x1-m>
 			<y1-m>10.145</y1-m>
@@ -430,7 +529,11 @@
 		<type>rotate</type>
 		<object-name>SpoilerR4</object-name>
 		<property>surface-positions/speedbrake-pos-norm</property>
-		<factor>30</factor>
+		<interpolation>
+			<entry><ind>0</ind><dep>0</dep></entry>
+			<entry><ind>0.4</ind><dep>40</dep></entry>
+			<entry><ind>1</ind><dep>60</dep></entry>
+		</interpolation>
 		<axis>
 			<x1-m>6.769</x1-m>
 			<y1-m>11.603</y1-m>
@@ -445,7 +548,11 @@
 		<type>rotate</type>
 		<object-name>SpoilerR5</object-name>
 		<property>surface-positions/speedbrake-pos-norm</property>
-		<factor>30</factor>
+		<interpolation>
+			<entry><ind>0</ind><dep>0</dep></entry>
+			<entry><ind>0.6</ind><dep>0</dep></entry>
+			<entry><ind>1</ind><dep>60</dep></entry>
+		</interpolation>
 		<axis>
 			<x1-m>7.292</x1-m>
 			<y1-m>13.06</y1-m>
@@ -456,6 +563,217 @@
 		</axis>
 	</animation>
 
+
+
+
+<!-- Roll spoilers  -->
+	
+	<animation>
+		<name>Left spoiler 2</name>
+		<condition>
+			<equals>
+				<property>surface-positions/speedbrake-pos-norm</property>
+				<value>0</value>
+			</equals>
+		</condition>
+		<interpolation>
+			<entry><ind> -1</ind><dep>45</dep></entry>
+			<entry><ind>-0.5</ind><dep>0</dep></entry>
+			<entry><ind>1</ind><dep>0</dep></entry>
+		</interpolation>
+		<type>rotate</type>
+		<object-name>SpoilerL2</object-name>
+		<property>surface-positions/left-aileron-pos-norm</property>
+
+		<axis>
+			<x1-m>5.084</x1-m>
+			<y1-m>-6.905</y1-m>
+			<z1-m>0.574</z1-m>
+			<x2-m>5.678</x2-m>
+			<y2-m>-8.563</y2-m>
+			<z2-m>0.706</z2-m>
+		</axis>
+	</animation>
+	<animation>
+		<name>Left spoiler 3</name>
+		<condition>
+			<equals>
+				<property>surface-positions/speedbrake-pos-norm</property>
+				<value>0</value>
+			</equals>
+		</condition>
+		<interpolation>
+			<entry><ind> -1</ind><dep>45</dep></entry>
+			<entry><ind>-0.1</ind><dep>0</dep></entry>
+			<entry><ind>1</ind><dep>0</dep></entry>
+		</interpolation>
+		<type>rotate</type>
+		<object-name>SpoilerL3</object-name>
+		<property>surface-positions/left-aileron-pos-norm</property>
+		<axis>
+			<x1-m>5.685</x1-m>
+			<y1-m>-8.581</y1-m>
+			<z1-m>0.707</z1-m>
+			<x2-m>6.246</x2-m>
+			<y2-m>-10.145</y2-m>
+			<z2-m>0.832</z2-m>
+		</axis>
+	</animation>
+	<animation>
+		<name>Left spoiler 4</name>
+		<condition>
+			<equals>
+				<property>surface-positions/speedbrake-pos-norm</property>
+				<value>0</value>
+			</equals>
+		</condition>
+		<interpolation>
+			<entry><ind> -1</ind><dep>45</dep></entry>
+			<entry><ind> -0.8</ind><dep>40</dep></entry>
+			<entry><ind>-0.4</ind><dep>0</dep></entry>
+			<entry><ind>1</ind><dep>0</dep></entry>
+		</interpolation>
+		<type>rotate</type>
+		<object-name>SpoilerL4</object-name>
+		<property>surface-positions/left-aileron-pos-norm</property>
+		<axis>
+			<x1-m>6.253</x1-m>
+			<y1-m>-10.164</y1-m>
+			<z1-m>0.833</z1-m>
+			<x2-m>6.769</x2-m>
+			<y2-m>-11.603</y2-m>
+			<z2-m>0.947</z2-m>
+		</axis>
+	</animation>
+	<animation>
+		<name>Left spoiler 5</name>
+		<condition>
+			<equals>
+				<property>surface-positions/speedbrake-pos-norm</property>
+				<value>0</value>
+			</equals>
+		</condition>
+		<interpolation>
+			<entry><ind> -1</ind><dep>45</dep></entry>
+			<entry><ind>-0.6</ind><dep>0</dep></entry>
+			<entry><ind>1</ind><dep>0</dep></entry>
+		</interpolation>
+		<type>rotate</type>
+		<object-name>SpoilerL5</object-name>
+		<property>surface-positions/left-aileron-pos-norm</property>
+		<factor>-30</factor>
+		<axis>
+			<x1-m>6.776</x1-m>
+			<y1-m>-11.622</y1-m>
+			<z1-m>0.949</z1-m>
+			<x2-m>7.292</x2-m>
+			<y2-m>-13.06</y2-m>
+			<z2-m>1.063</z2-m>
+		</axis>
+	</animation>
+	
+	<animation>
+		<name>Right spoiler 2</name>
+		<condition>
+			<equals>
+				<property>surface-positions/speedbrake-pos-norm</property>
+				<value>0</value>
+			</equals>
+		</condition>
+		<interpolation>
+			<entry><ind> -1</ind><dep>45</dep></entry>
+			<entry><ind>-0.5</ind><dep>0</dep></entry>
+			<entry><ind>1</ind><dep>0</dep></entry>
+		</interpolation>
+		<type>rotate</type>
+		<object-name>SpoilerR2</object-name>
+		<property>surface-positions/right-aileron-pos-norm</property>
+		<factor>-30</factor>
+		<axis>
+			<x1-m>5.678</x1-m>
+			<y1-m>8.563</y1-m>
+			<z1-m>0.706</z1-m>
+			<x2-m>5.084</x2-m>
+			<y2-m>6.905</y2-m>
+			<z2-m>0.574</z2-m>
+		</axis>
+	</animation>
+	<animation>
+		<name>Right spoiler 3</name>
+		<condition>
+			<equals>
+				<property>surface-positions/speedbrake-pos-norm</property>
+				<value>0</value>
+			</equals>
+		</condition>
+		<interpolation>
+			<entry><ind> -1</ind><dep>45</dep></entry>
+			<entry><ind>-0.1</ind><dep>0</dep></entry>
+			<entry><ind>1</ind><dep>0</dep></entry>
+		</interpolation>
+		<type>rotate</type>
+		<object-name>SpoilerR3</object-name>
+		<property>surface-positions/right-aileron-pos-norm</property>
+		<axis>
+			<x1-m>6.246</x1-m>
+			<y1-m>10.145</y1-m>
+			<z1-m>0.832</z1-m>
+			<x2-m>5.685</x2-m>
+			<y2-m>8.581</y2-m>
+			<z2-m>0.707</z2-m>
+		</axis>
+	</animation>
+	<animation>
+		<name>Right spoiler 4</name>
+		<condition>
+			<equals>
+				<property>surface-positions/speedbrake-pos-norm</property>
+				<value>0</value>
+			</equals>
+		</condition>
+		<interpolation>
+			<entry><ind> -1</ind><dep>45</dep></entry>
+			<entry><ind> -0.8</ind><dep>40</dep></entry>
+			<entry><ind>-0.4</ind><dep>0</dep></entry>
+			<entry><ind>1</ind><dep>0</dep></entry>
+		</interpolation>
+		<type>rotate</type>
+		<object-name>SpoilerR4</object-name>
+		<property>surface-positions/right-aileron-pos-norm</property>
+		<axis>
+			<x1-m>6.769</x1-m>
+			<y1-m>11.603</y1-m>
+			<z1-m>0.947</z1-m>
+			<x2-m>6.253</x2-m>
+			<y2-m>10.164</y2-m>
+			<z2-m>0.833</z2-m>
+		</axis>
+	</animation>
+	<animation>
+		<name>Right spoiler 5</name>
+		<condition>
+			<equals>
+				<property>surface-positions/speedbrake-pos-norm</property>
+				<value>0</value>
+			</equals>
+		</condition>
+		<interpolation>
+			<entry><ind> -1</ind><dep>45</dep></entry>
+			<entry><ind>-0.6</ind><dep>0</dep></entry>
+			<entry><ind>1</ind><dep>0</dep></entry>
+		</interpolation>
+		<type>rotate</type>
+		<object-name>SpoilerR5</object-name>
+		<property>surface-positions/right-aileron-pos-norm</property>
+		<axis>
+			<x1-m>7.292</x1-m>
+			<y1-m>13.06</y1-m>
+			<z1-m>1.063</z1-m>
+			<x2-m>6.776</x2-m>
+			<y2-m>11.622</y2-m>
+			<z2-m>0.949</z2-m>
+		</axis>
+	</animation>
 	<!-- LIVERY SELECT -->
 	<!-- Animation -->
 	<animation>

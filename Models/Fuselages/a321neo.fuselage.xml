@@ -5,10 +5,10 @@
 	<path>res/a321neo.fuselage.ac</path>
 
 	<!-- Reflection Shader -->
-	<effect>
+	<!--effect>
 		<inherits-from>Effects/NEOreflect</inherits-from>
 		<object-name>Fuselage</object-name>
-	</effect>
+	</effect-->
 
 	<!-- APU fire -->
 	<model>

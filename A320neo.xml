@@ -66,7 +66,8 @@ YAW MOI_________3950000______23089847_______24848934
 	<iyz unit="SLUG*FT2">         0 </iyz>
 	<emptywt unit="LBS">80431</emptywt> <!-- #ref-1 page 67, WV016. 90927lbs - 5248x2 (engines)=80431lbs-->
 	<location name="CG" unit="IN">
-	<x> 642.122 </x>
+	<!--x> 642.122 </x-->
+	<x> 650.122 </x><!-- At zero load of fuel and cargo/pax the CG goes to 642 -->
 	<y> 0 </y>
 	<z> -41.7398 </z>
 	</location>
@@ -226,154 +227,187 @@ YAW MOI_________3950000______23089847_______24848934
 	</contact>
 
 	<contact type="STRUCTURE" name="NOSE_1">
-	<location unit="IN">
-		<x> 37.7953 </x>
-		<y> 0 </y>
-		<z> -38.1374 </z>
-	</location>
-	<static_friction> 1.0 </static_friction>
-	<dynamic_friction> 1.4 </dynamic_friction>
-	<rolling_friction> 1.0 </rolling_friction>
-	<spring_coeff unit="LBS/FT"> 1.5e+06 </spring_coeff>
-	<damping_coeff unit="LBS/FT/SEC"> 50000 </damping_coeff>
-	<max_steer unit="DEG"> 0.0 </max_steer>
-	<brake_group> NONE </brake_group>
-	<retractable>0</retractable>
+		<location unit="IN">
+			<x> 37.7953 </x>
+			<y> 0 </y>
+			<z> -38.1374 </z>
+		</location>
+		<static_friction> 1.0 </static_friction>
+		<dynamic_friction> 0.4 </dynamic_friction>
+		<rolling_friction> 0.4 </rolling_friction>
+		<spring_coeff unit="LBS/FT"> 1.5e+06 </spring_coeff>
+		<damping_coeff unit="LBS/FT/SEC"> 50000 </damping_coeff>
+		<max_steer unit="DEG"> 0.0 </max_steer>
+		<brake_group> NONE </brake_group>
+		<retractable>0</retractable>
 	</contact>
 	<contact type="STRUCTURE" name="NOSE_2">
-	<location unit="IN">
-		<x> 128.1102 </x>
-		<y> 0 </y>
-		<z> -55.0271 </z>
-	</location>
-	<static_friction> 1.0 </static_friction>
-	<dynamic_friction> 1.4 </dynamic_friction>
-	<rolling_friction> 1.0 </rolling_friction>
-	<spring_coeff unit="LBS/FT"> 1.5e+06 </spring_coeff>
-	<damping_coeff unit="LBS/FT/SEC"> 50000 </damping_coeff>
-	<max_steer unit="DEG"> 0.0 </max_steer>
-	<brake_group> NONE </brake_group>
-	<retractable>0</retractable>
+		<location unit="IN">
+			<x> 128.1102 </x>
+			<y> 0 </y>
+			<z> -55.0271 </z>
+		</location>
+		<static_friction> 1.0 </static_friction>
+		<dynamic_friction> 0.4 </dynamic_friction>
+		<rolling_friction> 0.4 </rolling_friction>
+		<spring_coeff unit="LBS/FT"> 1.5e+06 </spring_coeff>
+		<damping_coeff unit="LBS/FT/SEC"> 50000 </damping_coeff>
+		<max_steer unit="DEG"> 0.0 </max_steer>
+		<brake_group> NONE </brake_group>
+		<retractable>0</retractable>
 	</contact>
 	<contact type="STRUCTURE" name="CENTER_1">
-	<location unit="IN">
-		<x> 274.0157 </x>
-		<y> 0 </y>
-		<z> -60.0665 </z>
-	</location>
-	<static_friction> 1.0 </static_friction>
-	<dynamic_friction> 1.4 </dynamic_friction>
-	<rolling_friction> 1.0 </rolling_friction>
-	<spring_coeff unit="LBS/FT"> 1.5e+06 </spring_coeff>
-	<damping_coeff unit="LBS/FT/SEC"> 50000 </damping_coeff>
-	<max_steer unit="DEG"> 0.0 </max_steer>
-	<brake_group> NONE </brake_group>
-	<retractable>0</retractable>
+		<location unit="IN">
+			<x> 274.0157 </x>
+			<y> 0 </y>
+			<z> -60.0665 </z>
+		</location>
+		<static_friction> 1.0 </static_friction>
+		<dynamic_friction> 0.4 </dynamic_friction>
+		<rolling_friction> 0.4 </rolling_friction>
+		<spring_coeff unit="LBS/FT"> 1.5e+06 </spring_coeff>
+		<damping_coeff unit="LBS/FT/SEC"> 50000 </damping_coeff>
+		<max_steer unit="DEG"> 0.0 </max_steer>
+		<brake_group> NONE </brake_group>
+		<retractable>0</retractable>
 	</contact>
 	<contact type="STRUCTURE" name="CENTER_2">
-	<location unit="IN">
-		<x> 930 </x>
-		<y> 0 </y>
-		<z> -60.0665 </z>
-	</location>
-	<static_friction> 1.0 </static_friction>
-	<dynamic_friction> 1.4 </dynamic_friction>
-	<rolling_friction> 1.0 </rolling_friction>
-	<spring_coeff unit="LBS/FT"> 1.5e+06 </spring_coeff>
-	<damping_coeff unit="LBS/FT/SEC"> 50000 </damping_coeff>
-	<max_steer unit="DEG"> 0.0 </max_steer>
-	<brake_group> NONE </brake_group>
-	<retractable>0</retractable>
+		<location unit="IN">
+			<x> 930 </x>
+			<y> 0 </y>
+			<z> -60.0665 </z>
+		</location>
+		<static_friction> 1.0 </static_friction>
+		<dynamic_friction> 0.4 </dynamic_friction>
+		<rolling_friction> 0.4 </rolling_friction>
+		<spring_coeff unit="LBS/FT"> 1.5e+06 </spring_coeff>
+		<damping_coeff unit="LBS/FT/SEC"> 50000 </damping_coeff>
+		<max_steer unit="DEG"> 0.0 </max_steer>
+		<brake_group> NONE </brake_group>
+		<retractable>0</retractable>
 	</contact>
+
+	<contact type="STRUCTURE" name="ENG_1">
+		<location unit="IN">
+			<x>589.735</x>	
+			<y>-226.575</y>
+			<z>-95.567</z>
+		</location>
+		<static_friction> 1.0 </static_friction>
+		<dynamic_friction> 0.4 </dynamic_friction>
+		<rolling_friction> 0.4 </rolling_friction>
+		<spring_coeff unit="LBS/FT"> 1.5e+06 </spring_coeff>
+		<damping_coeff unit="LBS/FT/SEC"> 50000 </damping_coeff>
+		<max_steer unit="DEG"> 0.0 </max_steer>
+		<brake_group> NONE </brake_group>
+		<retractable>0</retractable>
+	</contact>
+	<contact type="STRUCTURE" name="ENG_2">
+		<location unit="IN">
+			<x>589.735</x>	
+			<y>226.575</y>
+			<z>-95.567</z>
+		</location>
+		<static_friction> 1.0 </static_friction>
+		<dynamic_friction> 0.4 </dynamic_friction>
+		<rolling_friction> 0.4 </rolling_friction>
+		<spring_coeff unit="LBS/FT"> 1.5e+06 </spring_coeff>
+		<damping_coeff unit="LBS/FT/SEC"> 50000 </damping_coeff>
+		<max_steer unit="DEG"> 0.0 </max_steer>
+		<brake_group> NONE </brake_group>
+		<retractable>0</retractable>
+	</contact>
+
+
 	<contact type="STRUCTURE" name="TAIL_1">
-	<location unit="IN">
-		<x> 1097.9921 </x>
-		<y> 0 </y>
-		<z> -44.7722 </z>
-	</location>
-	<static_friction> 1.0 </static_friction>
-	<dynamic_friction> 1.4 </dynamic_friction>
-	<rolling_friction> 1.0 </rolling_friction>
-	<spring_coeff unit="LBS/FT"> 1.5e+06 </spring_coeff>
-	<damping_coeff unit="LBS/FT/SEC"> 50000 </damping_coeff>
-	<max_steer unit="DEG"> 0.0 </max_steer>
-	<brake_group> NONE </brake_group>
-	<retractable>0</retractable>
+		<location unit="IN">
+			<x> 1097.9921 </x>
+			<y> 0 </y>
+			<z> -44.7722 </z>
+		</location>
+		<static_friction> 1.0 </static_friction>
+		<dynamic_friction> 0.4 </dynamic_friction>
+		<rolling_friction> 0.4 </rolling_friction>
+		<spring_coeff unit="LBS/FT"> 1.5e+06 </spring_coeff>
+		<damping_coeff unit="LBS/FT/SEC"> 50000 </damping_coeff>
+		<max_steer unit="DEG"> 0.0 </max_steer>
+		<brake_group> NONE </brake_group>
+		<retractable>0</retractable>
 	</contact>
 	<contact type="STRUCTURE" name="TAIL_2">
-	<location unit="IN">
-		<x> 1225 </x>
-		<y> 0 </y>
-		<z> -18.8067 </z>
-	</location>
-	<static_friction> 1.0 </static_friction>
-	<dynamic_friction> 1.4 </dynamic_friction>
-	<rolling_friction> 1.0 </rolling_friction>
-	<spring_coeff unit="LBS/FT"> 1.5e+06 </spring_coeff>
-	<damping_coeff unit="LBS/FT/SEC"> 50000 </damping_coeff>
-	<max_steer unit="DEG"> 0.0 </max_steer>
-	<brake_group> NONE </brake_group>
-	<retractable>0</retractable>
+		<location unit="IN">
+			<x> 1225 </x>
+			<y> 0 </y>
+			<z> -18.8067 </z>
+		</location>
+		<static_friction> 1.0 </static_friction>
+		<dynamic_friction> 0.4 </dynamic_friction>
+		<rolling_friction> 0.4 </rolling_friction>
+		<spring_coeff unit="LBS/FT"> 1.5e+06 </spring_coeff>
+		<damping_coeff unit="LBS/FT/SEC"> 50000 </damping_coeff>
+		<max_steer unit="DEG"> 0.0 </max_steer>
+		<brake_group> NONE </brake_group>
+		<retractable>0</retractable>
 	</contact>
 	<contact type="STRUCTURE" name="TAIL_3">
-	<location unit="IN">
-		<x> 1341.6142 </x>
-		<y> 0 </y>
-		<z> -10.2599 </z>
-	</location>
-	<static_friction> 1.0 </static_friction>
-	<dynamic_friction> 1.4 </dynamic_friction>
-	<rolling_friction> 1.0 </rolling_friction>
-	<spring_coeff unit="LBS/FT"> 1.5e+06 </spring_coeff>
-	<damping_coeff unit="LBS/FT/SEC"> 50000 </damping_coeff>
-	<max_steer unit="DEG"> 0.0 </max_steer>
-	<brake_group> NONE </brake_group>
-	<retractable>0</retractable>
+		<location unit="IN">
+			<x> 1341.6142 </x>
+			<y> 0 </y>
+			<z> -10.2599 </z>
+		</location>
+		<static_friction> 1.0 </static_friction>
+		<dynamic_friction> 0.4 </dynamic_friction>
+		<rolling_friction> 0.4 </rolling_friction>
+		<spring_coeff unit="LBS/FT"> 1.5e+06 </spring_coeff>
+		<damping_coeff unit="LBS/FT/SEC"> 50000 </damping_coeff>
+		<max_steer unit="DEG"> 0.0 </max_steer>
+		<brake_group> NONE </brake_group>
+		<retractable>0</retractable>
 	</contact>
 	<contact type="STRUCTURE" name="TAIL_4">
-	<location unit="IN">
-		<x> 1469.0945 </x>
-		<y> 0 </y>
-		<z> 47.4138 </z>
-	</location>
-	<static_friction> 1.0 </static_friction>
-	<dynamic_friction> 1.4 </dynamic_friction>
-	<rolling_friction> 1.0 </rolling_friction>
-	<spring_coeff unit="LBS/FT"> 1.5e+06 </spring_coeff>
-	<damping_coeff unit="LBS/FT/SEC"> 50000 </damping_coeff>
-	<max_steer unit="DEG"> 0.0 </max_steer>
-	<brake_group> NONE </brake_group>
-	<retractable>0</retractable>
+		<location unit="IN">
+			<x> 1469.0945 </x>
+			<y> 0 </y>
+			<z> 47.4138 </z>
+		</location>
+		<static_friction> 1.0 </static_friction>
+		<dynamic_friction> 0.4 </dynamic_friction>
+		<rolling_friction> 0.4 </rolling_friction>
+		<spring_coeff unit="LBS/FT"> 1.5e+06 </spring_coeff>
+		<damping_coeff unit="LBS/FT/SEC"> 50000 </damping_coeff>
+		<max_steer unit="DEG"> 0.0 </max_steer>
+		<brake_group> NONE </brake_group>
+		<retractable>0</retractable>
 	</contact>
 	<contact type="STRUCTURE" name="WING_TIP_1">
-	<location unit="IN">
-		<x> 838.8898 </x>
-		<y> -667.5197 </y>
-		<z> 35.7926 </z>
-	</location>
-	<static_friction> 1.0 </static_friction>
-	<dynamic_friction> 1.4 </dynamic_friction>
-	<rolling_friction> 1.0 </rolling_friction>
-	<spring_coeff unit="LBS/FT"> 1.5e+06 </spring_coeff>
-	<damping_coeff unit="LBS/FT/SEC"> 50000 </damping_coeff>
-	<max_steer unit="DEG"> 0.0 </max_steer>
-	<brake_group> NONE </brake_group>
-	<retractable>0</retractable>
+		<location unit="IN">
+			<x> 838.8898 </x>
+			<y> -667.5197 </y>
+			<z> 35.7926 </z>
+		</location>
+		<static_friction> 1.0 </static_friction>
+		<dynamic_friction> 0.4 </dynamic_friction>
+		<rolling_friction> 0.4 </rolling_friction>
+		<spring_coeff unit="LBS/FT"> 1.5e+06 </spring_coeff>
+		<damping_coeff unit="LBS/FT/SEC"> 50000 </damping_coeff>
+		<max_steer unit="DEG"> 0.0 </max_steer>
+		<brake_group> NONE </brake_group>
+		<retractable>0</retractable>
 	</contact>
 	<contact type="STRUCTURE" name="WING_TIP_2">
-	<location unit="IN">
-		<x> 838.8898 </x>
-		<y> 667.5197 </y>
-		<z> 35.7926 </z>
-	</location>
-	<static_friction> 1.0 </static_friction>
-	<dynamic_friction> 1.4 </dynamic_friction>
-	<rolling_friction> 1.0 </rolling_friction>
-	<spring_coeff unit="LBS/FT"> 1.5e+06 </spring_coeff>
-	<damping_coeff unit="LBS/FT/SEC"> 50000 </damping_coeff>
-	<max_steer unit="DEG"> 0.0 </max_steer>
-	<brake_group> NONE </brake_group>
-	<retractable>0</retractable>
+		<location unit="IN">
+			<x> 838.8898 </x>
+			<y> 667.5197 </y>
+			<z> 35.7926 </z>
+		</location>
+		<static_friction> 1.0 </static_friction>
+		<dynamic_friction> 0.4 </dynamic_friction>
+		<rolling_friction> 0.4 </rolling_friction>
+		<spring_coeff unit="LBS/FT"> 1.5e+06 </spring_coeff>
+		<damping_coeff unit="LBS/FT/SEC"> 50000 </damping_coeff>
+		<max_steer unit="DEG"> 0.0 </max_steer>
+		<brake_group> NONE </brake_group>
+		<retractable>0</retractable>
 	</contact>
 </ground_reactions>
 
@@ -1441,7 +1475,7 @@ YAW MOI_________3950000______23089847_______24848934
 				<property>metrics/Sw-sqft</property>
 				<property>metrics/bw-ft</property>
 				<property>fcs/rudder-pos-rad</property>
-				<value>-0.1</value>
+				<value>-0.2</value>
 			</product>
 		</function>
 
