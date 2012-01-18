@@ -5,24 +5,24 @@ Syd Adams
 
 <PropertyList>
 
- <path>Aircraft/A320neo/Models/Instruments/ECAM/res/EFIS.ac</path>
+ <path>Aircraft/A320neo/Models/Instruments/ECAM/res/EFIS3.ac</path>
      
     <panel>
         <path>Aircraft/A320neo/Models/Instruments/ECAM/Display.xml</path>
         <bottom-left>
-            <x-m>0.002</x-m>
-            <y-m>-0.090</y-m>
-            <z-m>-0.077</z-m>
+            <x-m>0.000</x-m>
+            <y-m>-0.088</y-m>
+            <z-m>-0.078</z-m>
         </bottom-left>
         <bottom-right>
-            <x-m>0.002</x-m>
-            <y-m>0.090</y-m>
-            <z-m>-0.077</z-m>
+            <x-m>0.000</x-m>
+            <y-m>0.088</y-m>
+            <z-m>-0.078</z-m>
         </bottom-right>
         <top-left>
-            <x-m>-0.002</x-m>
-            <y-m>-0.090</y-m>
-            <z-m>0.095</z-m>
+            <x-m>-0.000</x-m>
+            <y-m>-0.088</y-m>
+            <z-m>0.097</z-m>
         </top-left>
     </panel>
 
