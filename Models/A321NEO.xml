@@ -200,7 +200,7 @@
 	<!-- Dual control -->
 	<nasal>
 		<load>
-		 aircraft_dual_control.pilot_type = "Aircraft/A320neo/XMLs/A320NEO.xml";
+		 aircraft_dual_control.pilot_type = "Aircraft/A320neo/Models/A320NEO.xml";
 		</load>
 	</nasal>
 

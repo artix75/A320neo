@@ -10,8 +10,11 @@ aircraft.livery.init("Aircraft/A320neo/Models/Liveries/" ~ getprop("sim/aero"));
 setlistener("sim/model/livery/texture", func
  {
  var base = getprop("sim/model/livery/texture");
- setprop("sim/model/livery/texture-path[0]", "../Models/" ~ base);
- setprop("sim/model/livery/texture-path[1]", "../../Models/" ~ base);
+# No more diferences on New Folder Structure. there should be consolidated on model xmls to just use one var
+# setprop("sim/model/livery/texture-path[0]", "../Models/" ~ base);
+# setprop("sim/model/livery/texture-path[1]", "../../Models/" ~ base);
+ setprop("sim/model/livery/texture-path[0]", "../" ~ base);
+ setprop("sim/model/livery/texture-path[1]", "../" ~ base);
  }, 1, 1);
 
 ## LIGHTS

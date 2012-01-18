@@ -6,7 +6,7 @@
 
 	<!-- Reflection Shader -->
 	<effect>
-		<inherits-from>Effects/NEOreflect</inherits-from>
+		<inherits-from>Aircraft/A320neo/Models/Effects/NEOreflect</inherits-from>
 		<object-name>WingletL</object-name>
 		<object-name>WingletR</object-name>
 	</effect>

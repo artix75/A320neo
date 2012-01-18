@@ -12,7 +12,7 @@
 		<engine>CFM LeapX</engine>
 
 		<model>
-			<path>Aircraft/A320neo/XMLs/A319NEO.xml</path>
+			<path>Aircraft/A320neo/Models/A319NEO.xml</path>
 			<livery>
 				<file>Liveries/A319NEO-Blank</file>
 				<texture>Liveries/A319NEO-Blank.png</texture>

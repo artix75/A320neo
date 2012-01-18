@@ -9,7 +9,7 @@
 
 	<model>
 		<name>Fuselage</name>
-		<path>Aircraft/A320neo/Models/Fuselages/a320neo.fuselage.xml</path>
+		<path>Aircraft/A320neo/Models/Fuselage/a319neo.fuselage.xml</path>
 	</model>
 
 	<!-- Separate Flightdeck to fit the modified nose -->
@@ -17,23 +17,22 @@
 		<name>Flightdeck</name>
 		<path>Aircraft/A320neo/Models/FlightDeck/a320neo.flightdeck.xml</path>
 		<offsets>
-			<x-m>21.32</x-m>
+			<x-m>22.92</x-m>
 			<z-m>2.137</z-m>
 		</offsets>
 	</model>
 
-	<model>
+<!--	<model>
 		<name>Interior</name>
-		<path>Aircraft/A320neo/Models/Interior/a320neo.interior.xml</path>
-	</model>
+		<path>Aircraft/A320neo/Models/Interior/a319neo.interior.xml</path>
+	</model> -->
 
 	<model>
 		<name>Nose Gear</name>
 		<path>Aircraft/A320neo/Models/LandingGears/a320.nlg.xml</path>
 		<offsets>
-			<x-m>7.83</x-m>
-			<!-- <z-m>-1.8306008</z-m> Didn't touch ground -->
-			<z-m>-2</z-m>
+			<x-m>9.43</x-m>
+			<z-m>-1.8306008</z-m>
 		</offsets>
 	</model>
 
@@ -58,7 +57,7 @@
 	</model>
 
 	<model>
-		<path>Aircraft/A320neo/Models/Wings/a320.wings.xml</path>
+		<path>Aircraft/A320neo/Models/Wings/a320.wings.iae.xml</path>
 		<offsets>
 			<x-m>15.280</x-m>
 			<z-m>-1.06019</z-m>
@@ -66,7 +65,7 @@
 	</model>
 
 	<model>
-		<name>A320NEO Winglets</name>
+		<name>Winglets</name>
 		<path>Aircraft/A320neo/Models/Wings/a320neo.winglets.xml</path>
 		<offsets>
 			<x-m>15.280</x-m>
@@ -76,18 +75,18 @@
 
 	<model>
 		<name>Horizontal Stabilizer</name>
-		<path>Aircraft/A320neo/Models/Fuselages/a320.hstab.xml</path>
+		<path>Aircraft/A320neo/Models/Fuselage/a320.hstab.xml</path>
 		<offsets>
-			<x-m>34.1512207</x-m>
+			<x-m>32.0212207</x-m>
 			<pitch-deg>0.0</pitch-deg>
 		</offsets>
 	</model>
 
 	<model>
 		<name>Vertical Stabilizer</name>
-		<path>Aircraft/A320neo/Models/Fuselages/a320.vstab.xml</path>
+		<path>Aircraft/A320neo/Models/Fuselage/a320.vstab.xml</path>
 		<offsets>
-			<x-m>32.2535728</x-m>
+			<x-m>30.1235728</x-m>
 		</offsets>
 	</model>
 
@@ -166,7 +165,7 @@
 		<name>Nosegear landing light</name>
 		<path>Aircraft/A320neo/Models/Lights/landing-nose.xml</path>
 		<offsets>
-			<x-m>7.35</x-m>
+			<x-m>3.08</x-m>
 			<y-m>0</y-m>
 			<z-m>-2.5</z-m>
 		</offsets>
@@ -187,13 +186,9 @@
 		<name>Pushback</name>
 		<path>Models/Airport/Pushback/Goldhofert.xml</path>
 		<offsets>
-			<x-m>5.55</x-m>
+			<x-m>9.15</x-m>
 			<y-m>0</y-m>
 			<z-m>-4.14</z-m>
-<!--			<x-m>7.55</x-m>
-			<y-m>0</y-m>
-			<z-m>-4.14</z-m> -->
-
 		</offsets>
 	</model>
 
@@ -205,7 +200,7 @@
 	<!-- Dual control -->
 	<nasal>
 		<load>
-		 aircraft_dual_control.pilot_type = "Aircraft/A320neo/XMLs/A320NEO.xml";
+		 aircraft_dual_control.pilot_type = "Aircraft/A320neo/Models/A319NEO.xml";
 		</load>
 	</nasal>
 
