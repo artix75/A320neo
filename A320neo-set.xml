@@ -553,6 +553,9 @@
 			<ecam>
 					<display-mode type="string">ENG</display-mode>
 			</ecam>
+			<mdf>
+					<display-mode type="string">ROSE</display-mode>
+			</mdf>
 		</efis>
 		<tcas><!-- http://wiki.flightgear.org/index.php/TCAS -->
 			<serviceable type="bool">true</serviceable><!-- TCAS ENABLE -->

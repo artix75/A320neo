@@ -20,7 +20,7 @@
 		<offsets>
 			<x-m>-17.173</x-m>
 			<y-m>-0.35</y-m>
-			<z-m>-1.99</z-m>
+			<z-m>-1.98</z-m>
 			<pitch-deg>-15.0</pitch-deg>
 		</offsets>
 	</model>
@@ -30,7 +30,7 @@
 		<offsets>
 			<x-m>-17.173</x-m>
 			<y-m>0.35</y-m>
-			<z-m>-1.99</z-m>
+			<z-m>-1.98</z-m>
 			<pitch-deg>-15.0</pitch-deg>
 		</offsets>
 	</model>
@@ -60,9 +60,9 @@
 	<model>
 		<path>Aircraft/A320neo/Models/Instruments/ECAM/ECAM.xml</path>
 		<offsets>
-			<x-m>-17.120</x-m><!-- -17.125 -->
+			<x-m>-17.122</x-m><!-- -17.125 -->
 			<y-m>0</y-m>
-			<z-m>-2.18</z-m>
+			<z-m>-2.175</z-m>
 			<pitch-deg>-15.0</pitch-deg>
 		</offsets>
 	</model>
