@@ -25,15 +25,7 @@ file, these values will be used (they are hardcoded).
 
 <PropertyList>
 
-	<adf>
-		<name>adf</name>
-		<number>0</number>
-	</adf>
-	<adf>
-		<name>adf</name>
-		<number>1</number>
-	</adf>
-
+<!-- SPEED -->
 	<airspeed-indicator>
 		<name>airspeed-indicator</name>
 		<number>0</number>
@@ -41,43 +33,13 @@ file, these values will be used (they are hardcoded).
 		<static-pressure>/systems/static/pressure-inhg</static-pressure>
 	</airspeed-indicator>
 
-	<altimeter>
-		<name>altimeter</name>
+	<vertical-speed-indicator>
+		<name>vertical-speed-indicator</name>
 		<number>0</number>
 		<static-pressure>/systems/static/pressure-inhg</static-pressure>
-		<quantum>0</quantum>
-		<tau>0</tau>
-	</altimeter>
+	</vertical-speed-indicator>
 
-	<attitude-indicator>
-		<name>attitude-indicator</name>
-		<number>0</number>
-		<suction>/systems/vacuum/suction-inhg</suction>
-	</attitude-indicator>
-
-	<clock>
-		<name>clock</name>
-		<number>0</number>
-	</clock>
-
-	<dme>
-		<name>dme</name>
-		<number>0</number>
-	</dme>
-
-	<altimeter>
-		<name>encoder</name>
-		<number>0</number>
-		<static-pressure>/systems/static/pressure-inhg</static-pressure>
-		<quantum>10</quantum>
-		<tau>0.1</tau>
-	</altimeter>
-
-	<marker-beacon>
-		<name>marker-beacon</name>
-		<number>0</number>
-	</marker-beacon>
-
+<!-- Navigation -->
 	<heading-indicator>
 		<name>heading-indicator</name>
 		<number>0</number>
@@ -90,16 +52,60 @@ file, these values will be used (they are hardcoded).
 		<number>0</number>
 	</heading-indicator-dg>
 -->
-
-	<KT-70>
-		<name>kt-70</name>
-		<number>0</number>
-	</KT-70>
-
 	<magnetic-compass>
 		<name>magnetic-compass</name>
 		<number>0</number>
 	</magnetic-compass>
+
+	<attitude-indicator>
+		<name>attitude-indicator</name>
+		<number>0</number>
+		<suction>/systems/vacuum/suction-inhg</suction>
+	</attitude-indicator>
+
+
+	<slip-skid-ball>
+		<name>slip-skid-ball</name>
+		<number>0</number>
+	</slip-skid-ball>
+
+	<turn-indicator>
+		<name>turn-indicator</name>
+		<number>0</number>
+	</turn-indicator>
+
+<!-- Altimeters -->
+	<altimeter>
+		<name>altimeter</name>
+		<number>0</number>
+		<static-pressure>/systems/static/pressure-inhg</static-pressure>
+		<quantum>0</quantum>
+		<tau>0</tau>
+	</altimeter>
+
+	<altimeter>
+		<name>encoder</name>
+		<number>0</number>
+		<static-pressure>/systems/static/pressure-inhg</static-pressure>
+		<quantum>10</quantum>
+		<tau>0.1</tau>
+	</altimeter>
+
+
+
+<!-- Electronic Instrumentation -->
+	<clock>
+		<name>clock</name>
+		<number>0</number>
+	</clock>
+
+	<marker-beacon>
+		<name>marker-beacon</name>
+		<number>0</number>
+	</marker-beacon>
+
+
+	
 
 	<nav-radio>
 		<name>nav</name>
@@ -111,10 +117,26 @@ file, these values will be used (they are hardcoded).
 		<number>1</number>
 	</nav-radio>
 
-	<slip-skid-ball>
-		<name>slip-skid-ball</name>
+
+	<adf>
+		<name>adf</name>
 		<number>0</number>
-	</slip-skid-ball>
+	</adf>
+
+	<adf>
+		<name>adf</name>
+		<number>1</number>
+	</adf>
+
+	<dme>
+		<name>dme</name>
+		<number>0</number>
+	</dme>
+
+	<KT-70>
+		<name>kt-70</name>
+		<number>0</number>
+	</KT-70>
 
 	<transponder>
 		<name>transponder</name>
@@ -122,16 +144,10 @@ file, these values will be used (they are hardcoded).
 		<mode-c-altitude>/instrumentation/encoder/mode-c-alt-ft</mode-c-altitude>
 	</transponder>
 
-	<turn-indicator>
-		<name>turn-indicator</name>
+	<tcas>
+		<name>tcas</name>
 		<number>0</number>
-	</turn-indicator>
-
-	<vertical-speed-indicator>
-		<name>vertical-speed-indicator</name>
-		<number>0</number>
-		<static-pressure>/systems/static/pressure-inhg</static-pressure>
-	</vertical-speed-indicator>
+	</tcas>
 
 	<gps>
 		<name>gps</name>
@@ -142,20 +158,29 @@ file, these values will be used (they are hardcoded).
 		<name>wxradar</name>
 		<number>0</number>
 	</radar>
+	<groundradar>
+		<name>groundradar</name>
+		<!--airport-id-source>instrumentation/groundradar/id</airport-id-source-->
+		<range-source>instrumentation/groundradar/range</range-source>
+	</groundradar>
 
-	<tacan>
+    <!--navigation-display>
+        <name>nd</name>
+        <number>0</number>        
+        <symbols include="nav-display-c.xml"/>
+    </navigation-display-->
+    
+
+<!-- Does an airliner have TACAN?	<tacan>
 		<name>tacan</name>
 		<number>0</number>
 	</tacan>
-
+-->
 	<mk-viii>
 		<name>mk-viii</name>
 		<number>0</number>
 	</mk-viii>
-	<tcas>
-		<name>tcas</name>
-		<number>0</number>
-	</tcas>
+
 
 
 </PropertyList>

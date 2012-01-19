@@ -7,7 +7,7 @@
 	<h>256</h>
 
 	<instruments> 
-
+<!-- ROSE[ILS VOR NAV] ARC PLAN-->
 		<instrument include="page-ROSE.xml">
 			<condition>
 				<and>
@@ -22,6 +22,47 @@
 				</and>
 			</condition>
 			<name>rose</name>
+			<x>128</x>
+			<y>128</y>
+			<w>256</w>
+			<h>256</h>
+		</instrument>
+
+		<instrument include="page-APP.xml">
+			<condition>
+				<and>
+					<greater-than>
+						<property>systems/electrical/outputs/efis</property>
+						<value>15</value>
+					</greater-than>
+					<equals>
+						<property>instrumentation/efis/nd/display-mode</property>
+						<value>ILS</value>
+					</equals>
+				</and>
+			</condition>
+			<name>app</name>
+			<x>128</x>
+			<y>128</y>
+			<w>256</w>
+			<h>256</h>
+		</instrument>
+
+
+		<instrument include="page-VOR.xml">
+			<condition>
+				<and>
+					<greater-than>
+					<property>systems/electrical/outputs/efis</property>
+				<value>15</value>
+				</greater-than>
+					<equals>
+					<property>instrumentation/efis/nd/display-mode</property>
+				<value>VOR</value>
+				</equals>
+				</and>
+			</condition>
+			<name>vor</name>
 			<x>128</x>
 			<y>128</y>
 			<w>256</w>
@@ -90,7 +131,6 @@
 
 
 
-
     <instrument include="page-PLAN.xml">
         <condition>
             <and>
@@ -131,68 +171,29 @@
 			<w>256</w>
 			<h>256</h>
 		</instrument>
--->
 
-<!-- instrument include="page-APP.xml">
-        <condition>
-            <and>
-                <greater-than>
-                    <property>systems/electrical/outputs/efis</property>
-                    <value>15</value>
-                </greater-than>
-                <equals>
-                    <property>instrumentation/efis/nd/display-mode</property>
-                    <value>APP</value>
-                </equals>
-            </and>
-        </condition>
-        <name>app</name>
-        <x>128</x>
-        <y>128</y>
-        <w>256</w>
-        <h>256</h>
-    </instrument>
 
-    <instrument include="page-VOR.xml">
-        <condition>
-            <and>
-                <greater-than>
-                    <property>systems/electrical/outputs/efis</property>
-                    <value>15</value>
-                </greater-than>
-                <equals>
-                    <property>instrumentation/efis/nd/display-mode</property>
-                    <value>VOR</value>
-                </equals>
-            </and>
-        </condition>
-        <name>vor</name>
-        <x>128</x>
-        <y>128</y>
-        <w>256</w>
-        <h>256</h>
-    </instrument>
 
-    <instrument include="page-MAP.xml">
-        <condition>
-            <and>
-                <greater-than>
-                    <property>systems/electrical/outputs/efis</property>
-                    <value>15</value>
-                </greater-than>
-                <less-than>
-                    <property>instrumentation/efis[0]/nd/display-mode</property>
-                    <value>4</value>
-                </less-than>
-            </and>
-        </condition>
-        <name>map</name>
-        <x>128</x>
-        <y>128</y>
-        <w>256</w>
-        <h>256</h>
-    </instrument -->
-    
+	<instrument include="page-MAP.xml">
+		<condition>
+			<and>
+				<greater-than>
+					<property>systems/electrical/outputs/efis</property>
+					<value>15</value>
+				</greater-than>
+				<not-equals>
+					<property>instrumentation/efis/nd/display-mode</property>
+					<value>PLAN</value>
+				</not-equals>
+			</and>
+		</condition>
+		<name>map</name>
+		<x>128</x>
+		<y>128</y>
+		<w>256</w>
+		<h>256</h>
+	</instrument>
+    -->
 
 
 </instruments>
