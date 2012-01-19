@@ -554,16 +554,14 @@
 			<ecam>
 					<display-mode type="string">ENG</display-mode>
 			</ecam>
-			<mfd>
+			<nd>
 					<display-mode type="string">ROSE</display-mode>
-			</mfd>
-			<nd-mode>ROSE</nd-mode>
+					<display-range type="int">10</display-range>
+			</nd>
 
 
 
-
-			<display-mode type="int">3</display-mode>
-
+		
 			<inputs>
 				<lh-vor-adf type="bool">1</lh-vor-adf>
 				<rh-vor-adf type="bool">1</rh-vor-adf>

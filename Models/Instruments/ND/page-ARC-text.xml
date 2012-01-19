@@ -2,7 +2,7 @@
 
 
 <PropertyList>
-    <name>ROSEtext</name>
+    <name>ARCtext</name>
     <w-base>256</w-base>
     <h-base>256</h-base>
 
@@ -13,7 +13,7 @@
             <w>256</w>
             <h>256</h>
             <texture>
-                <path>Aircraft/A320neo/Models/Instruments/MFD/res/transparent.png</path>
+                <path>Aircraft/A320neo/Models/Instruments/ND/res/transparent.png</path>
                 <x1>0.0</x1>
                 <y1>0.0</y1>
                 <x2>1</x2>
@@ -179,7 +179,7 @@
             <transformations>
                 <transformation>
                     <type>x-shift</type>
-                    <offset>-12</offset>
+                    <offset>-80</offset>
                 </transformation>
                 <transformation>
                     <type>y-shift</type>
@@ -232,17 +232,16 @@
             </transformations>
         </layer>
 
-
-<!-- ROSE -->
+<!-- arc -->
         <layer>
-            <name>WXR range</name>
+            <name>inner-range-left</name>
             <type>text</type>
             <font>arial_black</font>
             <point-size>8</point-size>
             <color>
                 <red>0.8</red>
                 <green>0.8</green>
-                <blue>0.8</blue>
+                <blue>1.0</blue>
             </color>
             <chunks>
                 <chunk>
@@ -254,14 +253,44 @@
             <transformations>
                 <transformation>
                     <type>x-shift</type>
-                    <offset>-30</offset>
+                    <offset>-50</offset>
                 </transformation>
                 <transformation>
                     <type>y-shift</type>
-                    <offset>15</offset>
+                    <offset>6</offset>
                 </transformation>
             </transformations>
         </layer>
+
+        <layer>
+            <name>inner-range-right</name>
+            <type>text</type>
+            <font>arial_black</font>
+            <point-size>8</point-size>
+            <color>
+                <red>0.8</red>
+                <green>0.8</green>
+                <blue>1.0</blue>
+            </color>
+            <chunks>
+                <chunk>
+                    <type>number-value</type>
+                    <property>instrumentation/nd/range</property>
+                    <format>%3.0f</format>
+                </chunk>
+            </chunks>
+            <transformations>
+                <transformation>
+                    <type>x-shift</type>
+                    <offset>30</offset>
+                </transformation>
+                <transformation>
+                    <type>y-shift</type>
+                    <offset>6</offset>
+                </transformation>
+            </transformations>
+        </layer>
+        
 
         <layer>
             <name>HDG ind</name>
@@ -286,7 +315,7 @@
                 </transformation>
                 <transformation>
                     <type>y-shift</type>
-                    <offset>88</offset>
+                    <offset>105</offset>
                 </transformation>
             </transformations>
         </layer>
@@ -315,7 +344,7 @@
                 </transformation>
                 <transformation>
                     <type>y-shift</type>
-                    <offset>88</offset>
+                    <offset>105</offset>
                 </transformation>
             </transformations>
         </layer>
@@ -343,11 +372,10 @@
                 </transformation>
                 <transformation>
                     <type>y-shift</type>
-                    <offset>88</offset>
+                    <offset>105</offset>
                 </transformation>
             </transformations>
         </layer>
-
 
 <!-- L VOR-->
 
@@ -804,7 +832,7 @@
           <transformations>
             <transformation>
                <type>y-shift</type>
-               <offset>-12</offset>
+               <offset>-78</offset>
             </transformation>
             <transformation>
                 <type>rotation</type>
@@ -813,7 +841,7 @@
             <transformation>
                <type>y-shift</type>
                <property>instrumentation/radar/mp[0]/norm-dist</property>
-               <scale>80</scale>
+               <scale>160</scale>
             </transformation>
             <transformation>
                <type>rotation</type>
@@ -854,13 +882,8 @@
           <transformations>
             <transformation>
                <type>y-shift</type>
-               <offset>-12</offset>
+               <offset>-80</offset>
             </transformation>
-            <!-- transformation>
-              <type>rotation</type>
-              <property>orientation/heading-magnetic-deg</property>
-              <scale>-1.0</scale>
-            </transformation -->
             <transformation>
                 <type>rotation</type>
                 <property>instrumentation/radar/mp[1]/brg-offset</property>
@@ -868,7 +891,7 @@
             <transformation>
                <type>y-shift</type>
                <property>instrumentation/radar/mp[1]/norm-dist</property>
-               <scale>80</scale>
+               <scale>160</scale>
             </transformation>
             <transformation>
                <type>rotation</type>
@@ -909,13 +932,8 @@
           <transformations>
             <transformation>
                <type>y-shift</type>
-               <offset>-12</offset>
+               <offset>-80</offset>
             </transformation>
-            <!-- transformation>
-              <type>rotation</type>
-              <property>orientation/heading-magnetic-deg</property>
-              <scale>-1.0</scale>
-            </transformation -->
             <transformation>
                 <type>rotation</type>
                 <property>instrumentation/radar/mp[2]/brg-offset</property>
@@ -923,7 +941,7 @@
             <transformation>
                <type>y-shift</type>
                <property>instrumentation/radar/mp[2]/norm-dist</property>
-               <scale>80</scale>
+               <scale>160</scale>
             </transformation>
             <transformation>
                <type>rotation</type>
@@ -964,13 +982,8 @@
           <transformations>
             <transformation>
                <type>y-shift</type>
-               <offset>-12</offset>
+               <offset>-80</offset>
             </transformation>
-            <!-- transformation>
-              <type>rotation</type>
-              <property>orientation/heading-magnetic-deg</property>
-              <scale>-1.0</scale>
-            </transformation -->
             <transformation>
                 <type>rotation</type>
                 <property>instrumentation/radar/mp[3]/brg-offset</property>
@@ -978,7 +991,7 @@
             <transformation>
                <type>y-shift</type>
                <property>instrumentation/radar/mp[3]/norm-dist</property>
-               <scale>80</scale>
+               <scale>160</scale>
             </transformation>
             <transformation>
                <type>rotation</type>
@@ -1019,13 +1032,8 @@
           <transformations>
             <transformation>
                <type>y-shift</type>
-               <offset>-12</offset>
+               <offset>-80</offset>
             </transformation>
-            <!-- transformation>
-              <type>rotation</type>
-              <property>orientation/heading-magnetic-deg</property>
-              <scale>-1.0</scale>
-            </transformation -->
             <transformation>
                 <type>rotation</type>
                 <property>instrumentation/radar/mp[4]/brg-offset</property>
@@ -1033,7 +1041,7 @@
             <transformation>
                <type>y-shift</type>
                <property>instrumentation/radar/mp[4]/norm-dist</property>
-               <scale>80</scale>
+               <scale>160</scale>
             </transformation>
             <transformation>
                <type>rotation</type>
@@ -1074,13 +1082,8 @@
           <transformations>
             <transformation>
                <type>y-shift</type>
-               <offset>-12</offset>
+               <offset>-80</offset>
             </transformation>
-            <!-- transformation>
-              <type>rotation</type>
-              <property>orientation/heading-magnetic-deg</property>
-              <scale>-1.0</scale>
-            </transformation -->
             <transformation>
                 <type>rotation</type>
                 <property>instrumentation/radar/mp[5]/brg-offset</property>
@@ -1088,7 +1091,7 @@
             <transformation>
                <type>y-shift</type>
                <property>instrumentation/radar/mp[5]/norm-dist</property>
-               <scale>80</scale>
+               <scale>160</scale>
             </transformation>
             <transformation>
                <type>rotation</type>
@@ -1129,13 +1132,8 @@
           <transformations>
             <transformation>
                <type>y-shift</type>
-               <offset>-12</offset>
+               <offset>-80</offset>
             </transformation>
-            <!-- transformation>
-              <type>rotation</type>
-              <property>orientation/heading-magnetic-deg</property>
-              <scale>-1.0</scale>
-            </transformation -->
             <transformation>
                 <type>rotation</type>
                 <property>instrumentation/radar/mp[6]/brg-offset</property>
@@ -1143,7 +1141,7 @@
             <transformation>
                <type>y-shift</type>
                <property>instrumentation/radar/mp[6]/norm-dist</property>
-               <scale>80</scale>
+               <scale>160</scale>
             </transformation>
             <transformation>
                <type>rotation</type>
@@ -1183,7 +1181,7 @@
           <transformations>
             <transformation>
                <type>y-shift</type>
-               <offset>-12</offset>
+               <offset>-78</offset>
             </transformation>
             <transformation>
                 <type>rotation</type>
@@ -1192,7 +1190,7 @@
             <transformation>
                <type>y-shift</type>
                <property>instrumentation/radar/navaid-dist-norm</property>
-               <scale>80</scale>
+               <scale>165</scale>
             </transformation>
             <transformation>
                <type>rotation</type>
@@ -1235,7 +1233,7 @@
           <transformations>
             <transformation>
                <type>y-shift</type>
-               <offset>-12</offset>
+               <offset>-78</offset>
             </transformation>
             <transformation>
                 <type>rotation</type>
@@ -1244,7 +1242,7 @@
             <transformation>
                <type>y-shift</type>
                <property>instrumentation/radar/wp[0]/dist-norm</property>
-               <scale>80</scale>
+               <scale>161</scale>
             </transformation>
             <transformation>
                <type>rotation</type>
@@ -1285,7 +1283,7 @@
           <transformations>
             <transformation>
                <type>y-shift</type>
-               <offset>-12</offset>
+               <offset>-78</offset>
             </transformation>
             <transformation>
                 <type>rotation</type>
@@ -1294,7 +1292,7 @@
             <transformation>
                <type>y-shift</type>
                <property>instrumentation/radar/wp[1]/dist-norm</property>
-               <scale>80</scale>
+               <scale>161</scale>
             </transformation>
             <transformation>
                <type>rotation</type>
@@ -1335,7 +1333,7 @@
           <transformations>
             <transformation>
                <type>y-shift</type>
-               <offset>-12</offset>
+               <offset>-78</offset>
             </transformation>
             <transformation>
                 <type>rotation</type>
@@ -1344,7 +1342,7 @@
             <transformation>
                <type>y-shift</type>
                <property>instrumentation/radar/wp[2]/dist-norm</property>
-               <scale>80</scale>
+               <scale>161</scale>
             </transformation>
             <transformation>
                <type>rotation</type>
@@ -1385,7 +1383,7 @@
           <transformations>
             <transformation>
                <type>y-shift</type>
-               <offset>-12</offset>
+               <offset>-78</offset>
             </transformation>
             <transformation>
                 <type>rotation</type>
@@ -1394,7 +1392,7 @@
             <transformation>
                <type>y-shift</type>
                <property>instrumentation/radar/wp[3]/dist-norm</property>
-               <scale>80</scale>
+               <scale>161</scale>
             </transformation>
             <transformation>
                <type>rotation</type>
@@ -1438,7 +1436,7 @@
           <transformations>
             <transformation>
                <type>y-shift</type>
-               <offset>-12</offset>
+               <offset>-78</offset>
             </transformation>
             <transformation>
                 <type>rotation</type>
@@ -1447,7 +1445,7 @@
             <transformation>
                <type>y-shift</type>
                <property>instrumentation/radar/airports[0]/dist-norm</property>
-               <scale>80</scale>
+               <scale>161</scale>
             </transformation>
             <transformation>
                <type>rotation</type>
@@ -1488,7 +1486,7 @@
           <transformations>
             <transformation>
                <type>y-shift</type>
-               <offset>-12</offset>
+               <offset>-78</offset>
             </transformation>
             <transformation>
                 <type>rotation</type>
@@ -1497,7 +1495,7 @@
             <transformation>
                <type>y-shift</type>
                <property>instrumentation/radar/airports[1]/dist-norm</property>
-               <scale>80</scale>
+               <scale>161</scale>
             </transformation>
             <transformation>
                <type>rotation</type>
@@ -1538,7 +1536,7 @@
           <transformations>
             <transformation>
                <type>y-shift</type>
-               <offset>-12</offset>
+               <offset>-78</offset>
             </transformation>
             <transformation>
                 <type>rotation</type>
@@ -1547,7 +1545,7 @@
             <transformation>
                <type>y-shift</type>
                <property>instrumentation/radar/airports[2]/dist-norm</property>
-               <scale>80</scale>
+               <scale>161</scale>
             </transformation>
             <transformation>
                <type>rotation</type>
@@ -1588,7 +1586,7 @@
           <transformations>
             <transformation>
                <type>y-shift</type>
-               <offset>-12</offset>
+               <offset>-78</offset>
             </transformation>
             <transformation>
                 <type>rotation</type>
@@ -1597,7 +1595,7 @@
             <transformation>
                <type>y-shift</type>
                <property>instrumentation/radar/airports[3]/dist-norm</property>
-               <scale>80</scale>
+               <scale>161</scale>
             </transformation>
             <transformation>
                <type>rotation</type>

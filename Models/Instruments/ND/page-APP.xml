@@ -2,14 +2,14 @@
 
 
 <PropertyList>
-    <name>VOR</name>
+    <name>APPR</name>
     <w-base>256</w-base>
     <h-base>256</h-base>
 
     <layers>
 
 <!-- arc mode -->
-  
+
         <layer>
             <condition>
                 <not>
@@ -20,7 +20,7 @@
             <w>360</w>
             <h>360</h>
             <texture>
-                <path>Aircraft/A320neo/Models/Instruments/MFD/res/hsiarc.png</path>
+                <path>Aircraft/A320neo/Models/Instruments/ND/res/hsiarc.png</path>
                 <x1>0.0</x1>
                 <y1>0.0</y1>
                 <x2>1</x2>
@@ -39,7 +39,7 @@
             </transformations>
             <emissive>true</emissive>
         </layer>
- 
+
         <layer>
             <condition>
                 <not>
@@ -51,7 +51,7 @@
             <w>12</w>
             <h>170</h>
             <texture>
-                <path>Aircraft/A320neo/Models/Instruments/MFD/res/symbols.png</path>
+                <path>Aircraft/A320neo/Models/Instruments/ND/res/symbols.png</path>
                 <x1>0.077</x1>
                 <y1>0.174</y1>
                 <x2>0.126</x2>
@@ -83,7 +83,7 @@
             <w>4</w>
             <h>178</h>
             <texture>
-                <path>Aircraft/A320neo/Models/Instruments/MFD/res/symbols.png</path>
+                <path>Aircraft/A320neo/Models/Instruments/ND/res/symbols.png</path>
                 <x1>0.016</x1>
                 <y1>0.024</y1>
                 <x2>0.039</x2>
@@ -108,7 +108,7 @@
             <w>90</w>
             <h>7</h>
             <texture>
-                <path>Aircraft/A320neo/Models/Instruments/MFD/res/symbols.png</path>
+                <path>Aircraft/A320neo/Models/Instruments/ND/res/symbols.png</path>
                 <x1>0.215</x1>
                 <y1>0.488</y1>
                 <x2>0.566</x2>
@@ -142,7 +142,7 @@
             <w>7</w>
             <h>50</h>
             <texture>
-                <path>Aircraft/A320neo/Models/Instruments/MFD/res/symbols.png</path>
+                <path>Aircraft/A320neo/Models/Instruments/ND/res/symbols.png</path>
                 <x1>0.731</x1>
                 <y1>0.019</y1>
                 <x2>0.788</x2>
@@ -177,11 +177,78 @@
                     <property>instrumentation/efis/inputs/nd-centered</property>
                 </not>
             </condition>
+            <name>gs scale</name>
+            <w>12</w>
+            <h>90</h>
+            <texture>
+                <path>Aircraft/A320neo/Models/Instruments/ND/res/symbols.png</path>
+                <x1>0.528</x1>
+                <y1>0.470</y1>
+                <x2>0.579</x2>
+                <y2>0.849</y2>
+            </texture>
+            <transformations>
+                <transformation>
+                    <type>y-shift</type>
+                    <offset>-55</offset>
+                </transformation>
+                <transformation>
+                    <type>x-shift</type>
+                    <offset>120</offset>
+                </transformation>
+            </transformations>
+            <emissive>true</emissive>
+        </layer>
+
+        <layer>
+            <condition>
+                <not>
+                    <property>instrumentation/efis/inputs/nd-centered</property>
+                </not>
+            </condition>
+            <name>gs pointer</name>
+            <w>10</w>
+            <h>16</h>
+            <texture>
+                <path>Aircraft/A320neo/Models/Instruments/ND/res/symbols.png</path>
+                <x1>0.686</x1>
+                <y1>0.833</y1>
+                <x2>0.761</x2>
+                <y2>0.952</y2>
+            </texture>
+            <transformations>
+                <transformation>
+                    <type>y-shift</type>
+                    <offset>-55</offset>
+                </transformation>
+                <transformation>
+                    <type>x-shift</type>
+                    <offset>120</offset>
+                </transformation>
+                <transformation>
+                    <type>y-shift</type>
+                    <property>instrumentation/nav/gs-needle-deflection-norm</property>
+                    <interpolation>
+                        <entry><ind>-1</ind><dep>-57.285</dep></entry>
+                        <entry><ind>0</ind><dep>0</dep></entry>
+                        <entry><ind>1</ind><dep>57.285</dep></entry>
+                    </interpolation>
+                </transformation>
+            </transformations>
+            <emissive>true</emissive>
+        </layer>
+
+        <layer>
+            <condition>
+                <not>
+                    <property>instrumentation/efis/inputs/nd-centered</property>
+                </not>
+            </condition>
             <name>crs head</name>
             <w>7</w>
             <h>130</h>
             <texture>
-                <path>Aircraft/A320neo/Models/Instruments/MFD/res/symbols.png</path>
+                <path>Aircraft/A320neo/Models/Instruments/ND/res/symbols.png</path>
                 <x1>0.582</x1>
                 <y1>0.026</y1>
                 <x2>0.623</x2>
@@ -219,7 +286,7 @@
             <w>7</w>
             <h>130</h>
             <texture>
-                <path>Aircraft/A320neo/Models/Instruments/MFD/res/symbols.png</path>
+                <path>Aircraft/A320neo/Models/Instruments/ND/res/symbols.png</path>
                 <x1>0.911</x1>
                 <y1>0.024</y1>
                 <x2>0.952</x2>
@@ -246,7 +313,7 @@
             </transformations>
             <emissive>true</emissive>
         </layer>
-
+ 
         <layer>
             <condition>
                 <not>
@@ -258,14 +325,14 @@
             <w>256</w>
             <h>256</h>
             <texture>
-                <path>Aircraft/A320neo/Models/Instruments/MFD/res/mask.png</path>
+                <path>Aircraft/A320neo/Models/Instruments/ND/res/mask.png</path>
                 <x1>0.0</x1>
                 <y1>0.0</y1>
                 <x2>1.0</x2>
                 <y2>1.0</y2>
             </texture>
         </layer>
-
+ 
         <layer>
             <condition>
                 <not>
@@ -276,7 +343,7 @@
             <w>20</w>
             <h>20</h>
             <texture>
-                <path>Aircraft/A320neo/Models/Instruments/MFD/res/symbols.png</path>
+                <path>Aircraft/A320neo/Models/Instruments/ND/res/symbols.png</path>
                 <x1>0.654</x1>
                 <y1>0.286</y1>
                 <x2>0.790</x2>
@@ -301,7 +368,7 @@
             <w>220</w>
             <h>220</h>
             <texture>
-                <path>Aircraft/A320neo/Models/Instruments/MFD/res/hsi.png</path>
+                <path>Aircraft/A320neo/Models/Instruments/ND/res/hsi.png</path>
                 <x1>0</x1>
                 <y1>0</y1>
                 <x2>1</x2>
@@ -329,7 +396,7 @@
             <w>78</w>
             <h>6</h>
             <texture>
-                <path>Aircraft/A320neo/Models/Instruments/MFD/res/symbols.png</path>
+                <path>Aircraft/A320neo/Models/Instruments/ND/res/symbols.png</path>
                 <x1>0.215</x1>
                 <y1>0.488</y1>
                 <x2>0.566</x2>
@@ -361,7 +428,7 @@
             <w>5</w>
             <h>50</h>
             <texture>
-                <path>Aircraft/A320neo/Models/Instruments/MFD/res/symbols.png</path>
+                <path>Aircraft/A320neo/Models/Instruments/ND/res/symbols.png</path>
                 <x1>0.731</x1>
                 <y1>0.019</y1>
                 <x2>0.788</x2>
@@ -398,7 +465,7 @@
             <w>14</w>
             <h>58</h>
             <texture>
-                <path>Aircraft/A320neo/Models/Instruments/MFD/res/symbols.png</path>
+                <path>Aircraft/A320neo/Models/Instruments/ND/res/symbols.png</path>
                 <x1>0.787</x1>
                 <y1>0.406</y1>
                 <x2>0.879</x2>
@@ -434,7 +501,7 @@
             <w>5</w>
             <h>56</h>
             <texture>
-                <path>Aircraft/A320neo/Models/Instruments/MFD/res/symbols.png</path>
+                <path>Aircraft/A320neo/Models/Instruments/ND/res/symbols.png</path>
                 <x1>0.816</x1>
                 <y1>0.017</y1>
                 <x2>0.849</x2>
@@ -471,7 +538,7 @@
             <w>12</w>
             <h>6</h>
             <texture>
-                <path>Aircraft/A320neo/Models/Instruments/MFD/res/symbols.png</path>
+                <path>Aircraft/A320neo/Models/Instruments/ND/res/symbols.png</path>
                 <x1>0.078</x1>
                 <y1>0.737</y1>
                 <x2>0.125</x2>
@@ -502,7 +569,7 @@
             <w>256</w>
             <h>256</h>
             <texture>
-                <path>Aircraft/A320neo/Models/Instruments/MFD/res/maskfull.png</path>
+                <path>Aircraft/A320neo/Models/Instruments/ND/res/maskfull.png</path>
                 <x1>0.0</x1>
                 <y1>0.0</y1>
                 <x2>1.0</x2>
@@ -514,11 +581,74 @@
             <condition>
                 <property>instrumentation/efis/inputs/nd-centered</property>
             </condition>
+            <name>gs scale 2</name>
+            <w>12</w>
+            <h>90</h>
+            <texture>
+                <path>Aircraft/A320neo/Models/Instruments/ND/res/symbols.png</path>
+                <x1>0.528</x1>
+                <y1>0.470</y1>
+                <x2>0.579</x2>
+                <y2>0.849</y2>
+            </texture>
+            <transformations>
+                <transformation>
+                    <type>y-shift</type>
+                    <offset>-10</offset>
+                </transformation>
+                <transformation>
+                    <type>x-shift</type>
+                    <offset>120</offset>
+                </transformation>
+            </transformations>
+            <emissive>true</emissive>
+        </layer>
+
+        <layer>
+            <condition>
+                <property>instrumentation/efis/inputs/nd-centered</property>
+            </condition>
+            <name>gs pointer 2</name>
+            <w>10</w>
+            <h>16</h>
+            <texture>
+                <path>Aircraft/A320neo/Models/Instruments/ND/res/symbols.png</path>
+                <x1>0.686</x1>
+                <y1>0.833</y1>
+                <x2>0.761</x2>
+                <y2>0.952</y2>
+            </texture>
+            <transformations>
+                <transformation>
+                    <type>y-shift</type>
+                    <offset>-10</offset>
+                </transformation>
+                <transformation>
+                    <type>x-shift</type>
+                    <offset>120</offset>
+                </transformation>
+                <transformation>
+                    <type>y-shift</type>
+                    <property>instrumentation/nav/gs-needle-deflection-norm</property>
+                    <interpolation>
+                        <entry><ind>-1</ind><dep>-57.285</dep></entry>
+                        <entry><ind>0</ind><dep>0</dep></entry>
+                        <entry><ind>1</ind><dep>57.285</dep></entry>
+                    </interpolation>
+                </transformation>
+            </transformations>
+            <emissive>true</emissive>
+        </layer>
+
+        <layer>
+            <condition>
+                <property>instrumentation/efis/inputs/nd-centered</property>
+            </condition>
             <name>aircraft symbol</name>
             <w>20</w>
             <h>30</h>
             <texture>
-                <path>Aircraft/A320neo/Models/Instruments/MFD/res/symbols.png</path>
+                <path>Aircraft/A320neo/Models/Instruments/ND/res/symbols.png</path>
                 <x1>0.659</x1>
                 <y1>0.447</y1>
                 <x2>0.784</x2>
@@ -533,8 +663,6 @@
             <emissive>true</emissive>
         </layer>
 
-<!-- -->
-
         <layer>
             <condition>
                	 <greater-than>
@@ -547,7 +675,7 @@
             <w>6</w>
             <h>18</h>
             <texture>
-                <path>Aircraft/A320neo/Models/Instruments/MFD/res/symbols.png</path>
+                <path>Aircraft/A320neo/Models/Instruments/ND/res/symbols.png</path>
                 <x1>0.138</x1>
                 <y1>0.555</y1>
                 <x2>0.204</x2>

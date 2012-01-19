@@ -2,40 +2,25 @@
 
 
 <PropertyList>
-    <name>symbols</name>
+    <name>ARCmask</name>
     <w-base>256</w-base>
     <h-base>256</h-base>
 
     <layers>
-
-        <layer>
-            <name>hdgbug</name>
-            <emissive>true</emissive>
-            <w>10</w>
-            <h>176</h>
+       <layer>
+            <name>mask</name>
+            <emissive>false</emissive>
+            <w>256</w>
+            <h>256</h>
             <texture>
-                <path>Aircraft/A320neo/Models/Instruments/MFD/res/symbols.png</path>
-                <x1>0.102</x1>
-                <y1>0.221</y1>
-                <x2>0.150</x2>
-                <y2>0.947</y2>
+                <path>Aircraft/A320neo/Models/Instruments/ND/res/mask.png</path>
+                <x1>0.0</x1>
+                <y1>0.0</y1>
+                <x2>1.0</x2>
+                <y2>1.0</y2>
             </texture>
-           <transformations>
-            <transformation>
-                <type>y-shift</type>
-                <offset>-76</offset>
-            </transformation>
-            <transformation>
-                <type>rotation</type>
-                <property>autopilot/internal/fdm-heading-bug-error-deg</property>
-            </transformation>
-            <transformation><!--shift rotation origin-->
-                <type>y-shift</type>
-                <offset>89</offset>
-            </transformation>
-        </transformations>
         </layer>
-
+        
         <layer>
             <condition>
                 <greater-than>
@@ -48,11 +33,11 @@
             <w>6</w>
             <h>18</h>
             <texture>
-                <path>Aircraft/A320neo/Models/Instruments/MFD/res/symbols.png</path>
-                <x1>0.161</x1>
-                <y1>0.606</y1>
-                <x2>0.250</x2>
-                <y2>0.874</y2>
+                <path>Aircraft/A320neo/Models/Instruments/ND/res/symbols.png</path>
+                <x1>0.138</x1>
+                <y1>0.555</y1>
+                <x2>0.204</x2>
+                <y2>0.776</y2>
             </texture>
            <transformations>
             <transformation>
@@ -74,8 +59,6 @@
             </transformation>
             </transformations>
         </layer>
-
-
-    </layers>
+</layers>
 
 </PropertyList>

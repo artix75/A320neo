@@ -2,7 +2,7 @@
 <PropertyList>
 
 	<name>MFD Panel</name>
-	<background>Aircraft/A320neo/Models/Instruments/MFD/res/black.png</background>
+	<background>Aircraft/A320neo/Models/Instruments/ND/res/black.png</background>
 	<w>256</w>
 	<h>256</h>
 
@@ -16,7 +16,7 @@
 						<value>15</value>
 					</greater-than>
 					<equals>
-						<property>instrumentation/efis[0]/mfd/display-mode</property>
+						<property>instrumentation/efis[0]/nd/display-mode</property>
 						<value>ROSE</value>
 					</equals>
 				</and>
@@ -36,7 +36,7 @@
 						<value>15</value>
 					</greater-than>
 					<equals>
-						<property>instrumentation/efis[0]/mfd/display-mode</property>
+						<property>instrumentation/efis[0]/nd/display-mode</property>
 						<value>ROSE</value>
 					</equals>
 				</and>
@@ -56,7 +56,7 @@
 						<value>15</value>
 					</greater-than>
 					<equals>
-						<property>instrumentation/efis[0]/mfd/display-mode</property>
+						<property>instrumentation/efis[0]/nd/display-mode</property>
 						<value>ARC</value>
 					</equals>
 				</and>
@@ -76,7 +76,7 @@
 						<value>15</value>
 					</greater-than>
 					<equals>
-						<property>instrumentation/efis[0]/mfd/display-mode</property>
+						<property>instrumentation/efis[0]/nd/display-mode</property>
 						<value>ARC</value>
 					</equals>
 				</and>
@@ -99,7 +99,7 @@
                     <value>15</value>
                 </greater-than>
                 <equals>
-                    <property>instrumentation/efis/mfd/display-mode</property>
+                    <property>instrumentation/efis/nd/display-mode</property>
                     <value>PLAN</value>
                 </equals>
             </and>
@@ -120,7 +120,7 @@
 						<value>15</value>
 					</greater-than>
 					<not-equals>
-						<property>instrumentation/efis/mfd/display-mode</property>
+						<property>instrumentation/efis/nd/display-mode</property>
 						<value>PLAN</value>
 					</not-equals>
 				</and>
@@ -141,7 +141,7 @@
                     <value>15</value>
                 </greater-than>
                 <equals>
-                    <property>instrumentation/efis/mfd/display-mode</property>
+                    <property>instrumentation/efis/nd/display-mode</property>
                     <value>APP</value>
                 </equals>
             </and>
@@ -161,7 +161,7 @@
                     <value>15</value>
                 </greater-than>
                 <equals>
-                    <property>instrumentation/efis/mfd/display-mode</property>
+                    <property>instrumentation/efis/nd/display-mode</property>
                     <value>VOR</value>
                 </equals>
             </and>
@@ -181,7 +181,7 @@
                     <value>15</value>
                 </greater-than>
                 <less-than>
-                    <property>instrumentation/efis[0]/display-mode</property>
+                    <property>instrumentation/efis[0]/nd/display-mode</property>
                     <value>4</value>
                 </less-than>
             </and>
@@ -193,14 +193,7 @@
         <h>256</h>
     </instrument -->
     
-    
-     
-    
-     
-    
-<!--
 
-    --> 
 
 </instruments>
 

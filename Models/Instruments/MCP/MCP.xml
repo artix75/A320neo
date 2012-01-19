@@ -1097,4 +1097,81 @@
 		</condition>
 	</animation>
 
+<!-- EFIS Navigarion display selectors -->
+
+	<animation>
+		<name>MDF Mode</name>
+		<type>pick</type>
+		<object-name>MFDSwtchL1</object-name>
+		<object-name>MFDSwtchR1</object-name>
+		<action>
+			<button>1</button>
+			<button>4</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-cycle</command>
+				<property>/instrumentation/efis[0]/nd/display-mode</property>
+				<value type="string">ILS</value>
+				<value type="string">VOR</value>
+				<value type="string">NAV</value>
+				<value type="string">ARC</value>
+				<value type="string">PLAN</value>
+				<wrap>false</wrap>
+
+			</binding>
+		</action>
+		<action>
+			<button>0</button>
+
+			<button>3</button>
+
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-cycle</command>
+				<property>/instrumentation/efis[0]/nd/display-mode</property>
+				<value type="string">PLAN</value>
+				<value type="string">ARC</value>
+				<value type="string">NAV</value>
+				<value type="string">VOR</value>
+				<value type="string">ILS</value>
+				<wrap>false</wrap>
+			</binding>
+		</action>
+	</animation>
+
+	<animation>
+		<name>MDF Range</name>
+		<type>pick</type>
+		<object-name>MFDSwtchL2</object-name>
+		<object-name>MFDSwtchR2</object-name>
+		<action>
+			<button>0</button>
+			<button>3</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-multiply</command>
+				<property>/instrumentation/efis[0]/nd/display-range</property>
+				<factor>2</factor>
+				<min>10</min>
+				<max>320</max>
+				<wrap>false</wrap>
+			</binding>
+		</action>
+
+		<action>
+			<button>1</button>
+			<button>4</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-multiply</command>
+				<property>/instrumentation/efis[0]/nd/display-range</property>
+				<factor>0.5</factor>
+				<min>10</min>
+				<max>320</max>
+				<wrap>false</wrap>
+			</binding>
+		</action>
+	</animation>
+
+
 </PropertyList>

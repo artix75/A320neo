@@ -49,7 +49,7 @@
             <w>16</w>
             <h>16</h>
             <texture>
-                <path>Aircraft/A320neo/Models/Instruments/MFD/res/symbols.png</path>
+                <path>Aircraft/A320neo/Models/Instruments/ND/res/symbols.png</path>
                 <x1>0.050</x1>
                 <y1>0.866</y1>
                 <x2>0.174</x2>
@@ -69,7 +69,7 @@
             <w>25</w>
             <h>32</h>
             <texture>
-                <path>Aircraft/A320neo/Models/Instruments/MFD/res/symbols.png</path>
+                <path>Aircraft/A320neo/Models/Instruments/ND/res/symbols.png</path>
                 <x1>0.657</x1>
                 <y1>0.621</y1>
                 <x2>0.786</x2>
@@ -101,7 +101,7 @@
             <w>6</w>
             <h>18</h>
             <texture>
-                <path>Aircraft/A320neo/Models/Instruments/MFD/res/symbols.png</path>
+                <path>Aircraft/A320neo/Models/Instruments/ND/res/symbols.png</path>
                 <x1>0.138</x1>
                 <y1>0.555</y1>
                 <x2>0.204</x2>
