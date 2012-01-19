@@ -401,6 +401,33 @@
 		</emission>
 	</animation>
 
+	<!-- Master Warning -->
+	<animation>
+		<name>Master Warning pick</name>
+		<type>pick</type>
+		<object-name>MasterWarning</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-toggle</command>
+				<property>sim/alarms/master-warning</property>
+			</binding>
+		</action>
+	</animation>
+	<animation>
+		<name>Master Warning textranslate</name>
+		<type>textranslate</type>
+		<object-name>MasterWarning</object-name>
+		<property>sim/alarms/master-warning</property>
+		<factor>0.25</factor>
+		<axis>
+			<x>-1</x>
+			<y>0</y>
+		</axis>
+<emissive>true</emissive>
+	</animation>
+
 	<!-- Master caution -->
 	<animation>
 		<name>Master caution pick</name>
