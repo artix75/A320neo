@@ -1883,7 +1883,7 @@
           </transformations>
         </layer -->
         
-        <layer>
+       	<layer>
             <name>aircraft symbol</name>
             <w>20</w>
             <h>20</h>
@@ -1907,7 +1907,7 @@
 
 <!-- -->
 
-        <!-- layer>
+        <!--layer>
             <name>maskfull</name>
             <emissive>false</emissive>
             <w>256</w>
@@ -1919,9 +1919,9 @@
                 <x2>1.0</x2>
                 <y2>1.0</y2>
             </texture>
-        </layer -->
+        </layer-->
 
-        <layer>
+        <!--layer>
             <condition>
                 <greater-than>
                     <property>environment/wind-speed-kt</property>
@@ -1958,7 +1958,7 @@
                 <property>environment/wind-from-heading-deg</property>
             </transformation>
             </transformations>
-        </layer>
+        </layer-->
 
 </layers>
 

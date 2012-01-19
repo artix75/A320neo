@@ -7,7 +7,8 @@
     <h-base>256</h-base>
 
     <layers>
-       <layer>
+
+        <layer>
             <name>maskfull</name>
             <emissive>false</emissive>
             <w>256</w>
@@ -20,7 +21,6 @@
                 <y2>1.0</y2>
             </texture>
         </layer>
-        
         <layer>
             <condition>
                 <greater-than>

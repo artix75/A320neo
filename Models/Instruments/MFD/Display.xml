@@ -1,14 +1,97 @@
 <?xml version="1.0"?>
 <PropertyList>
 
-<name>MFD Panel</name>
-<background>Aircraft/A320neo/Models/Instruments/MFD/res/black.png</background>
-<w>256</w>
-<h>256</h>
+	<name>MFD Panel</name>
+	<background>Aircraft/A320neo/Models/Instruments/MFD/res/black.png</background>
+	<w>256</w>
+	<h>256</h>
 
-<instruments> 
+	<instruments> 
 
-    <instrument include="page-ROSE.xml">
+		<instrument include="page-ROSE.xml">
+			<condition>
+				<and>
+					<greater-than>
+						<property>systems/electrical/outputs/efis</property>
+						<value>15</value>
+					</greater-than>
+					<equals>
+						<property>instrumentation/efis[0]/mfd/display-mode</property>
+						<value>ROSE</value>
+					</equals>
+				</and>
+			</condition>
+			<name>rose</name>
+			<x>128</x>
+			<y>128</y>
+			<w>256</w>
+			<h>256</h>
+		</instrument>
+
+		<instrument include="page-ROSE-mask.xml">
+			<condition>
+				<and>
+					<greater-than>
+						<property>systems/electrical/outputs/efis</property>
+						<value>15</value>
+					</greater-than>
+					<equals>
+						<property>instrumentation/efis[0]/mfd/display-mode</property>
+						<value>ROSE</value>
+					</equals>
+				</and>
+			</condition>
+			<name>rose</name>
+			<x>128</x>
+			<y>128</y>
+			<w>256</w>
+			<h>256</h>
+		</instrument>
+
+		<instrument include="page-ARC.xml">
+			<condition>
+				<and>
+					<greater-than>
+						<property>systems/electrical/outputs/efis</property>
+						<value>15</value>
+					</greater-than>
+					<equals>
+						<property>instrumentation/efis[0]/mfd/display-mode</property>
+						<value>ARC</value>
+					</equals>
+				</and>
+			</condition>
+			<name>arc</name>
+			<x>128</x>
+			<y>128</y>
+			<w>256</w>
+			<h>256</h>
+		</instrument>
+
+		<instrument include="page-ARC-mask.xml">
+			<condition>
+				<and>
+					<greater-than>
+						<property>systems/electrical/outputs/efis</property>
+						<value>15</value>
+					</greater-than>
+					<equals>
+						<property>instrumentation/efis[0]/mfd/display-mode</property>
+						<value>ARC</value>
+					</equals>
+				</and>
+			</condition>
+			<name>arc</name>
+			<x>128</x>
+			<y>128</y>
+			<w>256</w>
+			<h>256</h>
+		</instrument>
+
+
+
+
+    <instrument include="page-PLAN.xml">
         <condition>
             <and>
                 <greater-than>
@@ -16,99 +99,41 @@
                     <value>15</value>
                 </greater-than>
                 <equals>
-                    <property>instrumentation/efis[0]/mfd/display-mode</property>
-                    <value>ROSE</value>
-                </equals>
-            </and>
-        </condition>
-        <name>rose</name>
-        <x>128</x>
-        <y>128</y>
-        <w>256</w>
-        <h>256</h>
-    </instrument>
-    
-    <instrument include="page-ARC.xml">
-        <condition>
-            <and>
-                <greater-than>
-                    <property>systems/electrical/outputs/efis</property>
-                    <value>15</value>
-                </greater-than>
-                <equals>
-                    <property>instrumentation/efis[0]/mfd/display-mode</property>
-                    <value>ARC</value>
-                </equals>
-            </and>
-        </condition>
-        <name>arc</name>
-        <x>128</x>
-        <y>128</y>
-        <w>256</w>
-        <h>256</h>
-    </instrument>
-
-    <instrument include="page-RADAR.xml">
-        <condition>
-            <and>
-                <greater-than>
-                    <property>systems/electrical/outputs/efis</property>
-                    <value>15</value>
-                </greater-than>
-                <not-equals>
                     <property>instrumentation/efis/mfd/display-mode</property>
                     <value>PLAN</value>
-                </not-equals>
-            </and>
-        </condition> 
-        <name>radar</name>
-        <x>128</x>
-        <y>128</y>
-        <w>256</w>
-        <h>256</h>
-    </instrument>
-    
-     <instrument include="page-ROSE-mask.xml">
-        <condition>
-            <and>
-                <greater-than>
-                    <property>systems/electrical/outputs/efis</property>
-                    <value>15</value>
-                </greater-than>
-                <equals>
-                    <property>instrumentation/efis[0]/mfd/display-mode</property>
-                    <value>ROSE</value>
                 </equals>
             </and>
         </condition>
-        <name>rose</name>
+        <name>plan</name>
         <x>128</x>
         <y>128</y>
         <w>256</w>
         <h>256</h>
-    </instrument>
-    
-    <instrument include="page-ARC-mask.xml">
-        <condition>
-            <and>
-                <greater-than>
-                    <property>systems/electrical/outputs/efis</property>
-                    <value>15</value>
-                </greater-than>
-                <equals>
-                    <property>instrumentation/efis[0]/mfd/display-mode</property>
-                    <value>ARC</value>
-                </equals>
-            </and>
-        </condition>
-        <name>arc</name>
-        <x>128</x>
-        <y>128</y>
-        <w>256</w>
-        <h>256</h>
-    </instrument>
+    </instrument> 
 
-    <!-- instrument include="page-APP.xml">
+<!-- RADAR?? Where is that image? whenever is diferent to PLAN???
+		<instrument include="page-RADAR.xml">
+			<condition>
+				<and>
+					<greater-than>
+						<property>systems/electrical/outputs/efis</property>
+						<value>15</value>
+					</greater-than>
+					<not-equals>
+						<property>instrumentation/efis/mfd/display-mode</property>
+						<value>PLAN</value>
+					</not-equals>
+				</and>
+			</condition> 
+			<name>radar</name>
+			<x>128</x>
+			<y>128</y>
+			<w>256</w>
+			<h>256</h>
+		</instrument>
+-->
+
+<!-- instrument include="page-APP.xml">
         <condition>
             <and>
                 <greater-than>
@@ -173,27 +198,9 @@
     
      
     
+<!--
 
-    <instrument include="page-PLAN.xml">
-        <condition>
-            <and>
-                <greater-than>
-                    <property>systems/electrical/outputs/efis</property>
-                    <value>15</value>
-                </greater-than>
-                <equals>
-                    <property>instrumentation/efis/mfd/display-mode</property>
-                    <value>PLAN</value>
-                </equals>
-            </and>
-        </condition>
-        <name>plan</name>
-        <x>128</x>
-        <y>128</y>
-        <w>256</w>
-        <h>256</h>
-    </instrument> 
-     
+    --> 
 
 </instruments>
 
