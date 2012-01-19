@@ -25,7 +25,6 @@ file, these values will be used (they are hardcoded).
 
 <PropertyList>
 
-
 	<adf>
 		<name>adf</name>
 		<number>0</number>
@@ -150,8 +149,13 @@ file, these values will be used (they are hardcoded).
 	</tacan>
 
 	<mk-viii>
-	 <name>mk-viii</name>
-	 <number>0</number>
+		<name>mk-viii</name>
+		<number>0</number>
 	</mk-viii>
+	<tcas>
+		<name>tcas</name>
+		<number>0</number>
+	</tcas>
+
 
 </PropertyList>

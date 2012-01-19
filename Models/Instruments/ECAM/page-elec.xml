@@ -22,6 +22,150 @@
 			</texture>
 			<emissive>true</emissive>
 		</layer>
+
+<!-- ################################## Bottom  #################################-->
+
+		<layer>
+			
+			<type>text</type>
+			<name>TAT</name>
+	 		<color>
+		        	<red>0.1</red>
+		        	<green>1.0</green>
+		        	<blue>0.1</blue>
+		    	</color>
+
+			<chunks>
+				<chunk>
+					<type>number-value</type>
+					<property>environment/temperature-degc</property><!-- There is no TAT temperature property-->
+					<format type="string">%3.0f</format>
+				</chunk>
+			</chunks>
+			<transformations>
+				<transformation>
+					<type>y-shift</type>
+					<offset>-110</offset>
+				</transformation>
+				<transformation>
+					<type>x-shift</type>
+					<offset>-80	</offset>
+				</transformation>
+			</transformations>
+		</layer>
+
+		<layer>
+			
+			<type>text</type>
+			<name>SAT</name>
+	 		<color>
+		        	<red>0.1</red>
+		        	<green>1.0</green>
+		        	<blue>0.1</blue>
+		    	</color>
+
+			<chunks>
+				<chunk>
+					<type>number-value</type>
+					<property>environment/temperature-degc</property>
+					<format type="string">%3.0f</format>
+				</chunk>
+			</chunks>
+			<transformations>
+				<transformation>
+					<type>y-shift</type>
+					<offset>-124</offset>
+				</transformation>
+				<transformation>
+					<type>x-shift</type>
+					<offset>-80</offset>
+				</transformation>
+			</transformations>
+		</layer>
+
+
+		<layer>
+			<type>text</type>
+			<name>HOUR</name>
+	 		<color>
+		        	<red>0.1</red>
+		        	<green>1.0</green>
+		        	<blue>0.1</blue>
+		    	</color>
+
+			<chunks>
+				<chunk>
+					<type>number-value</type>
+					<property>instrumentation/clock/indicated-hour</property>
+					<format type="string">%3.0f</format>
+				</chunk>
+			</chunks>
+			<transformations>
+				<transformation>
+					<type>y-shift</type>
+					<offset>-124</offset>
+				</transformation>
+				<transformation>
+					<type>x-shift</type>
+					<offset>-25</offset>
+				</transformation>
+			</transformations>
+		</layer>
+		<layer>
+			<type>text</type>
+			<name>Minutes</name>
+	 		<color>
+		        	<red>0.1</red>
+		        	<green>1.0</green>
+		        	<blue>0.1</blue>
+		    	</color>
+
+			<chunks>
+				<chunk>
+					<type>number-value</type>
+					<property>instrumentation/clock/indicated-min</property>
+					<format type="string">%3.0f</format>
+				</chunk>
+			</chunks>
+			<transformations>
+				<transformation>
+					<type>y-shift</type>
+					<offset>-124</offset>
+				</transformation>
+				<transformation>
+					<type>x-shift</type>
+					<offset>5</offset>
+				</transformation>
+			</transformations>
+		</layer>
+		<layer>
+			<type>text</type>
+			<name>Total Fuel Aboard</name>
+	 		<color>
+		        	<red>0.1</red>
+		        	<green>1.0</green>
+		        	<blue>0.1</blue>
+		    	</color>
+
+			<chunks>
+				<chunk>
+					<alignment>left-center</alignment>
+					<type>number-value</type>
+					<property>fdm/jsbsim/propulsion/total-fuel-lbs</property>
+					<format type="string">%5.0f</format>
+				</chunk>
+			</chunks>
+			<transformations>
+				<transformation>
+					<type>y-shift</type>
+					<offset>-110</offset>
+				</transformation>
+				<transformation>
+					<type>x-shift</type>
+					<offset>74</offset>
+				</transformation>
+			</transformations>
+		</layer>
 	</layers>
 
 
