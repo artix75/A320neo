@@ -475,8 +475,9 @@
 		<type>material</type>
 		<object-name>Fuselage</object-name>
 		<property-base>sim/model/livery</property-base>
-		<texture-prop>texture-path[0]</texture-prop>
-		<texture>Liveries/A320-Blank.png</texture>
+		<texture-prop>neo-texture</texture-prop>
+		<!--texture-prop>texture-path[0]</texture-prop-->
+		<!--texture>A320neo-VGA.png</texture-->
 	</animation>
 
 	<!-- Nasal code -->

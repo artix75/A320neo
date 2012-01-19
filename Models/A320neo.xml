@@ -202,11 +202,4 @@
 		<path>Models/Aircraft/marker.xml</path>
 	</model>
 
-	<!-- Dual control -->
-	<nasal>
-		<load>
-		 aircraft_dual_control.pilot_type = "Aircraft/A320neo/Models/A320neo.xml";
-		</load>
-	</nasal>
-
 </PropertyList>

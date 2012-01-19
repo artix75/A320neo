@@ -14,9 +14,12 @@
 		<model>
 			<path>Aircraft/A320neo/Models/A320neo.xml</path>
 			<livery>
-				<file>Liveries/A320neo-Blank</file>
-				<texture>Liveries/A320neo-Blank.png</texture>
-				<texture-path>../Liveries/A320neo-Blank.png</texture-path>
+				<file type="string" /><!--Liveries/A320neo-Blank</file-->
+				<name type="string" />
+				<neo-texture type="string" />
+				<!--texture type="string">A320neo-Blank.png</texture-->
+				<!--texture-path type="string">../Liveries/A320neo-Blank.png</texture-path-->
+				<!--texture-path type="string">../Liveries/A320neo-Blank.png</texture-path-->
 				<!--texture-path n="1">../Liveries/A320neo-Blank.png</texture-path-->
 			</livery>
 	            	<door n="0">
@@ -25,6 +28,21 @@
 		                <position-z-m>0.98</position-z-m>
 		                <jetway-hood-deg>5</jetway-hood-deg>
 			</door>
+			<A320>
+				<heading-bug-pfd-deg type="double">0</heading-bug-pfd-deg>
+				<heading-bug-deg type="double">0</heading-bug-deg>
+				<nav1-bug-deg type="double">0</nav1-bug-deg>
+				<nav2-bug-deg type="double">0</nav2-bug-deg>
+				<wp-bug-deg type="double">0</wp-bug-deg>
+				<ias-bug-kt-norm type="double">0</ias-bug-kt-norm>
+				<mach-bug-kt-norm type="double">0</mach-bug-kt-norm>
+			</A320>
+			<pushback>
+				<kp type="double">1000</kp>
+				<ki type="double">0</ki>
+				<kd type="double">0</kd>
+				<position-norm type="double">0</position-norm>
+			</pushback>
 		</model>
 
 		<tutorials include="Tutorials/a320-tutorials.xml" />
@@ -167,24 +185,6 @@
 				<float n="1" type="double">2</float>
 			</generic>
 		</multiplay>
-
-		<model>
-			<A320>
-				<heading-bug-pfd-deg type="double">0</heading-bug-pfd-deg>
-				<heading-bug-deg type="double">0</heading-bug-deg>
-				<nav1-bug-deg type="double">0</nav1-bug-deg>
-				<nav2-bug-deg type="double">0</nav2-bug-deg>
-				<wp-bug-deg type="double">0</wp-bug-deg>
-				<ias-bug-kt-norm type="double">0</ias-bug-kt-norm>
-				<mach-bug-kt-norm type="double">0</mach-bug-kt-norm>
-			</A320>
-			<pushback>
-				<kp type="double">1000</kp>
-				<ki type="double">0</ki>
-				<kd type="double">0</kd>
-				<position-norm type="double">0</position-norm>
-			</pushback>
-		</model>
 
 		<startup>
 			<splash-texture>Aircraft/A320neo/NEO-splash2.png</splash-texture>
@@ -1024,5 +1024,21 @@
 			<hood-rot>3</hood-rot>
 		</jetway-pos>
 	</aircraft>
+	<!--ai>
+		<models>
+			<multiplayer>
+				<sim>
+					<model>
+		
+						<livery>
+							<texture type="string" />
+							<texture-path type="string" />
+							<texture-path n="1" type="string" />	
+						</livery>
+					</model>
+				</sim>
+			</multiplayer>
+		</models>
+	</ai-->
 
 </PropertyList>

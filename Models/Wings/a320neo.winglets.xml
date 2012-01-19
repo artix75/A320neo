@@ -18,8 +18,8 @@
 		<object-name>WingletL</object-name>
 		<object-name>WingletR</object-name>
 		<property-base>sim/model/livery</property-base>
-		<texture-prop>texture-path[1]</texture-prop>
-		<texture>Liveries/A320neo-Airbus.png</texture>
+		<texture-prop>neo-texture</texture-prop>
+		<!--texture>Liveries/A320neo-Airbus.png</texture-->
 	</animation>
 
 	<!-- Nasal code -->

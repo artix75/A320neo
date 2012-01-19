@@ -4,8 +4,8 @@
 	<sim>
 		<model>
 			<livery>
-				<name>merlionBLUE | Merlion Europe</name>
-				<texture>Liveries/A320neo-MerlionBLUE.png</texture>
+				<name>Merlion Europe</name>
+				<neo-texture>../Liveries/A320neo-MerlionBLUE.png</neo-texture>
 			</livery>
 		</model>
 	</sim>

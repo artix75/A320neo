@@ -3,8 +3,8 @@
 	<sim>
 		<model>
 			<livery>
-				<name type="string">Lufthansa</name>
-				<texture>Liveries/A320neo-DLH.png</texture>
+				<name>Lufthansa</name>
+				<neo-texture>../Liveries/A320neo-DLH.png</neo-texture>
 			</livery>
 		</model>
 	</sim>
