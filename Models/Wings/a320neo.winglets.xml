@@ -2,7 +2,7 @@
 
 <PropertyList>
 
-	<path>../../Models/Wings/a320neo.winglets.ac</path>
+	<path>res/a320neo.winglets.ac</path>
 
 	<!-- Reflection Shader -->
 	<effect>

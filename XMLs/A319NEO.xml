@@ -57,7 +57,7 @@
 	</model>
 
 	<model>
-		<path>Aircraft/A320neo/XMLs/Wings/a320.wings.iae.xml</path>
+		<path>Aircraft/A320neo/Models/Wings/a320.wings.iae.xml</path>
 		<offsets>
 			<x-m>15.280</x-m>
 			<z-m>-1.06019</z-m>
@@ -66,7 +66,7 @@
 
 	<model>
 		<name>Winglets</name>
-		<path>Aircraft/A320neo/XMLs/Wings/a320neo.winglets.xml</path>
+		<path>Aircraft/A320neo/Models/Wings/a320neo.winglets.xml</path>
 		<offsets>
 			<x-m>15.280</x-m>
 			<z-m>-1.06019</z-m>

@@ -1,23 +1,23 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
 <PropertyList>
-	<path>../../Models/Wings/a320.wings.ac</path>
-
+	<path>res/a320.wings.ac</path>
+	
 	<model>
-		<name>Engine.LeapX.Left</name>
-		<path>Aircraft/A320neo/Engines/XMLs/a320.engine.leapx.left.xml</path>
+		<name>Engine.IAE.Left</name>
+		<path>Aircraft/A320neo/Models/Engines/a320.engine.iae.left.xml</path>
 		<offsets>
-			<x-m>-1.38</x-m>
+			<x-m>-1.6387912</x-m>
 			<y-m>-5.755</y-m>
 			<z-m>-1.0170087</z-m>
 		</offsets>
 	</model>
 	
 	<model>
-		<name>Engine.LeapX.Right</name>
-		<path>Aircraft/A320neo/Engines/XMLs/a320.engine.leapx.right.xml</path>
+		<name>Engine.IAE.Right</name>
+		<path>Aircraft/A320neo/Models/Engines/a320.engine.iae.right.xml</path>
 		<offsets>
-			<x-m>-1.38</x-m>
+			<x-m>-1.6387912</x-m>
 			<y-m>5.755</y-m>
 			<z-m>-1.0170087</z-m>
 		</offsets>
