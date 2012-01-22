@@ -133,6 +133,11 @@ file, these values will be used (they are hardcoded).
 		<number>0</number>
 	</dme>
 
+	<dme>
+		<name>dme</name>
+		<number>1</number>
+	</dme>
+
 	<KT-70>
 		<name>kt-70</name>
 		<number>0</number>
@@ -162,6 +167,7 @@ file, these values will be used (they are hardcoded).
 		<name>groundradar</name>
 		<!--airport-id-source>instrumentation/groundradar/id</airport-id-source-->
 		<range-source>instrumentation/groundradar/range</range-source>
+		<!--range-source>instrumentation/radar/range</range-source-->
 	</groundradar>
 
     <!--navigation-display>

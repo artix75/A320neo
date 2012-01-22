@@ -160,7 +160,7 @@
                 </transformation>
                 <transformation>
                     <type>rotation</type>
-                    <property>instrumentation/nav/radials/selected-deg</property>
+                    <property>instrumentation/nav/heading-deg</property>
                 </transformation>
                 <transformation>
                     <type>x-shift</type>

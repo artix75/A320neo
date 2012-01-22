@@ -556,14 +556,14 @@
 					<display-mode type="string">FUEL</display-mode>
 			</ecam>
 			<nd>
-					<display-mode type="string">ARC</display-mode>
-					<display-mode-knob type="int">4</display-mode-knob>
+					<display-mode type="string">VOR</display-mode>
+					<display-mode-knob type="int">2</display-mode-knob>
 					<display-range type="int">40</display-range>
 				
 			</nd>
-			<inputs>
-				<vor-adf-1 type="bool">1</vor-adf-1>
-				<vor-adf-2 type="bool">1</vor-adf-2>
+			<input>
+				<vor-adf-1 type="int">1</vor-adf-1>
+				<vor-adf-2 type="int">1</vor-adf-2>
 				<CSTR type="bool">1</CSTR>
 				<WPT type="bool">1</WPT>
 				<VORD type="bool">1</VORD>
@@ -573,7 +573,7 @@
 				<TERR type="bool">1</TERR>
 				<TRAF type="bool">1</TRAF>
 				<taxi type="bool">1</taxi>
-			</inputs>
+			</input>
 
 		
 		</efis>
@@ -668,29 +668,52 @@
 				<symbol type="bool">true</symbol>
 				<centre type="bool">true</centre>
 				<rotate type="bool">true</rotate>
-				<tcas type="bool">false</tcas>
+				<tcas type="bool">true</tcas>
 				<abs-altitude type="bool">true</abs-altitude>
 			</display-controls>
 			<serviceable type="bool">true</serviceable>
-			<range type="int">20</range>
+			<range type="int">40</range>
 			<mode type="string">WX</mode>
 			<lightning type="bool">true</lightning>
-			<display-mode type="string">arc</display-mode>
+			<display-mode type="string">rose</display-mode>
 			<echo-texture-path type="string" archive="y">Aircraft/A320neo/Models/Instruments/ND/res/wxecho.png</echo-texture-path>
 			<minimized type="bool">false</minimized>
 			<heading-marker type="bool">false</heading-marker>
-			<limit-deg type="int">180</limit-deg>
+			<!--limit-deg type="int">180</limit-deg-->
 			<font>
 				<name type="string">helvetica_bold.txf</name>
-				<size type="float">13</size>
-				<line-spacing type="float">1.25</line-spacing>
+				<size type="float">20</size>
+				<line-spacing type="float">1</line-spacing>
 				<color>
 					<red type="float">0</red>
 					<green type="float">0.8</green>
 					<blue type="float">0</blue>
 					<alpha type="float">1</alpha>
 				</color>
+				<tcas>
+					<color n="0"> <!-- distant targets -->
+						<red type="float">0</red>
+						<green type="float">1</green>
+						<blue type="float">1</blue>
+					</color>
+					<color n="1"> <!-- proximity targets -->
+						<red type="float">0</red>
+						<green type="float">1</green>
+						<blue type="float">1</blue>
+					</color>
+					<color n="2"> <!-- TA threat targets -->
+						<red type="float">1</red>
+						<green type="float">0.5</green>
+						<blue type="float">0</blue>
+					</color>
+					<color n="3"> <!-- RA threat targets -->
+						<red type="float">1</red>
+						<green type="float">0</green>
+						<blue type="float">0</blue>
+					</color>
+				</tcas>
 			</font>
+
 		</radar>
  
 

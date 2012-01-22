@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <PropertyList>
-	<name>ROSEbase</name>
+	<name>ARC</name>
 	<w-base>256</w-base>
 	<h-base>256</h-base>
 	<layers>
@@ -8,10 +8,10 @@
 <!-- Center ROSE Background -->
 		<layer>
 			<name>ROSE</name>
-			<w>225</w>
-			<h>225</h>
+			<w>360</w>
+			<h>360</h>
 			<texture>
-				<path>Aircraft/A320neo/Models/Instruments/ND/res/hsi2a.png</path>
+				<path>Aircraft/A320neo/Models/Instruments/ND/res/hsiarc.png</path>
 				<x1>0</x1>
 				<y1>0</y1>
 				<x2>1</x2>
@@ -21,7 +21,7 @@
 				<!-- ROSE center -->
 				<transformation>
 					<type>y-shift</type>
-					<offset>-12</offset>
+					<offset>-78</offset>
 				</transformation>
 				<!-- ROSE turn -->
 				<transformation>
@@ -51,7 +51,7 @@
 				<!-- ROSE center -->
 				<transformation>
 					<type>y-shift</type>
-					<offset>-12</offset>
+					<offset>-78</offset>
 				</transformation>
 				<!-- first: Rotate fron layer center -->
 				<transformation>
@@ -61,10 +61,11 @@
 				<!-- second: shift from rotation origin -->
 				<transformation>
 					<type>y-shift</type>
-					<offset>90</offset>
+					<offset>180</offset>
 				</transformation>
 			</transformations>
 		</layer>
+
 
 
 	</layers>

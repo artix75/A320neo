@@ -29,47 +29,104 @@
 			</condition>
 			<name>ROSEbase</name>
 			<x>128</x>
-			<y>116</y>
+			<y>128</y>
 			<w>256</w>
 			<h>256</h>
 		</instrument>
-		<instrument include="page-VOR-text.xml">
-			<!-- BASE/Common Instrument for ROSE style -->
+		<instrument include="page-ILS.xml">
+			<!-- ILS -->
 			<condition>
-				
+				<equals>
+					<property>instrumentation/efis[0]/nd/display-mode</property>
+					<value>ILS</value>
+				</equals>
+			</condition>
+			<name>ILS</name>
+			<x>128</x>
+			<y>128</y>
+			<w>256</w>
+			<h>256</h>
+		</instrument>
+		<instrument include="page-VOR.xml">
+			<!-- VOR  -->
+			<condition>
 				<equals>
 					<property>instrumentation/efis[0]/nd/display-mode</property>
 					<value>VOR</value>
 				</equals>
-					
-				
 			</condition>
-			<name>VORtext</name>
+			<name>ILS</name>
 			<x>128</x>
-			<y>116</y>
+			<y>128</y>
+			<w>256</w>
+			<h>256</h>
+		</instrument>
+		<instrument include="page-NAV.xml">
+			<!-- NAV -->
+			<condition>
+				<equals>
+					<property>instrumentation/efis[0]/nd/display-mode</property>
+					<value>NAV</value>
+				</equals>
+			</condition>
+			<name>NAV</name>
+			<x>128</x>
+			<y>128</y>
 			<w>256</w>
 			<h>256</h>
 		</instrument>
 
-		<!-- instrument include="new-old/page-ROSE-mask.xml">
+		<instrument include="page-VOR-text.xml">
+			<!--  -->
 			<condition>
 				<equals>
 					<property>instrumentation/efis[0]/nd/display-mode</property>
 					<value>VOR</value>
 				</equals>
 			</condition>
-			<name>test</name>
+			<name>VORtext</name>
+			<x>128</x>
+			<y>128</y>
+			<w>256</w>
+			<h>255</h>
+		</instrument>
+		<instrument include="page-ROSE-radar.xml">
+			<name>radar</name>
 			<x>128</x>
 			<y>128</y>
 			<w>256</w>
 			<h>256</h>
-		</instrument-->
-		<instrument include="page-test.xml">
-			<name>test</name>
+		</instrument>
+		<instrument include="page-ARC.xml">
+			<!-- ARC -->
+			<condition>
+				<equals>
+					<property>instrumentation/efis[0]/nd/display-mode</property>
+					<value>ARC</value>
+				</equals>
+			</condition>
+			<name>NAV</name>
 			<x>128</x>
 			<y>128</y>
 			<w>256</w>
 			<h>256</h>
+		</instrument>
+
+		
+
+		<instrument include="page-COMMON-text.xml">
+			<!--  
+			<condition>
+				<equals>
+					<property>instrumentation/efis[0]/nd/display-mode</property>
+					<value>VOR</value>
+				</equals>
+			</condition>-->
+			<name>VORtext</name>
+			<x>128</x>
+			<y>128</y>
+			<w>256</w>
+			<h>255</h>
 		</instrument>
 	</instruments>
 </PropertyList>

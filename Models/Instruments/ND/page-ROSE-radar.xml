@@ -28,6 +28,11 @@
 		    <w>1024</w>
 		    <h>1024</h>
 		    <transformations>
+				<!-- ROSE center -->
+				<transformation>
+					<type>y-shift</type>
+					<offset>-12</offset>
+				</transformation>
 			<transformation>
 			    <type>rotation</type>
 			    <property>orientation/heading-deg</property>
@@ -48,6 +53,18 @@
 		    <emissive>true</emissive>
 		    <w>1024</w>
 		    <h>1024</h>
+		    <transformations>
+				<!-- ROSE center -->
+				<transformation>
+					<type>y-shift</type>
+					<offset>-12</offset>
+				</transformation>
+			<!-- transformation>
+			    <type>rotation</type>
+			    <property>orientation/heading-deg</property>
+			    <scale>-1</scale>
+			</transformation-->
+		    </transformations>
 		</layer>
 	</layers>
 
