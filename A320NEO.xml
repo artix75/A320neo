@@ -68,7 +68,6 @@ YAW MOI_________3950000______23089847_______24848934
 	<z> -41.7398 </z>
 	</location>
 
-
 	<pointmass name="Crew">
 		<weight unit="LBS">400</weight> <!-- MAX: 600lbs-->
 		<location name="POINTMASS" unit="IN">
@@ -89,6 +88,7 @@ YAW MOI_________3950000______23089847_______24848934
 			<z>0</z>
 		</location>
 	</pointmass>
+
 <!-- NEW Pointmasses Start Weights for good CG -->
 	<pointmass name="Fwd Cargo">
 		<weight unit="LBS">3750</weight> <!-- #REF-3 page 19, MAX 3402 kilograms = 7500.12616 lbs -->
@@ -139,6 +139,30 @@ YAW MOI_________3950000______23089847_______24848934
 			<z>-39.37</z> <!-- Aprox bulk lower deck 1 meter = 39.3700787 in -->
 		</location>
 	</pointmass>
+	<pointmass name="Engine1">
+		<weight unit="LBS">5248</weight>
+		<form shape="cylinder">
+			<radius unit="M"> 1.31 </radius>
+			<length unit="M"> 5 </length>
+		</form>
+		<location name="POINTMASS" unit="IN">
+			<x>589.735</x>	
+			<y>-226.575</y>
+			<z>-45.567</z>
+		</location>
+	</pointmass>
+	<pointmass name="Engine2">
+		<weight unit="LBS">5248</weight>
+		<form shape="cylinder">
+			<radius unit="M"> 1.31 </radius>
+			<length unit="M"> 5 </length>
+		</form>
+		<location name="POINTMASS" unit="IN">
+			<x>589.735</x>	
+			<y>226.575</y>
+			<z>-45.567</z>
+		</location>
+	</pointmass>
 
 	<pointmass name="Engine1">
 		<weight unit="LBS">5248</weight>
@@ -168,7 +192,7 @@ YAW MOI_________3950000______23089847_______24848934
 </mass_balance>
 
 <ground_reactions>
-	<!-- REF-1 page 165 + 271 - Grounding points Need review -->
+	<!-- REF-1 page 165 + 271  -->
 	<contact type="BOGEY" name="NOSE_LG">
 		<location unit="IN">
 			<x> 197.6772 </x>
