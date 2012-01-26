@@ -47,6 +47,45 @@ setlistener("controls/switches/no-smoking-sign", func
   }, 2);
  });
 
+## WARNING
+##########
+
+# Clear Warnings!
+var WARNclear = func
+	{
+		var MCaution = getprop("sim/alarms/master-caution");
+
+		if (!MCaution)
+	
+			{ 
+				#is there any other way to shutdown ALL alarms. like * or so..
+				setprop("sim/alarms/AP-Disengage", 0);
+				setprop("sim/alarms/stall-warning", 0);
+		
+			}
+	};
+setlistener("sim/alarms/master-caution", WARNclear, 1, 0);
+
+
+# Enable AP disengage warning
+var APWarning = func
+	{
+		var AP = getprop("autopilot/settings/engaged");
+		var airspeed = getprop("velocities/airspeed-kt");
+
+		if (!AP and airspeed > 130)
+	
+			{
+				setprop("sim/alarms/master-caution", 1);
+				setprop("sim/alarms/AP-Disengage", 1);
+		
+			}
+	};
+setlistener("autopilot/settings/engaged", APWarning, 1, 0);
+
+
+
+
 ## ENGINES
 ##########
 

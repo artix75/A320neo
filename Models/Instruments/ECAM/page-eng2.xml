@@ -37,7 +37,8 @@
 			<chunks>
 				<chunk>
 					<type>number-value</type>
-					<property>/engines/engine[0]/fuel-consumed-lbs</property>
+					<!--property>/engines/engine[0]/fuel-consumed-lbs</property-->
+					<property>fdm/jsbsim/propulsion/engine[0]/fuel-used-lbs</property>
 					<format type="string">%5.0f</format>
 					<alignment>left-center</alignment>
 				</chunk>
@@ -66,7 +67,8 @@
 			<chunks>
 				<chunk>
 					<type>number-value</type>
-					<property>/engines/engine[1]/fuel-consumed-lbs</property>
+					<!-- property>/engines/engine[1]/fuel-consumed-lbs</property-->
+					<property>fdm/jsbsim/propulsion/engine[1]/fuel-used-lbs</property>
 					<format type="string">%5.0f</format>
 					<alignment>right-center</alignment>
 				</chunk>
