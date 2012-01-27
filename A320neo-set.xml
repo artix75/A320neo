@@ -221,6 +221,7 @@
 
 		<alarms>
 			<master-caution type="bool">false</master-caution>
+			<AP-Disengage type="bool">false</AP-Disengage>
 		</alarms>
 
 		<menubar>

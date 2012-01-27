@@ -416,7 +416,7 @@
         <volume>
             <property>sim/sound/effects/volume</property>
         </volume>
-<position>
+	<position>
             <x>0</x>
             <y>0</y>
             <z>-2</z>
@@ -694,6 +694,29 @@
         <reference-dist>10</reference-dist>
         <max-dist>100</max-dist>
     </overspeed>
+
+
+    <autopilotoff>
+        <name>Autopilot off</name>
+        <path>Aircraft/A320neo/Sounds/airbus-warning.wav</path>
+        <mode>once</mode>
+		<type>avionics</type>
+		<condition>
+			<equals>
+				<property>sim/alarms/AP-Disengage</property>
+				<value>true</value>
+			</equals>
+		</condition>
+
+        <volume>
+            <property>sim/sound/effects/volume</property>
+			<factor>4.0</factor>
+        </volume>
+     
+        <reference-dist>10</reference-dist>
+        <max-dist>100</max-dist>
+    </autopilotoff>
+
 
 </fx>
 
