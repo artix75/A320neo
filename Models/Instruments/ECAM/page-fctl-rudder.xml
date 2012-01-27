@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!-- Airbus A320 neo for FlightGear -->
+<!-- ECAM Pages -->
+
+<PropertyList>	
+	<name>Rudder Controls</name>
+	<w-base>60</w-base>
+	<h-base>60</h-base>
+        <layers>
+        <layer>
+            <name>rudder</name>
+            <emissive>true</emissive>
+            <w>13</w>
+            <h>31</h>
+            <texture>
+                <path>Aircraft/A320neo/Models/Instruments/ECAM/res/page-fctl-rudder.png</path>
+                <x1>0</x1>
+                <y1>0</y1>
+                <x2>1</x2>
+                <y2>1</y2>
+            </texture>
+            <transformations>
+                <transformation>
+                    <type>rotation</type>
+                    <property>surface-positions/rudder-pos-norm</property>
+			<!-- min>5.0</min>
+			<max>95.0</max>
+			<scale>1.0</scale -->
+			<interpolation>
+				<entry><ind>0</ind><dep>0</dep></entry>
+				<entry><ind>-0.35</ind><dep>35</dep></entry>
+				<entry><ind>0.35</ind><dep>-35</dep></entry>
+			</interpolation>
+        </transformation>
+				<transformation>
+					<type>y-shift</type>
+					<offset>-15</offset>
+				</transformation>
+        </transformations>
+        </layer>
+
+
+	</layers>
+
+
+</PropertyList>

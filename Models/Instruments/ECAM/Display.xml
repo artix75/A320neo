@@ -207,7 +207,7 @@
 			<w>256</w>
 			<h>256</h>
 		</instrument>
-
+		
 		<instrument include="page-fctl.xml">
 			<condition>
 			    <and>
@@ -226,6 +226,27 @@
 			<y>128</y>
 			<w>256</w>
 			<h>256</h>
+		</instrument>
+
+		<!-- Need diferent layer center for proper rotation -->
+		<instrument include="page-fctl-rudder.xml">
+			<name>Rudder animation</name>
+			<condition>
+			    <and>
+				<greater-than>
+				    <property>systems/electrical/outputs/efis</property>
+				    <value>15</value>
+				</greater-than>
+				<equals>
+				    <property>instrumentation/efis/ecam/display-mode</property>
+				    <value>FCTL</value>
+				</equals>
+			    </and>
+			</condition>
+			<x>128</x>                 <!-- required horizontal placement -->
+			<y>80</y>                 <!-- required vertical placement -->
+			<w>60</w>
+			<h>60</h>                 <!-- optional height specification -->
 		</instrument>
 
 		<instrument include="page-all.xml">
