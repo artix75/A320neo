@@ -3,7 +3,7 @@
 <PropertyList>
 
 	<sim>
-		<description>Airbus A320NEO with CFM LeapX engines</description>
+		<description>Airbus A320neo With Sharklets and CFM LEAP-X High ByPass Turbofan Engine</description>
 		<author>Narendran, Malik and Jon A. Ortuondo(Bicyus) (A320neo), Ryan and Ampere (base A320)</author>
 		<status>beta</status>
 		<flight-model>jsb</flight-model>
