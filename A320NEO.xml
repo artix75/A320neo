@@ -53,10 +53,15 @@ LENGTH____________153___________209___________209
 ROLL MOI_________1725000______5727777_______10613448
 PITCH MOI________2550000______19040141_______13904249
 YAW MOI_________3950000______23089847_______24848934
--->
+
 	<ixx unit="SLUG*FT2">   2262183 </ixx>
 	<iyy unit="SLUG*FT2">   3172439 </iyy>
-	<izz unit="SLUG*FT2">   3337024 </izz>
+	<izz unit="SLUG*FT2">   3337024 </izz>-->
+
+	<ixx unit="SLUG*FT2">1725000</ixx>
+	<iyy unit="SLUG*FT2">2550000</iyy>
+	<izz unit="SLUG*FT2">3950000</izz>
+
 	<ixy unit="SLUG*FT2">         0 </ixy>
 	<ixz unit="SLUG*FT2">         0 </ixz>
 	<iyz unit="SLUG*FT2">         0 </iyz>
