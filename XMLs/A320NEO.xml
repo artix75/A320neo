@@ -15,7 +15,7 @@
 	<!-- Separate Flightdeck to fit the modified nose -->
 	<model>
 		<name>Flightdeck</name>
-		<path>Aircraft/A320neo/XMLs/FlightDeck/a320neo.flightdeck.xml</path>
+		<path>Aircraft/A320neo/Models/FlightDeck/a320neo.flightdeck.xml</path>
 		<offsets>
 			<x-m>21.32</x-m>
 			<z-m>2.137</z-m>

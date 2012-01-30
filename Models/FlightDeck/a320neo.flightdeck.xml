@@ -2,7 +2,7 @@
 
 <PropertyList>
 
-	<path>../../Models/FlightDeck/a320neo.flightdeck.ac</path>
+	<path>res/a320neo.flightdeck.ac</path>
 
 	<!-- EXTRA MODELS -->
 	<model>
