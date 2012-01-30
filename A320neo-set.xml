@@ -873,7 +873,7 @@
 	<limits>
 		<mass-and-balance> <!-- #ref-1 page67 WV016 -->
 			<maximum-ramp-mass-lbs>162922</maximum-ramp-mass-lbs>
-			<maximum-takeoff-mass-lbs>1629040</maximum-takeoff-mass-lbs>
+			<maximum-takeoff-mass-lbs>162040</maximum-takeoff-mass-lbs>
 			<maximum-landing-mass-lbs>145505</maximum-landing-mass-lbs>
 			<maximum-zero-fuel-mass-lbs>137789</maximum-zero-fuel-mass-lbs>
 		</mass-and-balance>

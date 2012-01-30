@@ -900,7 +900,8 @@ YAW MOI_________3950000______23089847_______24848934
 	</axis>
 
 	<axis name="SIDE">
-		<function name="aero/coefficient/CYb">
+
+		<!-- function name="aero/coefficient/CYb">
 			<description>Side_force_due_to_beta</description>
 			<product>
 			<property>aero/qbar-psf</property>
@@ -913,6 +914,24 @@ YAW MOI_________3950000______23089847_______24848934
 				0.3500	-0.5000
 				</tableData>
 			</table>
+			</product>
+		</function -->
+		<!--function name="aero/force/Side_beta">
+			<description>Side force due to beta</description>
+			<product>
+				<property>aero/qbar-psf</property>
+				<property>metrics/Sw-sqft</property>
+				<property>aero/beta-rad</property>
+				<value>-1</value>
+			</product>
+		</function-->
+		<function name="aero/coefficient/CYb">
+			<description>Side force due to beta</description>
+			<product>
+				<property>aero/qbar-psf</property>
+				<property>metrics/Sw-sqft</property>
+				<property>aero/beta-rad</property>
+				<value>-1</value>
 			</product>
 		</function>
 	</axis>
@@ -1006,7 +1025,15 @@ YAW MOI_________3950000______23089847_______24848934
 			<property>metrics/Sw-sqft</property>
 			<property>metrics/bw-ft</property>
 			<property>fcs/left-aileron-pos-rad</property>
-			<value>0.2000</value>
+			<!-- value>0.2000</value --> <!-- Excesive roll !!! -->
+ 
+			<table>
+				<independentVar lookup="row">velocities/mach</independentVar>
+					<tableData>
+						0.0    0.100
+						2.0    0.033
+					</tableData>
+			</table>
 			</product>
 		</function>
 		<function name="aero/coefficient/Cldr">
@@ -1054,7 +1081,14 @@ YAW MOI_________3950000______23089847_______24848934
 			<property>metrics/Sw-sqft</property>
 			<property>metrics/cbarw-ft</property>
 			<property>fcs/elevator-pos-rad</property>
-			<value>-1.5000</value>
+			<!-- <value>-1.5000</value>  Excesive Pitch -->
+			<table>
+				<independentVar lookup="row">velocities/mach</independentVar>
+				<tableData>
+					0.0     -1.200
+					2.0     -0.300
+				</tableData>
+			</table>
 			</product>
 		</function>
 		<function name="aero/coefficient/Cmq">
@@ -1110,7 +1144,8 @@ YAW MOI_________3950000______23089847_______24848934
 			<property>metrics/Sw-sqft</property>
 			<property>metrics/bw-ft</property>
 			<property>fcs/rudder-pos-rad</property>
-			<value>-0.5000</value>
+			<!-- <value>-0.5000</value> Excesive Yaw-->
+			<value>-0.2</value>
 			</product>
 		</function>
 	</axis>
