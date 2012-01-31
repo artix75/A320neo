@@ -2,21 +2,21 @@
 
 <PropertyList>
 
-	<path>../../Models/LandingGears/a320.mlg.right.ac</path>
+	<path>res/a320.mlg.left.ac</path>
 
 	<model>
 		<name>Main Tires</name>
-		<path>Aircraft/A320neo/XMLs/LandingGears/a320.mlg.tires.xml</path>
+		<path>Aircraft/A320neo/Models/LandingGears/a320.mlg.tires.xml</path>
 		<overlay>
 			<params>
-				<gear>gear/gear[2]/rollspeed-ms</gear>
+				<gear>gear/gear[1]/rollspeed-ms</gear>
 			</params>
 		</overlay>
 	</model>
 
 	<model>
-		<name>Starboard tire smoke</name>
-		<path>Aircraft/Generic/Effects/tyre-smoke-stbd.xml</path>
+		<name>Port tire smoke</name>
+		<path>Aircraft/Generic/Effects/tyre-smoke-port.xml</path>
 		<offsets>
 			<x-m>0</x-m>
 			<y-m>0</y-m>
@@ -29,7 +29,7 @@
 		<name>Compression lower scissor</name>
 		<type>rotate</type>
 		<object-name>LINKS.02</object-name>
-		<property>gear/gear[2]/compression-norm</property>
+		<property>gear/gear[1]/compression-norm</property>
 		<interpolation>
 			<entry><ind>0.000</ind><dep>0.000</dep></entry>
 			<entry><ind>0.050</ind><dep>-5.374</dep></entry>
@@ -68,7 +68,7 @@
 		<name>Compression upper scissor</name>
 		<type>rotate</type>
 		<object-name>LINKS.01</object-name>
-		<property>gear/gear[2]/compression-norm</property>
+		<property>gear/gear[1]/compression-norm</property>
 		<interpolation>
 			<entry><ind>0.000</ind><dep>0.000</dep></entry>
 			<entry><ind>0.050</ind><dep>-5.374</dep></entry>
@@ -110,7 +110,7 @@
 		<object-name>ACTUTATOR</object-name>
 		<object-name>Main Tires</object-name>
 		<object-name>Compression lower scissor</object-name>
-		<property>gear/gear[2]/compression-ft</property>
+		<property>gear/gear[1]/compression-ft</property>
 		<factor>0.305</factor>
 		<axis>
 			<x1-m>0</x1-m>
@@ -135,7 +135,7 @@
 		<object-name>LINKS.01</object-name>
 		<object-name>LINKS.02</object-name>
 		<object-name>Main Tires</object-name>
-		<property>gear/gear[2]/position-norm</property>
+		<property>gear/gear[1]/position-norm</property>
 		<interpolation>
 			<entry><ind>0.0</ind><dep>80.5</dep></entry>
 			<entry><ind>0.2</ind><dep>80.5</dep></entry>
@@ -143,12 +143,12 @@
 			<entry><ind>1.0</ind><dep>0.0</dep></entry>
 		</interpolation>
 		<axis>
-			<x1-m>-0.2681111</x1-m>
-			<y1-m>0.0129338</y1-m>
-			<z1-m>2.8588708</z1-m>
-			<x2-m>-1.1054902</x2-m>
-			<y2-m>-0.0075</y2-m>
-			<z2-m>2.7435568</z2-m>
+			<x1-m>-1.1054902</x1-m>
+			<y1-m>0.0075</y1-m>
+			<z1-m>2.7435568</z1-m>
+			<x2-m>-0.2681111</x2-m>
+			<y2-m>-0.0129338</y2-m>
+			<z2-m>2.8588708</z2-m>
 		</axis>
 	</animation>
 
@@ -157,7 +157,7 @@
 		<type>rotate</type>
 		<object-name>D_STRUCT.L</object-name>
 		<object-name>D_STRUCT.U</object-name>
-		<property>gear/gear[2]/position-norm</property>
+		<property>gear/gear[1]/position-norm</property>
 		<interpolation>
 			<entry><ind>0.0</ind><dep>45.0</dep></entry>
 			<entry><ind>0.2</ind><dep>45.0</dep></entry>
@@ -165,19 +165,19 @@
 			<entry><ind>1.0</ind><dep>0.0</dep></entry>
 		</interpolation>
 		<axis>
-			<x1-m>-0.2671443</x1-m>
-			<y1-m>-0.1992673</y1-m>
-			<z1-m>1.2244419</z1-m>
-			<x2-m>-0.3569210</x2-m>
-			<y2-m>-0.1076174</y2-m>
-			<z2-m>1.2222185</z2-m>
+			<x1-m>-0.3569210</x1-m>
+			<y1-m>0.1076174</y1-m>
+			<z1-m>1.2222185</z1-m>
+			<x2-m>-0.2671443</x2-m>
+			<y2-m>0.1992673</y2-m>
+			<z2-m>1.2244419</z2-m>
 		</axis>
 	</animation>
 	<animation>
 		<name>Drag_Structs.Upper</name>
 		<type>rotate</type>
 		<object-name>D_STRUCT.U</object-name>
-		<property>gear/gear[2]/position-norm</property>
+		<property>gear/gear[1]/position-norm</property>
 		<interpolation>
 			<entry><ind>0.0</ind><dep>180.0</dep></entry>
 			<entry><ind>0.2</ind><dep>180.0</dep></entry>
@@ -185,12 +185,12 @@
 			<entry><ind>1.0</ind><dep>0.0</dep></entry>
 		</interpolation>
 		<axis>
-			<x1-m>-1.024</x1-m>
-			<y1-m>-0.693</y1-m>
-			<z1-m>1.965</z1-m>
-			<x2-m>-0.884</x2-m>
-			<y2-m>-0.836</y2-m>
-			<z2-m>1.968</z2-m>
+			<x1-m>-0.884</x1-m>
+			<y1-m>0.836</y1-m>
+			<z1-m>1.968</z1-m>
+			<x2-m>-1.024</x2-m>
+			<y2-m>0.693</y2-m>
+			<z2-m>1.965</z2-m>
 		</axis>
 	</animation>
 

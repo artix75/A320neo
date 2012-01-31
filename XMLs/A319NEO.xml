@@ -29,7 +29,7 @@
 
 	<model>
 		<name>Nose Gear</name>
-		<path>Aircraft/A320neo/XMLs/LandingGears/a320.nlg.xml</path>
+		<path>Aircraft/A320neo/Models/LandingGears/a320.nlg.xml</path>
 		<offsets>
 			<x-m>9.43</x-m>
 			<z-m>-1.8306008</z-m>
@@ -38,7 +38,7 @@
 
 	<model>
 		<name>Main Gears.Left</name>
-		<path>Aircraft/A320neo/XMLs/LandingGears/a320.mlg.left.xml</path>
+		<path>Aircraft/A320neo/Models/LandingGears/a320.mlg.left.xml</path>
 		<offsets>
 			<x-m>20.3180764</x-m>
 			<y-m>-3.795</y-m>
@@ -48,7 +48,7 @@
 
 	<model>
 		<name>Main Gears.Right</name>
-		<path>Aircraft/A320neo/XMLs/LandingGears/a320.mlg.right.xml</path>
+		<path>Aircraft/A320neo/Models/LandingGears/a320.mlg.right.xml</path>
 		<offsets>
 			<x-m>20.3180764</x-m>
 			<y-m>3.795</y-m>

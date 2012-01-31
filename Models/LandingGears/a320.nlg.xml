@@ -2,11 +2,11 @@
 
 <PropertyList>
 
-	<path>../../Models/LandingGears/a320.nlg.ac</path>
+	<path>res/a320.nlg.ac</path>
 	
 	<model>
 		<name>Nose Tires</name>
-		<path>Aircraft/A320neo/XMLs/LandingGears/a320.nlg.tires.xml</path>
+		<path>Aircraft/A320neo/Models/LandingGears/a320.nlg.tires.xml</path>
 		<offsets>
 			<x-m>-0.3061469</x-m>
 			<z-m>-1.9329357</z-m>

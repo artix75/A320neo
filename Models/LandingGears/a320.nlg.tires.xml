@@ -2,11 +2,7 @@
 
 <PropertyList>
 
-	<path>../../Models/LandingGears/a320.mlg.tires.ac</path>
-
-	<params>
-		<gear>gear/gear[1]/rollspeed-ms</gear>
-	</params>
+	<path>res/a320.nlg.tires.ac</path> 
 
 	<!-- Animation for tire rotation as the aircraft rolls along the ground-->
 	<animation>
@@ -14,7 +10,7 @@
 		<type>spin</type>
 		<object-name>Tires</object-name>
 		<object-name>Bearing</object-name>
-		<property alias="../../params/gear" />
+		<property>gear/gear[0]/rollspeed-ms</property>
 		<factor>10</factor>
 		<axis>
 			<x>0</x>
