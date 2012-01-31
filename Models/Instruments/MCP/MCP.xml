@@ -5,7 +5,7 @@
 
 <PropertyList>
 
-	<path>../../../Models/Instruments/MCP/MCP.ac</path>
+	<path>res/MCP.ac</path>
 
 	<!-- ANIMATIONS -->
 	<!-- Power on/off -->

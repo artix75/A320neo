@@ -6,7 +6,7 @@
 
 	<!-- EXTRA MODELS -->
 	<model>
-		<path>Aircraft/A320neo/XMLs/Instruments/PFD/PFD.xml</path>
+		<path>Aircraft/A320neo/Models/Instruments/PFD/PFD.xml</path>
 		<offsets>
 			<x-m>-17.173</x-m>
 			<y-m>-0.55</y-m>
@@ -16,7 +16,7 @@
 	</model>
 	
 	<model>
-	<path>Aircraft/A320neo/XMLs/Instruments/MFD/MFD.xml</path>
+	<path>Aircraft/A320neo/Models/Instruments/MFD/MFD.xml</path>
 		<offsets>
 			<x-m>-17.173</x-m>
 			<y-m>-0.35</y-m>
@@ -26,7 +26,7 @@
 	</model>
 	
 	<model>
-		<path>Aircraft/A320neo/XMLs/Instruments/MFD/MFD.xml</path>
+		<path>Aircraft/A320neo/Models/Instruments/MFD/MFD.xml</path>
 		<offsets>
 			<x-m>-17.173</x-m>
 			<y-m>0.35</y-m>
@@ -36,7 +36,7 @@
 	</model>
 	
 	<model>
-		<path>Aircraft/A320neo/XMLs/Instruments/PFD/PFD.xml</path>
+		<path>Aircraft/A320neo/Models/Instruments/PFD/PFD.xml</path>
 		<offsets>
 			<x-m>-17.173</x-m>
 			<y-m>0.55</y-m>
@@ -69,7 +69,7 @@
 
 	<model>
 		<name>MCP</name>
-		<path>Aircraft/A320neo/XMLs/Instruments/MCP/MCP.xml</path>
+		<path>Aircraft/A320neo/Models/Instruments/MCP/MCP.xml</path>
 		<offsets>
 			<x-m>-16.907</x-m>
 			<y-m>0</y-m>
@@ -79,7 +79,7 @@
 	</model>
 
 	<model>
-		<path>Aircraft/A320neo/XMLs/Instruments/Stby-AI/Stby-AI.xml</path>
+		<path>Aircraft/A320neo/Models/Instruments/Stby-AI/Stby-AI.xml</path>
 		<offsets>
 			<x-m>-17.17</x-m>
 			<y-m>-0.15</y-m>
@@ -89,7 +89,7 @@
 	</model>
 
 	<model>
-		<path>Aircraft/A320neo/XMLs/Instruments/Stby-ASI/Stby-ASI.xml</path>
+		<path>Aircraft/A320neo/Models/Instruments/Stby-ASI/Stby-ASI.xml</path>
 		<offsets>
 			<x-m>-17.184</x-m>
 			<y-m>-0.215</y-m>
@@ -99,7 +99,7 @@
 	</model>
 
 	<model>
-		<path>Aircraft/A320neo/XMLs/Instruments/Altimeter/altimeter.xml</path>
+		<path>Aircraft/A320neo/Models/Instruments/Altimeter/altimeter.xml</path>
 		<offsets>
 			<x-m>-17.17</x-m>
 			<y-m>-0.215</y-m>
@@ -109,7 +109,7 @@
 	</model>
 
 	<model>
-		<path>Aircraft/A320neo/XMLs/Instruments/VOR/VOR.xml</path>
+		<path>Aircraft/A320neo/Models/Instruments/VOR/VOR.xml</path>
 		<offsets>
 			<x-m>-17.136</x-m>
 			<y-m>-0.15</y-m>
@@ -157,7 +157,7 @@
 	</model>
 
 	<model>
-		<path>Aircraft/A320neo/XMLs/Instruments/OHpanel/OHpanel.xml</path>
+		<path>Aircraft/A320neo/Models/Instruments/OHpanel/OHpanel.xml</path>
 		<offsets>
 			<x-m>-16.55</x-m>
 			<y-m>0</y-m>
@@ -168,7 +168,7 @@
 
 	<model>
 		<name>Pilot radio panel</name>
-		<path>Aircraft/A320neo/XMLs/Instruments/Radiopanel/Radiopanel.xml</path>
+		<path>Aircraft/A320neo/Models/Instruments/Radiopanel/Radiopanel.xml</path>
 		<offsets>
 			<x-m>-16.811</x-m>
 			<y-m>-0.187</y-m>
@@ -239,7 +239,7 @@
 
 	<model>
 		<name>Copilot radio panel</name>
-		<path>Aircraft/A320neo/XMLs/Instruments/Radiopanel/Radiopanel.xml</path>
+		<path>Aircraft/A320neo/Models/Instruments/Radiopanel/Radiopanel.xml</path>
 		<offsets>
 			<x-m>-16.811</x-m>
 			<y-m>0.187</y-m>

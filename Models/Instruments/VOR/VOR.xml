@@ -2,7 +2,7 @@
 
 <PropertyList>
 
-	<path>../../../Models/Instruments/VOR/vor.ac</path>
+	<path>res/vor.ac</path>
 
 	<!-- ANIMATIONS -->
 	<!-- Lighting -->

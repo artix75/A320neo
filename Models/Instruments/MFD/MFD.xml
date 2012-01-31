@@ -5,7 +5,7 @@
 
 <PropertyList>
 
-	<path>../../../Models/Instruments/MFD/MFD.ac</path>
+	<path>res/MFD.ac</path>
 
 	<!-- 3D TEXT -->
 	<text>

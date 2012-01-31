@@ -5,7 +5,7 @@
 
 <PropertyList>
 
-	<path>../../../Models/Instruments/Radiopanel/Radiopanel.ac</path>
+	<path>res/Radiopanel.ac</path>
 
 	<!-- PARAMETERS -->
 	<params>

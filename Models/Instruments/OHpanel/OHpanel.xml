@@ -2,11 +2,11 @@
 
 <PropertyList>
 
-	<path>../../../Models/Instruments/OHpanel/ohpanel.ac</path>
+	<path>res/ohpanel.ac</path>
 
 	<model>
 		<name>Radio panel</name>
-		<path>Aircraft/A320neo/XMLs/Instruments/Radiopanel/Radiopanel.xml</path>
+		<path>Aircraft/A320neo/Models/Instruments/Radiopanel/Radiopanel.xml</path>
 		<offsets>
 			<x-m>0.001</x-m>
 			<y-m>0.244</y-m>

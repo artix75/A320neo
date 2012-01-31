@@ -2,7 +2,7 @@
 
 <PropertyList>
 
-	<path>../../../Models/Instruments/Stby-ASI/Stby-ASI.ac</path>
+	<path>res/Stby-ASI.ac</path>
 
 	<!-- ANIMATIONS -->
 	<!-- Lighting -->
