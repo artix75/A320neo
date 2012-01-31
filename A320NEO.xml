@@ -43,9 +43,10 @@ xsi:noNamespaceSchemaLocation="http://jsbsim.sourceforge.net/JSBSim.xsd">
 </metrics>
 
 <mass_balance>
-<!--	<ixx unit="SLUG*FT2">    611903 </ixx>
+	<ixx unit="SLUG*FT2">    611903 </ixx>
 	<iyy unit="SLUG*FT2">   1735389 </iyy>
 	<izz unit="SLUG*FT2">   2301293 </izz> 
+<!--
 ___________________A320_________A330__________A340
 BOW_____________178000________270000________283925
 SPAN______________144___________198___________209
@@ -56,16 +57,16 @@ YAW MOI_________3950000______23089847_______24848934
 
 	<ixx unit="SLUG*FT2">   2262183 </ixx>
 	<iyy unit="SLUG*FT2">   3172439 </iyy>
-	<izz unit="SLUG*FT2">   3337024 </izz>-->
+	<izz unit="SLUG*FT2">   3337024 </izz>
 
 	<ixx unit="SLUG*FT2">1725000</ixx>
 	<iyy unit="SLUG*FT2">2550000</iyy>
-	<izz unit="SLUG*FT2">3950000</izz>
+	<izz unit="SLUG*FT2">3950000</izz> -->
 
 	<ixy unit="SLUG*FT2">         0 </ixy>
 	<ixz unit="SLUG*FT2">         0 </ixz>
 	<iyz unit="SLUG*FT2">         0 </iyz>
-	<!-- <emptywt unit="LBS" >     87274 </emptywt> -->
+	<!-- <emptywt unit="LBS" >87274</emptywt> -->
 	<emptywt unit="LBS">80431</emptywt> <!-- #ref-1 page 67, WV016. 90927lbs - 5248x2 (engines)=80431lbs-->
 	<location name="CG" unit="IN">
 	<x> 642.122 </x>
@@ -169,30 +170,6 @@ YAW MOI_________3950000______23089847_______24848934
 		</location>
 	</pointmass>
 
-	<pointmass name="Engine1">
-		<weight unit="LBS">5248</weight>
-		<form shape="cylinder">
-			<radius unit="M"> 1.31 </radius>
-			<length unit="M"> 5 </length>
-		</form>
-		<location name="POINTMASS" unit="IN">
-			<x>589.735</x>	
-			<y>-226.575</y>
-			<z>-45.567</z>
-		</location>
-	</pointmass>
-	<pointmass name="Engine2">
-		<weight unit="LBS">5248</weight>
-		<form shape="cylinder">
-			<radius unit="M"> 1.31 </radius>
-			<length unit="M"> 5 </length>
-		</form>
-		<location name="POINTMASS" unit="IN">
-			<x>589.735</x>	
-			<y>226.575</y>
-			<z>-45.567</z>
-		</location>
-	</pointmass>
 
 </mass_balance>
 
@@ -815,6 +792,8 @@ YAW MOI_________3950000______23089847_______24848934
 	</kinematic>
 	</channel>
 </flight_control>
+
+
 <aerodynamics>
 
 	<axis name="DRAG">
@@ -1076,7 +1055,8 @@ YAW MOI_________3950000______23089847_______24848934
 			<property>metrics/Sw-sqft</property>
 			<property>metrics/cbarw-ft</property>
 			<property>aero/alpha-rad</property>
-			<value>-4.0000</value>
+			<!-- value>-4.0000</value> -->
+			<value>-0.5</value>
 			</product>
 		</function>
 		<function name="aero/coefficient/CmDe">
@@ -1104,7 +1084,8 @@ YAW MOI_________3950000______23089847_______24848934
 			<property>metrics/cbarw-ft</property>
 			<property>aero/ci2vel</property>
 			<property>velocities/q-aero-rad_sec</property>
-			<value>-10.0000</value>
+			<!--value>-10.0000</value-->
+			<value>-27</value>
 			</product>
 		</function>
 		<function name="aero/coefficient/Cmadot">
@@ -1115,7 +1096,8 @@ YAW MOI_________3950000______23089847_______24848934
 			<property>metrics/cbarw-ft</property>
 			<property>aero/ci2vel</property>
 			<property>aero/alphadot-rad_sec</property>
-			<value>-12.0000</value>
+			<!--value>-12.0000</value-->
+			<value>-16</value>
 			</product>
 		</function>
 	</axis>
@@ -1150,7 +1132,7 @@ YAW MOI_________3950000______23089847_______24848934
 			<property>metrics/bw-ft</property>
 			<property>fcs/rudder-pos-rad</property>
 			<!-- <value>-0.5000</value> Excesive Yaw-->
-			<value>-0.2</value>
+			<value>-0.3</value>
 			</product>
 		</function>
 	</axis>

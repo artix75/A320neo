@@ -7,7 +7,7 @@
 		<author>Narendran, Malik and Jon A. Ortuondo(Bicyus) (A320neo), Ryan and Ampere (base A320)</author>
 		<status>beta</status>
 		<flight-model>jsb</flight-model>
-		<aero>A320NEO</aero>
+		<aero>A320-neo</aero>
 		<variant>NEO</variant>
 		<engine>CFM LeapX</engine>
 
