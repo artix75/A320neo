@@ -2,7 +2,7 @@
 
 <PropertyList>
 
-	<path>../../Models/Lights/light-cone.ac</path>
+	<path>res/light-cone.ac</path>
 
 	<effect>
 		<inherits-from>Effects/light-cone</inherits-from>

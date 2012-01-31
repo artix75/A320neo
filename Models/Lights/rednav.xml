@@ -2,7 +2,7 @@
 
 <PropertyList>
 
-	<path>../../Models/Lights/greennav.ac</path>
+	<path>res/rednav.ac</path>
 
 	<!-- ANIMATIONS -->
 	<!-- On/off -->

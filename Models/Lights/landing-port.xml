@@ -2,13 +2,13 @@
 
 <PropertyList>
 
-	<path>../../Models/Lights/strobe.ac</path>
+	<path>res/strobe.ac</path>
 
 	<!-- EXTRA MODELS -->
 	<!-- 3d light cone -->
 	<model>
 		<name>Cone</name>
-		<path>Aircraft/A320neo/XMLs/Lights/light-cone.xml</path>
+		<path>Aircraft/A320neo/Models/Lights/light-cone.xml</path>
 	</model>
 
 	<!-- ANIMATIONS -->
@@ -19,7 +19,7 @@
 		<object-name>Light</object-name>
 		<object-name>Cone</object-name>
 		<condition>
-			<property>controls/lighting/landing-lights[2]</property>
+			<property>controls/lighting/landing-lights[0]</property>
 		</condition>
 	</animation>
 	<animation>

@@ -2,7 +2,7 @@
 
 <PropertyList>
 
-	<path>../../Models/Lights/strobe.ac</path>
+	<path>res/greennav.ac</path>
 
 	<!-- ANIMATIONS -->
 	<!-- On/off -->
@@ -11,7 +11,10 @@
 		<type>select</type>
 		<object-name>Light</object-name>
 		<condition>
-			<property>sim/model/lights/strobe/state</property>
+			<greater-than>
+				<property>controls/lighting/nav-lights-switch</property>
+				<value>0</value>
+			</greater-than>
 		</condition>
 	</animation>
 

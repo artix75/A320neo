@@ -94,7 +94,7 @@
 	<!-- Lights -->
 	<model>
 		<name>Left nav light</name>
-		<path>Aircraft/A320neo/XMLs/Lights/rednav.xml</path>
+		<path>Aircraft/A320neo/Models/Lights/rednav.xml</path>
 		<offsets>
 			<x-m>23.474</x-m>
 			<y-m>-16.91</y-m>
@@ -104,7 +104,7 @@
 
 	<model>
 		<name>Right nav light</name>
-		<path>Aircraft/A320neo/XMLs/Lights/greennav.xml</path>
+		<path>Aircraft/A320neo/Models/Lights/greennav.xml</path>
 		<offsets>
 			<x-m>23.474</x-m>
 			<y-m>16.91</y-m>
@@ -114,7 +114,7 @@
 
 	<model>
 		<name>Left strobe light</name>
-		<path>Aircraft/A320neo/XMLs/Lights/strobe.xml</path>
+		<path>Aircraft/A320neo/Models/Lights/strobe.xml</path>
 		<offsets>
 			<x-m>23.474</x-m>
 			<y-m>-16.91</y-m>
@@ -124,7 +124,7 @@
 
 	<model>
 		<name>Right strobe light</name>
-		<path>Aircraft/A320neo/XMLs/Lights/strobe.xml</path>
+		<path>Aircraft/A320neo/Models/Lights/strobe.xml</path>
 		<offsets>
 			<x-m>23.474</x-m>
 			<y-m>16.91</y-m>
@@ -134,7 +134,7 @@
 
 	<model>
 		<name>Top beacon light</name>
-		<path>Aircraft/A320neo/XMLs/Lights/beacon.xml</path>
+		<path>Aircraft/A320neo/Models/Lights/beacon.xml</path>
 		<offsets>
 			<x-m>16.7</x-m>
 			<y-m>0</y-m>
@@ -144,7 +144,7 @@
 
 	<model>
 		<name>Bottom beacon light</name>
-		<path>Aircraft/A320neo/XMLs/Lights/beacon.xml</path>
+		<path>Aircraft/A320neo/Models/Lights/beacon.xml</path>
 		<offsets>
 			<x-m>18.2</x-m>
 			<y-m>0</y-m>
@@ -154,7 +154,7 @@
 
 	<model>
 		<name>Port landing light</name>
-		<path>Aircraft/A320neo/XMLs/Lights/landing-port.xml</path>
+		<path>Aircraft/A320neo/Models/Lights/landing-port.xml</path>
 		<offsets>
 			<x-m>15.9</x-m>
 			<y-m>-3.16</y-m>
@@ -164,7 +164,7 @@
 
 	<model>
 		<name>Nosegear landing light</name>
-		<path>Aircraft/A320neo/XMLs/Lights/landing-nose.xml</path>
+		<path>Aircraft/A320neo/Models/Lights/landing-nose.xml</path>
 		<offsets>
 			<x-m>7.35</x-m>
 			<y-m>0</y-m>
@@ -174,7 +174,7 @@
 
 	<model>
 		<name>Starboard landing light</name>
-		<path>Aircraft/A320neo/XMLs/Lights/landing-stbd.xml</path>
+		<path>Aircraft/A320neo/Models/Lights/landing-stbd.xml</path>
 		<offsets>
 			<x-m>15.9</x-m>
 			<y-m>3.16</y-m>
