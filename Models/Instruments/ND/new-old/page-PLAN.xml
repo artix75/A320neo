@@ -17,7 +17,8 @@
           </condition>
             <name>ground network</name>
             <texture>
-                <path>Aircraft/Instruments/Textures/od_groundradar.rgb</path>
+                <!--path>Aircraft/Instruments/Textures/od_groundradar.rgb</path-->
+                <path>Aircraft/Instruments/Textures/od_wxradar.rgb</path>
                 <x1>0</x1>
                 <y1>0</y1>
                 <x2>1</x2>

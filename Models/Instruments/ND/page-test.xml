@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+    <name>test</name>
+    <w-base>1024</w-base>
+    <h-base>1024</h-base>
+
+    <layers>
+
+		<layer>
+		    <name>ground network</name>
+		    <condition>
+
+			    <equals>
+				<property>instrumentation/efis/nd/display-mode-knob</property>
+				<value>1</value>
+			    </equals>
+
+		    </condition>
+		    <texture>
+			<path>Aircraft/Instruments/Textures/od_groundradar.rgb</path>
+			<x1>0</x1>
+			<y1>0</y1>
+			<x2>1</x2>
+			<y2>1</y2>
+		    </texture>
+		    <emissive>true</emissive>
+		    <w>1024</w>
+		    <h>1024</h>
+		    <transformations>
+			<transformation>
+			    <type>rotation</type>
+			    <property>orientation/heading-deg</property>
+			    <scale>-1</scale>
+			</transformation>
+		    </transformations>
+		</layer>
+
+		<layer>
+		    <name>wxradar</name>
+		    <texture>
+			<path>Aircraft/Instruments/Textures/od_wxradar.rgb</path>
+			<x1>0</x1>
+			<y1>0</y1>
+			<x2>1</x2>
+			<y2>1</y2>
+		    </texture>
+		    <emissive>true</emissive>
+		    <w>1024</w>
+		    <h>1024</h>
+		</layer>
+	</layers>
+
+</PropertyList>

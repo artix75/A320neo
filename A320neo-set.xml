@@ -659,79 +659,57 @@
 				<file-prefix>Sounds/mk-viii/</file-prefix>
 			</voice>
 		</mk-viii>
-        <radar>
-            <switch type="string">ON</switch>
-            <mode-control type="int">1</mode-control>
-            <display-controls>
-                <WX type="bool">true</WX>
-                <pos type="bool">true</pos>
-                <data type="bool">true</data>
-                <symbol type="bool">true</symbol>
-            </display-controls>
-            <serviceable type="bool">true</serviceable>
-            <range type="int">180</range>
-            <mode type="string">WX</mode>
-            <lightning type="bool">true</lightning>
-            <display-mode type="string">arc</display-mode>
-            <echo-texture-path type="string" archive="y">Aircraft/A320neo/Models/Instruments/ND/res/wxecho.png</echo-texture-path>
-            <minimized type="bool">false</minimized>
-            <heading-marker type="bool">false</heading-marker>
-            <limit-deg type="int">180</limit-deg>
-            <font>
-                <name type="string">helvetica_bold.txf</name>
-                <size type="float">3</size>
-                <line-spacing type="float">0.25</line-spacing>
-                <color>
-                    <red type="float">0</red>
-                    <green type="float">0.8</green>
-                    <blue type="float">0</blue>
-                    <alpha type="float">1</alpha>
-                </color>
-            </font>
-        </radar>
-  <!--radar>
-            <switch type="string">ON</switch>
-            <mode-control type="int">1</mode-control>
-            <display-controls>
-                <WX type="bool">false</WX>
-                <pos type="bool">true</pos>
-                <data type="bool">true</data>
-                <symbol type="bool">true</symbol>
-            </display-controls>
-            <serviceable type="bool">true</serviceable>
-            <range type="int">128</range>
-            <mode type="string">WX</mode>
-            <lightning type="bool">true</lightning>
-            <display-mode type="string">plan</display-mode>
-            <echo-texture-path type="string" archive="y">Aircraft/A320neo/Models/Instruments/ND/res/wxecho.png</echo-texture-path>
-            <minimized type="bool">false</minimized>
-            <heading-marker type="bool">false</heading-marker>
-            <limit-deg type="int">180</limit-deg>
-            <font>
-                <name type="string">helvetica_bold.txf</name>
-                <size type="float">3</size>
-                <line-spacing type="float">0.25</line-spacing>
-                <color>
-                    <red type="float">0</red>
-                    <green type="float">0.8</green>
-                    <blue type="float">0</blue>
-                    <alpha type="float">1</alpha>
-                </color>
-            </font>
-        </radar-->
-  <wxradar>
-      <name>radar</name>
-      <serviceable>true</serviceable>
-      <range type="int" archive="y">20</range>
-      <minimized type="bool" archive="y">false</minimized>
-      <switch archive="y">off</switch>
-      <mode archive="y">wx</mode>
-      <lightning type="bool" archive="y">false</lightning>
-      <display-mode archive="y">arc</display-mode>
-  </wxradar>
-  <groundradar>
-            <range type="double">1.0</range>
-        </groundradar>
+		<radar>
+<!--
+// those properties are used by a radar instrument of a MFD
+    // input switch = OFF | TST | STBY | ON
+    // input mode = WX | WXA | MAP
+    // output status = STBY | TEST | WX | WXA | MAP | blank
+    // input lightning = true | false
+    // input TRK = +/- n degrees
+    // input TILT = +/- n degree
+    // input autotilt = true | false
+    // input range = n nm (20/40/80)
+    // input display-mode = arc | rose | map | plan | BSCAN-->
+
+			<switch type="string">ON</switch>
+			<mode-control type="int">1</mode-control>
+			<display-controls>
+				<WX type="bool">true</WX>
+				<pos type="bool">true</pos>
+				<data type="bool">true</data>
+				<symbol type="bool">true</symbol>
+				<centre type="bool">true</centre>
+				<rotate type="bool">true</rotate>
+				<tcas type="bool">false</tcas>
+				<abs-altitude type="bool">true</abs-altitude>
+			</display-controls>
+			<serviceable type="bool">true</serviceable>
+			<range type="int">20</range>
+			<mode type="string">WX</mode>
+			<lightning type="bool">true</lightning>
+			<display-mode type="string">arc</display-mode>
+			<echo-texture-path type="string" archive="y">Aircraft/A320neo/Models/Instruments/ND/res/wxecho.png</echo-texture-path>
+			<minimized type="bool">false</minimized>
+			<heading-marker type="bool">false</heading-marker>
+			<limit-deg type="int">180</limit-deg>
+			<font>
+				<name type="string">helvetica_bold.txf</name>
+				<size type="float">13</size>
+				<line-spacing type="float">1.25</line-spacing>
+				<color>
+					<red type="float">0</red>
+					<green type="float">0.8</green>
+					<blue type="float">0</blue>
+					<alpha type="float">1</alpha>
+				</color>
+			</font>
+		</radar>
+ 
+
+		<groundradar>
+			<range type="double">1.0</range>
+		</groundradar>
 	</instrumentation>
 
 	<input>
