@@ -3,18 +3,26 @@
 
 <PropertyList>
     <name>RADAR</name>
-    <w-base>512</w-base>
-    <h-base>512</h-base>
+    <w-base>256</w-base>
+    <h-base>256</h-base>
 
     <layers>
-      <layer>
-            <name>radarfull</name>
-            <w>512</w>
-            <h>512</h>
-            <!-- w>350</w>
-            <h>350</h -->
+
+        <layer>
+            <condition>
+              <and>
+                <equals>
+                  <property>instrumentation/efis[0]/nd/display-mode</property>
+                    <value>ARC</value>
+                </equals>
+                <property>instrumentation/efis[0]/inputs/WX</property>
+              </and>
+            </condition>
+            <name>radararc</name>
+            <w>350</w>
+            <h>350</h>
             <texture>
-                <path>Aircraft/A320neo/Models/Instruments/ND/res/od_ndradar_1.png</path>
+                <path>Aircraft/Instruments/Textures/od_wxradar.rgb</path>
                 <x1>0.0</x1>
                 <y1>0.0</y1>
                 <x2>1</x2>
@@ -23,8 +31,50 @@
             <transformations>
                 <transformation>
                     <type>y-shift</type>
+                    <offset>-78</offset>
+                </transformation>
+                <transformation>
+                    <type>x-shift</type>
                     <offset>1</offset>
-                    <!-- offset>-78</offset -->
+                </transformation>
+            </transformations>
+            <emissive>true</emissive>
+        </layer>
+
+        <layer>
+            <condition>
+              <and>
+		<or>
+		        <equals>
+		            <property>instrumentation/efis[0]/nd/display-mode</property>
+		            <value>ILS</value>
+		        </equals>
+			<equals>
+		            <property>instrumentation/efis[0]/nd/display-mode</property>
+		            <value>VOR</value>
+		        </equals>
+			<equals>
+		            <property>instrumentation/efis[0]/nd/display-mode</property>
+		            <value>NAV</value>
+		        </equals>
+		</or>
+                <property>instrumentation/efis[0]/inputs/WX</property>
+              </and>
+            </condition>
+            <name>radarfull</name>
+            <w>220</w>
+            <h>220</h>
+            <texture>
+                <path>Aircraft/Instruments/Textures/od_wxradar.rgb</path>
+                <x1>0.0</x1>
+                <y1>0.0</y1>
+                <x2>1</x2>
+                <y2>1</y2>
+            </texture>
+            <transformations>
+                <transformation>
+                    <type>y-shift</type>
+                    <offset>-12</offset>
                 </transformation>
                 <transformation>
                     <type>x-shift</type>

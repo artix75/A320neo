@@ -12,7 +12,7 @@
           <condition>
             <less-than>
               <property>instrumentation/radar/range</property>
-              <value>10</value>
+              <value>11</value>
             </less-than>
           </condition>
             <name>ground network</name>

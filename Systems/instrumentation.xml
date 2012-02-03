@@ -155,7 +155,7 @@ file, these values will be used (they are hardcoded).
 	</gps>
 
 	<radar>
-		<name>wxradar</name>
+		<name>radar</name>
 		<number>0</number>
 	</radar>
 	<groundradar>

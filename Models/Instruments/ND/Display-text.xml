@@ -37,7 +37,7 @@
             </greater-than>
                 <equals>
                     <property>instrumentation/efis/nd/display-mode</property>
-                    <value>ROSE</value>
+                    <value>NAV</value>
                 </equals>
             </and>
         </condition>        

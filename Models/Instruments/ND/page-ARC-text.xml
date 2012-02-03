@@ -246,7 +246,7 @@
             <chunks>
                 <chunk>
                     <type>number-value</type>
-                    <property>instrumentation/nd/range</property>
+                    <property>instrumentation/efis/nd/display-range</property>
                     <format>%3.0f</format>
                 </chunk>
             </chunks>
@@ -275,7 +275,7 @@
             <chunks>
                 <chunk>
                     <type>number-value</type>
-                    <property>instrumentation/nd/range</property>
+                    <property>instrumentation/efis/nd/display-range</property>
                     <format>%3.0f</format>
                 </chunk>
             </chunks>

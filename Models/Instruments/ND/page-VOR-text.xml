@@ -321,7 +321,7 @@
             <chunks>
                 <chunk>
                     <type>number-value</type>
-                    <property>instrumentation/nd/range</property>
+                    <property>instrumentation/efis/nd/display-range</property>
                     <scale>0.5</scale>
                     <format>%3.0f</format>
                 </chunk>

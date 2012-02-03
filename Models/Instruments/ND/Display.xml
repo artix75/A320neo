@@ -8,6 +8,7 @@
 
 	<instruments> 
 <!-- ROSE[ILS VOR NAV] ARC PLAN-->
+		
 		<instrument include="page-ROSE.xml">
 			<condition>
 				<and>
@@ -17,7 +18,7 @@
 					</greater-than>
 					<equals>
 						<property>instrumentation/efis[0]/nd/display-mode</property>
-						<value>ROSE</value>
+						<value>NAV</value>
 					</equals>
 				</and>
 			</condition>
@@ -53,13 +54,13 @@
 			<condition>
 				<and>
 					<greater-than>
-					<property>systems/electrical/outputs/efis</property>
-				<value>15</value>
-				</greater-than>
+						<property>systems/electrical/outputs/efis</property>
+						<value>15</value>
+					</greater-than>
 					<equals>
-					<property>instrumentation/efis/nd/display-mode</property>
-				<value>VOR</value>
-				</equals>
+						<property>instrumentation/efis/nd/display-mode</property>
+						<value>VOR</value>
+					</equals>
 				</and>
 			</condition>
 			<name>vor</name>
@@ -131,38 +132,40 @@
 
 
 
-    <instrument include="page-PLAN.xml">
-        <condition>
-            <and>
-                <greater-than>
-                    <property>systems/electrical/outputs/efis</property>
-                    <value>15</value>
-                </greater-than>
-                <equals>
-                    <property>instrumentation/efis/nd/display-mode</property>
-                    <value>PLAN</value>
-                </equals>
-            </and>
-        </condition>
-        <name>plan</name>
-        <x>128</x>
-        <y>128</y>
-        <w>256</w>
-        <h>256</h>
-    </instrument> 
-
-<!-- RADAR?? Where is that image? whenever is diferent to PLAN???
-		<instrument include="page-RADAR.xml">
+		<instrument include="page-PLAN.xml">
 			<condition>
 				<and>
 					<greater-than>
 						<property>systems/electrical/outputs/efis</property>
 						<value>15</value>
 					</greater-than>
-					<not-equals>
-						<property>instrumentation/efis/nd/display-mode</property>
+					<equals>
+						<property>instrumentation/efis[0]/nd/display-mode</property>
 						<value>PLAN</value>
-					</not-equals>
+					</equals>
+				</and>
+			</condition>
+			<name>plan</name>
+			<x>128</x>
+			<y>128</y>
+			<w>256</w>
+			<h>256</h>
+		</instrument> 
+
+
+		<instrument include="page-RADAR.xml">
+			<condition>
+
+				<and>
+					<greater-than>
+						<property>systems/electrical/outputs/efis</property>
+						<value>15</value>
+					</greater-than>
+					<equals>
+						<property>instrumentation/radar/switch</property>
+						<value>on</value>
+					</equals>
+					<property>instrumentation/efis[0]/inputs/WX</property>
 				</and>
 			</condition> 
 			<name>radar</name>
@@ -174,7 +177,24 @@
 
 
 
-	<instrument include="page-MAP.xml">
+
+<!--instrument include="page-test.xml">
+			<condition>
+
+					<greater-than>
+						<property>systems/electrical/outputs/efis</property>
+						<value>15</value>
+					</greater-than>
+			
+			</condition>
+			<name>rose</name>
+			<x>128</x>
+			<y>128</y>
+			<w>256</w>
+			<h>256</h>
+		</instrument-->
+
+	<!--instrument include="page-MAP.xml">
 		<condition>
 			<and>
 				<greater-than>
@@ -192,10 +212,6 @@
 		<y>128</y>
 		<w>256</w>
 		<h>256</h>
-	</instrument>
-    -->
-
-
+	</instrument-->
 </instruments>
-
 </PropertyList>

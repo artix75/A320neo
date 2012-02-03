@@ -1105,38 +1105,77 @@
 		<object-name>MFDSwtchL1</object-name>
 		<object-name>MFDSwtchR1</object-name>
 		<action>
+			<button>0</button>
+			<button>3</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-cycle</command>
+				<property>/instrumentation/efis[0]/nd/display-mode</property>
+				<value type="string">ILS</value>
+				<value type="string">VOR</value>
+				<value type="string">NAV</value>
+				<value type="string">ARC</value>
+				<value type="string">PLAN</value>
+				<wrap>false</wrap>
+			</binding>
+			<binding>
+				<command>property-cycle</command>
+				<property>/instrumentation/efis[0]/nd/display-mode-knob</property>
+				<value type="int">1</value>
+				<value type="int">2</value>
+				<value type="int">3</value>
+				<value type="int">4</value>
+				<value type="int">5</value>
+				<wrap>false</wrap>
+			</binding>
+		</action>
+		<action>
+
 			<button>1</button>
 			<button>4</button>
 			<repeatable type="bool">false</repeatable>
 			<binding>
 				<command>property-cycle</command>
 				<property>/instrumentation/efis[0]/nd/display-mode</property>
-				<value type="string">ILS</value>
-				<value type="string">VOR</value>
-				<value type="string">NAV</value>
-				<value type="string">ARC</value>
 				<value type="string">PLAN</value>
+				<value type="string">ARC</value>
+				<value type="string">NAV</value>
+				<value type="string">VOR</value>
+				<value type="string">ILS</value>
 				<wrap>false</wrap>
-
 			</binding>
-		</action>
-		<action>
-			<button>0</button>
-
-			<button>3</button>
-
-			<repeatable type="bool">false</repeatable>
 			<binding>
 				<command>property-cycle</command>
-				<property>/instrumentation/efis[0]/nd/display-mode</property>
-				<value type="string">PLAN</value>
-				<value type="string">ARC</value>
-				<value type="string">NAV</value>
-				<value type="string">VOR</value>
-				<value type="string">ILS</value>
+				<property>/instrumentation/efis[0]/nd/display-mode-knob</property>
+				<value type="int">5</value>
+				<value type="int">4</value>
+				<value type="int">3</value>
+				<value type="int">2</value>
+				<value type="int">1</value>
 				<wrap>false</wrap>
 			</binding>
 		</action>
+	</animation>
+
+
+	<animation>
+		<name>MDF Mode switch rotate</name>
+		<type>rotate</type>
+		<object-name>MFDSwtchL1</object-name>
+		<property>/instrumentation/efis[0]/nd/display-mode-knob</property>
+		<factor>-45</factor>
+		<offset-deg>135</offset-deg>
+		
+		<axis>
+			<x>1</x>
+			<y>0</y>
+			<z>0</z>
+		</axis>
+		<center>
+			<x-m>0</x-m>
+			<y-m>-0.169</y-m>
+			<z-m>-0.009</z-m>
+		</center>
 	</animation>
 
 	<animation>
@@ -1156,6 +1195,14 @@
 				<max>320</max>
 				<wrap>false</wrap>
 			</binding>
+			<binding>
+				<command>property-multiply</command>
+				<property>/instrumentation/radar/range</property>
+				<factor>2</factor>
+				<min>10</min>
+				<max>320</max>
+				<wrap>false</wrap>
+			</binding>
 		</action>
 
 		<action>
@@ -1165,6 +1212,14 @@
 			<binding>
 				<command>property-multiply</command>
 				<property>/instrumentation/efis[0]/nd/display-range</property>
+				<factor>0.5</factor>
+				<min>10</min>
+				<max>320</max>
+				<wrap>false</wrap>
+			</binding>
+			<binding>
+				<command>property-multiply</command>
+				<property>/instrumentation/radar/range</property>
 				<factor>0.5</factor>
 				<min>10</min>
 				<max>320</max>

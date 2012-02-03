@@ -11,11 +11,11 @@
 <!-- arc mode -->
  
         <layer>
-            <condition>
+            <!--condition>
                 <not>
                     <property>instrumentation/efis[0]/inputs/nd-centred</property>
                 </not>
-            </condition>
+            </condition-->
             <name>hdg</name>
             <w>360</w>
             <h>360</h>
