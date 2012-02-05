@@ -192,7 +192,7 @@
 			<repeatable type="bool">false</repeatable>
 			<binding>
 				<command>property-cycle</command>
-				<property>instrumentation/mfd/nav-display[0]</property>
+				<property>instrumentation/efis/input/vor-adf-1</property>
 				<value type="int">2</value>
 				<value type="int">0</value>
 				<value type="int">1</value>
@@ -203,7 +203,7 @@
 		<name>NAV display 1 left switch rotate</name>
 		<type>rotate</type>
 		<object-name>NAV1SwtchL</object-name>
-		<property>instrumentation/mfd/nav-display[0]</property>
+		<property>instrumentation/efis/input/vor-adf-1</property>
 		<interpolation>
 			<entry><ind>0</ind><dep>0</dep></entry>
 			<entry><ind>1</ind><dep>25</dep></entry>
@@ -224,7 +224,7 @@
 		<name>NAV display 1 right switch rotate</name>
 		<type>rotate</type>
 		<object-name>NAV1SwtchR</object-name>
-		<property>instrumentation/mfd/nav-display[0]</property>
+		<property>instrumentation/efis/input/vor-adf-1</property>
 		<interpolation>
 			<entry><ind>0</ind><dep>0</dep></entry>
 			<entry><ind>1</ind><dep>25</dep></entry>
@@ -252,7 +252,7 @@
 			<repeatable type="bool">false</repeatable>
 			<binding>
 				<command>property-cycle</command>
-				<property>instrumentation/mfd/nav-display[1]</property>
+				<property>instrumentation/efis/input/vor-adf-2</property>
 				<value type="int">2</value>
 				<value type="int">0</value>
 				<value type="int">1</value>
@@ -263,7 +263,7 @@
 		<name>NAV display 2 left switch rotate</name>
 		<type>rotate</type>
 		<object-name>NAV2SwtchL</object-name>
-		<property>instrumentation/mfd/nav-display[1]</property>
+		<property>instrumentation/efis/input/vor-adf-2</property>
 		<interpolation>
 			<entry><ind>0</ind><dep>0</dep></entry>
 			<entry><ind>1</ind><dep>25</dep></entry>
@@ -284,7 +284,7 @@
 		<name>NAV display 2 right switch rotate</name>
 		<type>rotate</type>
 		<object-name>NAV2SwtchR</object-name>
-		<property>instrumentation/mfd/nav-display[1]</property>
+		<property>instrumentation/efis/input/vor-adf-2</property>
 		<interpolation>
 			<entry><ind>0</ind><dep>0</dep></entry>
 			<entry><ind>1</ind><dep>25</dep></entry>
@@ -1097,6 +1097,8 @@
 		</condition>
 	</animation>
 
+
+
 <!-- EFIS Navigarion display selectors -->
 
 	<animation>
@@ -1227,6 +1229,31 @@
 			</binding>
 		</action>
 	</animation>
+	<animation>
+		<name>MDF Mode switch rotate</name>
+		<type>rotate</type>
+		<object-name>MFDSwtchL2</object-name>
+		<property>/instrumentation/efis[0]/nd/display-range</property>
 
+		<interpolation>
+			<entry><ind>10</ind><dep>90</dep></entry>
+			<entry><ind>20</ind><dep>45</dep></entry>
+			<entry><ind>40</ind><dep>0</dep></entry>
+			<entry><ind>80</ind><dep>-45</dep></entry>
+			<entry><ind>160</ind><dep>-90</dep></entry>
+			<entry><ind>320</ind><dep>-135</dep></entry>
+
+		</interpolation>
+		<axis>
+			<x>1</x>
+			<y>0</y>
+			<z>0</z>
+		</axis>
+		<center>
+			<x-m>0</x-m>
+			<y-m>-0.126</y-m>
+			<z-m>-0.009</z-m>
+		</center>
+	</animation>
 
 </PropertyList>

@@ -3,19 +3,73 @@
 
 	<name>MFD Panel</name>
 	<background>Aircraft/A320neo/Models/Instruments/ND/res/black.png</background>
-	<w>1024</w>
-	<h>1024</h>
+	<w>256</w>
+	<h>256</h>
 
 	<instruments> 
-<!-- ROSE[ILS VOR NAV] ARC PLAN-->
+	<!-- ROSE[ILS VOR NAV] ARC PLAN-->
 		
-		<instrument include="page-test.xml">
-			<name>test</name>
-			<x>512</x>
-			<y>512</y>
-			<w>1024</w>
-			<h>1024</h>
+		<instrument include="page-BASE-rose.xml">
+			<!-- BASE/Common Instrument for ROSE style -->
+			<condition>
+				<or>
+					<equals>
+						<property>instrumentation/efis[0]/nd/display-mode</property>
+						<value>ILS</value>
+					</equals>
+					<equals>
+						<property>instrumentation/efis[0]/nd/display-mode</property>
+						<value>VOR</value>
+					</equals>
+					<equals>
+						<property>instrumentation/efis[0]/nd/display-mode</property>
+						<value>NAV</value>
+					</equals>
+				</or>
+			</condition>
+			<name>ROSEbase</name>
+			<x>128</x>
+			<y>116</y>
+			<w>256</w>
+			<h>256</h>
+		</instrument>
+		<instrument include="page-VOR-text.xml">
+			<!-- BASE/Common Instrument for ROSE style -->
+			<condition>
+				
+				<equals>
+					<property>instrumentation/efis[0]/nd/display-mode</property>
+					<value>VOR</value>
+				</equals>
+					
+				
+			</condition>
+			<name>VORtext</name>
+			<x>128</x>
+			<y>116</y>
+			<w>256</w>
+			<h>256</h>
 		</instrument>
 
+		<!-- instrument include="new-old/page-ROSE-mask.xml">
+			<condition>
+				<equals>
+					<property>instrumentation/efis[0]/nd/display-mode</property>
+					<value>VOR</value>
+				</equals>
+			</condition>
+			<name>test</name>
+			<x>128</x>
+			<y>128</y>
+			<w>256</w>
+			<h>256</h>
+		</instrument-->
+		<instrument include="page-test.xml">
+			<name>test</name>
+			<x>128</x>
+			<y>128</y>
+			<w>256</w>
+			<h>256</h>
+		</instrument>
 	</instruments>
 </PropertyList>

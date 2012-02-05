@@ -1,0 +1,119 @@
+<?xml version="1.0"?>
+<PropertyList>
+	<name>VOR</name>
+	<w-base>256</w-base>
+	<h-base>256</h-base>
+	<layers>
+
+<!-- Center ROSE Background -->
+	<layer>
+		<name>ROSE</name>
+		<w>225</w>
+		<h>225</h>
+		<texture>
+			<path>Aircraft/A320neo/Models/Instruments/ND/res/hsi2a.png</path>
+			<x1>0</x1>
+			<y1>0</y1>
+			<x2>1</x2>
+			<y2>1</y2>
+		</texture>
+		<transformations>
+
+			<transformation>
+				<type>rotation</type>
+				<property>orientation/heading-magnetic-deg</property>
+				<scale>-1</scale>
+			</transformation>
+		</transformations>
+		<emissive>true</emissive>
+	</layer>
+
+	<layer>
+		<name>hdgbug</name>
+		<emissive>true</emissive>
+		<w>14</w>
+		<h>10</h>
+		<texture>
+			<path>Aircraft/A320neo/Models/Instruments/ND/res/A320neo_symbols.png</path>
+
+			<!-- Orign is down left-->
+			<x1>0.742</x1>
+			<y1>0.921</y1>
+			<x2>0.832</x2>
+			<y2>1</y2>
+		</texture>
+		<transformations>
+			<!-- first: Rotate fron layer center -->
+			<transformation>
+				<type>rotation</type>
+				<property>autopilot/internal/fdm-heading-bug-error-deg</property>
+			</transformation>
+			<!-- second: shift from rotation origin -->
+			<transformation>
+				<type>y-shift</type>
+				<offset>90</offset>
+			</transformation>
+		</transformations>
+	</layer>
+
+	<layer>
+		<name>vor1bug</name>
+		<emissive>true</emissive>
+		<w>177</w>
+		<h>20</h>
+		<texture>
+			<path>Aircraft/A320neo/Models/Instruments/ND/res/A320neo_symbols.png</path>
+
+			<!-- Orign is down left-->
+			<x1>0</x1>
+			<y1>0.119</y1>
+			<x2>1</x2>
+			<y2>0.219</y2>
+
+		</texture>
+		<transformations>
+			<!-- Correct our heading deviation -->
+			<transformation>
+				<type>rotation</type>
+				<property>orientation/heading-deg</property>
+				<scale>-1</scale>
+			</transformation>
+			<!-- Correct VOR Source heading -->
+			<transformation>
+				<type>rotation</type>
+				<property>instrumentation/nav[0]/heading-deg</property>
+			</transformation>
+		</transformations>
+	</layer>
+	<layer>
+		<name>vor2bug</name>
+		<emissive>true</emissive>
+		<w>177</w>
+		<h>20</h>
+		<texture>
+			<path>Aircraft/A320neo/Models/Instruments/ND/res/A320neo_symbols.png</path>
+
+			<!-- Orign is down left-->
+			<x1>0.0</x1>
+			<y1>0.0</y1>
+			<x2>1</x2>
+			<y2>0.098</y2>
+		</texture>
+		<transformations>
+
+			<!-- Correct our heading deviation -->
+			<transformation>
+				<type>rotation</type>
+				<property>orientation/heading-deg</property>
+				<scale>-1</scale>
+			</transformation>
+			<!-- Correct VOR Source heading -->
+			<transformation>
+				<type>rotation</type>
+				<property>instrumentation/nav[1]/heading-deg</property>
+			</transformation>
+
+		</transformations>
+	</layer>
+	</layers>
+</PropertyList>

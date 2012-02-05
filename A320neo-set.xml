@@ -562,8 +562,8 @@
 				
 			</nd>
 			<inputs>
-				<lh-vor-adf type="bool">1</lh-vor-adf>
-				<rh-vor-adf type="bool">1</rh-vor-adf>
+				<vor-adf-1 type="bool">1</vor-adf-1>
+				<vor-adf-2 type="bool">1</vor-adf-2>
 				<CSTR type="bool">1</CSTR>
 				<WPT type="bool">1</WPT>
 				<VORD type="bool">1</VORD>
@@ -576,19 +576,6 @@
 			</inputs>
 
 		
-			<inputs>
-				<lh-vor-adf type="bool">1</lh-vor-adf>
-				<rh-vor-adf type="bool">1</rh-vor-adf>
-				<CSTR type="bool">0</CSTR>
-				<WPT type="bool">0</WPT>
-				<VORD type="bool">0</VORD>
-				<NDB type="bool">0</NDB>
-				<ARPT type="bool">0</ARPT>
-				<WX type="bool">0</WX>
-				<TERR type="bool">0</TERR>
-				<TRAF type="bool">0</TRAF>
-				<taxi type="bool">0</taxi>
-			</inputs>
 		</efis>
 		<tcas><!-- http://wiki.flightgear.org/index.php/TCAS -->
 			<serviceable type="bool">true</serviceable><!-- TCAS ENABLE -->
