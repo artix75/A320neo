@@ -212,7 +212,7 @@
 		<chase-distance-m>-60</chase-distance-m>
 
 		<sound>
-			<path>Aircraft/A320neo/A320-sound.xml</path>
+			<path>Aircraft/A320neo/Sounds/A320-sound.xml</path>
 		</sound>
 
 		<instrumentation>
