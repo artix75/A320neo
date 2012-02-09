@@ -193,7 +193,8 @@
 		<systems>
 			<autopilot>
 				<name>Autopilot</name>
-				<path>Aircraft/A320neo/Systems/a320-autopilot.xml</path>
+				<path>Aircraft/A320neo/Systems/a320-autopilot3.xml</path>
+				<!--path>Aircraft/Generic/generic-autopilot.xml</path-->
 			</autopilot>
 			<autopilot>
 				<name>Autopilot helpers</name>

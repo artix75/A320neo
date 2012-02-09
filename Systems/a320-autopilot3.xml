@@ -1,0 +1,404 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!-- Airbus A320 Autopilot Configuration -->
+
+<PropertyList>
+
+ <!-- =============================================================== -->
+ <!-- Surface Movement to Targeted Degres                             -->
+ <!-- =============================================================== -->
+	<pid-controller>
+		<name>Elevator Surface</name>
+		<debug type="bool">false</debug>
+		<enable>
+			<prop>/autopilot/internal/altitude-hold</prop>
+			<value type="bool">true</value>
+		</enable>
+		<input>
+			<prop>/orientation/pitch-deg</prop>
+			<!--prop>/velocities/vertical-speed-fps</prop-->
+		</input>
+		<reference>
+			<!--prop>/autopilot/internal/target-climb-rate-fps</prop-->
+			<prop>/autopilot/internal/target-pitch-deg</prop>
+		</reference>
+		<output>
+			<!--prop>/controls/flight/elevator-trim</prop-->
+			<prop>/controls/flight/elevator</prop>
+		</output>
+		<!--config>
+			<Kp>-0.01</Kp>
+			<beta>1</beta>
+			<alpha>0.1</alpha>
+			<gamma>0</gamma>
+			<Ti>10</Ti>
+			<Td>0.00001</Td>
+			<u_min>-1</u_min>
+			<u_max>1</u_max>
+		</config-->
+		<config>
+			<Kp>-0.025</Kp>
+			<Ti>15</Ti>
+			
+	
+			<u_min>-1</u_min>
+			<u_max>1</u_max>
+		</config>
+	</pid-controller>
+
+	<pid-controller>
+		<name>Aileron Surface</name>
+		<debug type="bool">false</debug>
+		<enable>
+			<prop>/autopilot/internal/heading-hold-deg</prop>
+			<value type="bool">true</value>
+		</enable>
+		<input>
+			<prop>/orientation/roll-deg</prop>
+		</input>
+		<reference>
+			<prop>/autopilot/internal/target-roll-deg</prop>
+		</reference>
+		<output>
+			<prop>/controls/flight/aileron</prop>
+		</output>
+		<!--config>
+			<Kp>-0.01</Kp>
+			<beta>1</beta>
+			<alpha>0.1</alpha>
+			<gamma>0</gamma>
+			<Ti>10</Ti>
+			<Td>0.00001</Td>
+			<u_min>-1</u_min>
+			<u_max>1</u_max>
+		</config-->
+		<config>
+			<Kp>0.015</Kp>
+			<Ti>15</Ti>
+			<u_min>-1.0</u_min>
+			<u_max>1.0</u_max>
+		</config>
+	</pid-controller>
+
+
+ <!-- =============================================================== -->
+ <!--  HORIZONTAL                                                     -->
+ <!-- =============================================================== -->
+
+
+	<!-- Magnetic heading -->
+	<logic>
+		<name>Magnetic heading hold stage 1 logic</name>
+		<input>
+			<and>
+				<equals>
+					<property>/autopilot/settings/heading</property>
+					<value>dg-heading-hold</value>
+				</equals>
+				<equals>
+					<property>/autopilot/settings/heading-mode</property>
+					<value>0</value>
+				</equals>
+			</and>
+		</input>
+		<output>/autopilot/internal/heading-hold-deg-stage1</output>
+	</logic>
+	<logic>
+		<name>Magnetic heading hold stage 2 logic</name>
+		<input>
+			<and>
+				<property>/autopilot/settings/engaged</property>
+				<equals>
+					<property>/autopilot/settings/heading</property>
+					<value>dg-heading-hold</value>
+				</equals>
+				<equals>
+					<property>/autopilot/settings/heading-mode</property>
+					<value>0</value>
+				</equals>
+			</and>
+		</input>
+		<output>/autopilot/internal/heading-hold-deg</output>
+	</logic>
+	<!--pid-controller>
+		<name>Magnetic heading hold stage 1</name>
+		<debug type="bool">false</debug>
+		<enable>
+			<prop>/autopilot/internal/heading-hold-deg-stage1</prop>
+			<value type="bool">true</value>
+		</enable>
+		<input>
+			<prop>/autopilot/internal/fdm-heading-bug-error-deg</prop>
+		</input>
+		<reference>
+			<value>0</value>
+		</reference>
+		<output>
+			<prop>/autopilot/internal/target-roll-deg</prop>
+		</output>
+		<config>
+			<Kp>-3</Kp>
+			<beta>1</beta>
+			<alpha>0.2</alpha>
+			<gamma>0</gamma>
+			<Ti>1</Ti>
+			<Td>1</Td>
+			<u_min>-25</u_min>
+			<u_max>25</u_max>
+		</config>
+	</pid-controller-->
+	<!--filter>
+		<name>Target Roll Computer</name>
+		<debug>false</debug>
+		<enable>
+			<prop>/autopilot/internal/heading-hold-deg-stage1</prop>
+			<value type="bool">true</value>
+		</enable>
+		<type>gain</type>
+		<input>/autopilot/internal/fdm-heading-bug-error-deg</input>
+		<output>/autopilot/internal/target-roll-deg</output>
+		<gain>2.5</gain>
+		<min>-30.0</min>
+		<max>30.0</max>
+	</filter-->
+	<pi-simple-controller>
+		<name>Heading Hold - Target Roll Computer</name>
+		<debug type="bool">false</debug>
+		<enable>
+			<condition>
+				<and>
+					<equals>
+						<property>/autopilot/settings/heading</property>
+						<value>dg-heading-hold</value>
+					</equals>
+					<equals>
+						<property>/autopilot/settings/heading-mode</property>
+						<value>0</value>
+					</equals>
+				</and>
+			</condition>
+		</enable>
+		<input>
+			<prop>/autopilot/internal/fdm-heading-bug-error-deg</prop>
+		</input>
+		<reference>
+			<value>0</value>
+		</reference>
+		<output>
+			<prop>/autopilot/internal/target-roll-deg</prop>
+		</output>
+		<config>
+			<Kp>-2.5</Kp>
+			<Ki>0</Ki>
+
+			<u_min>-30</u_min>
+			<u_max>30</u_max>
+			
+		</config>
+	</pi-simple-controller>
+
+
+	<pid-simple-controller>
+		<name>Ground track hold stage 1</name>
+		<debug type="bool">false</debug>
+		<enable>
+			<condition>
+				<and>
+					<equals>
+						<property>/autopilot/settings/heading</property>
+						<value>dg-heading-hold</value>
+					</equals>
+					<equals>
+						<property>/autopilot/settings/heading-mode</property>
+						<value>1</value>
+					</equals>
+				</and>
+			</condition>
+		</enable>
+		<input>
+			<prop>/autopilot/internal/fdm-track-bug-error-deg</prop>
+		</input>
+		<reference>
+			<value>0</value>
+		</reference>
+		<output>
+			<prop>/autopilot/internal/target-roll-deg</prop>
+		</output>
+		<config>
+			<Kp>-2.5</Kp>
+			<Ki>0</Ki>
+
+			<u_min>-30</u_min>
+			<u_max>30</u_max>
+		</config>
+	</pid-simple-controller>
+ <!-- =============================================================== -->
+ <!--  VERTICAL                                                       -->
+ <!-- =============================================================== -->
+
+	<filter>
+		<name>Vertical Speed - Angle</name>
+		<debug type="bool">true</debug>
+		<type>gain</type>
+		<gain>1.0</gain>
+		<input>
+			<expression>
+				<asin>
+					<div>
+						<div>
+							<property>/autopilot/settings/vertical-speed-fpm</property>
+							<value>100</value><!-- fast aprox. value to kt -->
+						</div>
+						<property>velocities/airspeed-kt</property>
+					</div>
+				</asin>
+		
+			</expression>
+		</input>
+		<output>/autopilot/settings/vertical-speed-deg</output>
+	</filter>
+
+	<!-- Altitude hold -->
+	<logic>
+		<name>Altitude hold</name>
+		<input>
+			<and>
+				<property>/autopilot/settings/engaged</property>
+				<equals>
+					<property>/autopilot/settings/altitude</property>
+					<value>altitude-hold</value>
+				</equals>
+			</and>
+		</input>
+		<output>/autopilot/internal/altitude-hold</output>
+	</logic>
+	<logic>
+		<name>Altitude hold climb</name>
+		<input>
+			<greater-than-equals>
+				<property>/autopilot/settings/vertical-speed-fpm</property>
+				<value>0</value>
+			</greater-than-equals>
+		</input>
+		<output>/autopilot/internal/altitude-hold-climb</output>
+	</logic>
+	<logic>
+		<name>Altitude hold descend</name>
+		<input>
+			<less-than>
+				<property>/autopilot/settings/vertical-speed-fpm</property>
+				<value>0</value>
+			</less-than>
+		</input>
+		<output>/autopilot/internal/altitude-hold-descend</output>
+	</logic>
+
+
+
+	<pi-simple-controller>
+		<name>Altitude hold</name>
+		<debug type="bool">false</debug>
+		<enable>
+			<prop>/autopilot/internal/altitude-hold</prop>
+			<value type="bool">true</value>
+		</enable>
+		<input>
+			<prop>/instrumentation/altimeter/indicated-altitude-ft</prop>
+		</input>
+		<reference>
+			<prop>/autopilot/settings/target-altitude-ft</prop>
+		</reference>
+		<output>
+			<prop>/autopilot/internal/target-pitch-deg</prop>
+		</output>
+		<config>
+			<Kp>0.03</Kp>
+			<Ki>0</Ki>
+
+			<u_min>-17</u_min>
+			<u_max>17</u_max>
+			
+		</config>
+	</pi-simple-controller>
+
+ <!-- =============================================================== -->
+ <!-- Velocity Modes                                                  -->
+ <!-- =============================================================== -->
+
+	 <!-- Auto throttle --> 
+	<pid-controller>
+		<name>Auto Throttle (5 sec lookahead)</name>
+		<debug>false</debug>
+		<enable>
+			<condition>
+				<and>
+					<property>/autopilot/settings/autothrottle</property>
+					<equals>
+						<property>/autopilot/settings/speed-mode</property>
+						<value>0</value>
+					</equals>
+				</and>
+			</condition>
+		</enable>
+		<input>
+			<!-- <prop>/autopilot/internal/lookahead-5-sec-airspeed-kt</prop> -->
+			<prop>/velocities/airspeed-kt</prop>
+		</input>
+		<reference>
+			<prop>/autopilot/settings/target-speed-kt</prop>
+		</reference>
+		<output>
+			<prop>/controls/engines/engine[0]/throttle</prop>
+			<prop>/controls/engines/engine[1]/throttle</prop>
+
+		</output>
+		<config>
+			<Kp>0.1</Kp>        <!-- proportional gain -->
+			<beta>1.0</beta>    <!-- input value weighing factor -->
+			<alpha>0.1</alpha>  <!-- low pass filter weighing factor -->
+			<gamma>0.0</gamma>  <!-- input value weighing factor for -->
+			<!-- unfiltered derivative error -->
+			<Ti>10.0</Ti>       <!-- integrator time -->
+			<Td>0.00001</Td>    <!-- derivator time -->
+			<u_min>0.0</u_min>  <!-- minimum output clamp -->
+			<u_max>1.0</u_max>  <!-- maximum output clamp -->
+		</config>
+	</pid-controller>
+	<pid-controller>
+		<name>Mach hold</name>
+		<debug type="bool">false</debug>
+		<enable>
+			<condition>
+				<and>
+					<property>/autopilot/settings/autothrottle</property>
+					<equals>
+						<property>/autopilot/settings/speed-mode</property>
+						<value>1</value>
+					</equals>
+				</and>
+			</condition>
+		</enable>
+		<input>
+			<prop>/velocities/mach</prop>
+		</input>
+		<reference>
+			<prop>/autopilot/settings/target-speed-mach</prop>
+		</reference>
+		<output>
+			<prop>/controls/engines/engine[0]/throttle</prop>
+			<prop>/controls/engines/engine[1]/throttle</prop>
+		</output>
+		<config>
+			<Kp>20</Kp>
+			<beta>1</beta>
+			<alpha>0.1</alpha>
+			<gamma>0</gamma>
+			<Ti>10</Ti>
+			<Td>0.00001</Td>
+			<u_min>0</u_min>
+			<u_max>1</u_max>
+		</config>
+	</pid-controller>
+	
+
+</PropertyList>
