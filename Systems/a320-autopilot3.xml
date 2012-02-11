@@ -11,20 +11,20 @@
 		<name>Elevator Surface</name>
 		<debug type="bool">false</debug>
 		<enable>
-			<prop>/autopilot/internal/altitude-hold</prop>
+			<property>/autopilot/internal/altitude-hold</property>
 			<value type="bool">true</value>
 		</enable>
 		<input>
-			<prop>/orientation/pitch-deg</prop>
+			<property>/orientation/pitch-deg</property>
 			<!--prop>/velocities/vertical-speed-fps</prop-->
 		</input>
 		<reference>
 			<!--prop>/autopilot/internal/target-climb-rate-fps</prop-->
-			<prop>/autopilot/internal/target-pitch-deg</prop>
+			<property>/autopilot/internal/target-pitch-deg</property>
 		</reference>
 		<output>
 			<!--prop>/controls/flight/elevator-trim</prop-->
-			<prop>/controls/flight/elevator</prop>
+			<property>/controls/flight/elevator</property>
 		</output>
 		<!--config>
 			<Kp>-0.01</Kp>
@@ -50,17 +50,17 @@
 		<name>Aileron Surface</name>
 		<debug type="bool">false</debug>
 		<enable>
-			<prop>/autopilot/internal/heading-hold-deg</prop>
+			<property>/autopilot/internal/heading-hold-deg</property>
 			<value type="bool">true</value>
 		</enable>
 		<input>
-			<prop>/orientation/roll-deg</prop>
+			<property>/orientation/roll-deg</property>
 		</input>
 		<reference>
-			<prop>/autopilot/internal/target-roll-deg</prop>
+			<property>/autopilot/internal/target-roll-deg</property>
 		</reference>
 		<output>
-			<prop>/controls/flight/aileron</prop>
+			<property>/controls/flight/aileron</property>
 		</output>
 		<!--config>
 			<Kp>-0.01</Kp>
@@ -124,17 +124,17 @@
 		<name>Magnetic heading hold stage 1</name>
 		<debug type="bool">false</debug>
 		<enable>
-			<prop>/autopilot/internal/heading-hold-deg-stage1</prop>
+			<property>/autopilot/internal/heading-hold-deg-stage1</property>
 			<value type="bool">true</value>
 		</enable>
 		<input>
-			<prop>/autopilot/internal/fdm-heading-bug-error-deg</prop>
+			<property>/autopilot/internal/fdm-heading-bug-error-deg</property>
 		</input>
 		<reference>
 			<value>0</value>
 		</reference>
 		<output>
-			<prop>/autopilot/internal/target-roll-deg</prop>
+			<property>/autopilot/internal/target-roll-deg</property>
 		</output>
 		<config>
 			<Kp>-3</Kp>
@@ -151,7 +151,7 @@
 		<name>Target Roll Computer</name>
 		<debug>false</debug>
 		<enable>
-			<prop>/autopilot/internal/heading-hold-deg-stage1</prop>
+			<property>/autopilot/internal/heading-hold-deg-stage1</property>
 			<value type="bool">true</value>
 		</enable>
 		<type>gain</type>
@@ -179,13 +179,13 @@
 			</condition>
 		</enable>
 		<input>
-			<prop>/autopilot/internal/fdm-heading-bug-error-deg</prop>
+			<property>/autopilot/internal/fdm-heading-bug-error-deg</property>
 		</input>
 		<reference>
 			<value>0</value>
 		</reference>
 		<output>
-			<prop>/autopilot/internal/target-roll-deg</prop>
+			<property>/autopilot/internal/target-roll-deg</property>
 		</output>
 		<config>
 			<Kp>-2.5</Kp>
@@ -216,13 +216,13 @@
 			</condition>
 		</enable>
 		<input>
-			<prop>/autopilot/internal/fdm-track-bug-error-deg</prop>
+			<property>/autopilot/internal/fdm-track-bug-error-deg</property>
 		</input>
 		<reference>
 			<value>0</value>
 		</reference>
 		<output>
-			<prop>/autopilot/internal/target-roll-deg</prop>
+			<property>/autopilot/internal/target-roll-deg</property>
 		</output>
 		<config>
 			<Kp>-2.5</Kp>
@@ -300,17 +300,17 @@
 		<name>Altitude hold</name>
 		<debug type="bool">false</debug>
 		<enable>
-			<prop>/autopilot/internal/altitude-hold</prop>
+			<property>/autopilot/internal/altitude-hold</property>
 			<value type="bool">true</value>
 		</enable>
 		<input>
-			<prop>/instrumentation/altimeter/indicated-altitude-ft</prop>
+			<property>/instrumentation/altimeter/indicated-altitude-ft</property>
 		</input>
 		<reference>
-			<prop>/autopilot/settings/target-altitude-ft</prop>
+			<property>/autopilot/settings/target-altitude-ft</property>
 		</reference>
 		<output>
-			<prop>/autopilot/internal/target-pitch-deg</prop>
+			<property>/autopilot/internal/target-pitch-deg</property>
 		</output>
 		<config>
 			<Kp>0.03</Kp>
@@ -328,25 +328,26 @@
 		<name>Climb Rate Correction</name>
 		<debug>true</debug>
 		<enable>
-			<prop>/autopilot/internal/altitude-hold</prop>
+			<property>/autopilot/internal/altitude-hold</property>
 			<value type="bool">true</value>
 		</enable>
 		<type>gain</type>
+		<gain>0.001</gain>
 		<input>
 			<expression>
 				<dif>
 					<prod>
-						<prop>/velocities/vertical-speed-fps</prop>
+						<property>/velocities/vertical-speed-fps</property>
 						<value>60</value>
 					</prod>
-					<prop>/autopilot/settings/vertical-speed-fpm</prop>
+					<property>/autopilot/settings/vertical-speed-fpm</property>
 				</dif>
 			</expression>
 		</input>
 		<output>/autopilot/internal/target-pitch-deg-gain2</output>
-		<gain>2.5</gain>
-		<min>-30.0</min>
-		<max>30.0</max>
+		
+		<min>-2.0</min>
+		<max>2.0</max>
 	</filter>
 
 
@@ -360,21 +361,21 @@
 		<name>Climb Rate Correction</name>
 		<debug type="bool">false</debug>
 		<enable>
-			<prop>/autopilot/internal/altitude-hold</prop>
+			<property>/autopilot/internal/altitude-hold</property>
 			<value type="bool">true</value>
 		</enable>
 		<input>
-			<!-- prop>/instrumentation/vertical-speed-indicator/indicated-speed-fpm</prop>
-				<prop>/velocities/vertical-speed-fps</prop>
-				<scale>60</scale-->
-			<value>2000</value>
+			<!-- prop>/instrumentation/vertical-speed-indicator/indicated-speed-fpm</property-->
+				<property>/velocities/vertical-speed-fps</property>
+				<scale>60</scale>
+			
 		</input>
 		<reference>
-			<!--prop>/autopilot/settings/vertical-speed-fpm</prop-->
-			<value>2000</value>
+			<property>/autopilot/settings/vertical-speed-fpm</property>
+			
 		</reference>
 		<output>
-			<prop>/autopilot/internal/target-pitch-deg-gain</prop>
+			<property>/autopilot/internal/target-pitch-deg-gain</property>
 		</output>
 		<config>
 			<Kp>0.001</Kp>
@@ -411,15 +412,15 @@
 			</condition>
 		</enable>
 		<input>
-			<!-- <prop>/autopilot/internal/lookahead-5-sec-airspeed-kt</prop> -->
-			<prop>/velocities/airspeed-kt</prop>
+			<!-- <property>/autopilot/internal/lookahead-5-sec-airspeed-kt</property> -->
+			<property>/velocities/airspeed-kt</property>
 		</input>
 		<reference>
-			<prop>/autopilot/settings/target-speed-kt</prop>
+			<property>/autopilot/settings/target-speed-kt</property>
 		</reference>
 		<output>
-			<prop>/controls/engines/engine[0]/throttle</prop>
-			<prop>/controls/engines/engine[1]/throttle</prop>
+			<property>/controls/engines/engine[0]/throttle</property>
+			<property>/controls/engines/engine[1]/throttle</property>
 
 		</output>
 		<config>
@@ -449,14 +450,14 @@
 			</condition>
 		</enable>
 		<input>
-			<prop>/velocities/mach</prop>
+			<property>/velocities/mach</property>
 		</input>
 		<reference>
-			<prop>/autopilot/settings/target-speed-mach</prop>
+			<property>/autopilot/settings/target-speed-mach</property>
 		</reference>
 		<output>
-			<prop>/controls/engines/engine[0]/throttle</prop>
-			<prop>/controls/engines/engine[1]/throttle</prop>
+			<property>/controls/engines/engine[0]/throttle</property>
+			<property>/controls/engines/engine[1]/throttle</property>
 		</output>
 		<config>
 			<Kp>20</Kp>
