@@ -238,21 +238,23 @@
 
 	<filter>
 		<name>Vertical Speed - Angle</name>
-		<debug type="bool">true</debug>
+		<debug type="bool">false</debug>
 		<type>gain</type>
 		<gain>1.0</gain>
 		<input>
 			<expression>
-				<asin>
-					<div>
+				<prod>
+					<atan>
 						<div>
-							<property>/autopilot/settings/vertical-speed-fpm</property>
-							<value>100</value><!-- fast aprox. value to kt -->
+							<div>
+								<property>/autopilot/settings/vertical-speed-fpm</property>
+								<value type="double">100</value><!-- fast aprox. value to kt -->
+							</div>
+							<property>velocities/airspeed-kt</property>
 						</div>
-						<property>velocities/airspeed-kt</property>
-					</div>
-				</asin>
-		
+					</atan>
+					<value>57.29577951</value><!-- radian to Deg -->
+				</prod>
 			</expression>
 		</input>
 		<output>/autopilot/settings/vertical-speed-deg</output>
@@ -320,6 +322,75 @@
 			
 		</config>
 	</pi-simple-controller>
+
+
+
+	<filter>
+		<name>Climb Rate Correction</name>
+		<debug>true</debug>
+		<enable>
+			<prop>/autopilot/internal/altitude-hold</prop>
+			<value type="bool">true</value>
+		</enable>
+		<type>gain</type>
+		<input>
+			<expression>
+				<dif>
+					<prod>
+						<prop>/velocities/vertical-speed-fps</prop>
+						<value>60</value>
+					</prod>
+					<prop>/autopilot/settings/vertical-speed-fpm</prop>
+				</dif>
+			</expression>
+		</input>
+		<output>/autopilot/internal/target-pitch-deg-gain2</output>
+		<gain>2.5</gain>
+		<min>-30.0</min>
+		<max>30.0</max>
+	</filter>
+
+
+
+
+
+<!-- ====================================== -->
+
+
+	<pid-controller>
+		<name>Climb Rate Correction</name>
+		<debug type="bool">false</debug>
+		<enable>
+			<prop>/autopilot/internal/altitude-hold</prop>
+			<value type="bool">true</value>
+		</enable>
+		<input>
+			<!-- prop>/instrumentation/vertical-speed-indicator/indicated-speed-fpm</prop>
+				<prop>/velocities/vertical-speed-fps</prop>
+				<scale>60</scale-->
+			<value>2000</value>
+		</input>
+		<reference>
+			<!--prop>/autopilot/settings/vertical-speed-fpm</prop-->
+			<value>2000</value>
+		</reference>
+		<output>
+			<prop>/autopilot/internal/target-pitch-deg-gain</prop>
+		</output>
+		<config>
+			<Kp>0.001</Kp>
+			<!--beta>1</beta-->
+			<alpha>1</alpha>
+			<!--gamma>0</gamma-->
+			<Ti>10</Ti>
+			<!--Td>0.00001</Td-->
+			<u_min>-1</u_min>
+			<u_max>1.5</u_max>
+		</config>
+	</pid-controller>
+
+
+
 
  <!-- =============================================================== -->
  <!-- Velocity Modes                                                  -->
