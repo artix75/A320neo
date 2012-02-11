@@ -243,18 +243,17 @@
 		<gain>1.0</gain>
 		<input>
 			<expression>
-				<prod>
+				<rad2deg>
 					<atan>
 						<div>
-							<div>
+							<prod>
 								<property>/autopilot/settings/vertical-speed-fpm</property>
-								<value type="double">100</value><!-- fast aprox. value to kt -->
-							</div>
+								<value type="double">0.00987473002</value><!-- fast aprox. value to kt -->
+							</prod>
 							<property>velocities/airspeed-kt</property>
 						</div>
 					</atan>
-					<value>57.29577951</value><!-- radian to Deg -->
-				</prod>
+				</rad2deg>
 			</expression>
 		</input>
 		<output>/autopilot/settings/vertical-speed-deg</output>
