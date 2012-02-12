@@ -20,7 +20,13 @@
 		</input>
 		<reference>
 			<!--prop>/autopilot/internal/target-climb-rate-fps</prop-->
-			<property>/autopilot/internal/target-pitch-deg</property>
+			
+			<expression>
+				<sum>
+					<property>/autopilot/internal/target-pitch-deg</property>
+					<property>/autopilot/internal/target-pitch-deg-gain2</property>
+				</sum>
+			</expression>
 		</reference>
 		<output>
 			<!--prop>/controls/flight/elevator-trim</prop-->
@@ -256,7 +262,7 @@
 				</rad2deg>
 			</expression>
 		</input>
-		<output>/autopilot/settings/vertical-speed-deg</output>
+		<output>/autopilot/internal/target-vertical-speed-deg</output>
 	</filter>
 
 	<!-- Altitude hold -->
@@ -273,7 +279,7 @@
 		</input>
 		<output>/autopilot/internal/altitude-hold</output>
 	</logic>
-	<logic>
+	<!--logic>
 		<name>Altitude hold climb</name>
 		<input>
 			<greater-than-equals>
@@ -292,7 +298,9 @@
 			</less-than>
 		</input>
 		<output>/autopilot/internal/altitude-hold-descend</output>
-	</logic>
+	</logic-->
+
+
 
 
 
@@ -322,52 +330,79 @@
 		</config>
 	</pi-simple-controller>
 
+<!--
 
-
-	<filter>
-		<name>Climb Rate Correction</name>
-		<debug>true</debug>
+	<pi-simple-controller>
+		<name>Altitude Stage 1</name>
+		<debug>false</debug>
 		<enable>
 			<property>/autopilot/internal/altitude-hold</property>
 			<value type="bool">true</value>
 		</enable>
-		<type>gain</type>
-		<gain>0.001</gain>
 		<input>
-			<expression>
-				<dif>
-					<prod>
-						<property>/velocities/vertical-speed-fps</property>
-						<value>60</value>
-					</prod>
-					<property>/autopilot/settings/vertical-speed-fpm</property>
-				</dif>
-			</expression>
+			<prop>instrumentation/altimeter/indicated-altitude-ft</prop>
 		</input>
-		<output>/autopilot/internal/target-pitch-deg-gain2</output>
-		
-		<min>-2.0</min>
-		<max>2.0</max>
-	</filter>
+		<reference>
+			<prop>/autopilot/settings/target-altitude-ft</prop>
+		</reference>
+		<output>
+			<prop>/autopilot/internal/target-climb-rate-fps</prop>
+		</output>
+		<config>
+			<Kp>0.15</Kp>
+			<Ki>0.0</Ki>
+			<u_min>
+				<value>-16.67</value>
+			</u_min>
+			<u_max>
+				<value>33.33</value>
+			</u_max>
+		</config>
+	</pi-simple-controller>
 
+	<pid-controller>
+		<name>Altitude Hold Stage 2</name>
+		<debug>false</debug>
+		<enable>
+			<property>/autopilot/internal/altitude-hold</property>
+			<value type="bool">true</value>
+		</enable>
+		<input>
+			<prop>/velocities/vertical-speed-fps</prop>
+		</input>
+		<reference>
+			<prop>/autopilot/internal/target-climb-rate-fps</prop>
+		</reference>
+		<output>
+			<prop>/autopilot/internal/target-pitch-deg</prop>
+		</output>
+		<config>
+			<Kp>0.05</Kp>
+			<beta>1.0</beta>
+			<alpha>0.1</alpha>
+			<gamma>0.0</gamma>
+			<Ti>1.0</Ti>
+			<Td>0.0</Td>
+			<u_min>-15</u_min>
+			<u_max>15</u_max>
+		</config>
+	</pid-controller>
 
+-->
 
-
-
-<!-- ====================================== -->
+<!-- ====  V/S  ================================== -->
 
 
 	<pid-controller>
 		<name>Climb Rate Correction</name>
 		<debug type="bool">false</debug>
 		<enable>
-			<property>/autopilot/internal/altitude-hold</property>
+			<property>/autopilot/internal/altitude-hold1</property>
 			<value type="bool">true</value>
 		</enable>
 		<input>
 			<!-- prop>/instrumentation/vertical-speed-indicator/indicated-speed-fpm</property-->
-				<property>/velocities/vertical-speed-fps</property>
-				<scale>60</scale>
+				<property>/autopilot/internal/vert-speed-fpm</property>
 			
 		</input>
 		<reference>
@@ -375,21 +410,65 @@
 			
 		</reference>
 		<output>
-			<property>/autopilot/internal/target-pitch-deg-gain</property>
+			<property>/autopilot/internal/target-vertical-speed-deg-gain</property>
 		</output>
 		<config>
-			<Kp>0.001</Kp>
+			<Kp>0.0003</Kp>
 			<!--beta>1</beta-->
-			<alpha>1</alpha>
+			<!--alpha>1</alpha-->
 			<!--gamma>0</gamma-->
-			<Ti>10</Ti>
+			<Ti>5</Ti>
 			<!--Td>0.00001</Td-->
-			<u_min>-1</u_min>
-			<u_max>1.5</u_max>
+			<u_min>-5</u_min>
+			<u_max>5</u_max>
 		</config>
 	</pid-controller>
 
 
+
+	<filter>
+		<name>Climb Rate Correction2</name>
+		<debug>true</debug>
+		<enable>
+			<property>/autopilot/internal/altitude-hold1</property>
+			<value type="bool">true</value>
+		</enable>
+		<type>gain</type>
+		<gain>0.004</gain>
+		<input>
+			<expression>
+				<dif>
+					<property>/autopilot/settings/vertical-speed-fpm</property>
+					<property>/autopilot/internal/vert-speed-fpm</property>
+				</dif>
+			</expression>
+		</input>
+		<output>/autopilot/internal/target-vertical-speed-deg-gain2</output>
+		<min>-5.0</min>
+		<max>5.0</max>
+	</filter>
+
+	<filter>
+		<name>Vertical Mix</name>
+		<debug>false</debug>
+		<enable>
+			<property>/autopilot/internal/altitude-hold1</property>
+			<value type="bool">true</value>
+		</enable>
+		<type>gain</type>
+		<gain>1</gain>
+		<input>
+			<expression>
+				<sum>
+					<property>/autopilot/internal/target-vertical-speed-deg</property>
+					<property>/autopilot/internal/target-vertical-speed-deg-gain</property>
+				</sum>
+			</expression>
+		</input>
+		<output>/autopilot/internal/target-pitch-deg</output>
+		<min>-17.0</min>
+		<max>17.0</max>
+	</filter>
 
 
  <!-- =============================================================== -->

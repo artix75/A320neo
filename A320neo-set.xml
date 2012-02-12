@@ -187,8 +187,19 @@
 		</model>
 
 		<startup>
-			<splash-texture>Aircraft/A320neo/NEO-splash.png</splash-texture>
+			<splash-texture>Aircraft/A320neo/NEO-splash2.png</splash-texture>
 		</startup>
+		<gui>
+			<style>
+				<colors>
+					<splash-font>
+						<red>0.25</red>
+						<green>0.28</green>
+						<blue>0.31</blue>
+					</splash-font>
+				</colors>
+			</style>
+		</gui>
 
 		<systems>
 			<autopilot>
