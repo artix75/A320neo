@@ -308,8 +308,20 @@
 		<name>Altitude hold</name>
 		<debug type="bool">false</debug>
 		<enable>
-			<property>/autopilot/internal/altitude-hold</property>
-			<value type="bool">true</value>
+			<condition>
+				<and>
+				<property>/autopilot/internal/altitude-hold</property>
+				<less-than>
+					<expression>
+						<abs><dif>
+							<property>/instrumentation/altimeter/indicated-altitude-ft</property>
+							<property>/autopilot/settings/target-altitude-ft</property>
+						</dif></abs>
+					</expression>
+					<value>500</value>
+				</less-than>
+				</and>
+			</condition>
 		</enable>
 		<input>
 			<property>/instrumentation/altimeter/indicated-altitude-ft</property>
@@ -321,11 +333,11 @@
 			<property>/autopilot/internal/target-pitch-deg</property>
 		</output>
 		<config>
-			<Kp>0.03</Kp>
-			<Ki>0</Ki>
+			<Kp>0.015</Kp>
+			<Ki>0.00015</Ki>
 
-			<u_min>-17</u_min>
-			<u_max>17</u_max>
+			<u_min>-10</u_min>
+			<u_max>10</u_max>
 			
 		</config>
 	</pi-simple-controller>
@@ -397,8 +409,20 @@
 		<name>Climb Rate Correction</name>
 		<debug type="bool">false</debug>
 		<enable>
-			<property>/autopilot/internal/altitude-hold1</property>
-			<value type="bool">true</value>
+			<condition>
+				<and>
+				<property>/autopilot/internal/altitude-hold</property>
+				<greater-than>
+					<expression>
+						<abs><dif>
+							<property>/instrumentation/altimeter/indicated-altitude-ft</property>
+							<property>/autopilot/settings/target-altitude-ft</property>
+						</dif></abs>
+					</expression>
+					<value>500</value>
+				</greater-than>
+				</and>
+			</condition>
 		</enable>
 		<input>
 			<!-- prop>/instrumentation/vertical-speed-indicator/indicated-speed-fpm</property-->
@@ -428,10 +452,22 @@
 
 	<filter>
 		<name>Climb Rate Correction2</name>
-		<debug>true</debug>
+		<debug>false</debug>
 		<enable>
-			<property>/autopilot/internal/altitude-hold1</property>
-			<value type="bool">true</value>
+			<condition>
+				<and>
+				<property>/autopilot/internal/altitude-hold</property>
+				<greater-than>
+					<expression>
+						<abs><dif>
+							<property>/instrumentation/altimeter/indicated-altitude-ft</property>
+							<property>/autopilot/settings/target-altitude-ft</property>
+						</dif></abs>
+					</expression>
+					<value>500</value>
+				</greater-than>
+				</and>
+			</condition>
 		</enable>
 		<type>gain</type>
 		<gain>0.004</gain>
@@ -452,8 +488,20 @@
 		<name>Vertical Mix</name>
 		<debug>false</debug>
 		<enable>
-			<property>/autopilot/internal/altitude-hold1</property>
-			<value type="bool">true</value>
+			<condition>
+				<and>
+				<property>/autopilot/internal/altitude-hold</property>
+				<greater-than>
+					<expression>
+						<abs><dif>
+							<property>/instrumentation/altimeter/indicated-altitude-ft</property>
+							<property>/autopilot/settings/target-altitude-ft</property>
+						</dif></abs>
+					</expression>
+					<value>500</value>
+				</greater-than>
+				</and>
+			</condition>
 		</enable>
 		<type>gain</type>
 		<gain>1</gain>
