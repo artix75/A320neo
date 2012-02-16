@@ -141,7 +141,7 @@
 		</layer>
 		<layer>
 			<type>text</type>
-			<name>Total Fuel Aboard</name>
+			<name>Gross Weight</name>
 	 		<color>
 		        	<red>0.1</red>
 		        	<green>1.0</green>
@@ -152,7 +152,8 @@
 				<chunk>
 					<alignment>left-center</alignment>
 					<type>number-value</type>
-					<property>fdm/jsbsim/propulsion/total-fuel-lbs</property>
+					<property>fdm/jsbsim/inertia/weight-lbs</property>
+					<scale>0.45359237</scale>
 					<format type="string">%5.0f</format>
 				</chunk>
 			</chunks>

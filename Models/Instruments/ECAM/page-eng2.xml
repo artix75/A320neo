@@ -39,7 +39,7 @@
 					<type>number-value</type>
 					<!--property>/engines/engine[0]/fuel-consumed-lbs</property-->
 					<property>fdm/jsbsim/propulsion/engine[0]/fuel-used-lbs</property>
-					<factor>0.45359237</factor>
+					<scale>0.45359237</scale>
 					<format type="string">%5.0f</format>
 					<alignment>left-center</alignment>
 				</chunk>
@@ -70,6 +70,7 @@
 					<type>number-value</type>
 					<!-- property>/engines/engine[1]/fuel-consumed-lbs</property-->
 					<property>fdm/jsbsim/propulsion/engine[1]/fuel-used-lbs</property>
+					<scale>0.45359237</scale>
 					<format type="string">%5.0f</format>
 					<alignment>right-center</alignment>
 				</chunk>
@@ -321,7 +322,7 @@
 		</layer>
 		<layer>
 			<type>text</type>
-			<name>Total Fuel Aboard</name>
+			<name>Gross Weight</name>
 	 		<color>
 		        	<red>0.1</red>
 		        	<green>1.0</green>
@@ -332,7 +333,8 @@
 				<chunk>
 					<alignment>left-center</alignment>
 					<type>number-value</type>
-					<property>fdm/jsbsim/propulsion/total-fuel-lbs</property>
+					<property>fdm/jsbsim/inertia/weight-lbs</property>
+					<scale>0.45359237</scale>
 					<format type="string">%5.0f</format>
 				</chunk>
 			</chunks>

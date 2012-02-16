@@ -38,7 +38,7 @@
 					<type>number-value</type>
 					<!--property>/engines/engine[0]/fuel-consumed-lbs</property-->
 					<property>fdm/jsbsim/propulsion/engine[0]/fuel-used-lbs</property>
-					<factor>0.45359237</factor>
+					<scale>0.45359237</scale>
 					<format type="string">%5.0f</format>
 					<alignment>left-center</alignment>
 				</chunk>
@@ -69,7 +69,7 @@
 					<type>number-value</type>
 					<!-- property>/engines/engine[1]/fuel-consumed-lbs</property-->
 					<property>fdm/jsbsim/propulsion/engine[1]/fuel-used-lbs</property>
-					<factor>0.45359237</factor>
+					<scale>0.45359237</scale>
 					<format type="string">%5.0f</format>
 					<alignment>right-center</alignment>
 				</chunk>
@@ -262,9 +262,9 @@
 
 <!-- ################################## Pump Animations  #################################-->
 
-	<!-- X-Feed -->
+	<!-- X-Feed Valve -->
 		<layer>
-			<name>xfeed pump off</name>
+			<name>xfeed Valve off</name>
 			<condition>
 				<equals>
 					<property>instrumentation/efis[0]/input/vor-adf-1</property>
@@ -289,7 +289,7 @@
 			</transformations>
 		</layer>
 		<layer>
-			<name>xfeed pump on</name>
+			<name>xfeed Valve on</name>
 			<condition>
 				<equals>
 					<property>instrumentation/efis[0]/input/vor-adf-1</property>
@@ -314,7 +314,252 @@
 			</transformations>
 		</layer>
 
+<!-- Eng1 Feed Valve -->
+		<layer>
+			<name>Eng1 feed valve on</name>
+			<condition>
+				<equals>
+					<property>instrumentation/efis[0]/input/vor-adf-1</property>
+					<value>1</value>
+				</equals>			
+			</condition>
+			<emissive>true</emissive>
+			<w>16</w>
+			<h>16</h>
+			<texture>
+				<path>Aircraft/A320neo/Models/Instruments/ECAM/res/page-fuel-pump.png</path>
+				<x1>0</x1>
+				<y1>0</y1>
+				<x2>0.5</x2>
+				<y2>1</y2>
+			</texture>
+			<transformations>			
+				<transformation>
+					<type>y-shift</type>
+					<offset>71</offset>
+				</transformation>
+				<transformation>
+					<type>x-shift</type>
+					<offset>-71</offset>
+				</transformation>
+			</transformations>
+		</layer>
+		<layer>
+			<name>Eng1 feed valve off</name>
+			<condition>
+				<equals>
+					<property>instrumentation/efis[0]/input/vor-adf-1</property>
+					<value>2</value>
+				</equals>
+			</condition>
+			<emissive>true</emissive>
+			<w>16</w>
+			<h>16</h>
+			<texture>
+				<path>Aircraft/A320neo/Models/Instruments/ECAM/res/page-fuel-pump.png</path>
+				<x1>0.5</x1>
+				<y1>0</y1>
+				<x2>1</x2>
+				<y2>1</y2>
+			</texture>
+			<transformations>			
+				<transformation>
+					<type>y-shift</type>
+					<offset>71</offset>
+				</transformation>
+				<transformation>
+					<type>x-shift</type>
+					<offset>-71</offset>
+				</transformation>
+			</transformations>
+		</layer>
 
+<!-- Eng2 Feed Valve -->
+		<layer>
+			<name>Eng2 feed valve on</name>
+			<condition>
+				<equals>
+					<property>instrumentation/efis[0]/input/vor-adf-1</property>
+					<value>1</value>
+				</equals>			
+			</condition>
+			<emissive>true</emissive>
+			<w>16</w>
+			<h>16</h>
+			<texture>
+				<path>Aircraft/A320neo/Models/Instruments/ECAM/res/page-fuel-pump.png</path>
+				<x1>0</x1>
+				<y1>0</y1>
+				<x2>0.5</x2>
+				<y2>1</y2>
+			</texture>
+			<transformations>			
+				<transformation>
+					<type>y-shift</type>
+					<offset>71</offset>
+				</transformation>
+				<transformation>
+					<type>x-shift</type>
+					<offset>72</offset>
+				</transformation>
+			</transformations>
+		</layer>
+		<layer>
+			<name>Eng2 feed valve off</name>
+			<condition>
+				<equals>
+					<property>instrumentation/efis[0]/input/vor-adf-1</property>
+					<value>2</value>
+				</equals>
+			</condition>
+			<emissive>true</emissive>
+			<w>16</w>
+			<h>16</h>
+			<texture>
+				<path>Aircraft/A320neo/Models/Instruments/ECAM/res/page-fuel-pump.png</path>
+				<x1>0.5</x1>
+				<y1>0</y1>
+				<x2>1</x2>
+				<y2>1</y2>
+			</texture>
+			<transformations>			
+				<transformation>
+					<type>y-shift</type>
+					<offset>71</offset>
+				</transformation>
+				<transformation>
+					<type>x-shift</type>
+					<offset>72</offset>
+				</transformation>
+			</transformations>
+		</layer>
+
+<!-- Left Tank Feed Pump 1 -->
+		<layer>
+			<name>Left Tank Feed Pump 1 off</name>
+			<condition>
+				<equals>
+					<property>instrumentation/efis[0]/input/vor-adf-1</property>
+					<value>1</value>
+				</equals>			
+			</condition>
+			<emissive>true</emissive>
+			<w>12</w>
+			<h>3</h>
+			<texture>
+				<path>Aircraft/A320neo/Models/Instruments/ECAM/res/page-fuel-pump.png</path>
+				<x1>0.532</x1>
+				<y1>0.562</y1>
+				<x2>0.937</x2>
+				<y2>0.437</y2>
+			</texture>
+			<transformations>			
+				<transformation>
+					<type>y-shift</type>
+					<offset>-7</offset>
+				</transformation>
+				<transformation>
+					<type>x-shift</type>
+					<offset>-72</offset>
+				</transformation>
+			</transformations>
+		</layer>
+		<layer>
+			<name>Left Tank Feed Pump 1 off</name>
+			<condition>
+				<equals>
+					<property>instrumentation/efis[0]/input/vor-adf-1</property>
+					<value>2</value>
+				</equals>
+			</condition>
+			<emissive>true</emissive>
+			<w>12</w>
+			<h>3</h>
+			<texture>
+				<path>Aircraft/A320neo/Models/Instruments/ECAM/res/page-fuel-pump.png</path>
+								<x1>0.532</x1>
+				<y1>0.562</y1>
+				<x2>0.937</x2>
+				<y2>0.437</y2>
+			</texture>
+			<transformations>			
+				<transformation>
+					<type>y-shift</type>
+					<offset>-7</offset>
+				</transformation>
+				<transformation>
+					<type>x-shift</type>
+					<offset>-72</offset>
+				</transformation>
+				<transformation>
+					<type>rotation</type>
+					<offset>90</offset>
+				</transformation>
+			</transformations>
+		</layer>
+<!-- Left Tank Feed Pump 2 -->
+		<layer>
+			<name>Left Tank Feed Pump 2 off</name>
+			<condition>
+				<equals>
+					<property>instrumentation/efis[0]/input/vor-adf-1</property>
+					<value>1</value>
+				</equals>			
+			</condition>
+			<emissive>true</emissive>
+			<w>12</w>
+			<h>3</h>
+			<texture>
+				<path>Aircraft/A320neo/Models/Instruments/ECAM/res/page-fuel-pump.png</path>
+				<x1>0.532</x1>
+				<y1>0.562</y1>
+				<x2>0.937</x2>
+				<y2>0.437</y2>
+			</texture>
+			<transformations>			
+				<transformation>
+					<type>y-shift</type>
+					<offset>-7</offset>
+				</transformation>
+				<transformation>
+					<type>x-shift</type>
+					<offset>-46</offset>
+				</transformation>
+			</transformations>
+		</layer>
+		<layer>
+			<name>Left Tank Feed Pump 2 off</name>
+			<condition>
+				<equals>
+					<property>instrumentation/efis[0]/input/vor-adf-1</property>
+					<value>2</value>
+				</equals>
+			</condition>
+			<emissive>true</emissive>
+			<w>12</w>
+			<h>3</h>
+			<texture>
+				<path>Aircraft/A320neo/Models/Instruments/ECAM/res/page-fuel-pump.png</path>
+								<x1>0.532</x1>
+				<y1>0.562</y1>
+				<x2>0.937</x2>
+				<y2>0.437</y2>
+			</texture>
+			<transformations>			
+				<transformation>
+					<type>y-shift</type>
+					<offset>-7</offset>
+				</transformation>
+				<transformation>
+					<type>x-shift</type>
+					<offset>-46</offset>
+				</transformation>
+				<transformation>
+					<type>rotation</type>
+					<offset>90</offset>
+				</transformation>
+			</transformations>
+		</layer>
 
 <!-- ################################## Bottom  #################################-->
 
@@ -433,7 +678,7 @@
 		</layer>
 		<layer>
 			<type>text</type>
-			<name>Total Fuel Aboard</name>
+			<name>Gross Weight</name>
 	 		<color>
 		        	<red>0.1</red>
 		        	<green>1.0</green>
@@ -444,7 +689,8 @@
 				<chunk>
 					<alignment>left-center</alignment>
 					<type>number-value</type>
-					<property>fdm/jsbsim/propulsion/total-fuel-lbs</property>
+					<property>fdm/jsbsim/inertia/weight-lbs</property>
+					<scale>0.45359237</scale>
 					<format type="string">%5.0f</format>
 				</chunk>
 			</chunks>
