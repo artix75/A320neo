@@ -203,7 +203,7 @@
 					<scale>-1</scale>
 				</transformation>
 				<transformation>
-					<type>rotate</type>
+					<type>rotation</type>
 					<property>environment/wind-from-heading-deg</property>
 				</transformation>
 			</transformations>

@@ -38,6 +38,7 @@
 					<type>number-value</type>
 					<!--property>/engines/engine[0]/fuel-consumed-lbs</property-->
 					<property>fdm/jsbsim/propulsion/engine[0]/fuel-used-lbs</property>
+					<factor>0.45359237</factor>
 					<format type="string">%5.0f</format>
 					<alignment>left-center</alignment>
 				</chunk>
@@ -68,6 +69,7 @@
 					<type>number-value</type>
 					<!-- property>/engines/engine[1]/fuel-consumed-lbs</property-->
 					<property>fdm/jsbsim/propulsion/engine[1]/fuel-used-lbs</property>
+					<factor>0.45359237</factor>
 					<format type="string">%5.0f</format>
 					<alignment>right-center</alignment>
 				</chunk>
@@ -97,7 +99,7 @@
 				<chunk>
 					<alignment>right-center</alignment>
 					<type>number-value</type>
-					<property>fdm/jsbsim/propulsion/total-fuel-lbs</property>
+					<property>consumables/fuel/total-fuel-kg</property>
 					<format type="string">%5.0f</format>
 				</chunk>
 			</chunks>
@@ -156,7 +158,7 @@
 				<chunk>
 					<alignment>right-center</alignment>
 					<type>number-value</type>
-					<property>consumables/fuel/tank[0]/level-kg</property>
+					<property>consumables/fuel/tank[2]/level-kg</property>
 					<format type="string">%5.0f</format>
 				</chunk>
 			</chunks>
@@ -257,6 +259,62 @@
 				</transformation>
 			</transformations>
 		</layer>
+
+<!-- ################################## Pump Animations  #################################-->
+
+	<!-- X-Feed -->
+		<layer>
+			<name>xfeed pump off</name>
+			<condition>
+				<equals>
+					<property>instrumentation/efis[0]/input/vor-adf-1</property>
+					<value>1</value>
+				</equals>			
+			</condition>
+			<emissive>true</emissive>
+			<w>16</w>
+			<h>16</h>
+			<texture>
+				<path>Aircraft/A320neo/Models/Instruments/ECAM/res/page-fuel-pump.png</path>
+				<x1>0</x1>
+				<y1>0</y1>
+				<x2>0.5</x2>
+				<y2>1</y2>
+			</texture>
+			<transformations>			
+				<transformation>
+					<type>y-shift</type>
+					<offset>46</offset>
+				</transformation>
+			</transformations>
+		</layer>
+		<layer>
+			<name>xfeed pump on</name>
+			<condition>
+				<equals>
+					<property>instrumentation/efis[0]/input/vor-adf-1</property>
+					<value>2</value>
+				</equals>
+			</condition>
+			<emissive>true</emissive>
+			<w>16</w>
+			<h>16</h>
+			<texture>
+				<path>Aircraft/A320neo/Models/Instruments/ECAM/res/page-fuel-pump.png</path>
+				<x1>0.5</x1>
+				<y1>0</y1>
+				<x2>1</x2>
+				<y2>1</y2>
+			</texture>
+			<transformations>			
+				<transformation>
+					<type>y-shift</type>
+					<offset>46</offset>
+				</transformation>
+			</transformations>
+		</layer>
+
+
 
 <!-- ################################## Bottom  #################################-->
 

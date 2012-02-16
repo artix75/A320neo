@@ -387,8 +387,8 @@ YAW MOI_________3950000______23089847_______24848934
 		<pitch> 2.2 </pitch>
 		<yaw> 1 </yaw>
 	</orient>
-	<feed>0</feed>
 	<feed>1</feed>
+	<feed>2</feed>
 	<feed>3</feed>
 	<feed>4</feed>
 	<feed>5</feed>
@@ -416,8 +416,8 @@ YAW MOI_________3950000______23089847_______24848934
 		<pitch> 2.2 </pitch>
 		<yaw> -1 </yaw>
 	</orient>
-	<feed>0</feed>
 	<feed>1</feed>
+	<feed>2</feed>
 	<feed>3</feed>
 	<feed>4</feed>
 	<feed>5</feed>
@@ -434,14 +434,20 @@ YAW MOI_________3950000______23089847_______24848934
 		</orient>
 	</thruster>
 	</engine>
-	<tank type="FUEL">    <!-- Left Tank (Inner) -->
+
+
+	<tank type="FUEL">    <!-- Left Tank (Surge) -->
 		<location unit="IN">
-			<x> 630.6588 </x>
-			<y> -236.2992 </y>
-			<z> -33.9470 </z>
+			<x> 788.4322 </x>
+			<y> -574.4148 </y>
+			<z> 3.1080 </z>
 		</location>
-		<capacity unit="LBS"> 12186.9 </capacity>
-		<contents unit="LBS"> 2437.38 </contents>
+		<capacity unit="LBS"> 328.13 </capacity><!-- need review -->
+		<contents unit="LBS"> 0 </contents>
+		
+		<priority>1</priority>
+		<type>JET-A1</type>
+		<temperature>50</temperature>
 	</tank>
 	<tank type="FUEL">    <!-- Left Tank (Outer) -->
 		<location unit="IN">
@@ -449,26 +455,39 @@ YAW MOI_________3950000______23089847_______24848934
 			<y> -457.4259 </y>
 			<z> -8.0898 </z>
 		</location>
-		<capacity unit="LBS"> 1548.8 </capacity>
+		<capacity unit="LBS"> 1548.8 </capacity><!-- need review -->
 		<contents unit="LBS"> 154.88 </contents>
+		<standpipe unit="LBS">21</standpipe><!-- minimun fuel on pipes -->
+		<priority>2</priority>
+		<type>JET-A1</type>
+		<temperature>50</temperature>
 	</tank>
-	<tank type="FUEL">    <!-- Left Tank (Surge) -->
+	<tank type="FUEL">    <!-- Left Tank (Inner) -->
 		<location unit="IN">
-			<x> 788.4322 </x>
-			<y> -574.4148 </y>
-			<z> 3.1080 </z>
+			<x> 630.6588 </x>
+			<y> -236.2992 </y>
+			<z> -33.9470 </z>
 		</location>
-		<capacity unit="LBS"> 328.13 </capacity>
-		<contents unit="LBS"> 0 </contents>
+		<capacity unit="LBS"> 12186.9 </capacity><!-- need review -->
+		<contents unit="LBS"> 2437.38 </contents>
+		<standpipe unit="LBS">31</standpipe><!-- minimun fuel on pipes -->
+		<priority>3</priority>
+		<type>JET-A1</type>
+		<temperature>50</temperature>
 	</tank>
+
 	<tank type="FUEL">    <!-- Center Tank -->
 		<location unit="IN">
 			<x> 580.9955 </x>
 			<y> 0 </y>
 			<z> -47.0 </z>
 		</location>
-		<capacity unit="LBS"> 14520 </capacity>
+		<capacity unit="LBS"> 14520 </capacity><!-- need review -->
 		<contents unit="LBS"> 0 </contents>
+		<standpipe unit="LBS">43</standpipe><!-- minimun fuel on pipes -->
+		<priority>1</priority>
+		<type>JET-A1</type>
+		<temperature>50</temperature>
 	</tank>
 	<tank type="FUEL">    <!-- Right Tank (Inner) -->
 		<location unit="IN">
@@ -476,8 +495,12 @@ YAW MOI_________3950000______23089847_______24848934
 			<y> 236.2992 </y>
 			<z> -33.9470 </z>
 		</location>
-		<capacity unit="LBS"> 12186.9 </capacity>
+		<capacity unit="LBS"> 12186.9 </capacity><!-- need review -->
 		<contents unit="LBS"> 2437.38 </contents>
+		<standpipe unit="LBS">31</standpipe><!-- minimun fuel on pipes -->
+		<priority>3</priority>
+		<type>JET-A1</type>
+		<temperature>50</temperature>
 	</tank>
 	<tank type="FUEL">    <!-- Right Tank (Outer) -->
 		<location unit="IN">
@@ -485,8 +508,12 @@ YAW MOI_________3950000______23089847_______24848934
 			<y> 457.4259 </y>
 			<z> -8.0898 </z>
 		</location>
-		<capacity unit="LBS"> 1548.8 </capacity>
+		<capacity unit="LBS"> 1548.8 </capacity><!-- need review -->
 		<contents unit="LBS"> 154.88 </contents>
+		<standpipe unit="LBS">21</standpipe><!-- minimun fuel on pipes -->
+		<priority>2</priority>
+		<type>JET-A1</type>
+		<temperature>50</temperature>
 	</tank>
 	<tank type="FUEL">    <!-- Right Tank (Surge) -->
 		<location unit="IN">
@@ -494,8 +521,11 @@ YAW MOI_________3950000______23089847_______24848934
 			<y> 574.4148 </y>
 			<z> 3.1080 </z>
 		</location>
-		<capacity unit="LBS"> 328.13 </capacity>
+		<capacity unit="LBS"> 328.13 </capacity><!-- need review -->
 		<contents unit="LBS"> 0 </contents>
+		<priority>1</priority>
+		<type>JET-A1</type>
+		<temperature>50</temperature>
 	</tank>
 </propulsion>
 

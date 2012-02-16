@@ -389,13 +389,13 @@
 	<consumables>
 		<fuel>
 			<tank n="0">
-				<name>LH Inner</name>
+				<name>Left Wing Vent</name>
 			</tank>
 			<tank n="1">
 				<name>LH Outer</name>
 			</tank>
 			<tank n="2">
-				<name>LH Vent</name>
+				<name>LH Inner</name>
 			</tank>
 			<tank n="3">
 				<name>Center</name>

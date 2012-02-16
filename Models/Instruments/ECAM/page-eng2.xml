@@ -39,6 +39,7 @@
 					<type>number-value</type>
 					<!--property>/engines/engine[0]/fuel-consumed-lbs</property-->
 					<property>fdm/jsbsim/propulsion/engine[0]/fuel-used-lbs</property>
+					<factor>0.45359237</factor>
 					<format type="string">%5.0f</format>
 					<alignment>left-center</alignment>
 				</chunk>
