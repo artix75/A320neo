@@ -264,13 +264,13 @@
 
 	<!-- X-Feed Valve -->
 		<layer>
-			<name>xfeed Valve off</name>
-			<condition>
+			<name>xfeed Valve</name>
+			<!--condition>
 				<equals>
-					<property>instrumentation/efis[0]/input/vor-adf-1</property>
-					<value>1</value>
-				</equals>			
-			</condition>
+					<property>PROPER WORK</property>
+					<value>True</value>
+				</equals>
+			</condition-->
 			<emissive>true</emissive>
 			<w>16</w>
 			<h>16</h>
@@ -286,30 +286,10 @@
 					<type>y-shift</type>
 					<offset>46</offset>
 				</transformation>
-			</transformations>
-		</layer>
-		<layer>
-			<name>xfeed Valve on</name>
-			<condition>
-				<equals>
-					<property>instrumentation/efis[0]/input/vor-adf-1</property>
-					<value>2</value>
-				</equals>
-			</condition>
-			<emissive>true</emissive>
-			<w>16</w>
-			<h>16</h>
-			<texture>
-				<path>Aircraft/A320neo/Models/Instruments/ECAM/res/page-fuel-pump.png</path>
-				<x1>0.5</x1>
-				<y1>0</y1>
-				<x2>1</x2>
-				<y2>1</y2>
-			</texture>
-			<transformations>			
 				<transformation>
-					<type>y-shift</type>
-					<offset>46</offset>
+					<type>rotation</type>
+					<property>/controls/fuel/x-feed</property>
+					<scale>90</scale>
 				</transformation>
 			</transformations>
 		</layer>
@@ -317,12 +297,12 @@
 <!-- Eng1 Feed Valve -->
 		<layer>
 			<name>Eng1 feed valve on</name>
-			<condition>
+			<!--condition>
 				<equals>
 					<property>instrumentation/efis[0]/input/vor-adf-1</property>
 					<value>1</value>
 				</equals>			
-			</condition>
+			</condition-->
 			<emissive>true</emissive>
 			<w>16</w>
 			<h>16</h>
@@ -342,47 +322,23 @@
 					<type>x-shift</type>
 					<offset>-71</offset>
 				</transformation>
-			</transformations>
-		</layer>
-		<layer>
-			<name>Eng1 feed valve off</name>
-			<condition>
-				<equals>
-					<property>instrumentation/efis[0]/input/vor-adf-1</property>
-					<value>2</value>
-				</equals>
-			</condition>
-			<emissive>true</emissive>
-			<w>16</w>
-			<h>16</h>
-			<texture>
-				<path>Aircraft/A320neo/Models/Instruments/ECAM/res/page-fuel-pump.png</path>
-				<x1>0.5</x1>
-				<y1>0</y1>
-				<x2>1</x2>
-				<y2>1</y2>
-			</texture>
-			<transformations>			
 				<transformation>
-					<type>y-shift</type>
-					<offset>71</offset>
-				</transformation>
-				<transformation>
-					<type>x-shift</type>
-					<offset>-71</offset>
+					<type>rotation</type>
+					<property>/engines/engine/cutoff</property>
+					<scale>90</scale>
 				</transformation>
 			</transformations>
 		</layer>
-
+	
 <!-- Eng2 Feed Valve -->
 		<layer>
 			<name>Eng2 feed valve on</name>
-			<condition>
+			<!--condition>
 				<equals>
 					<property>instrumentation/efis[0]/input/vor-adf-1</property>
 					<value>1</value>
 				</equals>			
-			</condition>
+			</condition-->
 			<emissive>true</emissive>
 			<w>16</w>
 			<h>16</h>
@@ -401,6 +357,11 @@
 				<transformation>
 					<type>x-shift</type>
 					<offset>72</offset>
+				</transformation>
+				<transformation>
+					<type>rotation</type>
+					<property>/engines/engine/cutoff</property>
+					<scale>90</scale>
 				</transformation>
 			</transformations>
 		</layer>

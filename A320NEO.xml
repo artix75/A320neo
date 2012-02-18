@@ -535,7 +535,7 @@ YAW MOI_________3950000______23089847_______24848934
 			<y> 574.4148 </y>
 			<z> 3.1080 </z>
 		</location-->
-		<capacity unit="LBS"> 328.13 </capacity><!-- need review -->
+		<capacity unit="LBS"> 100 </capacity><!-- need review -->
 		<contents unit="LBS"> 0 </contents>
 		<priority>1</priority>
 		<type>JET-A1</type>
@@ -546,7 +546,7 @@ YAW MOI_________3950000______23089847_______24848934
 			<y> 574.4148 </y>
 			<z> 3.1080 </z>
 		</location-->
-		<capacity unit="LBS"> 328.13 </capacity><!-- need review -->
+		<capacity unit="LBS"> 100 </capacity><!-- need review -->
 		<contents unit="LBS"> 0 </contents>
 		<priority>1</priority>
 		<type>JET-A1</type>
