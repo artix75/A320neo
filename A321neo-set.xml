@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
 <PropertyList>
-
+<!-- A321 WV011 -->
 	<sim>
 		<description>Airbus A321NEO With Sharklets and CFM LEAP-X High ByPass Turbofan Engine</description>
 		<author>Narendran, Malik and Jon A. Ortuondo(Bicyus), [based on A320-family]</author>
@@ -20,13 +20,13 @@
 				<texture-path n="1">../Liveries/A321neo-Blank.png</texture-path>
 			</livery>
 			<door n="0">
-				<position-x-m>-11.3399</position-x-m>
+				<position-x-m>-16.3399</position-x-m>
 				<position-y-m>-1.96</position-y-m>
 				<position-z-m>0.98</position-z-m>
 				<jetway-hood-deg>5</jetway-hood-deg>
 			</door>
 			<door n="1">
-				<position-x-m>-11.3399</position-x-m>
+				<position-x-m>-8.3399</position-x-m>
 				<position-y-m>-1.96</position-y-m>
 				<position-z-m>0.98</position-z-m>
 				<jetway-hood-deg>5</jetway-hood-deg>
@@ -35,12 +35,34 @@
 
 		<tutorials include="Tutorials/a320-tutorials.xml" />
 
+<!-- Flaps only go up to 3 degrees for the 321-200. 40º for 319-2xx
+
+		#REF-2 page 26 
+			
+		Conf.	Slats/Flaps	VFE(kt)		FOR:
+		1	18/0  		230		Intermediate approach and take off
+			*18/10		215
+		2	22/14		205		Take Off, Approach
+		3	22/21		195		Take Off, Approach, Landing
+		FULL	27/25		190		Landing
+
+		* Auto flap retraction at 210kt in takeoff configuration
+		-->
+
+
+
 		<flaps>
-			<setting>0.00</setting>
+			<!--setting>0.00</setting>
 			<setting>0.25</setting>
 			<setting>0.375</setting>
 			<setting>0.5</setting>
-			<setting>0.875</setting>
+			<setting>0.875</setting-->
+
+			<setting>0.00</setting><!-- -->
+			<setting>0.29</setting><!-- 18+0=18 ->  0.290 -->
+			<setting>0.596</setting><!-- 22+15=37 -> 0.596 -->
+			<setting>0.645</setting><!-- 22+22=44 -> 0.645 -->
+			<setting>1</setting><!-- 27+35=62 -> 1 -->
 		</flaps>
 
 		<view>
@@ -48,7 +70,7 @@
 			<internal archive="y">true</internal>
 			<config>
 				<x-offset-m archive="y">-0.525</x-offset-m>
-				<y-offset-m archive="y">2.30</y-offset-m>
+				<y-offset-m archive="y">2.45</y-offset-m>
 				<z-offset-m archive="y">-17.87</z-offset-m>
 				<pitch-offset-deg archive="y">-10.0</pitch-offset-deg>
 			</config>
@@ -72,7 +94,7 @@
 			<config>
 				<from-model type="bool">true</from-model>
 				<x-offset-m archive="y">-0.10</x-offset-m>
-				<y-offset-m archive="y">1.98</y-offset-m>
+				<y-offset-m archive="y">2.10</y-offset-m>
 				<z-offset-m archive="y">-18.66</z-offset-m>
 				<pitch-offset-deg archive="y">-75</pitch-offset-deg>
 			</config>
@@ -97,7 +119,7 @@
 			<config>
 				<from-model type="bool">true</from-model>
 				<x-offset-m archive="y">0.525</x-offset-m>
-				<y-offset-m archive="y">2.2635023</y-offset-m>
+				<y-offset-m archive="y">2.45</y-offset-m>
 				<z-offset-m archive="y">-17.87</z-offset-m>
 				<pitch-offset-deg archive="y">-15.0</pitch-offset-deg>
 			</config>
@@ -960,11 +982,11 @@
 	</nasal>
 
 	<limits>
-		<mass-and-balance> <!-- #ref-1 page67 WV016 -->
-			<maximum-ramp-mass-lbs>162922</maximum-ramp-mass-lbs>
-			<maximum-takeoff-mass-lbs>162040</maximum-takeoff-mass-lbs>
-			<maximum-landing-mass-lbs>145505</maximum-landing-mass-lbs>
-			<maximum-zero-fuel-mass-lbs>137789</maximum-zero-fuel-mass-lbs>
+		<mass-and-balance> <!-- #ref-11 page48 WV011 -->
+			<maximum-ramp-mass-lbs>207014</maximum-ramp-mass-lbs>
+			<maximum-takeoff-mass-lbs>206132</maximum-takeoff-mass-lbs>
+			<maximum-landing-mass-lbs>171520</maximum-landing-mass-lbs>
+			<maximum-zero-fuel-mass-lbs>162701</maximum-zero-fuel-mass-lbs>
 		</mass-and-balance>
 		<max-flap-extension-speed>
 			<flaps>0.29</flaps>
@@ -972,17 +994,16 @@
 		</max-flap-extension-speed>
 		<max-flap-extension-speed>
 			<flaps>0.596</flaps>
-			<speed>200</speed>
+			<speed>205</speed>
 		</max-flap-extension-speed>
 		<max-flap-extension-speed>
 			<flaps>0.645</flaps>
-			<speed>185</speed>
+			<speed>195</speed>
 		</max-flap-extension-speed>
 		<max-flap-extension-speed>
 			<flaps>1</flaps>
-			<speed>177</speed>
+			<speed>190</speed>
 		</max-flap-extension-speed>
-		
 		 
 		<vne>370</vne>
 		 

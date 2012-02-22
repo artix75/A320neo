@@ -7,24 +7,24 @@
 		<author>Narendran and Malik (A319neo), Ryan and Ampere (base A319)</author>
 		<status>beta</status>
 		<flight-model>jsb</flight-model>
-		<aero>A319NEO</aero>
+		<aero>A319neo</aero>
 		<variant>NEO</variant>
 		<engine>CFM LeapX</engine>
 
 		<model>
 			<path>Aircraft/A320neo/Models/A319neo.xml</path>
 			<livery>
-				<file>Liveries/A319NEO-Blank</file>
-				<texture>Liveries/A319NEO-Blank.png</texture>
-				<texture-path n="0">../Models/Liveries/A319NEO-Blank.png</texture-path>
-				<texture-path n="1">../../Models/Liveries/A319NEO-Blank.png</texture-path>
+				<file>Liveries/A319neo-Blank</file>
+				<texture>Liveries/A319neo-Blank.png</texture>
+				<texture-path n="0">../Liveries/A319neo-Blank.png</texture-path>
+				<texture-path n="1">../Liveries/A319neo-Blank.png</texture-path>
 			</livery>
-            <door n="0">
-                <position-x-m>-11.3399</position-x-m>
-                <position-y-m>-1.96</position-y-m>
-                <position-z-m>0.98</position-z-m>
-                <jetway-hood-deg>5</jetway-hood-deg>
-            </door>
+			<door n="0">
+				<position-x-m>-11.3399</position-x-m>
+				<position-y-m>-1.96</position-y-m>
+				<position-z-m>0.98</position-z-m>
+				<jetway-hood-deg>5</jetway-hood-deg>
+			</door>
 		</model>
 
 		<tutorials include="Tutorials/a320-tutorials.xml" />
@@ -43,12 +43,61 @@
 			<internal archive="y">true</internal>
 			<config>
 				<x-offset-m archive="y">-0.525</x-offset-m>
-				<y-offset-m archive="y">2.2635023</y-offset-m>
-				<z-offset-m archive="y">-12.2829</z-offset-m>
-				<pitch-offset-deg archive="y">-15.0</pitch-offset-deg>
+				<y-offset-m archive="y">2.30</y-offset-m>
+				<z-offset-m archive="y">-12.00</z-offset-m>
+				<pitch-offset-deg archive="y">-10.0</pitch-offset-deg>
 			</config>
 		</view>
 		<view n="100">
+			<name>Overhead Panel View</name>
+			<type>lookfrom</type>
+			<internal archive="y">true</internal>
+			<config>
+				<from-model type="bool">true</from-model>
+				<x-offset-m archive="y">0</x-offset-m>
+				<y-offset-m archive="y">2.2435023</y-offset-m>
+				<z-offset-m archive="y">-12.1</z-offset-m>
+				<pitch-offset-deg archive="y">40</pitch-offset-deg>
+			</config>
+		</view>
+		<view n="101">
+			<name>FMGC/CDU View</name>
+			<type>lookfrom</type>
+			<internal archive="y">true</internal>
+			<config>
+				<from-model type="bool">true</from-model>
+				<x-offset-m archive="y">-0.10</x-offset-m>
+				<y-offset-m archive="y">1.98</y-offset-m>
+				<z-offset-m archive="y">-14.39</z-offset-m>
+				<pitch-offset-deg archive="y">-75</pitch-offset-deg>
+			</config>
+		</view>
+
+		<view n="102">
+			<name>Pedestral View</name>
+			<type>lookfrom</type>
+			<internal archive="y">true</internal>
+			<config>
+				<from-model type="bool">true</from-model>
+				<x-offset-m archive="y">0</x-offset-m>
+				<y-offset-m archive="y">2.21</y-offset-m>
+				<z-offset-m archive="y">-13.96</z-offset-m>
+				<pitch-offset-deg archive="y">-75</pitch-offset-deg>
+			</config>
+		</view>
+		<view n="104">
+			<name>Copilot View</name>
+			<type>lookfrom</type>
+			<internal archive="y">true</internal>
+			<config>
+				<from-model type="bool">true</from-model>
+				<x-offset-m archive="y">0.525</x-offset-m>
+				<y-offset-m archive="y">2.30</y-offset-m>
+				<z-offset-m archive="y">-11.90</z-offset-m>
+				<pitch-offset-deg archive="y">-10.0</pitch-offset-deg>
+			</config>
+		</view>
+		<view n="105">
 			<name>Gear View</name>
 			<type>lookfrom</type>
 			<internal archive="y">false</internal>
@@ -60,7 +109,7 @@
 				<pitch-offset-deg archive="y">0</pitch-offset-deg>
 			</config>
 		</view>
-		<view n="101">
+		<view n="106">
 			<name>Passenger View (Economy Class)</name>
 			<type>lookfrom</type>
 			<internal archive="y">true</internal>
@@ -72,7 +121,7 @@
 				<pitch-offset-deg archive="y">0</pitch-offset-deg>
 			</config>
 		</view>
-		<view n="102">
+		<view n="107">
 			<name>Passenger View (First Class)</name>
 			<type>lookfrom</type>
 			<internal archive="y">true</internal>
@@ -84,30 +133,6 @@
 				<pitch-offset-deg archive="y">0</pitch-offset-deg>
 			</config>
 		</view>
-		<view n="103">
-			<name>Copilot View</name>
-			<type>lookfrom</type>
-			<internal archive="y">true</internal>
-			<config>
-				<from-model type="bool">true</from-model>
-				<x-offset-m archive="y">0.525</x-offset-m>
-				<y-offset-m archive="y">2.2635023</y-offset-m>
-				<z-offset-m archive="y">-12.2829</z-offset-m>
-				<pitch-offset-deg archive="y">-15.0</pitch-offset-deg>
-			</config>
-		</view>
-		<view n="104">
-			<name>Overhead Panel View</name>
-			<type>lookfrom</type>
-			<internal archive="y">true</internal>
-			<config>
-				<from-model type="bool">true</from-model>
-				<x-offset-m archive="y">0</x-offset-m>
-				<y-offset-m archive="y">2.2635023</y-offset-m>
-				<z-offset-m archive="y">-12.1</z-offset-m>
-				<pitch-offset-deg archive="y">40</pitch-offset-deg>
-			</config>
-		</view>
 
 		<multiplay>
 			<generic>
@@ -117,7 +142,7 @@
 		</multiplay>
 
 		<model>
-			<A319>
+			<A320>
 				<heading-bug-pfd-deg type="double">0</heading-bug-pfd-deg>
 				<heading-bug-deg type="double">0</heading-bug-deg>
 				<nav1-bug-deg type="double">0</nav1-bug-deg>
@@ -125,7 +150,7 @@
 				<wp-bug-deg type="double">0</wp-bug-deg>
 				<ias-bug-kt-norm type="double">0</ias-bug-kt-norm>
 				<mach-bug-kt-norm type="double">0</mach-bug-kt-norm>
-			</A319>
+			</A320>
 			<pushback>
 				<kp type="double">1000</kp>
 				<ki type="double">0</ki>
@@ -135,13 +160,24 @@
 		</model>
 
 		<startup>
-			<splash-texture>Aircraft/A320neo/NEO-splash.png</splash-texture>
+			<splash-texture>Aircraft/A320neo/NEO-splash2.png</splash-texture>
 		</startup>
+		<gui>
+			<style>
+				<colors>
+					<splash-font>
+						<red>0.25</red>
+						<green>0.28</green>
+						<blue>0.31</blue>
+					</splash-font>
+				</colors>
+			</style>
+		</gui>
 
 		<systems>
 			<autopilot>
 				<name>Autopilot</name>
-				<path>Aircraft/A320neo/Systems/a320-autopilot.xml</path>
+				<path>Aircraft/A320neo/Systems/a320-autopilot3.xml</path>
 			</autopilot>
 			<autopilot>
 				<name>Autopilot helpers</name>
@@ -168,7 +204,9 @@
 		</instrumentation>
 
 		<alarms>
+			<master-warning type="bool">false</master-warning>
 			<master-caution type="bool">false</master-caution>
+			<AP-Disengage type="bool">false</AP-Disengage>
 		</alarms>
 
 		<menubar>
@@ -323,25 +361,31 @@
 	<consumables>
 		<fuel>
 			<tank n="0">
-				<name>LH Inner</name>
+				<name>Left Wing Vent</name>
 			</tank>
 			<tank n="1">
-				<name>LH Outer</name>
+				<name>Left Wing Outer</name>
 			</tank>
 			<tank n="2">
-				<name>LH Vent</name>
+				<name>Left Wing Inner</name>
 			</tank>
 			<tank n="3">
 				<name>Center</name>
 			</tank>
 			<tank n="4">
-				<name>RH Inner</name>
+				<name>Right Wing Inner</name>
 			</tank>
 			<tank n="5">
-				<name>RH Outer</name>
+				<name>Right Wing Outer</name>
 			</tank>
 			<tank n="6">
-				<name>RH Vent</name>
+				<name>Right Wing Vent</name>
+			</tank>
+			<tank n="7">
+				<name>Left Pipes</name>
+			</tank>
+			<tank n="8">
+				<name>Right Pipes</name>
 			</tank>
 		</fuel>
 	</consumables>
@@ -356,6 +400,26 @@
 		<weight n="1">
 			<name>PAX</name>
 			<weight-lb alias="/fdm/jsbsim/inertia/pointmass-weight-lbs[1]" />
+			<min-lb type="double">0</min-lb>
+			<max-lb type="double">39500</max-lb>
+		</weight>
+		<weight n="2">
+			<name>Fwd Cargo</name>
+			<weight-lb alias="/fdm/jsbsim/inertia/pointmass-weight-lbs[2]" />
+			<min-lb type="double">0</min-lb>
+			<max-lb type="double">7500.12</max-lb>
+		</weight>
+		<weight n="3">
+			<name>Aft Cargo</name>
+			<weight-lb alias="/fdm/jsbsim/inertia/pointmass-weight-lbs[3]" />
+			<min-lb type="double">0</min-lb>
+			<max-lb type="double">10000.16</max-lb>
+		</weight>
+		<weight n="4">
+			<name>Rear Bulk Cargo</name>
+			<weight-lb alias="/fdm/jsbsim/inertia/pointmass-weight-lbs[4]" />
+			<min-lb type="double">0</min-lb>
+			<max-lb type="double">3300.32</max-lb>
 		</weight>
 	</payload>
 
@@ -475,8 +539,54 @@
 	</gear>
 
 	<instrumentation>
+		<efis>
+
+			<ecam>
+					<display-mode type="string">FUEL</display-mode>
+			</ecam>
+			<nd>
+					<display-mode type="string">VOR</display-mode>
+					<display-mode-knob type="int">2</display-mode-knob>
+					<display-range type="int">40</display-range>
+				
+			</nd>
+			<input>
+				<vor-adf-1 type="int">1</vor-adf-1>
+				<vor-adf-2 type="int">1</vor-adf-2>
+				<CSTR type="bool">1</CSTR>
+				<WPT type="bool">1</WPT>
+				<VORD type="bool">1</VORD>
+				<NDB type="bool">1</NDB>
+				<ARPT type="bool">1</ARPT>
+				<WX type="bool">1</WX>
+				<TERR type="bool">1</TERR>
+				<TRAF type="bool">1</TRAF>
+				<taxi type="bool">1</taxi>
+			</input>
+
+		
+		</efis>
+		<tcas><!-- http://wiki.flightgear.org/index.php/TCAS -->
+			<serviceable type="bool">true</serviceable><!-- TCAS ENABLE -->
+			<inputs>
+				<mode type="int">3</mode><!-- 0=off, 1=standby, 2=TA-only, 3=auto(TA/RA) -->
+			</inputs>
+			<voice>
+				<file-prefix type="string">Sounds/tcas/female/</file-prefix>
+				<!-- sound file path and prefix -->
+			</voice>
+			<speaker><!-- Speaker Configuration -->
+				<max-dist> 2 </max-dist><!-- Max. distance where speaker is heard -->
+				<reference-dist> 1 </reference-dist> <!-- Distance to pilot -->
+				<volume> 1 </volume> <!-- Volume at reference distance -->
+			</speaker>
+		</tcas>
 		<cdu>
 			<display>IDENT</display>
+			<ident>
+				<model>Airbus A319-neo</model>
+				<engines>CFM LEAP-X</engines>
+			</ident>
 			<input />
 			<serviceable type="bool">true</serviceable>
 		</cdu>
@@ -488,10 +598,9 @@
 				<V2 type="double">0</V2>
 			</vspeeds>
 		</fmc>
-		<mfd>
-			<nav-display n="0" type="int">1</nav-display>
-			<nav-display n="1" type="int">1</nav-display>
-		</mfd>
+		<dme n="1">
+			<serviceable type="bool">true</serviceable>
+		</dme>
 		<nav-compass>
 			<nav-display n="0" type="int">0</nav-display>
 			<nav-display n="1" type="int">0</nav-display>
@@ -522,12 +631,86 @@
 			<speaker>
 				<max-dist type="double">2</max-dist>
 				<reference-dist type="double">1</reference-dist>
-				<volume type="double">0.4</volume>
+				<volume type="double">0.5</volume>
 			</speaker>
 			<voice>
 				<file-prefix>Sounds/mk-viii/</file-prefix>
 			</voice>
 		</mk-viii>
+		<radar>
+			<!--
+			// those properties are used by a radar instrument of a MFD
+			// input switch = OFF | TST | STBY | ON
+			// input mode = WX | WXA | MAP
+			// output status = STBY | TEST | WX | WXA | MAP | blank
+			// input lightning = true | false
+			// input TRK = +/- n degrees
+			// input TILT = +/- n degree
+			// input autotilt = true | false
+			// input range = n nm (20/40/80)
+			// input display-mode = arc | rose | map | plan | BSCAN-->
+
+			<switch type="string">ON</switch>
+			<mode-control type="int">1</mode-control>
+			<display-controls>
+				<WX type="bool">true</WX>
+				<pos type="bool">true</pos>
+				<data type="bool">true</data>
+				<symbol type="bool">true</symbol>
+				<centre type="bool">true</centre>
+				<rotate type="bool">true</rotate>
+				<tcas type="bool">true</tcas>
+				<abs-altitude type="bool">true</abs-altitude>
+			</display-controls>
+			<serviceable type="bool">true</serviceable>
+			<range type="int">40</range>
+			<mode type="string">WX</mode>
+			<lightning type="bool">true</lightning>
+			<display-mode type="string">rose</display-mode>
+			<echo-texture-path type="string" archive="y">Aircraft/A320neo/Models/Instruments/ND/res/wxecho.png</echo-texture-path>
+			<minimized type="bool">false</minimized>
+			<heading-marker type="bool">false</heading-marker>
+			<!--limit-deg type="int">180</limit-deg-->
+			<font>
+				<name type="string">helvetica_bold.txf</name>
+				<size type="float">20</size>
+				<line-spacing type="float">1</line-spacing>
+				<color>
+					<red type="float">0</red>
+					<green type="float">0.8</green>
+					<blue type="float">0</blue>
+					<alpha type="float">1</alpha>
+				</color>
+				<tcas>
+					<color n="0"> <!-- distant targets -->
+						<red type="float">0</red>
+						<green type="float">1</green>
+						<blue type="float">1</blue>
+					</color>
+					<color n="1"> <!-- proximity targets -->
+						<red type="float">0</red>
+						<green type="float">1</green>
+						<blue type="float">1</blue>
+					</color>
+					<color n="2"> <!-- TA threat targets -->
+						<red type="float">1</red>
+						<green type="float">0.5</green>
+						<blue type="float">0</blue>
+					</color>
+					<color n="3"> <!-- RA threat targets -->
+						<red type="float">1</red>
+						<green type="float">0</green>
+						<blue type="float">0</blue>
+					</color>
+				</tcas>
+			</font>
+
+		</radar>
+ 
+
+		<groundradar>
+			<range type="double">1.0</range>
+		</groundradar>
 	</instrumentation>
 
 	<input>
@@ -735,6 +918,10 @@
 	</input>
 
 	<nasal>
+		<a320neo>
+			<file>Aircraft/Generic/limits.nas</file>
+			<file>Aircraft/A320neo/Nasal/copilot.nas</file>
+		</a320neo>
 		<systems>
 			<file>Aircraft/A320neo/Nasal/systems.nas</file>
 		</systems>
@@ -768,6 +955,39 @@
 		</dual_control>
 	</nasal>
 
+	<limits>
+		<mass-and-balance> <!-- #ref-1 page67 WV016 -->
+			<maximum-ramp-mass-lbs>162922</maximum-ramp-mass-lbs>
+			<maximum-takeoff-mass-lbs>162040</maximum-takeoff-mass-lbs>
+			<maximum-landing-mass-lbs>145505</maximum-landing-mass-lbs>
+			<maximum-zero-fuel-mass-lbs>137789</maximum-zero-fuel-mass-lbs>
+		</mass-and-balance>
+		<max-flap-extension-speed>
+			<flaps>0.29</flaps>
+			<speed>230</speed>
+		</max-flap-extension-speed>
+		<max-flap-extension-speed>
+			<flaps>0.596</flaps>
+			<speed>200</speed>
+		</max-flap-extension-speed>
+		<max-flap-extension-speed>
+			<flaps>0.645</flaps>
+			<speed>185</speed>
+		</max-flap-extension-speed>
+		<max-flap-extension-speed>
+			<flaps>1</flaps>
+			<speed>177</speed>
+		</max-flap-extension-speed>
+		
+		 
+		<vne>370</vne>
+		 
+		<max-gear-extension-speed>250</max-gear-extension-speed>
+		 
+		<max-positive-g>2.5</max-positive-g>
+		<max-negative-g>-1</max-negative-g>
+ 
+	</limits>
 	<aircraft>
 		<jetway-pos>
 			<x-tra>-1.95</x-tra>
@@ -777,20 +997,5 @@
 		</jetway-pos>
 	</aircraft>
 
-	<payload>
-		<weight n="1">
-			<min-lb type="double">0</min-lb>
-			<max-lb type="double">39500</max-lb>
-		</weight>
-	</payload>
-
-	<instrumentation>
-		<cdu>
-			<ident>
-				<model>A319NEO</model>
-				<engines>CFM LeapX</engines>
-			</ident>
-		</cdu>
-	</instrumentation>
 
 </PropertyList>

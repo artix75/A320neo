@@ -9,7 +9,7 @@
 
 	<model>
 		<name>Fuselage</name>
-		<path>Aircraft/A320neo/Models/Fuselage/a319neo.fuselage.xml</path>
+		<path>Aircraft/A320neo/Models/Fuselages/a319neo.fuselage.xml</path>
 	</model>
 
 	<!-- Separate Flightdeck to fit the modified nose -->
@@ -57,7 +57,7 @@
 	</model>
 
 	<model>
-		<path>Aircraft/A320neo/Models/Wings/a320.wings.iae.xml</path>
+		<path>Aircraft/A320neo/Models/Wings/a320.wings.xml</path>
 		<offsets>
 			<x-m>15.280</x-m>
 			<z-m>-1.06019</z-m>
@@ -75,7 +75,7 @@
 
 	<model>
 		<name>Horizontal Stabilizer</name>
-		<path>Aircraft/A320neo/Models/Fuselage/a320.hstab.xml</path>
+		<path>Aircraft/A320neo/Models/Fuselages/a320.hstab.xml</path>
 		<offsets>
 			<x-m>32.0212207</x-m>
 			<pitch-deg>0.0</pitch-deg>
@@ -84,7 +84,7 @@
 
 	<model>
 		<name>Vertical Stabilizer</name>
-		<path>Aircraft/A320neo/Models/Fuselage/a320.vstab.xml</path>
+		<path>Aircraft/A320neo/Models/Fuselages/a320.vstab.xml</path>
 		<offsets>
 			<x-m>30.1235728</x-m>
 		</offsets>
@@ -200,7 +200,7 @@
 	<!-- Dual control -->
 	<nasal>
 		<load>
-		 aircraft_dual_control.pilot_type = "Aircraft/A320neo/Models/A319NEO.xml";
+		 aircraft_dual_control.pilot_type = "Aircraft/A320neo/Models/A319neo.xml";
 		</load>
 	</nasal>
 

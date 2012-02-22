@@ -482,7 +482,6 @@
 		</APU>
 		<electric>
 			<avionics-switch type="bool">true</avionics-switch>
-
 		</electric>
 		<engines>
 			<engine-start-switch type="int">1</engine-start-switch>
