@@ -11,7 +11,7 @@ OBJECT poly
 name "Windows"
 data 20
 Object03_4 - Default
-texture "A319-blank.png"
+texture "A319neo.png"
 crease 30.000000
 numvert 2800
 20.6984 0.422163 1.92339
@@ -38982,7 +38982,7 @@ name "Windsheild"
 loc 17.087 7.19139 -0.00189972
 data 20
 Object03_4 - Default
-texture "A319-blank.png"
+texture "A319neo.png"
 crease 30.000000
 numvert 58
 -11.5795 -6.87226 0.15368
@@ -39282,7 +39282,7 @@ name "GearNWell"
 loc -4.85506 -1.08952 -0.142282
 data 18
 NG BAY_2 - Default
-texture "A319-blank.png"
+texture "A319neo.png"
 crease 30.000000
 numvert 32
 8.9199 -2.05304 -0.5019
@@ -39502,7 +39502,7 @@ kids 0
 OBJECT poly
 name "Fuselage"
 loc 23.6977 0.795479 -0.173012
-texture "A319-blank.png"
+texture "A319neo.png"
 crease 45.000000
 subdiv 2
 numvert 47
@@ -39852,7 +39852,7 @@ kids 0
 OBJECT poly
 name "Fuselage"
 loc 21.0741 0.71147 -0.189252
-texture "A319-blank.png"
+texture "A319neo.png"
 crease 45.000000
 subdiv 2
 numvert 47
@@ -40202,7 +40202,7 @@ kids 0
 OBJECT poly
 name "Fuselage"
 loc 7.51772 -3.63857 -0.173012
-texture "A319-blank.png"
+texture "A319neo.png"
 crease 45.000000
 subdiv 2
 numvert 47
@@ -40552,7 +40552,7 @@ kids 0
 OBJECT poly
 name "Fuselage"
 loc 22.8036 -3.46917 -0.173012
-texture "A319-blank.png"
+texture "A319neo.png"
 crease 45.000000
 subdiv 2
 numvert 47
@@ -40902,7 +40902,7 @@ kids 0
 OBJECT poly
 name "Fuselage"
 loc 4.96077 0.64934 -0.173012
-texture "A319-blank.png"
+texture "A319neo.png"
 crease 45.000000
 subdiv 2
 numvert 47
@@ -41252,7 +41252,7 @@ kids 0
 OBJECT poly
 name "cylinder"
 loc 0.13225 4.71147 0.816398
-texture "A319-blank.png"
+texture "A319neo.png"
 crease 45.000000
 numvert 100
 1.68001 -7.39128 -2.11424
@@ -42272,7 +42272,7 @@ kids 0
 OBJECT poly
 name "cylinder"
 loc -0.0733304 4.39291 1.2317
-texture "A319-blank.png"
+texture "A319neo.png"
 crease 45.000000
 numvert 100
 1.59342 -6.62566 -2.79125
@@ -43292,7 +43292,7 @@ kids 0
 OBJECT poly
 name "cylinder"
 loc -0.0733304 4.39291 1.2317
-texture "A319-blank.png"
+texture "A319neo.png"
 crease 45.000000
 numvert 100
 1.68001 -6.62191 0.0696645
@@ -44312,7 +44312,7 @@ kids 0
 OBJECT poly
 name "cylinder"
 loc 0.13225 3.96727 0.947198
-texture "A319-blank.png"
+texture "A319neo.png"
 crease 45.000000
 numvert 100
 1.59342 -6.64276 0.0467684
@@ -45332,7 +45332,7 @@ kids 0
 OBJECT poly
 name "cylinder"
 loc -0.14723 3.6856 0.432498
-texture "A319-blank.png"
+texture "A319neo.png"
 crease 45.000000
 numvert 200
 1.68001 -6.68346 0.0369322
@@ -47366,7 +47366,7 @@ name "GearNFwdDoorL"
 loc 0.44319 3.3874 -0.144182
 data 8
 Mesh.031
-texture "A319-blank.png"
+texture "A319neo.png"
 crease 30.000000
 subdiv 1
 numvert 4
@@ -47393,7 +47393,7 @@ name "GearNFwdDoorR"
 loc 0.443089 3.3874 -0.644182
 data 8
 Mesh.031
-texture "A319-blank.png"
+texture "A319neo.png"
 crease 30.000000
 subdiv 1
 numvert 7
@@ -47435,7 +47435,7 @@ name "Cargo1"
 loc -4.85506 -1.08952 -0.142282
 data 21
 FUSELAGE_1 - Defa.030
-texture "A319-blank.png"
+texture "A319neo.png"
 crease 30.000000
 numvert 26
 11.2529 -2.02597 -0.692778
@@ -47615,7 +47615,7 @@ name "Cargo1Int"
 loc -4.85506 -1.08952 -0.142282
 data 17
 FUSELAGE_1 - Defa
-texture "A319-blank.png"
+texture "A319neo.png"
 crease 30.000000
 numvert 52
 11.2887 -1.96556 -0.680981
@@ -48003,7 +48003,7 @@ name "Cargo2"
 loc -4.85506 -1.08952 -0.142282
 data 21
 FUSELAGE_1 - Defa.028
-texture "A319-blank.png"
+texture "A319neo.png"
 crease 30.000000
 numvert 74
 25.4699 -2.00933 -0.56823
@@ -48473,7 +48473,7 @@ name "Cargo2Int"
 loc -4.85506 -1.08952 -0.142282
 data 21
 FUSELAGE_1 - Defa.029
-texture "A319-blank.png"
+texture "A319neo.png"
 crease 30.000000
 numvert 86
 25.4398 -1.96607 -0.573102
@@ -49123,7 +49123,7 @@ name "DoorL1"
 loc -4.85506 -1.08952 -0.142282
 data 21
 FUSELAGE_1 - Defa.008
-texture "A319-blank.png"
+texture "A319neo.png"
 crease 30.000000
 numvert 32
 9.68253 -0.443861 1.92707
@@ -49345,7 +49345,7 @@ name "DoorL2"
 loc -4.85506 -1.08952 -0.142282
 data 21
 FUSELAGE_1 - Defa.021
-texture "A319-blank.png"
+texture "A319neo.png"
 crease 30.000000
 numvert 46
 17.5828 0.845151 1.77534
@@ -49677,7 +49677,7 @@ name "DoorL3"
 loc -4.85506 -1.08952 -0.142282
 data 21
 FUSELAGE_1 - Defa.022
-texture "A319-blank.png"
+texture "A319neo.png"
 crease 30.000000
 numvert 41
 30.4874 1.45595 1.17087
@@ -49968,7 +49968,7 @@ name "DoorR1"
 loc -4.85506 -1.08952 -0.142282
 data 21
 FUSELAGE_1 - Defa.014
-texture "A319-blank.png"
+texture "A319neo.png"
 crease 30.000000
 numvert 32
 9.68253 -0.443861 -1.93087
@@ -50190,7 +50190,7 @@ name "DoorR2"
 loc -4.85506 -1.08952 -0.142282
 data 21
 FUSELAGE_1 - Defa.015
-texture "A319-blank.png"
+texture "A319neo.png"
 crease 30.000000
 numvert 46
 17.5828 0.845151 -1.77914
@@ -50522,7 +50522,7 @@ name "DoorR3"
 loc -4.85506 -1.08952 -0.142282
 data 21
 FUSELAGE_1 - Defa.023
-texture "A319-blank.png"
+texture "A319neo.png"
 crease 30.000000
 numvert 41
 30.3996 -0.538383 -1.47857
@@ -50813,7 +50813,7 @@ name "GearNAftDoorL"
 loc -4.85506 -1.08952 -0.142282
 data 21
 FUSELAGE_1 - Defa.034
-texture "A319-blank.png"
+texture "A319neo.png"
 crease 30.000000
 numvert 10
 9.2009 -2.1391 -0.0019
@@ -50881,7 +50881,7 @@ name "GearNAftDoorR"
 loc -4.85506 -1.08952 -0.142282
 data 21
 FUSELAGE_1 - Defa.035
-texture "A319-blank.png"
+texture "A319neo.png"
 crease 30.000000
 numvert 10
 9.2009 -2.1391 -0.0019
@@ -50949,7 +50949,7 @@ name "GearNDoorC"
 loc -4.85506 -1.08952 -0.142282
 data 21
 FUSELAGE_1 - Defa.036
-texture "A319-blank.png"
+texture "A319neo.png"
 crease 30.000000
 numvert 10
 9.2009 -2.13273 0.0606
@@ -51017,7 +51017,7 @@ name "GearNFwdDoorL"
 loc -4.85506 -1.08952 -0.142282
 data 21
 FUSELAGE_1 - Defa.032
-texture "A319-blank.png"
+texture "A319neo.png"
 crease 30.000000
 numvert 18
 8.9199 -2.1291 -0.0019
@@ -51159,7 +51159,7 @@ name "GearNFwdDoorR"
 loc -4.85506 -1.08952 -0.142282
 data 21
 FUSELAGE_1 - Defa.033
-texture "A319-blank.png"
+texture "A319neo.png"
 crease 30.000000
 numvert 18
 8.9199 -2.1291 -0.0019
@@ -51301,7 +51301,7 @@ name "Ports"
 loc -4.85506 -1.08952 -0.142282
 data 21
 FUSELAGE_1 - Defa.031
-texture "A319-blank.png"
+texture "A319neo.png"
 crease 30.000000
 numvert 36
 10.9869 -1.54664 -1.3994
@@ -51539,7 +51539,7 @@ name "Belly"
 loc -4.85506 -1.08952 -0.142282
 data 21
 FUSELAGE_1 - Defa.027
-texture "A319-blank.png"
+texture "A319neo.png"
 crease 30.000000
 numvert 340
 15.7915 -0.827795 -2.18631
@@ -54659,7 +54659,7 @@ name "GearLDoor"
 loc -4.85506 -1.08952 -0.142282
 data 21
 FUSELAGE_1 - Defa.024
-texture "A319-blank.png"
+texture "A319neo.png"
 crease 30.000000
 numvert 19
 20.2969 -1.47173 1.96055
@@ -54802,7 +54802,7 @@ name "GearRDoor"
 loc -4.85506 -1.08952 -0.142282
 data 21
 FUSELAGE_1 - Defa.025
-texture "A319-blank.png"
+texture "A319neo.png"
 crease 30.000000
 numvert 19
 20.2969 -1.47173 -1.96435
@@ -54945,7 +54945,7 @@ name "Fuselage"
 loc 16.1903 -1.18312 -0.144182
 data 8
 Mesh.031
-texture "A319-blank.png"
+texture "A319neo.png"
 crease 30.000000
 subdiv 1
 numvert 3617

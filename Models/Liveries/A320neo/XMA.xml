@@ -5,7 +5,7 @@
 		<model>
 			<livery>
 				<name>Air Asia</name>
-				<neo-texture>../Liveries/A320neo-XMA.png</neo-texture>
+				<neo-texture>Liveries/A320neo-XMA.png</neo-texture>
 			</livery>
 		</model>
 	</sim>

@@ -4,8 +4,8 @@
 	<sim>
 		<model>
 			<livery>
-				<name>Airbus House</name>
-				<neo-texture>Liveries/A321neo-Airbus.png</neo-texture>
+				<name>Bare metal</name>
+				<neo-texture>Liveries/A319neo-Blank.png</neo-texture>
 			</livery>
 		</model>
 	</sim>

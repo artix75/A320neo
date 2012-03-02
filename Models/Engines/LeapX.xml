@@ -41,7 +41,7 @@
 	</animation>
 
 	<!-- LIVERY SELECT -->
-	<!-- Animation -->
+	<!-- Animation 
 	<animation>
 		<type>material</type>
 		<object-name>Intake</object-name>
@@ -49,9 +49,9 @@
 		<object-name>Reverser</object-name>
 		<property-base>sim/model/livery</property-base>
 		<texture-prop>neo-texture</texture-prop>
-		<!--texture>Liveries/A320NEO-Blank.png</texture-->
+		
 	</animation>
-
+-->
 
 
 	<model>
@@ -106,7 +106,7 @@
 			<z>0</z>
 		</axis>
 	</animation>
-	<!-- Nasal code -->
+	<!-- Nasal code 
 	<nasal>
 		<load>
 		 var livery_update = aircraft.livery_update.new("Aircraft/A320neo/Models/Liveries/" ~ getprop("sim/aero"));
@@ -114,6 +114,6 @@
 		<unload>
 		 livery_update.stop();
 		</unload>
-	</nasal>
+	</nasal>-->
 
 </PropertyList>

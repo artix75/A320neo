@@ -5,7 +5,7 @@
 		<model>
 			<livery>
 				<name>Bare metal</name>
-				<neo-texture>../Liveries/A320neo-Blank.png</neo-texture>
+				<neo-texture>Liveries/A320neo-Blank.png</neo-texture>
 			</livery>
 		</model>
 	</sim>

@@ -5,7 +5,7 @@
 		<model>
 			<livery>
 				<name>Lufthansa</name>
-				<texture>Liveries/A321neo-DLH.png</texture>
+				<neo-texture>Liveries/A321neo-DLH.png</neo-texture>
 			</livery>
 		</model>
 	</sim>
