@@ -180,12 +180,20 @@
 			<prop>/autopilot/internal/target-roll-deg</prop>
 		</output>
 		<config>
-			<Kp>-1.5</Kp>
+<!--			<Kp>-1.5</Kp>
 			<beta>1</beta>
 			<alpha>0.1</alpha>
 			<gamma>0</gamma>
 			<Ti>15</Ti>
 			<Td>0.000000001</Td>
+			<u_min>-25</u_min>
+			<u_max>25</u_max>
+-->			<Kp>-2</Kp>
+			<beta>1</beta>
+			<alpha>0.1</alpha>
+			<gamma>0</gamma>
+			<Ti>15</Ti>
+			<Td>0.00000001</Td>
 			<u_min>-25</u_min>
 			<u_max>25</u_max>
 		</config>
@@ -245,7 +253,7 @@
 
 
 	<pi-simple-controller>
-		<name>Altitude Hold below 500ft diff</name>
+		<name>Altitude Hold - below 500ft diff</name>
 		<debug type="bool">false</debug>
 		<enable>
 			<condition>
@@ -273,7 +281,8 @@
 			<property>/autopilot/internal/target-pitch-deg</property>
 		</output>
 		<config>
-			<Kp>0.015</Kp>
+			<!--Kp>0.015</Kp-->
+			<Kp>0.010</Kp>
 			<Ki>0.00015</Ki>
 
 			<u_min>-7</u_min>

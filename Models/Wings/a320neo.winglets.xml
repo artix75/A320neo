@@ -13,16 +13,16 @@
 
 	<!-- LIVERY SELECT -->
 	<!-- Animation -->
-	<animation>
+	<!--animation>
 		<type>material</type>
 		<object-name>WingletL</object-name>
 		<object-name>WingletR</object-name>
 		<property-base>sim/model/livery</property-base>
 		<texture-prop>neo-texture</texture-prop>
-		<!--texture>Liveries/A320neo-Airbus.png</texture-->
-	</animation>
+		<!-texture>Liveries/A320neo-Airbus.png</texture->
+	</animation-->
 
-	<!-- Nasal code -->
+	<!-- Nasal code 
 	<nasal>
 		<load>
 		 var livery_update = aircraft.livery_update.new("Aircraft/A320neo/Models/Liveries/" ~ getprop("sim/aero"));
@@ -31,5 +31,5 @@
 		 livery_update.stop();
 		</unload>
 	</nasal>
-
+-->
 </PropertyList>

@@ -5,7 +5,7 @@
 		<model>
 			<livery>
 				<name>Airbus House</name>
-				<neo-texture>../Liveries/A320neo-Airbus.png</neo-texture>
+				<neo-texture>Liveries/A320neo-Airbus.png</neo-texture>
 			</livery>
 		</model>
 	</sim>

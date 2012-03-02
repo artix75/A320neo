@@ -5,7 +5,7 @@
 		<model>
 			<livery>
 				<name>Virgin America</name>
-				<neo-texture>../Liveries/A320neo-VGA.png</neo-texture>
+				<neo-texture>Liveries/A320neo-VGA.png</neo-texture>
 			</livery>
 		</model>
 	</sim>

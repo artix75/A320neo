@@ -5,7 +5,7 @@
 		<model>
 			<livery>
 				<name>LAN Airlines Chile</name>
-				<neo-texture>../Liveries/LAN.png</neo-texture>
+				<neo-texture>Liveries/LAN.png</neo-texture>
 			</livery>
 		</model>
 	</sim>

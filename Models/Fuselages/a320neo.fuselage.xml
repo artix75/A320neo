@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
 <PropertyList>
-
+	<name>Fuselage</name>
 	<path>res/a320neo.fuselage.ac</path>
 
 	<!-- Reflection Shader -->
@@ -469,25 +469,6 @@
 		</axis>
 	</animation>
 
-	<!-- LIVERY SELECT -->
-	<!-- Animation -->
-	<animation>
-		<type>material</type>
-		<object-name>Fuselage</object-name>
-		<property-base>sim/model/livery</property-base>
-		<texture-prop>neo-texture</texture-prop>
-		<!--texture-prop>texture-path[0]</texture-prop-->
-		<!--texture>A320neo-VGA.png</texture-->
-	</animation>
 
-	<!-- Nasal code -->
-	<nasal>
-		<load>
-		 var livery_update = aircraft.livery_update.new("Aircraft/A320neo/Models/Liveries/" ~ getprop("sim/aero"));
-		</load>
-		<unload>
-		 livery_update.stop();
-		</unload>
-	</nasal>
 
 </PropertyList>

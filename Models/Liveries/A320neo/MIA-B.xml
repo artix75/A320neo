@@ -5,7 +5,7 @@
 		<model>
 			<livery>
 				<name>Merlion Europe</name>
-				<neo-texture>../Liveries/A320neo-MerlionBLUE.png</neo-texture>
+				<neo-texture>Liveries/A320neo-MerlionBLUE.png</neo-texture>
 			</livery>
 		</model>
 	</sim>
