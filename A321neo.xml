@@ -887,6 +887,14 @@ YAW MOI_________3950000______23089847_______24848934
 
 <aerodynamics>
   <axis name="LIFT">
+	<function name="aero/force/Lift_gain">
+		<description>Drag_at_zero_lift</description>
+		<product>
+		<property>aero/qbar-psf</property>
+		<property>metrics/Sw-sqft</property>
+		<value>0.30</value>
+		</product>
+	</function>
 		<!--function name="aero/coefficient/CLalpha">
 			<description>Lift_due_to_alpha</description>
 			<product>

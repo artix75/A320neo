@@ -538,11 +538,11 @@
 					</equals>
 				</not>
 				<less-than-equals>
-					<property>sim/model/A320/ias-bug-kt-norm</property>
+					<property>sim/model/A320neo/ias-bug-kt-norm</property>
 					<value>72</value>
 				</less-than-equals>
 				<greater-than-equals>
-					<property>sim/model/A320/ias-bug-kt-norm</property>
+					<property>sim/model/A320neo/ias-bug-kt-norm</property>
 					<value>-72</value>
 				</greater-than-equals>
 			</and>
@@ -552,7 +552,7 @@
 		<name>IAS bug translate</name>
 		<type>translate</type>
 		<object-name>SpdIASAP</object-name>
-		<property>sim/model/A320/ias-bug-kt-norm</property>
+		<property>sim/model/A320neo/ias-bug-kt-norm</property>
 		<factor>0.00059</factor>
 		<axis>
 			<x>0</x>
@@ -576,7 +576,7 @@
 		<name>Mach bug translate</name>
 		<type>translate</type>
 		<object-name>SpdMachAP</object-name>
-		<property>sim/model/A320/mach-bug-kt-norm</property>
+		<property>sim/model/A320neo/mach-bug-kt-norm</property>
 		<factor>0.00059</factor>
 		<axis>
 			<x>0</x>
@@ -870,7 +870,7 @@
 		<name>Heading bug translate</name>
 		<type>translate</type>
 		<object-name>HdgAP</object-name>
-		<property>sim/model/A320/heading-bug-pfd-deg</property>
+		<property>sim/model/A320neo/heading-bug-pfd-deg</property>
 		<factor>0.0004933</factor>
 		<axis>
 			<x>0</x>

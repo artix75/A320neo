@@ -338,19 +338,19 @@ var instruments =
  # set the rotation of the HSI bugs
  setHSIBugsDeg: func
   {
-  setprop("sim/model/A320/heading-bug-pfd-deg", instruments.calcBugDeg(getprop("autopilot/settings/heading-bug-deg"), 80));
-  setprop("sim/model/A320/heading-bug-deg", instruments.calcBugDeg(getprop("autopilot/settings/heading-bug-deg"), 37));
-  setprop("sim/model/A320/nav1-bug-deg", instruments.calcBugDeg(getprop("instrumentation/nav[0]/heading-deg"), 37));
-  setprop("sim/model/A320/nav2-bug-deg", instruments.calcBugDeg(getprop("instrumentation/nav[1]/heading-deg"), 37));
+  setprop("sim/model/A320neo/heading-bug-pfd-deg", instruments.calcBugDeg(getprop("autopilot/settings/heading-bug-deg"), 80));
+  setprop("sim/model/A320neo/heading-bug-deg", instruments.calcBugDeg(getprop("autopilot/settings/heading-bug-deg"), 37));
+  setprop("sim/model/A320neo/nav1-bug-deg", instruments.calcBugDeg(getprop("instrumentation/nav[0]/heading-deg"), 37));
+  setprop("sim/model/A320neo/nav2-bug-deg", instruments.calcBugDeg(getprop("instrumentation/nav[1]/heading-deg"), 37));
   if (getprop("autopilot/route-manager/route/num") > 0 and getprop("autopilot/route-manager/wp[0]/bearing-deg") != nil)
    {
-   setprop("sim/model/A320/wp-bearing-deg", instruments.calcBugDeg(getprop("autopilot/route-manager/wp[0]/bearing-deg"), 45));
+   setprop("sim/model/A320neo/wp-bearing-deg", instruments.calcBugDeg(getprop("autopilot/route-manager/wp[0]/bearing-deg"), 45));
    }
   },
  setSpeedBugs: func
   {
-  setprop("sim/model/A320/ias-bug-kt-norm", getprop("autopilot/settings/target-speed-kt") - getprop("velocities/airspeed-kt"));
-  setprop("sim/model/A320/mach-bug-kt-norm", (getprop("autopilot/settings/target-speed-mach") - getprop("velocities/mach")) * 600);
+  setprop("sim/model/A320neo/ias-bug-kt-norm", getprop("autopilot/settings/target-speed-kt") - getprop("velocities/airspeed-kt"));
+  setprop("sim/model/A320neo/mach-bug-kt-norm", (getprop("autopilot/settings/target-speed-mach") - getprop("velocities/mach")) * 600);
   },
  setMPProps: func
   {
@@ -383,33 +383,33 @@ var instruments =
    };
   if (getprop("ai/models/multiplayer[0]/valid"))
    {
-   setprop("sim/model/A320/multiplayer-distance[0]", calcMPDistance("ai/models/multiplayer[0]/"));
-   setprop("sim/model/A320/multiplayer-bearing[0]", instruments.calcBugDeg(calcMPBearing("ai/models/multiplayer[0]/"), 45));
+   setprop("sim/model/A320neo/multiplayer-distance[0]", calcMPDistance("ai/models/multiplayer[0]/"));
+   setprop("sim/model/A320neo/multiplayer-bearing[0]", instruments.calcBugDeg(calcMPBearing("ai/models/multiplayer[0]/"), 45));
    }
   if (getprop("ai/models/multiplayer[1]/valid"))
    {
-   setprop("sim/model/A320/multiplayer-distance[1]", calcMPDistance("ai/models/multiplayer[1]/"));
-   setprop("sim/model/A320/multiplayer-bearing[1]", instruments.calcBugDeg(calcMPBearing("ai/models/multiplayer[1]/"), 45));
+   setprop("sim/model/A320neo/multiplayer-distance[1]", calcMPDistance("ai/models/multiplayer[1]/"));
+   setprop("sim/model/A320neo/multiplayer-bearing[1]", instruments.calcBugDeg(calcMPBearing("ai/models/multiplayer[1]/"), 45));
    }
   if (getprop("ai/models/multiplayer[2]/valid"))
    {
-   setprop("sim/model/A320/multiplayer-distance[2]", calcMPDistance("ai/models/multiplayer[2]/"));
-   setprop("sim/model/A320/multiplayer-bearing[2]", instruments.calcBugDeg(calcMPBearing("ai/models/multiplayer[2]/"), 45));
+   setprop("sim/model/A320neo/multiplayer-distance[2]", calcMPDistance("ai/models/multiplayer[2]/"));
+   setprop("sim/model/A320neo/multiplayer-bearing[2]", instruments.calcBugDeg(calcMPBearing("ai/models/multiplayer[2]/"), 45));
    }
   if (getprop("ai/models/multiplayer[3]/valid"))
    {
-   setprop("sim/model/A320/multiplayer-distance[3]", calcMPDistance("ai/models/multiplayer[3]/"));
-   setprop("sim/model/A320/multiplayer-bearing[3]", instruments.calcBugDeg(calcMPBearing("ai/models/multiplayer[3]/"), 45));
+   setprop("sim/model/A320neo/multiplayer-distance[3]", calcMPDistance("ai/models/multiplayer[3]/"));
+   setprop("sim/model/A320neo/multiplayer-bearing[3]", instruments.calcBugDeg(calcMPBearing("ai/models/multiplayer[3]/"), 45));
    }
   if (getprop("ai/models/multiplayer[4]/valid"))
    {
-   setprop("sim/model/A320/multiplayer-distance[4]", calcMPDistance("ai/models/multiplayer[4]/"));
-   setprop("sim/model/A320/multiplayer-bearing[4]", instruments.calcBugDeg(calcMPBearing("ai/models/multiplayer[4]/"), 45));
+   setprop("sim/model/A320neo/multiplayer-distance[4]", calcMPDistance("ai/models/multiplayer[4]/"));
+   setprop("sim/model/A320neo/multiplayer-bearing[4]", instruments.calcBugDeg(calcMPBearing("ai/models/multiplayer[4]/"), 45));
    }
   if (getprop("ai/models/multiplayer[5]/valid"))
    {
-   setprop("sim/model/A320/multiplayer-distance[5]", calcMPDistance("ai/models/multiplayer[5]/"));
-   setprop("sim/model/A320/multiplayer-bearing[5]", instruments.calcBugDeg(calcMPBearing("ai/models/multiplayer[5]/"), 45));
+   setprop("sim/model/A320neo/multiplayer-distance[5]", calcMPDistance("ai/models/multiplayer[5]/"));
+   setprop("sim/model/A320neo/multiplayer-bearing[5]", instruments.calcBugDeg(calcMPBearing("ai/models/multiplayer[5]/"), 45));
    }
   },
  calcEGTDegC: func()
