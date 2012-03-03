@@ -7,9 +7,9 @@ xsi:noNamespaceSchemaLocation="http://jsbsim.sourceforge.net/JSBSim.xsd">
 <fileheader>
 	<author> Bicyus (Jon Ortuondo) </author>
 	<email> bicyus@gmail.com </email>
-	<filecreationdate> 2012-02-15 </filecreationdate>
+	<filecreationdate> 2012-03-02 </filecreationdate>
 	<version> 0.99 </version>
-	<description> Airbus A320neo With Sharklets and CFM LEAP-X High ByPass Turbofan Engine </description>
+	<description> Airbus A319neo With Sharklets and CFM LEAP-X High ByPass Turbofan Engine </description>
 	<note> Fork from the A320-Family aircraft project (Thanks to all authors) </note>
 	<limitation></limitation>
 </fileheader>
@@ -64,7 +64,7 @@ YAW MOI_________3950000______23089847_______24848934
 	<ixy unit="SLUG*FT2">         0 </ixy>
 	<ixz unit="SLUG*FT2">         0 </ixz>
 	<iyz unit="SLUG*FT2">         0 </iyz>
-	<emptywt unit="LBS">80431</emptywt> <!-- #ref-1 page 67, WV016. 90927lbs - 5248x2 (engines)=80431lbs-->
+	<emptywt unit="LBS">77083</emptywt> <!-- #ref-12 page 54, WV009. 87579 bs - 5248x2 (engines)=77083lbs-->
 	<location name="CG" unit="IN">
 	<!--x> 642.122 </x-->
 	<x> 650.122 </x><!-- At zero load of fuel and cargo/pax the CG goes to 642 -->

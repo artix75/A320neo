@@ -14,10 +14,8 @@
 		<model>
 			<path>Aircraft/A320neo/Models/A319neo.xml</path>
 			<livery>
-				<file>Liveries/A319neo-Blank</file>
-				<texture>Liveries/A319neo-Blank.png</texture>
-				<texture-path n="0">../Liveries/A319neo-Blank.png</texture-path>
-				<texture-path n="1">../Liveries/A319neo-Blank.png</texture-path>
+				<file>Liveries/A319neo/Airbus</file>
+				<neo-texture>Liveries/A319neo-Blank.png</neo-texture>
 			</livery>
 			<door n="0">
 				<position-x-m>-11.3399</position-x-m>
@@ -31,11 +29,16 @@
 
 		<!-- Flaps only go up to 35 degrees for the 200 -->
 		<flaps>
-			<setting>0.00</setting>
+			<!--<setting>0.00</setting>
 			<setting>0.25</setting>
 			<setting>0.375</setting>
 			<setting>0.5</setting>
-			<setting>0.875</setting>
+			<setting>1</setting>-->
+			<setting>0.00</setting> 
+			<setting>0.29</setting><!-- 18+0=18 ->  0.290 -->
+			<setting>0.596</setting><!-- 22+15=37 -> 0.596 -->
+			<setting>0.645</setting><!-- 22+22=44 -> 0.645 -->
+			<setting>1</setting><!-- 27+35=62 -> 1 -->
 		</flaps>
 
 		<view>
@@ -196,7 +199,7 @@
 		<chase-distance-m>-60</chase-distance-m>
 
 		<sound>
-			<path>Aircraft/A320neo/A320-sound.xml</path>
+			<path>Aircraft/A320neo/Sounds/A320-sound.xml</path>
 		</sound>
 
 		<instrumentation>
@@ -956,11 +959,11 @@
 	</nasal>
 
 	<limits>
-		<mass-and-balance> <!-- #ref-1 page67 WV016 -->
-			<maximum-ramp-mass-lbs>162922</maximum-ramp-mass-lbs>
-			<maximum-takeoff-mass-lbs>162040</maximum-takeoff-mass-lbs>
-			<maximum-landing-mass-lbs>145505</maximum-landing-mass-lbs>
-			<maximum-zero-fuel-mass-lbs>137789</maximum-zero-fuel-mass-lbs>
+		<mass-and-balance> <!-- #ref-12 page54 WV012 -->
+			<maximum-ramp-mass-lbs>137568</maximum-ramp-mass-lbs>
+			<maximum-takeoff-mass-lbs>136686</maximum-takeoff-mass-lbs>
+			<maximum-landing-mass-lbs>134482</maximum-landing-mass-lbs>
+			<maximum-zero-fuel-mass-lbs>125663</maximum-zero-fuel-mass-lbs>
 		</mass-and-balance>
 		<max-flap-extension-speed>
 			<flaps>0.29</flaps>
