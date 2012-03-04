@@ -49,8 +49,8 @@
 		<object-name>Needle1VOR</object-name>
 		<condition>
 			<equals>
-				<property>instrumentation/nav-compass/nav-display[0]</property>
-				<value>0</value>
+				<property>instrumentation/efis/input/vor-adf-1</property>
+				<value>1</value>
 			</equals>
 		</condition>
 	</animation>
@@ -76,8 +76,8 @@
 		<object-name>Needle1ADF</object-name>
 		<condition>
 			<equals>
-				<property>instrumentation/nav-compass/nav-display[0]</property>
-				<value>1</value>
+				<property>instrumentation/efis/input/vor-adf-2</property>
+				<value>2</value>
 			</equals>
 		</condition>
 	</animation>
@@ -104,8 +104,8 @@
 		<object-name>Needle2VOR</object-name>
 		<condition>
 			<equals>
-				<property>instrumentation/nav-compass/nav-display[1]</property>
-				<value>0</value>
+				<property>instrumentation/efis/input/vor-adf-2</property>
+				<value>1</value>
 			</equals>
 		</condition>
 	</animation>
@@ -131,8 +131,8 @@
 		<object-name>Needle2ADF</object-name>
 		<condition>
 			<equals>
-				<property>instrumentation/nav-compass/nav-display[1]</property>
-				<value>1</value>
+				<property>instrumentation/efis/input/vor-adf-2</property>
+				<value>2</value>
 			</equals>
 		</condition>
 	</animation>
@@ -153,71 +153,5 @@
 		</center>
 	</animation>
 
-	<!-- VOR/ADF switches -->
-	<animation>
-		<name>NAV1 switch pick</name>
-		<type>pick</type>
-		<object-name>NAV1</object-name>
-		<action>
-			<button>0</button>
-			<repeatable type="bool">false</repeatable>
-			<binding>
-				<command>property-cycle</command>
-				<property>instrumentation/nav-compass/nav-display[0]</property>
-				<value type="int">0</value>
-				<value type="int">1</value>
-			</binding>
-		</action>
-	</animation>
-	<animation>
-		<name>NAV1 switch rotate</name>
-		<type>rotate</type>
-		<object-name>NAV1</object-name>
-		<property>instrumentation/nav-compass/nav-display[0]</property>
-		<factor>90</factor>
-		<axis>
-			<x>-1</x>
-			<y>0</y>
-			<z>0</z>
-		</axis>
-		<center>
-			<x-m>0</x-m>
-			<y-m>-0.02224</y-m>
-			<z-m>-0.02176</z-m>
-		</center>
-	</animation>
-
-	<animation>
-		<name>NAV2 switch pick</name>
-		<type>pick</type>
-		<object-name>NAV2</object-name>
-		<action>
-			<button>0</button>
-			<repeatable type="bool">false</repeatable>
-			<binding>
-				<command>property-cycle</command>
-				<property>instrumentation/nav-compass/nav-display[1]</property>
-				<value type="int">0</value>
-				<value type="int">1</value>
-			</binding>
-		</action>
-	</animation>
-	<animation>
-		<name>NAV2 switch rotate</name>
-		<type>rotate</type>
-		<object-name>NAV2</object-name>
-		<property>instrumentation/nav-compass/nav-display[1]</property>
-		<factor>90</factor>
-		<axis>
-			<x>1</x>
-			<y>0</y>
-			<z>0</z>
-		</axis>
-		<center>
-			<x-m>0</x-m>
-			<y-m>0.02193</y-m>
-			<z-m>-0.02176</z-m>
-		</center>
-	</animation>
 
 </PropertyList>

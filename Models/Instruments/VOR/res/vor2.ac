@@ -6,7 +6,7 @@ kids 7
 OBJECT poly
 name "StbyAIframe"
 loc 0.000969537 0.0192286 1.86265e-09
-texture "/home/bicyus/Documents/Desarrollo/A320neo/Models/Instruments/Stby-AI/res/cockpit-2.png"
+texture "cockpit-2.png"
 texrep 0 0
 crease 15.000000
 numvert 96

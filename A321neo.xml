@@ -569,22 +569,22 @@ YAW MOI_________3950000______23089847_______24848934
 		<temperature>50</temperature>
 	</tank>
 	<tank type="FUEL">    <!-- LEFT FUEL PIPES (Engine 1 feed from this) -->
-		<!--location unit="IN">
-			<x> 788.4322 </x>
-			<y> 574.4148 </y>
-			<z> 3.1080 </z>
-		</location-->
+		<location unit="IN">
+			<x>589.735</x>	
+			<y>-226.575</y>
+			<z>-45.567</z>
+		</location>
 		<capacity unit="LBS"> 100 </capacity><!-- need review -->
 		<contents unit="LBS"> 0 </contents>
 		<priority>1</priority>
 		<type>JET-A1</type>
 	</tank>
 	<tank type="FUEL">    <!-- RIGHT FUEL PIPES (Engine 2 feed from this) -->
-		<!--location unit="IN">
-			<x> 788.4322 </x>
-			<y> 574.4148 </y>
-			<z> 3.1080 </z>
-		</location-->
+		<location unit="IN">
+			<x>589.735</x>	
+			<y>226.575</y>
+			<z>-45.567</z>
+		</location>
 		<capacity unit="LBS"> 100 </capacity><!-- need review -->
 		<contents unit="LBS"> 0 </contents>
 		<priority>1</priority>
@@ -886,15 +886,64 @@ YAW MOI_________3950000______23089847_______24848934
 
 
 <aerodynamics>
-  <axis name="LIFT">
-	<function name="aero/force/Lift_gain">
-		<description>Drag_at_zero_lift</description>
+	<function name="aero/function/kCDge">
+		<description>Change_in_drag_due_to_ground_effect</description>
 		<product>
-		<property>aero/qbar-psf</property>
-		<property>metrics/Sw-sqft</property>
-		<value>0.30</value>
+			<table>
+				<independentVar>aero/h_b-mac-ft</independentVar>
+				<tableData>
+					0.0000	0.4800
+					0.1000	0.5150
+					0.1500	0.6290
+					0.2000	0.7090
+					0.3000	0.8150
+					0.4000	0.8820
+					0.5000	0.9280
+					0.6000	0.9620
+					0.7000	0.9880
+					0.8000	1.0000
+					0.9000	1.0000
+					1.0000	1.0000
+					1.1000	1.0000
+				</tableData>
+			</table>
 		</product>
 	</function>
+	<function name="aero/function/kCLge">
+		<description>Change_in_lift_due_to_ground_effect</description>
+		<product>
+			<table>
+				<independentVar>aero/h_b-mac-ft</independentVar>
+				<tableData>
+					0.0000	1.2030
+					0.1000	1.1270
+					0.1500	1.0900
+					0.2000	1.0730
+					0.3000	1.0460
+					0.4000	1.0550
+					0.5000	1.0190
+					0.6000	1.0130
+					0.7000	1.0080
+					0.8000	1.0060
+					0.9000	1.0030
+					1.0000	1.0020
+					1.1000	1.0000
+				</tableData>
+			</table>
+		</product>
+	</function>
+
+
+	<axis name="LIFT">
+		<function name="aero/force/Lift_gain">
+			<description>Drag_at_zero_lift</description>
+			<product>
+			<property>aero/qbar-psf</property>
+			<property>metrics/Sw-sqft</property>
+			<value>0.30</value>
+			</product>
+		</function>
+
 		<!--function name="aero/coefficient/CLalpha">
 			<description>Lift_due_to_alpha</description>
 			<product>
@@ -932,6 +981,7 @@ YAW MOI_________3950000______23089847_______24848934
 			<product>
 			<property>aero/qbar-psf</property>
 			<property>metrics/Sw-sqft</property>
+			<property>aero/function/kCLge</property>
 			<table>
 				<independentVar lookup="row">aero/alpha-rad</independentVar>
 				<independentVar lookup="column">fcs/flap-pos-deg</independentVar>

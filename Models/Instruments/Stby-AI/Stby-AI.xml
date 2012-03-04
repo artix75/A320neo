@@ -50,7 +50,7 @@
 		</transform>
 	</animation>
 
-	<animation>
+	<!--animation>
 		<name>Roll pointer</name>
 		<type>rotate</type>
 		<object-name>rollarrow</object-name>
@@ -60,6 +60,6 @@
 			<y>0</y>
 			<z>0</z>
 		</axis>
-	</animation>
+	</animation-->
 
 </PropertyList>
