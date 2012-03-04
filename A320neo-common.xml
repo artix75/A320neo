@@ -72,7 +72,7 @@
 		</multiplay>
 
 		<startup>
-			<splash-texture>Aircraft/A320neo/NEO-splash2.png</splash-texture>
+			<splash-texture>Aircraft/A320neo/A320neo-splash.png</splash-texture>
 		</startup>
 		<gui>
 			<style>
@@ -82,20 +82,26 @@
 						<green>0.28</green>
 						<blue>0.31</blue>
 					</splash-font>
+					<splash-screen>
+						<red>0.363</red>
+						<green>0.476</green>
+						<blue>0.671</blue>
+					</splash-screen>
 				</colors>
 			</style>
 		</gui>
 
 		<systems>
 			<autopilot>
+				<name>Autopilot helpers</name>
+				<path>Aircraft/Generic/generic-autopilot-helper.xml</path>
+			</autopilot>
+			<autopilot>
 				<name>Autopilot</name>
 				<path>Aircraft/A320neo/Systems/a320-autopilot3.xml</path>
 				<!--path>Aircraft/Generic/generic-autopilot.xml</path-->
 			</autopilot>
-			<autopilot>
-				<name>Autopilot helpers</name>
-				<path>Aircraft/Generic/generic-autopilot-helper.xml</path>
-			</autopilot>
+
 			<autopilot>
 				<name>Autobrake</name>
 				<path>Aircraft/A320neo/Systems/a320-autobrake.xml</path>
@@ -138,7 +144,7 @@
 					</item>
 				</menu>
 				<menu n="100">
-					<label>Airbus A320neo</label>
+					
 					<enabled type="bool">true</enabled>
 					<item>
 						<name>autostart</name>

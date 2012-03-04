@@ -302,16 +302,16 @@
 		<type>select</type>
 		<object-name>APApp</object-name>
 		<condition>
-			<and>
+			<!--and-->
 				<equals>
 					<property>autopilot/settings/altitude</property>
 					<value>gs1-hold</value>
 				</equals>
-				<equals>
+				<!--equals>
 					<property>autopilot/settings/heading</property>
 					<value>nav1-hold</value>
 				</equals>
-			</and>
+			</and-->
 		</condition>
 	</animation>
 

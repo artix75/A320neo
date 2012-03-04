@@ -146,6 +146,13 @@
 		<!-- Plus A320neo-common.xml alarms -->
 
 		<!-- Plus A320neo-common.xml Menus & Help -->
+		<menubar>
+				<default>
+					<menu n="100">
+						<label>Airbus A321neo</label>
+					</menu>
+				</default>
+		</menubar>
 
 	</sim>
 

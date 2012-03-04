@@ -124,6 +124,13 @@
 		<!-- Plus A320neo-common.xml alarms -->
 
 		<!-- Plus A320neo-common.xml Menus & Help -->
+		<menubar>
+				<default>
+					<menu n="100">
+						<label>Airbus A319neo</label>
+					</menu>
+				</default>
+		</menubar>
 
 	</sim>
 
