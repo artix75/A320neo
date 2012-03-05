@@ -3,7 +3,10 @@
 <PropertyList>
 
 	<path>res/strobe.ac</path>
-
+	<offsets>
+		
+		<pitch-deg>-2</pitch-deg>
+	</offsets>
 	<!-- EXTRA MODELS -->
 	<!-- 3d light cone -->
 	<model>

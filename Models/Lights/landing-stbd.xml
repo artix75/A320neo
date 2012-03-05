@@ -4,6 +4,11 @@
 
 	<path>res/strobe.ac</path>
 
+	<offsets>
+		<heading-deg>-4</heading-deg>
+		<pitch-deg>-6.5</pitch-deg>
+	</offsets>
+
 	<!-- EXTRA MODELS -->
 	<!-- 3d light cone -->
 	<model>

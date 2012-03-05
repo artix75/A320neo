@@ -183,9 +183,9 @@
 
 				<!-- Orign is down left-->
 				<x1>0.763</x1>
-				<y1>0.759</y1>
+				<y1>0.857</y1>
 				<x2>0.806</x2>
-				<y2>0.857</y2>
+				<y2>0.759</y2>
 
 			</texture>	
 			<transformations>
@@ -206,6 +206,7 @@
 					<type>rotation</type>
 					<property>environment/wind-from-heading-deg</property>
 				</transformation>
+
 			</transformations>
 		</layer>
 
