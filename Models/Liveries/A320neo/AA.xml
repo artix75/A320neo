@@ -5,7 +5,7 @@
 		<model>
 			<livery>
 				<name>American Airlines</name>
-				<neo-texture>Liveries/AA.png</neo-texture>
+				<neo-texture>Liveries/A320neoAA.png</neo-texture>
 			</livery>
 		</model>
 	</sim>

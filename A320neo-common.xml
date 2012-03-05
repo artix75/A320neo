@@ -71,9 +71,6 @@
 			</generic>
 		</multiplay>
 
-		<startup>
-			<splash-texture>Aircraft/A320neo/A320neo-splash.png</splash-texture>
-		</startup>
 		<gui>
 			<style>
 				<colors>

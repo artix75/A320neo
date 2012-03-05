@@ -13,8 +13,8 @@
 		<model>
 			<path>Aircraft/A320neo/Models/A321neo.xml</path>
 			<livery>
-				<file>Liveries/A321neo-Blank</file>
-				<neo-texture>Liveries/A321neo-Blank.png</neo-texture>
+				<file>Airbus</file>
+				<neo-texture>Liveries/A321neo-Airbus.png</neo-texture>
 			</livery>
 			<door n="0">
 				<position-x-m>-16.3399</position-x-m>
@@ -30,6 +30,9 @@
 			</door>
 			<!-- Plus A320neo-common.xml pushback and A320neo properties -->
 		</model>
+		<startup>
+			<splash-texture>Aircraft/A320neo/A321neo-splash.png</splash-texture>
+		</startup>
 
 		<!-- Plus A320neo-common.xml Tutorial -->
 
