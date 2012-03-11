@@ -24,6 +24,7 @@
 		</reference>
 		<output>
 			<!--prop>/controls/flight/elevator-trim</prop-->
+			<!--property>/fdm/jsbsim/fcs/elevator-cmd-norm</property-->
 			<property>/controls/flight/elevator</property>
 		</output>
 		<!--config>

@@ -98,6 +98,10 @@
 				<path>Aircraft/A320neo/Systems/a320-autopilot3.xml</path>
 				<!--path>Aircraft/Generic/generic-autopilot.xml</path-->
 			</autopilot>
+			<!--autopilot>
+				<name>Fly By Wire</name>
+				<path>Aircraft/A320neo/Systems/a320-fbw.xml</path>
+			</autopilot-->
 
 			<autopilot>
 				<name>Autobrake</name>
