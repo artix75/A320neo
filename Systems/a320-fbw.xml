@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!-- Airbus A320neo Fly-By-Wire -->
+
+<PropertyList>
+fcs/aileron-cmd-norm
+fcs/elevator-cmd-norm
+
+<pid-controller>
+
+		<name>Elevator cmd</name>
+		<debug type="bool">false</debug>
+		<enable>
+			<not>
+				<equals>
+					<property>fcs/elevator-cmd-norm</property>
+					<value type="bool">0</value>
+				</equals>
+			</not>
+		</enable>
+		<input>
+			<property>fcs/elevator-cmd-norm</property>
+		</input>
+		<reference>
+			<expression>
+				<prod>
+					<property>limits/max-positive-g</property>
+					<property>fcs/elevator-cmd-norm</property>
+				</prod>
+			</expression>
+		</reference>
+		<output>
+			<!--prop>/controls/flight/elevator-trim</prop-->
+			<property>/controls/flight/elevator</property>
+		</output>
+		<!--config>
+			<Kp>-0.01</Kp>
+			<beta>1</beta>
+			<alpha>0.1</alpha>
+			<gamma>0</gamma>
+			<Ti>10</Ti>
+			<Td>0.00001</Td>
+			<u_min>-1</u_min>
+			<u_max>1</u_max>
+		</config-->
+		<config>
+			<Kp>-0.025</Kp>
+			<Ti>15</Ti>
+			
+	
+			<u_min>-1</u_min>
+			<u_max>1</u_max>
+		</config>
+	</pid-controller>
+
+</PropertyList>

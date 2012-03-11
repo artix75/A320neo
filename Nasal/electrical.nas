@@ -281,7 +281,7 @@ update_virtual_bus = func( dt ) {
         lbus_volts *=PWR;
         Lbus.setValue(lbus_volts);
         load += lh_bus(lbus_volts);
-            alternator1.apply_load(load);
+        alternator1.apply_load(load);
     }else{
         var battery_volts = battery.get_output_volts();
         rbus_volts = battery_volts;
@@ -339,8 +339,7 @@ lh_bus = func(bv) {
         load += lbus_load[i] * srvc;
         lbus_output[i].setValue(bv * srvc);
     }
-
-    setprop("systems/electrical/outputs/flaps",bv);
+#    setprop("systems/electrical/outputs/flaps",bv);
     return load;
 }
 
