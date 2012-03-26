@@ -55,7 +55,7 @@
 
 
 	<model>
-		<path>res/cfmleapx.ac</path>
+		<path>Aircraft/A320neo/Models/Engines/res/cfmleapx.ac</path>
 		<!--texture-path>../Textures/Livery/House</texture-path-->
 
 		<!-- Reflection Shader -->
@@ -67,7 +67,7 @@
 	</model>
 
 	<model>
-		<path>res/a320.pylon.cfmleapx.left.ac</path>
+		<path>Aircraft/A320neo/Models/Engines/res/a320.pylon.cfmleapx.left.ac</path>
 	</model>
 
 	<model>
