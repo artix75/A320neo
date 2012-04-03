@@ -15,7 +15,7 @@
 			<pitch-deg>2.2</pitch-deg>
 		</offsets>
 	</model>
-	
+
 	<model>
 		<name>Engine.LeapX.Right</name>
 		<!--path>Aircraft/A320neo/Models/Engines/a320.engine.leapx.right.xml</path-->
@@ -29,6 +29,72 @@
 		</offsets>
 	</model>
 
+
+	<!-- SPARKS eng+wingtip -->
+	<model>
+		<name>Engine1 landing sparks</name>
+		<path>Aircraft/A320neo/Models/Effects/sparks.xml</path>
+		<offsets>
+			<x-m>-1.38</x-m>
+			<y-m>-5.755</y-m>
+			<z-m>-2.0170087</z-m>
+		</offsets>
+		<condition>
+			<property>/fdm/jsbsim/contact/unit[7]/WOW</property>
+			<greater-than>
+				<property>/velocities/groundspeed-kt</property>
+				<value>10</value>
+			</greater-than>
+		</condition>
+	</model>
+	<model>
+		<name>Engine2 landing sparks</name>
+		<path>Aircraft/A320neo/Models/Effects/sparks.xml</path>
+		<offsets>
+			<x-m>-1.38</x-m>
+			<y-m>5.755</y-m>
+			<z-m>-2.0170087</z-m>
+		</offsets>
+		<condition>
+			<property>/fdm/jsbsim/contact/unit[8]/WOW</property>
+			<greater-than>
+				<property>/velocities/groundspeed-kt</property>
+				<value>10</value>
+			</greater-than>
+		</condition>
+	</model>
+	<model>
+		<name>Left wingtip sparks</name>
+		<path>Aircraft/A320neo/Models/Effects/sparks.xml</path>
+		<offsets>
+			<x-m>-1.38</x-m>
+			<y-m>-17.51</y-m>
+			<z-m>-0.0170087</z-m>
+		</offsets>
+		<condition>
+			<property>/fdm/jsbsim/contact/unit[13]/WOW</property>
+			<greater-than>
+				<property>/velocities/groundspeed-kt</property>
+				<value>10</value>
+			</greater-than>
+		</condition>
+	</model>
+	<model>
+		<name>right wingtip sparks</name>
+		<path>Aircraft/A320neo/Models/Effects/sparks.xml</path>
+		<offsets>
+			<x-m>-1.38</x-m>
+			<y-m>17.51</y-m>
+			<z-m>-0.0170087</z-m>
+		</offsets>
+		<condition>
+			<property>/fdm/jsbsim/contact/unit[14]/WOW</property>
+			<greater-than>
+				<property>/velocities/groundspeed-kt</property>
+				<value>10</value>
+			</greater-than>
+		</condition>
+	</model>
 	<!-- ANIMATIONS -->
 	<!-- Ailerons -->
 	<animation>

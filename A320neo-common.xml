@@ -466,7 +466,7 @@
 			<speaker><!-- Speaker Configuration -->
 				<max-dist> 2 </max-dist><!-- Max. distance where speaker is heard -->
 				<reference-dist> 1 </reference-dist> <!-- Distance to pilot -->
-				<volume> 1 </volume> <!-- Volume at reference distance -->
+				<volume> 0.8 </volume> <!-- Volume at reference distance -->
 			</speaker>
 		</tcas>
 		<!--cdu>
@@ -519,7 +519,7 @@
 			<speaker>
 				<max-dist type="double">2</max-dist>
 				<reference-dist type="double">1</reference-dist>
-				<volume type="double">0.5</volume>
+				<volume type="double">0.2</volume>
 			</speaker>
 			<voice>
 				<file-prefix>Sounds/mk-viii/</file-prefix>
