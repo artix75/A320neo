@@ -2,7 +2,7 @@
 <PropertyList>
 
 	<name>MFD Panel</name>
-	<background>Aircraft/A320neo/Models/Instruments/ND/res/black.png</background>
+	<background>Aircraft/A320neo/Models/Instruments/ND/res/transparent.png</background>
 	<w>256</w>
 	<h>256</h>
 
@@ -121,6 +121,12 @@
 			<h>255</h>
 		</instrument>
 		<instrument include="page-ROSE-radar.xml">
+			<condition>
+					<greater-than>
+					    <property>systems/electrical/outputs/efis</property>
+					    <value>15</value>
+					</greater-than>
+			</condition>
 			<name>radar</name>
 			<x>128</x>
 			<y>128</y>

@@ -32,7 +32,40 @@
 			</transformations>
 			<emissive>true</emissive>
 		</layer>
+		<layer>
+			<name>ROSEmask</name>
+			<w>256</w>
+			<h>256</h>
+			<texture>
+				<path>Aircraft/A320neo/Models/Instruments/ND/res/maskfull.png</path>
+				<x1>0</x1>
+				<y1>0</y1>
+				<x2>1</x2>
+				<y2>1</y2>
+			</texture>
+		</layer>
+		<layer>
+			<name>Up BUG</name>
+			<emissive>true</emissive>
+			<w>5</w>
+			<h>14</h>
+			<texture>
+				<path>Aircraft/A320neo/Models/Instruments/ND/res/A320neo_symbols.png</path>
 
+				<!-- Orign is down left-->
+				<x1>0.841</x1>
+				<y1>0.884</y1>
+				<x2>0.853</x2>
+				<y2>1</y2>
+			</texture>
+			<transformations>
+		
+				<transformation>
+					<type>y-shift</type>
+					<offset>78</offset>
+				</transformation>
+			</transformations>
+		</layer>
 		<layer>
 			<name>hdgbug</name>
 			<emissive>true</emissive>
@@ -66,6 +99,38 @@
 			</transformations>
 		</layer>
 
+		<layer>
+			<name>actual Trac</name>
+			<emissive>true</emissive>
+			<w>12</w>
+			<h>14</h>
+			<texture>
+				<path>Aircraft/A320neo/Models/Instruments/ND/res/A320neo_symbols.png</path>
+
+				<!-- Orign is down left-->
+				<x1>0.9472</x1>
+				<y1>0.847</y1>
+				<x2>1</x2>
+				<y2>0.908</y2>
+			</texture>
+			<transformations>
+				<!-- ROSE center -->
+				<transformation>
+					<type>y-shift</type>
+					<offset>-12</offset>
+				</transformation>
+				<!-- first: Rotate fron layer center -->
+				<transformation>
+					<type>rotation</type>
+					<property>/orientation/side-slip-deg</property>
+				</transformation>
+				<!-- second: shift from rotation origin -->
+				<transformation>
+					<type>y-shift</type>
+					<offset>82</offset>
+				</transformation>
+			</transformations>
+		</layer>	
 		<layer>
 			<name>aircraft</name>
 			<emissive>true</emissive>

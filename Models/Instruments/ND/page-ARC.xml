@@ -32,7 +32,28 @@
 			</transformations>
 			<emissive>true</emissive>
 		</layer>
+		<layer>
+			<name>Up BUG</name>
+			<emissive>true</emissive>
+			<w>5</w>
+			<h>14</h>
+			<texture>
+				<path>Aircraft/A320neo/Models/Instruments/ND/res/A320neo_symbols.png</path>
 
+				<!-- Orign is down left-->
+				<x1>0.841</x1>
+				<y1>0.884</y1>
+				<x2>0.853</x2>
+				<y2>1</y2>
+			</texture>
+			<transformations>
+		
+				<transformation>
+					<type>y-shift</type>
+					<offset>87</offset>
+				</transformation>
+			</transformations>
+		</layer>
 		<layer>
 			<name>hdgbug</name>
 			<emissive>true</emissive>
@@ -67,6 +88,38 @@
 				</transformation>
 			</transformations>
 		</layer>
+		<layer>
+			<name>actual Trac</name>
+			<emissive>true</emissive>
+			<w>12</w>
+			<h>14</h>
+			<texture>
+				<path>Aircraft/A320neo/Models/Instruments/ND/res/A320neo_symbols.png</path>
+
+				<!-- Orign is down left-->
+				<x1>0.9472</x1>
+				<y1>0.847</y1>
+				<x2>1</x2>
+				<y2>0.908</y2>
+			</texture>
+			<transformations>
+				<!-- ROSE center -->
+				<transformation>
+					<type>y-shift</type>
+					<offset>-78</offset>
+				</transformation>
+				<!-- first: Rotate fron layer center -->
+				<transformation>
+					<type>rotation</type>
+					<property>/orientation/side-slip-deg</property>
+				</transformation>
+				<!-- second: shift from rotation origin -->
+				<transformation>
+					<type>y-shift</type>
+					<offset>158</offset>
+				</transformation>
+			</transformations>
+		</layer>	
 		<layer>
 			<name>aircraft</name>
 			<emissive>true</emissive>
@@ -118,14 +171,14 @@
 			</condition>
 			<name>VOR1bug</name>
 			<emissive>true</emissive>
-			<w>20</w>
-			<h>177</h>
+			<w>23</w>
+			<h>120</h>
 			<texture>
 				<path>Aircraft/A320neo/Models/Instruments/ND/res/A320neo_symbols.png</path>
 
 				<!-- Orign is down left-->
 				<x1>0.634</x1>
-				<y1>0</y1>
+				<y1>0.5</y1>
 				<x2>0.734</x2>
 				<y2>1</y2>
 
@@ -147,6 +200,10 @@
 					<type>rotation</type>
 					<property>instrumentation/nav[0]/heading-deg</property>
 				</transformation>
+				<transformation>
+					<type>y-shift</type>
+					<offset>102</offset>
+				</transformation>
 			</transformations>
 		</layer>
 		<layer>
@@ -164,14 +221,14 @@
 			</condition>
 			<name>VOR2bug</name>
 			<emissive>true</emissive>
-			<w>20</w>
-			<h>177</h>
+			<w>23</w>
+			<h>120</h>
 			<texture>
 				<path>Aircraft/A320neo/Models/Instruments/ND/res/A320neo_symbols.png</path>
 
 				<!-- Orign is down left-->
 				<x1>0.531</x1>
-				<y1>0</y1>
+				<y1>0.5</y1>
 				<x2>0.630</x2>
 				<y2>1</y2>
 			</texture>
@@ -192,7 +249,10 @@
 					<type>rotation</type>
 					<property>instrumentation/nav[1]/heading-deg</property>
 				</transformation>
-
+				<transformation>
+					<type>y-shift</type>
+					<offset>102</offset>
+				</transformation>
 			</transformations>
 		</layer>
 
@@ -210,14 +270,14 @@
 			</condition>
 			<name>VOR-RADIAL</name>
 			<emissive>true</emissive>
-			<w>20</w>
-			<h>177</h>
+			<w>23</w>
+			<h>120</h>
 			<texture>
 				<path>Aircraft/A320neo/Models/Instruments/ND/res/A320neo_symbols.png</path>
 
 				<!-- Orign is down left-->
 				<x1>0</x1>
-				<y1>0</y1>
+				<y1>0.5</y1>
 				<x2>0.107</x2>
 				<y2>1</y2>
 			</texture>
@@ -237,6 +297,10 @@
 				<transformation>
 					<type>rotation</type>
 					<property>instrumentation/nav/radials/selected-deg</property>
+				</transformation>
+				<transformation>
+					<type>y-shift</type>
+					<offset>102</offset>
 				</transformation>
 			</transformations>
 		</layer>
@@ -356,14 +420,14 @@
 			</condition>
 			<name>ADF1bug</name>
 			<emissive>true</emissive>
-			<w>20</w>
-			<h>177</h>
+			<w>23</w>
+			<h>120</h>
 			<texture>
 				<path>Aircraft/A320neo/Models/Instruments/ND/res/A320neo_symbols.png</path>
 
 				<!-- Orign is down left-->
 				<x1>0.424</x1>
-				<y1>0</y1>
+				<y1>0.5</y1>
 				<x2>0.527</x2>
 				<y2>1</y2>
 
@@ -385,6 +449,10 @@
 					<type>rotation</type>
 					<property>instrumentation/adf[0]/indicated-bearing-deg</property>
 				</transformation>
+				<transformation>
+					<type>y-shift</type>
+					<offset>102</offset>
+				</transformation>
 			</transformations>
 		</layer>
 		<layer>
@@ -402,14 +470,14 @@
 			</condition>
 			<name>ADF2bug</name>
 			<emissive>true</emissive>
-			<w>20</w>
-			<h>177</h>
+			<w>23</w>
+			<h>120</h>
 			<texture>
 				<path>Aircraft/A320neo/Models/Instruments/ND/res/A320neo_symbols.png</path>
 
 				<!-- Orign is down left-->
 				<x1>0.322</x1>
-				<y1>0</y1>
+				<y1>0.5</y1>
 				<x2>0.421</x2>
 				<y2>1</y2>
 			</texture>
@@ -430,7 +498,10 @@
 					<type>rotation</type>
 					<property>instrumentation/adf[1]/indicated-bearing-deg</property>
 				</transformation>
-
+				<transformation>
+					<type>y-shift</type>
+					<offset>102</offset>
+				</transformation>
 			</transformations>
 		</layer>
 

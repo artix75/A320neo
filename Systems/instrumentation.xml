@@ -163,6 +163,7 @@ file, these values will be used (they are hardcoded).
 		<name>radar</name>
 		<number>0</number>
 	</radar>
+	
 	<groundradar>
 		<name>groundradar</name>
 		<!--airport-id-source>instrumentation/groundradar/id</airport-id-source-->

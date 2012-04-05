@@ -554,15 +554,15 @@
 			<range type="int">40</range>
 			<mode type="string">WX</mode>
 			<lightning type="bool">true</lightning>
-			<display-mode type="string">rose</display-mode>
+			<display-mode type="string">plan</display-mode>
 			<echo-texture-path type="string" archive="y">Aircraft/A320neo/Models/Instruments/ND/res/wxecho.png</echo-texture-path>
 			<minimized type="bool">false</minimized>
 			<heading-marker type="bool">false</heading-marker>
 			<!--limit-deg type="int">180</limit-deg-->
 			<font>
 				<name type="string">helvetica_bold.txf</name>
-				<size type="float">20</size>
-				<line-spacing type="float">1</line-spacing>
+				<size type="float">18</size>
+				<line-spacing type="float">0.5</line-spacing>
 				<color>
 					<red type="float">0</red>
 					<green type="float">0.8</green>
@@ -841,6 +841,7 @@
 		<dual_control>
 			<file>Aircraft/Generic/DualControl/pilot-dual-control.nas</file>
 		</dual_control>
+		<terrain-map><file>Aircraft/A320neo/Nasal/terrain-map.nas</file></terrain-map>
 	</nasal>
 
 	
