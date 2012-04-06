@@ -227,7 +227,7 @@
 <!-- ############################################# TEXT   ############################################### -->
 
 		<layer>
-			<name>VORNAV</name>
+			<name>ILSAPP</name>
 			<type>text</type>
 			<font>arial_black</font>
 			<point-size>8</point-size>
