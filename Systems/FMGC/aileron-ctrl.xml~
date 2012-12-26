@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!-- Airbus A320neo Aileron Control -->
+
+<PropertyList>
+
+	<pid-controller>
+		<name>FCU/AP Aileron Control</name>
+		<debug type="bool">false</debug>
+		<enable>
+			<prop>/servo-control/aileron</prop>
+		</enable>
+		<input>
+			<prop>/orientation/roll-deg</prop>
+		</input>
+		<reference>
+			<prop>/servo-control/target-bank</prop>
+		</reference>
+		<output>
+			<prop>/controls/flight/aileron</prop> <!-- This is basically the fbw input prop -->
+		</output>
+		<config>
+			<Kp>0.01</Kp>
+			<beta>1</beta>
+			<alpha>0.1</alpha>
+			<gamma>0</gamma>
+			<Ti>10</Ti>
+			<Td>0.00001</Td>
+			<u_min>-0.2</u_min>
+			<u_max>0.2</u_max>
+		</config>
+	</pid-controller>
+	
+	
+
+</PropertyList>

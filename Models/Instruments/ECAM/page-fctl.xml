@@ -1,0 +1,310 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!-- Airbus A320 neo for FlightGear -->
+<!-- ECAM Pages -->
+
+<PropertyList>	
+	<name>Flight Controls</name>
+	<w-base>256</w-base>
+	<h-base>256</h-base>
+
+	<layers>
+		<layer>
+			<name>Flight-Control-texture</name>
+			<w>256</w>
+			<h>256</h>
+			<texture>
+				<path>Aircraft/A320neo/Models/Instruments/ECAM/res/page-fctl.png</path>
+				<x1>0.0</x1>
+				<y1>0.0</y1>
+				<x2>1</x2>
+				<y2>1</y2>
+			</texture>
+			<emissive>true</emissive>
+		</layer>
+
+
+
+
+
+		<layer>
+			<name>aleron left</name>
+			<emissive>true</emissive>
+			<w>8</w>
+			<h>8</h>
+			<texture>
+				<path>Aircraft/A320neo/Models/Instruments/ECAM/res/page-fctl-arrow.png</path>
+				<x1>0</x1>
+				<y1>0</y1>
+				<x2>0.5</x2>
+				<y2>1</y2>
+			</texture>
+			<transformations>
+				<transformation>
+					<type>y-shift</type>
+					<!--offset>-35</offset -->
+					<property>surface-positions/left-aileron-pos-norm</property>
+					<interpolation>
+					<entry><ind>0</ind><dep>45</dep></entry>
+					<entry><ind>-1</ind><dep>70</dep></entry>
+					<entry><ind>1</ind><dep>27</dep></entry>
+					</interpolation>
+				</transformation>
+				<transformation>
+					<type>x-shift</type>
+					<offset>-90</offset>
+				</transformation>
+			</transformations>
+		</layer>
+		<layer>
+			<name>aleron right</name>
+			<emissive>true</emissive>
+			<w>8</w>
+			<h>8</h>
+			<texture>
+				<path>Aircraft/A320neo/Models/Instruments/ECAM/res/page-fctl-arrow.png</path>
+				<x1>0.5</x1>
+				<y1>0</y1>
+				<x2>1</x2>
+				<y2>1</y2>
+			</texture>
+			<transformations>
+				<transformation>
+					<type>y-shift</type>
+					<!--offset>-35</offset -->
+					<property>surface-positions/right-aileron-pos-norm</property>
+					<interpolation>
+					<entry><ind>0</ind><dep>45</dep></entry>
+					<entry><ind>-1</ind><dep>70</dep></entry>
+					<entry><ind>1</ind><dep>27</dep></entry>
+					</interpolation>
+				</transformation>
+				<transformation>
+					<type>x-shift</type>
+					<offset>90</offset>
+				</transformation>
+			</transformations>
+		</layer>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		<layer>
+			<name>elevator left</name>
+			<emissive>true</emissive>
+			<w>8</w>
+			<h>8</h>
+			<texture>
+				<path>Aircraft/A320neo/Models/Instruments/ECAM/res/page-fctl-arrow.png</path>
+				<x1>0</x1>
+				<y1>0</y1>
+				<x2>0.5</x2>
+				<y2>1</y2>
+			</texture>
+			<transformations>
+				<transformation>
+					<type>y-shift</type>
+					<!--offset>-35</offset -->
+					<property>surface-positions/elevator-pos-norm</property>
+					<interpolation>
+					<entry><ind>0</ind><dep>-50</dep></entry>
+					<entry><ind>-1</ind><dep>-19</dep></entry>
+					<entry><ind>1</ind><dep>-65</dep></entry>
+					</interpolation>
+				</transformation>
+				<transformation>
+					<type>x-shift</type>
+					<offset>-53</offset>
+				</transformation>
+			</transformations>
+		</layer>
+		<layer>
+			<name>elevator right</name>
+			<emissive>true</emissive>
+			<w>8</w>
+			<h>8</h>
+			<texture>
+				<path>Aircraft/A320neo/Models/Instruments/ECAM/res/page-fctl-arrow.png</path>
+				<x1>0.5</x1>
+				<y1>0</y1>
+				<x2>1</x2>
+				<y2>1</y2>
+			</texture>
+			<transformations>
+				<transformation>
+					<type>y-shift</type>
+					<!--offset>-35</offset -->
+					<property>surface-positions/elevator-pos-norm</property>
+					<interpolation>
+					<entry><ind>0</ind><dep>-50</dep></entry>
+					<entry><ind>-1</ind><dep>-19</dep></entry>
+					<entry><ind>1</ind><dep>-65</dep></entry>
+					</interpolation>
+				</transformation>
+				<transformation>
+					<type>x-shift</type>
+					<offset>53</offset>
+				</transformation>
+			</transformations>
+		</layer>
+
+
+<!-- ################################## Bottom  #################################-->
+
+		<layer>
+			
+			<type>text</type>
+			<name>TAT</name>
+	 		<color>
+		        	<red>0.1</red>
+		        	<green>1.0</green>
+		        	<blue>0.1</blue>
+		    	</color>
+
+			<chunks>
+				<chunk>
+					<type>number-value</type>
+					<property>environment/temperature-degc</property><!-- There is no TAT temperature property-->
+					<format type="string">%3.0f</format>
+				</chunk>
+			</chunks>
+			<transformations>
+				<transformation>
+					<type>y-shift</type>
+					<offset>-110</offset>
+				</transformation>
+				<transformation>
+					<type>x-shift</type>
+					<offset>-80	</offset>
+				</transformation>
+			</transformations>
+		</layer>
+
+		<layer>
+			
+			<type>text</type>
+			<name>SAT</name>
+	 		<color>
+		        	<red>0.1</red>
+		        	<green>1.0</green>
+		        	<blue>0.1</blue>
+		    	</color>
+
+			<chunks>
+				<chunk>
+					<type>number-value</type>
+					<property>environment/temperature-degc</property>
+					<format type="string">%3.0f</format>
+				</chunk>
+			</chunks>
+			<transformations>
+				<transformation>
+					<type>y-shift</type>
+					<offset>-124</offset>
+				</transformation>
+				<transformation>
+					<type>x-shift</type>
+					<offset>-80</offset>
+				</transformation>
+			</transformations>
+		</layer>
+
+
+		<layer>
+			<type>text</type>
+			<name>HOUR</name>
+	 		<color>
+		        	<red>0.1</red>
+		        	<green>1.0</green>
+		        	<blue>0.1</blue>
+		    	</color>
+
+			<chunks>
+				<chunk>
+					<type>number-value</type>
+					<property>instrumentation/clock/indicated-hour</property>
+					<format type="string">%3.0f</format>
+				</chunk>
+			</chunks>
+			<transformations>
+				<transformation>
+					<type>y-shift</type>
+					<offset>-124</offset>
+				</transformation>
+				<transformation>
+					<type>x-shift</type>
+					<offset>-25</offset>
+				</transformation>
+			</transformations>
+		</layer>
+		<layer>
+			<type>text</type>
+			<name>Minutes</name>
+	 		<color>
+		        	<red>0.1</red>
+		        	<green>1.0</green>
+		        	<blue>0.1</blue>
+		    	</color>
+
+			<chunks>
+				<chunk>
+					<type>number-value</type>
+					<property>instrumentation/clock/indicated-min</property>
+					<format type="string">%3.0f</format>
+				</chunk>
+			</chunks>
+			<transformations>
+				<transformation>
+					<type>y-shift</type>
+					<offset>-124</offset>
+				</transformation>
+				<transformation>
+					<type>x-shift</type>
+					<offset>5</offset>
+				</transformation>
+			</transformations>
+		</layer>
+		<layer>
+			<type>text</type>
+			<name>Gross Weight</name>
+	 		<color>
+		        	<red>0.1</red>
+		        	<green>1.0</green>
+		        	<blue>0.1</blue>
+		    	</color>
+
+			<chunks>
+				<chunk>
+					<alignment>left-center</alignment>
+					<type>number-value</type>
+					<property>fdm/jsbsim/inertia/weight-lbs</property>
+					<scale>0.45359237</scale>
+					<format type="string">%5.0f</format>
+				</chunk>
+			</chunks>
+			<transformations>
+				<transformation>
+					<type>y-shift</type>
+					<offset>-110</offset>
+				</transformation>
+				<transformation>
+					<type>x-shift</type>
+					<offset>74</offset>
+				</transformation>
+			</transformations>
+		</layer>
+	</layers>
+
+
+</PropertyList>

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<PropertyList>
+
+	<path>res/Stby-AI2.ac</path>
+
+ 	<!-- ANIMATIONS -->
+	<!-- Lighting -->
+	<animation>
+		<name>Instrument illumination</name>
+		<type>material</type>
+		<object-name>StbyAIface</object-name>
+		<!--object-name>StbyAIbezel</object-name>
+		<object-name>StbyAIframe</object-name>
+		<object-name>rollindex</object-name-->
+		<emission>
+			<red>0.4</red>
+			<green>0.35</green>
+			<blue>0.21</blue>
+			<factor-prop>controls/lighting/instruments-norm</factor-prop>
+		</emission>
+	</animation>
+
+	<!-- Attitude indicator -->
+	<animation>
+		<name>Attitude indicator</name>
+		<type>texmultiple</type>
+		<object-name>StbyAIface</object-name>
+		<transform>
+			<subtype>textranslate</subtype>
+			<property>orientation/pitch-deg</property>
+			<factor>0.003076172</factor>
+			<axis>
+				<x>0</x>
+				<y>1</y>
+			</axis>
+		</transform>
+		<transform>
+			<subtype>texrotate</subtype>
+			<property>orientation/roll-deg</property>
+			<axis>
+				<x>0</x>
+				<y>0</y>
+				<z>-1</z>
+			</axis>
+			<center>
+				<x>0.25</x>
+				<y>0.5</y>
+			</center>
+		</transform>
+	</animation>
+
+	<!--animation>
+		<name>Roll pointer</name>
+		<type>rotate</type>
+		<object-name>rollarrow</object-name>
+		<property>orientation/roll-deg</property>
+		<axis>
+			<x>1</x>
+			<y>0</y>
+			<z>0</z>
+		</axis>
+	</animation-->
+
+</PropertyList>

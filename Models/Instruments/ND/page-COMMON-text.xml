@@ -1,0 +1,216 @@
+<?xml version="1.0"?>
+
+
+<PropertyList>
+	<name>COMMONtext</name>
+	<w-base>256</w-base>
+	<h-base>256</h-base>
+	<layers>
+
+<!-- TOP LEFT  SPEED INDICATIONS -->
+		<layer>
+			<name>GS</name>
+			<type>text</type>
+			<font>arial_black</font>
+			<point-size>7</point-size>
+			<color>
+				<red>1.0</red>
+				<green>1.0</green>
+				<blue>1.0</blue>
+			</color>
+			<chunks>
+				<chunk>
+					<type>literal</type>
+					<text>GS</text>
+				</chunk>
+			</chunks>
+			<transformations>
+				<transformation>
+					<type>x-shift</type>
+					<offset>-120</offset>
+				</transformation>
+				<transformation>
+					<type>y-shift</type>
+					<offset>118</offset>
+				</transformation>
+			</transformations>
+		</layer>
+		<layer>
+			<name>Ground Speed</name>
+			<type>text</type>
+			<font>arial_black</font>
+			<point-size>7</point-size>
+			<color>
+				<red>0.0</red>
+				<green>1.0</green>
+				<blue>0.0</blue>
+			</color>
+			<chunks>
+				<chunk>
+					<type>number-value</type>
+					<property>velocities/groundspeed-kt</property>
+					<format>%3.0f</format>
+				</chunk>
+			</chunks>
+			<transformations>
+				<transformation>
+					<type>x-shift</type>
+					<offset>-105</offset>
+				</transformation>
+				<transformation>
+					<type>y-shift</type>
+					<offset>118</offset>
+				</transformation>
+			</transformations>
+		</layer>
+
+		<layer>
+			<name>TAS</name>
+			<type>text</type>
+			<font>arial_black</font>
+			<point-size>7</point-size>
+			<color>
+			<red>1.0</red>
+			<green>1.0</green>
+			<blue>1.0</blue>
+			</color>
+			<chunks>
+				<chunk>
+					<type>literal</type>
+					<text>TAS</text>
+				</chunk>
+			</chunks>
+			<transformations>
+				<transformation>
+					<type>x-shift</type>
+					<offset>-80</offset>
+				</transformation>
+				<transformation>
+					<type>y-shift</type>
+					<offset>118</offset>
+				</transformation>
+			</transformations>
+		</layer>
+		<layer>
+			<name>TAS</name>
+			<type>text</type>
+			<font>arial_black</font>
+			<point-size>7</point-size>
+			<color>
+			<red>0</red>
+			<green>1.0</green>
+			<blue>0</blue>
+			</color>
+			<chunks>
+				<chunk>
+					<type>number-value</type>
+					<property>velocities/uBody-fps</property>
+					<scale>0.59248380</scale>
+					<format>%3.0f</format>
+				</chunk>
+			</chunks>
+			<transformations>
+				<transformation>
+					<type>x-shift</type>
+					<offset>-55</offset>
+				</transformation>
+				<transformation>
+					<type>y-shift</type>
+					<offset>118</offset>
+				</transformation>
+			</transformations>
+		</layer>
+
+		<layer>
+			<name>Wind</name>
+
+			<condition>
+				<greater-than>
+					<property>environment/wind-speed-kt</property>
+					<value>0.99</value>
+				</greater-than>
+			</condition>
+			
+			<type>text</type>
+			<font>arial_black</font>
+			<point-size>7</point-size>
+			<color>
+				<red>0.0</red>
+				<green>1.0</green>
+				<blue>0.0</blue>
+			</color>
+			<chunks>
+				<chunk>
+					<type>number-value</type>
+					<property>environment/wind-from-heading-deg</property>
+					<format>%3.0f</format>
+				</chunk>
+				<chunk>
+					<type>literal</type>
+					<text type="string"> - </text>
+				</chunk>
+				<chunk>
+					<type>number-value</type>
+					<property>environment/wind-speed-kt</property>
+					<format>%3.0f</format>
+				</chunk>
+			</chunks>
+			<transformations>
+				<transformation>
+					<type>x-shift</type>
+					<offset>-120</offset>
+				</transformation>
+				<transformation>
+					<type>y-shift</type>
+					<offset>108</offset>
+				</transformation>
+			</transformations>
+		</layer>
+
+		<layer>
+			<name>Wind direction</name>
+			<condition>
+				<greater-than>
+					<property>environment/wind-speed-kt</property>
+					<value>0.99</value>
+				</greater-than>
+			</condition>
+			<emissive>true</emissive>
+			<w>10</w>
+			<h>25</h>
+			<texture>
+				<path>Aircraft/A320neo/Models/Instruments/ND/res/A320neo_symbols.png</path>
+
+				<!-- Orign is down left-->
+				<x1>0.763</x1>
+				<y1>0.857</y1>
+				<x2>0.806</x2>
+				<y2>0.759</y2>
+
+			</texture>	
+			<transformations>
+				<transformation>
+					<type>x-shift</type>
+					<offset>-100</offset>
+				</transformation>
+				<transformation>
+					<type>y-shift</type>
+					<offset>90</offset>
+				</transformation>
+				<transformation>
+					<type>rotation</type>
+					<property>orientation/heading-deg</property>
+					<scale>-1</scale>
+				</transformation>
+				<transformation>
+					<type>rotation</type>
+					<property>environment/wind-from-heading-deg</property>
+				</transformation>
+
+			</transformations>
+		</layer>
+
+
+	</layers>
+
+</PropertyList>

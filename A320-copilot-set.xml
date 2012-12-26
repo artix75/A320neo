@@ -1,0 +1,261 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<PropertyList>
+
+	<sim>
+		<author>Ampere K Hardraade (3d, FDM), Skyop (systems, instruments, etc.)</author>
+		<status>beta</status>
+		<flight-model>null</flight-model>
+
+		<model>
+			<path>Aircraft/A320neo/DualControl/A320-copilot.xml</path>
+		</model>
+
+		<startup>
+			<splash-texture>Aircraft/A320neo/splash.png</splash-texture>
+		</startup>
+
+		<view>
+			<name>Pilot View</name>
+			<internal archive="y">true</internal>
+			<config>
+				<x-offset-m archive="y">-0.525</x-offset-m>
+				<y-offset-m archive="y">2.3635023</y-offset-m>
+				<z-offset-m archive="y">-13.8829</z-offset-m>
+				<pitch-offset-deg archive="y">-15.0</pitch-offset-deg>
+			</config>
+		</view>
+		<view n="100">
+			<name>Gear View</name>
+			<type>lookfrom</type>
+			<internal archive="y">false</internal>
+			<config>
+				<from-model type="bool">true</from-model>
+				<x-offset-m archive="y">0</x-offset-m>
+				<y-offset-m archive="y">-1.5</y-offset-m>
+				<z-offset-m archive="y">8.5</z-offset-m>
+				<pitch-offset-deg archive="y">0</pitch-offset-deg>
+			</config>
+		</view>
+		<view n="101">
+			<name>Passenger View (Economy Class)</name>
+			<type>lookfrom</type>
+			<internal archive="y">true</internal>
+			<config>
+				<from-model type="bool">true</from-model>
+				<x-offset-m archive="y">-1.5</x-offset-m>
+				<y-offset-m archive="y">2.3</y-offset-m>
+				<z-offset-m archive="y">5</z-offset-m>
+				<pitch-offset-deg archive="y">0</pitch-offset-deg>
+			</config>
+		</view>
+		<view n="102">
+			<name>Passenger View (First Class)</name>
+			<type>lookfrom</type>
+			<internal archive="y">true</internal>
+			<config>
+				<from-model type="bool">true</from-model>
+				<x-offset-m archive="y">-1.45</x-offset-m>
+				<y-offset-m archive="y">2.3</y-offset-m>
+				<z-offset-m archive="y">-8.7</z-offset-m>
+				<pitch-offset-deg archive="y">0</pitch-offset-deg>
+			</config>
+		</view>
+		<view n="103">
+			<name>Copilot View</name>
+			<type>lookfrom</type>
+			<internal archive="y">true</internal>
+			<config>
+				<from-model type="bool">true</from-model>
+				<x-offset-m archive="y">0.525</x-offset-m>
+				<y-offset-m archive="y">2.3635023</y-offset-m>
+				<z-offset-m archive="y">-13.8829</z-offset-m>
+				<pitch-offset-deg archive="y">-15.0</pitch-offset-deg>
+			</config>
+		</view>
+		<chase-distance-m>-40</chase-distance-m>
+
+		<sound>
+			<path>Aircraft/A320neo/A320-sound.xml</path>
+		</sound>
+
+		<menubar>
+			<default>
+				<menu n="100">
+					<label>Airbus A320 Family Copilot</label>
+					<enabled type="bool">true</enabled>
+
+					<item>
+						<label>Select MP A318-111 Pilot</label>
+						<binding>
+							<command>nasal</command>
+							<script>
+							 aircraft_dual_control.pilot_type = "Aircraft/A320neo/XMLs/A318-111.xml";
+							 dual_control_tools.copilot_dialog.show(aircraft_dual_control.pilot_type);
+							</script>
+						</binding>
+					</item>
+					<item>
+						<label>Select MP A319-111 Pilot</label>
+						<binding>
+							<command>nasal</command>
+							<script>
+							 aircraft_dual_control.pilot_type = "Aircraft/A320neo/XMLs/A319-111.xml";
+							 dual_control_tools.copilot_dialog.show(aircraft_dual_control.pilot_type);
+							</script>
+						</binding>
+					</item>
+					<item>
+						<label>Select MP A319-131 Pilot</label>
+						<binding>
+							<command>nasal</command>
+							<script>
+							 aircraft_dual_control.pilot_type = "Aircraft/A320neo/XMLs/A319-131.xml";
+							 dual_control_tools.copilot_dialog.show(aircraft_dual_control.pilot_type);
+							</script>
+						</binding>
+					</item>
+					<item>
+						<label>Select MP A320-111 Pilot</label>
+						<binding>
+							<command>nasal</command>
+							<script>
+							 aircraft_dual_control.pilot_type = "Aircraft/A320neo/XMLs/A320-111.xml";
+							 dual_control_tools.copilot_dialog.show(aircraft_dual_control.pilot_type);
+							</script>
+						</binding>
+					</item>
+					<item>
+						<label>Select MP A320-211 Pilot</label>
+						<binding>
+							<command>nasal</command>
+							<script>
+							 aircraft_dual_control.pilot_type = "Aircraft/A320neo/XMLs/A320-211.xml";
+							 dual_control_tools.copilot_dialog.show(aircraft_dual_control.pilot_type);
+							</script>
+						</binding>
+					</item>
+					<item>
+						<label>Select MP A320-231 Pilot</label>
+						<binding>
+							<command>nasal</command>
+							<script>
+							 aircraft_dual_control.pilot_type = "Aircraft/A320neo/XMLs/A320-231.xml";
+							 dual_control_tools.copilot_dialog.show(aircraft_dual_control.pilot_type);
+							</script>
+						</binding>
+					</item>
+					<item>
+						<label>Select MP A321-211 Pilot</label>
+						<binding>
+							<command>nasal</command>
+							<script>
+							 aircraft_dual_control.pilot_type = "Aircraft/A320neo/XMLs/A321-211.xml";
+							 dual_control_tools.copilot_dialog.show(aircraft_dual_control.pilot_type);
+							</script>
+						</binding>
+					</item>
+					<item>
+						<name>mppilot</name>
+						<label>Select MP A321-231 Pilot</label>
+						<binding>
+							<command>nasal</command>
+							<script>
+							 aircraft_dual_control.pilot_type = "Aircraft/A320neo/XMLs/A321-231.xml";
+							 dual_control_tools.copilot_dialog.show(aircraft_dual_control.pilot_type);
+							</script>
+						</binding>
+					</item>
+				</menu>
+			</default>
+		</menubar>
+
+		<help>
+			<title>Airbus A320</title>
+			<key>
+				<name>Delete</name>
+				<desc>toggle thrust reversers</desc>
+			</key>
+			<key>
+				<name>Ctrl-b</name>
+				<desc>toggle speedbrakes/spoilers</desc>
+			</key>
+			<key>
+				<name>w</name>
+				<desc>walk forward toward view direction</desc>
+			</key>
+			<key>
+				<name>W</name>
+				<desc>run forward toward view direction</desc>
+			</key>
+			<key>
+				<name>s</name>
+				<desc>walk backward from view direction</desc>
+			</key>
+		</help>
+	</sim>
+
+	<input>
+		<keyboard>
+			<key n="119">
+				<name>w</name>
+				<desc>Walk forward toward view</desc>
+				<repeatable type="bool">true</repeatable>
+				<binding>
+					<command>nasal</command>
+					<script>
+					 walk.walk_about(0.1);
+					</script>
+				</binding>
+			</key>
+			<key n="87">
+				<name>W</name>
+				<desc>Run forward toward view</desc>
+				<repeatable type="bool">true</repeatable>
+				<binding>
+					<command>nasal</command>
+					<script>
+					 walk.walk_about(0.25);
+					</script>
+				</binding>
+			</key>
+			<key n="115">
+				<name>s</name>
+				<desc>Walk backward from view</desc>
+				<repeatable type="bool">true</repeatable>
+				<binding>
+					<command>nasal</command>
+					<script>
+					 walk.walk_about(-0.1);
+					</script>
+				</binding>
+			</key>
+		</keyboard>
+	</input>
+
+	<nasal>
+		<walk>
+			<file>Aircraft/A320neo/Nasal/walk.nas</file>
+		</walk>
+		<!-- Dual control -->
+		<dual_control_tools>
+			<file>Aircraft/Generic/DualControl/dual-control-tools.nas</file>
+		</dual_control_tools>
+		<aircraft_dual_control>
+			<file>Aircraft/A320neo/DualControl/a320-dual-control.nas</file>
+		</aircraft_dual_control>
+		<dual_control>
+			<file>Aircraft/Generic/DualControl/copilot-dual-control.nas</file>
+		</dual_control>
+	</nasal>
+
+	<aircraft>
+		<jetway-pos>
+			<x-tra>-1.95</x-tra>
+			<y-rot>0</y-rot>
+			<z-rot>24</z-rot>
+			<hood-rot>3</hood-rot>
+		</jetway-pos>
+	</aircraft>
+
+</PropertyList>

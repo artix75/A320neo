@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<PropertyList>
+
+	<path>res/a320neo.winglets.ac</path>
+
+	<!-- Reflection Shader -->
+	<!--effect>
+		<inherits-from>Aircraft/A320neo/Models/Effects/NEOreflect</inherits-from>
+		<object-name>WingletL</object-name>
+		<object-name>WingletR</object-name>
+	</effect-->
+
+	<!-- LIVERY SELECT -->
+	<!-- Animation -->
+	<!--animation>
+		<type>material</type>
+		<object-name>WingletL</object-name>
+		<object-name>WingletR</object-name>
+		<property-base>sim/model/livery</property-base>
+		<texture-prop>neo-texture</texture-prop>
+		<!-texture>Liveries/A320neo-Airbus.png</texture->
+	</animation-->
+
+	<!-- Nasal code 
+	<nasal>
+		<load>
+		 var livery_update = aircraft.livery_update.new("Aircraft/A320neo/Models/Liveries/" ~ getprop("sim/aero"));
+		</load>
+		<unload>
+		 livery_update.stop();
+		</unload>
+	</nasal>
+-->
+</PropertyList>

@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<PropertyList include="A320neo-common.xml">
+
+	<sim>
+		<description>Airbus A319NEO with CFM LeapX engines</description>
+		<!-- Plus A320neo-common.xml author and status -->
+		<flight-model>jsb</flight-model>
+		<aero>A319neo</aero>
+		<variant>NEO</variant>
+		<engine>CFM LeapX</engine>
+
+		<model>
+			<path>Aircraft/A320neo/Models/A319neo.xml</path>
+			<livery>
+				<file>Airbus</file>
+				<neo-texture>Liveries/A319neo-Airbus.png</neo-texture>
+			</livery>
+			<door n="0">
+				<position-x-m>-11.3399</position-x-m>
+				<position-y-m>-1.96</position-y-m>
+				<position-z-m>0.98</position-z-m>
+				<jetway-hood-deg>5</jetway-hood-deg>
+			</door>
+			<!-- Plus A320neo-common.xml pushback and A320neo properties -->
+		</model>
+		<startup>
+			<splash-texture>Aircraft/A320neo/A319neo-splash.png</splash-texture>
+		</startup>
+		<!-- Plus A320neo-common.xml Tutorial -->
+
+		<!-- Flaps only go up to 35 degrees for the 200 -->
+		<flaps>
+			<!--<setting>0.00</setting>
+			<setting>0.25</setting>
+			<setting>0.375</setting>
+			<setting>0.5</setting>
+			<setting>1</setting>-->
+			<setting>0.00</setting> 
+			<setting>0.29</setting><!-- 18+0=18 ->  0.290 -->
+			<setting>0.596</setting><!-- 22+15=37 -> 0.596 -->
+			<setting>0.645</setting><!-- 22+22=44 -> 0.645 -->
+			<setting>1</setting><!-- 27+35=62 -> 1 -->
+		</flaps>
+
+		<airport>
+			<runways>
+				<start-offset-m>20</start-offset-m>
+			</runways>
+		</airport>
+
+		<view>
+			<name>Pilot View</name>
+			<internal archive="y">true</internal>
+			<config>
+				<x-offset-m archive="y">-0.525</x-offset-m>
+				<y-offset-m archive="y">2.30</y-offset-m>
+				<z-offset-m archive="y">-12.00</z-offset-m>
+				<pitch-offset-deg archive="y">-10.0</pitch-offset-deg>
+			</config>
+		</view>
+		<view n="100">
+			<name>Overhead Panel View</name>
+			<type>lookfrom</type>
+			<internal archive="y">true</internal>
+			<config>
+				<from-model type="bool">true</from-model>
+				<x-offset-m archive="y">0</x-offset-m>
+				<y-offset-m archive="y">2.2435023</y-offset-m>
+				<z-offset-m archive="y">-12.1</z-offset-m>
+				<pitch-offset-deg archive="y">40</pitch-offset-deg>
+			</config>
+		</view>
+		<view n="101">
+			<name>FMGC/CDU View</name>
+			<type>lookfrom</type>
+			<internal archive="y">true</internal>
+			<config>
+				<from-model type="bool">true</from-model>
+				<x-offset-m archive="y">-0.10</x-offset-m>
+				<y-offset-m archive="y">1.98</y-offset-m>
+				<z-offset-m archive="y">-14.39</z-offset-m>
+				<pitch-offset-deg archive="y">-75</pitch-offset-deg>
+			</config>
+		</view>
+
+		<view n="102">
+			<name>Pedestral View</name>
+			<type>lookfrom</type>
+			<internal archive="y">true</internal>
+			<config>
+				<from-model type="bool">true</from-model>
+				<x-offset-m archive="y">0</x-offset-m>
+				<y-offset-m archive="y">2.21</y-offset-m>
+				<z-offset-m archive="y">-13.96</z-offset-m>
+				<pitch-offset-deg archive="y">-75</pitch-offset-deg>
+			</config>
+		</view>
+		<view n="104">
+			<name>Copilot View</name>
+			<type>lookfrom</type>
+			<internal archive="y">true</internal>
+			<config>
+				<from-model type="bool">true</from-model>
+				<x-offset-m archive="y">0.525</x-offset-m>
+				<y-offset-m archive="y">2.30</y-offset-m>
+				<z-offset-m archive="y">-11.90</z-offset-m>
+				<pitch-offset-deg archive="y">-10.0</pitch-offset-deg>
+			</config>
+		</view>
+		
+		<!-- Plus A320neo-common.xml Views -->
+
+		<!-- Plus A320neo-common.xml sim/Multiplay/generic properties -->
+
+		<!-- Plus A320neo-common.xml Splash Screen image and color -->
+
+		<!-- Plus A320neo-common.xml systems/autopilot -->
+
+		<!-- Plus A320neo-common.xml chase distance -->
+
+		<!-- Plus A320neo-common.xml Sounds -->
+
+		<!-- Plus A320neo-common.xml Instrumentation -->
+
+		<!-- Plus A320neo-common.xml alarms -->
+
+		<!-- Plus A320neo-common.xml Menus & Help -->
+		<menubar>
+				<default>
+					<menu n="100">
+						<label>Airbus A319neo</label>
+					</menu>
+				</default>
+		</menubar>
+
+	</sim>
+
+	<!-- Plus A320neo-common.xml Consumables Fuel -->
+
+	<payload>
+		<weight n="0">
+			<name>Crew</name>
+			<weight-lb alias="/fdm/jsbsim/inertia/pointmass-weight-lbs[0]" />
+			<min-lb type="double">120</min-lb>
+			<max-lb type="double">600</max-lb>
+		</weight>
+		<weight n="1">
+			<name>PAX</name>
+			<weight-lb alias="/fdm/jsbsim/inertia/pointmass-weight-lbs[1]" />
+			<min-lb type="double">0</min-lb>
+			<max-lb type="double">39500</max-lb>
+		</weight>
+		<weight n="2">
+			<name>Fwd Cargo</name>
+			<weight-lb alias="/fdm/jsbsim/inertia/pointmass-weight-lbs[2]" />
+			<min-lb type="double">0</min-lb>
+			<max-lb type="double">7500.12</max-lb>
+		</weight>
+		<weight n="3">
+			<name>Aft Cargo</name>
+			<weight-lb alias="/fdm/jsbsim/inertia/pointmass-weight-lbs[3]" />
+			<min-lb type="double">0</min-lb>
+			<max-lb type="double">10000.16</max-lb>
+		</weight>
+		<weight n="4">
+			<name>Rear Bulk Cargo</name>
+			<weight-lb alias="/fdm/jsbsim/inertia/pointmass-weight-lbs[4]" />
+			<min-lb type="double">0</min-lb>
+			<max-lb type="double">3300.32</max-lb>
+		</weight>
+	</payload>
+
+	<!-- Plus A320neo-common.xml Autopilot set -->
+	
+	<!-- Plus A320neo-common.xml Controls -->
+
+	<!-- Plus A320neo-common.xml Engines -->
+
+	<!-- Plus A320neo-common.xml gear -->
+
+	<!-- Plus A320neo-common.xml instrumentation (cdu miss) -->
+
+	<instrumentation>
+		<cdu>
+			<display>IDENT</display>
+			<ident>
+				<model>Airbus A319-neo</model>
+				<engines>CFM LEAP-X</engines>
+			</ident>
+			<input />
+			<serviceable type="bool">true</serviceable>
+		</cdu>
+	</instrumentation>
+
+	<!-- Plus A320neo-common.xml Inputs key -->
+
+	<!-- Plus A320neo-common.xml Nasal -->
+	
+	<limits>
+		<mass-and-balance> <!-- #ref-12 page54 WV012 -->
+			<maximum-ramp-mass-lbs>137568</maximum-ramp-mass-lbs>
+			<maximum-takeoff-mass-lbs>136686</maximum-takeoff-mass-lbs>
+			<maximum-landing-mass-lbs>134482</maximum-landing-mass-lbs>
+			<maximum-zero-fuel-mass-lbs>125663</maximum-zero-fuel-mass-lbs>
+		</mass-and-balance>
+		<max-flap-extension-speed>
+			<flaps>0.29</flaps>
+			<speed>230</speed>
+		</max-flap-extension-speed>
+		<max-flap-extension-speed>
+			<flaps>0.596</flaps>
+			<speed>200</speed>
+		</max-flap-extension-speed>
+		<max-flap-extension-speed>
+			<flaps>0.645</flaps>
+			<speed>185</speed>
+		</max-flap-extension-speed>
+		<max-flap-extension-speed>
+			<flaps>1</flaps>
+			<speed>177</speed>
+		</max-flap-extension-speed>
+		
+		 
+		<vne>370</vne>
+		 
+		<max-gear-extension-speed>250</max-gear-extension-speed>
+		 
+		<max-positive-g>2.5</max-positive-g>
+		<max-negative-g>-1</max-negative-g>
+ 
+	</limits>
+	<!-- Plus A320neo-common.xml Aircraft jetpos -->
+
+
+</PropertyList>

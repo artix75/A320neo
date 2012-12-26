@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<PropertyList>
+	<sim>
+		<model>
+			<livery>
+				<name>LAN Airlines Chile</name>
+				<neo-texture>Liveries/A320neoLAN.png</neo-texture>
+			</livery>
+		</model>
+	</sim>
+</PropertyList>

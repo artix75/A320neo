@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!-- Airbus A320neo Auto-throttle -->
+
+<PropertyList>
+
+	<!-- IAS hold -->
+
+	<pid-controller>
+		<name>IAS hold</name>
+		<debug type="bool">false</debug>
+		<enable>
+			<prop>/flight-management/control/a-thr/ias</prop>
+		</enable>
+		<input>
+			<prop>/autopilot/internal/lookahead-5-sec-airspeed-kt</prop>
+		</input>
+		<reference>
+			<prop>/flight-management/fcu-values/ias</prop>
+		</reference>
+		<output>
+			<prop>/controls/engines/engine[0]/throttle</prop>
+			<prop>/controls/engines/engine[1]/throttle</prop>
+		</output>
+		<config>
+			<Kp>0.05</Kp>
+			<beta>1</beta>
+			<alpha>0.1</alpha>
+			<gamma>0</gamma>
+			<Ti>10</Ti>
+			<Td>0.00001</Td>
+			<u_min>0</u_min>
+			<u_max>0.94</u_max> <!-- A/THR Range 0 to 94% -->
+		</config>
+	</pid-controller>
+
+	<!-- Mach hold -->
+
+	<pid-controller>
+		<name>Mach hold</name>
+		<debug type="bool">false</debug>
+		<enable>
+			<prop>/flight-management/control/a-thr/mach</prop>
+		</enable>
+		<input>
+			<prop>/velocities/mach</prop>
+		</input>
+		<reference>
+			<prop>/flight-management/fcu-values/mach</prop>
+		</reference>
+		<output>
+			<prop>/controls/engines/engine[0]/throttle</prop>
+			<prop>/controls/engines/engine[1]/throttle</prop>
+		</output>
+		<config>
+			<Kp>20</Kp>
+			<beta>1</beta>
+			<alpha>0.1</alpha>
+			<gamma>0</gamma>
+			<Ti>10</Ti>
+			<Td>0.00001</Td>
+			<u_min>0</u_min>
+			<u_max>0.94</u_max>
+		</config>
+	</pid-controller>
+	
+	<!-- FMGC -->
+	
+	<!-- IAS hold -->
+
+	<pid-controller>
+		<name>IAS hold</name>
+		<debug type="bool">false</debug>
+		<enable>
+			<prop>/flight-management/control/fmgc/ias</prop>
+		</enable>
+		<input>
+			<prop>/autopilot/internal/lookahead-5-sec-airspeed-kt</prop>
+		</input>
+		<reference>
+			<prop>/flight-management/fmgc-values/target-spd</prop>
+		</reference>
+		<output>
+			<prop>/controls/engines/engine[0]/throttle</prop>
+			<prop>/controls/engines/engine[1]/throttle</prop>
+		</output>
+		<config>
+			<Kp>0.05</Kp>
+			<beta>1</beta>
+			<alpha>0.1</alpha>
+			<gamma>0</gamma>
+			<Ti>10</Ti>
+			<Td>0.00001</Td>
+			<u_min>0</u_min>
+			<u_max>0.94</u_max>
+		</config>
+	</pid-controller>
+
+	<!-- Mach hold -->
+
+	<pid-controller>
+		<name>Mach hold</name>
+		<debug type="bool">false</debug>
+		<enable>
+			<prop>/flight-management/control/fmgc/mach</prop>
+		</enable>
+		<input>
+			<prop>/velocities/mach</prop>
+		</input>
+		<reference>
+			<prop>/flight-management/fmgc-values/target-spd</prop>
+		</reference>
+		<output>
+			<prop>/controls/engines/engine[0]/throttle</prop>
+			<prop>/controls/engines/engine[1]/throttle</prop>
+		</output>
+		<config>
+			<Kp>20</Kp>
+			<beta>1</beta>
+			<alpha>0.1</alpha>
+			<gamma>0</gamma>
+			<Ti>10</Ti>
+			<Td>0.00001</Td>
+			<u_min>0</u_min>
+			<u_max>0.94</u_max>
+		</config>
+	</pid-controller>
+
+</PropertyList>

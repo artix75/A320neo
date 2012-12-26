@@ -1,0 +1,391 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<PropertyList>
+
+	<path>res/eicas.ac</path>
+	
+	<animation>
+		<type>material</type>
+		<object-name>osgtext-green</object-name>
+		<diffuse>
+			<red>0</red>
+			<green>0.543</green>
+			<blue>0</blue>
+		</diffuse>
+		<ambient>
+			<red>0</red>
+			<green>0</green>
+			<blue>0</blue>
+		</ambient>
+		<specular>
+			<red>0</red>
+			<green>0</green>
+			<blue>0</blue>
+		</specular>
+		<emission>
+			<red>0</red>
+			<green>0.543</green>
+			<blue>0</blue>
+		</emission>
+	</animation>
+
+	<!-- OSGText -->
+	
+	<!-- N1 -->
+	
+	<text>
+		<name>osgtext-green</name>
+		<offsets>
+			<x-m>0.0004</x-m>
+			<y-m>-0.0373</y-m>
+			<z-m>0.0525</z-m>
+		</offsets>
+		<alignment>center-center</alignment>
+		<axis-alignment>yz-plane</axis-alignment>
+		<type type="string">number-value</type>
+		<format type="string">%3.1f</format>
+		<property>engines/engine/n1</property>
+		<truncate type="bool">false</truncate>
+		<font type="string">helvetica_bold.txf</font>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.005</character-size>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	
+	<text>
+		<name>osgtext-green</name>
+		<offsets>
+			<x-m>0.0004</x-m>
+			<y-m>0.0366</y-m>
+			<z-m>0.0525</z-m>
+		</offsets>
+		<alignment>center-center</alignment>
+		<axis-alignment>yz-plane</axis-alignment>
+		<type type="string">number-value</type>
+		<format type="string">%3.1f</format>
+		<property>engines/engine[1]/n1</property>
+		<truncate type="bool">false</truncate>
+		<font type="string">helvetica_bold.txf</font>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.005</character-size>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	
+	<!-- EGT -->
+	
+	<text>
+		<name>osgtext-green</name>
+		<offsets>
+			<x-m>0.0004</x-m>
+			<y-m>-0.0373</y-m>
+			<z-m>0.0249</z-m>
+		</offsets>
+		<alignment>center-center</alignment>
+		<axis-alignment>yz-plane</axis-alignment>
+		<type type="string">number-value</type>
+		<format type="string">%4.0f</format>
+		<property>engines/engine/egt-degc</property>
+		<truncate type="bool">false</truncate>
+		<font type="string">helvetica_bold.txf</font>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.005</character-size>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	
+	<text>
+		<name>osgtext-green</name>
+		<offsets>
+			<x-m>0.0004</x-m>
+			<y-m>0.0366</y-m>
+			<z-m>0.0249</z-m>
+		</offsets>
+		<alignment>center-center</alignment>
+		<axis-alignment>yz-plane</axis-alignment>
+		<type type="string">number-value</type>
+		<format type="string">%4.0f</format>
+		<property>engines/engine[1]/egt-degc</property>
+		<truncate type="bool">false</truncate>
+		<font type="string">helvetica_bold.txf</font>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.005</character-size>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	
+	<!-- N2 -->
+	
+	<text>
+		<name>osgtext-green</name>
+		<offsets>
+			<x-m>0.0004</x-m>
+			<y-m>-0.0345</y-m>
+			<z-m>0.0035</z-m>
+		</offsets>
+		<alignment>center-center</alignment>
+		<axis-alignment>yz-plane</axis-alignment>
+		<type type="string">number-value</type>
+		<format type="string">%3.1f</format>
+		<property>engines/engine/n2</property>
+		<truncate type="bool">false</truncate>
+		<font type="string">helvetica_bold.txf</font>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.005</character-size>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	
+	<text>
+		<name>osgtext-green</name>
+		<offsets>
+			<x-m>0.0004</x-m>
+			<y-m>0.0345</y-m>
+			<z-m>0.0035</z-m>
+		</offsets>
+		<alignment>center-center</alignment>
+		<axis-alignment>yz-plane</axis-alignment>
+		<type type="string">number-value</type>
+		<format type="string">%3.1f</format>
+		<property>engines/engine[1]/n2</property>
+		<truncate type="bool">false</truncate>
+		<font type="string">helvetica_bold.txf</font>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.005</character-size>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	
+	<!-- FF -->
+	
+	<text>
+		<name>osgtext-green</name>
+		<offsets>
+			<x-m>0.0004</x-m>
+			<y-m>-0.0345</y-m>
+			<z-m>-0.0147</z-m>
+		</offsets>
+		<alignment>center-center</alignment>
+		<axis-alignment>yz-plane</axis-alignment>
+		<type type="string">number-value</type>
+		<format type="string">%4.0f</format>
+		<property>engines/engine/fuel-flow-kgph</property>
+		<truncate type="bool">false</truncate>
+		<font type="string">helvetica_bold.txf</font>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.005</character-size>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	
+	<text>
+		<name>osgtext-green</name>
+		<offsets>
+			<x-m>0.0004</x-m>
+			<y-m>0.0345</y-m>
+			<z-m>-0.0147</z-m>
+		</offsets>
+		<alignment>center-center</alignment>
+		<axis-alignment>yz-plane</axis-alignment>
+		<type type="string">number-value</type>
+		<format type="string">%4.0f</format>
+		<property>engines/engine[1]/fuel-flow-kgph</property>
+		<truncate type="bool">false</truncate>
+		<font type="string">helvetica_bold.txf</font>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.005</character-size>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	
+	<!-- FOB -->
+	
+	<text>
+		<name>osgtext-green</name>
+		<offsets>
+			<x-m>0.0004</x-m>
+			<y-m>-0.0447</y-m>
+			<z-m>-0.0312</z-m>
+		</offsets>
+		<alignment>center-center</alignment>
+		<axis-alignment>yz-plane</axis-alignment>
+		<type type="string">number-value</type>
+		<format type="string">%5.1f</format>
+		<property>consumables/fuel/total-fuel-kg</property>
+		<truncate type="bool">false</truncate>
+		<font type="string">helvetica_bold.txf</font>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.006</character-size>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	
+	<!-- Analog Displays -->
+	
+	<animation>
+    	<type>rotate</type>
+    	<object-name>n11</object-name>
+    	<property>engines/engine/n1</property>
+    	<factor>1.8</factor>
+    	<center>
+    		<x-m>0</x-m>
+    		<y-m>-0.0372</y-m>
+    		<z-m>0.0524</z-m>
+    	</center>
+    	<axis>
+    		<x>-1</x>
+    		<y>0</y>
+    		<z>0</z>
+    	</axis>
+    </animation>
+    
+    <animation>
+    	<type>rotate</type>
+    	<object-name>n12</object-name>
+    	<property>engines/engine[1]/n1</property>
+    	<factor>1.8</factor>
+    	<center>
+    		<x-m>0</x-m>
+    		<y-m>0.0369</y-m>
+    		<z-m>0.0524</z-m>
+    	</center>
+    	<axis>
+    		<x>-1</x>
+    		<y>0</y>
+    		<z>0</z>
+    	</axis>
+    </animation>
+    
+    <!-- N2 -->
+    
+    <animation>
+    	<type>rotate</type>
+    	<object-name>egt1</object-name>
+    	<property>engines/engine/egt-degc</property>
+    	<factor>0.06</factor>
+    	<center>
+    		<x-m>0</x-m>
+    		<y-m>-0.0374</y-m>
+    		<z-m>0.0246</z-m>
+    	</center>
+    	<axis>
+    		<x>-1</x>
+    		<y>0</y>
+    		<z>0</z>
+    	</axis>
+    </animation>
+    
+    <animation>
+    	<type>rotate</type>
+    	<object-name>egt2</object-name>
+    	<property>engines/engine[1]/egt-degc</property>
+    	<factor>0.06</factor>
+    	<center>
+    		<x-m>0</x-m>
+    		<y-m>0.0369</y-m>
+    		<z-m>0.0246</z-m>
+    	</center>
+    	<axis>
+    		<x>-1</x>
+    		<y>0</y>
+    		<z>0</z>
+    	</axis>
+    </animation>
+    
+    <!-- Flaps Indicator -->
+    
+    <animation>
+    	<type>rotate</type>
+    	<object-name>flap</object-name>
+    	<property>/surface-positions/flap-pos-norm</property>
+    	<interpolation>
+				<entry><ind>0</ind><dep>0</dep></entry>
+				<entry><ind>0.29</ind><dep>7</dep></entry>
+				<entry><ind>1</ind><dep>7</dep></entry>
+			</interpolation>
+    	<center>
+    		<x-m>0</x-m>
+    		<y-m>0.0372</y-m>
+    		<z-m>-0.0253</z-m>
+    	</center>
+    	<axis>
+    		<x>-1</x>
+    		<y>0</y>
+    		<z>0</z>
+    	</axis>
+    </animation>
+    
+    <animation>
+    	<type>textranslate</type>
+    	<object-name>flap</object-name>
+    	<property>/surface-positions/flap-pos-norm</property>
+    	<interpolation>
+				<entry><ind>0</ind><dep>0</dep></entry>
+				<entry><ind>0.29</ind><dep>0.068</dep></entry>
+				<entry><ind>0.596</ind><dep>0.152</dep></entry>
+				<entry><ind>0.645</ind><dep>0.24</dep></entry>
+				<entry><ind>1</ind><dep>0.325</dep></entry>
+			</interpolation>
+    	<axis>
+    		<x>1</x>
+    	</axis>
+    </animation>
+    
+    <!-- Slats -->
+    
+    <animation>
+    	<type>textranslate</type>
+    	<object-name>slat</object-name>
+    	<property>/surface-positions/flap-pos-norm</property>
+    	<interpolation>
+				<entry><ind>0</ind><dep>0</dep></entry>
+				<entry><ind>0.29</ind><dep>0.11</dep></entry>
+				<entry><ind>0.596</ind><dep>0.22</dep></entry>
+				<entry><ind>0.645</ind><dep>0.33</dep></entry>
+				<entry><ind>1</ind><dep>0.33</dep></entry>
+			</interpolation>
+    	<axis>
+    		<x>1</x>
+    	</axis>
+    </animation>
+	
+	<!-- AIRBUS SYS INFO DISP (COME BACK LATER) -->
+
+</PropertyList>

@@ -1,0 +1,709 @@
+AC3Db
+MATERIAL "interior" rgb 0.8 0.8 0.8  amb 0.8 0.8 0.8  emis 0.1 0.1 0.1  spec 0 0 0  shi 0  trans 0
+OBJECT world
+kids 39
+OBJECT poly
+name "EFIS.bezel"
+loc 0 -0.00223368 0.0809274
+texture "/home/bicyus/Documents/Desarrollo/TEST/747-400/Models/Cockpit/Instruments/PFD/efis-frame.png"
+crease 40.000000
+numvert 4
+0.003134 0.089522 0.094697
+0.006699 0.093912 0.101663
+0.006698 0.101562 0.101579
+0.0031345 0.0949377 0.0947226
+numsurf 1
+SURF 0x10
+mat 0
+refs 4
+3 0.0866823 0.915911
+2 0.0580006 0.940742
+1 0.0511619 0.924582
+0 0.0820566 0.904733
+kids 0
+OBJECT poly
+name "EFIS.bezel"
+loc 0 -0.00223025 0.0810292
+texture "/home/bicyus/Documents/Desarrollo/TEST/747-400/Models/Cockpit/Instruments/PFD/efis-frame.png"
+crease 40.000000
+numvert 3
+0.006699 0.093912 -0.101335
+0.003134 0.089522 -0.095
+0.003135 0.0948036 -0.0949809
+numsurf 1
+SURF 0x10
+mat 0
+refs 3
+2 0.918943 0.914603
+1 0.923378 0.904733
+0 0.951474 0.924582
+kids 0
+OBJECT poly
+name "EFIS.bezel"
+loc 0 -0.00223025 0.0810292
+texture "/home/bicyus/Documents/Desarrollo/TEST/747-400/Models/Cockpit/Instruments/PFD/efis-frame.png"
+crease 40.000000
+numvert 3
+0.006698 0.101632 -0.101304
+0.003135 0.0948036 -0.0949809
+0.003135 0.0948036 -0.0949809
+numsurf 1
+SURF 0x10
+mat 0
+refs 3
+2 0.910072 0.924472
+1 0.918943 0.914603
+0 0.944635 0.940742
+kids 0
+OBJECT poly
+name "EFIS.bezel"
+loc 0 -0.00223025 0.0810292
+texture "/home/bicyus/Documents/Desarrollo/TEST/747-400/Models/Cockpit/Instruments/PFD/efis-frame.png"
+crease 40.000000
+numvert 3
+0.006698 0.101632 -0.101304
+0.006699 0.093912 -0.101335
+0.003135 0.0948036 -0.0949809
+numsurf 1
+SURF 0x10
+mat 0
+refs 3
+2 0.918943 0.914603
+1 0.951474 0.924582
+0 0.944635 0.940742
+kids 0
+OBJECT poly
+name "EFIS.bezel"
+loc 0 -0.00223025 0.0810292
+texture "/home/bicyus/Documents/Desarrollo/TEST/747-400/Models/Cockpit/Instruments/PFD/efis-frame.png"
+crease 40.000000
+numvert 4
+-1e-06 -0.094113 -0.111853
+0.009371 -0.094114 -0.111853
+0.009371 -0.088229 -0.111853
+0.006727 -0.088229 -0.111853
+numsurf 1
+SURF 0x0
+mat 0
+refs 4
+3 0.998122 0.101152
+2 0.998122 0.101152
+1 0.998122 0.00631465
+0 0.998122 0.00631662
+kids 0
+OBJECT poly
+name "EFIS.bezel"
+loc 0 -0.00223025 0.0810292
+texture "/home/bicyus/Documents/Desarrollo/TEST/747-400/Models/Cockpit/Instruments/PFD/efis-frame.png"
+crease 40.000000
+numvert 4
+0.009371 -0.088229 0.112211
+0.009371 -0.094114 0.112211
+-1e-06 -0.094113 0.112211
+0.006727 -0.088229 0.112211
+numsurf 1
+SURF 0x0
+mat 0
+refs 4
+3 0.00438064 0.101152
+2 0.00438064 0.00631667
+1 0.00438064 0.00631471
+0 0.00438064 0.101152
+kids 0
+OBJECT poly
+name "EFIS.bezel"
+loc 0 -0.00223025 0.0810292
+texture "/home/bicyus/Documents/Desarrollo/TEST/747-400/Models/Cockpit/Instruments/PFD/efis-frame.png"
+crease 40.000000
+numvert 4
+0.0067 0.109206 0.111405
+0.006699 0.093912 0.101663
+0.006725 -0.08823 0.101838
+0.006727 -0.088229 0.112211
+numsurf 1
+SURF 0x0
+mat 0
+refs 4
+3 0.00438064 0.101152
+2 0.0503857 0.101149
+1 0.0511619 0.924582
+0 0.00795525 0.993725
+kids 0
+OBJECT poly
+name "EFIS.bezel"
+loc 0 -0.00223025 0.0810292
+texture "/home/bicyus/Documents/Desarrollo/TEST/747-400/Models/Cockpit/Instruments/PFD/efis-frame.png"
+crease 40.000000
+numvert 4
+0.006699 0.093912 -0.101335
+0.0067 0.109206 -0.111763
+0.006727 -0.088229 -0.111853
+0.006725 -0.088229 -0.101481
+numsurf 1
+SURF 0x0
+mat 0
+refs 4
+3 0.952121 0.101149
+2 0.998122 0.101152
+1 0.997723 0.993725
+0 0.951474 0.924582
+kids 0
+OBJECT poly
+name "EFIS.bezel"
+loc 0 -0.00223025 0.0810292
+texture "/home/bicyus/Documents/Desarrollo/TEST/747-400/Models/Cockpit/Instruments/PFD/efis-frame.png"
+crease 40.000000
+numvert 4
+0.006727 -0.088229 -0.111853
+0.009371 -0.088229 -0.111853
+0.009371 -0.08823 -0.101481
+0.006725 -0.088229 -0.101481
+numsurf 1
+SURF 0x0
+mat 0
+refs 4
+3 0.952121 0.101149
+2 0.952121 0.101147
+1 0.998122 0.101152
+0 0.998122 0.101152
+kids 0
+OBJECT poly
+name "EFIS.bezel"
+loc 0 -0.00223025 0.0810292
+texture "/home/bicyus/Documents/Desarrollo/TEST/747-400/Models/Cockpit/Instruments/PFD/efis-frame.png"
+crease 40.000000
+numvert 4
+0.009371 -0.08823 -0.101481
+0.009371 -0.08823 0.101838
+0.006725 -0.08823 0.101838
+0.006725 -0.088229 -0.101481
+numsurf 1
+SURF 0x0
+mat 0
+refs 4
+3 0.952121 0.101149
+2 0.0503857 0.101149
+1 0.0503857 0.101147
+0 0.952121 0.101147
+kids 0
+OBJECT poly
+name "EFIS.bezel"
+loc 0 -0.00223025 0.0810292
+texture "/home/bicyus/Documents/Desarrollo/TEST/747-400/Models/Cockpit/Instruments/PFD/efis-frame.png"
+crease 40.000000
+numvert 4
+0.009371 -0.08823 0.101838
+0.009371 -0.088229 0.112211
+0.006727 -0.088229 0.112211
+0.006725 -0.08823 0.101838
+numsurf 1
+SURF 0x0
+mat 0
+refs 4
+3 0.0503857 0.101149
+2 0.00438064 0.101152
+1 0.00438064 0.101152
+0 0.0503857 0.101147
+kids 0
+OBJECT poly
+name "EFIS.bezel"
+loc 0 -0.00223025 0.0810292
+texture "/home/bicyus/Documents/Desarrollo/TEST/747-400/Models/Cockpit/Instruments/PFD/efis-frame.png"
+crease 40.000000
+numvert 4
+-1e-06 -0.094113 -0.111853
+-1e-06 -0.094113 0.112211
+0.009371 -0.094114 0.112211
+0.009371 -0.094114 -0.111853
+numsurf 1
+SURF 0x0
+mat 0
+refs 4
+3 0.998122 0.00631465
+2 0.00438064 0.00631471
+1 0.00438064 0.00631667
+0 0.998122 0.00631662
+kids 0
+OBJECT poly
+name "EFIS.bezel"
+loc 0 -0.00223025 0.0810292
+texture "/home/bicyus/Documents/Desarrollo/TEST/747-400/Models/Cockpit/Instruments/PFD/efis-frame.png"
+crease 40.000000
+numvert 4
+-1e-06 -0.094113 0.112211
+1e-06 0.109206 0.111405
+0.0067 0.109206 0.111405
+0.006727 -0.088229 0.112211
+numsurf 1
+SURF 0x0
+mat 0
+refs 4
+3 0.00438064 0.101152
+2 0.00795525 0.993725
+1 0.00795525 0.993722
+0 0.00438064 0.00631667
+kids 0
+OBJECT poly
+name "EFIS.bezel"
+loc 0 -0.00223025 0.0810292
+texture "/home/bicyus/Documents/Desarrollo/TEST/747-400/Models/Cockpit/Instruments/PFD/efis-frame.png"
+crease 40.000000
+numvert 4
+1e-06 0.109207 -0.111763
+-1e-06 -0.094113 -0.111853
+0.006727 -0.088229 -0.111853
+0.0067 0.109206 -0.111763
+numsurf 1
+SURF 0x0
+mat 0
+refs 4
+3 0.997723 0.993725
+2 0.998122 0.101152
+1 0.998122 0.00631662
+0 0.997723 0.993727
+kids 0
+OBJECT poly
+name "EFIS.bezel"
+loc 0 -0.00223025 0.0810292
+texture "/home/bicyus/Documents/Desarrollo/TEST/747-400/Models/Cockpit/Instruments/PFD/efis-frame.png"
+crease 40.000000
+numvert 3
+0.009371 -0.088229 -0.111853
+0.009371 -0.094114 -0.111853
+0.009371 -0.08823 -0.101481
+numsurf 1
+SURF 0x0
+mat 0
+refs 3
+2 0.952121 0.101147
+1 0.998122 0.00631465
+0 0.998122 0.101152
+kids 0
+OBJECT poly
+name "EFIS.bezel"
+loc 0 -0.00223025 0.0810292
+texture "/home/bicyus/Documents/Desarrollo/TEST/747-400/Models/Cockpit/Instruments/PFD/efis-frame.png"
+crease 40.000000
+numvert 3
+0.009371 -0.08823 0.101838
+0.009371 -0.094114 0.112211
+0.009371 -0.088229 0.112211
+numsurf 1
+SURF 0x0
+mat 0
+refs 3
+2 0.00438064 0.101152
+1 0.00438064 0.00631471
+0 0.0503857 0.101147
+kids 0
+OBJECT poly
+name "EFIS.bezel"
+loc 0 -0.00223025 0.0810292
+texture "/home/bicyus/Documents/Desarrollo/TEST/747-400/Models/Cockpit/Instruments/PFD/efis-frame.png"
+crease 40.000000
+numvert 4
+0.009371 -0.08823 -0.101481
+0.009371 -0.094114 -0.111853
+0.009371 -0.094114 0.112211
+0.009371 -0.08823 0.101838
+numsurf 1
+SURF 0x0
+mat 0
+refs 4
+3 0.0503857 0.101147
+2 0.00438064 0.00631471
+1 0.998122 0.00631465
+0 0.952121 0.101147
+kids 0
+OBJECT poly
+name "EFIS.bezel"
+loc 0 -0.00223025 0.0810292
+texture "/home/bicyus/Documents/Desarrollo/TEST/747-400/Models/Cockpit/Instruments/PFD/efis-frame.png"
+crease 40.000000
+numvert 4
+0.0067 0.109206 0.111405
+1e-06 0.109206 0.111405
+1e-06 0.109207 -0.111763
+0.0067 0.109206 -0.111763
+numsurf 1
+SURF 0x0
+mat 0
+refs 4
+3 0.997723 0.993725
+2 0.997723 0.993727
+1 0.00795525 0.993722
+0 0.00795525 0.993725
+kids 0
+OBJECT poly
+name "EFIS.bezel"
+loc 0 -0.00223025 0.0810292
+texture "/home/bicyus/Documents/Desarrollo/TEST/747-400/Models/Cockpit/Instruments/PFD/efis-frame.png"
+crease 40.000000
+numvert 3
+0.006698 0.101632 -0.101304
+0.0067 0.109206 -0.111763
+0.006698 0.101632 -0.101304
+numsurf 1
+SURF 0x0
+mat 0
+refs 3
+2 0.944635 0.940742
+1 0.997723 0.993725
+0 0.93199 0.953114
+kids 0
+OBJECT poly
+name "EFIS.bezel"
+loc 0 -0.00223025 0.0810292
+texture "/home/bicyus/Documents/Desarrollo/TEST/747-400/Models/Cockpit/Instruments/PFD/efis-frame.png"
+crease 40.000000
+numvert 3
+0.0067 0.101703 -0.093217
+0.0067 0.109206 -0.111763
+0.006698 0.101632 -0.101304
+numsurf 1
+SURF 0x0
+mat 0
+refs 3
+2 0.93199 0.953114
+1 0.997723 0.993725
+0 0.91547 0.959805
+kids 0
+OBJECT poly
+name "EFIS.bezel"
+loc 0 -0.00223369 0.0809274
+texture "/home/bicyus/Documents/Desarrollo/TEST/747-400/Models/Cockpit/Instruments/PFD/efis-frame.png"
+crease 40.000000
+numvert 3
+0.006698 0.101562 0.101579
+0.0067 0.109206 0.111405
+0.006698 0.101562 0.101579
+numsurf 1
+SURF 0x0
+mat 0
+refs 3
+2 0.0706451 0.953114
+1 0.00795525 0.993725
+0 0.0580006 0.940742
+kids 0
+OBJECT poly
+name "EFIS.bezel"
+loc 0 -0.00223025 0.0810292
+texture "/home/bicyus/Documents/Desarrollo/TEST/747-400/Models/Cockpit/Instruments/PFD/efis-frame.png"
+crease 40.000000
+numvert 3
+0.006699 0.093912 0.101663
+0.0067 0.109206 0.111405
+0.006698 0.101558 0.101477
+numsurf 1
+SURF 0x0
+mat 0
+refs 3
+2 0.0580006 0.940742
+1 0.00795525 0.993725
+0 0.0511619 0.924582
+kids 0
+OBJECT poly
+name "EFIS.bezel"
+loc 0 -0.00223025 0.0810292
+texture "/home/bicyus/Documents/Desarrollo/TEST/747-400/Models/Cockpit/Instruments/PFD/efis-frame.png"
+crease 40.000000
+numvert 3
+0.006699 0.093912 -0.101335
+0.006698 0.101632 -0.101304
+0.0067 0.109206 -0.111763
+numsurf 1
+SURF 0x0
+mat 0
+refs 3
+2 0.997723 0.993725
+1 0.944635 0.940742
+0 0.951474 0.924582
+kids 0
+OBJECT poly
+name "EFIS.bezel"
+loc 0 -0.00223025 0.0810292
+texture "/home/bicyus/Documents/Desarrollo/TEST/747-400/Models/Cockpit/Instruments/PFD/efis-frame.png"
+crease 40.000000
+numvert 3
+0.006698 0.101632 -0.101304
+0.003135 0.0948036 -0.0949809
+0.006698 0.101632 -0.101304
+numsurf 1
+SURF 0x10
+mat 0
+refs 3
+2 0.93199 0.953114
+1 0.910072 0.924472
+0 0.944635 0.940742
+kids 0
+OBJECT poly
+name "EFIS.bezel"
+loc 0 -0.00223025 0.0810292
+texture "/home/bicyus/Documents/Desarrollo/TEST/747-400/Models/Cockpit/Instruments/PFD/efis-frame.png"
+crease 40.000000
+numvert 4
+0.003134 0.094912 -0.089
+0.0067 0.101703 -0.093217
+0.006698 0.101632 -0.101304
+0.003135 0.0948036 -0.0949809
+numsurf 1
+SURF 0x10
+mat 0
+refs 4
+3 0.910072 0.924472
+2 0.93199 0.953114
+1 0.91547 0.959805
+0 0.896767 0.929101
+kids 0
+OBJECT poly
+name "EFIS.bezel"
+loc 0 -0.00223369 0.0809274
+texture "/home/bicyus/Documents/Desarrollo/TEST/747-400/Models/Cockpit/Instruments/PFD/efis-frame.png"
+crease 40.000000
+numvert 4
+0.006699 0.093912 0.101663
+0.003134 0.089522 0.094697
+0.003135 -0.0821786 0.0946923
+0.006725 -0.08823 0.101838
+numsurf 1
+SURF 0x10
+mat 0
+refs 4
+3 0.0503857 0.101149
+2 0.0820566 0.128511
+1 0.0820566 0.904733
+0 0.0511619 0.924582
+kids 0
+OBJECT poly
+name "EFIS.bezel"
+loc 0 -0.00223025 0.0810292
+texture "/home/bicyus/Documents/Desarrollo/TEST/747-400/Models/Cockpit/Instruments/PFD/efis-frame.png"
+crease 40.000000
+numvert 3
+0.003134 -0.0874735 0.0944841
+0.006725 -0.08823 0.101838
+0.003135 -0.082182 0.0945905
+numsurf 1
+SURF 0x10
+mat 0
+refs 3
+2 0.0820566 0.128511
+1 0.0503857 0.101149
+0 0.0866823 0.117329
+kids 0
+OBJECT poly
+name "EFIS.bezel"
+loc 0 -0.00223025 0.0810292
+texture "/home/bicyus/Documents/Desarrollo/TEST/747-400/Models/Cockpit/Instruments/PFD/efis-frame.png"
+crease 40.000000
+numvert 3
+0.003134 -0.0873904 -0.094992
+0.006725 -0.088229 -0.101481
+0.003135 -0.087568 -0.089414
+numsurf 1
+SURF 0x10
+mat 0
+refs 3
+2 0.898605 0.10414
+1 0.952121 0.101149
+0 0.909773 0.108773
+kids 0
+OBJECT poly
+name "EFIS.bezel"
+loc 0 -0.00223025 0.0810292
+texture "/home/bicyus/Documents/Desarrollo/TEST/747-400/Models/Cockpit/Instruments/PFD/efis-frame.png"
+crease 40.000000
+numvert 3
+0.003134 -0.0873904 -0.094992
+0.006725 -0.088229 -0.101481
+0.003134 -0.0873904 -0.094992
+numsurf 1
+SURF 0x10
+mat 0
+refs 3
+2 0.909773 0.108773
+1 0.952121 0.101149
+0 0.918319 0.117329
+kids 0
+OBJECT poly
+name "EFIS.bezel"
+loc 0 -0.00223025 0.0810292
+texture "/home/bicyus/Documents/Desarrollo/TEST/747-400/Models/Cockpit/Instruments/PFD/efis-frame.png"
+crease 40.000000
+numvert 3
+0.003135 -0.082177 -0.094901
+0.006725 -0.088229 -0.101481
+0.003134 -0.0873904 -0.094992
+numsurf 1
+SURF 0x10
+mat 0
+refs 3
+2 0.918319 0.117329
+1 0.952121 0.101149
+0 0.92294 0.128511
+kids 0
+OBJECT poly
+name "EFIS.bezel"
+loc 0 -0.00223025 0.0810292
+texture "/home/bicyus/Documents/Desarrollo/TEST/747-400/Models/Cockpit/Instruments/PFD/efis-frame.png"
+crease 40.000000
+numvert 4
+0.003134 0.089522 -0.095
+0.006699 0.093912 -0.101335
+0.006725 -0.088229 -0.101481
+0.003135 -0.082177 -0.094901
+numsurf 1
+SURF 0x10
+mat 0
+refs 4
+3 0.92294 0.128511
+2 0.952121 0.101149
+1 0.951474 0.924582
+0 0.923378 0.904733
+kids 0
+OBJECT poly
+name "EFIS.bezel"
+loc 0 -0.00223025 0.0810292
+texture "/home/bicyus/Documents/Desarrollo/TEST/747-400/Models/Cockpit/Instruments/PFD/efis-frame.png"
+crease 40.000000
+numvert 4
+0.003135 -0.087568 0.08921
+0.003135 -0.087568 -0.089414
+0.006725 -0.088229 -0.101481
+0.006725 -0.08823 0.101838
+numsurf 1
+SURF 0x10
+mat 0
+refs 4
+3 0.0503857 0.101149
+2 0.952121 0.101149
+1 0.898605 0.10414
+0 0.106392 0.10414
+kids 0
+OBJECT poly
+name "EFIS.bezel"
+loc 0 -0.00223025 0.0810292
+texture "/home/bicyus/Documents/Desarrollo/TEST/747-400/Models/Cockpit/Instruments/PFD/efis-frame.png"
+crease 40.000000
+numvert 3
+0.003135 -0.087568 0.08921
+0.006725 -0.08823 0.101838
+0.003134 -0.0874735 0.0944841
+numsurf 1
+SURF 0x10
+mat 0
+refs 3
+2 0.0933349 0.109277
+1 0.0503857 0.101149
+0 0.106392 0.10414
+kids 0
+OBJECT poly
+name "EFIS.bezel"
+loc 0 -0.00223025 0.0810292
+texture "/home/bicyus/Documents/Desarrollo/TEST/747-400/Models/Cockpit/Instruments/PFD/efis-frame.png"
+crease 40.000000
+numvert 3
+0.003134 -0.0874735 0.0944841
+0.003134 -0.0874735 0.0944841
+0.006725 -0.08823 0.101838
+numsurf 1
+SURF 0x10
+mat 0
+refs 3
+2 0.0503857 0.101149
+1 0.0933349 0.109277
+0 0.0866823 0.117329
+kids 0
+OBJECT poly
+name "EFIS.bezel"
+loc 0 -0.00223369 0.0809274
+texture "/home/bicyus/Documents/Desarrollo/TEST/747-400/Models/Cockpit/Instruments/PFD/efis-frame.png"
+crease 40.000000
+numvert 3
+0.006698 0.101562 0.101579
+0.0067 0.109206 0.111405
+0.0067 0.101703 0.093546
+numsurf 1
+SURF 0x0
+mat 0
+refs 3
+2 0.0871612 0.959806
+1 0.00795525 0.993725
+0 0.0706451 0.953114
+kids 0
+OBJECT poly
+name "EFIS.bezel"
+loc 0 -0.00223369 0.0809274
+texture "/home/bicyus/Documents/Desarrollo/TEST/747-400/Models/Cockpit/Instruments/PFD/efis-frame.png"
+crease 40.000000
+numvert 4
+0.0067 0.101703 0.093546
+0.0067 0.109206 0.111405
+0.0067 0.109206 -0.111763
+0.0067 0.101703 -0.093217
+numsurf 1
+SURF 0x0
+mat 0
+refs 4
+3 0.91547 0.959805
+2 0.997723 0.993725
+1 0.00795525 0.993725
+0 0.0871612 0.959806
+kids 0
+OBJECT poly
+name "EFIS.bezel"
+loc 0 -0.00223368 0.0809274
+texture "/home/bicyus/Documents/Desarrollo/TEST/747-400/Models/Cockpit/Instruments/PFD/efis-frame.png"
+crease 40.000000
+numvert 4
+0.0031345 0.0949377 0.0947226
+0.006698 0.101562 0.101579
+0.006698 0.101562 0.101579
+0.0031345 0.0949377 0.0947226
+numsurf 1
+SURF 0x10
+mat 0
+refs 4
+3 0.0952287 0.924472
+2 0.0706451 0.953114
+1 0.0580006 0.940742
+0 0.0866823 0.915911
+kids 0
+OBJECT poly
+name "EFIS.bezel"
+loc 0 -0.00223368 0.0809274
+texture "/home/bicyus/Documents/Desarrollo/TEST/747-400/Models/Cockpit/Instruments/PFD/efis-frame.png"
+crease 40.000000
+numvert 4
+0.0031345 0.0949377 0.0947226
+0.006698 0.101562 0.101579
+0.0067 0.101703 0.093546
+0.003134 0.094912 0.08921
+numsurf 1
+SURF 0x10
+mat 0
+refs 4
+3 0.106392 0.929101
+2 0.0871612 0.959806
+1 0.0706451 0.953114
+0 0.0952287 0.924472
+kids 0
+OBJECT poly
+name "EFIS.bezel"
+loc 0 -0.00223369 0.0809274
+texture "/home/bicyus/Documents/Desarrollo/TEST/747-400/Models/Cockpit/Instruments/PFD/efis-frame.png"
+crease 40.000000
+numvert 4
+0.003134 0.094912 0.08921
+0.0067 0.101703 0.093546
+0.0067 0.101703 -0.093217
+0.003134 0.094912 -0.089
+numsurf 1
+SURF 0x10
+mat 0
+refs 4
+3 0.896767 0.929101
+2 0.91547 0.959805
+1 0.0871612 0.959806
+0 0.106392 0.929101
+kids 0

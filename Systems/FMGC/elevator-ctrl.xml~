@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!-- Airbus A320neo Elevator Control -->
+
+<PropertyList>
+
+	<pid-controller>
+		<name>FCU/AP Elevator Control</name>
+		<debug type="bool">false</debug>
+		<enable>
+			<prop>/servo-control/elevator</prop>
+		</enable>
+		<input>
+			<prop>/orientation/pitch-deg</prop>
+		</input>
+		<reference>
+			<prop>/servo-control/target-pitch</prop>
+		</reference>
+		<output>
+			<prop>/controls/flight/elevator</prop> <!-- This is basically the fbw input prop -->
+		</output>
+		<config>
+			<Kp>-0.01</Kp>
+			<beta>1</beta>
+			<alpha>0.1</alpha>
+			<gamma>0</gamma>
+			<Ti>10</Ti>
+			<Td>0.00001</Td>
+			<u_min>-0.15</u_min>
+			<u_max>0.1</u_max>
+		</config>
+	</pid-controller>
+	
+	<pid-controller>
+		<name>FCU/AP Elevator Control VS</name>
+		<debug type="bool">false</debug>
+		<enable>
+			<prop>/servo-control/elevator-vs</prop>
+		</enable>
+		<input>
+			<prop>/velocities/vertical-speed-fps</prop>
+		</input>
+		<reference>
+			<prop>/servo-control/target-vs</prop>
+		</reference>
+		<output>
+			<prop>/controls/flight/elevator</prop> <!-- This is basically the fbw input prop -->
+		</output>
+		<config>
+			<Kp>-0.01</Kp>
+			<beta>1</beta>
+			<alpha>0.1</alpha>
+			<gamma>0</gamma>
+			<Ti>10</Ti>
+			<Td>0.00001</Td>
+			<u_min>-0.15</u_min>
+			<u_max>0.1</u_max>
+		</config>
+	</pid-controller>
+	
+	<pid-controller>
+		<name>FCU/AP Elevator Control GS</name>
+		<debug type="bool">false</debug>
+		<enable>
+			<prop>/servo-control/elevator-gs</prop>
+		</enable>
+		<input>
+			<prop>/velocities/vertical-speed-fps</prop>
+		</input>
+		<reference>
+			<prop>/servo-control/target-vs</prop>
+		</reference>
+		<output>
+			<prop>/controls/flight/elevator</prop> <!-- This is basically the fbw input prop -->
+		</output>
+		<config>
+			<Kp>-0.01</Kp>
+			<beta>1</beta>
+			<alpha>0.1</alpha>
+			<gamma>0</gamma>
+			<Ti>10</Ti>
+			<Td>0.00001</Td>
+			<u_min>-0.15</u_min>
+			<u_max>0.1</u_max>
+		</config>
+	</pid-controller>
+
+</PropertyList>

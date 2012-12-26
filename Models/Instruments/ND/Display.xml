@@ -1,0 +1,185 @@
+<?xml version="1.0"?>
+<PropertyList>
+	<params>
+		<!--display-mode>instrumentation/efis[0]/mfd/display-mode</display-mode>
+		<nd-mode>instrumentation/efis[0]/nd-mode</nd-mode-->
+		<radar-path>>Aircraft/A320neo/Models/Instruments/ND/res/od_ndradar_1.png</radar-path>
+		<!--inputs>
+			<lh-vor-adf>instrumentation/efis[0]/inputs/lh-vor-adf</lh-vor-adf>
+			<rh-vor-adf>instrumentation/efis[0]/inputs/rh-vor-adf</rh-vor-adf>
+			<terr>instrumentation/efis[0]/inputs/TERR</terr>
+			<taxi>instrumentation/efis[0]/inputs/taxi</taxi>
+		</inputs-->
+	</params>
+
+
+	<name>MFD Panel</name>
+	<background>Aircraft/A320neo/Models/Instruments/ND/res/transparent.png</background>
+	<w>256</w>
+	<h>256</h>
+
+	<instruments> 
+	<!-- ROSE[ILS VOR NAV] ARC PLAN-->
+		
+		<instrument include="page-BASE-rose.xml">
+			<!-- BASE/Common Instrument for ROSE style -->
+			<condition>
+				<and>
+					<greater-than>
+					    <property>systems/electrical/outputs/efis</property>
+					    <value>15</value>
+					</greater-than>
+					<or>
+						<equals>
+							<property>instrumentation/efis[0]/nd/display-mode</property>
+							<value>ILS</value>
+						</equals>
+						<equals>
+							<property>instrumentation/efis[0]/nd/display-mode</property>
+							<value>VOR</value>
+						</equals>
+						<equals>
+							<property>instrumentation/efis[0]/nd/display-mode</property>
+							<value>NAV</value>
+						</equals>
+					</or>
+				</and>
+			</condition>
+			<name>ROSEbase</name>
+			<x>128</x>
+			<y>128</y>
+			<w>256</w>
+			<h>256</h>
+		</instrument>
+		<instrument include="page-ILS.xml">
+			<!-- ILS -->
+			<condition>
+				<and>
+					<greater-than>
+					    <property>systems/electrical/outputs/efis</property>
+					    <value>15</value>
+					</greater-than>
+					<equals>
+						<property>instrumentation/efis[0]/nd/display-mode</property>
+						<value>ILS</value>
+					</equals>
+				</and>
+			</condition>
+			<name>ILS</name>
+			<x>128</x>
+			<y>128</y>
+			<w>256</w>
+			<h>256</h>
+		</instrument>
+		<instrument include="page-VOR.xml">
+			<!-- VOR  -->
+			<condition>
+				<and>
+					<greater-than>
+					    <property>systems/electrical/outputs/efis</property>
+					    <value>15</value>
+					</greater-than>
+					<equals>
+						<property>instrumentation/efis[0]/nd/display-mode</property>
+						<value>VOR</value>
+					</equals>
+				</and>
+			</condition>
+			<name>ILS</name>
+			<x>128</x>
+			<y>128</y>
+			<w>256</w>
+			<h>256</h>
+		</instrument>
+		<instrument include="page-NAV.xml">
+			<!-- NAV -->
+			<condition>
+				<and>
+					<greater-than>
+					    <property>systems/electrical/outputs/efis</property>
+					    <value>15</value>
+					</greater-than>
+					<equals>
+						<property>instrumentation/efis[0]/nd/display-mode</property>
+						<value>NAV</value>
+					</equals>
+				</and>
+			</condition>
+			<name>NAV</name>
+			<x>128</x>
+			<y>128</y>
+			<w>256</w>
+			<h>256</h>
+		</instrument>
+
+		<instrument include="page-VOR-text.xml">
+			<!--  -->
+			<condition>
+				<and>
+					<greater-than>
+					    <property>systems/electrical/outputs/efis</property>
+					    <value>15</value>
+					</greater-than>
+					<equals>
+						<property>instrumentation/efis[0]/nd/display-mode</property>
+						<value>VOR</value>
+					</equals>
+				</and>
+			</condition>
+			<name>VORtext</name>
+			<x>128</x>
+			<y>128</y>
+			<w>256</w>
+			<h>255</h>
+		</instrument>
+		<instrument include="page-ROSE-radar.xml">
+			<condition>
+					<greater-than>
+					    <property>systems/electrical/outputs/efis</property>
+					    <value>15</value>
+					</greater-than>
+			</condition>
+			<name>radar</name>
+			<x>128</x>
+			<y>128</y>
+			<w>256</w>
+			<h>256</h>
+		</instrument>
+		<instrument include="page-ARC.xml">
+			<!-- ARC -->
+			<condition>
+				<and>
+					<greater-than>
+					    <property>systems/electrical/outputs/efis</property>
+					    <value>15</value>
+					</greater-than>
+					<equals>
+						<property>instrumentation/efis[0]/nd/display-mode</property>
+						<value>ARC</value>
+					</equals>
+				</and>
+			</condition>
+			<name>NAV</name>
+			<x>128</x>
+			<y>128</y>
+			<w>256</w>
+			<h>256</h>
+		</instrument>
+
+		
+
+		<instrument include="page-COMMON-text.xml"> 
+			<condition>
+					<greater-than>
+					    <property>systems/electrical/outputs/efis</property>
+					    <value>15</value>
+					</greater-than>
+			</condition>
+			<name>VORtext</name>
+			<x>128</x>
+			<y>128</y>
+			<w>256</w>
+			<h>255</h>
+		</instrument>
+	</instruments>
+</PropertyList>

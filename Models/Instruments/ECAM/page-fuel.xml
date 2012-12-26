@@ -1,0 +1,767 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!-- Airbus A320 neo for FlightGear -->
+<!-- ECAM Engine -->
+
+<PropertyList>	
+	<name>Fuel</name>
+	<w-base>256</w-base>
+	<h-base>256</h-base>
+
+	<layers>
+		<layer>
+			<name>Fuel-texture</name>
+			<w>256</w>
+			<h>256</h>
+			<texture>
+				<path>Aircraft/A320neo/Models/Instruments/ECAM/res/page-fuel.png</path>
+				<x1>0.0</x1>
+				<y1>0.0</y1>
+				<x2>1</x2>
+				<y2>1</y2>
+			</texture>
+			<emissive>true</emissive>
+		</layer>
+
+		<layer>
+			
+			<type>text</type>
+			<name>Engine 1 Fuel Used</name>
+	 		<color>
+		        	<red>0.1</red>
+		        	<green>1.0</green>
+		        	<blue>0.1</blue>
+		    	</color>
+
+			<chunks>
+				<chunk>
+					<type>number-value</type>
+					<!--property>/engines/engine[0]/fuel-consumed-lbs</property-->
+					<property>fdm/jsbsim/propulsion/engine[0]/fuel-used-lbs</property>
+					<scale>0.45359237</scale>
+					<format type="string">%5.0f</format>
+					<alignment>left-center</alignment>
+				</chunk>
+			</chunks>
+			<transformations>
+				<transformation>
+					<type>y-shift</type>
+					<offset>88</offset>
+				</transformation>
+				<transformation>
+					<type>x-shift</type>
+					<offset>-90</offset>
+				</transformation>
+			</transformations>
+		</layer>
+		<layer>
+			
+			<type>text</type>
+			<name>Engine 2 Fuel Used</name>
+	 		<color>
+		        	<red>0.1</red>
+		        	<green>1.0</green>
+		        	<blue>0.1</blue>
+		    	</color>
+
+			<chunks>
+				<chunk>
+					<type>number-value</type>
+					<!-- property>/engines/engine[1]/fuel-consumed-lbs</property-->
+					<property>fdm/jsbsim/propulsion/engine[1]/fuel-used-lbs</property>
+					<scale>0.45359237</scale>
+					<format type="string">%5.0f</format>
+					<alignment>right-center</alignment>
+				</chunk>
+			</chunks>
+			<transformations>
+				<transformation>
+					<type>y-shift</type>
+					<offset>88</offset>
+				</transformation>
+				<transformation>
+					<type>x-shift</type>
+					<offset>52</offset>
+				</transformation>
+			</transformations>
+		</layer>
+
+		<layer>
+			<type>text</type>
+			<name>FOB</name>
+	 		<color>
+		        	<red>0.1</red>
+		        	<green>1.0</green>
+		        	<blue>0.1</blue>
+		    	</color>
+
+			<chunks>
+				<chunk>
+					<alignment>right-center</alignment>
+					<type>number-value</type>
+					<property>consumables/fuel/total-fuel-kg</property>
+					<format type="string">%5.0f</format>
+				</chunk>
+			</chunks>
+			<transformations>
+				<transformation>
+					<type>y-shift</type>
+					<offset>72</offset>
+				</transformation>
+				<transformation>
+					<type>x-shift</type>
+					<offset>-15</offset>
+				</transformation>
+			</transformations>
+		</layer>
+
+
+
+		<layer>
+			<type>text</type>
+			<name>Fuel on left outer</name>
+	 		<color>
+		        	<red>0.1</red>
+		        	<green>1.0</green>
+		        	<blue>0.1</blue>
+		    	</color>
+
+			<chunks>
+				<chunk>
+					<alignment>right-center</alignment>
+					<type>number-value</type>
+					<property>consumables/fuel/tank[1]/level-kg</property>
+					<format type="string">%5.0f</format>
+				</chunk>
+			</chunks>
+			<transformations>
+				<transformation>
+					<type>y-shift</type>
+					<offset>-44</offset>
+				</transformation>
+				<transformation>
+					<type>x-shift</type>
+					<offset>-115</offset>
+				</transformation>
+			</transformations>
+		</layer>
+		<layer>
+			<type>text</type>
+			<name>Fuel on Left inner</name>
+	 		<color>
+		        	<red>0.1</red>
+		        	<green>1.0</green>
+		        	<blue>0.1</blue>
+		    	</color>
+
+			<chunks>
+				<chunk>
+					<alignment>right-center</alignment>
+					<type>number-value</type>
+					<property>consumables/fuel/tank[2]/level-kg</property>
+					<format type="string">%5.0f</format>
+				</chunk>
+			</chunks>
+			<transformations>
+				<transformation>
+					<type>y-shift</type>
+					<offset>-44</offset>
+				</transformation>
+				<transformation>
+					<type>x-shift</type>
+					<offset>-70</offset>
+				</transformation>
+			</transformations>
+		</layer>
+
+		<layer>
+			<type>text</type>
+			<name>Fuel on Center</name>
+	 		<color>
+		        	<red>0.1</red>
+		        	<green>1.0</green>
+		        	<blue>0.1</blue>
+		    	</color>
+
+			<chunks>
+				<chunk>
+					<alignment>right-center</alignment>
+					<type>number-value</type>
+					<property>consumables/fuel/tank[3]/level-kg</property>
+					<format type="string">%5.0f</format>
+				</chunk>
+			</chunks>
+			<transformations>
+				<transformation>
+					<type>y-shift</type>
+					<offset>-44</offset>
+				</transformation>
+				<transformation>
+					<type>x-shift</type>
+					<offset>-15</offset>
+				</transformation>
+			</transformations>
+		</layer>
+
+		<layer>
+			<type>text</type>
+			<name>Fuel on right inner</name>
+	 		<color>
+		        	<red>0.1</red>
+		        	<green>1.0</green>
+		        	<blue>0.1</blue>
+		    	</color>
+
+			<chunks>
+				<chunk>
+					<alignment>right-center</alignment>
+					<type>number-value</type>
+					<property>consumables/fuel/tank[4]/level-kg</property>
+					<format type="string">%5.0f</format>
+				</chunk>
+			</chunks>
+			<transformations>
+				<transformation>
+					<type>y-shift</type>
+					<offset>-44</offset>
+				</transformation>
+				<transformation>
+					<type>x-shift</type>
+					<offset>35</offset>
+				</transformation>
+			</transformations>
+		</layer>
+		<layer>
+			<type>text</type>
+			<name>Fuel on right outer</name>
+	 		<color>
+		        	<red>0.1</red>
+		        	<green>1.0</green>
+		        	<blue>0.1</blue>
+		    	</color>
+
+			<chunks>
+				<chunk>
+					<alignment>right-center</alignment>
+					<type>number-value</type>
+					<property>consumables/fuel/tank[5]/level-kg</property>
+					<format type="string">%5.0f</format>
+				</chunk>
+			</chunks>
+			<transformations>
+				<transformation>
+					<type>y-shift</type>
+					<offset>-44</offset>
+				</transformation>
+				<transformation>
+					<type>x-shift</type>
+					<offset>80</offset>
+				</transformation>
+			</transformations>
+		</layer>
+
+<!-- ################################## Pump Animations  #################################-->
+
+	<!-- X-Feed Valve -->
+		<layer>
+			<name>xfeed Valve</name>
+			<!--condition>
+				<equals>
+					<property>PROPER WORK</property>
+					<value>True</value>
+				</equals>
+			</condition-->
+			<emissive>true</emissive>
+			<w>16</w>
+			<h>16</h>
+			<texture>
+				<path>Aircraft/A320neo/Models/Instruments/ECAM/res/page-fuel-pump.png</path>
+				<x1>0</x1>
+				<y1>0</y1>
+				<x2>0.5</x2>
+				<y2>1</y2>
+			</texture>
+			<transformations>			
+				<transformation>
+					<type>y-shift</type>
+					<offset>46</offset>
+				</transformation>
+				<transformation>
+					<type>rotation</type>
+					<property>/controls/fuel/x-feed</property>
+					<scale>90</scale>
+				</transformation>
+			</transformations>
+		</layer>
+
+<!-- Eng1 Feed Valve -->
+		<layer>
+			<name>Eng1 feed valve on</name>
+			<!--condition>
+				<equals>
+					<property>instrumentation/efis[0]/input/vor-adf-1</property>
+					<value>1</value>
+				</equals>			
+			</condition-->
+			<emissive>true</emissive>
+			<w>16</w>
+			<h>16</h>
+			<texture>
+				<path>Aircraft/A320neo/Models/Instruments/ECAM/res/page-fuel-pump.png</path>
+				<x1>0</x1>
+				<y1>0</y1>
+				<x2>0.5</x2>
+				<y2>1</y2>
+			</texture>
+			<transformations>			
+				<transformation>
+					<type>y-shift</type>
+					<offset>71</offset>
+				</transformation>
+				<transformation>
+					<type>x-shift</type>
+					<offset>-71</offset>
+				</transformation>
+				<transformation>
+					<type>rotation</type>
+					<property>/engines/engine/cutoff</property>
+					<scale>90</scale>
+				</transformation>
+			</transformations>
+		</layer>
+	
+<!-- Eng2 Feed Valve -->
+		<layer>
+			<name>Eng2 feed valve on</name>
+			<!--condition>
+				<equals>
+					<property>instrumentation/efis[0]/input/vor-adf-1</property>
+					<value>1</value>
+				</equals>			
+			</condition-->
+			<emissive>true</emissive>
+			<w>16</w>
+			<h>16</h>
+			<texture>
+				<path>Aircraft/A320neo/Models/Instruments/ECAM/res/page-fuel-pump.png</path>
+				<x1>0</x1>
+				<y1>0</y1>
+				<x2>0.5</x2>
+				<y2>1</y2>
+			</texture>
+			<transformations>			
+				<transformation>
+					<type>y-shift</type>
+					<offset>71</offset>
+				</transformation>
+				<transformation>
+					<type>x-shift</type>
+					<offset>72</offset>
+				</transformation>
+				<transformation>
+					<type>rotation</type>
+					<property>/engines/engine[1]/cutoff</property>
+					<scale>90</scale>
+				</transformation>
+			</transformations>
+		</layer>
+
+
+<!-- Left Tank Feed Pump 1 -->
+		<layer>
+			<name>Left Tank Feed Pump 1 off</name>
+			<!--condition>
+				<equals>
+					<property>instrumentation/efis[0]/input/vor-adf-1</property>
+					<value>1</value>
+				</equals>			
+			</condition-->
+			<emissive>true</emissive>
+			<w>12</w>
+			<h>3</h>
+			<texture>
+				<path>Aircraft/A320neo/Models/Instruments/ECAM/res/page-fuel-pump.png</path>
+				<x1>0.532</x1>
+				<y1>0.562</y1>
+				<x2>0.937</x2>
+				<y2>0.437</y2>
+			</texture>
+			<transformations>			
+				<transformation>
+					<type>y-shift</type>
+					<offset>-7</offset>
+				</transformation>
+				<transformation>
+					<type>x-shift</type>
+					<offset>-72</offset>
+				</transformation>
+				<transformation>
+					<type>rotation</type>
+					<property>/controls/fuel/tank[2]/boost-pump[0]</property>
+					<scale>90</scale>
+				</transformation>
+			</transformations>
+		</layer>
+		
+<!-- Left Tank Feed Pump 2 -->
+		<layer>
+			<name>Left Tank Feed Pump 2 off</name>
+			<!--condition>
+				<equals>
+					<property>instrumentation/efis[0]/input/vor-adf-1</property>
+					<value>1</value>
+				</equals>			
+			</condition-->
+			<emissive>true</emissive>
+			<w>12</w>
+			<h>3</h>
+			<texture>
+				<path>Aircraft/A320neo/Models/Instruments/ECAM/res/page-fuel-pump.png</path>
+				<x1>0.532</x1>
+				<y1>0.562</y1>
+				<x2>0.937</x2>
+				<y2>0.437</y2>
+			</texture>
+			<transformations>			
+				<transformation>
+					<type>y-shift</type>
+					<offset>-7</offset>
+				</transformation>
+				<transformation>
+					<type>x-shift</type>
+					<offset>-46</offset>
+				</transformation>
+				<transformation>
+					<type>rotation</type>
+					<property>/controls/fuel/tank[2]/boost-pump[1]</property>
+					<scale>90</scale>
+				</transformation>
+			</transformations>
+		</layer>
+	
+
+<!-- Center Tank Feed Pump 1 -->
+		<layer>
+			<name>Center Tank Feed Pump 1 off</name>
+			<!--condition>
+				<equals>
+					<property>instrumentation/efis[0]/input/vor-adf-1</property>
+					<value>1</value>
+				</equals>			
+			</condition-->
+			<emissive>true</emissive>
+			<w>12</w>
+			<h>3</h>
+			<texture>
+				<path>Aircraft/A320neo/Models/Instruments/ECAM/res/page-fuel-pump.png</path>
+				<x1>0.532</x1>
+				<y1>0.562</y1>
+				<x2>0.937</x2>
+				<y2>0.437</y2>
+			</texture>
+			<transformations>			
+				<transformation>
+					<type>y-shift</type>
+					<offset>-16</offset>
+				</transformation>
+				<transformation>
+					<type>x-shift</type>
+					<offset>-14</offset>
+				</transformation>
+				<transformation>
+					<type>rotation</type>
+					<property>/controls/fuel/tank[3]/boost-pump[0]</property>
+					<scale>90</scale>
+				</transformation>
+			</transformations>
+		</layer>
+		
+<!-- Center Tank Feed Pump 2 -->
+		<layer>
+			<name>Center Tank Feed Pump 2 off</name>
+			<!--condition>
+				<equals>
+					<property>instrumentation/efis[0]/input/vor-adf-1</property>
+					<value>1</value>
+				</equals>			
+			</condition-->
+			<emissive>true</emissive>
+			<w>12</w>
+			<h>3</h>
+			<texture>
+				<path>Aircraft/A320neo/Models/Instruments/ECAM/res/page-fuel-pump.png</path>
+				<x1>0.532</x1>
+				<y1>0.562</y1>
+				<x2>0.937</x2>
+				<y2>0.437</y2>
+			</texture>
+			<transformations>			
+				<transformation>
+					<type>y-shift</type>
+					<offset>-16</offset>
+				</transformation>
+				<transformation>
+					<type>x-shift</type>
+					<offset>12</offset>
+				</transformation>
+				<transformation>
+					<type>rotation</type>
+					<property>/controls/fuel/tank[3]/boost-pump[1]</property>
+					<scale>90</scale>
+				</transformation>
+			</transformations>
+		</layer>
+		
+<!-- Right Tank Feed Pump 2 -->
+		<layer>
+			<name>Right Tank Feed Pump 2 off</name>
+			<!--condition>
+				<equals>
+					<property>instrumentation/efis[0]/input/vor-adf-1</property>
+					<value>1</value>
+				</equals>			
+			</condition-->
+			<emissive>true</emissive>
+			<w>12</w>
+			<h>3</h>
+			<texture>
+				<path>Aircraft/A320neo/Models/Instruments/ECAM/res/page-fuel-pump.png</path>
+				<x1>0.532</x1>
+				<y1>0.562</y1>
+				<x2>0.937</x2>
+				<y2>0.437</y2>
+			</texture>
+			<transformations>			
+				<transformation>
+					<type>y-shift</type>
+					<offset>-7</offset>
+				</transformation>
+				<transformation>
+					<type>x-shift</type>
+					<offset>72</offset>
+				</transformation>
+				<transformation>
+					<type>rotation</type>
+					<property>/controls/fuel/tank[4]/boost-pump[1]</property>
+					<scale>90</scale>
+				</transformation>
+			</transformations>
+		</layer>
+		
+<!-- Right Tank Feed Pump 1 -->
+		<layer>
+			<name>Right Tank Feed Pump 1 off</name>
+			<!--condition>
+				<equals>
+					<property>instrumentation/efis[0]/input/vor-adf-1</property>
+					<value>1</value>
+				</equals>			
+			</condition-->
+			<emissive>true</emissive>
+			<w>12</w>
+			<h>3</h>
+			<texture>
+				<path>Aircraft/A320neo/Models/Instruments/ECAM/res/page-fuel-pump.png</path>
+				<x1>0.532</x1>
+				<y1>0.562</y1>
+				<x2>0.937</x2>
+				<y2>0.437</y2>
+			</texture>
+			<transformations>			
+				<transformation>
+					<type>y-shift</type>
+					<offset>-7</offset>
+				</transformation>
+				<transformation>
+					<type>x-shift</type>
+					<offset>46</offset>
+				</transformation>
+				<transformation>
+					<type>rotation</type>
+					<property>/controls/fuel/tank[4]/boost-pump[0]</property>
+					<scale>90</scale>
+				</transformation>
+			</transformations>
+		</layer>
+		<!--layer>
+			<name>Right Tank Feed Pump 2 off</name>
+			<condition>
+				<equals>
+					<property>instrumentation/efis[0]/input/vor-adf-1</property>
+					<value>2</value>
+				</equals>
+			</condition>
+			<emissive>true</emissive>
+			<w>12</w>
+			<h>3</h>
+			<texture>
+				<path>Aircraft/A320neo/Models/Instruments/ECAM/res/page-fuel-pump.png</path>
+								<x1>0.532</x1>
+				<y1>0.562</y1>
+				<x2>0.937</x2>
+				<y2>0.437</y2>
+			</texture>
+			<transformations>			
+				<transformation>
+					<type>y-shift</type>
+					<offset>-7</offset>
+				</transformation>
+				<transformation>
+					<type>x-shift</type>
+					<offset>46</offset>
+				</transformation>
+				<transformation>
+					<type>rotation</type>
+					<offset>90</offset>
+				</transformation>
+			</transformations>
+		</layer-->
+
+<!-- ################################## Bottom  #################################-->
+
+		<layer>
+			
+			<type>text</type>
+			<name>TAT</name>
+	 		<color>
+		        	<red>0.1</red>
+		        	<green>1.0</green>
+		        	<blue>0.1</blue>
+		    	</color>
+
+			<chunks>
+				<chunk>
+					<type>number-value</type>
+					<property>environment/temperature-degc</property><!-- There is no TAT temperature property-->
+					<format type="string">%3.0f</format>
+				</chunk>
+			</chunks>
+			<transformations>
+				<transformation>
+					<type>y-shift</type>
+					<offset>-110</offset>
+				</transformation>
+				<transformation>
+					<type>x-shift</type>
+					<offset>-80	</offset>
+				</transformation>
+			</transformations>
+		</layer>
+
+		<layer>
+			
+			<type>text</type>
+			<name>SAT</name>
+	 		<color>
+		        	<red>0.1</red>
+		        	<green>1.0</green>
+		        	<blue>0.1</blue>
+		    	</color>
+
+			<chunks>
+				<chunk>
+					<type>number-value</type>
+					<property>environment/temperature-degc</property>
+					<format type="string">%3.0f</format>
+				</chunk>
+			</chunks>
+			<transformations>
+				<transformation>
+					<type>y-shift</type>
+					<offset>-124</offset>
+				</transformation>
+				<transformation>
+					<type>x-shift</type>
+					<offset>-80</offset>
+				</transformation>
+			</transformations>
+		</layer>
+
+
+		<layer>
+			<type>text</type>
+			<name>HOUR</name>
+	 		<color>
+		        	<red>0.1</red>
+		        	<green>1.0</green>
+		        	<blue>0.1</blue>
+		    	</color>
+
+			<chunks>
+				<chunk>
+					<type>number-value</type>
+					<property>instrumentation/clock/indicated-hour</property>
+					<format type="string">%3.0f</format>
+				</chunk>
+			</chunks>
+			<transformations>
+				<transformation>
+					<type>y-shift</type>
+					<offset>-124</offset>
+				</transformation>
+				<transformation>
+					<type>x-shift</type>
+					<offset>-25</offset>
+				</transformation>
+			</transformations>
+		</layer>
+		<layer>
+			<type>text</type>
+			<name>Minutes</name>
+	 		<color>
+		        	<red>0.1</red>
+		        	<green>1.0</green>
+		        	<blue>0.1</blue>
+		    	</color>
+
+			<chunks>
+				<chunk>
+					<type>number-value</type>
+					<property>instrumentation/clock/indicated-min</property>
+					<format type="string">%3.0f</format>
+				</chunk>
+			</chunks>
+			<transformations>
+				<transformation>
+					<type>y-shift</type>
+					<offset>-124</offset>
+				</transformation>
+				<transformation>
+					<type>x-shift</type>
+					<offset>5</offset>
+				</transformation>
+			</transformations>
+		</layer>
+		<layer>
+			<type>text</type>
+			<name>Gross Weight</name>
+	 		<color>
+		        	<red>0.1</red>
+		        	<green>1.0</green>
+		        	<blue>0.1</blue>
+		    	</color>
+
+			<chunks>
+				<chunk>
+					<alignment>left-center</alignment>
+					<type>number-value</type>
+					<property>fdm/jsbsim/inertia/weight-lbs</property>
+					<scale>0.45359237</scale>
+					<format type="string">%5.0f</format>
+				</chunk>
+			</chunks>
+			<transformations>
+				<transformation>
+					<type>y-shift</type>
+					<offset>-110</offset>
+				</transformation>
+				<transformation>
+					<type>x-shift</type>
+					<offset>74</offset>
+				</transformation>
+			</transformations>
+		</layer>
+	</layers>
+
+
+</PropertyList>

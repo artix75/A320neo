@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!-- Airbus A320 neo for FlightGear -->
+<!-- ECAM Engine -->
+
+<PropertyList>	
+	<name>Engines</name>
+	<w-base>256</w-base>
+	<h-base>256</h-base>
+
+	<layers>
+		<layer><!-- 3D TEXT -->
+			
+			<type>text</type>
+			<name>Engine 1 N1</name>
+	 		<color>
+		        	<red>0.1</red>
+		        	<green>1.0</green>
+		        	<blue>0.1</blue>
+		    	</color>
+
+			<!-- offsets>
+				<x-m>0.01</x-m>
+				<y-m>-0.029</y-m>
+				<z-m>0.053</z-m>
+			</offsets -->
+			<!--alignment>left-center</alignment>
+			<axis-alignment>yz-plane</axis-alignment>
+			<type type="string">number-value</type>
+			<format type="string">%3.1f</format>
+			<property>engines/engine[0]/n1</property>
+			<font>lcd.txf</font>
+			<character-size>0.007</character-size>
+			<character-aspect-ratio type="double">1.5</character-aspect-ratio>
+			<font-resolution>
+				<width type="int">32</width>
+				<height type="int">32</height>
+			</font-resolution-->	
+
+	<!-- Emission animations -->
+			<chunks>
+				<chunk>
+				    <type>number-value</type>
+				    <property>engines/engine[0]/n1</property>
+				    <!-- property>autopilot/route-manager/wp/eta</property -->
+			<!-- offsets>
+				<x-m>0.01</x-m>
+				<y-m>-0.029</y-m>
+				<z-m>0.053</z-m>
+			</offsets -->     <x1>0.0</x1>
+     <y1>1.0</y1>
+
+				</chunk>
+			</chunks>
+			<!-- transformations>
+				<transformation>
+					<type>y-shift</type>
+					<offset>20</offset>
+				</transformation>
+			</transformations -->
+
+
+
+		</layer>
+	</layers>
+
+</PropertyList>
