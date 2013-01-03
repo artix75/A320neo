@@ -155,13 +155,12 @@
 					<item>
 						<name>autopilot</name>
 						<label>Autopilot Settings</label>
-						<binding>
-							<command>nasal</command>
-							<script>
-							 var autopilot = gui.Dialog.new("sim/gui/dialogs/autopilot/dialog", "Aircraft/A320neo/Systems/autopilot-dlg.xml");
-							 autopilot.open();
-							</script>
-						</binding>
+						<enabled type="bool">false</enabled>
+					</item>
+					<item>
+						<name>autopilot</name>
+						<label>Route Manager</label>
+						<enabled type="bool">false</enabled>
 					</item>
 				</menu>
 				<menu n="5">
@@ -233,6 +232,16 @@
 							<command>nasal</command>
 							<script>
 							 dual_control_tools.copilot_dialog.show(aircraft_dual_control.copilot_type);
+							</script>
+						</binding>
+					</item>
+					<item>
+						<label>Tiller Steering</label>
+						<binding>
+							<command>nasal</command>
+							<script>
+								var tiller = gui.Dialog.new("/sim/gui/dialogs/tiller/dialog","Aircraft/A330-200/Systems/tiller-dlg.xml");
+								tiller.open();
 							</script>
 						</binding>
 					</item>
@@ -423,6 +432,8 @@
 		</flight>
 		<gear>
 			<brake-parking type="bool">true</brake-parking>
+			<tiller-cmd-norm type="double">0</tiller-cmd-norm>
+			<tiller-enabled type="bool">false</tiller-enabled>
 		</gear>
 		<lighting>
 			<beacon type="bool">false</beacon>

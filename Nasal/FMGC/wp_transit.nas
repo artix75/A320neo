@@ -54,7 +54,7 @@ var wp_transit = {
 		
 			if ((getprop("/autopilot/route-manager/route/wp[" ~ me.current_wp ~ "]/id") != nil) and (getprop("/flight-management/procedures/star/active-star/name") != "------")) {
 		
-				if (me.current_wp == last_wp) {
+				if (me.current_wp == last_wp - 1) {
 				
 					print("--------------------------");
 					print("[FMGC] TRANSITION TO ARRIVAL: " ~ getprop("/flight-management/procedures/star/active-star/name"));
@@ -65,6 +65,7 @@ var wp_transit = {
 					print("--------------------------");
 					print("[FMGC] WP" ~ (me.current_wp - 1) ~ " Reached...");
 					print("[FMGC] TARGET SET: " ~ getprop("/autopilot/route-manager/route/wp[" ~ me.current_wp ~ "]/id"));
+					setprop("/autopilot/route-manager/active", 1);
 					
 				}
 			

@@ -4,6 +4,8 @@
 ## Written by Narendran and Jon ##
 ##################################
 
+## NOTE - Aircraft enters landing mode when landing gears are lowered
+
 # FLIGHT CONTROL LAWS -
 ## Normal Law
 ## Alternate Law
@@ -140,6 +142,21 @@ var fbw_loop = {
 
 	},
 	law_normal : func {
+	
+		# Landing Mode
+		
+		if (getprop("/controls/gear/gear-down")) { # Landing Mode
+		
+			setprop("/fbw/bank-limit", 50);
+			me.bank_limit = 50;
+		
+		} else {
+		
+			setprop("/fbw/bank-limit", 33);
+			me.bank_limit = 33;
+		
+		}
+	
 		# Protection
 		
 		if ((me.pitch > me.pitch_limit) or (me.pitch < -0.5 * me.pitch_limit) or (math.abs(me.bank) > me.bank_limit)) {

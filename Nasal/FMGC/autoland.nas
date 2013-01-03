@@ -82,7 +82,7 @@ var autoland = {
 			
 			setprop("/autoland/phase", "flare");
 		
-		} elsif (agl <= 100) {
+		} elsif (agl <= 60) {
 		
 			me.flare1(agl);
 
@@ -110,7 +110,7 @@ var autoland = {
 	
 	spd_manage: func(lbs) {
 	
-		var spd = 125 + ((lbs - 287000) * 0.000235);
+		var spd = 145 + ((lbs - 145000) * 0.000235);
 		
 		return spd;
 	
@@ -126,7 +126,7 @@ var autoland = {
 	
 	flare1: func(agl) {
 	
-		if (agl <= 40)	
+		if (agl <= 20)	
 			setprop("/servo-control/target-vs", -2.5); # -150 fpm
 		else
 			setprop("/servo-control/target-vs", -5); # -300 fpm

@@ -68,6 +68,16 @@ var f_pln = {
 		setprop(rm_route~ "departure/airport", dep);
 		setprop(rm_route~ "destination/airport", arr);
 		
+		if(getprop("/flight-management/alternate/icao") == "empty") {
+		
+			setprop(rm_route~ "input", "@INSERT99:" ~ dep ~ "@0");
+		
+		} else {
+		
+			setprop(rm_route~ "input", "@INSERT99:" ~ getprop("/flight-management/alternate/icao") ~ "@0");
+		
+		}
+		
 		## Calculate Times to each WP starting with FROM at 0000 and using determined speeds
 		
 		setprop(rm_route~ "route/wp/leg-time", 0);
@@ -129,6 +139,8 @@ var f_pln = {
 		}
 		
 		me.update_disp();
+		
+		setprop("/autopilot/route-manager/current-wp", 0);
 	
 	},
 	

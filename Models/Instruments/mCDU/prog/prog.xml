@@ -155,6 +155,8 @@
 		 			setprop("/instrumentation/mcdu/prog/brg", brg);
 		 			setprop("/instrumentation/mcdu/prog/dist", dist);
 		 			
+		 			mcdu.clear_inp();
+		 			
 				</script>
             </binding>
         </action>

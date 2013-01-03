@@ -101,8 +101,6 @@
 		 		<script>
 		 			# Direct To
 		 			
-		 				setprop("/autopilot/route-manager/input", "@ACTIVATE");
-		 			
 		 				var id = getprop("/instrumentation/mcdu/lat_rev/id");
 		 			
 		 				setprop("/autopilot/route-manager/input", "@JUMP" ~ id);
@@ -110,6 +108,8 @@
 		 				setprop("/flight-management/current-wp", id);
 		 				
 		 				setprop("/instrumentation/mcdu/page", "f-pln");
+		 				
+		 				setprop("/autopilot/route-manager/active", 1);
 		 			
 		 				mcdu.f_pln.update_disp();
 		 			
