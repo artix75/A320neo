@@ -282,21 +282,21 @@
 						
 					setprop("/instrumentation/mcdu/f-pln/show-hold", 0);
 		
-					var first = getprop("/instrumentation/mcdu/f-pln/disp/first");
+					#var first = getprop("/instrumentation/mcdu/f-pln/disp/first");
 			
-					var hold = getprop("/flight-management/hold/wp_id");
+					#var hold = getprop("/flight-management/hold/wp_id");
 			
-					var hold_id = 0;
+					#var hold_id = 0;
 			
-					if ((hold >= first) and (first + 4 > hold) and (hold != 0)) {
+					#if ((hold >= first) and (first + 4 > hold) and (hold != 0)) {
 			
-						setprop("/instrumentation/mcdu/f-pln/show-hold", 1);
+					#	setprop("/instrumentation/mcdu/f-pln/show-hold", 1);
 				
-						hold_id = (hold - first) + 1;
+					#	hold_id = (hold - first) + 1;
 			
-					}
+					#}
 			
-					setprop("/instrumentation/mcdu/f-pln/hold-id", hold_id);
+					#setprop("/instrumentation/mcdu/f-pln/hold-id", hold_id);
 						
 					mcdu.f_pln.update_disp();
 				</script>
@@ -322,21 +322,21 @@
 						
 					setprop("/instrumentation/mcdu/f-pln/show-hold", 0);
 		
-					var first = getprop("/instrumentation/mcdu/f-pln/disp/first");
+					# var first = getprop("/instrumentation/mcdu/f-pln/disp/first");
 			
-					var hold = getprop("/flight-management/hold/wp_id");
+					# var hold = getprop("/flight-management/hold/wp_id");
 			
-					var hold_id = 0;
+					# var hold_id = 0;
 			
-					if ((hold >= first) and (first + 4 > hold) and (hold != 0)) {
+					# if ((hold >= first) and (first + 4 > hold) and (hold != 0)) {
 			
-						setprop("/instrumentation/mcdu/f-pln/show-hold", 1);
+					#	setprop("/instrumentation/mcdu/f-pln/show-hold", 1);
 				
-						hold_id = (hold - first) + 1;
+					#	hold_id = (hold - first) + 1;
 			
-					}
+					#}
 			
-					setprop("/instrumentation/mcdu/f-pln/hold-id", hold_id);
+					# setprop("/instrumentation/mcdu/f-pln/hold-id", hold_id);
 						
 					mcdu.f_pln.update_disp();
 				</script>
