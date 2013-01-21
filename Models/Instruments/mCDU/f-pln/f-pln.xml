@@ -10,6 +10,9 @@
 		<type>material</type>
 		<object-name>white</object-name>
 		<object-name>unavail</object-name>
+		<object-name>hold</object-name>
+		<object-name>holdL</object-name>
+		<object-name>holdR</object-name>
 		<emission>
 			<red>1</red>
 			<green>1</green>
@@ -63,9 +66,9 @@
 					
 					} else {
 					
-						setprop("autopilot/route-manager/route/wp[" ~ first ~ "]/ias-mach", spd);
+						setprop("autopilot/route-manager/route/wp[" ~ (first - 1) ~ "]/ias-mach", spd);
 					
-						setprop("autopilot/route-manager/route/wp[" ~ first ~ "]/altitude-ft", alt);
+						setprop("autopilot/route-manager/route/wp[" ~ (first - 1) ~ "]/altitude-ft", alt);
 					
 					}
 					
@@ -102,9 +105,9 @@
 					
 					} else {
 					
-						setprop("autopilot/route-manager/route/wp[" ~ (first + 1) ~ "]/ias-mach", spd);
+						setprop("autopilot/route-manager/route/wp[" ~ first ~ "]/ias-mach", spd);
 					
-						setprop("autopilot/route-manager/route/wp[" ~ (first + 1) ~ "]/altitude-ft", alt);
+						setprop("autopilot/route-manager/route/wp[" ~ first ~ "]/altitude-ft", alt);
 					
 					}
 					
@@ -143,9 +146,9 @@
 					
 					} else {
 					
-						setprop("autopilot/route-manager/route/wp[" ~ (first + 2) ~ "]/ias-mach", spd);
+						setprop("autopilot/route-manager/route/wp[" ~ (first + 1) ~ "]/ias-mach", spd);
 					
-						setprop("autopilot/route-manager/route/wp[" ~ (first + 2) ~ "]/altitude-ft", alt);
+						setprop("autopilot/route-manager/route/wp[" ~ (first + 1) ~ "]/altitude-ft", alt);
 					
 					}
 					
@@ -186,9 +189,9 @@
 					
 					} else {
 					
-						setprop("autopilot/route-manager/route/wp[" ~ (first + 3) ~ "]/ias-mach", spd);
+						setprop("autopilot/route-manager/route/wp[" ~ (first + 2) ~ "]/ias-mach", spd);
 					
-						setprop("autopilot/route-manager/route/wp[" ~ (first + 3) ~ "]/altitude-ft", alt);
+						setprop("autopilot/route-manager/route/wp[" ~ (first + 2) ~ "]/altitude-ft", alt);
 					
 					}
 					
@@ -229,9 +232,9 @@
 					
 					} else {
 					
-						setprop("autopilot/route-manager/route/wp[" ~ (first + 4) ~ "]/ias-mach", spd);
+						setprop("autopilot/route-manager/route/wp[" ~ (first + 3) ~ "]/ias-mach", spd);
 					
-						setprop("autopilot/route-manager/route/wp[" ~ (first + 4) ~ "]/altitude-ft", alt);
+						setprop("autopilot/route-manager/route/wp[" ~ (first + 3) ~ "]/altitude-ft", alt);
 					
 					}
 					
@@ -277,6 +280,24 @@
 					if (first != 0)
 						setprop("/instrumentation/mcdu/f-pln/disp/first", first - 5);
 						
+					setprop("/instrumentation/mcdu/f-pln/show-hold", 0);
+		
+					var first = getprop("/instrumentation/mcdu/f-pln/disp/first");
+			
+					var hold = getprop("/flight-management/hold/wp_id");
+			
+					var hold_id = 0;
+			
+					if ((hold >= first) and (first + 4 > hold) and (hold != 0)) {
+			
+						setprop("/instrumentation/mcdu/f-pln/show-hold", 1);
+				
+						hold_id = (hold - first) + 1;
+			
+					}
+			
+					setprop("/instrumentation/mcdu/f-pln/hold-id", hold_id);
+						
 					mcdu.f_pln.update_disp();
 				</script>
             </binding>
@@ -298,6 +319,24 @@
 		 		
 					if (max - 5 > first)
 						setprop("/instrumentation/mcdu/f-pln/disp/first", first + 5);
+						
+					setprop("/instrumentation/mcdu/f-pln/show-hold", 0);
+		
+					var first = getprop("/instrumentation/mcdu/f-pln/disp/first");
+			
+					var hold = getprop("/flight-management/hold/wp_id");
+			
+					var hold_id = 0;
+			
+					if ((hold >= first) and (first + 4 > hold) and (hold != 0)) {
+			
+						setprop("/instrumentation/mcdu/f-pln/show-hold", 1);
+				
+						hold_id = (hold - first) + 1;
+			
+					}
+			
+					setprop("/instrumentation/mcdu/f-pln/hold-id", hold_id);
 						
 					mcdu.f_pln.update_disp();
 				</script>
@@ -453,12 +492,128 @@
         </action>
 	</animation>
 	
+	<!-- Show Hold Data if available -->
+	
+	<animation>
+		<type>select</type>
+		<object-name>hold0</object-name>
+		<condition>
+			<and>
+				<equals>
+					<property>/instrumentation/mcdu/f-pln/hold-id</property>
+					<value>0</value>
+				</equals>
+				<equals>
+					<property>/instrumentation/mcdu/f-pln/show-hold</property>
+					<value>1</value>
+				</equals>
+			</and>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>hold1</object-name>
+		<condition>
+			<and>
+				<equals>
+					<property>/instrumentation/mcdu/f-pln/hold-id</property>
+					<value>1</value>
+				</equals>
+				<equals>
+					<property>/instrumentation/mcdu/f-pln/show-hold</property>
+					<value>1</value>
+				</equals>
+			</and>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>hold2</object-name>
+		<condition>
+			<and>
+				<equals>
+					<property>/instrumentation/mcdu/f-pln/hold-id</property>
+					<value>2</value>
+				</equals>
+				<equals>
+					<property>/instrumentation/mcdu/f-pln/show-hold</property>
+					<value>1</value>
+				</equals>
+			</and>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>hold3</object-name>
+		<condition>
+			<and>
+				<equals>
+					<property>/instrumentation/mcdu/f-pln/hold-id</property>
+					<value>3</value>
+				</equals>
+				<equals>
+					<property>/instrumentation/mcdu/f-pln/show-hold</property>
+					<value>1</value>
+				</equals>
+			</and>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>hold4</object-name>
+		<condition>
+			<and>
+				<equals>
+					<property>/instrumentation/mcdu/f-pln/hold-id</property>
+					<value>4</value>
+				</equals>
+				<equals>
+					<property>/instrumentation/mcdu/f-pln/show-hold</property>
+					<value>1</value>
+				</equals>
+			</and>
+		</condition>
+	</animation>
+	
+	<!-- Hold Directions -->
+	
+	<animation>
+		<type>select</type>
+		<object-name>holdL</object-name>
+		<condition>
+			<equals>
+				<property>/flight-management/hold/turn</property>
+				<value>L</value>
+			</equals>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>holdR</object-name>
+		<condition>
+			<equals>
+				<property>/flight-management/hold/turn</property>
+				<value>R</value>
+			</equals>
+		</condition>
+	</animation>
+	
 	<!-- Show flightplan only if initialized -->
 	
 	<animation>
 		<type>select</type>
 		<object-name>white</object-name>
 		<object-name>green</object-name>
+		<object-name>hold0</object-name>
+		<object-name>hold1</object-name>
+		<object-name>hold2</object-name>
+		<object-name>hold3</object-name>
+		<object-name>hold4</object-name>
 		<condition>
 			<and>
 				<not>

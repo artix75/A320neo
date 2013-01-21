@@ -1,4 +1,4 @@
-var defl = func(bug, limit) {
+var defl = func(bug = 0, limit = 0) {
       var heading = getprop("orientation/heading-magnetic-deg");
       var bugDeg = 0;
 

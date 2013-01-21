@@ -108,6 +108,12 @@ var fmgc_loop = {
     	
     	# SET OFF IF NOT USED
     	
+    	if (me.lat_ctrl != "fmgc") {
+    	
+    		setprop("/flight-management/hold/init", 0);
+    	
+    	}
+    	
     	# Turn off rudder control when AP is off
     	
     	if ((me.ap1 == "off") and (me.ap2 == "off")) {
@@ -232,8 +238,18 @@ var fmgc_loop = {
     			if (me.ver_sub == "vs") {
     		
     				var target = getprop(fcu~ "alt");
+    				
+    				var trgt_vs = 0;
+    				
+    				if (((altitude - target) * vs_setting) > 0) {
+    				
+    					trgt_vs = limit((target - altitude) * 2, 200);
+    				
+    				} else {
     			
-    				var trgt_vs = limit2((target - altitude) * 2, vs_setting);
+    					trgt_vs = limit2((target - altitude) * 2, vs_setting);
+    				
+    				}
     				
     				setprop(servo~ "target-vs", trgt_vs / 60);
     				
@@ -372,26 +388,69 @@ var fmgc_loop = {
     	
     	if (me.lat_ctrl == "fmgc") {
     	
-    		# If A procedure's NOT being flown, we'll fly the active F-PLN
+    		# If A procedure's NOT being flown, we'll fly the active F-PLN (unless it's a hold pattern)
     	
     		if (getprop("/flight-management/procedures/active") == "off") {
-    	
-    		var bug = getprop("/autopilot/internal/true-heading-error-deg");
+    		
+				if (((getprop("/flight-management/hold/wp_id") == getprop("/flight-management/current-wp")) or (getprop("/flight-management/hold/init") == 1)) and (getprop("/flight-management/hold/wp_id") != 0)) {
+				
+					if (getprop("/flight-management/hold/init") != 1) {
+						
+						hold_pattern.init();
+					
+					} else {
+					
+						if (getprop("/flight-management/hold/phase") == 5) {
+						
+							hold_pattern.entry();
+							
+						} else {
+							
+							hold_pattern.transit();
+						
+						}	
+						
+						# Now, fly the actual hold
+						
+						var bug = getprop("/flight-management/hold/fly/course");
+    			
+						var bank = -1 * defl(bug, 30);
+					
+						var deflection = defl(bug, 180);
+					
+					
+						setprop(servo~  "aileron", 1);
+						setprop(servo~ "aileron-nav1", 0);
+					
+						if (math.abs(deflection) <= 1)
+							setprop(servo~ "target-bank", 0);
+						else
+							setprop(servo~ "target-bank", bank);
+					
+					}
+				
+				} else {
+				
+					setprop("/flight-management/hold/init", 0);
 			
-			var accuracy = getprop(settings~ "gps-accur");
+					var bug = getprop("/autopilot/internal/true-heading-error-deg");
+			
+					var accuracy = getprop(settings~ "gps-accur");
 
-			var bank = 0; 
+					var bank = 0; 
 			
-			if (accuracy == "HIGH")
-				bank = limit(bug, 25);
-			else
-				bank = limit(bug, 15);
+					if (accuracy == "HIGH")
+						bank = limit(bug, 25);
+					else
+						bank = limit(bug, 15);
 			
-			setprop(servo~  "aileron", 1);
+					setprop(servo~  "aileron", 1);
 			
-			setprop(servo~ "aileron-nav1", 0);
+					setprop(servo~ "aileron-nav1", 0);
 			
-			setprop(servo~ "target-bank", bank);
+					setprop(servo~ "target-bank", bank);
+			
+				}
 			
 			# Else, fly the respective procedures
 			

@@ -52,27 +52,29 @@ var autoland = {
 		
 		}
 		
-		if (nose_wow) {
-			
-			# Exit Autoland
-			
+		if (getprop("/velocities/airspeed-kt") < 80) {
+		
 			setprop("/autoland/active", 0);
+			
+			setprop("/autoland/phase", "disengaged");
 			
 			setprop("/flight-management/control/ap1-master", "off");
 			
 			setprop("/flight-management/control/ap2-master", "off");
+		
+		} elsif (nose_wow) {
 			
 			setprop("/flight-management/control/a-thrust", "off");
 			
-			setprop("/autoland/phase", "disengaged");
+			setprop("/autoland/phase", "rollout");
 			
-			setprop("/autoland/rudder", 0);
+			setprop("/autoland/rudder", 1);
 		
 		} elsif (main_wow) {
 			
 			setprop("/autoland/rudder", 1);
 			
-			setprop("/autoland/phase", "retard");
+			setprop("/autoland/phase", "rollout");
 		
 		} elsif (agl <= 20) {
 		
@@ -82,7 +84,7 @@ var autoland = {
 			
 			setprop("/autoland/phase", "flare");
 		
-		} elsif (agl <= 60) {
+		} elsif (agl <= 100) {
 		
 			me.flare1(agl);
 
@@ -110,7 +112,7 @@ var autoland = {
 	
 	spd_manage: func(lbs) {
 	
-		var spd = 145 + ((lbs - 145000) * 0.000235);
+		var spd = 125 + ((lbs - 287000) * 0.000235);
 		
 		return spd;
 	
@@ -126,7 +128,7 @@ var autoland = {
 	
 	flare1: func(agl) {
 	
-		if (agl <= 20)	
+		if (agl <= 40)	
 			setprop("/servo-control/target-vs", -2.5); # -150 fpm
 		else
 			setprop("/servo-control/target-vs", -5); # -300 fpm

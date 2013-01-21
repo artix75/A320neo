@@ -151,7 +151,7 @@ YAW MOI_________3950000______23089847_______24848934
 		</form>
 		<location name="POINTMASS" unit="IN">
 			<x>589.735</x>	
-			<y>-226.575</y>
+			<y>-170.575</y>
 			<z>-45.567</z>
 		</location>
 	</pointmass>
@@ -163,7 +163,7 @@ YAW MOI_________3950000______23089847_______24848934
 		</form>
 		<location name="POINTMASS" unit="IN">
 			<x>589.735</x>	
-			<y>226.575</y>
+			<y>170.575</y>
 			<z>-45.567</z>
 		</location>
 	</pointmass>

@@ -335,6 +335,28 @@
 		</condition>
 	</model>
 	
+	<model>
+		<name>mCDU_f-pln</name>
+		<path>hold/hold.xml</path>
+		<condition>
+			<equals>
+				<property>/instrumentation/mcdu/page</property>
+				<value>hold</value>
+			</equals>
+		</condition>
+	</model>
+	
+	<model>
+		<name>mCDU_load</name>
+		<path>f-pln/load.xml</path>
+		<condition>
+			<equals>
+				<property>/instrumentation/mcdu/page</property>
+				<value>load_rtes</value>
+			</equals>
+		</condition>
+	</model>
+	
 	<animation>
 		<type>pick</type>
 		<object-name>brt</object-name>
@@ -497,6 +519,24 @@
 				<command>nasal</command>
 		 		<script>
 					setprop("/instrumentation/mcdu/page", "f-pln");
+					
+					setprop("/instrumentation/mcdu/f-pln/show-hold", 0);
+		
+					var first = getprop("/instrumentation/mcdu/f-pln/disp/first");
+			
+					var hold = getprop("/flight-management/hold/wp_id");
+			
+					var hold_id = 0;
+			
+					if ((hold >= first) and (first + 4 > hold) and (hold != 0)) {
+			
+						setprop("/instrumentation/mcdu/f-pln/show-hold", 1);
+				
+						hold_id = (hold - first) + 1;
+			
+					}
+			
+					setprop("/instrumentation/mcdu/f-pln/hold-id", hold_id);
 					
 					mcdu.f_pln.update_disp();
 				</script>

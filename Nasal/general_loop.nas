@@ -27,6 +27,10 @@ var general_loop_1 = {
     },
     	update : func {
     	
+    	# Rudder Trim Control
+
+    	setprop("/controls/flight/rudder-trim-deg", getprop("/controls/flight/rudder-trim") * 10);
+    	
     	# Engine Fuel Flow Conversion
     	
     	setprop("/engines/engine/fuel-flow-kgph", getprop("/engines/engine/fuel-flow_pph") * 0.45359237);

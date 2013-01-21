@@ -11,7 +11,7 @@ var wp_transit = {
     },
     	update : func {
 		
-		if ((getprop("/autopilot/route-manager/route/num") > 1) and (getprop("/fbw/flight-phase") == "Flight Mode") and (getprop("/flight-management/end-flight") != 1)) {
+		if ((getprop("/autopilot/route-manager/route/num") > 1) and (getprop("/fbw/flight-phase") == "Flight Mode") and (getprop("/flight-management/end-flight") != 1) and (getprop("/autopilot/route-manager/current-wp") != getprop("/flight-management/hold/hold-id"))) {
 		
 		me.current_wp = getprop("/flight-management/current-wp");
 		
@@ -43,6 +43,8 @@ var wp_transit = {
 			setprop("/autopilot/route-manager/input", "@ACTIVATE");
 			
 			setprop("/autopilot/route-manager/input", "@JUMP" ~ me.current_wp);
+			
+			setprop("/autopilot/route-manager/active", 1);
 
 		}
 		
@@ -50,31 +52,41 @@ var wp_transit = {
 		
 			me.current_wp += 1;
 			
+			setprop("/flight-management/current-wp", me.current_wp);
+			
 			var last_wp = getprop("/autopilot/route-manager/route/num") - 1;
-		
-			if ((getprop("/autopilot/route-manager/route/wp[" ~ me.current_wp ~ "]/id") != nil) and (getprop("/flight-management/procedures/star/active-star/name") != "------")) {
-		
+
+			if (getprop("/autopilot/route-manager/route/wp[" ~ me.current_wp ~ "]/id") != nil) {
+	
 				if (me.current_wp == last_wp - 1) {
-				
+			
 					print("--------------------------");
-					print("[FMGC] TRANSITION TO ARRIVAL: " ~ getprop("/flight-management/procedures/star/active-star/name"));
-					print("[FMGC] STAR: " ~ getprop("/flight-management/procedures/star/active-star/name") ~ " > TARGET SET: " ~ getprop("/flight-management/procedures/star/active-star/wp/name"));
-				
+					
+					if (getprop("/flight-management/procedures/star/active-star/name") != "------") {
+						print("[FMGC] TRANSITION TO ARRIVAL: " ~ getprop("/flight-management/procedures/star/active-star/name"));
+						print("[FMGC] STAR: " ~ getprop("/flight-management/procedures/star/active-star/name") ~ " > TARGET SET: " ~ getprop("/flight-management/procedures/star/active-star/wp/name"));
+					} else {
+					
+						print("[FMGC] ARRIVAL PROCEDURE NOT SET!");
+						print("[FMGC] END OF F-PLN")
+					
+					}
+			
 				} else {
-		
+	
 					print("--------------------------");
 					print("[FMGC] WP" ~ (me.current_wp - 1) ~ " Reached...");
 					print("[FMGC] TARGET SET: " ~ getprop("/autopilot/route-manager/route/wp[" ~ me.current_wp ~ "]/id"));
 					setprop("/autopilot/route-manager/active", 1);
-					
+				
 				}
-			
+		
 			} else {
-			
+		
 				print("--------------------------");
 				print("[FMGC] LAST WP REACHED");
 				setprop("/flight-management/end-flight", 1);
-			
+		
 			}
 			
 		}

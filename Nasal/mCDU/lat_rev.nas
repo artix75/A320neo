@@ -1,6 +1,8 @@
 var mcdu_tree = "/instrumentation/mcdu/";
 var lr_tree = mcdu_tree~ "lat_rev/";
 
+var fpln_tree = "/flight-management/f-pln/";
+
 var lat_rev = {
 
 	revise : func (id) {
@@ -99,6 +101,8 @@ var lat_rev = {
 		setprop(rm_route~ "input", "@INSERT" ~ (id + 1) ~ ":" ~ name);
 		
 		setprop(rm_route~ "route/wp[" ~ (id + 1) ~ "]/ias-mach", 0);
+		
+		
 	
 	},
 	

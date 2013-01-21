@@ -11,7 +11,7 @@ Configure the nav-display symbology
 <symbol>
     <type type="string">airport</type>
     <enable>
-        <property>instrumentation/efis[0]/inputs/ARPT</property>
+        <property>instrumentation/efis/inputs/ARPT</property>
     </enable>
     
     <state type="string">!departure</state>
@@ -82,7 +82,7 @@ Configure the nav-display symbology
     <state type="string">on-active-route</state>
     <state type="string">!current-wp</state>
     <enable>
-      <property>instrumentation/efis[0]/inputs/WPT</property>
+      <property>instrumentation/efis/inputs/WPT</property>
     </enable>
     <width type="float">24</width>
     <texture-size  type="int">512</texture-size>
@@ -107,7 +107,7 @@ Configure the nav-display symbology
     <type type="string">vor</type>
     <state type="string">tuned</state>
     <enable>
-      <property>instrumentation/efis[0]/inputs/VORD</property>
+      <property>instrumentation/efis/inputs/VORD</property>
     </enable>
     <width type="float">16</width>
     <texture-size  type="int">512</texture-size>
@@ -129,7 +129,7 @@ Configure the nav-display symbology
 <symbol>
     <type type="string">vor</type>
     <enable>
-        <property>instrumentation/efis[0]/inputs/VORD</property>
+        <property>instrumentation/efis/inputs/VORD</property>
     </enable>
     <state type="string">!tuned</state>
     <width type="float">16</width>
@@ -148,7 +148,7 @@ Configure the nav-display symbology
 <symbol>
     <type type="string">fix</type>
     <enable>
-        <property>instrumentation/efis[0]/inputs/WPT</property>
+        <property>instrumentation/efis/inputs/WPT</property>
     </enable>
     <width type="float">16</width>
     <texture-size  type="int">512</texture-size>
@@ -171,7 +171,7 @@ Configure the nav-display symbology
     <type type="string">ai-aircraft</type>
     <state type="string">tcas</state>
     <enable>
-      <property>instrumentation/efis[0]/inputs/TRAF</property>
+      <property>instrumentation/efis/inputs/TRAF</property>
     </enable>
     <width type="float">16</width>
     <texture-size  type="int">512</texture-size>

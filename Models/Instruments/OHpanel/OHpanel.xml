@@ -236,6 +236,32 @@
 			<y>0</y>
 		</axis>
 	</animation>
+	
+	<animation>
+		<name>GPWS flaps pick</name>
+		<type>pick</type>
+		<object-name>GPWSFlp3Btn1</object-name>
+		<object-name>GPWSFlp3Btn2</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-toggle</command>
+				<property>instrumentation/mk-viii/inputs/discretes/momentary-flap3-override</property>
+			</binding>
+		</action>
+	</animation>
+	<animation>
+		<name>GPWS flaps off</name>
+		<type>textranslate</type>
+		<object-name>GPWSFlp3Btn2</object-name>
+		<property>instrumentation/mk-viii/inputs/discretes/momentary-flap3-override</property>
+		<factor>0.5</factor>
+		<axis>
+			<x>1</x>
+			<y>0</y>
+		</axis>
+	</animation>
 
 	<!-- Fire controls -->
 	<animation>

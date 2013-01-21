@@ -61,10 +61,10 @@
 				<command>nasal</command>
 		 		<script>
 		 		
-		 			if (getprop("/flight-management/spd-manager/approach/mode") == "MANAGED (F-PLN)")
+		 			if (getprop("/flight-management/spd-manager/approach/mode") == "MANAGED (AUTO)")
 		 				setprop("/flight-management/spd-manager/approach/mode", "MANAGED (PERF)");
 		 			else
-		 				setprop("/flight-management/spd-manager/approach/mode", "MANAGED (F-PLN)");
+		 				setprop("/flight-management/spd-manager/approach/mode", "MANAGED (AUTO)");
 		 			
 				</script>
             </binding>

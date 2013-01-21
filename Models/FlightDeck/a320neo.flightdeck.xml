@@ -718,6 +718,7 @@
 		<object-name>vs-text</object-name>
 		<object-name>fpa-text</object-name>
 		<object-name>qnh-inhg</object-name>
+		<object-name>rudder-trim</object-name>
 		<condition>
 			<greater-than-equals>
 				<property>/systems/electrical/outputs/efis</property>
@@ -831,6 +832,7 @@
 		<object-name>vs-text</object-name>
 		<object-name>fpa-text</object-name>
 		<object-name>qnh-inhg</object-name>
+		<object-name>rudder-trim</object-name>
 		<diffuse>
 			<red>0.89</red>
 			<green>0.37</green>
@@ -2740,5 +2742,314 @@
 			<z>1</z>
 		</axis>
 	</animation>
+	
+	<!-- Rudder Trim -->
+
+<animation>
+	<type>pick</type>
+	<object-name>RudderTrim</object-name>
+	<action>
+		<button>3</button>
+		<button>0</button>
+		<repeatable type="bool">true</repeatable>
+		<binding>
+			<command>nasal</command>
+			<script>
+				var TrimVal = getprop("/controls/flight/rudder-trim");
+				setprop("/controls/flight/rudder-trim", TrimVal + 0.01);
+				setprop("/controls/switches/rudder-trim", 1);
+			</script>
+		</binding>
+		<mod-up>
+			<binding>
+				<command>nasal</command>
+				<script>
+					setprop("/controls/switches/rudder-trim", 0);
+				</script>
+			</binding>
+		</mod-up>
+	</action>
+	<action>
+		<button>4</button>
+		<button>1</button>
+		<repeatable type="bool">true</repeatable>
+		<binding>
+			<command>nasal</command>
+			<script>
+				var TrimVal = getprop("/controls/flight/rudder-trim");
+				setprop("/controls/flight/rudder-trim", TrimVal - 0.01);
+				setprop("/controls/switches/rudder-trim", -1);
+			</script>
+		</binding>
+		<mod-up>
+			<binding>
+				<command>nasal</command>
+				<script>
+					setprop("/controls/switches/rudder-trim", 0);
+				</script>
+			</binding>
+		</mod-up>
+	</action>
+</animation>
+
+<animation>
+	<type>pick</type>
+	<object-name>ResetRudderTrim</object-name>
+	<action>
+		<button>0</button>
+		<repeatable type="bool">false</repeatable>
+		<binding>
+			<command>nasal</command>
+			<script>
+				setprop("/controls/flight/rudder-trim", 0);
+			</script>
+		</binding>
+	</action>
+</animation>
+
+<animation>
+	<type>rotate</type>
+	<object-name>RudderTrim</object-name>
+	<property>/controls/switches/rudder-trim</property>
+	<factor>-30</factor>
+	<center>
+		<x-m>0.0380</x-m>
+		<y-m>0.0104</y-m>
+		<z-m>0</z-m>
+	</center>
+	<axis>
+		<x>0</x>
+		<y>0</y>
+		<z>1</z>
+	</axis>
+</animation>
+
+<text>
+	<name>rudder-trim</name>
+	<offsets>
+		<x-m>0.0211</x-m>
+		<y-m>-0.0207</y-m>
+		<z-m>-0.3855</z-m>
+		<heading-deg>90</heading-deg>
+		<roll-deg>0</roll-deg>
+	</offsets>
+	<alignment>center-center</alignment>
+	<axis-alignment>xy-plane</axis-alignment>
+	<type type="string">number-value</type>
+	<format type="string">%2.1f</format>
+	<property>/controls/flight/rudder-trim-deg</property>
+	<truncate type="bool">false</truncate>
+	<font type="string">helvetica_bold.txf</font>
+	<draw-text type="bool">true</draw-text>
+	<draw-alignment type="bool">false</draw-alignment>
+	<draw-boundingbox type="bool">false</draw-boundingbox>
+	<character-size>0.009</character-size>
+	<font-resolution>
+		<width type="int">32</width>
+		<height type="int">32</height>
+	</font-resolution>
+</text>
+
+<animation>
+	<type>textranslate</type>
+	<object-name>master-warning</object-name>
+	<property>/warnings/master-warning-light</property>
+	<factor>-0.25</factor>
+	<axis>
+		<x>1</x>
+		<y>0</y>
+		<z>0</z>
+	</axis>
+</animation>
+
+<animation>
+	<name>Master Warning Illumination</name>
+	<type>material</type>
+	<object-name>master-warning</object-name>
+	<diffuse>
+		<red>1</red>
+		<green>1</green>
+		<blue>1</blue>
+	</diffuse>
+	<ambient>
+		<red>1</red>
+		<green>1</green>
+		<blue>1</blue>
+	</ambient>
+	<specular>
+		<red>0</red>
+		<green>0</green>
+		<blue>0</blue>
+	</specular>
+	<emission>
+		<red>1</red>
+		<green>1</green>
+		<blue>1</blue>
+	</emission>
+	<condition>
+		<property>/warnings/master-warning-state</property>
+	</condition>
+</animation>
+
+<animation>
+	<type>textranslate</type>
+	<object-name>master-caution</object-name>
+	<property>/warnings/master-caution-light</property>
+	<condition>
+		<greater-than-equals>
+			<property>/systems/electrical/outputs/efis</property>
+			<value>9</value>
+		</greater-than-equals>
+	</condition>
+	<factor>-0.25</factor>
+	<axis>
+		<x>1</x>
+		<y>0</y>
+		<z>0</z>
+	</axis>
+</animation>
+
+<animation>
+	<name>Master Caution Illumination</name>
+	<type>material</type>
+	<object-name>master-caution</object-name>
+	<diffuse>
+		<red>1</red>
+		<green>1</green>
+		<blue>1</blue>
+	</diffuse>
+	<ambient>
+		<red>1</red>
+		<green>1</green>
+		<blue>1</blue>
+	</ambient>
+	<specular>
+		<red>0</red>
+		<green>0</green>
+		<blue>0</blue>
+	</specular>
+	<emission>
+		<red>1</red>
+		<green>1</green>
+		<blue>1</blue>
+	</emission>
+	<condition>
+		<property>/warnings/master-caution-state</property>
+		<greater-than-equals>
+			<property>/systems/electrical/outputs/efis</property>
+			<value>9</value>
+		</greater-than-equals>
+	</condition>
+</animation>
+
+<animation>
+	<type>textranslate</type>
+	<object-name>autoland-light</object-name>
+	<property>/autoland/active</property>
+	<factor>-0.25</factor>
+	<condition>
+		<greater-than-equals>
+			<property>/systems/electrical/outputs/efis</property>
+			<value>9</value>
+		</greater-than-equals>
+	</condition>
+	<axis>
+		<x>1</x>
+		<y>0</y>
+		<z>0</z>
+	</axis>
+</animation>
+
+<animation>
+	<name>Autoland Illumination</name>
+	<type>material</type>
+	<object-name>autoland-light</object-name>
+	<diffuse>
+		<red>1</red>
+		<green>1</green>
+		<blue>1</blue>
+	</diffuse>
+	<ambient>
+		<red>1</red>
+		<green>1</green>
+		<blue>1</blue>
+	</ambient>
+	<specular>
+		<red>0</red>
+		<green>0</green>
+		<blue>0</blue>
+	</specular>
+	<emission>
+		<red>0.5</red>
+		<green>0.5</green>
+		<blue>0.5</blue>
+	</emission>
+	<condition>
+		<property>/autoland/active</property>
+		<greater-than-equals>
+			<property>/systems/electrical/outputs/efis</property>
+			<value>9</value>
+		</greater-than-equals>
+	</condition>
+</animation>
+
+<animation>
+	<type>pick</type>
+	<object-name>master-warning</object-name>
+	<action>
+		<button>0</button>
+		<binding>
+			<command>nasal</command>
+			<script>
+				setprop("/warnings/master-warning-light", 0);
+				setprop("/warnings/master-warning-state", 0);
+			</script>
+		</binding>
+	</action>
+</animation>
+
+<animation>
+	<type>pick</type>
+	<object-name>master-caution</object-name>
+	<action>
+		<button>0</button>
+		<binding>
+			<command>nasal</command>
+			<script>
+				setprop("/warnings/master-caution-light", 0);
+				setprop("/warnings/master-caution-state", 0);
+			</script>
+		</binding>
+	</action>
+</animation>
+
+<animation>
+	<type>pick</type>
+	<object-name>ecam.clr</object-name>
+	<action>
+		<button>0</button>
+		<binding>
+			<command>nasal</command>
+			<script>
+				warnings.warning_system.clr();
+			</script>
+		</binding>
+	</action>
+</animation>
+
+<animation>
+	<type>pick</type>
+	<object-name>ecam.rcl</object-name>
+	<action>
+		<button>0</button>
+		<binding>
+			<command>nasal</command>
+			<script>
+				warnings.warning_system.rcl();
+			</script>
+		</binding>
+	</action>
+</animation>
+
 
 </PropertyList>

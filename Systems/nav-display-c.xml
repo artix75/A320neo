@@ -133,7 +133,7 @@ Configure the nav-display symbology
 </symbol>
     
 <symbol>
-    <type type="string">VOR</type>
+    <type type="string">vor</type>
     <enable>
       <property>instrumentation/efis[0]/inputs/VORD</property>
     </enable>
@@ -174,7 +174,7 @@ Configure the nav-display symbology
 </symbol -->
 
 <symbol>
-    <type type="string">NDB</type>
+    <type type="string">ndb</type>
     <enable>
       <property>instrumentation/efis[0]/inputs/NDB</property>
     </enable>

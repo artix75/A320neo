@@ -131,6 +131,14 @@
 				<name>Spoilers</name>
 				<path>Aircraft/A320neo/Systems/a320-spoilers.xml</path>
 			</autopilot>
+			
+			<!-- Speed Trend on PFD ======================================== -->
+		
+		<autopilot>
+			<name>Speed Trend</name>
+			<path>Aircraft/A320neo/Systems/a320-speedtrend.xml</path>
+		</autopilot>
+			
 		</systems>
 
 		<chase-distance-m>-60</chase-distance-m>
@@ -152,16 +160,26 @@
 		<menubar>
 			<default>
 				<menu n="3">
-					<item>
-						<name>autopilot</name>
-						<label>Autopilot Settings</label>
-						<enabled type="bool">false</enabled>
-					</item>
-					<item>
-						<name>autopilot</name>
-						<label>Route Manager</label>
-						<enabled type="bool">false</enabled>
-					</item>
+					<item n="0">
+		                <label>Autopilot Dialog</label>
+		                <enabled type="bool">false</enabled>
+                        <binding>
+							<command>nasal</command>
+							<script>
+							<!-- Disabled -->
+							</script>
+                        </binding>
+                    </item>
+                    <item n="1">
+		                <label>Route Manager</label>
+		                <enabled type="bool">false</enabled>
+                        <binding>
+							<command>nasal</command>
+							<script>
+								<!-- Disabled -->
+							</script>
+                        </binding>
+                    </item>
 				</menu>
 				<menu n="5">
                     <item n="1">
@@ -318,6 +336,12 @@
 			<line>Have a nice flight!</line>
 		</help>
 	</sim>
+	
+	<hydraulics>
+		<control>
+			<ptu type="bool">false</ptu>
+		</control>
+	</hydraulics>
 	
 	<flight-management>
 		<phase type="string">T/O</phase>
@@ -784,11 +808,14 @@
 				</binding>
 			</key>
 			<key n="11">
-				<name>Ctrl-k</name>
-				<desc>Arm/disarm ground spoilers</desc>
+				<name>CTRL+k</name>
+				<repeatable type="bool">true</repeatable>
+				<desc>Reset Rudder Trim</desc>
 				<binding>
-					<command>property-toggle</command>
-					<property>controls/flight/ground-spoilers-armed</property>
+					<command>nasal</command>
+					<script>
+						setprop("/controls/flight/rudder-trim", 0);
+					</script>
 				</binding>
 			</key>
 			<key n="9">
@@ -837,6 +864,102 @@
 					</script>
 				</binding>
 			</key>
+			
+			<key n="106">
+			<name>j</name>
+			<repeatable type="bool">true</repeatable>
+			<desc>Steer Left (Tiller)</desc>
+			<binding>
+				<command>nasal</command>
+				<script>
+					setprop("/controls/gear/tiller-cmd-norm", getprop("/controls/gear/tiller-cmd-norm") - (1/70));
+				</script>
+			</binding>
+		</key>
+		
+		<key n="107">
+			<name>k</name>
+			<repeatable type="bool">true</repeatable>
+			<desc>Center Tiller</desc>
+			<binding>
+				<command>nasal</command>
+				<script>
+					setprop("/controls/gear/tiller-cmd-norm", 0);
+				</script>
+			</binding>
+		</key>
+		
+		<key n="108">
+			<name>l</name>
+			<repeatable type="bool">true</repeatable>
+			<desc>Steer Right (Tiller)</desc>
+			<binding>
+				<command>nasal</command>
+				<script>
+					setprop("/controls/gear/tiller-cmd-norm", getprop("/controls/gear/tiller-cmd-norm") + (1/70));
+				</script>
+			</binding>
+		</key>
+		<key n="10">
+			<name>CTRL+j</name>
+			<repeatable type="bool">true</repeatable>
+			<desc>Rudder Trim Left</desc>
+			<binding>
+				<command>nasal</command>
+				<script>
+					var TrimVal = getprop("/controls/flight/rudder-trim");
+					setprop("/controls/flight/rudder-trim", TrimVal - 0.01);
+					setprop("/controls/switches/rudder-trim", -1);
+				</script>
+			</binding>
+			<mod-up>
+				<binding>
+					<command>nasal</command>
+					<script>
+						setprop("/controls/switches/rudder-trim", 0);
+					</script>
+				</binding>
+			</mod-up>
+		</key>
+		
+		<key n="12">
+			<name>CTRL+l</name>
+			<repeatable type="bool">true</repeatable>
+			<desc>Rudder Trim Right</desc>
+ 				<binding>
+-					<command>property-cycle</command>
+-					<property>autopilot/autobrake/step</property>
+-					<value type="int">0</value> <!-- OFF -->
+-					<value type="int">1</value> <!-- LOW -->
+-					<value type="int">2</value> <!-- MED -->
+-					<value type="int">3</value> <!-- MAX -->
+				<command>nasal</command>
+				<script>
+					var TrimVal = getprop("/controls/flight/rudder-trim");
+					setprop("/controls/flight/rudder-trim", TrimVal + 0.01);
+					setprop("/controls/switches/rudder-trim", 1);
+				</script>
+ 				</binding>
+			<mod-up>
+				<binding>
+					<command>nasal</command>
+					<script>
+						setprop("/controls/switches/rudder-trim", 0);
+					</script>
+				</binding>
+			</mod-up>
+ 			</key>
+
+			<key n="19">
+			<name>CTRL+s</name>
+			<desc>Arm/Disarm ground spoilers</desc>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-toggle</command>
+				<property>/controls/flight/ground-spoilers-armed</property>
+			</binding>
+		</key>
+			
 		</keyboard>
 	</input>
 
@@ -852,6 +975,7 @@
 			<file>Aircraft/A320neo/Nasal/mCDU/common.nas</file>
 			<file>Aircraft/A320neo/Nasal/mCDU/loop.nas</file>
 			<file>Aircraft/A320neo/Nasal/mCDU/parse_DB.nas</file>
+			<file>Aircraft/A320neo/Nasal/mCDU/user.nas</file>
 		</mcdu>
 		
 		<procedures>
@@ -892,6 +1016,7 @@
 	
 		<a320neo>
 			<file>Aircraft/Generic/limits.nas</file>
+			<file>Aircraft/A320neo/Nasal/terrainmap.nas</file>
 			<file>Aircraft/A320neo/Nasal/copilot.nas</file>
 			<file>Aircraft/A320neo/Nasal/general_loop.nas</file>
 		</a320neo>
@@ -920,7 +1045,9 @@
 		<dual_control>
 			<file>Aircraft/Generic/DualControl/pilot-dual-control.nas</file>
 		</dual_control>
-		<terrain-map><file>Aircraft/A320neo/Nasal/terrain-map.nas</file></terrain-map>
+		<warnings>
+			<file>Aircraft/A330-200/Nasal/warnings.nas</file>
+		</warnings>
 	</nasal>
 
 	

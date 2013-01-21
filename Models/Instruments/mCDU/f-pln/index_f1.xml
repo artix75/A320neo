@@ -93,6 +93,43 @@
 	</animation>
 	
 	<animation>
+		<type>pick</type>
+		<object-name>r1</object-name>
+		<action>
+            <button>0</button>
+	   		<repeatable type="bool">false</repeatable>
+            <binding>
+				<command>nasal</command>
+		 		<script>
+					mcdu.user.load_rte_list();
+					setprop("/instrumentation/mcdu/page", "load_rtes");
+				</script>
+            </binding>
+        </action>
+	</animation>
+	
+	<animation>
+		<type>pick</type>
+		<object-name>r2</object-name>
+		<action>
+            <button>0</button>
+	   		<repeatable type="bool">false</repeatable>
+            <binding>
+				<command>nasal</command>
+		 		<script>
+					var input = getprop("/instrumentation/mcdu/input");
+					
+					if ((input != nil) and (input != "f-pln")) {
+						mcdu.user.save_user_rte(input);
+					}
+					
+					setprop("/instrumentation/mcdu/page", "f-pln");
+				</script>
+            </binding>
+        </action>
+	</animation>
+	
+	<animation>
 		<type>select</type>
 		<object-name>active</object-name>
 		<condition>

@@ -51,8 +51,32 @@
 		 		
 		 			# HOLD
 		 			
-		 			if ((dep == 0) and (arr == 0))
-		 				mcdu.hold.hold(getprop("/instrumentation/mcdu/lat_rev/id"));
+		 			if ((dep == 0) and (arr == 0)) {
+		 				
+		 				var id = getprop("/instrumentation/mcdu/lat_rev/id");
+		 				
+		 				var name = getprop("/autopilot/route-manager/route/wp[" ~ id ~ "]/id");
+		 				
+		 				setprop("/instrumentation/mcdu/page", "hold");
+		 				
+		 				setprop("/instrumentation/mcdu/hold/wp", name);
+		 				
+		 				setprop("/instrumentation/mcdu/hold/wp_id", id);
+		 				
+		 				var wp = getprop("/instrumentation/mcdu/hold/wp");
+		 			
+			 			setprop("/instrumentation/gps/scratch/query", wp);
+			 			
+			 			if (3 >= size(wp))
+			 				setprop("/instrumentation/gps/scratch/type", "vor");
+			 			else
+			 				setprop("/instrumentation/gps/scratch/type", "fix");
+			 				
+			 			setprop("/instrumentation/gps/command", "search");
+			 			
+			 			setprop("/flight-management/hold/crs", getprop("/instrumentation/gps/scratch/mag-bearing-deg"));
+		 			
+		 			}
 		 			
 		 			# DEPARTURE
 		 			
@@ -101,6 +125,10 @@
 		 		<script>
 		 			# Direct To
 		 			
+		 				setprop("/flight-management/hold/init", 0);
+		 			
+		 				setprop("/autopilot/route-manager/input", "@ACTIVATE");
+		 			
 		 				var id = getprop("/instrumentation/mcdu/lat_rev/id");
 		 			
 		 				setprop("/autopilot/route-manager/input", "@JUMP" ~ id);
@@ -108,8 +136,6 @@
 		 				setprop("/flight-management/current-wp", id);
 		 				
 		 				setprop("/instrumentation/mcdu/page", "f-pln");
-		 				
-		 				setprop("/autopilot/route-manager/active", 1);
 		 			
 		 				mcdu.f_pln.update_disp();
 		 			
@@ -131,6 +157,24 @@
 		 			# Remove WP
 		 			
 		 				mcdu.lat_rev.rm_wp(getprop("/instrumentation/mcdu/lat_rev/id"));
+		 				
+		 			# Remove Hold if Exists
+		 				
+		 				var hold = getprop("/flight-management/hold/wp_id");
+		 				
+		 				var lat_rev = getprop("/instrumentation/mcdu/lat_rev/id");
+		 				
+		 				if (lat_rev == hold) {
+		 					
+		 					setprop("/flight-management/hold/wp", "---");
+		 					
+		 					setprop("/flight-management/hold/wp_id", 0);
+		 					
+		 					setprop("/instrumentation/mcdu/f-pln/hold-id", 0);
+		 					
+		 					setprop("/instrumentation/mcdu/f-pln/show-hold", 0);
+		 				
+		 				}		 				
 		 				
 		 			setprop("/instrumentation/mcdu/page", "f-pln");
 		 				

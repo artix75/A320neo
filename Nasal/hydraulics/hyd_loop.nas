@@ -8,7 +8,7 @@ var hydraulics_loop = {
             setprop(hyd_ctrl~ "eng1-pump", 1);
             setprop(hyd_ctrl~ "eng2-pump", 1);
             setprop(hyd_ctrl~ "elec-pump", 1);
-            setprop(hyd_ctrl~ "ptu", 1);
+            setprop(hyd_ctrl~ "ptu", 0);
             
             setprop(hyd_ctrl~ "rat-unlck", 0);
             setprop(hyd_ctrl~ "y-elec-pump", 0);

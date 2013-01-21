@@ -174,7 +174,7 @@ var procedure = {
 	
 	},
 	
-	course_to : func(lat,lon) {
+	course_to : func(lat = 0,lon = 0) {
 	
 		var aircraft_pos = geo.aircraft_position();
 	

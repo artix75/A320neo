@@ -6,6 +6,35 @@
 
 	<path>res/pfd-3d.ac</path>
 	
+	<!-- Speed Trend Indicator -->
+	
+	<animation>
+        <object-name>spdtrnd-up</object-name>
+        <property>instrumentation/pfd/speed-trend-up</property>
+        <type>textranslate</type>
+        <axis>
+            <x>0</x>
+            <y>-1</y>
+        </axis>
+        <interpolation>
+			<entry><ind>0.24</ind><dep>0</dep></entry>
+			<entry><ind>0</ind><dep>0.5</dep></entry>
+        </interpolation>
+    </animation>
+    <animation>
+        <object-name>spdtrnd-down</object-name>
+        <property>instrumentation/pfd/speed-trend-down</property>
+        <type>textranslate</type>
+        <axis>
+            <x>0</x>
+            <y>-1</y>
+        </axis>
+        <interpolation>
+			<entry><ind>-0.24</ind><dep>0</dep></entry>
+			<entry><ind>0</ind><dep>0.5</dep></entry>
+        </interpolation>
+    </animation>
+	
 	<!-- AP Indicators Select -->
 	
 	<!-- AUTO-THROTTLE SECTION -->
@@ -194,7 +223,17 @@
 		</condition>
 	</animation>
 	
-	<!-- FLIGHT DIRECTOR (COME BACK LATER) -->
+	<!-- FLIGHT DIRECTOR -->
+	
+	<animation>
+		<type>select</type>
+		<object-name>fd</object-name>
+		<object-name>fd_pitch</object-name>
+		<object-name>fd_roll</object-name>
+		<condition>
+			<property>/flight-management/control/fd</property>
+		</condition>
+	</animation>
 	
 	<!-- AUTO-THROTTLE -->
 	
@@ -262,7 +301,7 @@
     	<type>textranslate</type>
     	<object-name>spd-tape</object-name>
     	<object-name>stall-tape</object-name>
-    	<property>/velocities/airspeed-kt</property>
+    	<property>instrumentation/airspeed-indicator/indicated-speed-kt</property>
     	<factor>0.002001953</factor>
     	<axis>
     		<y>1</y>
@@ -289,7 +328,7 @@
 		<object-name>vfe-tape</object-name>
 		<transform>
 			<subtype>textranslate</subtype>
-			<property>/velocities/airspeed-kt</property>
+			<property>instrumentation/airspeed-indicator/indicated-speed-kt</property>
     		<factor>0.002001953</factor>
 			<axis>
 				<x>0</x>
@@ -753,5 +792,66 @@
 			<blue>0</blue>
 		</emission>
 	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>autoland.land</object-name>
+		<condition>
+			<equals>
+				<property>/autoland/phase</property>
+				<value>land</value>
+			</equals>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>autoland.flare</object-name>
+		<condition>
+			<equals>
+				<property>/autoland/phase</property>
+				<value>flare</value>
+			</equals>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>autoland.retard</object-name>
+		<condition>
+			<equals>
+				<property>/autoland/phase</property>
+				<value>retard</value>
+			</equals>
+		</condition>
+	</animation>
+	
+	<!-- Sidestick Deflection -->
+	
+	<animation>
+        <type>translate</type>
+        <object-name>sidestick-pos</object-name>
+        <object-name>fd_pitch</object-name>
+        <property>controls/flight/elevator</property>
+        <factor>0.0258</factor>
+        <axis>
+            <x>0</x>
+            <y>0</y>
+            <z>-1</z>
+        </axis>
+    </animation>
+    
+    <animation>
+        <type>translate</type>
+        <object-name>sidestick-pos</object-name>
+        <object-name>fd_roll</object-name>
+        <property>controls/flight/aileron</property>
+        <factor>0.0260</factor>
+        <axis>
+            <x>0</x>
+            <y>1</y>
+            <z>0</z>
+        </axis>
+    </animation>
 
 </PropertyList>

@@ -29,6 +29,22 @@ setprop("/flight-management/crz_fl", 0);
 
 var mCDU_init = {
 
+	clear_active : func() {
+	
+		for(var i = 0; i < 100; i += 1) {
+		
+			if (getprop(active_rte~ "route/wp[" ~ i ~ "]/wp-id") != nil) {
+		
+				setprop(active_rte~ "route/wp[" ~ i ~ "]/wp-id", "");
+				setprop(active_rte~ "route/wp[" ~ i ~ "]/altitude-ft", 0);
+				setprop(active_rte~ "route/wp[" ~ i ~ "]/ias-mach", 0);
+				
+			}
+		
+		}
+	
+	},
+
 	co_rte : func (mcdu, id) {
 	
 		for (var index = 0; getprop(co_tree~ "route[" ~ index ~ "]/rte_id") != nil; index += 1) {
@@ -67,6 +83,8 @@ var mCDU_init = {
 	
 	set_active_rte : func (id) {
 	
+		me.clear_active();
+	
 		for (var index = 0; getprop(co_tree~ "route[" ~ index ~ "]/rte_id") != nil; index += 1) {
 	
 			var rte_id = getprop(co_tree~ "route[" ~ index ~ "]/rte_id");
@@ -97,10 +115,10 @@ var mCDU_init = {
 			
 						# Use 250 kts if under FL100 and 0.78 mach if over FL100
 				
-						if (alt <= 10000)
-							spd = 250;
-						else
-							spd = 0.78;
+						# if (alt <= 10000)
+						#	spd = 250;
+						# else
+						#	spd = 0.78;
 							
 						setprop(active_rte~ "route/wp[" ~ wp ~ "]/ias-mach", spd);
 			
@@ -259,6 +277,8 @@ var mCDU_init = {
 		}
 		
 		setprop("flight-management/alternate/icao", icao);
+		
+		f_pln.init_f_pln();
 	
 	},
 	
@@ -306,10 +326,10 @@ var mCDU_init = {
 			
 						# Use 250 kts if under FL100 and 0.78 mach if over FL100
 				
-						if (alt <= 10000)
-							spd = 250;
-						else
-							spd = 0.78;
+						# if (alt <= 10000)
+						#	spd = 250;
+						# else
+						#	spd = 0.78;
 							
 						setprop(active_rte~ "route/wp[" ~ wp ~ "]/ias-mach", spd);
 			
@@ -320,6 +340,8 @@ var mCDU_init = {
 			} # End of Route ID Check
 	
 		} # End of Route-ID For Loop
+		
+		f_pln.init_f_pln();
 	
 	}
 
