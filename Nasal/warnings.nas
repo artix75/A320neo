@@ -144,12 +144,12 @@ var warning_system = {
 				return (warning_system.spdbrkcount > 50);
             };
             
-			var to_cfg_flaps = warning.new("TO CONFIG...FLAPS", "crc", "warning", "to-flaps");
-			to_cfg_flaps.condition = func() {
-				var weight = getprop("/fdm/jsbsim/inertia/weight-lbs");
-				var flaps = getprop("/controls/flight/flaps");
-				return ((getprop("/controls/engines/engine/throttle") > 0.95) and (getprop("/position/altitude-agl-ft") < 400) and (((weight > 145000) and (weight < 160000) and (flaps < 0.25)) or ((weight > 160000) and (flaps < 0.5))));
-            };
+	#		var to_cfg_flaps = warning.new("TO CONFIG...FLAPS", "crc", "warning", "to-flaps");
+	#		to_cfg_flaps.condition = func() {
+	#			var weight = getprop("/fdm/jsbsim/inertia/weight-lbs");
+	#			var flaps = getprop("/controls/flight/flaps");
+	#			return ((getprop("/controls/engines/engine/throttle") > 0.95) and (getprop("/position/altitude-agl-ft") < 400) and (((weight > 145000) and (weight < 160000) and (flaps < 0.25)) or ((weight > 160000) and (flaps < 0.5))));
+    #       };
             
     #      var to_cfg_pbrk = warning.new("PARKING BRAKE SET", "crc", "warning", "to-spdbrk");
 	#		to_cfg_pbrk.condition = func() {
@@ -158,7 +158,7 @@ var warning_system = {
 			
 			var to_cfg_spdbrk = warning.new("RETRACT SPD BRK", "crc", "warning", "to-spdbrk");
 			to_cfg_spdbrk.condition = func() {
-				return ((getprop("/controls/engines/engine/throttle") > 0.95) and (getprop("/controls/flight/speedbrake") != 0));
+				return ((getprop("/controls/engines/engine/throttle") > 0.95) and (getprop("/controls/flight/speedbrake") > 0.2));
 			};
 			
 			var to_cfg_ptrim = warning.new("CHECK PITCH TRIM", "crc", "warning", "to-ptrim");
@@ -304,27 +304,27 @@ var warning_system = {
 			
 			var fuel_1lo = warning.new("L WING TK LO LVL", "chime", "caution", "fuel1lo");
 			fuel_1lo.condition = func() {
-				return ((getprop("/consumables/fuel/tank[2]/level-kg") < 1000) and (getprop("/consumables/fuel/tank[4]/level-kg") >= 1000));
+				return ((getprop("/consumables/fuel/tank[2]/level-kg") < 400) and (getprop("/consumables/fuel/tank[4]/level-kg") >= 400));
 			};
 			
 			var fuel_2lo = warning.new("R WING TK LO LVL", "chime", "caution", "fuel2lo");
 			fuel_2lo.condition = func() {
-				return ((getprop("/consumables/fuel/tank[2]/level-kg") >= 1000) and (getprop("/consumables/fuel/tank[4]/level-kg") < 1000));
+				return ((getprop("/consumables/fuel/tank[2]/level-kg") >= 400) and (getprop("/consumables/fuel/tank[4]/level-kg") < 400));
 			};
 			
 			var fuel_clo = warning.new("CTR TK LO LVL", "chime", "caution", "fuelclo");
 			fuel_clo.condition = func() {
-				return (getprop("/consumables/fuel/tank[3]/level-kg") < 1000);
+				return (getprop("/consumables/fuel/tank[3]/level-kg") < 400);
 			};
 			
 			var fuel_wlo = warning.new("L+R WING TK LO LVL", "crc", "caution", "fuello");
 			fuel_wlo.condition = func() {
-				return ((getprop("/consumables/fuel/tank[2]/level-kg") < 1000) and (getprop("/consumables/fuel/tank[4]/level-kg") < 1000));
+				return ((getprop("/consumables/fuel/tank[2]/level-kg") < 400) and (getprop("/consumables/fuel/tank[4]/level-kg") < 400));
 			};
 			
 			var fuel_bal = warning.new("X-FEED FAULT", "chime", "caution", "fuelbal");
 			fuel_bal.condition = func() {
-				return ((getprop("controls/fuel/x-feed") != 1) and (math.abs(getprop("/consumables/fuel/tank[2]/level-kg") - getprop("/consumables/fuel/tank[4]/level-kg")) > 1000));
+				return ((getprop("controls/fuel/x-feed") != 1) and (math.abs(getprop("/consumables/fuel/tank[2]/level-kg") - getprop("/consumables/fuel/tank[4]/level-kg")) > 400));
 			}			
 			
 			
@@ -364,7 +364,7 @@ var warning_system = {
 
 			# All warnings into a hash for easier use
 			
-			me.warnings = [stall, spdbrk_stillout, apu_emer, to_cfg_flaps, to_cfg_spdbrk, to_cfg_ptrim, to_cfg_rtrim, elv_fault, ail_fault, rud_fault, spdbrk_fault, flaps_fault, direct_law, altn_law, abn_law , engd_fail, eng1_fail, eng2_fail, engd_oilp, eng1_oilp, eng2_oilp, engd_shut, eng1_shut, eng2_shut, hydall, hydby, hydbg, hydgy, hydb_lopr, hydy_lopr, hydg_lopr, ptu_fault, fuel_1lo, fuel_2lo, fuel_clo, fuel_wlo, fuel_bal, apugen_fault, gen1_fault, gen2_fault, emer_conf, ap_off, athr_off];
+			me.warnings = [stall, spdbrk_stillout, apu_emer, to_cfg_spdbrk, to_cfg_ptrim, to_cfg_rtrim, elv_fault, ail_fault, rud_fault, spdbrk_fault, flaps_fault, direct_law, altn_law, abn_law , engd_fail, eng1_fail, eng2_fail, engd_oilp, eng1_oilp, eng2_oilp, engd_shut, eng1_shut, eng2_shut, hydall, hydby, hydbg, hydgy, hydb_lopr, hydy_lopr, hydg_lopr, ptu_fault, fuel_1lo, fuel_2lo, fuel_clo, fuel_wlo, fuel_bal, apugen_fault, gen1_fault, gen2_fault, emer_conf, ap_off, athr_off];
             
             ############################################
             
