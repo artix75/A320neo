@@ -4,8 +4,8 @@
 	<sim>
 		<model>
 			<livery>
-				<name>Merlion International Airlines</name>
-				<neo-texture>Liveries/A320neo-MIA.png</neo-texture>
+				<name>Merlion | merlionBLUE</name>
+				<neo-texture>Liveries/A320neo-MIA-BL.png</neo-texture>
 			</livery>
 		</model>
 	</sim>

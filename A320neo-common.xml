@@ -3,7 +3,7 @@
 <PropertyList>
 
 	<sim>
-		<author>Narendran, Malik and Jon A. Ortuondo(Bicyus), [based on A320-family]</author>
+		<author>Narendran, Malik and Jon A. Ortuondo(Bicyus)</author>
 		<status>beta</status>
 
 		<model>
@@ -1046,8 +1046,11 @@
 			<file>Aircraft/Generic/DualControl/pilot-dual-control.nas</file>
 		</dual_control>
 		<warnings>
-			<file>Aircraft/A330-200/Nasal/warnings.nas</file>
+			<file>Aircraft/A320neo/Nasal/warnings.nas</file>
 		</warnings>
+		<yoke>
+			<file>Aircraft/A320neo/Nasal/yoke.nas</file>
+		</yoke>
 	</nasal>
 
 	

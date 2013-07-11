@@ -1497,7 +1497,7 @@
             <button>0</button>
             <binding>
                 <command>property-toggle</command>
-                <property>controls/engines/engine[0]/cutoff</property>
+                <property>controls/engines/engine[0]/cutoff-switch</property>
             </binding>
         </action>
     </animation>
@@ -1509,7 +1509,7 @@
             <button>0</button>
             <binding>
                 <command>property-toggle</command>
-                <property>controls/engines/engine[1]/cutoff</property>
+                <property>controls/engines/engine[1]/cutoff-switch</property>
             </binding>
         </action>
     </animation>
