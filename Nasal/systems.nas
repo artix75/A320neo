@@ -416,11 +416,11 @@ var instruments =
   {
   if (getprop("engines/engine[0]/egt-degf") != nil)
    {
-   setprop("engines/engine[0]/egt-degc", (getprop("engines/engine[0]/egt-degf") - 32) * 1.8);
+   setprop("engines/engine[0]/egt-degc", (getprop("engines/engine[0]/egt-degf") - 32) * (5/9));
    }
   if (getprop("engines/engine[1]/egt-degf") != nil)
    {
-   setprop("engines/engine[1]/egt-degc", (getprop("engines/engine[1]/egt-degf") - 32) * 1.8);
+   setprop("engines/engine[1]/egt-degc", (getprop("engines/engine[1]/egt-degf") - 32) * (5/9));
    }
   }
  };

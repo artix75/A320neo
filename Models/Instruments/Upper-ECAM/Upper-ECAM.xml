@@ -299,7 +299,7 @@
     	<type>rotate</type>
     	<object-name>egt1</object-name>
     	<property>engines/engine/egt-degc</property>
-    	<factor>0.06</factor>
+    	<factor>0.19</factor>
     	<center>
     		<x-m>0</x-m>
     		<y-m>-0.0374</y-m>
@@ -316,7 +316,7 @@
     	<type>rotate</type>
     	<object-name>egt2</object-name>
     	<property>engines/engine[1]/egt-degc</property>
-    	<factor>0.06</factor>
+    	<factor>0.19</factor>
     	<center>
     		<x-m>0</x-m>
     		<y-m>0.0369</y-m>
