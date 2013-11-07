@@ -136,7 +136,7 @@ var warning_system = {
             stall.condition = func() {
 				var flaps = getprop("/controls/flight/flaps");
 				var ias = getprop("/velocities/airspeed-kt");
-				return ((getprop("/position/altitude-ft") > 400) and (((ias <= 150) and (flaps <=0.29 )) or ((ias <= 135) and (flaps == 0.529)) or ((ias <= 120) and (flaps >= 74))));
+				return ((getprop("/position/altitude-agl-ft") > 400) and (((ias <= 150) and (flaps <=0.29 )) or ((ias <= 135) and (flaps == 0.529)) or ((ias <= 120) and (flaps >= 74))));
             };
             
             var spdbrk_stillout = warning.new("SPD BRK STILL OUT", "chime", "caution", "spdbrk-still");
