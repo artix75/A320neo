@@ -1,13 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-
 <!-- Primary Flight Display -->
-
 <PropertyList>
-
 	<path>res/pfd-3d.ac</path>
-	
 	<!-- Speed Trend Indicator -->
-	
 	<animation>
         <object-name>spdtrnd-up</object-name>
         <property>instrumentation/pfd/speed-trend-up</property>
@@ -33,12 +28,9 @@
 			<entry><ind>-0.24</ind><dep>0</dep></entry>
 			<entry><ind>0</ind><dep>0.5</dep></entry>
         </interpolation>
-    </animation>
-	
+    </animation>	
 	<!-- AP Indicators Select -->
-	
 	<!-- AUTO-THROTTLE SECTION -->
-	
 	<animation>
 		<type>select</type>
 		<object-name>spd-ias</object-name>
@@ -49,7 +41,6 @@
 			</equals>
 		</condition>
 	</animation>
-	
 	<animation>
 		<type>select</type>
 		<object-name>spd-mach</object-name>
@@ -60,9 +51,7 @@
 			</equals>
 		</condition>
 	</animation>
-	
 	<!-- VERTICAL NAVIGATION SECTION -->
-	
 	<animation>
 		<type>select</type>
 		<object-name>gs_</object-name>
@@ -89,8 +78,7 @@
 				<value>fmgc</value>
 			</equals>
 		</condition>
-	</animation>
-	
+	</animation>	
 	<animation>
 		<type>select</type>
 		<object-name>lvlch</object-name>
@@ -111,7 +99,6 @@
 		</and>
 		</condition>
 	</animation>
-	
 	<animation>
 		<type>select</type>
 		<object-name>lvlch</object-name>
@@ -132,9 +119,7 @@
 		</and>
 		</condition>
 	</animation>
-	
 	<!-- LATERAL NAVIGATION SECTION -->
-	
 	<animation>
 		<type>select</type>
 		<object-name>loc_</object-name>
@@ -151,7 +136,6 @@
 		</and>
 		</condition>
 	</animation>
-	
 	<animation>
 		<type>select</type>
 		<object-name>lnav</object-name>
@@ -162,7 +146,6 @@
 			</equals>
 		</condition>
 	</animation>
-
 	<animation>
 		<type>select</type>
 		<object-name>hdg</object-name>
@@ -179,11 +162,8 @@
 		</and>
 		</condition>
 	</animation>
-	
 	<!-- MASTER AUTOPILOT SECTION -->
-	
-	<!-- AUTOPILOT 1 & 2 -->
-	
+	<!-- AUTOPILOT 1 & 2 -->	
 	<animation>
 		<type>select</type>
 		<object-name>ap1_</object-name>
@@ -193,8 +173,7 @@
 				<value>eng</value>
 			</equals>
 		</condition>
-	</animation>
-	
+	</animation>	
 	<animation>
 		<type>select</type>
 		<object-name>ap2_</object-name>
@@ -204,8 +183,7 @@
 				<value>eng</value>
 			</equals>
 		</condition>
-	</animation>
-	
+	</animation>	
 	<animation>
 		<type>select</type>
 		<object-name>ap</object-name>
@@ -222,9 +200,7 @@
 		</or>
 		</condition>
 	</animation>
-	
 	<!-- FLIGHT DIRECTOR -->
-	
 	<animation>
 		<type>select</type>
 		<object-name>fd</object-name>
@@ -234,7 +210,6 @@
 			<property>/flight-management/control/fd</property>
 		</condition>
 	</animation>
-	
 	<!-- AUTO-THROTTLE -->
 	
 	<animation>
@@ -247,11 +222,8 @@
 			</equals>
 		</condition>
 	</animation>
-	
 	<!-- ################################################################### -->
-
 	<!-- ARTIFICIAL HORIZON -->
-	
 	<animation>
         <type>texmultiple</type>
         <object-name>horizon</object-name>
@@ -278,7 +250,6 @@
             </axis>
         </transform>
     </animation>
-    
     <animation>
     	<type>rotate</type>
     	<object-name>bank</object-name>
@@ -294,9 +265,7 @@
     		<z>0</z>
     	</axis>
     </animation>
-    
     <!-- SPEED TAPE (S) -->
-    
     <animation>
     	<type>textranslate</type>
     	<object-name>spd-tape</object-name>
@@ -307,9 +276,7 @@
     		<y>1</y>
     	</axis>
     </animation>
-    
     <!-- Stall Speed Tape Select -->
-    
     <animation>
 		<type>select</type>
 		<object-name>stall-tape</object-name>
@@ -319,10 +286,8 @@
 				<value>30</value>
 			</greater-than-equals>
 		</condition>
-	</animation>
-	
-	<!-- Max Flap Extension speeds (Vfe) -->
-	
+	</animation>	
+	<!-- Max Flap Extension speeds (Vfe) -->	
 	<animation>
 		<type>texmultiple</type>
 		<object-name>vfe-tape</object-name>
@@ -352,10 +317,8 @@
 				<z>0</z>
 			</axis>
 		</transform>
-	</animation>
-	
+	</animation>	
 	<!-- ALT TAPE (s) -->
-	
 	<animation>
     	<type>textranslate</type>
     	<object-name>alt-tape-1</object-name>
@@ -365,7 +328,7 @@
     		<y>1</y>
     	</axis>
     </animation>
-    
+	
     <animation>
     	<type>textranslate</type>
     	<object-name>alt-tape-2</object-name>
@@ -375,9 +338,9 @@
     		<y>1</y>
     	</axis>
     </animation>
-    
+	
     <!-- Vertical Speed Indicator (range: -60 to 60 fps) -->
-    
+	
     <animation>
     	<type>texrotate</type>
     	<object-name>vsi</object-name>
@@ -393,9 +356,9 @@
                 <z>-1</z>
             </axis>
     </animation>
-    
+	
     <!-- HEADING TAPE -->
-    
+	
     <animation>
     	<type>textranslate</type>
     	<object-name>hdg-tape</object-name>
@@ -405,9 +368,9 @@
     		<x>1</x>
     	</axis>
     </animation>
-    
+	
     <!-- Glideslope pointer -->
-
+	
     <animation>
         <type>select</type>
         <object-name>gsscale</object-name>
@@ -415,7 +378,7 @@
             <property>instrumentation/nav/has-gs</property>
         </condition>
     </animation>
-
+	
     <animation>
         <type>select</type>
         <object-name>gspointer</object-name>
@@ -426,7 +389,7 @@
             </and>
         </condition>
     </animation>
-
+	
     <animation>
         <type>translate</type>
         <object-name>gspointer</object-name>
@@ -438,7 +401,7 @@
             <z>1</z>
         </axis>
     </animation>
-
+	
 <!-- LOC pointer -->
 
     <animation>
@@ -448,7 +411,7 @@
             <property>instrumentation/nav/nav-loc</property>
         </condition>
     </animation>
-
+	
     <animation>
         <type>select</type>
         <object-name>locpointer</object-name>
@@ -459,7 +422,7 @@
             </and>
         </condition>
     </animation>
-
+	
     <animation>
         <type>translate</type>
         <object-name>locpointer</object-name>
@@ -471,19 +434,44 @@
             <z>0</z>
         </axis>
     </animation>
-    
+	
     <!-- OSGText -->
-    
+	
     <!-- Next WPT Info -->
+	
     
+<text>
+		<name>osgtext-green</name>
+		<offsets>
+			<x-m>0.0010</x-m>
+			<y-m>-0.069</y-m>
+			<z-m>-0.048</z-m>
+		</offsets>
+		<alignment>left-center</alignment>
+		<axis-alignment>yz-plane</axis-alignment>
+		<type type="string">number-value</type>
+		<format type="string">%0.3f</format>
+		<property>/velocities/mach</property>
+		<truncate type="bool">false</truncate>
+		<font type="string">led.txf</font>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.007</character-size>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	
     <text>
 		<name>osgtext-magenta</name>
 		<offsets>
 			<x-m>0.0010</x-m>
-			<y-m>-0.0583</y-m>
-			<z-m>-0.049</z-m>
+			<y-m>-0.069</y-m>
+			<z-m>-0.056</z-m>
 		</offsets>
-		<alignment>center-center</alignment>
+		<alignment>left-center</alignment>
 		<axis-alignment>yz-plane</axis-alignment>
 		<type type="string">text-value</type>
 		<format type="string">%s</format>
@@ -504,10 +492,10 @@
 		<name>osgtext-magenta</name>
 		<offsets>
 			<x-m>0.0010</x-m>
-			<y-m>-0.0583</y-m>
-			<z-m>-0.055</z-m>
+			<y-m>-0.069</y-m>
+			<z-m>-0.062</z-m>
 		</offsets>
-		<alignment>center-center</alignment>
+		<alignment>left-center</alignment>
 		<axis-alignment>yz-plane</axis-alignment>
 		<type type="string">number-value</type>
 		<format type="string">%3.2f</format>
@@ -528,13 +516,13 @@
 		<name>osgtext-magenta</name>
 		<offsets>
 			<x-m>0.0010</x-m>
-			<y-m>-0.0583</y-m>
-			<z-m>-0.061</z-m>
+			<y-m>-0.069</y-m>
+			<z-m>-0.068</z-m>
 		</offsets>
-		<alignment>center-center</alignment>
+		<alignment>left-center</alignment>
 		<axis-alignment>yz-plane</axis-alignment>
 		<type type="string">number-value</type>
-		<format type="string">%3.0f°</format>
+		<format type="string">%03.0f°</format>
 		<property>instrumentation/nav/heading-deg</property>
 		<truncate type="bool">false</truncate>
 		<font type="string">helvetica_bold.txf</font>
