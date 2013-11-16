@@ -151,10 +151,10 @@ var warning_system = {
 	#			return ((getprop("/controls/engines/engine/throttle") > 0.95) and (getprop("/position/altitude-agl-ft") < 400) and (((weight > 145000) and (weight < 160000) and (flaps < 0.25)) or ((weight > 160000) and (flaps < 0.5))));
     #       };
             
-    #      var to_cfg_pbrk = warning.new("PARKING BRAKE SET", "crc", "warning", "to-spdbrk");
-	#		to_cfg_pbrk.condition = func() {
-	#			return ((getprop("/controls/engines/engine/throttle") > 0.95) and (getprop("/controls/parking-brake") != 0));
-	#		};
+            var to_cfg_pbrk = warning.new("PARKING BRAKE SET", "crc", "warning", "to-pbrk");
+			to_cfg_pbrk.condition = func() {
+				return ((getprop("/controls/engines/engine/throttle") > 0.95) and (getprop("/controls/gear/brake-parking") != 0));
+			};
 			
 			var to_cfg_spdbrk = warning.new("RETRACT SPD BRK", "crc", "warning", "to-spdbrk");
 			to_cfg_spdbrk.condition = func() {
@@ -173,17 +173,17 @@ var warning_system = {
 			
 			var elv_fault = warning.new("L+R ELEV FAULT", "crc", "warning", "elev-fault");
 			elv_fault.condition = func() {
-				return (getprop("/sim/failure-manager/controls/flight/elevator/serviceable") == 0);
+				return (getprop("/sim/failure-manager/controls/flight/elevator/serviceable") == 0) and (getprop("/engines/engine/n1") >= 30) and (getprop("/engines/engine[1]/n1") >= 30);
 			};
 			
 			var ail_fault = warning.new("L+R AIL FAULT", "crc", "warning", "ail-fault");
 			ail_fault.condition = func() {
-				return (getprop("/sim/failure-manager/controls/flight/aileron/serviceable") == 0);
+				return (getprop("/sim/failure-manager/controls/flight/aileron/serviceable") == 0) and (getprop("/engines/engine/n1") >= 30) and (getprop("/engines/engine[1]/n1") >= 30);
 			};
 			
 			var rud_fault = warning.new("RUDDER FAULT", "crc", "warning", "rud-fault");
 			rud_fault.condition = func() {
-				return (getprop("/sim/failure-manager/controls/flight/rudder/serviceable") == 0);
+				return (getprop("/sim/failure-manager/controls/flight/rudder/serviceable") == 0) and (getprop("/engines/engine/n1") >= 30) and (getprop("/engines/engine[1]/n1") >= 30);
 			};
 			
 			var spdbrk_fault = warning.new("L+R SPD BRK FAULT", "chime", "caution", "spdbrk-fault");
@@ -230,17 +230,17 @@ var warning_system = {
 			
 			var engd_oilp = warning.new("ENG 1+2 OIL LO PR", "crc", "warning", "engd-oil");
 			engd_oilp.condition = func() {
-				return (((getprop("/engines/engine/oil-pressure-psi") < 13) and (getprop("/controls/engines/engine/cutoff-switch") != 1)) and (((getprop("/engines/engine[1]/oil-pressure-psi") < 13) and (getprop("/controls/engines/engine/cutoff-switch") != 1))));
+				return (((getprop("/engines/engine/oil-pressure-psi") < 13) and (getprop("/controls/engines/engine/cutoff-switch") != 1)) and (((getprop("/engines/engine[1]/oil-pressure-psi") < 13) and (getprop("/controls/engines/engine/cutoff-switch") != 1) and (getprop("/engines/engine/n1") >= 30) and (getprop("/engines/engine[1]/n1") >= 30))));
 			};
 			
 			var eng1_oilp = warning.new("ENG 1 OIL LO PR", "chime", "caution", "eng1-oil");
 			eng1_oilp.condition = func() {
-				return (((getprop("/engines/engine/oil-pressure-psi") < 13) and (getprop("/controls/engines/engine/cutoff-switch") != 1)) and (((getprop("/engines/engine[1]/oil-pressure-psi") >= 13) or (getprop("/controls/engines/engine/cutoff-switch") == 1))));
+				return (((getprop("/engines/engine/oil-pressure-psi") < 13) and (getprop("/controls/engines/engine/cutoff-switch") != 1)) and (((getprop("/engines/engine[1]/oil-pressure-psi") >= 13) or (getprop("/controls/engines/engine/cutoff-switch") == 1) and (getprop("/engines/engine/n1") >= 30) and (getprop("/engines/engine[1]/n1") >= 30))));
 			};
 			
 			var eng2_oilp = warning.new("ENG 2 OIL LO PR", "chime", "caution", "eng2-oil");
 			eng2_oilp.condition = func() {
-				return (((getprop("/engines/engine/oil-pressure-psi") >= 13) or (getprop("/controls/engines/engine/cutoff-switch") == 1)) and (((getprop("/engines/engine[1]/oil-pressure-psi") < 13) and (getprop("/controls/engines/engine/cutoff-switch") != 1))));
+				return (((getprop("/engines/engine/oil-pressure-psi") >= 13) or (getprop("/controls/engines/engine/cutoff-switch") == 1)) and (((getprop("/engines/engine[1]/oil-pressure-psi") < 13) and (getprop("/controls/engines/engine/cutoff-switch") != 1) and (getprop("/engines/engine/n1") >= 30) and (getprop("/engines/engine[1]/n1") >= 30))));
 			};
 			
 			var engd_shut = warning.new("ENG 1+2 SHUT DOWN", "chime", "caution", "engd-shut");
@@ -262,7 +262,7 @@ var warning_system = {
 			
 			var hydall = warning.new("HYD SYS LO PR", "crc", "warning", "hydall");
 			hydall.condition = func() {
-				return ((getprop("/hydraulics/blue/pressure-psi") < 1000) and (getprop("/hydraulics/yellow/pressure-psi") < 1000) and (getprop("/hydraulics/green/pressure-psi") < 1000))
+				return ((getprop("/hydraulics/blue/pressure-psi") < 1000) and (getprop("/hydraulics/yellow/pressure-psi") < 1000) and (getprop("/hydraulics/green/pressure-psi") < 1000) and (getprop("/engines/engine/n1") >= 30) and (getprop("/engines/engine[1]/n1") >= 30))
 			};
 			
 			var hydby = warning.new("B+Y SYS LO PR", "crc", "warning", "hydby");
@@ -277,22 +277,22 @@ var warning_system = {
 			
 			var hydgy = warning.new("Y+G SYS LO PR", "crc", "warning", "hydgy");
 			hydgy.condition = func() {
-				return ((getprop("/hydraulics/blue/pressure-psi") > 1400) and (getprop("/hydraulics/yellow/pressure-psi") < 1000) and (getprop("/hydraulics/green/pressure-psi") < 1000))
+				return ((getprop("/hydraulics/blue/pressure-psi") > 1400) and (getprop("/hydraulics/yellow/pressure-psi") < 1000) and (getprop("/hydraulics/green/pressure-psi") < 1000) and (getprop("/engines/engine/n1") >= 30) and (getprop("/engines/engine[1]/n1") >= 30))
 			};
 			
 			var hydb_lopr = warning.new("B SYS LO PR", "chime", "caution", "hydb-lopr");
 			hydb_lopr.condition = func() {
-				return ((getprop("/hydraulics/blue/pressure-psi") < 1000) and (getprop("/hydraulics/yellow/pressure-psi") >= 1400) and (getprop("/hydraulics/green/pressure-psi") >= 1400))
+				return ((getprop("/hydraulics/blue/pressure-psi") < 1000) and (getprop("/hydraulics/yellow/pressure-psi") >= 1400) and (getprop("/hydraulics/green/pressure-psi") >= 1400) and (getprop("/engines/engine/n1") >= 30) and (getprop("/engines/engine[1]/n1") >= 30))
 			};
 			
 			var hydy_lopr = warning.new("Y SYS LO PR", "chime", "caution", "hydy-lopr");
 			hydy_lopr.condition = func() {
-				return ((getprop("/hydraulics/blue/pressure-psi") >= 1400) and (getprop("/hydraulics/yellow/pressure-psi") < 1000) and (getprop("/hydraulics/green/pressure-psi") >= 1400))
+				return ((getprop("/hydraulics/blue/pressure-psi") >= 1400) and (getprop("/hydraulics/yellow/pressure-psi") < 1000) and (getprop("/hydraulics/green/pressure-psi") >= 1400) and (getprop("/engines/engine/n1") >= 30) and (getprop("/engines/engine[1]/n1") >= 30))
 			};
 			
 			var hydg_lopr = warning.new("G SYS LO PR", "chime", "caution", "hydg-lopr");
 			hydg_lopr.condition = func() {
-				return ((getprop("/hydraulics/blue/pressure-psi") >= 1400) and (getprop("/hydraulics/yellow/pressure-psi") >= 1400) and (getprop("/hydraulics/green/pressure-psi") < 1000))
+				return ((getprop("/hydraulics/blue/pressure-psi") >= 1400) and (getprop("/hydraulics/yellow/pressure-psi") >= 1400) and (getprop("/hydraulics/green/pressure-psi") < 1000) and (getprop("/engines/engine/n1") >= 30) and (getprop("/engines/engine[1]/n1") >= 30))
 			};
 			
 			var ptu_fault = warning.new("PTU FAULT", "chime", "caution", "ptu-fault");
@@ -364,7 +364,7 @@ var warning_system = {
 
 			# All warnings into a hash for easier use
 			
-			me.warnings = [stall, spdbrk_stillout, apu_emer, to_cfg_spdbrk, to_cfg_ptrim, to_cfg_rtrim, elv_fault, ail_fault, rud_fault, spdbrk_fault, flaps_fault, direct_law, altn_law, abn_law , engd_fail, eng1_fail, eng2_fail, engd_oilp, eng1_oilp, eng2_oilp, engd_shut, eng1_shut, eng2_shut, hydall, hydby, hydbg, hydgy, hydb_lopr, hydy_lopr, hydg_lopr, ptu_fault, fuel_1lo, fuel_2lo, fuel_clo, fuel_wlo, fuel_bal, apugen_fault, gen1_fault, gen2_fault, emer_conf, ap_off, athr_off];
+			me.warnings = [stall, spdbrk_stillout, apu_emer, to_cfg_pbrk, to_cfg_spdbrk, to_cfg_ptrim, to_cfg_rtrim, elv_fault, ail_fault, rud_fault, spdbrk_fault, flaps_fault, direct_law, altn_law, abn_law , engd_fail, eng1_fail, eng2_fail, engd_oilp, eng1_oilp, eng2_oilp, engd_shut, eng1_shut, eng2_shut, hydall, hydby, hydbg, hydgy, hydb_lopr, hydy_lopr, hydg_lopr, ptu_fault, fuel_1lo, fuel_2lo, fuel_clo, fuel_wlo, fuel_bal, apugen_fault, gen1_fault, gen2_fault, emer_conf, ap_off, athr_off];
             
             ############################################
             
@@ -374,7 +374,19 @@ var warning_system = {
             apu_avail.condition = func() {
 				return (getprop("/engines/apu/rpm") > 95);
             };
-            
+			
+			var prk_brake = memo.new("PARK BRK ON", "green");
+            prk_brake.condition = func() {
+				return (getprop("/controls/gear/brake-parking") == 1);
+            };
+			
+			var seat_belts = memo.new("SEAT BELTS", "green");
+            seat_belts.condition = func() {
+				return (getprop("/controls/switches/seatbelt-sign"));
+            };
+			
+			
+			            
             var spdbrk_a = memo.new("SPEED BRK", "amber");
             spdbrk_a.condition = func() {
 				return ((warning_system.spdbrkcount > 50) and ((getprop("/controls/flight/speedbrake") != 0) and (getprop("/velocities/vertical-speed-fps") > -2)));
@@ -427,7 +439,7 @@ var warning_system = {
             
             # All MEMO items into a hash for easier use (in order of display priority)
             
-            me.memos = [fuel_jett, apu_avail, spdbrk_a, rat_a, fob_low, spdbrk_g, rat_g, gnd_splrs, xfeed, hyd_ptu, refuel];           
+            me.memos = [fuel_jett, apu_avail, prk_brake, seat_belts, spdbrk_a, rat_a, fob_low, spdbrk_g, rat_g, gnd_splrs, xfeed, hyd_ptu, refuel];           
             
             ############################################
             
