@@ -39,7 +39,7 @@
 			<name>Ground Speed</name>
 			<type>text</type>
 			<font>arial_black</font>
-			<point-size>7</point-size>
+			<point-size>9</point-size>
 			<color>
 				<red>0.0</red>
 				<green>1.0</green>
@@ -95,7 +95,7 @@
 			<name>TAS</name>
 			<type>text</type>
 			<font>arial_black</font>
-			<point-size>7</point-size>
+			<point-size>9</point-size>
 			<color>
 			<red>0</red>
 			<green>1.0</green>
@@ -133,7 +133,7 @@
 			
 			<type>text</type>
 			<font>arial_black</font>
-			<point-size>7</point-size>
+			<point-size>9</point-size>
 			<color>
 				<red>0.0</red>
 				<green>1.0</green>
@@ -162,7 +162,7 @@
 				</transformation>
 				<transformation>
 					<type>y-shift</type>
-					<offset>108</offset>
+					<offset>106</offset>
 				</transformation>
 			</transformations>
 		</layer>
@@ -195,7 +195,7 @@
 				</transformation>
 				<transformation>
 					<type>y-shift</type>
-					<offset>90</offset>
+					<offset>88</offset>
 				</transformation>
 				<transformation>
 					<type>rotation</type>
