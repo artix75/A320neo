@@ -824,6 +824,139 @@
 				<z>0.78</z>
 			</position>
 		</v1>
+		
+		<vR>
+			<name>Vr</name>
+			<path>Aircraft/A320neo/Sounds/res/vr.wav</path>
+			<condition>
+				<and>
+					<property>sim/current-view/internal</property>
+					<!-- At v1 airspeed -->
+					<greater-than-equals>
+						<property>velocities/airspeed-kt</property>
+						<property>/instrumentation/fmc/vspeeds/VR</property>
+					</greater-than-equals>
+					<!-- While on ground -->
+				    <property>/gear/gear[0]/wow</property>
+					<property>/gear/gear[1]/wow</property>
+					<property>/gear/gear[2]/wow</property>
+					<!-- With throttles in [flex]Take Off  -->
+					<greater-than>
+						<property>controls/engines/engine[0]/throttle</property>
+						<value>0.7</value>
+					</greater-than>
+					<greater-than>
+						<property>controls/engines/engine[1]/throttle</property>
+						<value>0.7</value>
+					</greater-than>
+				</and>
+			</condition>
+			<type>avionics</type>
+			<volume>
+				<property>/sim/sound/effects/volume</property>
+				<factor>0.8</factor>
+			</volume>
+			<position>
+				<x>22.5</x>
+				<y>0</y>
+				<z>0.78</z>
+			</position>
+		</vR>
+		
+<!-- APU Sounds -->
+
+    <apu-start>
+        <name>apu-strt</name>
+        <mode>once</mode>
+        <path>Aircraft/A320neo/Sounds/res/apu_strt.wav</path>
+        <condition>
+			<property>controls/APU/starter</property>
+			<less-than>
+				<property>engines/apu/rpm</property>
+				<value>100</value>
+			</less-than>
+		</condition>
+		<position>
+			<x>26</x>
+			<y>0</y>
+			<z>4</z>
+		</position>		
+		<reference-dist>10</reference-dist>	
+		<max-dist>30</max-dist>	
+		<volume>0.3</volume>		
+    </apu-start>
+
+	<apu-running2>
+        <name>apu-run2</name>
+        <mode>looped</mode>
+        <path>Aircraft/A320neo/Sounds/res/apu_run.wav</path>
+        <condition>
+			<property>controls/APU/master-switch</property>
+			<equals>
+				<property>engines/apu/rpm</property>
+				<value>100</value>
+			</equals>
+		</condition>
+		<position>
+			<x>26</x>
+			<y>0</y>
+			<z>4</z>
+		</position>	
+		<reference-dist>10</reference-dist>
+		<max-dist>30</max-dist>
+		<volume>0.3</volume>
+    </apu-running2>
+	
+	
+	<apu-running>
+        <name>apu-run</name>
+        <mode>looped</mode>
+        <path>Aircraft/A320neo/Sounds/res/apu_run.wav</path>
+        <condition>
+			<not>
+				<property>controls/APU/starter</property>
+			</not>
+			<greater-than-equals>
+				<property>engines/apu/rpm</property>
+				<value>80</value>
+			</greater-than-equals>
+		</condition>
+		<position>
+			<x>26</x>
+			<y>0</y>
+			<z>4</z>
+		</position>	
+		<reference-dist>10</reference-dist>
+		<max-dist>30</max-dist>
+		<volume>0.3</volume>
+    </apu-running>
+
+	<apu-shutdown>
+        <name>apu-stop</name>
+        <mode>once</mode>
+        <path>Aircraft/A320neo/Sounds/res/apu_stop.wav</path>
+        <condition>
+			<not>
+				<property>controls/APU/starter</property>
+			</not>
+			<less-than>
+				<property>engines/apu/rpm</property>
+				<value>100</value>
+			</less-than>		
+			<greater-than>
+				<property>engines/apu/rpm</property>
+				<value>0</value>
+			</greater-than>	
+		</condition>
+		<position>
+			<x>26</x>
+			<y>0</y>
+			<z>4</z>
+		</position>	
+		<reference-dist>10</reference-dist>
+		<max-dist>30</max-dist>
+		<volume>0.5</volume>
+    </apu-shutdown>	
 	
 
 
@@ -888,6 +1021,28 @@
 			<reference-dist>10</reference-dist>
 			<max-dist>100.0</max-dist>
 		</stall>
+		
+		<autopilotoff>
+			<name>Autopilot off</name>
+			<path>Aircraft/A320neo/Sounds/res/ap_disc.wav</path>
+			<mode>once</mode>
+			<type>avionics</type>
+			<condition>
+				<equals>
+					<property>sim/alarms/AP-Disengage</property>
+					<value>true</value>
+				</equals>
+				<property>sim/current-view/internal</property>
+			</condition>
+
+			<volume>
+				<property>sim/sound/effects/volume</property>
+				<!--factor>2</factor-->
+			</volume>
+
+			<reference-dist>10</reference-dist>
+			<max-dist>100</max-dist>
+		</autopilotoff>
 
 		 <!-- New Warnings/Sounds -->
 	
@@ -918,34 +1073,9 @@
 	
 	<!-- New Warnings/Sounds -->
 
-<gearwarn>
-	<name>Gear warning</name>
-	<path>/Aircraft/A330-200/Sounds/res/gearwarn.wav</path>
-	<mode>looped</mode>
-	<type>avionics</type>
-	<condition>
-		<less-than-equals>
-			<property>position/altitude-agl-ft</property>
-			<value>400</value>
-		</less-than-equals>
-		<less-than-equals>
-			<property>/velocities/vertical-speed-fps</property>
-			<value>-1</value>
-		</less-than-equals>
-		<not>
-			<property>/controls/gear/gear-down</property>
-		</not>
-	</condition>
-	<volume>
-		<property>sim/sound/effects/volume</property>
-	</volume>
-	<reference-dist>10</reference-dist>
-	<max-dist>100</max-dist>
-</gearwarn>
-
 <ap_disc>
 	<name>AP Disconnect warning</name>
-	<path>/Aircraft/A330-200/Sounds/res/airbus-warning.wav</path>
+	<path>/Aircraft/A320neo/Sounds/res/ap_disc.wav</path>
 	<mode>once</mode>
 	<type>avionics</type>
 	<condition>
@@ -960,7 +1090,7 @@
 
 <chime>
 	<name>Chime</name>
-	<path>/Aircraft/A330-200/Sounds/res/chime.wav</path>
+	<path>/Aircraft/A320neo/Sounds/res/chime.wav</path>
 	<mode>once</mode>
 	<type>avionics</type>
 	<condition>
@@ -975,7 +1105,7 @@
 
 <crc>
 	<name>CRC</name>
-	<path>/Aircraft/A330-200/Sounds/res/crc.wav</path>
+	<path>/Aircraft/A320neo/Sounds/res/crc.wav</path>
 	<mode>looped</mode>
 	<type>avionics</type>
 	<condition>
