@@ -89,9 +89,14 @@
 		</gui>
 
 		<systems>
-			<autopilot>
+			<!--<autopilot>
 				<name>Autopilot helpers</name>
 				<path>Aircraft/Generic/generic-autopilot-helper.xml</path>
+			</autopilot>-->
+			
+			<autopilot>
+				<name>Autopilot helpers</name>
+				<path>Aircraft/A320neo/Systems/FMGC/autopilot-helper.xml</path>
 			</autopilot>
 			
 			<!-- Autopilot Control ========================================= -->

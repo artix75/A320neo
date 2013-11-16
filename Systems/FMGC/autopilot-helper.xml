@@ -1,0 +1,145 @@
+<?xml version="1.0"?>
+<!-- 
+     These are the autopilot helpers, currently implemented
+     in the c++ code of xmlauto.cxx.
+     These will take over the functionality of the hard
+     coded helpers, once they are removed and this file
+     has been added as an autopilot to preferences.xml
+-->
+ 
+<PropertyList>
+
+  <filter>
+    <name>heading bug error computer/normalizer</name>
+    <debug>false</debug>
+    <type>gain</type>
+    <input>
+      <property>flight-management/fcu-values/hdg</property>
+      <offset>
+        <property>orientation/heading-magnetic-deg</property>
+        <scale>-1.0</scale>
+      </offset>
+    </input>
+    <output>autopilot/internal/heading-bug-error-deg</output>
+    <output>autopilot/internal/fdm-heading-bug-error-deg</output>
+    <period>
+      <min>-180</min>
+      <max>180</max>
+    </period>
+    <gain>1.0</gain>
+  </filter>
+
+  <filter>
+    <name>true heading error computer/normalizer</name>
+    <debug>false</debug>
+    <type>gain</type>
+    <input>
+      <property>autopilot/settings/true-heading-deg</property>
+      <offset>
+        <property>orientation/heading-deg</property>
+        <scale>-1.0</scale>
+      </offset>
+    </input>
+    <output>autopilot/internal/true-heading-error-deg</output>
+    <period>
+      <min>-180</min>
+      <max>180</max>
+    </period>
+    <gain>1.0</gain>
+  </filter>
+
+  <filter>
+    <name>nav1 heading error computer/normalizer</name>
+    <debug>false</debug>
+    <type>gain</type>
+    <input>
+      <property>instrumentation/nav[0]/radials/target-auto-hdg-deg</property>
+      <offset>
+        <property>orientation/heading-deg</property>
+        <scale>-1.0</scale>
+      </offset>
+    </input>
+    <output>autopilot/internal/nav1-heading-error-deg</output>
+    <period>
+      <min>-180</min>
+      <max>180</max>
+    </period>
+    <gain>1.0</gain>
+  </filter>
+
+  <filter>
+    <name>nav1 selected course error computer/normalizer</name>
+    <debug>false</debug>
+    <type>gain</type>
+    <input>
+      <property>instrumentation/nav[0]/radials/selected-deg</property>
+      <offset>
+        <property>orientation/heading-magnetic-deg</property>
+        <scale>-1.0</scale>
+      </offset>
+    </input>
+    <output>autopilot/internal/nav1-course-error</output>
+    <period>
+      <min>-180</min>
+      <max>180</max>
+    </period>
+    <gain>1.0</gain>
+  </filter>
+
+  <filter>
+    <name>vertical speed fpm computer</name>
+    <debug>false</debug>
+    <type>gain</type>
+    <input>velocities/vertical-speed-fps</input>
+    <output>autopilot/internal/vert-speed-fpm</output>
+    <gain>60.0</gain>
+  </filter>
+
+  <predict-simple>
+    <name>speed in 5 seconds predictor</name>
+    <debug>false</debug>
+    <input>velocities/airspeed-kt</input>
+    <output>autopilot/internal/lookahead-5-sec-airspeed-kt</output>
+    <seconds>5.0</seconds>
+    <filter-gain>0.0</filter-gain>
+  </predict-simple>
+
+  <predict-simple>
+    <name>speed in 10 seconds predictor</name>
+    <debug>false</debug>
+    <input>velocities/airspeed-kt</input>
+    <output>autopilot/internal/lookahead-10-sec-airspeed-kt</output>
+    <seconds>10.0</seconds>
+    <filter-gain>0.0</filter-gain>
+  </predict-simple>
+
+  <filter>
+    <name>static port pressure rate computer</name>
+    <debug>false</debug>
+    <type>derivative</type>
+    <input>systems/static[0]/pressure-inhg</input>
+    <output>autopilot/internal/pressure-rate</output>
+    <filter-time>1.0</filter-time>
+  </filter>
+
+  <filter>
+    <name>nav1 track error computer</name>
+    <debug>false</debug>
+    <type>gain</type>
+    <input>
+      <property>instrumentation/nav[0]/radials/target-auto-hdg-deg</property>
+      <offset>
+        <property>orientation/track-deg</property>
+        <scale>-1.0</scale>
+      </offset>
+    </input>
+    <output>autopilot/internal/nav1-track-error-deg</output>
+    <period>
+      <min>-180</min>
+      <max>180</max>
+    </period>
+    <gain>1.0</gain>
+  </filter>
+
+</PropertyList>
+
