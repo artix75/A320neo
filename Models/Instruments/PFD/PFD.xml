@@ -439,6 +439,31 @@
 	
     <!-- Next WPT Info -->
 	
+	<!-- VS SPEED Text -->
+	<text>
+		<name>osgtext-green</name>
+		<offsets>
+			<x-m>0.0010</x-m>
+			<y-m>0.065</y-m>
+			<z-m>0.038</z-m>
+		</offsets>
+		<alignment>left-center</alignment>
+		<axis-alignment>yz-plane</axis-alignment>
+		<type type="string">number-value</type>
+		<format type="string">%.0f</format>
+		<property>/instrumentation/vertical-speed-indicator/indicated-speed-kts</property>
+		<truncate type="bool">false</truncate>
+		<font type="string">helvetica_bold.txf</font>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.006</character-size>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	
     
 <text>
 		<name>osgtext-green</name>
