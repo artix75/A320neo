@@ -1,0 +1,22 @@
+AC3Db
+MATERIAL "ac3dmat1thr_" rgb 0 0 0  amb 0 0 0  emis 0 0 0  spec 0 0 0  shi 0  trans 0
+OBJECT world
+kids 1
+OBJECT poly
+name "EFIS.screen"
+loc 0 -0.00284537 0.000121433
+crease 30.000000
+numvert 4
+0 0.0788191 -0.0814075
+0 -0.0731283 -0.0814075
+0 -0.0731283 0.0811646
+0 0.0788191 0.0811646
+numsurf 1
+SURF 0x0
+mat 0
+refs 4
+0 0 0
+3 0 0
+2 0 0
+1 0 0
+kids 0

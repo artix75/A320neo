@@ -1,0 +1,355 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!-- Airbus A320 neo for FlightGear -->
+<!-- ECAM Engine -->
+
+<PropertyList>	
+	<name>Engine</name>
+	<w-base>256</w-base>
+	<h-base>256</h-base>
+
+	<layers>
+
+		<layer>
+			<name>engine-texture</name>
+			<w>256</w>
+			<h>256</h>
+			<texture>
+				<path>Aircraft/A320neo/Models/Instruments/ECAM/res/page-eng.png</path>
+				<x1>0.0</x1>
+				<y1>0.0</y1>
+				<x2>1</x2>
+				<y2>1</y2>
+			</texture>
+			<emissive>true</emissive>
+		</layer>
+
+		<layer>
+			
+			<type>text</type>
+			<name>Engine 1 Fuel Used</name>
+	 		<color>
+		        	<red>0.1</red>
+		        	<green>1.0</green>
+		        	<blue>0.1</blue>
+		    	</color>
+
+			<chunks>
+				<chunk>
+					<type>number-value</type>
+					<!--property>/engines/engine[0]/fuel-consumed-lbs</property-->
+					<property>fdm/jsbsim/propulsion/engine[0]/fuel-used-lbs</property>
+					<scale>0.45359237</scale>
+					<format type="string">%5.0f</format>
+					<alignment>left-center</alignment>
+				</chunk>
+			</chunks>
+			<transformations>
+				<transformation>
+					<type>y-shift</type>
+					<offset>80</offset>
+				</transformation>
+				<transformation>
+					<type>x-shift</type>
+					<offset>-98</offset>
+				</transformation>
+			</transformations>
+		</layer>
+		<layer>
+			
+			<type>text</type>
+			<name>Engine 2 Fuel Used</name>
+	 		<color>
+		        	<red>0.1</red>
+		        	<green>1.0</green>
+		        	<blue>0.1</blue>
+		    	</color>
+
+			<chunks>
+				<chunk>
+					<type>number-value</type>
+					<!-- property>/engines/engine[1]/fuel-consumed-lbs</property-->
+					<property>fdm/jsbsim/propulsion/engine[1]/fuel-used-lbs</property>
+					<scale>0.45359237</scale>
+					<format type="string">%5.0f</format>
+					<alignment>right-center</alignment>
+				</chunk>
+			</chunks>
+			<transformations>
+				<transformation>
+					<type>y-shift</type>
+					<offset>80</offset>
+				</transformation>
+				<transformation>
+					<type>x-shift</type>
+					<offset>-20</offset>
+				</transformation>
+			</transformations>
+		</layer>
+
+		<layer>
+			
+			<type>text</type>
+			<name>Engine 1 OIL PSI</name>
+	 		<color>
+		        	<red>0.1</red>
+		        	<green>1.0</green>
+		        	<blue>0.1</blue>
+		    	</color>
+
+			<chunks>
+				<chunk>
+				    <type>number-value</type>
+				    <property>engines/engine[0]/oil-pressure-psi</property>
+					<format type="string">%3.0f</format>
+				</chunk>
+			</chunks>
+			<transformations>
+				<transformation>
+					<type>y-shift</type>
+					<offset>-11</offset>
+				</transformation>
+				<transformation>
+					<type>x-shift</type>
+					<offset>-88</offset>
+				</transformation>
+			</transformations>
+		</layer>
+		<layer>
+			
+			<type>text</type>
+			<name>Engine 2 OIL PSI</name>
+	 		<color>
+		        	<red>0.1</red>
+		        	<green>1.0</green>
+		        	<blue>0.1</blue>
+		    	</color>
+
+			<chunks>
+				<chunk>
+					<type>number-value</type>
+					<property>engines/engine[1]/oil-pressure-psi</property>
+					<format type="string">%3.0f</format>
+				</chunk>
+			</chunks>
+			<transformations>
+				<transformation>
+					<type>y-shift</type>
+					<offset>-11</offset>
+				</transformation>
+				<transformation>
+					<type>x-shift</type>
+					<offset>0</offset>
+				</transformation>
+			</transformations>
+		</layer>
+
+		<layer>
+			
+			<type>text</type>
+			<name>Engine 1 C</name>
+	 		<color>
+		        	<red>0.1</red>
+		        	<green>1.0</green>
+		        	<blue>0.1</blue>
+		    	</color>
+
+			<chunks>
+				<chunk>
+					<type>number-value</type>
+					<property>/engines/engine[0]/fuel-consumed-lbs</property>
+					<format type="string">%5.0f</format>
+					<alignment>left-center</alignment>
+				</chunk>
+			</chunks>
+			<transformations>
+				<transformation>
+					<type>y-shift</type>
+					<offset>-33</offset>
+				</transformation>
+				<transformation>
+					<type>x-shift</type>
+					<offset>-100</offset>
+				</transformation>
+			</transformations>
+		</layer>
+		<layer>
+			
+			<type>text</type>
+			<name>Engine 2 C</name>
+	 		<color>
+		        	<red>0.1</red>
+		        	<green>1.0</green>
+		        	<blue>0.1</blue>
+		    	</color>
+
+			<chunks>
+				<chunk>
+					<type>number-value</type>
+					<property>/engines/engine[1]/fuel-consumed-lbs</property>
+					<format type="string">%5.0f</format>
+					<alignment>right-center</alignment>
+				</chunk>
+			</chunks>
+			<transformations>
+				<transformation>
+					<type>y-shift</type>
+					<offset>-33</offset>
+				</transformation>
+				<transformation>
+					<type>x-shift</type>
+					<offset>-23</offset>
+				</transformation>
+			</transformations>
+		</layer>
+
+
+
+<!-- ################################## Bottom  #################################-->
+
+		<layer>
+			
+			<type>text</type>
+			<name>TAT</name>
+	 		<color>
+		        	<red>0.1</red>
+		        	<green>1.0</green>
+		        	<blue>0.1</blue>
+		    	</color>
+
+			<chunks>
+				<chunk>
+					<type>number-value</type>
+					<property>environment/temperature-degc</property><!-- There is no TAT temperature property-->
+					<format type="string">%3.0f</format>
+				</chunk>
+			</chunks>
+			<transformations>
+				<transformation>
+					<type>y-shift</type>
+					<offset>-110</offset>
+				</transformation>
+				<transformation>
+					<type>x-shift</type>
+					<offset>-80	</offset>
+				</transformation>
+			</transformations>
+		</layer>
+
+		<layer>
+			
+			<type>text</type>
+			<name>SAT</name>
+	 		<color>
+		        	<red>0.1</red>
+		        	<green>1.0</green>
+		        	<blue>0.1</blue>
+		    	</color>
+
+			<chunks>
+				<chunk>
+					<type>number-value</type>
+					<property>environment/temperature-degc</property>
+					<format type="string">%3.0f</format>
+				</chunk>
+			</chunks>
+			<transformations>
+				<transformation>
+					<type>y-shift</type>
+					<offset>-124</offset>
+				</transformation>
+				<transformation>
+					<type>x-shift</type>
+					<offset>-80</offset>
+				</transformation>
+			</transformations>
+		</layer>
+
+
+		<layer>
+			<type>text</type>
+			<name>HOUR</name>
+	 		<color>
+		        	<red>0.1</red>
+		        	<green>1.0</green>
+		        	<blue>0.1</blue>
+		    	</color>
+
+			<chunks>
+				<chunk>
+					<type>number-value</type>
+					<property>instrumentation/clock/indicated-hour</property>
+					<format type="string">%3.0f</format>
+				</chunk>
+			</chunks>
+			<transformations>
+				<transformation>
+					<type>y-shift</type>
+					<offset>-124</offset>
+				</transformation>
+				<transformation>
+					<type>x-shift</type>
+					<offset>-25</offset>
+				</transformation>
+			</transformations>
+		</layer>
+		<layer>
+			<type>text</type>
+			<name>Minutes</name>
+	 		<color>
+		        	<red>0.1</red>
+		        	<green>1.0</green>
+		        	<blue>0.1</blue>
+		    	</color>
+
+			<chunks>
+				<chunk>
+					<type>number-value</type>
+					<property>instrumentation/clock/indicated-min</property>
+					<format type="string">%3.0f</format>
+				</chunk>
+			</chunks>
+			<transformations>
+				<transformation>
+					<type>y-shift</type>
+					<offset>-124</offset>
+				</transformation>
+				<transformation>
+					<type>x-shift</type>
+					<offset>5</offset>
+				</transformation>
+			</transformations>
+		</layer>
+		<layer>
+			<type>text</type>
+			<name>Gross Weight</name>
+	 		<color>
+		        	<red>0.1</red>
+		        	<green>1.0</green>
+		        	<blue>0.1</blue>
+		    	</color>
+
+			<chunks>
+				<chunk>
+					<alignment>left-center</alignment>
+					<type>number-value</type>
+					<property>fdm/jsbsim/inertia/weight-lbs</property>
+					<scale>0.45359237</scale>
+					<format type="string">%5.0f</format>
+				</chunk>
+			</chunks>
+			<transformations>
+				<transformation>
+					<type>y-shift</type>
+					<offset>-110</offset>
+				</transformation>
+				<transformation>
+					<type>x-shift</type>
+					<offset>74</offset>
+				</transformation>
+			</transformations>
+		</layer>
+	</layers>
+
+
+</PropertyList>

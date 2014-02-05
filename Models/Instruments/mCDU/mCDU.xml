@@ -1,0 +1,1306 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+
+	<path>mCDU.ac</path>
+	
+	<!-- Requires 9V EFIS output power to use mCDU -->
+	
+	<animation>
+		<type>select</type>
+		<object-name>mCDU_init</object-name>
+		<object-name>mCDU_data</object-name>
+		<object-name>mCDU_radio</object-name>
+		<object-name>mCDU_f-pln</object-name>
+		<object-name>mCDU_tp</object-name>
+		<object-name>mCDU_perf</object-name>
+		<object-name>mCDU_prog</object-name>
+		<object-name>input</object-name>
+		<object-name>msg</object-name>
+		<object-name>start</object-name>
+		<condition>
+			<and>
+				<greater-than-equals>
+					<property>/systems/electrical/outputs/efis</property>
+					<value>9</value>
+				</greater-than-equals>
+				<not>
+					<equals>
+						<property>/instrumentation/mcdu/brt</property>
+						<value>0</value>
+					</equals>
+				</not>
+			</and>
+		</condition>
+	</animation>
+	
+	<!-- Input Text Brightness -->
+	
+	<animation>
+		<type>material</type>
+		<object-name>input</object-name>
+		<object-name>start</object-name>
+		<object-name>msg</object-name>
+		<emission>
+			<red>1</red>
+			<green>1</green>
+			<blue>1</blue>
+			<factor-prop>/instrumentation/mcdu/brt</factor-prop>
+		</emission>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>start</object-name>
+		<condition>
+			<equals>
+				<property>/instrumentation/mcdu/page</property>
+				<value>start</value>
+			</equals>
+		</condition>
+	</animation>
+	
+	<model>
+		<name>mCDU_init</name>
+		<path>init/init.xml</path>
+		<condition>
+			<equals>
+				<property>/instrumentation/mcdu/page</property>
+				<value>init</value>
+			</equals>
+		</condition>
+	</model>
+	
+	<model>
+		<name>mCDU_init</name>
+		<path>init/deparr-src.xml</path>
+		<condition>
+			<equals>
+				<property>/instrumentation/mcdu/page</property>
+				<value>FROM-TO_RESULTS</value>
+			</equals>
+		</condition>
+	</model>
+	
+	<model>
+		<name>mCDU_init</name>
+		<path>init/init2.xml</path>
+		<condition>
+			<equals>
+				<property>/instrumentation/mcdu/page</property>
+				<value>fuel-pred</value>
+			</equals>
+		</condition>
+	</model>
+	
+	<model>
+		<name>mCDU_data</name>
+		<path>data/data1.xml</path>
+		<condition>
+			<equals>
+				<property>/instrumentation/mcdu/page</property>
+				<value>data1</value>
+			</equals>
+		</condition>
+	</model>
+	
+	<model>
+		<name>mCDU_data</name>
+		<path>data/data2.xml</path>
+		<condition>
+			<equals>
+				<property>/instrumentation/mcdu/page</property>
+				<value>data2</value>
+			</equals>
+		</condition>
+	</model>
+	
+	<model>
+		<name>mCDU_data</name>
+		<path>data/pos.xml</path>
+		<condition>
+			<equals>
+				<property>/instrumentation/mcdu/page</property>
+				<value>POSITION-MONITOR</value>
+			</equals>
+		</condition>
+	</model>
+	
+	<model>
+		<name>mCDU_data</name>
+		<path>data/irs.xml</path>
+		<condition>
+			<equals>
+				<property>/instrumentation/mcdu/page</property>
+				<value>IRS-MONITOR</value>
+			</equals>
+		</condition>
+	</model>
+	
+	<model>
+		<name>mCDU_data</name>
+		<path>data/gps.xml</path>
+		<condition>
+			<equals>
+				<property>/instrumentation/mcdu/page</property>
+				<value>GPS-MONITOR</value>
+			</equals>
+		</condition>
+	</model>
+	
+	<model>
+		<name>mCDU_data</name>
+		<path>data/status.xml</path>
+		<condition>
+			<equals>
+				<property>/instrumentation/mcdu/page</property>
+				<value>STATUS</value>
+			</equals>
+		</condition>
+	</model>
+	
+	<model>
+		<name>mCDU_f-pln</name>
+		<path>f-pln/f-pln.xml</path>
+		<condition>
+			<equals>
+				<property>/instrumentation/mcdu/page</property>
+				<value>f-pln</value>
+			</equals>
+		</condition>
+	</model>
+	
+	<model>
+		<name>mCDU_f-pln</name>
+		<path>f-pln/index_f1.xml</path>
+		<condition>
+			<equals>
+				<property>/instrumentation/mcdu/page</property>
+				<value>index_f1</value>
+			</equals>
+		</condition>
+	</model>
+	
+	<model>
+		<name>mCDU_f-pln</name>
+		<path>rev/lat_rev.xml</path>
+		<condition>
+			<equals>
+				<property>/instrumentation/mcdu/page</property>
+				<value>lat_rev</value>
+			</equals>
+		</condition>
+	</model>
+	
+	<model>
+		<name>mCDU_radio</name>
+		<path>rad-nav/radios.xml</path>
+		<condition>
+			<equals>
+				<property>/instrumentation/mcdu/page</property>
+				<value>radio</value>
+			</equals>
+		</condition>
+	</model>
+	
+	<model>
+		<name>mCDU_tp</name>
+		<path>tp-dep/rwys.xml</path>
+		<condition>
+			<equals>
+				<property>/instrumentation/mcdu/page</property>
+				<value>RWY_SEL</value>
+			</equals>
+		</condition>
+	</model>
+	
+	<model>
+		<name>mCDU_tp</name>
+		<path>tp-dep/sids.xml</path>
+		<condition>
+			<equals>
+				<property>/instrumentation/mcdu/page</property>
+				<value>SID_SEL</value>
+			</equals>
+		</condition>
+	</model>
+	
+	<model>
+		<name>mCDU_tp</name>
+		<path>tp-dep/confirm.xml</path>
+		<condition>
+			<equals>
+				<property>/instrumentation/mcdu/page</property>
+				<value>SID_CONFIRM</value>
+			</equals>
+		</condition>
+	</model>
+	
+	<model>
+		<name>mCDU_tp</name>
+		<path>tp-arr/rwys.xml</path>
+		<condition>
+			<equals>
+				<property>/instrumentation/mcdu/page</property>
+				<value>ARR_RWY_SEL</value>
+			</equals>
+		</condition>
+	</model>
+	
+	<model>
+		<name>mCDU_tp</name>
+		<path>tp-arr/stars.xml</path>
+		<condition>
+			<equals>
+				<property>/instrumentation/mcdu/page</property>
+				<value>STAR_SEL</value>
+			</equals>
+		</condition>
+	</model>
+		
+	<model>
+		<name>mCDU_tp</name>
+		<path>tp-arr/confirm.xml</path>
+		<condition>
+			<equals>
+				<property>/instrumentation/mcdu/page</property>
+				<value>STAR_CONFIRM</value>
+			</equals>
+		</condition>
+	</model>
+	
+	<model>
+		<name>mCDU_perf</name>
+		<path>perf/takeoff.xml</path>
+		<condition>
+			<equals>
+				<property>/instrumentation/mcdu/page</property>
+				<value>perf</value>
+			</equals>
+		</condition>
+	</model>
+	
+	<model>
+		<name>mCDU_perf</name>
+		<path>perf/clb.xml</path>
+		<condition>
+			<equals>
+				<property>/instrumentation/mcdu/page</property>
+				<value>perf-clb</value>
+			</equals>
+		</condition>
+	</model>
+	
+	<model>
+		<name>mCDU_perf</name>
+		<path>perf/crz.xml</path>
+		<condition>
+			<equals>
+				<property>/instrumentation/mcdu/page</property>
+				<value>perf-crz</value>
+			</equals>
+		</condition>
+	</model>
+	
+	<model>
+		<name>mCDU_perf</name>
+		<path>perf/des.xml</path>
+		<condition>
+			<equals>
+				<property>/instrumentation/mcdu/page</property>
+				<value>perf-des</value>
+			</equals>
+		</condition>
+	</model>
+	
+	<model>
+		<name>mCDU_perf</name>
+		<path>perf/app.xml</path>
+		<condition>
+			<equals>
+				<property>/instrumentation/mcdu/page</property>
+				<value>perf-app</value>
+			</equals>
+		</condition>
+	</model>
+	
+	<model>
+		<name>mCDU_prog</name>
+		<path>prog/prog.xml</path>
+		<condition>
+			<equals>
+				<property>/instrumentation/mcdu/page</property>
+				<value>prog</value>
+			</equals>
+		</condition>
+	</model>
+	
+	<animation>
+		<type>pick</type>
+		<object-name>brt</object-name>
+		<action>
+			<button>0</button>
+			<button>3</button>
+			<repeatable type="bool">true</repeatable>
+			<binding>
+				<command>property-adjust</command>
+				<property>/instrumentation/mcdu/brt</property>
+				<wrap type="bool">false</wrap>
+        <step>0.1</step>
+        <min>0</min>
+        <max>1</max>
+			</binding>
+		</action>
+		<action>
+			<button>1</button>
+			<button>4</button>
+			<repeatable type="bool">true</repeatable>
+			<binding>
+				<command>property-adjust</command>
+				<property>/instrumentation/mcdu/brt</property>
+				<wrap type="bool">false</wrap>
+        <step>-0.1</step>
+        <min>0</min>
+        <max>1</max>
+			</binding>
+		</action>
+	</animation>
+	
+	<animation>
+		<type>rotate</type>
+		<object-name>brt</object-name>
+		<property>instrumentation/mcdu/brt</property>
+		<factor>135</factor>
+		<axis>
+			<z>-1</z>
+		</axis>
+		<center>
+			<x-m>-0.0055</x-m>
+			<y-m>0.0463</y-m>
+		</center>
+	</animation>
+	
+	<!-- Common Buttons Pick Animations -->
+	
+	<!-- Pages -->
+	
+	<animation>
+		<type>pick</type>
+		<object-name>prog</object-name>
+		<action>
+            <button>0</button>
+	   		<repeatable type="bool">false</repeatable>
+            <binding>
+				<command>nasal</command>
+		 		<script>
+					setprop("/instrumentation/mcdu/page", "prog");
+					
+					# Reset BRG/DIST
+		 			
+		 			var ident = getprop("/instrumentation/mcdu/prog/ident");
+		 			
+		 			if (ident != "empty") {
+		 			
+			 			var gps = "/instrumentation/gps/";
+			 			
+			 			if (size(ident) == 4)
+			 				setprop(gps~ "scratch/type", "airport");
+			 			elsif (size(ident) == 5)
+			 				setprop(gps~ "scratch/type", "fix");
+			 			else
+			 				setprop(gps~ "scratch/type", "vor");
+			 				
+			 			setprop(gps~ "scratch/query", ident);
+			 			
+			 			setprop(gps~ "command", "search");
+			 			
+			 			var brg = getprop("/instrumentation/gps/scratch/mag-bearing-deg");
+			 			
+			 			var dist = getprop("/instrumentation/gps/scratch/distance-nm");
+			 			
+			 			setprop("/instrumentation/mcdu/prog/brg", brg);
+			 			setprop("/instrumentation/mcdu/prog/dist", dist);
+		 			
+		 			}
+				</script>
+            </binding>
+        </action>
+	</animation>
+	
+	<animation>
+		<type>pick</type>
+		<object-name>perf</object-name>
+		<action>
+            <button>0</button>
+	   		<repeatable type="bool">false</repeatable>
+            <binding>
+				<command>nasal</command>
+		 		<script>
+					setprop("/instrumentation/mcdu/page", "perf");
+				</script>
+            </binding>
+        </action>
+	</animation>
+	
+	<animation>
+		<type>pick</type>
+		<object-name>dir</object-name>
+		<action>
+            <button>0</button>
+	   		<repeatable type="bool">false</repeatable>
+            <binding>
+				<command>nasal</command>
+		 		<script>
+					setprop("/instrumentation/mcdu/page", "dir");
+				</script>
+            </binding>
+        </action>
+	</animation>
+	
+	<animation>
+		<type>pick</type>
+		<object-name>init</object-name>
+		<action>
+            <button>0</button>
+	   		<repeatable type="bool">false</repeatable>
+            <binding>
+				<command>nasal</command>
+		 		<script>
+					setprop("/instrumentation/mcdu/page", "init");
+				</script>
+            </binding>
+        </action>
+	</animation>
+	
+	<animation>
+		<type>pick</type>
+		<object-name>data</object-name>
+		<action>
+            <button>0</button>
+	   		<repeatable type="bool">false</repeatable>
+            <binding>
+				<command>nasal</command>
+		 		<script>
+					setprop("/instrumentation/mcdu/page", "data1");
+				</script>
+            </binding>
+        </action>
+	</animation>
+	
+	<animation>
+		<type>pick</type>
+		<object-name>f-pln</object-name>
+		<action>
+            <button>0</button>
+	   		<repeatable type="bool">false</repeatable>
+            <binding>
+				<command>nasal</command>
+		 		<script>
+					setprop("/instrumentation/mcdu/page", "f-pln");
+					
+					mcdu.f_pln.update_disp();
+				</script>
+            </binding>
+        </action>
+	</animation>
+	
+	<animation>
+		<type>pick</type>
+		<object-name>f-pln2</object-name>
+		<action>
+            <button>0</button>
+	   		<repeatable type="bool">false</repeatable>
+            <binding>
+				<command>nasal</command>
+		 		<script>
+					setprop("/instrumentation/mcdu/page", "f-pln2");
+				</script>
+            </binding>
+        </action>
+	</animation>
+	
+	<animation>
+		<type>pick</type>
+		<object-name>radio</object-name>
+		<action>
+            <button>0</button>
+	   		<repeatable type="bool">false</repeatable>
+            <binding>
+				<command>nasal</command>
+		 		<script>
+					setprop("/instrumentation/mcdu/page", "radio");
+				</script>
+            </binding>
+        </action>
+	</animation>
+	
+	<animation>
+		<type>pick</type>
+		<object-name>fuel-pred</object-name>
+		<action>
+            <button>0</button>
+	   		<repeatable type="bool">false</repeatable>
+            <binding>
+				<command>nasal</command>
+		 		<script>
+					setprop("/instrumentation/mcdu/page", "fuel-pred");
+				</script>
+            </binding>
+        </action>
+	</animation>
+	
+	<animation>
+		<type>pick</type>
+		<object-name>atc</object-name>
+		<action>
+            <button>0</button>
+	   		<repeatable type="bool">false</repeatable>
+            <binding>
+				<command>nasal</command>
+		 		<script>
+					setprop("/instrumentation/mcdu/page", "atc");
+				</script>
+            </binding>
+        </action>
+	</animation>
+	
+	<animation>
+		<type>pick</type>
+		<object-name>mcdu</object-name>
+		<action>
+            <button>0</button>
+	   		<repeatable type="bool">false</repeatable>
+            <binding>
+				<command>nasal</command>
+		 		<script>
+					setprop("/instrumentation/mcdu/page", "menu");
+				</script>
+            </binding>
+        </action>
+	</animation>
+	
+	<animation>
+		<type>pick</type>
+		<object-name>arpt</object-name>
+		<action>
+            <button>0</button>
+	   		<repeatable type="bool">false</repeatable>
+            <binding>
+				<command>nasal</command>
+		 		<script>
+					setprop("/instrumentation/mcdu/page", "arpt");
+				</script>
+            </binding>
+        </action>
+	</animation>
+	
+	<!-- Number Pad -->
+	
+	<animation>
+		<type>pick</type>
+		<object-name>1</object-name>
+		<action>
+            <button>0</button>
+	   		<repeatable type="bool">false</repeatable>
+            <binding>
+				<command>nasal</command>
+		 		<script>
+					var input = "/instrumentation/mcdu/input";
+					setprop(input, getprop(input) ~ "1");
+				</script>
+            </binding>
+        </action>
+	</animation>
+	
+	<animation>
+		<type>pick</type>
+		<object-name>2</object-name>
+		<action>
+            <button>0</button>
+	   		<repeatable type="bool">false</repeatable>
+            <binding>
+				<command>nasal</command>
+		 		<script>
+					var input = "/instrumentation/mcdu/input";
+					setprop(input, getprop(input) ~ "2");
+				</script>
+            </binding>
+        </action>
+	</animation>
+	
+	<animation>
+		<type>pick</type>
+		<object-name>3</object-name>
+		<action>
+            <button>0</button>
+	   		<repeatable type="bool">false</repeatable>
+            <binding>
+				<command>nasal</command>
+		 		<script>
+					var input = "/instrumentation/mcdu/input";
+					setprop(input, getprop(input) ~ "3");
+				</script>
+            </binding>
+        </action>
+	</animation>
+	
+	<animation>
+		<type>pick</type>
+		<object-name>4</object-name>
+		<action>
+            <button>0</button>
+	   		<repeatable type="bool">false</repeatable>
+            <binding>
+				<command>nasal</command>
+		 		<script>
+					var input = "/instrumentation/mcdu/input";
+					setprop(input, getprop(input) ~ "4");
+				</script>
+            </binding>
+        </action>
+	</animation>
+	
+	<animation>
+		<type>pick</type>
+		<object-name>5</object-name>
+		<action>
+            <button>0</button>
+	   		<repeatable type="bool">false</repeatable>
+            <binding>
+				<command>nasal</command>
+		 		<script>
+					var input = "/instrumentation/mcdu/input";
+					setprop(input, getprop(input) ~ "5");
+				</script>
+            </binding>
+        </action>
+	</animation>
+	
+	<animation>
+		<type>pick</type>
+		<object-name>6</object-name>
+		<action>
+            <button>0</button>
+	   		<repeatable type="bool">false</repeatable>
+            <binding>
+				<command>nasal</command>
+		 		<script>
+					var input = "/instrumentation/mcdu/input";
+					setprop(input, getprop(input) ~ "6");
+				</script>
+            </binding>
+        </action>
+	</animation>
+	
+	<animation>
+		<type>pick</type>
+		<object-name>7</object-name>
+		<action>
+            <button>0</button>
+	   		<repeatable type="bool">false</repeatable>
+            <binding>
+				<command>nasal</command>
+		 		<script>
+					var input = "/instrumentation/mcdu/input";
+					setprop(input, getprop(input) ~ "7");
+				</script>
+            </binding>
+        </action>
+	</animation>
+	
+	<animation>
+		<type>pick</type>
+		<object-name>8</object-name>
+		<action>
+            <button>0</button>
+	   		<repeatable type="bool">false</repeatable>
+            <binding>
+				<command>nasal</command>
+		 		<script>
+					var input = "/instrumentation/mcdu/input";
+					setprop(input, getprop(input) ~ "8");
+				</script>
+            </binding>
+        </action>
+	</animation>
+	
+	<animation>
+		<type>pick</type>
+		<object-name>9</object-name>
+		<action>
+            <button>0</button>
+	   		<repeatable type="bool">false</repeatable>
+            <binding>
+				<command>nasal</command>
+		 		<script>
+					var input = "/instrumentation/mcdu/input";
+					setprop(input, getprop(input) ~ "9");
+				</script>
+            </binding>
+        </action>
+	</animation>
+	
+	<animation>
+		<type>pick</type>
+		<object-name>.</object-name>
+		<action>
+            <button>0</button>
+	   		<repeatable type="bool">false</repeatable>
+            <binding>
+				<command>nasal</command>
+		 		<script>
+					var input = "/instrumentation/mcdu/input";
+					setprop(input, getprop(input) ~ ".");
+				</script>
+            </binding>
+        </action>
+	</animation>
+	
+	<animation>
+		<type>pick</type>
+		<object-name>0</object-name>
+		<action>
+            <button>0</button>
+	   		<repeatable type="bool">false</repeatable>
+            <binding>
+				<command>nasal</command>
+		 		<script>
+					var input = "/instrumentation/mcdu/input";
+					setprop(input, getprop(input) ~ "0");
+				</script>
+            </binding>
+        </action>
+	</animation>
+	
+	<!-- +/- -->
+	
+	<animation>
+		<type>pick</type>
+		<object-name>+/-</object-name>
+		<action>
+            <button>0</button>
+	   		<repeatable type="bool">false</repeatable>
+            <binding>
+				<command>nasal</command>
+		 		<script>
+					var input = "/instrumentation/mcdu/input";
+					var inp_size = size(getprop(input));
+					
+					if (inp_size == 0)
+						setprop(input, "+");
+					
+					if (inp_size != 0) {
+										
+						if ((substr(getprop(input), (inp_size - 1), 1) != "+") and (substr(getprop(input), (inp_size - 1), 1) != "-"))
+							setprop(input, getprop(input) ~ "+");
+							
+						elsif (substr(getprop(input), (inp_size - 1), 1) == "+")
+							setprop(input, substr(getprop(input), 0, (inp_size - 1)) ~ "-");
+							
+						elsif (substr(getprop(input), (inp_size - 1), 1) == "-")
+							setprop(input, substr(getprop(input), 0, (inp_size - 1)) ~ "+");
+							
+					}
+				</script>
+            </binding>
+        </action>
+	</animation>
+	
+	<!-- Alphabets -->
+	
+	<animation>
+		<type>pick</type>
+		<object-name>a</object-name>
+		<action>
+            <button>0</button>
+	   		<repeatable type="bool">false</repeatable>
+            <binding>
+				<command>nasal</command>
+		 		<script>
+					var input = "/instrumentation/mcdu/input";
+					setprop(input, getprop(input) ~ "A");
+				</script>
+            </binding>
+        </action>
+	</animation>
+	
+	<animation>
+		<type>pick</type>
+		<object-name>b</object-name>
+		<action>
+            <button>0</button>
+	   		<repeatable type="bool">false</repeatable>
+            <binding>
+				<command>nasal</command>
+		 		<script>
+					var input = "/instrumentation/mcdu/input";
+					setprop(input, getprop(input) ~ "B");
+				</script>
+            </binding>
+        </action>
+	</animation>
+	
+	<animation>
+		<type>pick</type>
+		<object-name>c</object-name>
+		<action>
+            <button>0</button>
+	   		<repeatable type="bool">false</repeatable>
+            <binding>
+				<command>nasal</command>
+		 		<script>
+					var input = "/instrumentation/mcdu/input";
+					setprop(input, getprop(input) ~ "C");
+				</script>
+            </binding>
+        </action>
+	</animation>
+	
+	<animation>
+		<type>pick</type>
+		<object-name>d</object-name>
+		<action>
+            <button>0</button>
+	   		<repeatable type="bool">false</repeatable>
+            <binding>
+				<command>nasal</command>
+		 		<script>
+					var input = "/instrumentation/mcdu/input";
+					setprop(input, getprop(input) ~ "D");
+				</script>
+            </binding>
+        </action>
+	</animation>
+	
+	<animation>
+		<type>pick</type>
+		<object-name>e</object-name>
+		<action>
+            <button>0</button>
+	   		<repeatable type="bool">false</repeatable>
+            <binding>
+				<command>nasal</command>
+		 		<script>
+					var input = "/instrumentation/mcdu/input";
+					setprop(input, getprop(input) ~ "E");
+				</script>
+            </binding>
+        </action>
+	</animation>
+	
+	<animation>
+		<type>pick</type>
+		<object-name>f</object-name>
+		<action>
+            <button>0</button>
+	   		<repeatable type="bool">false</repeatable>
+            <binding>
+				<command>nasal</command>
+		 		<script>
+					var input = "/instrumentation/mcdu/input";
+					setprop(input, getprop(input) ~ "F");
+				</script>
+            </binding>
+        </action>
+	</animation>
+	
+	<animation>
+		<type>pick</type>
+		<object-name>g</object-name>
+		<action>
+            <button>0</button>
+	   		<repeatable type="bool">false</repeatable>
+            <binding>
+				<command>nasal</command>
+		 		<script>
+					var input = "/instrumentation/mcdu/input";
+					setprop(input, getprop(input) ~ "G");
+				</script>
+            </binding>
+        </action>
+	</animation>
+	
+	<animation>
+		<type>pick</type>
+		<object-name>h</object-name>
+		<action>
+            <button>0</button>
+	   		<repeatable type="bool">false</repeatable>
+            <binding>
+				<command>nasal</command>
+		 		<script>
+					var input = "/instrumentation/mcdu/input";
+					setprop(input, getprop(input) ~ "H");
+				</script>
+            </binding>
+        </action>
+	</animation>
+	
+	<animation>
+		<type>pick</type>
+		<object-name>i</object-name>
+		<action>
+            <button>0</button>
+	   		<repeatable type="bool">false</repeatable>
+            <binding>
+				<command>nasal</command>
+		 		<script>
+					var input = "/instrumentation/mcdu/input";
+					setprop(input, getprop(input) ~ "I");
+				</script>
+            </binding>
+        </action>
+	</animation>
+	
+	<animation>
+		<type>pick</type>
+		<object-name>j</object-name>
+		<action>
+            <button>0</button>
+	   		<repeatable type="bool">false</repeatable>
+            <binding>
+				<command>nasal</command>
+		 		<script>
+					var input = "/instrumentation/mcdu/input";
+					setprop(input, getprop(input) ~ "J");
+				</script>
+            </binding>
+        </action>
+	</animation>
+	
+	<animation>
+		<type>pick</type>
+		<object-name>k</object-name>
+		<action>
+            <button>0</button>
+	   		<repeatable type="bool">false</repeatable>
+            <binding>
+				<command>nasal</command>
+		 		<script>
+					var input = "/instrumentation/mcdu/input";
+					setprop(input, getprop(input) ~ "K");
+				</script>
+            </binding>
+        </action>
+	</animation>
+	
+	<animation>
+		<type>pick</type>
+		<object-name>l</object-name>
+		<action>
+            <button>0</button>
+	   		<repeatable type="bool">false</repeatable>
+            <binding>
+				<command>nasal</command>
+		 		<script>
+					var input = "/instrumentation/mcdu/input";
+					setprop(input, getprop(input) ~ "L");
+				</script>
+            </binding>
+        </action>
+	</animation>
+	
+	<animation>
+		<type>pick</type>
+		<object-name>m</object-name>
+		<action>
+            <button>0</button>
+	   		<repeatable type="bool">false</repeatable>
+            <binding>
+				<command>nasal</command>
+		 		<script>
+					var input = "/instrumentation/mcdu/input";
+					setprop(input, getprop(input) ~ "M");
+				</script>
+            </binding>
+        </action>
+	</animation>
+	
+	<animation>
+		<type>pick</type>
+		<object-name>n</object-name>
+		<action>
+            <button>0</button>
+	   		<repeatable type="bool">false</repeatable>
+            <binding>
+				<command>nasal</command>
+		 		<script>
+					var input = "/instrumentation/mcdu/input";
+					setprop(input, getprop(input) ~ "N");
+				</script>
+            </binding>
+        </action>
+	</animation>
+	
+	<animation>
+		<type>pick</type>
+		<object-name>o</object-name>
+		<action>
+            <button>0</button>
+	   		<repeatable type="bool">false</repeatable>
+            <binding>
+				<command>nasal</command>
+		 		<script>
+					var input = "/instrumentation/mcdu/input";
+					setprop(input, getprop(input) ~ "O");
+				</script>
+            </binding>
+        </action>
+	</animation>
+	
+	<animation>
+		<type>pick</type>
+		<object-name>p</object-name>
+		<action>
+            <button>0</button>
+	   		<repeatable type="bool">false</repeatable>
+            <binding>
+				<command>nasal</command>
+		 		<script>
+					var input = "/instrumentation/mcdu/input";
+					setprop(input, getprop(input) ~ "P");
+				</script>
+            </binding>
+        </action>
+	</animation>
+	
+	<animation>
+		<type>pick</type>
+		<object-name>q</object-name>
+		<action>
+            <button>0</button>
+	   		<repeatable type="bool">false</repeatable>
+            <binding>
+				<command>nasal</command>
+		 		<script>
+					var input = "/instrumentation/mcdu/input";
+					setprop(input, getprop(input) ~ "Q");
+				</script>
+            </binding>
+        </action>
+	</animation>
+	
+	<animation>
+		<type>pick</type>
+		<object-name>r</object-name>
+		<action>
+            <button>0</button>
+	   		<repeatable type="bool">false</repeatable>
+            <binding>
+				<command>nasal</command>
+		 		<script>
+					var input = "/instrumentation/mcdu/input";
+					setprop(input, getprop(input) ~ "R");
+				</script>
+            </binding>
+        </action>
+	</animation>
+	
+	<animation>
+		<type>pick</type>
+		<object-name>s</object-name>
+		<action>
+            <button>0</button>
+	   		<repeatable type="bool">false</repeatable>
+            <binding>
+				<command>nasal</command>
+		 		<script>
+					var input = "/instrumentation/mcdu/input";
+					setprop(input, getprop(input) ~ "S");
+				</script>
+            </binding>
+        </action>
+	</animation>
+	
+	<animation>
+		<type>pick</type>
+		<object-name>t</object-name>
+		<action>
+            <button>0</button>
+	   		<repeatable type="bool">false</repeatable>
+            <binding>
+				<command>nasal</command>
+		 		<script>
+					var input = "/instrumentation/mcdu/input";
+					setprop(input, getprop(input) ~ "T");
+				</script>
+            </binding>
+        </action>
+	</animation>
+	
+	<animation>
+		<type>pick</type>
+		<object-name>u</object-name>
+		<action>
+            <button>0</button>
+	   		<repeatable type="bool">false</repeatable>
+            <binding>
+				<command>nasal</command>
+		 		<script>
+					var input = "/instrumentation/mcdu/input";
+					setprop(input, getprop(input) ~ "U");
+				</script>
+            </binding>
+        </action>
+	</animation>
+	
+	<animation>
+		<type>pick</type>
+		<object-name>v</object-name>
+		<action>
+            <button>0</button>
+	   		<repeatable type="bool">false</repeatable>
+            <binding>
+				<command>nasal</command>
+		 		<script>
+					var input = "/instrumentation/mcdu/input";
+					setprop(input, getprop(input) ~ "V");
+				</script>
+            </binding>
+        </action>
+	</animation>
+	
+	<animation>
+		<type>pick</type>
+		<object-name>w</object-name>
+		<action>
+            <button>0</button>
+	   		<repeatable type="bool">false</repeatable>
+            <binding>
+				<command>nasal</command>
+		 		<script>
+					var input = "/instrumentation/mcdu/input";
+					setprop(input, getprop(input) ~ "W");
+				</script>
+            </binding>
+        </action>
+	</animation>
+	
+	<animation>
+		<type>pick</type>
+		<object-name>x</object-name>
+		<action>
+            <button>0</button>
+	   		<repeatable type="bool">false</repeatable>
+            <binding>
+				<command>nasal</command>
+		 		<script>
+					var input = "/instrumentation/mcdu/input";
+					setprop(input, getprop(input) ~ "X");
+				</script>
+            </binding>
+        </action>
+	</animation>
+	
+	<animation>
+		<type>pick</type>
+		<object-name>y</object-name>
+		<action>
+            <button>0</button>
+	   		<repeatable type="bool">false</repeatable>
+            <binding>
+				<command>nasal</command>
+		 		<script>
+					var input = "/instrumentation/mcdu/input";
+					setprop(input, getprop(input) ~ "Y");
+				</script>
+            </binding>
+        </action>
+	</animation>
+	
+	<animation>
+		<type>pick</type>
+		<object-name>z</object-name>
+		<action>
+            <button>0</button>
+	   		<repeatable type="bool">false</repeatable>
+            <binding>
+				<command>nasal</command>
+		 		<script>
+					var input = "/instrumentation/mcdu/input";
+					setprop(input, getprop(input) ~ "Z");
+				</script>
+            </binding>
+        </action>
+	</animation>
+	
+	<animation>
+		<type>pick</type>
+		<object-name>/</object-name>
+		<action>
+            <button>0</button>
+	   		<repeatable type="bool">false</repeatable>
+            <binding>
+				<command>nasal</command>
+		 		<script>
+					var input = "/instrumentation/mcdu/input";
+					setprop(input, getprop(input) ~ "/");
+				</script>
+            </binding>
+        </action>
+	</animation>
+	
+	<animation>
+		<type>pick</type>
+		<object-name>sp</object-name>
+		<action>
+            <button>0</button>
+	   		<repeatable type="bool">false</repeatable>
+            <binding>
+				<command>nasal</command>
+		 		<script>
+					var input = "/instrumentation/mcdu/input";
+					setprop(input, getprop(input) ~ " ");
+				</script>
+            </binding>
+        </action>
+	</animation>
+	
+	<animation>
+		<type>pick</type>
+		<object-name>clr</object-name>
+		<action>
+            <button>0</button>
+	   		<repeatable type="bool">false</repeatable>
+            <binding>
+				<command>nasal</command>
+		 		<script>
+					var input = "/instrumentation/mcdu/input";
+					
+					var inp_size = size(getprop(input));
+					
+					setprop(input, substr(getprop(input), 0, inp_size - 1))
+					
+				</script>
+            </binding>
+        </action>
+	</animation>
+	
+	<!-- Input OSGText -->
+	
+	<text>
+		<name>input</name>
+		<offsets>
+			<x-m>-0.0196</x-m>
+			<y-m>-0.046</y-m>
+			<z-m>-0.0006</z-m>
+			<heading-deg>90</heading-deg>
+		</offsets>
+		<alignment>left-center</alignment>
+		<axis-alignment>xy-plane</axis-alignment>
+		<type type="string">text-value</type>
+		<format type="string">%s</format>
+		<property>/instrumentation/mcdu/input</property>
+  <truncate type="bool">false</truncate>
+  <font type="string">courier-bold.txf</font>
+  <draw-text type="bool">true</draw-text>
+  <draw-alignment type="bool">false</draw-alignment>
+  <draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.003</character-size>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+
+</PropertyList>

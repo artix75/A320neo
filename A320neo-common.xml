@@ -1,0 +1,925 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<PropertyList>
+
+	<sim>
+		<author>Narendran, Malik and Jon A. Ortuondo(Bicyus), [based on A320-family]</author>
+		<status>beta</status>
+
+		<model>
+			<A320neo>
+				<heading-bug-pfd-deg type="double">0</heading-bug-pfd-deg>
+				<heading-bug-deg type="double">0</heading-bug-deg>
+				<nav1-bug-deg type="double">0</nav1-bug-deg>
+				<nav2-bug-deg type="double">0</nav2-bug-deg>
+				<wp-bug-deg type="double">0</wp-bug-deg>
+				<ias-bug-kt-norm type="double">0</ias-bug-kt-norm>
+				<mach-bug-kt-norm type="double">0</mach-bug-kt-norm>
+			</A320neo>
+			<pushback>
+				<kp type="double">1000</kp>
+				<ki type="double">0</ki>
+				<kd type="double">0</kd>
+				<position-norm type="double">0</position-norm>
+			</pushback>
+		</model>
+
+		<tutorials include="Tutorials/a320-tutorials.xml" />
+
+		<view n="110">
+			<name>Gear View</name>
+			<type>lookfrom</type>
+			<internal archive="y">false</internal>
+			<config>
+				<from-model type="bool">true</from-model>
+				<x-offset-m archive="y">0</x-offset-m>
+				<y-offset-m archive="y">-1.5</y-offset-m>
+				<z-offset-m archive="y">8.5</z-offset-m>
+				<pitch-offset-deg archive="y">0</pitch-offset-deg>
+			</config>
+		</view>
+		<view n="111">
+			<name>Passenger View (Economy Class)</name>
+			<type>lookfrom</type>
+			<internal archive="y">true</internal>
+			<config>
+				<from-model type="bool">true</from-model>
+				<x-offset-m archive="y">-1.5</x-offset-m>
+				<y-offset-m archive="y">2.3</y-offset-m>
+				<z-offset-m archive="y">5</z-offset-m>
+				<pitch-offset-deg archive="y">0</pitch-offset-deg>
+			</config>
+		</view>
+		<view n="112">
+			<name>Passenger View (First Class)</name>
+			<type>lookfrom</type>
+			<internal archive="y">true</internal>
+			<config>
+				<from-model type="bool">true</from-model>
+				<x-offset-m archive="y">-1.45</x-offset-m>
+				<y-offset-m archive="y">2.3</y-offset-m>
+				<z-offset-m archive="y">-8.7</z-offset-m>
+				<pitch-offset-deg archive="y">0</pitch-offset-deg>
+			</config>
+		</view>
+
+		
+		<multiplay>
+			<generic>
+				<float n="0" type="double">2</float>
+				<float n="1" type="double">2</float>
+			</generic>
+		</multiplay>
+
+		<gui>
+			<style>
+				<colors>
+					<splash-font>
+						<red>0.25</red>
+						<green>0.28</green>
+						<blue>0.31</blue>
+					</splash-font>
+					<splash-screen>
+						<red>0.363</red>
+						<green>0.476</green>
+						<blue>0.671</blue>
+					</splash-screen>
+				</colors>
+			</style>
+		</gui>
+
+		<systems>
+			<autopilot>
+				<name>Autopilot helpers</name>
+				<path>Aircraft/Generic/generic-autopilot-helper.xml</path>
+			</autopilot>
+			
+			<!-- Autopilot Control ========================================= -->
+			
+			<autopilot>
+				<name>Auto-throttle</name>
+				<path>Aircraft/A320neo/Systems/FMGC/auto-throttle.xml</path>
+			</autopilot>
+			
+			<autopilot>
+				<name>Aileron Control</name>
+				<path>Aircraft/A320neo/Systems/FMGC/aileron-ctrl.xml</path>
+			</autopilot>
+			
+			<autopilot>
+				<name>Elevator Control</name>
+				<path>Aircraft/A320neo/Systems/FMGC/elevator-ctrl.xml</path>
+			</autopilot>
+			
+			<!-- Fly-by-wire =============================================== -->
+			
+			<autopilot>
+				<name>Fly By Wire</name>
+				<path>Aircraft/A320neo/Systems/FBW/Airbus-fbw.xml</path>
+			</autopilot>
+
+			<!-- =========================================================== -->
+
+			<!-- autopilot>
+				<name>Autobrake</name>
+				<path>Aircraft/A320neo/Systems/a320-autobrake.xml</path>
+			</autopilot -->
+			
+			<!-- The new autobrake system is managed with nasal separately -->
+			
+			<autopilot>
+				<name>Spoilers</name>
+				<path>Aircraft/A320neo/Systems/a320-spoilers.xml</path>
+			</autopilot>
+		</systems>
+
+		<chase-distance-m>-60</chase-distance-m>
+
+		<sound>
+			<path>Aircraft/A320neo/Sounds/A320-sound.xml</path>
+		</sound>
+
+		<instrumentation>
+			<path>Aircraft/A320neo/Systems/instrumentation.xml</path>
+		</instrumentation>
+
+		<alarms>
+			<master-warning type="bool">false</master-warning>
+			<master-caution type="bool">false</master-caution>
+			<AP-Disengage type="bool">false</AP-Disengage>
+		</alarms>
+
+		<menubar>
+			<default>
+				<menu n="3">
+					<item>
+						<name>autopilot</name>
+						<label>Autopilot Settings</label>
+						<binding>
+							<command>nasal</command>
+							<script>
+							 var autopilot = gui.Dialog.new("sim/gui/dialogs/autopilot/dialog", "Aircraft/A320neo/Systems/autopilot-dlg.xml");
+							 autopilot.open();
+							</script>
+						</binding>
+					</item>
+				</menu>
+				<menu n="5">
+                    <item n="1">
+                    <label>Airbus Radio Stack</label>
+                        <binding>
+                            <command>nasal</command>
+                            <script>
+							 var airbus_rms = gui.Dialog.new("sim/gui/dialogs/airbus-rms/dialog", "Aircraft/A320neo/Systems/radio-dlg.xml");
+							 airbus_rms.open();
+							</script>
+                        </binding>
+                    </item>
+                </menu>
+				<menu n="100">
+					
+					<enabled type="bool">true</enabled>
+					<item>
+						<name>autostart</name>
+						<label>Autostart</label>
+						<binding>
+							<command>property-toggle</command>
+							<property>sim/model/start-idling</property>
+						</binding>
+					</item>
+					<item>
+						<label>Select Livery</label>
+						<binding>
+							<command>nasal</command>
+							<script>
+							 aircraft.livery.dialog.open();
+							</script>
+						</binding>
+					</item>
+					<item>
+						<name>pushback</name>
+						<label>Pushback</label>
+						<binding>
+							<command>dialog-show</command>
+							<dialog-name>pushback</dialog-name>
+						</binding>
+					</item>
+					<item>
+						<name>lights</name>
+						<label>Lights</label>
+						<binding>
+							<command>nasal</command>
+							<script>
+							 var lights = gui.Dialog.new("sim/gui/dialogs/lights/dialog", "Aircraft/A320neo/Systems/lights-dlg.xml");
+							 lights.open();
+							</script>
+						</binding>
+					</item>
+					<item>
+						<name>failures</name>
+						<label>Failures</label>
+						<binding>
+							<command>nasal</command>
+							<script>
+							 var failures = gui.Dialog.new("sim/gui/dialogs/failures/dialog", "Aircraft/A320neo/Systems/failures-dlg.xml");
+							 failures.open();
+							</script>
+						</binding>
+					</item>
+					<item>
+						<name>mpcopilot</name>
+						<label>Select MP Copilot</label>
+						<binding>
+							<command>nasal</command>
+							<script>
+							 dual_control_tools.copilot_dialog.show(aircraft_dual_control.copilot_type);
+							</script>
+						</binding>
+					</item>
+				</menu>
+			</default>
+		</menubar>
+
+		<help>
+			<title>Airbus A320neo</title>
+			<key>
+				<name>Delete</name>
+				<desc>toggle thrust reversers</desc>
+			</key>
+			<key>
+				<name>Ctrl-z</name>
+				<desc>toggle master autopilot switch</desc>
+			</key>
+			<key>
+				<name>Ctrl-y</name>
+				<desc>toggle autothrottle switch</desc>
+			</key>
+			<key>
+				<name>Ctrl-b</name>
+				<desc>cycle speedbrake lever setting</desc>
+			</key>
+			<key>
+				<name>Ctrl-k</name>
+				<desc>arm/disarm ground spoilers</desc>
+			</key>
+			<key>
+				<name>w</name>
+				<desc>walk forward toward view direction</desc>
+			</key>
+			<key>
+				<name>W</name>
+				<desc>run forward toward view direction</desc>
+			</key>
+			<key>
+				<name>s</name>
+				<desc>walk backward from view direction</desc>
+			</key>
+			<line>_____ENGINE START PROCEDURE_____</line>
+			<line>1. APU starter ON</line>
+			<line>2. APU master switch ON</line>
+			<line>3. Engine start switch IGN/START</line>
+			<line>4. Engine master switches ON</line>
+			<line>5. Generator 1 and generator 2 ON</line>
+			<line>6. Wait for engines to spool up to 30% N1</line>
+			<line>7. APU starter and master switch OFF</line>
+			<line>8. Engine start switch NORM</line>
+			<line />
+			<line>_____TAKEOFF PROCEDURE_____</line>
+			<line>1. Flaps 1</line>
+			<line>2. Autobrakes MAX</line>
+			<line>3. Ground spoilers ARMED</line>
+			<line>4. In case of rejected takeoff (RTO), engage reverse thrust</line>
+			<line>5. After takeoff, ground spoilers OFF</line>
+			<line />
+			<line>_____APPROACH/LANDING PROCEDURE_____</line>
+			<line>1. Flaps 4</line>
+			<line>2. Autobrakes LOW or MED</line>
+			<line>3. Ground spoilers ARMED</line>
+			<line>4. On touchdown engage reverse thrust</line>
+			<line>5. At 60 kts, disengage reverse thrust and retract ground spoilers</line>
+			<line>6. Autobrakes OFF (brake manually with joystick or 'b' key)</line>
+			<line />
+			<line>_____ENGINE SHUTDOWN PROCEDURE_____</line>
+			<line>1. Engine master switches OFF</line>
+			<line>2. Aircraft lights OFF</line>
+			<line>3. Generator 1 and generator 2 OFF</line>
+			<line>4. External power ON (if at gate and electrical power is desired)</line>
+			<line />
+			<line>Tutorials are available on the Airbus A320 series only.</line>
+			<line>Have a nice flight!</line>
+		</help>
+	</sim>
+	
+	<flight-management>
+		<phase type="string">T/O</phase>
+		<spd-manager>
+			<climb>
+				<mode type="string">MANAGED (F-PLN)</mode>
+				<spd1 type="int">240</spd1>
+				<spd2 type="int">280</spd2>
+				<mach type="float">0.75</mach>
+			</climb>
+			<cruise>
+				<mode type="string">MANAGED (F-PLN)</mode>
+				<mach type="float">0.82</mach>
+			</cruise>
+			<descent>
+				<mode type="string">MANAGED (F-PLN)</mode>
+				<spd1 type="int">240</spd1>
+				<spd2 type="int">250</spd2>
+				<mach type="float">0.68</mach>
+			</descent>
+			<approach>
+				<mode type="string">MANAGED (AUTO)</mode>
+				<app-spd type="int">145</app-spd>
+				<flare-spd type="int">125</flare-spd>
+			</approach>
+		</spd-manager>
+	</flight-management>
+
+	<consumables>
+		<fuel>
+			<tank n="0">
+				<name>Left Wing Vent</name>
+			</tank>
+			<tank n="1">
+				<name>Left Wing Outer</name>
+			</tank>
+			<tank n="2">
+				<name>Left Wing Inner</name>
+			</tank>
+			<tank n="3">
+				<name>Center</name>
+			</tank>
+			<tank n="4">
+				<name>Right Wing Inner</name>
+			</tank>
+			<tank n="5">
+				<name>Right Wing Outer</name>
+			</tank>
+			<tank n="6">
+				<name>Right Wing Vent</name>
+			</tank>
+			<tank n="7">
+				<name>Left Pipes</name>
+			</tank>
+			<tank n="8">
+				<name>Right Pipes</name>
+			</tank>
+		</fuel>
+	</consumables>
+
+
+	<autopilot>
+		<autobrake>
+			<config>
+				<idle-throttle type="double">0.1</idle-throttle>
+				<pilot-input type="double">0</pilot-input>
+			</config>
+			<step type="int">0</step>
+		</autobrake>
+		<settings>
+			<autothrottle type="bool">false</autothrottle>
+			<engaged type="bool">false</engaged>
+			<altitude>altitude-hold</altitude>
+			<heading>dg-heading-hold</heading>
+			<heading-mode type="int">0</heading-mode>
+			<speed-mode type="int">0</speed-mode>
+			<heading-bug-deg type="double">360</heading-bug-deg>
+			<target-speed-kt type="double">200</target-speed-kt>
+			<target-speed-mach type="double">0</target-speed-mach>
+			<target-altitude-ft type="double">5000</target-altitude-ft>
+			<vertical-speed-fpm type="double">1800</vertical-speed-fpm>
+		</settings>
+	</autopilot>
+
+	<controls>
+		<APU>
+			<fire-switch type="bool">false</fire-switch>
+			<master-switch type="bool">false</master-switch>
+			<starter type="bool">false</starter>
+		</APU>
+		<electric>
+			<avionics-switch type="bool">true</avionics-switch>
+		</electric>
+		<engines>
+			<engine-start-switch type="int">1</engine-start-switch>
+			<engine n="0">
+				<cutoff type="bool">true</cutoff>
+				<cutoff-switch type="bool">true</cutoff-switch>
+				<starter type="bool">false</starter>
+				<starter-switch type="bool">false</starter-switch>
+			</engine>
+			<engine n="1">
+				<cutoff type="bool">true</cutoff>
+				<cutoff-switch type="bool">true</cutoff-switch>
+				<starter type="bool">false</starter>
+				<starter-switch type="bool">false</starter-switch>
+			</engine>
+		</engines>
+		<flight>
+			<ground-spoilers-armed type="bool">false</ground-spoilers-armed>
+			<speedbrake-lever type="double">0</speedbrake-lever>
+		</flight>
+		<gear>
+			<brake-parking type="bool">true</brake-parking>
+		</gear>
+		<lighting>
+			<beacon type="bool">false</beacon>
+			<interior type="double">0</interior>
+			<cockpit type="bool">false</cockpit>
+			<cones type="bool">true</cones>
+			<dome-norm type="double">0</dome-norm>
+			<landing-lights n="0" type="bool">false</landing-lights>
+			<landing-lights n="1" type="bool">false</landing-lights>
+			<landing-lights n="2" type="bool">false</landing-lights>
+			<nav-lights-switch type="int">0</nav-lights-switch>
+			<overhead-panel-norm type="double">0.8</overhead-panel-norm>
+			<main-panel-pedestal-norm type="double">0.8</main-panel-pedestal-norm>
+			<strobe type="bool">false</strobe>
+		</lighting>
+		<switches>
+			<!-- Smoking is bad :P -->
+			<no-smoking-sign type="bool">true</no-smoking-sign>
+			<seatbelt-sign type="bool">false</seatbelt-sign>
+		</switches>
+	</controls>
+	
+	<engines>
+		<apu>
+			<rpm type="double">0</rpm>
+			<on-fire type="bool">false</on-fire>
+			<running type="bool">false</running>
+			<serviceable type="bool">true</serviceable>
+		</apu>
+		<engine n="0">
+			<on-fire type="bool">false</on-fire>
+			<reverser-pos-norm type="double">0</reverser-pos-norm>
+			<running type="bool">false</running>
+		</engine>
+		<engine n="1">
+			<on-fire type="bool">false</on-fire>
+			<reverser-pos-norm type="double">0</reverser-pos-norm>
+			<running type="bool">false</running>
+		</engine>
+	</engines>
+
+	<gear>
+		<gear n="0">
+			<tyre-smoke type="int">0</tyre-smoke>
+			<sprayspeed-ms type="double">0</sprayspeed-ms>
+			<spray-density type="double">0</spray-density>
+			<caster-angle-deg-damped type="double">0</caster-angle-deg-damped>
+		</gear>
+		<gear n="1">
+			<tyre-smoke type="int">0</tyre-smoke>
+			<sprayspeed-ms type="double">0</sprayspeed-ms>
+			<spray-density type="double">0</spray-density>
+			<caster-angle-deg-damped type="double">0</caster-angle-deg-damped>
+		</gear>
+		<gear n="2">
+			<tyre-smoke type="int">0</tyre-smoke>
+			<sprayspeed-ms type="double">0</sprayspeed-ms>
+			<spray-density type="double">0</spray-density>
+			<caster-angle-deg-damped type="double">0</caster-angle-deg-damped>
+		</gear>
+	</gear>
+
+	<instrumentation>
+	
+		<efis n="0">
+
+			<ecam>
+					<display-mode type="string">FUEL</display-mode>
+			</ecam>
+			<nd>
+					<display-mode type="string">VOR</display-mode>
+					<display-mode-knob type="int">2</display-mode-knob>
+					<display-range type="int">40</display-range>
+				
+			</nd>
+			<input>
+				<vor-adf-1 type="int">1</vor-adf-1>
+				<vor-adf-2 type="int">1</vor-adf-2>
+			</input>
+			<inputs>
+				<CSTR type="bool">true</CSTR>
+				<WPT type="bool">true</WPT>
+				<VORD type="bool">true</VORD>
+				<NDB type="bool">true</NDB>
+				<ARPT type="bool">true</ARPT>
+				<WX type="bool">true</WX>
+				<TERR type="bool">true</TERR>
+				<TRAF type="bool">true</TRAF>
+				<taxi type="bool">true</taxi>
+			</inputs>
+
+		</efis>
+	
+		<efis n="1">
+
+			<ecam>
+					<display-mode type="string">FUEL</display-mode>
+			</ecam>
+			<nd>
+					<display-mode type="string">VOR</display-mode>
+					<display-mode-knob type="int">2</display-mode-knob>
+					<display-range type="int">40</display-range>
+				
+			</nd>
+			<input>
+				<vor-adf-1 type="int">1</vor-adf-1>
+				<vor-adf-2 type="int">1</vor-adf-2>
+			</input>
+			<inputs>
+				<CSTR type="bool">true</CSTR>
+				<WPT type="bool">true</WPT>
+				<VORD type="bool">true</VORD>
+				<NDB type="bool">true</NDB>
+				<ARPT type="bool">true</ARPT>
+				<WX type="bool">true</WX>
+				<TERR type="bool">true</TERR>
+				<TRAF type="bool">true</TRAF>
+				<taxi type="bool">true</taxi>
+			</inputs>
+
+		</efis>
+		
+		<tcas><!-- http://wiki.flightgear.org/index.php/TCAS -->
+			<serviceable type="bool">true</serviceable><!-- TCAS ENABLE -->
+			<inputs>
+				<mode type="int">3</mode><!-- 0=off, 1=standby, 2=TA-only, 3=auto(TA/RA) -->
+			</inputs>
+			<voice>
+				<file-prefix type="string">Sounds/tcas/female/</file-prefix>
+				<!-- sound file path and prefix -->
+			</voice>
+			<speaker><!-- Speaker Configuration -->
+				<max-dist> 2 </max-dist><!-- Max. distance where speaker is heard -->
+				<reference-dist> 1 </reference-dist> <!-- Distance to pilot -->
+				<volume> 0.8 </volume> <!-- Volume at reference distance -->
+			</speaker>
+		</tcas>
+		<!--cdu>
+			<display>IDENT</display>
+			<ident>
+				<model>Airbus A320-neo</model>
+				<engines>CFM LEAP-X</engines>
+			</ident>
+			<input />
+			<serviceable type="bool">true</serviceable>
+		</cdu-->
+		<fmc>
+			<to-flap type="double">10</to-flap>
+			<vspeeds>
+				<V1 type="double">0</V1>
+				<VR type="double">0</VR>
+				<V2 type="double">0</V2>
+			</vspeeds>
+		</fmc>
+		<dme n="1">
+			<serviceable type="bool">true</serviceable>
+		</dme>
+		<nav-compass>
+			<nav-display n="0" type="int">0</nav-display>
+			<nav-display n="1" type="int">0</nav-display>
+		</nav-compass>
+
+		<!-- See http://wiki.flightgear.org/index.php/GPWS -->
+		<mk-viii>
+			<serviceable type="bool">true</serviceable>
+			<configuration-module>
+				<category-1 type="int">255</category-1>
+				<category-3 type="int">2</category-3>
+				<category-4 type="int">13</category-4>
+				<category-5 type="int">0</category-5>
+				<category-6 type="int">1</category-6>
+				<category-7 type="int">124</category-7>
+				<category-8 type="int">2</category-8>
+				<category-9 type="int">3</category-9> 
+				<category-10 type="int">6</category-10>
+				<category-13 type="int">7</category-13>
+				<category-14 type="int">0</category-14>
+			</configuration-module>
+			<inputs>
+				<arinc429>
+					<decision-height-ncd type="bool">false</decision-height-ncd>
+					<decision-height type="double">200</decision-height>
+				</arinc429>
+			</inputs>
+			<speaker>
+				<max-dist type="double">2</max-dist>
+				<reference-dist type="double">1</reference-dist>
+				<volume type="double">0.2</volume>
+			</speaker>
+			<voice>
+				<file-prefix>Sounds/mk-viii/</file-prefix>
+			</voice>
+		</mk-viii>
+		<radar>
+			<!--
+			// those properties are used by a radar instrument of a MFD
+			// input switch = OFF | TST | STBY | ON
+			// input mode = WX | WXA | MAP
+			// output status = STBY | TEST | WX | WXA | MAP | blank
+			// input lightning = true | false
+			// input TRK = +/- n degrees
+			// input TILT = +/- n degree
+			// input autotilt = true | false
+			// input range = n nm (20/40/80)
+			// input display-mode = arc | rose | map | plan | BSCAN-->
+
+			<switch type="string">ON</switch>
+			<mode-control type="int">1</mode-control>
+			<display-controls>
+				<WX type="bool">true</WX>
+				<pos type="bool">true</pos>
+				<data type="bool">true</data>
+				<symbol type="bool">true</symbol>
+				<centre type="bool">true</centre>
+				<rotate type="bool">true</rotate>
+				<tcas type="bool">true</tcas>
+				<abs-altitude type="bool">true</abs-altitude>
+			</display-controls>
+			<serviceable type="bool">true</serviceable>
+			<range type="int">40</range>
+			<mode type="string">WX</mode>
+			<lightning type="bool">true</lightning>
+			<display-mode type="string">plan</display-mode>
+			<echo-texture-path type="string" archive="y">Aircraft/A320neo/Models/Instruments/ND/res/wxecho.png</echo-texture-path>
+			<minimized type="bool">false</minimized>
+			<heading-marker type="bool">false</heading-marker>
+			<!--limit-deg type="int">180</limit-deg-->
+			<font>
+				<name type="string">helvetica_bold.txf</name>
+				<size type="float">18</size>
+				<line-spacing type="float">0.5</line-spacing>
+				<color>
+					<red type="float">0</red>
+					<green type="float">0.8</green>
+					<blue type="float">0</blue>
+					<alpha type="float">1</alpha>
+				</color>
+				<tcas>
+					<color n="0"> <!-- distant targets -->
+						<red type="float">0</red>
+						<green type="float">1</green>
+						<blue type="float">1</blue>
+					</color>
+					<color n="1"> <!-- proximity targets -->
+						<red type="float">0</red>
+						<green type="float">1</green>
+						<blue type="float">1</blue>
+					</color>
+					<color n="2"> <!-- TA threat targets -->
+						<red type="float">1</red>
+						<green type="float">0.5</green>
+						<blue type="float">0</blue>
+					</color>
+					<color n="3"> <!-- RA threat targets -->
+						<red type="float">1</red>
+						<green type="float">0</green>
+						<blue type="float">0</blue>
+					</color>
+				</tcas>
+			</font>
+
+		</radar>
+ 
+
+		<groundradar>
+			<range type="double">1.0</range>
+		</groundradar>
+
+		<nd n="0">
+			<number>0</number>
+			<radar-texture-path type="string">Aircraft/A320neo/Models/Instruments/ND/res/od_ndradar_1.png</radar-texture-path>
+			<symbol-texture-path type="string">Aircraft/A320neo/Models/Instruments/ND/res/airbus_symbols.png</symbol-texture-path>
+			<font>
+				<color>
+					<red type="float">0.7</red>
+					<green type="float">0.7</green>
+					<blue type="float">0.7</blue>
+					<alpha type="float">1</alpha>
+				</color>
+				<name type="string">helvetica_bold.txf</name>
+				<size type="float">14</size>
+				<line-spacing type="float">0.01</line-spacing>
+			</font>
+			<serviceable type="bool">true</serviceable>
+			<range type="int">10</range>
+			<aircraft-heading-up type="bool">true</aircraft-heading-up>
+			<heading-up-deg type="float">0.01</heading-up-deg>
+			<x-center type="float">0.499</x-center>
+			<y-center type="float">0.182</y-center>
+		</nd>
+
+		<nd n="1">
+			<number>1</number>
+			<radar-texture-path type="string">Aircraft/A320neo/Models/Instruments/ND/res/od_ndradar_2.png</radar-texture-path>
+			<symbol-texture-path type="string">Aircraft/A320neo/Models/Instruments/ND/res/airbus_symbols.png</symbol-texture-path>
+			<font>
+				<color>
+					<red type="float">0.7</red>
+					<green type="float">0.7</green>
+					<blue type="float">0.7</blue>
+					<alpha type="float">1</alpha>
+				</color>
+				<name type="string">helvetica_bold.txf</name>
+				<size type="float">14</size>
+				<line-spacing type="float">0.01</line-spacing>
+			</font>
+			<serviceable type="bool">true</serviceable>
+			<range type="int">10</range>
+			<aircraft-heading-up type="bool">true</aircraft-heading-up>
+			<heading-up-deg type="float">0.01</heading-up-deg>
+			<x-center type="float">0.499</x-center>
+			<y-center type="float">0.182</y-center>
+		</nd>
+	</instrumentation>
+
+	<input>
+		<keyboard>
+			<key n="127">
+				<name>Delete</name>
+				<desc>Toggle thrust reversers</desc>
+				<binding>
+					<command>nasal</command>
+					<script>
+					 reversethrust.togglereverser();
+					</script>
+				</binding>
+			</key>
+			<key n="119">
+				<name>w</name>
+				<desc>Walk forward toward view</desc>
+				<repeatable type="bool">true</repeatable>
+				<binding>
+					<command>nasal</command>
+					<script>
+					 walk.walk_about(0.1);
+					</script>
+				</binding>
+			</key>
+			<key n="2">
+				<name>Ctrl-b</name>
+				<desc>Cycle speedbrake setting</desc>
+				<binding>
+					<command>property-cycle</command>
+					<property>controls/flight/speedbrake-lever</property>
+					<value>0</value>
+					<value>0.5</value>
+					<value>1</value>
+				</binding>
+			</key>
+			<key n="11">
+				<name>Ctrl-k</name>
+				<desc>Arm/disarm ground spoilers</desc>
+				<binding>
+					<command>property-toggle</command>
+					<property>controls/flight/ground-spoilers-armed</property>
+				</binding>
+			</key>
+			<key n="9">
+				<name>Tab</name>
+				<desc>Cycle autobrake setting</desc>
+				<binding>
+					<command>property-cycle</command>
+					<property>autopilot/autobrake/step</property>
+					<value type="int">0</value> <!-- OFF -->
+					<value type="int">1</value> <!-- LOW -->
+					<value type="int">2</value> <!-- MED -->
+					<value type="int">3</value> <!-- MAX -->
+				</binding>
+			</key>
+			<key n="87">
+				<name>W</name>
+				<desc>Run forward toward view</desc>
+				<repeatable type="bool">true</repeatable>
+				<binding>
+					<command>nasal</command>
+					<script>
+					 walk.walk_about(0.25);
+					</script>
+				</binding>
+			</key>
+			<key n="115">
+				<name>s</name>
+				<desc>Walk backward from view</desc>
+				<repeatable type="bool">true</repeatable>
+				<binding>
+					<command>nasal</command>
+					<script>
+					 walk.walk_about(-0.1);
+					</script>
+				</binding>
+			</key>
+
+			<key n="267">
+				<name>F11</name>
+				<desc>Open autopilot dialog</desc>
+				<binding>
+					<command>nasal</command>
+					<script>
+					 var autopilot = gui.Dialog.new("sim/gui/dialogs/autopilot/dialog", "Aircraft/A320neo/Systems/autopilot-dlg.xml");
+					 autopilot.open();
+					</script>
+				</binding>
+			</key>
+		</keyboard>
+	</input>
+
+	<nasal>
+		<mcdu>
+			<file>Aircraft/A320neo/Nasal/mCDU/init_A.nas</file>
+			<file>Aircraft/A320neo/Nasal/mCDU/init_B.nas</file>
+			<file>Aircraft/A320neo/Nasal/mCDU/radios.nas</file>
+			<file>Aircraft/A320neo/Nasal/mCDU/select_SID.nas</file>
+			<file>Aircraft/A320neo/Nasal/mCDU/select_STAR.nas</file>
+			<file>Aircraft/A320neo/Nasal/mCDU/f-pln.nas</file>
+			<file>Aircraft/A320neo/Nasal/mCDU/lat_rev.nas</file>
+			<file>Aircraft/A320neo/Nasal/mCDU/common.nas</file>
+			<file>Aircraft/A320neo/Nasal/mCDU/loop.nas</file>
+			<file>Aircraft/A320neo/Nasal/mCDU/parse_DB.nas</file>
+		</mcdu>
+		
+		<procedures>
+			<file>Aircraft/A320neo/Nasal/procedures/fmsDB.nas</file>
+			<file>Aircraft/A320neo/Nasal/procedures/fmsWP.nas</file>
+			<file>Aircraft/A320neo/Nasal/procedures/fmsTP.nas</file>
+			<file>Aircraft/A320neo/Nasal/procedures/fmsTransition.nas</file>
+		</procedures>
+		
+		<fmgc>
+			<file>Aircraft/A320neo/Nasal/FMGC/autoland.nas</file>
+			<file>Aircraft/A320neo/Nasal/FMGC/new_flight.nas</file>
+			<file>Aircraft/A320neo/Nasal/FMGC/manage-speeds.nas</file>
+			<file>Aircraft/A320neo/Nasal/FMGC/deflection.nas</file>
+			<file>Aircraft/A320neo/Nasal/FMGC/procedure.nas</file>
+			<file>Aircraft/A320neo/Nasal/FMGC/fmgc_loop.nas</file>
+			<file>Aircraft/A320neo/Nasal/FMGC/wp_transit.nas</file>
+		</fmgc>
+		
+		<hydraulics>
+			<file>Aircraft/A320neo/Nasal/hydraulics/common.nas</file>
+			<file>Aircraft/A320neo/Nasal/hydraulics/green.nas</file>
+			<file>Aircraft/A320neo/Nasal/hydraulics/blue.nas</file>
+			<file>Aircraft/A320neo/Nasal/hydraulics/yellow.nas</file>
+			<file>Aircraft/A320neo/Nasal/hydraulics/brakes.nas</file>
+			<file>Aircraft/A320neo/Nasal/hydraulics/hyd_loop.nas</file>
+			<file>Aircraft/A320neo/Nasal/hydraulics/brk_loop.nas</file>
+		</hydraulics>
+		
+		<cp_panels>
+			<file>Aircraft/A320neo/Nasal/cp_panels/gear_pnl.nas</file>
+			<file>Aircraft/A320neo/Nasal/cp_panels/cp_panels.nas</file>
+		</cp_panels>
+	
+		<fbw>
+			<file>Aircraft/A320neo/Systems/FBW/Airbus-fbw.nas</file>
+		</fbw>
+	
+		<a320neo>
+			<file>Aircraft/Generic/limits.nas</file>
+			<file>Aircraft/A320neo/Nasal/copilot.nas</file>
+			<file>Aircraft/A320neo/Nasal/general_loop.nas</file>
+		</a320neo>
+		<systems>
+			<file>Aircraft/A320neo/Nasal/systems.nas</file>
+		</systems>
+		<electrical>
+			<file>Aircraft/A320neo/Nasal/electrical.nas</file>
+		</electrical>
+		<reversethrust>
+			<file>Aircraft/A320neo/Nasal/reversethrust.nas</file>
+		</reversethrust>
+		<tyresmoke>
+			<file>Aircraft/A320neo/Nasal/tyresmoke.nas</file>
+		</tyresmoke>
+		<walk>
+			<file>Aircraft/A320neo/Nasal/walk.nas</file>
+		</walk>
+		<!-- Dual control -->
+		<dual_control_tools>
+			<file>Aircraft/Generic/DualControl/dual-control-tools.nas</file>
+		</dual_control_tools>
+		<aircraft_dual_control>
+			<file>Aircraft/A320neo/DualControl/a320-dual-control.nas</file>
+		</aircraft_dual_control>
+		<dual_control>
+			<file>Aircraft/Generic/DualControl/pilot-dual-control.nas</file>
+		</dual_control>
+		<terrain-map><file>Aircraft/A320neo/Nasal/terrain-map.nas</file></terrain-map>
+	</nasal>
+
+	
+	<aircraft>
+		<jetway-pos>
+			<x-tra>-1.95</x-tra>
+			<y-rot>0</y-rot>
+			<z-rot>24</z-rot>
+			<hood-rot>3</hood-rot>
+		</jetway-pos>
+	</aircraft>
+
+</PropertyList>

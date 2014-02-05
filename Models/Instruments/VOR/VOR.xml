@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<PropertyList>
+
+	<path>res/vor2.ac</path>
+
+	<!-- ANIMATIONS -->
+	<!-- Lighting -->
+	<animation>
+		<name>Standby VOR display illumination</name>
+		<type>material</type>
+		<object-name>Face</object-name>
+		<object-name>InsideFrame</object-name>
+		<object-name>Needle1ADF</object-name>
+		<object-name>Needle1VOR</object-name>
+		<object-name>Needle2ADF</object-name>
+		<object-name>Needle2VOR</object-name>
+		<emission>
+			<red>0.4</red>
+			<green>0.35</green>
+			<blue>0.21</blue>
+			<factor-prop>controls/lighting/instruments-norm</factor-prop>
+		</emission>
+	</animation>
+
+	<!-- Face and needles -->
+	<animation>
+		<name>Heading rotate</name>
+		<type>rotate</type>
+		<object-name>Face</object-name>
+		<object-name>Needle1VOR</object-name>
+		<object-name>Needle2VOR</object-name>
+		<property>orientation/heading-magnetic-deg</property>
+		<axis>
+			<x>1</x>
+			<y>0</y>
+			<z>0</z>
+		</axis>
+		<center>
+			<x-m>0</x-m>
+			<y-m>0</y-m>
+			<z-m>0</z-m>
+		</center>
+	</animation>
+
+	<animation>
+		<name>VOR1 select</name>
+		<type>select</type>
+		<object-name>Needle1VOR</object-name>
+		<condition>
+			<equals>
+				<property>instrumentation/efis/input/vor-adf-1</property>
+				<value>1</value>
+			</equals>
+		</condition>
+	</animation>
+	<animation>
+		<name>VOR1 rotate</name>
+		<type>rotate</type>   
+		<object-name>Needle1VOR</object-name>
+		<property>instrumentation/nav[0]/heading-deg</property>
+		<axis>
+			<x>-1</x>
+			<y>0</y>
+			<z>0</z>
+		</axis>
+		<center>
+			<x-m>0</x-m>
+			<y-m>0</y-m>
+			<z-m>0</z-m>
+		</center>
+	</animation>
+	<animation>
+		<name>ADF1 select</name>
+		<type>select</type>
+		<object-name>Needle1ADF</object-name>
+		<condition>
+			<equals>
+				<property>instrumentation/efis/input/vor-adf-2</property>
+				<value>2</value>
+			</equals>
+		</condition>
+	</animation>
+	<animation>
+		<name>ADF1 rotate</name>
+		<type>rotate</type>   
+		<object-name>Needle1ADF</object-name>
+		<property>instrumentation/adf[0]/indicated-bearing-deg</property>
+		<axis>
+			<x>-1</x>
+			<y>0</y>
+			<z>0</z>
+		</axis>
+		<center>
+			<x-m>0</x-m>
+			<y-m>0</y-m>
+			<z-m>0</z-m>
+		</center>
+	</animation>
+
+	<animation>
+		<name>VOR2 select</name>
+		<type>select</type>
+		<object-name>Needle2VOR</object-name>
+		<condition>
+			<equals>
+				<property>instrumentation/efis/input/vor-adf-2</property>
+				<value>1</value>
+			</equals>
+		</condition>
+	</animation>
+	<animation>
+		<name>VOR2 rotate</name>
+		<type>rotate</type>   
+		<object-name>Needle2VOR</object-name>
+		<property>instrumentation/nav[1]/heading-deg</property>
+		<axis>
+			<x>-1</x>
+			<y>0</y>
+			<z>0</z>
+		</axis>
+		<center>
+			<x-m>0</x-m>
+			<y-m>0</y-m>
+			<z-m>0</z-m>
+		</center>
+	</animation>
+	<animation>
+		<name>ADF2 select</name>
+		<type>select</type>
+		<object-name>Needle2ADF</object-name>
+		<condition>
+			<equals>
+				<property>instrumentation/efis/input/vor-adf-2</property>
+				<value>2</value>
+			</equals>
+		</condition>
+	</animation>
+	<animation>
+		<name>ADF2 rotate</name>
+		<type>rotate</type>   
+		<object-name>Needle2ADF</object-name>
+		<property>instrumentation/adf[1]/indicated-bearing-deg</property>
+		<axis>
+			<x>-1</x>
+			<y>0</y>
+			<z>0</z>
+		</axis>
+		<center>
+			<x-m>0</x-m>
+			<y-m>0</y-m>
+			<z-m>0</z-m>
+		</center>
+	</animation>
+
+
+</PropertyList>

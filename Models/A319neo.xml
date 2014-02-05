@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<PropertyList>
+	<name>A319neo</name>
+	<path>empty.ac</path> <!-- Livery system on MP multimodel -->
+
+	<offsets>
+		<x-m>-18.8499</x-m>
+		<z-m>1.7005004</z-m>
+	</offsets>
+
+	<model>
+		<name>Fuselage</name>
+		<path>Aircraft/A320neo/Models/Fuselages/a319neo.fuselage.xml</path>
+	</model>
+
+	<!-- Separate Flightdeck to fit the modified nose -->
+	<model>
+		<name>Flightdeck</name>
+		<path>Aircraft/A320neo/Models/FlightDeck/a320neo.flightdeck.xml</path>
+		<offsets>
+            <x-m>6.4</x-m>
+            <z-m>0.2399</z-m>
+		</offsets>
+	</model>
+
+<!--	<model>
+		<name>Interior</name>
+		<path>Aircraft/A320neo/Models/Interior/a319neo.interior.xml</path>
+	</model> -->
+
+	<model>
+		<name>Nose Gear</name>
+		<path>Aircraft/A320neo/Models/LandingGears/a320.nlg.xml</path>
+		<offsets>
+			<x-m>9.43</x-m>
+			<z-m>-1.8306008</z-m>
+		</offsets>
+	</model>
+
+	<model>
+		<name>Main Gears.Left</name>
+		<path>Aircraft/A320neo/Models/LandingGears/a320.mlg.left.xml</path>
+		<offsets>
+			<x-m>20.3180764</x-m>
+			<y-m>-3.795</y-m>
+			<z-m>-3.9469424</z-m>
+		</offsets>
+	</model>
+
+	<model>
+		<name>Main Gears.Right</name>
+		<path>Aircraft/A320neo/Models/LandingGears/a320.mlg.right.xml</path>
+		<offsets>
+			<x-m>20.3180764</x-m>
+			<y-m>3.795</y-m>
+			<z-m>-3.9469424</z-m>
+		</offsets>
+	</model>
+
+	<model>
+		<path>Aircraft/A320neo/Models/Wings/a320.wings.xml</path>
+		<offsets>
+			<x-m>15.280</x-m>
+			<z-m>-1.06019</z-m>
+		</offsets>
+	</model>
+
+	<model>
+		<name>Winglets</name>
+		<path>Aircraft/A320neo/Models/Wings/a320neo.winglets.xml</path>
+		<offsets>
+			<x-m>15.280</x-m>
+			<z-m>-1.06019</z-m>
+		</offsets>
+	</model>
+
+	<model>
+		<name>Horizontal Stabilizer</name>
+		<path>Aircraft/A320neo/Models/Fuselages/a320.hstab.xml</path>
+		<offsets>
+			<x-m>32.0212207</x-m>
+			<pitch-deg>0.0</pitch-deg>
+		</offsets>
+	</model>
+
+	<model>
+		<name>Vertical Stabilizer</name>
+		<path>Aircraft/A320neo/Models/Fuselages/a320.vstab.xml</path>
+		<offsets>
+			<x-m>30.1235728</x-m>
+		</offsets>
+	</model>
+
+	<!-- Lights -->
+	<model>
+		<name>Left nav light</name>
+		<path>Aircraft/A320neo/Models/Lights/rednav.xml</path>
+		<offsets>
+			<x-m>23.474</x-m>
+			<y-m>-16.91</y-m>
+			<z-m>0.299</z-m>
+		</offsets>
+	</model>
+
+	<model>
+		<name>Right nav light</name>
+		<path>Aircraft/A320neo/Models/Lights/greennav.xml</path>
+		<offsets>
+			<x-m>23.474</x-m>
+			<y-m>16.91</y-m>
+			<z-m>0.299</z-m>
+		</offsets>
+	</model>
+
+	<model>
+		<name>Left strobe light</name>
+		<path>Aircraft/A320neo/Models/Lights/strobe.xml</path>
+		<offsets>
+			<x-m>23.474</x-m>
+			<y-m>-16.91</y-m>
+			<z-m>0.299</z-m>
+		</offsets>
+	</model>
+
+	<model>
+		<name>Right strobe light</name>
+		<path>Aircraft/A320neo/Models/Lights/strobe.xml</path>
+		<offsets>
+			<x-m>23.474</x-m>
+			<y-m>16.91</y-m>
+			<z-m>0.299</z-m>
+		</offsets>
+	</model>
+
+	<model>
+		<name>Top beacon light</name>
+		<path>Aircraft/A320neo/Models/Lights/beacon.xml</path>
+		<offsets>
+			<x-m>16.7</x-m>
+			<y-m>0</y-m>
+			<z-m>1.977</z-m>
+		</offsets>
+	</model>
+
+	<model>
+		<name>Bottom beacon light</name>
+		<path>Aircraft/A320neo/Models/Lights/beacon.xml</path>
+		<offsets>
+			<x-m>18.2</x-m>
+			<y-m>0</y-m>
+			<z-m>-2.5</z-m>
+		</offsets>
+	</model>
+
+	<model>
+		<name>Port landing light</name>
+		<path>Aircraft/A320neo/Models/Lights/landing-port.xml</path>
+		<offsets>
+			<x-m>15.9</x-m>
+			<y-m>-3.16</y-m>
+			<z-m>-1.4</z-m>
+		</offsets>
+	</model>
+
+	<model>
+		<name>Nosegear landing light</name>
+		<path>Aircraft/A320neo/Models/Lights/landing-nose.xml</path>
+		<offsets>
+			<x-m>3.08</x-m>
+			<y-m>0</y-m>
+			<z-m>-2.5</z-m>
+		</offsets>
+	</model>
+
+	<model>
+		<name>Starboard landing light</name>
+		<path>Aircraft/A320neo/Models/Lights/landing-stbd.xml</path>
+		<offsets>
+			<x-m>15.9</x-m>
+			<y-m>3.16</y-m>
+			<z-m>-1.4</z-m>
+		</offsets>
+	</model>
+
+	<!-- Other non-aircraft models -->
+	<model>
+		<name>Pushback</name>
+		<path>Models/Airport/Pushback/Goldhofert.xml</path>
+		<offsets>
+			<x-m>9.15</x-m>
+			<y-m>0</y-m>
+			<z-m>-4.14</z-m>
+		</offsets>
+	</model>
+
+	<model>
+		<name>Tutorial marker</name>
+		<path>Models/Aircraft/marker.xml</path>
+	</model>
+
+	<!-- Dual control -->
+	<!--nasal> Break MP liveries
+		<load>
+		 aircraft_dual_control.pilot_type = "Aircraft/A320neo/Models/A319neo.xml";
+		</load>
+	</nasal-->
+
+<!-- LIVERY SELECT -->
+	<!-- Animation -->
+	<animation>
+		<type>material</type>
+		<!-- Fuselage -->
+		<object-name>Fuselage</object-name>
+		<object-name>Vstab</object-name>
+		<!-- Wings -->
+		<object-name>Wings</object-name>
+		<object-name>WingletL</object-name>
+		<object-name>WingletR</object-name>
+		<!-- Engines -->
+		<object-name>Intake</object-name>
+		<object-name>Nacelle</object-name>
+		<object-name>Reverser</object-name>
+		<!-- Fuselage -->
+		<property-base>sim/model/livery</property-base>
+		<texture-prop>neo-texture</texture-prop>
+		<!--texture>A320neo-VGA.png</texture-->
+	</animation>
+
+	<!-- Nasal code -->
+	<nasal>
+		<load>
+		 var livery_update = aircraft.livery_update.new("Aircraft/A320neo/Models/Liveries/" ~ getprop("sim/aero"));
+		</load>
+		<unload>
+		 livery_update.stop();
+		</unload>
+	</nasal>
+
+</PropertyList>

@@ -1,0 +1,391 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!-- Airbus A320 Autopilot Configuration Dialog -->
+
+<PropertyList>
+
+	<name>autopilot</name>
+	<layout>vbox</layout>
+
+	<text>
+		<label>Autopilot Settings</label>
+	</text>
+
+	<hrule />
+
+	<group>
+		<layout>hbox</layout>
+
+		<checkbox>
+			<label>A/T on</label>
+			<property>autopilot/settings/autothrottle</property>
+			<live type="bool">true</live>
+			<binding>
+				<command>dialog-apply</command>
+			</binding>
+		</checkbox>
+		<checkbox>
+			<label>A/P on</label>
+			<property>autopilot/settings/engaged</property>
+			<live type="bool">true</live>
+			<binding>
+				<command>dialog-apply</command>
+			</binding>
+		</checkbox>
+		<checkbox>
+			<label>F/D on</label>
+			<property>autopilot/settings/flight-director</property>
+			<live type="bool">true</live>
+			<binding>
+				<command>dialog-apply</command>
+			</binding>
+		</checkbox>
+	</group>
+
+	<group>
+		<layout>vbox</layout>
+
+		<group>
+			<layout>hbox</layout>
+
+			<hrule>
+				<stretch type="bool">true</stretch>
+			</hrule>
+			<text>
+				<label>Autothrottle</label>
+			</text>
+			<hrule>
+				<stretch type="bool">true</stretch>
+			</hrule>
+		</group>
+
+		<group>
+			<layout>hbox</layout>
+
+			<button>
+				<legend>Switch</legend>
+				<binding>
+					<command>dialog-apply</command>
+				</binding>
+				<binding>
+					<command>property-cycle</command>
+					<property>autopilot/settings/speed-mode</property>
+					<value type="int">0</value>
+					<value type="int">1</value>
+				</binding>
+			</button>
+			<text>
+				<label>[IAS]</label>
+				<visible>
+					<equals>
+						<property>autopilot/settings/speed-mode</property>
+						<value>0</value>
+					</equals>
+				</visible>
+			</text>
+			<text>
+				<label>[Mach]</label>
+				<visible>
+					<equals>
+						<property>autopilot/settings/speed-mode</property>
+						<value>1</value>
+					</equals>
+				</visible>
+			</text>
+		</group>
+
+		<group>
+			<layout>table</layout>
+
+			<text>
+				<row>0</row>
+				<col>0</col>
+				<label>IAS:</label>
+			</text>
+
+			<input>
+				<row>0</row>
+				<col>1</col>
+				<property>autopilot/settings/target-speed-kt</property>
+				<live type="bool">true</live>
+				<binding>
+					<command>dialog-apply</command>
+				</binding>
+			</input>
+
+			<text>
+				<row>1</row>
+				<col>0</col>
+				<label>Mach:</label>
+			</text>
+
+			<input>
+				<row>1</row>
+				<col>1</col>
+				<property>autopilot/settings/target-speed-mach</property>
+				<live type="bool">true</live>
+				<binding>
+					<command>dialog-apply</command>
+				</binding>
+			</input>
+		</group>
+
+<!--		<group>
+			<layout>hbox</layout>
+
+			<text>
+				<label>[SPD]</label>
+				<visible>
+					<equals>
+						<property>autopilot/settings/speed</property>
+						<value></value>
+					</equals>
+				</visible>
+			</text>
+			<button>
+				<legend>TO/GA</legend>
+				<binding>
+					<command>dialog-apply</command>
+				</binding>
+				<binding>
+					<command>nasal</command>
+					<script>
+					 var node = props.globals.getNode("/autopilot/settings/speed", 1);
+					 if (node.getValue() == "speed-to-ga")
+					  {
+					  node.setValue("");
+					  }
+					 else
+					  {
+					  node.setValue("speed-to-ga");
+					  }
+					</script>
+				</binding>
+			</button>
+		</group>-->
+
+		<group>
+			<layout>hbox</layout>
+
+			<hrule>
+				<stretch type="bool">true</stretch>
+			</hrule>
+			<text>
+				<label>Heading</label>
+			</text>
+			<hrule>
+				<stretch type="bool">true</stretch>
+			</hrule>
+		</group>
+
+		<group>
+			<layout>hbox</layout>
+
+			<button>
+				<legend>Switch</legend>
+				<binding>
+					<command>dialog-apply</command>
+				</binding>
+				<binding>
+					<command>property-cycle</command>
+					<property>autopilot/settings/heading-mode</property>
+					<value type="int">0</value>
+					<value type="int">1</value>
+				</binding>
+			</button>
+			<text>
+				<label>[HDG]</label>
+				<visible>
+					<equals>
+						<property>autopilot/settings/heading-mode</property>
+						<value>0</value>
+					</equals>
+				</visible>
+			</text>
+			<text>
+				<label>[TRK]</label>
+				<visible>
+					<equals>
+						<property>autopilot/settings/heading-mode</property>
+						<value>1</value>
+					</equals>
+				</visible>
+			</text>
+		</group>
+
+		<group>
+			<layout>table</layout>
+
+			<text>
+				<row>0</row>
+				<col>0</col>
+				<label>HDG:</label>
+			</text>
+
+			<input>
+				<row>0</row>
+				<col>1</col>
+				<property>autopilot/settings/heading-bug-deg</property>
+				<live type="bool">true</live>
+				<binding>
+					<command>dialog-apply</command>
+				</binding>
+			</input>
+		</group>
+
+		<group>
+			<layout>hbox</layout>
+
+			<text>
+				<label>[HDG]</label>
+				<visible>
+					<equals>
+						<property>autopilot/settings/heading</property>
+						<value>dg-heading-hold</value>
+					</equals>
+				</visible>
+			</text>
+			<button>
+				<legend>LOC</legend>
+				<binding>
+					<command>dialog-apply</command>
+				</binding>
+				<binding>
+					<command>nasal</command>
+					<script>
+					 var node = props.globals.getNode("/autopilot/settings/heading", 1);
+					 if (node.getValue() == "nav1-hold")
+					  {
+					  node.setValue("dg-heading-hold");
+					  }
+					 else
+					  {
+					  node.setValue("nav1-hold");
+					  }
+					</script>
+				</binding>
+			</button>
+			<button>
+				<legend>LNAV</legend>
+				<binding>
+					<command>dialog-apply</command>
+				</binding>
+				<binding>
+					<command>nasal</command>
+					<script>
+					 var node = props.globals.getNode("/autopilot/settings/heading", 1);
+					 if (node.getValue() == "true-heading-hold")
+					  {
+					  node.setValue("dg-heading-hold");
+					  }
+					 else
+					  {
+					  node.setValue("true-heading-hold");
+					  }
+					</script>
+				</binding>
+			</button>
+		</group>
+
+		<group>
+			<layout>hbox</layout>
+
+			<hrule>
+				<stretch type="bool">true</stretch>
+			</hrule>
+			<text>
+				<label>Pitch</label>
+			</text>
+			<hrule>
+				<stretch type="bool">true</stretch>
+			</hrule>
+		</group>
+
+		<group>
+			<layout>table</layout>
+
+			<text>
+				<row>0</row>
+				<col>0</col>
+				<label>ALT:</label>
+			</text>
+
+			<input>
+				<row>0</row>
+				<col>1</col>
+				<property>autopilot/settings/target-altitude-ft</property>
+				<live type="bool">true</live>
+				<binding>
+					<command>dialog-apply</command>
+				</binding>
+			</input>
+
+			<text>
+				<row>1</row>
+				<col>0</col>
+				<label>ALT VS:</label>
+			</text>
+
+			<input>
+				<row>1</row>
+				<col>1</col>
+				<property>autopilot/settings/vertical-speed-fpm</property>
+				<live type="bool">true</live>
+				<binding>
+					<command>dialog-apply</command>
+				</binding>
+			</input>
+		</group>
+
+		<group>
+			<layout>hbox</layout>
+
+			<text>
+				<label>[ALT]</label>
+				<visible>
+					<equals>
+						<property>autopilot/settings/altitude</property>
+						<value>altitude-hold</value>
+					</equals>
+				</visible>
+			</text>
+			<button>
+				<legend>APPR</legend>
+				<binding>
+					<command>dialog-apply</command>
+				</binding>
+				<binding>
+					<command>nasal</command>
+					<script>
+					 var hdgNode = props.globals.getNode("/autopilot/settings/heading", 1);
+					 var altNode = props.globals.getNode("/autopilot/settings/altitude", 1);
+
+					 if (altNode.getValue() == "gs1-hold")
+					  {
+					  hdgNode.setValue("dg-heading-hold");
+					  altNode.setValue("altitude-hold");
+					  }
+					 else
+					  {
+					  hdgNode.setValue("nav1-hold");
+					  altNode.setValue("gs1-hold");
+					  }
+					</script>
+				</binding>
+			</button>
+		</group>
+
+		<hrule />
+
+		<button>
+			<legend>Close</legend>
+			<binding>
+				<command>dialog-apply</command>
+			</binding>
+			<binding>
+				<command>dialog-close</command>
+			</binding>
+		</button>
+	</group>
+
+</PropertyList>

@@ -1,0 +1,97 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+    <name>test</name>
+    <w-base>1024</w-base>
+    <h-base>1024</h-base>
+
+    <layers>
+
+		<layer>
+			<name>radarfull</name>
+			<!--w>256</w>
+			<h>256</h-->
+			<!-- w>350</w>
+			<h>350</h -->
+			<texture>
+				<path>Aircraft/A320neo/Models/Instruments/ND/res/od_ndradar_1.png</path>
+				<x1>0.0</x1>
+				<y1>0.0</y1>
+				<x2>1</x2>
+				<y2>1</y2>
+			</texture>
+			<transformations>
+				<transformation>
+					<type>y-shift</type>
+					<offset>-12</offset>
+				</transformation>
+				<!--transformation>
+					<type>x-shift</type>
+					<offset>1</offset>
+				</transformation-->
+			</transformations>
+			<emissive>true</emissive>
+		</layer>
+
+		<layer>
+		    <name>ground network</name>
+		    <condition>
+
+			    <equals>
+				<property>instrumentation/efis/nd/display-mode-knob</property>
+				<value>5</value>
+			    </equals>
+
+		    </condition>
+		    <texture>
+			<path>Aircraft/Instruments/Textures/od_groundradar.rgb</path>
+			<x1>0</x1>
+			<y1>0</y1>
+			<x2>1</x2>
+			<y2>1</y2>
+		    </texture>
+		    <emissive>true</emissive>
+		    <w>1024</w>
+		    <h>1024</h>
+		    <transformations>
+				<!-- ROSE center -->
+				<transformation>
+					<type>y-shift</type>
+					<offset>-12</offset>
+				</transformation>
+			<transformation>
+			    <type>rotation</type>
+			    <property>orientation/heading-deg</property>
+			    <scale>-1</scale>
+			</transformation>
+		    </transformations>
+		</layer>
+
+		<layer>
+		    <name>wxradar</name>
+		    <texture>
+			<path>Aircraft/Instruments/Textures/od_wxradar.rgb</path>
+			<x1>0</x1>
+			<y1>0</y1>
+			<x2>1</x2>
+			<y2>1</y2>
+		    </texture>
+		    <emissive>true</emissive>
+		    <w>1024</w>
+		    <h>1024</h>
+		    <transformations>
+				<!-- ROSE center -->
+				<transformation>
+					<type>y-shift</type>
+					<offset>-12</offset>
+				</transformation>
+			<!-- transformation>
+			    <type>rotation</type>
+			    <property>orientation/heading-deg</property>
+			    <scale>-1</scale>
+			</transformation-->
+		    </transformations>
+		</layer>
+	</layers>
+
+</PropertyList>

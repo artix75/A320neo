@@ -1,0 +1,113 @@
+<?xml version="1.0"?>
+<PropertyList>
+
+<name>MFD text</name>
+<background>Aircraft/A320neo/Models/Instruments/ND/res/transparent.png</background>
+<w>400</w>
+<h>256</h>
+
+<instruments>
+  
+    <instrument include="page-ARC-text.xml">      
+        <condition>
+            <and>
+            <greater-than>
+                <property>systems/electrical/outputs/efis</property>
+                <value>15</value>
+            </greater-than>
+                <equals>
+                    <property>instrumentation/efis/nd/display-mode</property>
+                    <value>ARC</value>
+                </equals>
+            </and>
+        </condition>        
+        <name>MFD</name>
+        <x>200</x>
+        <y>128</y>
+        <w>400</w>
+        <h>256</h>
+    </instrument>
+    
+    <instrument include="page-ROSE-text.xml">      
+        <condition>
+            <and>
+            <greater-than>
+                <property>systems/electrical/outputs/efis</property>
+                <value>15</value>
+            </greater-than>
+                <equals>
+                    <property>instrumentation/efis/nd/display-mode</property>
+                    <value>NAV</value>
+                </equals>
+            </and>
+        </condition>        
+        <name>MFD</name>
+        <x>200</x>
+        <y>128</y>
+        <w>400</w>
+        <h>256</h>
+    </instrument>
+     
+    <instrument include="page-APP-text.xml">
+        <condition>
+            <and>
+            <greater-than>
+                <property>systems/electrical/outputs/efis</property>
+                <value>15</value>
+            </greater-than>
+                <equals>
+                    <property>instrumentation/efis/nd/display-mode</property>
+                    <value>ILS</value>
+                </equals>
+            </and>
+        </condition>
+        <name>ILSinfo</name>
+        <x>200</x>
+        <y>128</y>
+        <w>400</w>
+        <h>256</h>
+    </instrument>
+     
+    <instrument include="page-VOR-text.xml"> 
+        <condition>
+            <and>
+            <greater-than>
+                <property>systems/electrical/outputs/efis</property>
+                <value>15</value>
+            </greater-than>
+                <equals>
+                    <property>instrumentation/efis/nd/display-mode</property>
+                    <value>VOR</value>
+                </equals>
+            </and>
+        </condition> 
+        <name>VOR</name>
+        <x>200</x>
+        <y>128</y>
+        <w>400</w>
+        <h>256</h>
+    </instrument>
+     
+    <instrument include="page-PLAN-text.xml">  
+        <condition>
+            <and>
+            <greater-than>
+                <property>systems/electrical/outputs/efis</property>
+                <value>15</value>
+            </greater-than>
+                <equals>
+                    <property>instrumentation/efis/nd/display-mode</property>
+                    <value>PLAN</value>
+                </equals>
+            </and>
+        </condition> 
+        <name>MFD</name>
+        <x>200</x>
+        <y>128</y>
+        <w>400</w>
+        <h>256</h>
+    </instrument>
+  
+</instruments>
+
+</PropertyList>

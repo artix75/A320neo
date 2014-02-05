@@ -1,0 +1,405 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!-- Airbus A320 for FlightGear -->
+<!-- Electronic Indication and Crew Alert System -->
+
+<PropertyList>
+
+	<path>res/EICAS_Airbus2.ac</path>
+
+	<!-- 3D TEXT -->
+	<text>
+		<name>Engine 1 N1</name>
+		<offsets>
+			<x-m>0.001</x-m>
+			<y-m>-0.045</y-m>
+			<z-m>0.0718</z-m>
+		</offsets>
+		<alignment>right-center</alignment>
+		<axis-alignment>yz-plane</axis-alignment>
+		<type type="string">number-value</type>
+		<format type="string">%3.1f</format>
+		<property>engines/engine[0]/n1</property>
+		<font>lcd.txf</font>
+		<character-size>0.007</character-size>
+		<character-aspect-ratio type="double">1.5</character-aspect-ratio>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	<text>
+		<name>Engine 2 N1</name>
+		<offsets>
+			<x-m>0.001</x-m>
+			<y-m>0.021</y-m>
+			<z-m>0.0718</z-m>
+		</offsets>
+		<alignment>right-center</alignment>
+		<axis-alignment>yz-plane</axis-alignment>
+		<type type="string">number-value</type>
+		<format type="string">%3.1f</format>
+		<property>engines/engine[1]/n1</property>
+		<font>lcd.txf</font>
+		<character-size>0.007</character-size>
+		<character-aspect-ratio type="double">1.5</character-aspect-ratio>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+
+	<text>
+		<name>Engine 1 EGT</name>
+		<offsets>
+			<x-m>0.001</x-m>
+			<y-m>-0.045</y-m>
+			<z-m>0.0245</z-m>
+		</offsets>
+		<alignment>right-center</alignment>
+		<axis-alignment>yz-plane</axis-alignment>
+		<type type="string">number-value</type>
+		<format type="string">%3.1f</format>
+		<property>engines/engine[0]/egt-degc</property>
+		<font>lcd.txf</font>
+		<character-size>0.007</character-size>
+		<character-aspect-ratio type="double">1.5</character-aspect-ratio>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	<text>
+		<name>Engine 2 EGT</name>
+		<offsets>
+			<x-m>0.001</x-m>
+			<y-m>0.0201</y-m>
+			<z-m>0.0245</z-m>
+		</offsets>
+		<alignment>right-center</alignment>
+		<axis-alignment>yz-plane</axis-alignment>
+		<type type="string">number-value</type>
+		<format type="string">%3.1f</format>
+		<property>engines/engine[1]/egt-degc</property>
+		<font>lcd.txf</font>
+		<character-size>0.007</character-size>
+		<character-aspect-ratio type="double">1.5</character-aspect-ratio>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+
+	<text>
+		<name>Engine 1 N2</name>
+		<offsets>
+			<x-m>0.001</x-m>
+			<y-m>-0.0602</y-m>
+			<z-m>0.01</z-m>
+		</offsets>
+		<alignment>right-center</alignment>
+		<axis-alignment>yz-plane</axis-alignment>
+		<type type="string">number-value</type>
+		<format type="string">%3.1f</format>
+		<property>engines/engine[0]/n2</property>
+		<font>lcd.txf</font>
+		<character-size>0.006</character-size>
+		<character-aspect-ratio type="double">1.5</character-aspect-ratio>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	<text>
+		<name>Engine 2 N2</name>
+		<offsets>
+			<x-m>0.001</x-m>
+			<y-m>-0.0075</y-m>
+			<z-m>0.01</z-m>
+		</offsets>
+		<alignment>left-center</alignment>
+		<axis-alignment>yz-plane</axis-alignment>
+		<type type="string">number-value</type>
+		<format type="string">%3.1f</format>
+		<property>engines/engine[1]/n2</property>
+		<font>lcd.txf</font>
+		<character-size>0.006</character-size>
+		<character-aspect-ratio type="double">1.5</character-aspect-ratio>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+
+	<text>
+		<name>Engine 1 FF</name>
+		<offsets>
+			<x-m>0.001</x-m>
+			<y-m>-0.0602</y-m>
+			<z-m>-0.005</z-m>
+		</offsets>
+		<alignment>right-center</alignment>
+		<axis-alignment>yz-plane</axis-alignment>
+		<type type="string">number-value</type>
+		<format type="string">%4.1f</format>
+		<property>engines/engine[0]/fuel-flow_pph</property>
+		<font>lcd.txf</font>
+		<character-size>0.006</character-size>
+		<character-aspect-ratio type="double">1.5</character-aspect-ratio>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	<text>
+		<name>Engine 2 FF</name>
+		<offsets>
+			<x-m>0.001</x-m>
+			<y-m>-0.0075</y-m>
+			<z-m>-0.005</z-m>
+		</offsets>
+		<alignment>left-center</alignment>
+		<axis-alignment>yz-plane</axis-alignment>
+		<type type="string">number-value</type>
+		<format type="string">%4.1f</format>
+		<property>engines/engine[1]/fuel-flow_pph</property>
+		<font>lcd.txf</font>
+		<character-size>0.006</character-size>
+		<character-aspect-ratio type="double">1.5</character-aspect-ratio>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+
+	<text>
+		<name>Fuel on board</name>
+		<offsets>
+			<x-m>0.001</x-m>
+			<y-m>0.075</y-m>
+			<z-m>0.045</z-m>
+		</offsets>
+		<alignment>right-center</alignment>
+		<axis-alignment>yz-plane</axis-alignment>
+		<type type="string">number-value</type>
+		<format type="string">%5.1f</format>
+		<property>fdm/jsbsim/propulsion/total-fuel-lbs</property>
+		<font>lcd.txf</font>
+		<character-size>0.007</character-size>
+		<character-aspect-ratio type="double">1.5</character-aspect-ratio>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	<text>
+		<name>Flaps degrees</name>
+		<offsets>
+			<x-m>0.001</x-m>
+			<y-m>0.071</y-m>
+			<z-m>0.0216</z-m>
+		</offsets>
+		<alignment>right-center</alignment>
+		<axis-alignment>yz-plane</axis-alignment>
+		<type type="string">number-value</type>
+		<format type="string">%2.0f</format>
+		<property>controls/flight/flaps</property>
+		<scale>40</scale>
+		<font>lcd.txf</font>
+		<character-size>0.007</character-size>
+		<character-aspect-ratio type="double">1.5</character-aspect-ratio>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+
+	<!-- Emission animations -->
+	<animation>
+		<name>White text</name>
+		<type>material</type>
+		<object-name>Flaps degrees</object-name>
+		<emission>
+			<red>1</red>
+			<green>1</green>
+			<blue>1</blue>
+		</emission>
+	</animation>
+	<animation>
+		<name>Green text</name>
+		<type>material</type>
+		<object-name>Engine 1 N1</object-name>
+		<object-name>Engine 2 N1</object-name>
+		<object-name>Engine 1 EGT</object-name>
+		<object-name>Engine 2 EGT</object-name>
+		<object-name>Engine 1 N2</object-name>
+		<object-name>Engine 2 N2</object-name>
+		<object-name>Engine 1 FF</object-name>
+		<object-name>Engine 2 FF</object-name>
+		<object-name>Fuel on board</object-name>
+		<emission>
+			<red>0.28</red>
+			<green>1.00</green>
+			<blue>0.21</blue>
+		</emission>
+	</animation>
+
+	<!-- ANIMATIONS -->
+	<!-- Lighting -->
+	<animation>
+		<name>Dome illumination</name>
+		<type>material</type>
+		<object-name>Border</object-name>
+		<object-name>Off</object-name>
+		<emission>
+			<red>0.5</red>
+			<green>0.5</green>
+			<blue>0.5</blue>
+			<factor-prop>controls/lighting/dome-norm</factor-prop>
+		</emission>
+	</animation>
+
+	<!-- Power on/off -->
+	<animation>
+		<name>Power on/off</name>
+		<type>select</type>
+		<object-name>Off</object-name>
+		<condition>
+			<less-than>
+				<property>systems/electrical/outputs/efis</property>
+				<value>15</value>
+			</less-than>
+		</condition>
+	</animation>
+
+	<!-- N1 -->
+	<animation>
+		<name>Left N1 pointer</name>
+		<type>rotate</type>
+		<object-name>N1LPtr</object-name>
+		<property>engines/engine[0]/n1</property>
+		<interpolation>
+			<entry><ind>0</ind><dep>43</dep></entry>
+			<entry><ind>100</ind><dep>-146</dep></entry>
+		</interpolation>
+		<axis>
+			<x>1</x>
+			<y>0</y>
+			<z>0</z>
+		</axis>
+		<center>
+			<x-m>0</x-m>
+			<y-m>-0.0659</y-m>
+			<z-m>0.07612</z-m>
+		</center>
+	</animation>
+	<animation>
+		<name>Right N1 pointer</name>
+		<type>rotate</type>
+		<object-name>N1RPtr</object-name>
+		<property>engines/engine[1]/n1</property>
+		<interpolation>
+			<entry><ind>0</ind><dep>43</dep></entry>
+			<entry><ind>100</ind><dep>-146</dep></entry>
+		</interpolation>
+		<axis>
+			<x>1</x>
+			<y>0</y>
+			<z>0</z>
+		</axis>
+		<center>
+			<x-m>0</x-m>
+			<y-m>0.00077</y-m>
+			<z-m>0.07612</z-m>
+		</center>
+	</animation>
+
+	<!-- EGT -->
+	<animation>
+		<name>Left EGT pointer</name>
+		<type>rotate</type>
+		<object-name>EGTLPtr</object-name>
+		<property>engines/engine[0]/egt-degf</property>
+		<interpolation>
+			<entry><ind>0</ind><dep>0</dep></entry>
+			<entry><ind>1350</ind><dep>-180</dep></entry>
+		</interpolation>
+		<axis>
+			<x>1</x>
+			<y>0</y>
+			<z>0</z>
+		</axis>
+		<center>
+			<x-m>0</x-m>
+			<y-m>-0.06582</y-m>
+			<z-m>0.02928</z-m>
+		</center>
+	</animation>
+	<animation>
+		<name>Right EGT pointer</name>
+		<type>rotate</type>
+		<object-name>EGTRPtr</object-name>
+		<property>engines/engine[1]/egt-degf</property>
+		<interpolation>
+			<entry><ind>0</ind><dep>0</dep></entry>
+			<entry><ind>1350</ind><dep>-180</dep></entry>
+		</interpolation>
+		<axis>
+			<x>1</x>
+			<y>0</y>
+			<z>0</z>
+		</axis>
+		<center>
+			<x-m>0</x-m>
+			<y-m>−0.0282</y-m>
+			<z-m>0.02965</z-m>
+		</center>
+	</animation>
+
+	<!-- Alerts -->
+	<animation>
+		<name>Speedbrake alert</name>
+		<type>select</type>
+		<object-name>SpeedbrakeAlert</object-name>
+		<condition>
+			<greater-than>
+				<property>controls/flight/speedbrake</property>
+				<value>0</value>
+			</greater-than>
+		</condition>
+	</animation>
+	<animation>
+		<name>Ground spoilers armed alert</name>
+		<type>select</type>
+		<object-name>SpoilerArmedAlert</object-name>
+		<condition>
+			<property>controls/flight/ground-spoilers-armed</property>
+		</condition>
+	</animation>
+	<animation>
+		<name>APU starting alert</name>
+		<type>select</type>
+		<object-name>APUStartAlert</object-name>
+		<condition>
+			<and>
+				<property>controls/APU/starter</property>
+				<greater-than>
+					<property>engines/apu/rpm</property>
+					<value>0</value>
+				</greater-than>
+				<not>
+					<property>engines/apu/running</property>
+				</not>
+			</and>
+		</condition>
+	</animation>
+	<animation>
+		<name>APU running alert</name>
+		<type>select</type>
+		<object-name>APURunAlert</object-name>
+		<condition>
+			<property>engines/apu/running</property>
+		</condition>
+	</animation>
+
+</PropertyList>

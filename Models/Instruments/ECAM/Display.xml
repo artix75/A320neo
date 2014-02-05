@@ -1,0 +1,276 @@
+<?xml version="1.0"?>
+<PropertyList>
+
+<name>ECAM Display</name>
+<background>Aircraft/A320neo/Models/Instruments/ECAM/res/black.png</background>
+<w>256</w>
+<h>256</h>
+
+	<instruments> 
+		<instrument include="page-eng2.xml">
+			<condition>
+			    <and>
+				<greater-than>
+				    <property>systems/electrical/outputs/efis</property>
+				    <value>15</value>
+				</greater-than>
+				<equals>
+				    <property>instrumentation/efis/ecam/display-mode</property>
+				    <value>ENG</value>
+				</equals>
+			    </and>
+			</condition>
+	       		<name>ENG</name>
+			<x>128</x>
+			<y>128</y>
+			<w>256</w>
+			<h>256</h>
+		</instrument>
+
+		<instrument include="page-bleed.xml">
+			<condition>
+			    <and>
+				<greater-than>
+				    <property>systems/electrical/outputs/efis</property>
+				    <value>15</value>
+				</greater-than>
+				<equals>
+				    <property>instrumentation/efis/ecam/display-mode</property>
+				    <value>BLEED</value>
+				</equals>
+			    </and>
+			</condition>
+	       		<name>BLEED</name>
+			<x>128</x>
+			<y>128</y>
+			<w>256</w>
+			<h>256</h>
+		</instrument>
+
+		<instrument include="page-press.xml">
+			<condition>
+			    <and>
+				<greater-than>
+				    <property>systems/electrical/outputs/efis</property>
+				    <value>15</value>
+				</greater-than>
+				<equals>
+				    <property>instrumentation/efis/ecam/display-mode</property>
+				    <value>PRESS</value>
+				</equals>
+			    </and>
+			</condition>
+	       		<name>PRESS</name>
+			<x>128</x>/
+			<y>128</y>
+			<w>256</w>
+			<h>256</h>
+		</instrument>
+
+		<instrument include="page-elec.xml">
+			<condition>
+			    <and>
+				<greater-than>
+				    <property>systems/electrical/outputs/efis</property>
+				    <value>15</value>
+				</greater-than>
+				<equals>
+				    <property>instrumentation/efis/ecam/display-mode</property>
+				    <value>ELEC</value>
+				</equals>
+			    </and>
+			</condition>
+	       		<name>ELEC</name>
+			<x>128</x>/
+			<y>128</y>
+			<w>256</w>
+			<h>256</h>
+		</instrument>
+
+		<instrument include="page-hyd.xml">
+			<condition>
+			    <and>
+				<greater-than>
+				    <property>systems/electrical/outputs/efis</property>
+				    <value>15</value>
+				</greater-than>
+				<equals>
+				    <property>instrumentation/efis/ecam/display-mode</property>
+				    <value>HYD</value>
+				</equals>
+			    </and>
+			</condition>
+	       		<name>HYD</name>
+			<x>128</x>/
+			<y>128</y>
+			<w>256</w>
+			<h>256</h>
+		</instrument>
+
+		<instrument include="page-fuel.xml">
+			<condition>
+			    <and>
+				<greater-than>
+				    <property>systems/electrical/outputs/efis</property>
+				    <value>15</value>
+				</greater-than>
+				<equals>
+				    <property>instrumentation/efis/ecam/display-mode</property>
+				    <value>FUEL</value>
+				</equals>
+			    </and>
+			</condition>
+	       		<name>FUEL</name>
+			<x>128</x>/
+			<y>128</y>
+			<w>256</w>
+			<h>256</h>
+		</instrument>
+
+		<instrument include="page-apu.xml">
+			<condition>
+			    <and>
+				<greater-than>
+				    <property>systems/electrical/outputs/efis</property>
+				    <value>15</value>
+				</greater-than>
+				<equals>
+				    <property>instrumentation/efis/ecam/display-mode</property>
+				    <value>APU</value>
+				</equals>
+			    </and>
+			</condition>
+	       		<name>APU</name>
+			<x>128</x>/
+			<y>128</y>
+			<w>256</w>
+			<h>256</h>
+		</instrument>
+
+		<instrument include="page-cond.xml">
+			<condition>
+			    <and>
+				<greater-than>
+				    <property>systems/electrical/outputs/efis</property>
+				    <value>15</value>
+				</greater-than>
+				<equals>
+				    <property>instrumentation/efis/ecam/display-mode</property>
+				    <value>COND</value>
+				</equals>
+			    </and>
+			</condition>
+	       		<name>COND</name>
+			<x>128</x>/
+			<y>128</y>
+			<w>256</w>
+			<h>256</h>
+		</instrument>
+
+		<instrument include="page-door.xml">
+			<condition>
+			    <and>
+				<greater-than>
+				    <property>systems/electrical/outputs/efis</property>
+				    <value>15</value>
+				</greater-than>
+				<equals>
+				    <property>instrumentation/efis/ecam/display-mode</property>
+				    <value>DOOR</value>
+				</equals>
+			    </and>
+			</condition>
+	       		<name>DOOR</name>
+			<x>128</x>/
+			<y>128</y>
+			<w>256</w>
+			<h>256</h>
+		</instrument>
+
+
+		<instrument include="page-wheel.xml">
+			<condition>
+			    <and>
+				<greater-than>
+				    <property>systems/electrical/outputs/efis</property>
+				    <value>15</value>
+				</greater-than>
+				<equals>
+				    <property>instrumentation/efis/ecam/display-mode</property>
+				    <value>WHEEL</value>
+				</equals>
+			    </and>
+			</condition>
+	       		<name>WHEEL</name>
+			<x>128</x>/
+			<y>128</y>
+			<w>256</w>
+			<h>256</h>
+		</instrument>
+		
+		<instrument include="page-fctl.xml">
+			<condition>
+			    <and>
+				<greater-than>
+				    <property>systems/electrical/outputs/efis</property>
+				    <value>15</value>
+				</greater-than>
+				<equals>
+				    <property>instrumentation/efis/ecam/display-mode</property>
+				    <value>FCTL</value>
+				</equals>
+			    </and>
+			</condition>
+	       		<name>FCTL</name>
+			<x>128</x>/
+			<y>128</y>
+			<w>256</w>
+			<h>256</h>
+		</instrument>
+
+		<!-- Need diferent layer center for proper rotation -->
+		<instrument include="page-fctl-rudder.xml">
+			<name>Rudder animation</name>
+			<condition>
+			    <and>
+				<greater-than>
+				    <property>systems/electrical/outputs/efis</property>
+				    <value>15</value>
+				</greater-than>
+				<equals>
+				    <property>instrumentation/efis/ecam/display-mode</property>
+				    <value>FCTL</value>
+				</equals>
+			    </and>
+			</condition>
+			<x>128</x>                 <!-- required horizontal placement -->
+			<y>80</y>                 <!-- required vertical placement -->
+			<w>60</w>
+			<h>60</h>                 <!-- optional height specification -->
+		</instrument>
+
+		<instrument include="page-all.xml">
+			<condition>
+			    <and>
+				<greater-than>
+				    <property>systems/electrical/outputs/efis</property>
+				    <value>15</value>
+				</greater-than>
+				<equals>
+				    <property>instrumentation/efis/ecam/display-mode</property>
+				    <value>ALL</value>
+				</equals>
+			    </and>
+			</condition>
+	       		<name>ALL</name>
+			<x>128</x>/
+			<y>128</y>
+			<w>256</w>
+			<h>256</h>
+		</instrument>
+
+    
+
+</instruments>
+
+</PropertyList>

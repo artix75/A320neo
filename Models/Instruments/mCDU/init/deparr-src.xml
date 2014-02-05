@@ -1,0 +1,310 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+
+	<path>deparr-src.ac</path>
+	
+	<!-- mCDU Display Brightness -->
+	
+	<animation>
+		<type>material</type>
+		<object-name>src-disp</object-name>
+		<emission>
+			<red>1</red>
+			<green>1</green>
+			<blue>1</blue>
+			<factor-prop>/instrumentation/mcdu/brt</factor-prop>
+		</emission>
+	</animation>
+	
+	<!-- Button Pick Animations -->
+	
+	<!-- Arrow Keys -->
+	
+	<animation>
+		<type>pick</type>
+		<object-name>l_arrow</object-name>
+		<action>
+            <button>0</button>
+	   		<repeatable type="bool">false</repeatable>
+            <binding>
+				<command>nasal</command>
+		 		<script>
+		 			var results = "/instrumentation/mcdu/from-to-results/";	
+	
+					var select = getprop(results~ "selected");
+					
+					if (select > 0)
+						setprop(results~ "selected", select - 1);
+						
+					mcdu.mCDU_init.line_disp();
+				</script>
+            </binding>
+        </action>
+	</animation>
+	
+	<animation>
+		<type>pick</type>
+		<object-name>r_arrow</object-name>
+		<action>
+            <button>0</button>
+	   		<repeatable type="bool">false</repeatable>
+            <binding>
+				<command>nasal</command>
+		 		<script>
+		 			var results = "/instrumentation/mcdu/from-to-results/";	
+	
+					var select = getprop(results~ "selected");
+					
+					var num = getprop(results~ "num");
+					
+					if (num > select + 1)
+						setprop(results~ "selected", select + 1);
+						
+					mcdu.mCDU_init.line_disp();
+				</script>
+            </binding>
+        </action>
+	</animation>
+	
+	<animation>
+		<type>pick</type>
+		<object-name>l6</object-name>
+		<action>
+            <button>0</button>
+	   		<repeatable type="bool">false</repeatable>
+            <binding>
+				<command>nasal</command>
+		 		<script>
+		 			setprop("/instrumentation/mcdu/page", "init");
+				</script>
+            </binding>
+        </action>
+	</animation>
+	
+	<animation>
+		<type>pick</type>
+		<object-name>r6</object-name>
+		<action>
+            <button>0</button>
+	   		<repeatable type="bool">false</repeatable>
+            <binding>
+				<command>nasal</command>
+		 		<script>
+		 		
+		 			var active_rte = "/flight-management/active-rte/";
+		 		
+		 			var results = "/instrumentation/mcdu/from-to-results/";
+		 			
+		 			var dep = getprop(results~ "empty-dep");
+		 			
+		 			var arr = getprop(results~ "empty-arr");
+		 		
+					var select = getprop(results~ "selected");
+		
+					var select_rte = getprop("/instrumentation/mcdu/from-to-results/result[" ~ select ~ "]/rte_id");
+					
+					var empty = getprop(results~ "empty");
+					
+					if (empty) {
+					
+						setprop(active_rte~ "depicao", dep);
+						
+						setprop(active_rte~ "arricao", arr);
+						
+						setprop(active_rte~ "id", "----------");
+						
+						mcdu.f_pln.init_f_pln();
+					
+					} else {
+					
+						mcdu.mCDU_init.co_rte(0, select_rte);
+					
+					}
+					
+					mcdu.clear_inp();
+					
+					setprop("/instrumentation/mcdu/page", "init");
+				</script>
+            </binding>
+        </action>
+	</animation>
+	
+	<!-- OSGText for non-empty fields -->
+	
+	<text>
+		<name>src-disp</name>
+		<offsets>
+			<x-m>-0.0797</x-m>
+			<y-m>-0.005</y-m>
+			<z-m>-0.0006</z-m>
+			<heading-deg>90</heading-deg>
+		</offsets>
+		<alignment>center-center</alignment>
+		<axis-alignment>xy-plane</axis-alignment>
+		<type type="string">text-value</type>
+		<format type="string">%s</format>
+		<property>/instrumentation/mcdu/from-to-results/select-id</property>
+		<truncate type="bool">false</truncate>
+		<font type="string">courier-bold.txf</font>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.004</character-size>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	
+	<text>
+		<name>src-disp</name>
+		<offsets>
+			<x-m>-0.0797</x-m>
+			<y-m>0.0293</y-m>
+			<z-m>-0.0006</z-m>
+			<heading-deg>90</heading-deg>
+		</offsets>
+		<alignment>right-center</alignment>
+		<axis-alignment>xy-plane</axis-alignment>
+		<type type="string">text-value</type>
+		<format type="string">%s</format>
+		<property>/instrumentation/mcdu/from-to-results/page</property>
+		<truncate type="bool">false</truncate>
+		<font type="string">courier-bold.txf</font>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.003</character-size>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	
+	<text>
+		<name>src-disp</name>
+		<offsets>
+			<x-m>-0.0611</x-m>
+			<y-m>-0.0422</y-m>
+			<z-m>-0.0006</z-m>
+			<heading-deg>90</heading-deg>
+		</offsets>
+		<alignment>left-center</alignment>
+		<axis-alignment>xy-plane</axis-alignment>
+		<type type="string">text-value</type>
+		<format type="string">%s</format>
+		<property>instrumentation/mcdu/from-to-results/lines/line[0]/str</property>
+	  <truncate type="bool">false</truncate>
+	  <font type="string">courier-bold.txf</font>
+	  <draw-text type="bool">true</draw-text>
+	  <draw-alignment type="bool">false</draw-alignment>
+	  <draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.003</character-size>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	
+	<text>
+		<name>src-disp</name>
+		<offsets>
+			<x-m>-0.0570</x-m>
+			<y-m>-0.0422</y-m>
+			<z-m>-0.0006</z-m>
+			<heading-deg>90</heading-deg>
+		</offsets>
+		<alignment>left-center</alignment>
+		<axis-alignment>xy-plane</axis-alignment>
+		<type type="string">text-value</type>
+		<format type="string">%s</format>
+		<property>instrumentation/mcdu/from-to-results/lines/line[1]/str</property>
+  <truncate type="bool">false</truncate>
+  <font type="string">courier-bold.txf</font>
+  <draw-text type="bool">true</draw-text>
+  <draw-alignment type="bool">false</draw-alignment>
+  <draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.003</character-size>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	
+	<text>
+		<name>src-disp</name>
+		<offsets>
+			<x-m>-0.0523</x-m>
+			<y-m>-0.0422</y-m>
+			<z-m>-0.0006</z-m>
+			<heading-deg>90</heading-deg>
+		</offsets>
+		<alignment>left-center</alignment>
+		<axis-alignment>xy-plane</axis-alignment>
+		<type type="string">text-value</type>
+		<format type="string">%s</format>
+		<property>instrumentation/mcdu/from-to-results/lines/line[2]/str</property>
+  <truncate type="bool">false</truncate>
+  <font type="string">courier-bold.txf</font>
+  <draw-text type="bool">true</draw-text>
+  <draw-alignment type="bool">false</draw-alignment>
+  <draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.003</character-size>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	
+	<text>
+		<name>src-disp</name>
+		<offsets>
+			<x-m>-0.0475</x-m>
+			<y-m>-0.0422</y-m>
+			<z-m>-0.0006</z-m>
+			<heading-deg>90</heading-deg>
+		</offsets>
+		<alignment>left-center</alignment>
+		<axis-alignment>xy-plane</axis-alignment>
+		<type type="string">text-value</type>
+		<format type="string">%s</format>
+		<property>instrumentation/mcdu/from-to-results/lines/line[3]/str</property>
+  <truncate type="bool">false</truncate>
+  <font type="string">courier-bold.txf</font>
+  <draw-text type="bool">true</draw-text>
+  <draw-alignment type="bool">false</draw-alignment>
+  <draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.003</character-size>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	
+	<text>
+		<name>src-disp</name>
+		<offsets>
+			<x-m>-0.0430</x-m>
+			<y-m>-0.0422</y-m>
+			<z-m>-0.0006</z-m>
+			<heading-deg>90</heading-deg>
+		</offsets>
+		<alignment>left-center</alignment>
+		<axis-alignment>xy-plane</axis-alignment>
+		<type type="string">text-value</type>
+		<format type="string">%s</format>
+		<property>instrumentation/mcdu/from-to-results/lines/line[4]/str</property>
+  <truncate type="bool">false</truncate>
+  <font type="string">courier-bold.txf</font>
+  <draw-text type="bool">true</draw-text>
+  <draw-alignment type="bool">false</draw-alignment>
+  <draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.003</character-size>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	
+</PropertyList>
