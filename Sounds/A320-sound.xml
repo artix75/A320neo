@@ -910,6 +910,79 @@
 			<max-dist>100</max-dist>
 		</autopilotoff>
 
+    <!-- New Warnings/Sounds -->
+
+    <gearwarn>
+        <name>Gear warning</name>
+        <path>/Aircraft/A320neo/Sounds/res/gearwarn.wav</path>
+        <mode>looped</mode>
+        <type>avionics</type>
+        <condition>
+            <less-than-equals>
+                <property>position/altitude-agl-ft</property>
+                <value>400</value>
+            </less-than-equals>
+            <less-than-equals>
+                <property>/velocities/vertical-speed-fps</property>
+                <value>-1</value>
+            </less-than-equals>
+            <not>
+                <property>/controls/gear/gear-down</property>
+            </not>
+        </condition>
+        <volume>
+            <property>sim/sound/effects/volume</property>
+        </volume>
+        <reference-dist>10</reference-dist>
+        <max-dist>100</max-dist>
+    </gearwarn>
+
+    <ap_disc>
+        <name>AP Disconnect warning</name>
+        <path>/Aircraft/A320neo/Sounds/res/airbus-warning.wav</path>
+        <mode>once</mode>
+        <type>avionics</type>
+        <condition>
+            <property>/sim/sound/warnings/ap_disc</property>
+        </condition>
+        <volume>
+            <property>sim/sound/effects/volume</property>
+        </volume>
+        <reference-dist>10</reference-dist>
+        <max-dist>100</max-dist>
+    </ap_disc>
+
+    <chime>
+        <name>Chime</name>
+        <path>/Aircraft/A320neo/Sounds/res/chime.wav</path>
+        <mode>once</mode>
+        <type>avionics</type>
+        <condition>
+            <property>/sim/sound/warnings/chime</property>
+        </condition>
+        <volume>
+            <property>sim/sound/effects/volume</property>
+        </volume>
+        <reference-dist>10</reference-dist>
+        <max-dist>100</max-dist>
+    </chime>
+
+    <crc>
+        <name>CRC</name>
+        <path>/Aircraft/A320neo/Sounds/res/crc.wav</path>
+        <mode>looped</mode>
+        <type>avionics</type>
+        <condition>
+            <property>/warnings/master-warning-light</property>
+            <property>/sim/sound/warnings/crc</property>
+        </condition>
+        <volume>
+            <property>sim/sound/effects/volume</property>
+        </volume>
+        <reference-dist>10</reference-dist>
+        <max-dist>100</max-dist>
+    </crc>
+
 
 	</fx>
 </PropertyList>

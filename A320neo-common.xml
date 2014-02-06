@@ -910,6 +910,9 @@
 			<file>Aircraft/Generic/DualControl/pilot-dual-control.nas</file>
 		</dual_control>
 		<terrain-map><file>Aircraft/A320neo/Nasal/terrain-map.nas</file></terrain-map>
+        <warnings>
+			<file>Aircraft/A320neo/Nasal/warnings.nas</file>
+        </warnings>
 	</nasal>
 
 	
