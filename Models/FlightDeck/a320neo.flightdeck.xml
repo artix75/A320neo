@@ -2222,10 +2222,11 @@
 		<object-name>nd-range-right</object-name>
 		<action>
 			<button>0</button>
+                        <button>3</button>
 			<repeatable type="bool">false</repeatable>
 			<binding>
 				<command>property-cycle</command>
-				<property>/instrumentation/nd[1]/range</property>
+				<property>/instrumentation/nd/range</property>
 				<value>10</value>
 				<value>20</value>
 				<value>40</value>
@@ -2233,7 +2234,42 @@
 				<value>160</value>
 				<value>320</value>
 			</binding>
+                        <binding>
+                                <command>property-cycle</command>
+                                <property>/instrumentation/nd[1]/range</property>
+                                <value>10</value>
+                                <value>20</value>
+                                <value>40</value>
+                                <value>80</value>
+                                <value>160</value>
+                                <value>320</value>
+                        </binding>
 		</action>
+                <action>
+                        <button>1</button>
+                        <button>4</button>
+                        <repeatable type="bool">false</repeatable>
+                        <binding>
+                                <command>property-cycle</command>
+                                <property>/instrumentation/nd/range</property>
+                                <value>320</value>
+                                <value>160</value>
+                                <value>80</value>
+                                <value>40</value>
+                                <value>20</value>
+                                <value>10</value>
+                        </binding>
+                        <binding>
+                                <command>property-cycle</command>
+                                <property>/instrumentation/nd[1]/range</property>
+                                <value>320</value>
+                                <value>160</value>
+                                <value>80</value>
+                                <value>40</value>
+                                <value>20</value>
+                                <value>10</value>
+                        </binding>
+                </action>
 	</animation>
 	
 	<animation>
@@ -2305,7 +2341,7 @@
 	<animation>
 		<type>rotate</type>
 		<object-name>nd-range</object-name>
-		<property>/instrumentation/nd[1]/range</property>
+		<property>/instrumentation/nd[0]/range</property>
 		<interpolation>
 			<entry><ind>10</ind><dep>0</dep></entry>
 			<entry><ind>20</ind><dep>45</dep></entry>
@@ -2327,7 +2363,7 @@
 	<animation>
 		<type>rotate</type>
 		<object-name>nd-range-right</object-name>
-		<property>/instrumentation/nd[1]/range</property>
+		<property>/instrumentation/nd[0]/range</property>
 		<interpolation>
 			<entry><ind>10</ind><dep>0</dep></entry>
 			<entry><ind>20</ind><dep>45</dep></entry>
