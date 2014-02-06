@@ -288,6 +288,21 @@ Configure the nav-display symbology
     </color>
 </symbol>
 
+<symbol>
+    <type type="string">td</type>
+    <width type="float">24</width>
+    <texture-size  type="int">512</texture-size>
+    <u0 type="float">100.83</u0>
+    <v0 type="float">340.31</v0>
+    <u1 type="float">138.86</u1>
+    <v1 type="float">386.48</v1>
+    <color>
+        <red type="float">0</red>
+        <green type="float">0</green>
+        <blue type="float">1</blue>
+    </color>
+</symbol>
+
 
 </PropertyList>
 

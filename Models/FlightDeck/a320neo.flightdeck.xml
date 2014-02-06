@@ -718,6 +718,7 @@
 		<object-name>vs-text</object-name>
 		<object-name>fpa-text</object-name>
 		<object-name>qnh-inhg</object-name>
+        <object-name>qnh-hpa</object-name>
 		<condition>
 			<greater-than-equals>
 				<property>/systems/electrical/outputs/efis</property>
@@ -819,6 +820,28 @@
 			</and>
 		</condition>
 	</animation>
+    
+    <animation>
+        <type>select</type>
+        <object-name>qnh-inhg</object-name>
+        <condition>
+            <equals>
+                <property>/flight-management/control/qnh-mode</property>
+                <value>inhg</value>
+            </equals>
+        </condition>
+    </animation>
+    
+    <animation>
+        <type>select</type>
+        <object-name>qnh-hpa</object-name>
+        <condition>
+            <equals>
+                <property>/flight-management/control/qnh-mode</property>
+                <value>hpa</value>
+            </equals>
+        </condition>
+    </animation>
 	
 	<!-- Material Animation -->
 	
@@ -831,6 +854,7 @@
 		<object-name>vs-text</object-name>
 		<object-name>fpa-text</object-name>
 		<object-name>qnh-inhg</object-name>
+        <object-name>qnh-hpa</object-name>
 		<diffuse>
 			<red>0.89</red>
 			<green>0.37</green>
@@ -1182,6 +1206,33 @@
 			<height type="int">32</height>
 		</font-resolution>
 	</text>
+    
+    <text>
+		<name>qnh-hpa</name>
+		<offsets>
+			<x-m>-0.4856</x-m>
+			<y-m>-0.2589</y-m>
+			<z-m>0.1666</z-m>
+			<heading-deg>90</heading-deg>
+			<roll-deg>76</roll-deg>
+		</offsets>
+		<alignment>center-center</alignment>
+		<axis-alignment>xy-plane</axis-alignment>
+		<type type="string">number-value</type>
+		<format type="string">%2.0f</format>
+		<property>/instrumentation/altimeter/setting-hpa</property>
+		<truncate type="bool">false</truncate>
+		<font type="string">led.txf</font>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.009</character-size>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+
 	
 	<text>
 		<name>qnh-inhg</name>
@@ -1208,40 +1259,100 @@
 			<height type="int">32</height>
 		</font-resolution>
 	</text>
+    
+    <text>
+		<name>qnh-hpa</name>
+		<offsets>
+			<x-m>-0.4856</x-m>
+			<y-m>0.2589</y-m>
+			<z-m>0.1666</z-m>
+			<heading-deg>90</heading-deg>
+			<roll-deg>76</roll-deg>
+		</offsets>
+		<alignment>center-center</alignment>
+		<axis-alignment>xy-plane</axis-alignment>
+		<type type="string">number-value</type>
+		<format type="string">%2.0f</format>
+		<property>/instrumentation/altimeter/setting-hpa</property>
+		<truncate type="bool">false</truncate>
+		<font type="string">led.txf</font>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.009</character-size>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
 	
 	<animation>
 		<type>pick</type>
 		<object-name>qnh-0.01</object-name>
 		<action>
 			<button>0</button>
-			<button>3</button>
 			<repeatable type="bool">true</repeatable>
 			<binding>
 				<command>nasal</command>
 				<script>
-				
-					var qnh = getprop("/instrumentation/altimeter/setting-inhg");
-					
-					setprop("/instrumentation/altimeter/setting-inhg", qnh + 0.01);
-					
+                    setprop("/instrumentation/altimeter/setting-inhg", 29.92);
+                    setprop('/flight-management/control/qnh-mode', 'inhg');
 				</script>
 			</binding>
 		</action>
 		<action>
 			<button>1</button>
+			<repeatable type="bool">true</repeatable>
+			<binding>
+				<command>nasal</command>
+				<script>
+					print("BTN 1 (0.01)");
+				</script>
+			</binding>
+		</action>
+        <action>
+			<button>3</button>
+			<binding>
+				<command>nasal</command>
+				<script>
+                    var mode = getprop('/flight-management/control/qnh-mode');
+                    var incr = 0.01;
+                    if(!mode){
+                        mode = 'inhg';
+                    }
+                    if(mode == 'hpa'){
+                        incr = 1.0;
+                    }
+                    
+					var qnh = getprop("/instrumentation/altimeter/setting-" ~ mode);
+					
+					setprop("/instrumentation/altimeter/setting-" ~ mode, qnh + incr);
+					
+				</script>
+			</binding>
+		</action>
+		<action>
 			<button>4</button>
 			<repeatable type="bool">true</repeatable>
 			<binding>
 				<command>nasal</command>
 				<script>
+                    var mode = getprop('/flight-management/control/qnh-mode');
+                    var decr = 0.01;
+                    if(!mode){
+                        mode = 'inhg';
+                    }
+                    if(mode == 'hpa'){
+                        decr = 1.0;
+                    }
+                    
+					var qnh = getprop("/instrumentation/altimeter/setting-" ~ mode);
 					
-					var qnh = getprop("/instrumentation/altimeter/setting-inhg");
-					
-					setprop("/instrumentation/altimeter/setting-inhg", qnh - 0.01);
-					
+					setprop("/instrumentation/altimeter/setting-" ~ mode, qnh - decr);
 				</script>
 			</binding>
 		</action>
+
 	</animation>
 	
 	<animation>
@@ -1249,30 +1360,55 @@
 		<object-name>qnh</object-name>
 		<action>
 			<button>0</button>
+			<repeatable type="bool">true</repeatable>
+            <binding>
+                <command>property-cycle</command>
+                <property>/flight-management/control/qnh-mode</property>
+                <value>inhg</value>
+                <value>hpa</value>
+            </binding>
+		</action>
+		<action>
 			<button>3</button>
 			<repeatable type="bool">true</repeatable>
 			<binding>
 				<command>nasal</command>
 				<script>
-				
-					var qnh = getprop("/instrumentation/altimeter/setting-inhg");
 					
-					setprop("/instrumentation/altimeter/setting-inhg", qnh + 0.1);
+                    var mode = getprop('/flight-management/control/qnh-mode');
+                    var incr = 0.01;
+                    if(!mode){
+                    mode = 'inhg';
+                    }
+                    if(mode == 'hpa'){
+                    incr = 1.0;
+                    }
+                    
+					var qnh = getprop("/instrumentation/altimeter/setting-" ~ mode);
 					
+					setprop("/instrumentation/altimeter/setting-" ~ mode, qnh + incr);
 				</script>
 			</binding>
 		</action>
 		<action>
-			<button>1</button>
 			<button>4</button>
 			<repeatable type="bool">true</repeatable>
 			<binding>
 				<command>nasal</command>
 				<script>
 					
-					var qnh = getprop("/instrumentation/altimeter/setting-inhg");
+                    var mode = getprop('/flight-management/control/qnh-mode');
+                    var decr = 0.01;
+                    if(!mode){
+                    mode = 'inhg';
+                    }
+                    if(mode == 'hpa'){
+                    decr = 1.0;
+                    }
+                    
+					var qnh = getprop("/instrumentation/altimeter/setting-" ~ mode);
 					
-					setprop("/instrumentation/altimeter/setting-inhg", qnh - 0.1);
+					setprop("/instrumentation/altimeter/setting-" ~ mode, qnh - decr);
 					
 				</script>
 			</binding>
