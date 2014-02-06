@@ -428,7 +428,7 @@ var warning_system = {
 
             var park_memo = memo.new("PARK BRK", "green");
             park_memo.condition = func() {
-                return (getprop("/controls/parking-brake") != 0);
+                return (getprop("/controls/gear/brake-parking") != 0);
             }
             
             # All MEMO items into a hash for easier use (in order of display priority)

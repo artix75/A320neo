@@ -2198,7 +2198,7 @@
 			<repeatable type="bool">false</repeatable>
 			<binding>
 				<command>property-toggle</command>
-				<property>/instrumentation/efis[1]/inputs/CSTR</property>
+				<property>/instrumentation/efis[0]/inputs/CSTR</property>
 			</binding>
 		</action>
 	</animation>
@@ -2211,7 +2211,7 @@
 			<repeatable type="bool">false</repeatable>
 			<binding>
 				<command>property-toggle</command>
-				<property>/instrumentation/efis[1]/inputs/WPT</property>
+				<property>/instrumentation/efis[0]/inputs/WPT</property>
 			</binding>
 		</action>
 	</animation>
@@ -2224,7 +2224,7 @@
 			<repeatable type="bool">false</repeatable>
 			<binding>
 				<command>property-toggle</command>
-				<property>/instrumentation/efis[1]/inputs/VORD</property>
+				<property>/instrumentation/efis[0]/inputs/VORD</property>
 			</binding>
 		</action>
 	</animation>
@@ -2237,7 +2237,7 @@
 			<repeatable type="bool">false</repeatable>
 			<binding>
 				<command>property-toggle</command>
-				<property>/instrumentation/efis[1]/inputs/NDB</property>
+				<property>/instrumentation/efis[0]/inputs/NDB</property>
 			</binding>
 		</action>
 	</animation>
@@ -2250,7 +2250,7 @@
 			<repeatable type="bool">false</repeatable>
 			<binding>
 				<command>property-toggle</command>
-				<property>/instrumentation/efis[1]/inputs/ARPT</property>
+				<property>/instrumentation/efis[0]/inputs/ARPT</property>
 			</binding>
 		</action>
 	</animation>
@@ -2258,7 +2258,7 @@
 	<animation>
 		<type>textranslate</type>
 		<object-name>cstr</object-name>
-		<property>/instrumentation/efis[1]/inputs/CSTR</property>
+		<property>/instrumentation/efis[0]/inputs/CSTR</property>
 		<factor>0.0625</factor>
 		<axis>
 			<x>0</x>
@@ -2270,7 +2270,7 @@
 	<animation>
 		<type>textranslate</type>
 		<object-name>wpt</object-name>
-		<property>/instrumentation/efis[1]/inputs/WPT</property>
+		<property>/instrumentation/efis[0]/inputs/WPT</property>
 		<factor>0.0625</factor>
 		<axis>
 			<x>0</x>
@@ -2282,7 +2282,7 @@
 	<animation>
 		<type>textranslate</type>
 		<object-name>vord</object-name>
-		<property>/instrumentation/efis[1]/inputs/VORD</property>
+		<property>/instrumentation/efis[0]/inputs/VORD</property>
 		<factor>0.0625</factor>
 		<axis>
 			<x>0</x>
@@ -2294,7 +2294,7 @@
 	<animation>
 		<type>textranslate</type>
 		<object-name>ndb</object-name>
-		<property>/instrumentation/efis[1]/inputs/NDB</property>
+		<property>/instrumentation/efis[0]/inputs/NDB</property>
 		<factor>0.0625</factor>
 		<axis>
 			<x>0</x>
@@ -2306,7 +2306,7 @@
 	<animation>
 		<type>textranslate</type>
 		<object-name>arpt</object-name>
-		<property>/instrumentation/efis[1]/inputs/ARPT</property>
+		<property>/instrumentation/efis[0]/inputs/ARPT</property>
 		<factor>0.0625</factor>
 		<axis>
 			<x>0</x>
@@ -2334,18 +2334,38 @@
 			<binding>
 				<command>nasal</command>
 				<script>
-					var nd_disp = getprop("/instrumentation/efis/nd/display-mode");
+                    var nd_disp = getprop("/instrumentation/efis/nd/display-mode");
+					if (nd_disp == "ILS") {
+                        setprop("/instrumentation/efis/nd/display-mode-num", 0);
 					
-					if (nd_disp == "ILS")
-						setprop("/instrumentation/efis/nd/display-mode-num", 0);
-					elsif (nd_disp == "VOR")
-						setprop("/instrumentation/efis/nd/display-mode-num", 1);
-					elsif (nd_disp == "NAV")
-						setprop("/instrumentation/efis/nd/display-mode-num", 2);
-					elsif (nd_disp == "ARC")
-						setprop("/instrumentation/efis/nd/display-mode-num", 3);
-					else
-						setprop("/instrumentation/efis/nd/display-mode-num", 4);
+                        setprop("/instrumentation/nd/y-center", 0.5);
+                        setprop("/instrumentation/nd/aircraft-heading-up", 1);
+					
+					} elsif (nd_disp == "VOR") {
+                        setprop("/instrumentation/efis/nd/display-mode-num", 1);
+                    
+                        setprop("/instrumentation/nd/y-center", 0.5);
+                        setprop("/instrumentation/nd/aircraft-heading-up", 1);
+                    
+					} elsif (nd_disp == "NAV") {
+                        setprop("/instrumentation/efis/nd/display-mode-num", 2);
+                    
+                        setprop("/instrumentation/nd/y-center", 0.5);
+                        setprop("/instrumentation/nd/aircraft-heading-up", 1);
+                    
+					} elsif (nd_disp == "ARC") {
+                        setprop("/instrumentation/efis/nd/display-mode-num", 3);
+                    
+                        setprop("/instrumentation/nd/y-center", 0.25);
+                        setprop("/instrumentation/nd/aircraft-heading-up", 1);
+                    
+					} else {
+                        setprop("/instrumentation/efis/nd/display-mode-num", 4);
+                    
+                        setprop("/instrumentation/nd/y-center", 0.5);
+                        setprop("/instrumentation/nd/aircraft-heading-up", 0);
+                    
+					}
 						
 				</script>
 			</binding>
@@ -2881,7 +2901,7 @@
 	<animation>
 		<type>rotate</type>
 		<object-name>ParkBrk</object-name>
-		<property>controls/parking-brake</property>
+		<property>controls/gear/brake-parking</property>
 		<factor>-90</factor>
 		<center>
 			<x-m>0.1270</x-m>

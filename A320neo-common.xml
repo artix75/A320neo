@@ -204,6 +204,16 @@
 							<dialog-name>pushback</dialog-name>
 						</binding>
 					</item>
+                    <item>
+						<label>Tiller Steering</label>
+						<binding>
+							<command>nasal</command>
+							<script>
+								var tiller = gui.Dialog.new("/sim/gui/dialogs/tiller/dialog","Aircraft/A320neo/Systems/tiller-dlg.xml");
+								tiller.open();
+							</script>
+						</binding>
+					</item>
 					<item>
 						<name>lights</name>
 						<label>Lights</label>
@@ -423,6 +433,8 @@
 		</flight>
 		<gear>
 			<brake-parking type="bool">true</brake-parking>
+            <tiller-cmd-norm type="double">0</tiller-cmd-norm>
+			<tiller-enabled type="bool">false</tiller-enabled>
 		</gear>
 		<lighting>
 			<beacon type="bool">false</beacon>
@@ -710,8 +722,8 @@
 			<range type="int">10</range>
 			<aircraft-heading-up type="bool">true</aircraft-heading-up>
 			<heading-up-deg type="float">0.01</heading-up-deg>
-			<x-center type="float">0.499</x-center>
-			<y-center type="float">0.182</y-center>
+			<x-center type="float">0.5</x-center>
+			<y-center type="float">0.5</y-center>
 		</nd>
 
 		<nd n="1">
