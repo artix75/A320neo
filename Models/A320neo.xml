@@ -26,10 +26,10 @@
 		</offsets>
 	</model>
 
-	<!-- model>
+	<model>
 		<name>Interior</name>
 		<path>Aircraft/A320neo/Models/Interior/a320neo.interior.xml</path>
-	</model -->
+	</model>
 
 	<model>
 		<name>Nose Gear</name>
