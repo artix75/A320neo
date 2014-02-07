@@ -982,6 +982,101 @@
         <reference-dist>10</reference-dist>
         <max-dist>100</max-dist>
     </crc>
+    
+    <!-- APU Sounds -->
+    
+    <apu-start>
+        <name>apu-strt</name>
+        <mode>once</mode>
+        <path>Aircraft/A320neo/Sounds/res/apu_strt.wav</path>
+        <condition>
+			<property>controls/APU/starter</property>
+			<less-than>
+				<property>engines/apu/rpm</property>
+				<value>100</value>
+			</less-than>
+		</condition>
+		<position>
+			<x>26</x>
+			<y>0</y>
+			<z>4</z>
+		</position>
+		<reference-dist>10</reference-dist>
+		<max-dist>30</max-dist>
+		<volume>0.3</volume>
+    </apu-start>
+    
+	<apu-running2>
+        <name>apu-run2</name>
+        <mode>looped</mode>
+        <path>Aircraft/A320neo/Sounds/res/apu_run.wav</path>
+        <condition>
+			<property>controls/APU/master-switch</property>
+			<equals>
+				<property>engines/apu/rpm</property>
+				<value>100</value>
+			</equals>
+		</condition>
+		<position>
+			<x>26</x>
+			<y>0</y>
+			<z>4</z>
+		</position>
+		<reference-dist>10</reference-dist>
+		<max-dist>30</max-dist>
+		<volume>0.3</volume>
+    </apu-running2>
+	
+	
+	<apu-running>
+        <name>apu-run</name>
+        <mode>looped</mode>
+        <path>Aircraft/A320neo/Sounds/res/apu_run.wav</path>
+        <condition>
+			<not>
+				<property>controls/APU/starter</property>
+			</not>
+			<greater-than-equals>
+				<property>engines/apu/rpm</property>
+				<value>80</value>
+			</greater-than-equals>
+		</condition>
+		<position>
+			<x>26</x>
+			<y>0</y>
+			<z>4</z>
+		</position>
+		<reference-dist>10</reference-dist>
+		<max-dist>30</max-dist>
+		<volume>0.3</volume>
+    </apu-running>
+    
+	<apu-shutdown>
+        <name>apu-stop</name>
+        <mode>once</mode>
+        <path>Aircraft/A320neo/Sounds/res/apu_stop.wav</path>
+        <condition>
+			<not>
+				<property>controls/APU/starter</property>
+			</not>
+			<less-than>
+				<property>engines/apu/rpm</property>
+				<value>100</value>
+			</less-than>
+			<greater-than>
+				<property>engines/apu/rpm</property>
+				<value>0</value>
+			</greater-than>
+		</condition>
+		<position>
+			<x>26</x>
+			<y>0</y>
+			<z>4</z>
+		</position>
+		<reference-dist>10</reference-dist>
+		<max-dist>30</max-dist>
+		<volume>0.5</volume>
+    </apu-shutdown>
 
 
 	</fx>
