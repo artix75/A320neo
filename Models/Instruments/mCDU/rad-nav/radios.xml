@@ -79,12 +79,15 @@
 		 				 if (substr(input, 0, 1) == "1") { # FREQ
 		 				 
 		 				 	setprop(radio~ "vor1", input);
+                            
+                            setprop("/instrumentation/nav/frequencies/selected-mhz",input);
 		 				 
 		 				 } else { # NAV ID
 		 				 
 		 				 	setprop(radio~ "vor1", mcdu.rad_nav.search_vor(input));
 		 				 	
 		 				 	setprop(radio~ "vor1-id", input);
+                            setprop("/instrumentation/nav/frequencies/selected-mhz",mcdu.rad_nav.search_vor(input));
 		 				 
 		 				 }
 		 				
@@ -185,6 +188,7 @@
 		 			if (typeof(input) == "scalar") {
 		 			
 						setprop(radio~ "vor1-crs", input);
+                        setprop("/instrumentation/nav/radials/selected-deg",input);
 						
 						mcdu.clear_inp();
 		 			
@@ -263,6 +267,7 @@
 		 			if (typeof(input) == "scalar") {
 		 			
 						setprop(radio~ "ils", input);
+                        setprop("/instrumentation/nav/frequencies/selected-mhz",input);
 						
 						mcdu.clear_inp();
 		 			
@@ -304,6 +309,7 @@
 		 			if (typeof(input) == "scalar") {
 		 			
 						setprop(radio~ "ils-crs", input);
+                        setprop("/instrumentation/nav/radials/selected-deg",input);
 						
 						mcdu.clear_inp();
 		 			
