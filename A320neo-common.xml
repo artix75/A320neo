@@ -70,6 +70,59 @@
 				<float n="1" type="double">2</float>
 			</generic>
 		</multiplay>
+        
+        <flight-recorder>
+            <replay-config type="int">0</replay-config>
+            <name type="string">A320neo Flight Recorder</name>
+            <config n="0" include="/Aircraft/Generic/flightrecorder/generic-jet.xml">
+                <signal>
+                    <type>bool</type>
+                    <property type="string">controls/electric/APU-generator</property>
+                </signal>
+                <signal>
+                    <type>bool</type>
+                    <property type="string">controls/electric/engine[0]/generator</property>
+                </signal>
+                <signal>
+                    <type>bool</type>
+                    <property type="string">controls/electric/engine[1]/generator</property>
+                </signal>
+                <signal>
+                    <type>bool</type>
+                    <property type="string">controls/APU/master-switch</property>
+                </signal>
+                <signal>
+                    <type>bool</type>
+                    <property type="string">controls/APU/starter</property>
+                </signal>
+                <signal>
+                    <type>bool</type>
+                    <property type="string">controls/electric/battery-switch</property>
+                </signal>
+                <signal>
+                    <type>bool</type>
+                    <property type="string">controls/electric/external-power</property>
+                </signal>
+                <signal>
+                    <type>bool</type>
+                    <property type="string">controls/engines/engine[0]/cutoff-switch</property>
+                </signal>
+                <signal>
+                    <type>bool</type>
+                    <property type="string">controls/engines/engine[1]/cutoff-switch</property>
+                </signal>
+                <signal>
+                    <type>float</type>
+                    <property type="string">controls/engines/engine-start-switch</property>
+                </signal>
+                <signal>
+                    <type>float</type>
+                    <property type="string">/velocities/groundspeed-kt</property>
+                </signal>
+            </config>
+
+
+        </flight-recorder>
 
 		<gui>
 			<style>
