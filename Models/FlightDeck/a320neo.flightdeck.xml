@@ -1717,6 +1717,31 @@
             <z>0</z>
         </axis>
     </animation>
+
+    <animation>
+                <type>pick</type>
+                <object-name>fd_button</object-name>
+                <action>
+                        <button>0</button>
+                        <repeatable type="bool">false</repeatable>
+                        <binding>
+                                <command>property-toggle</command>
+                                <property>flight-management/control/fd</property>
+                        </binding>
+                </action>
+    </animation>
+
+    <animation>
+                <type>textranslate</type>
+                <object-name>fd_button</object-name>
+                <property>flight-management/control/fd</property>
+                <factor>0.0625</factor>
+                <axis>
+                        <x>0</x>
+                        <y>1</y>
+                        <z>0</z>
+                </axis>
+        </animation>
     
     <!-- ILS and MLS Toggle Buttons -->
     

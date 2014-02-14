@@ -57,5 +57,61 @@
 			<u_max>0.5</u_max>
 		</config>
 	</pid-controller>
+    
+    <!-- Flight Director -->
+    
+    <pid-controller>
+		<name>FCU/FD Aileron Control</name>
+		<debug type="bool">false</debug>
+		<enable>
+			<prop>/servo-control/fd-aileron</prop>
+		</enable>
+		<input>
+			<prop>/orientation/roll-deg</prop>
+		</input>
+		<reference>
+			<prop>/servo-control/fd-target-bank</prop>
+		</reference>
+		<output>
+			<prop>/autopilot/internal/fd-bank</prop> <!-- This is basically the fbw input prop -->
+		</output>
+		<config>
+			<Kp>0.05</Kp>
+			<beta>1</beta>
+			<alpha>0.1</alpha>
+			<gamma>0</gamma>
+			<Ti>10</Ti>
+			<Td>0.00001</Td>
+			<u_min>-0.3</u_min>
+			<u_max>0.3</u_max>
+		</config>
+	</pid-controller>
+	
+	<pid-controller>
+		<name>FCU/FD Aileron NAV1 Control</name>
+		<debug type="bool">true</debug>
+		<enable>
+			<prop>/servo-control/fd-aileron-nav1</prop>
+		</enable>
+		<input>
+			<prop>/orientation/roll-deg</prop>
+		</input>
+		<reference>
+			<prop>/servo-control/fd-target-bank</prop>
+		</reference>
+		<output>
+			<prop>/autopilot/internal/fd-bank</prop> <!-- This is basically the fbw input prop -->
+		</output>
+		<config>
+			<Kp>0.1</Kp>
+			<beta>1</beta>
+			<alpha>0.1</alpha>
+			<gamma>0</gamma>
+			<Ti>10</Ti>
+			<Td>0.00001</Td>
+			<u_min>-0.5</u_min>
+			<u_max>0.5</u_max>
+		</config>
+	</pid-controller>
 
 </PropertyList>

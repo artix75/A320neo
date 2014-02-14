@@ -85,9 +85,19 @@ var fmgc_loop = {
             setprop(servo~ "elevator", 0);
             setprop(servo~ "target-pitch", 0);
             
+    		setprop(servo~ "fd-aileron", 0);
+            setprop(servo~ "fd-aileron-nav1", 0);
+            setprop(servo~ "fd-target-bank", 0);
+
+            #setprop(servo~ "fd-elevator-vs", 0);
+            #setprop(servo~ "fd-elevator-gs", 0);
+            #setprop(servo~ "fd-elevator", 0);
+            setprop(servo~ "fd-target-pitch", 0);
+
+    
             me.reset();
     },
-    	update : func {   	
+    update : func {   	
     	
     	var altitude = getprop("/instrumentation/altimeter/indicated-altitude-ft");
         var vmode_vs_fps = getprop('/velocities/vertical-speed-fps');
@@ -116,6 +126,12 @@ var fmgc_loop = {
         me.calc_td();
     	
     	# SET OFF IF NOT USED
+        
+        if (me.lat_ctrl != "fmgc") {
+
+            setprop("/flight-management/hold/init", 0);
+
+        }
     	
     	# Turn off rudder control when AP is off
     	
@@ -177,7 +193,23 @@ var fmgc_loop = {
     	
     	}
     	
-    	if ((me.ap1 == "eng") or (me.ap2 == "eng")) {
+        var apEngaged = ((me.ap1 == "eng") or (me.ap2 == "eng"));
+        var fdEngaged = getprop("flight-management/control/fd");
+        #print("FMGC Loop: AP Eng -> " ~ apEngaged);
+        if (!fdEngaged) {
+
+            setprop(servo~ "fd-aileron", 0);
+            setprop(servo~ "fd-aileron-nav1", 0);
+            setprop(servo~ "fd-target-bank", 0);
+
+            #setprop(servo~ "fd-elevator-vs", 0);
+            #setprop(servo~ "fd-elevator-gs", 0);
+            #setprop(servo~ "fd-elevator", 0);
+            setprop(servo~ "fd-target-pitch", 0);
+
+        }
+        
+    	if (apEngaged or fdEngaged) {
     	
     	## LATERAL CONTROL -----------------------------------------------------
     	
@@ -194,13 +226,21 @@ var fmgc_loop = {
     			var deflection = defl(bug, 180);
     			
     			
-    			setprop(servo~  "aileron", 1);
-    			setprop(servo~ "aileron-nav1", 0);
-    			
-    			if (math.abs(deflection) <= 1)
-    				setprop(servo~ "target-bank", 0);
-    			else
-    				setprop(servo~ "target-bank", bank);
+				if(apEngaged){
+                    setprop(servo~  "aileron", 1);
+                    setprop(servo~ "aileron-nav1", 0);
+
+                    if (math.abs(deflection) <= 1)
+                        setprop(servo~ "target-bank", 0);
+                    else
+                        setprop(servo~ "target-bank", bank);
+                }
+                setprop(servo~  "fd-aileron", 1);
+                setprop(servo~ "fd-aileron-nav1", 0);
+                if (math.abs(deflection) <= 1)
+                    setprop(servo~ "fd-target-bank", 0);
+                else
+                    setprop(servo~ "fd-target-bank", bank);
     		
     		} elsif (me.lat_mode == "nav1") {
     		
@@ -217,13 +257,17 @@ var fmgc_loop = {
     				setprop(servo~ "target-rudder", bank);	
     				
     			}
-    			
-    			setprop(servo~ "aileron", 0);
-    			
-    			setprop(servo~ "aileron-nav1", 1); 	
-    			
-    			setprop(servo~ "target-bank", bank);
-    		
+    			if(apEngaged){
+                    setprop(servo~ "aileron", 0);
+
+                    setprop(servo~ "aileron-nav1", 1); 	
+
+                    setprop(servo~ "target-bank", bank);
+                }
+                setprop(servo~ "fd-aileron", 0);
+
+                setprop(servo~ "fd-aileron-nav1", 1); 	
+                setprop(servo~ "fd-target-bank", bank);
     		} # else, this is handed over from fcu to fmgc
     	
     	}
@@ -242,30 +286,46 @@ var fmgc_loop = {
     		
     				var target = getprop(fcu~ "alt");
     			
-    				var trgt_vs = limit2((target - altitude) * 2, vs_setting);
-    				
-    				setprop(servo~ "target-vs", trgt_vs / 60);
-    				
-    				setprop(servo~ "elevator-vs", 1);
-    				
-    				setprop(servo~ "elevator", 0);
-    				
-    				setprop(servo~ "elevator-gs", 0);
-    				
+    				#var trgt_vs = limit2((target - altitude) * 2, vs_setting); OLD MODE
+                    
+                    var trgt_vs = 0;
+
+                    if (((altitude - target) * vs_setting) > 0) {
+
+                        trgt_vs = limit((target - altitude) * 2, 200);
+
+                    } else {
+
+                        trgt_vs = limit2((target - altitude) * 2, vs_setting);
+
+                    }
+                    if(apEngaged){
+                        setprop(servo~ "target-vs", trgt_vs / 60);
+
+                        setprop(servo~ "elevator-vs", 1);
+
+                        setprop(servo~ "elevator", 0);
+
+                        setprop(servo~ "elevator-gs", 0);
+                    }
+                    setprop(servo~ "fd-target-vs", trgt_vs / 60);
+                    setprop(servo~ "fd-target-pitch", (trgt_vs / 60) * 0.1);
     			} else {
     			
     				var target_alt = getprop(fcu~ "alt");
     				
     				var trgt_fpa = limit2((target_alt - altitude) * 2, fpa_setting);
+                    if(apEngaged){
     				
-    				setprop(servo~ "target-pitch", trgt_fpa);
-    				
-    				setprop(servo~ "elevator-vs", 0);
-    				
-    				setprop(servo~ "elevator", 1);
-    				
-    				setprop(servo~ "elevator-gs", 0);
-    			
+                        setprop(servo~ "target-pitch", trgt_fpa);
+
+                        setprop(servo~ "elevator-vs", 0);
+
+                        setprop(servo~ "elevator", 1);
+
+                        setprop(servo~ "elevator-gs", 0);
+                    }
+    				setprop(servo~ "fd-target-pitch", trgt_fpa);
     			}
     		
     		} elsif (me.ver_mode == "ils") {
@@ -279,25 +339,23 @@ var fmgc_loop = {
     			# if (agl > 100) {
     			
     			# Using 1000 ft for the early descent scenario
-    			
-    			if (agl > 1000) {
-    			
-    				setprop(servo~ "elevator-gs", 1);
-    				
-    				setprop(servo~ "elevator-vs", 0);
-    			
-    			} else {
-    			
-    				setprop(servo~ "elevator-gs", 0);
-    				
-    				setprop(servo~ "elevator-vs", 1);
-    			
-    			}
-    				
-    			setprop(servo~ "elevator", 0);
-    			
-    			
-    		    		
+    			if(apEngaged){
+                    if (agl > 1000) {
+
+                        setprop(servo~ "elevator-gs", 1);
+
+                        setprop(servo~ "elevator-vs", 0);
+
+                    } else {
+
+                        setprop(servo~ "elevator-gs", 0);
+
+                        setprop(servo~ "elevator-vs", 1);
+
+                    }
+                    setprop(servo~ "elevator", 0);
+                }
+
     		}
     	
     	} # End of Manual Setting Check
@@ -375,33 +433,88 @@ var fmgc_loop = {
     	
     	}
     	
-    	if ((me.ap1 == "eng") or (me.ap2 == "eng")) {
+    	if (apEngaged or fdEngaged) {
     	
     	## LATERAL CONTROL -----------------------------------------------------
     	
     	if (me.lat_ctrl == "fmgc") {
     	
     		# If A procedure's NOT being flown, we'll fly the active F-PLN
-    	
+                	
     		if (getprop("/flight-management/procedures/active") == "off") {
-    	
-    		var bug = getprop("/autopilot/internal/true-heading-error-deg");
-			
-			var accuracy = getprop(settings~ "gps-accur");
+                
+                if (((getprop("/flight-management/hold/wp_id") == getprop("/flight-management/current-wp")) or (getprop("/flight-management/hold/init") == 1)) and (getprop("/flight-management/hold/wp_id") != 0)){
+                    if (getprop("/flight-management/hold/init") != 1) {
 
-			var bank = 0; 
-			
-			if (accuracy == "HIGH")
-				bank = limit(bug, 25);
-			else
-				bank = limit(bug, 15);
-			
-			setprop(servo~  "aileron", 1);
-			
-			setprop(servo~ "aileron-nav1", 0);
-			
-			setprop(servo~ "target-bank", bank);
-			
+                        hold_pattern.init();
+
+                    } else {
+
+                        if (getprop("/flight-management/hold/phase") == 5) {
+
+                            hold_pattern.entry();
+
+                        } else {
+
+                            hold_pattern.transit();
+
+                        }	
+
+                        # Now, fly the actual hold
+
+                        var bug = getprop("/flight-management/hold/fly/course");
+
+                        var bank = -1 * defl(bug, 30);
+
+                        var deflection = defl(bug, 180);
+
+                        if(apEngaged){
+                            setprop(servo~  "aileron", 1);
+                            setprop(servo~ "aileron-nav1", 0);
+
+                            if (math.abs(deflection) <= 1)
+                                setprop(servo~ "target-bank", 0);
+                            else
+                                setprop(servo~ "target-bank", bank);
+                        }
+                        setprop(servo~  "fd-aileron", 1);
+                        setprop(servo~ "fd-aileron-nav1", 0);
+
+                        if (math.abs(deflection) <= 1)
+                            setprop(servo~ "fd-target-bank", 0);
+                        else
+                            setprop(servo~ "fd-target-bank", bank);							
+
+                    }
+                } else {
+                    setprop("/flight-management/hold/init", 0);
+                    
+                    var bug = getprop("/autopilot/internal/true-heading-error-deg");
+
+                    var accuracy = getprop(settings~ "gps-accur");
+
+                    var bank = 0; 
+
+                    if (accuracy == "HIGH")
+                        bank = limit(bug, 25);
+                    else
+                        bank = limit(bug, 15);
+
+                    if(apEngaged){
+                        setprop(servo~  "aileron", 1);
+
+                        setprop(servo~ "aileron-nav1", 0);
+
+                        setprop(servo~ "target-bank", bank);
+                    }
+                    setprop(servo~  "fd-aileron", 1);
+
+                    setprop(servo~ "fd-aileron-nav1", 0);
+
+                    setprop(servo~ "fd-target-bank", bank);
+                }
+    	
+
 			# Else, fly the respective procedures
 			
 			} else {
@@ -412,13 +525,20 @@ var fmgc_loop = {
 					
 					var bug = getprop("/flight-management/procedures/sid/course");
 					
-					var bank = -1 * defl(bug, 25);					
-					
-					setprop(servo~  "aileron", 1);
-					
-					setprop(servo~ "aileron-nav1", 0);
-					
-					setprop(servo~ "target-bank", bank);
+					var bank = -1 * defl(bug, 25);	
+                    
+					if(apEngaged){
+                        setprop(servo~  "aileron", 1);
+
+                        setprop(servo~ "aileron-nav1", 0);
+
+                        setprop(servo~ "target-bank", bank);
+                    }
+                    setprop(servo~  "fd-aileron", 1);
+
+                    setprop(servo~ "fd-aileron-nav1", 0);
+
+                    setprop(servo~ "fd-target-bank", bank);
 				
 				} elsif (getprop("/flight-management/procedures/active") == "star") {
 				
@@ -428,11 +548,18 @@ var fmgc_loop = {
 					
 					var bank = -1 * defl(bug, 25);					
 					
-					setprop(servo~  "aileron", 1);
-					
-					setprop(servo~ "aileron-nav1", 0);
-					
-					setprop(servo~ "target-bank", bank);
+                    if(apEngaged){
+                        setprop(servo~  "aileron", 1);
+
+                        setprop(servo~ "aileron-nav1", 0);
+
+                        setprop(servo~ "target-bank", bank);
+                    }
+                    setprop(servo~  "fd-aileron", 1);
+
+                    setprop(servo~ "fd-aileron-nav1", 0);
+
+                    setprop(servo~ "fd-target-bank", bank);
 				
 				} else {
 				
@@ -442,12 +569,18 @@ var fmgc_loop = {
 					
 					var bank = -1 * defl(bug, 28);					
 					
-					setprop(servo~  "aileron", 1);
-					
-					setprop(servo~ "aileron-nav1", 0);
-					
-					setprop(servo~ "target-bank", bank);
-				
+                    if(apEngaged){
+                        setprop(servo~  "aileron", 1);
+
+                        setprop(servo~ "aileron-nav1", 0);
+
+                        setprop(servo~ "target-bank", bank);
+                    }
+                    setprop(servo~  "fd-aileron", 1);
+
+                    setprop(servo~ "fd-aileron-nav1", 0);
+
+                    setprop(servo~ "fd-target-bank", bank);
 				}
 			
 			}
@@ -488,14 +621,17 @@ var fmgc_loop = {
 			
 			}
 			
-			setprop(servo~ "target-vs", final_vs);
-    				
-			setprop(servo~ "elevator-vs", 1);
-			
-			setprop(servo~ "elevator", 0);
-			
-			setprop(servo~ "elevator-gs", 0);
-		
+            if(apEngaged){
+                setprop(servo~ "target-vs", final_vs);
+
+                setprop(servo~ "elevator-vs", 1);
+
+                setprop(servo~ "elevator", 0);
+
+                setprop(servo~ "elevator-gs", 0);
+            }
+            setprop(servo~ "fd-target-vs", final_vs);
+            setprop(servo~ "fd-target-pitch", final_vs * 0.1);
 		}
 		
 		} # End of AP1 MASTER CHECK
