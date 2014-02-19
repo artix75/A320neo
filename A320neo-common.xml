@@ -76,6 +76,59 @@
             <name type="string">A320neo Flight Recorder</name>
             <config n="0" include="/Aircraft/Generic/flightrecorder/generic-jet.xml">
                 <signal>
+                    <type>float</type>
+                    <property type="string">/gear/gear[3]/rollspeed-ms</property>
+				</signal>
+				<signal>
+                    <type>float</type>
+                    <property type="string">/gear/gear[4]/rollspeed-ms</property>
+				</signal>
+				<signal>
+					<type>float</type>
+					<property type="string">/gear/compression/left/avg-ft</property>
+					<interpolation>linear</interpolation>
+				</signal>
+				<signal>
+					<type>float</type>
+					<property type="string">/gear/compression/right/avg-ft</property>
+					<interpolation>linear</interpolation>
+				</signal>
+				<signal>
+					<type>float</type>
+					<property type="string">/gear/tilt/left-tilt-deg</property>
+					<interpolation>linear</interpolation>
+				</signal>
+				<signal>
+					<type>float</type>
+					<property type="string">/gear/tilt/right-tilt-deg</property>
+					<interpolation>linear</interpolation>
+				</signal>
+				<signal>
+					<type>float</type>
+					<property type="string">/engines/engine[0]/reverser-pos-norm</property>
+					<interpolation>linear</interpolation>
+				</signal>
+				<signal>
+					<type>float</type>
+					<property type="string">/engines/engine[1]/reverser-pos-norm</property>
+					<interpolation>linear</interpolation>
+				</signal>
+                <signal>
+					<type>float</type>
+					<property type="string">/aircraft/tyresmoke/nose</property>
+					<interpolation>linear</interpolation>
+				</signal>
+				<signal>
+					<type>float</type>
+					<property type="string">/aircraft/tyresmoke/left</property>
+					<interpolation>linear</interpolation>
+				</signal>
+				<signal>
+					<type>float</type>
+					<property type="string">/aircraft/tyresmoke/right</property>
+					<interpolation>linear</interpolation>
+				</signal>
+                <signal>
                     <type>bool</type>
                     <property type="string">controls/electric/APU-generator</property>
                 </signal>
@@ -119,6 +172,51 @@
                     <type>float</type>
                     <property type="string">/velocities/groundspeed-kt</property>
                 </signal>
+                <signal>
+                    <type>bool</type>
+                    <property type="string">services/deicing_truck/enable</property>
+                </signal>
+                <signal>
+                    <type>bool</type>
+                    <property type="string">services/catering/enable</property>
+                </signal>
+                <signal>
+                    <type>bool</type>
+                    <property type="string">services/chokes/nose</property>
+                </signal>
+                <signal>
+                    <type>bool</type>
+                    <property type="string">services/chokes/left</property>
+                </signal>
+                <signal>
+                    <type>bool</type>
+                    <property type="string">services/chokes/right</property>
+                </signal>
+                <signal>
+                    <type>bool</type>
+                    <property type="string">services/ext-pwr/enable</property>
+                </signal>
+                <signal>
+                    <type>bool</type>
+                    <property type="string">services/baggage/enable</property>
+                </signal>
+                <signal>
+                    <type>bool</type>
+                    <property type="string">services/stairs/l1</property>
+                </signal>
+                <signal>
+                    <type>bool</type>
+                    <property type="string">services/stairs/l2</property>
+                </signal>
+                <signal>
+                    <type>bool</type>
+                    <property type="string">services/stairs/l4</property>
+                </signal>
+                <signal>
+                    <type>bool</type>
+                    <property type="string">services/stairs/cover</property>
+                </signal>
+
             </config>
 
 
@@ -286,6 +384,39 @@
 							<script>
 							 var failures = gui.Dialog.new("sim/gui/dialogs/failures/dialog", "Aircraft/A320neo/Systems/failures-dlg.xml");
 							 failures.open();
+							</script>
+						</binding>
+					</item>
+                    <item>
+						<name>fuel</name>
+						<label>Fuel Truck Controls</label>
+						<binding>
+							<command>nasal</command>
+							<script>
+                                var fuel = gui.Dialog.new("sim/gui/dialogs/fuel/dialog", "Aircraft/A320neo/Systems/fuel-truck.xml");
+                                fuel.open();
+							</script>
+						</binding>
+					</item>
+					<item>
+						<name>stairs</name>
+						<label>Stairways Controls</label>
+						<binding>
+							<command>nasal</command>
+							<script>
+                                var stair = gui.Dialog.new("sim/gui/dialogs/stairs/dialog", "Aircraft/A320neo/Systems/stairs.xml");
+                                stair.open();
+							</script>
+						</binding>
+					</item>
+					<item>
+						<name>gs</name>
+						<label>Ground Services</label>
+						<binding>
+							<command>nasal</command>
+							<script>
+                                var gs = gui.Dialog.new("sim/gui/dialogs/gs/dialog", "Aircraft/A320neo/Systems/ground-services-dlg.xml");
+                                gs.open();
 							</script>
 						</binding>
 					</item>
@@ -947,6 +1078,7 @@
 		<a320neo>
 			<file>Aircraft/Generic/limits.nas</file>
 			<file>Aircraft/A320neo/Nasal/copilot.nas</file>
+            <file>Aircraft/A320neo/Nasal/ground-services.nas</file>
 			<file>Aircraft/A320neo/Nasal/general_loop.nas</file>
 		</a320neo>
 		<systems>

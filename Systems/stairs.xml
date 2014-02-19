@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<PropertyList>
+
+	<name>stairs</name>
+	<layout>vbox</layout>
+
+	<text>
+		<label>Mobile Stairs Controls</label>
+	</text>
+
+	<hrule />
+		
+			<checkbox>
+				<label>Enable Rain Cover</label>
+				<property>services/stairs/cover</property>
+				<binding>
+					<command>dialog-apply</command>
+				</binding>
+				<live>true</live>
+			</checkbox>
+			
+			<group>
+				<layout>hbox</layout>
+		
+				<text>
+				    <halign>right</halign>
+				    <label>Paint: </label>
+				</text>
+				<combo>
+				    <halign>left</halign>
+				    <name>paint</name>
+								<pref-width>300</pref-width>
+		   						<pref-height>20</pref-height>
+				    <property>/services/stairs/paint-end</property>
+				    <editable>true</editable>
+				    <value>merlion.png</value>
+				    <value>malaysia.png</value>
+				    <value>emirates.png</value>
+				    <value>blue-shade.png</value>
+				    <value>blue-stripes.png</value>
+				    <value>dark-red.png</value>
+				    <value>green-orange.png</value>
+				    <value>blank.png</value>
+				    <binding>
+				        <command>dialog-apply</command>
+				    </binding>
+				    <binding>
+				    	<command>nasal</command>
+				    	<script>
+				    	
+				    		var aircraft_dir = getprop("/sim/aircraft-dir");
+				    		
+				    		setprop("/services/stairs/paint", aircraft_dir~ "/Models/Services/Stairs/" ~ getprop("/services/stairs/paint-end"));
+				    	
+				    	</script>
+				    </binding>
+				</combo>						
+			</group>
+			
+			<hrule />
+			
+			<checkbox>
+				<label>Enable L1 Stairway</label>
+				<property>services/stairs/l1</property>
+				<binding>
+					<command>dialog-apply</command>
+				</binding>
+				<live>true</live>
+			</checkbox>
+			
+			<checkbox>
+				<label>Enable L2 Stairway</label>
+				<property>services/stairs/l2</property>
+				<binding>
+					<command>dialog-apply</command>
+				</binding>
+				<live>true</live>
+			</checkbox>
+			
+			<checkbox>
+				<label>Enable L4 Stairway</label>
+				<property>services/stairs/l4</property>
+				<binding>
+					<command>dialog-apply</command>
+				</binding>
+				<live>true</live>
+			</checkbox>
+
+	<hrule />
+	
+	<group>
+	<layout>hbox</layout>
+
+		<button>
+			<legend>Close</legend>
+			<default>true</default>
+			<key>Esc</key>
+		<padding>5</padding>
+			<binding>
+				<command>dialog-apply</command>
+			</binding>
+			<binding>
+				<command>dialog-close</command>
+			</binding>
+		</button>
+		
+	</group>
+
+</PropertyList>
