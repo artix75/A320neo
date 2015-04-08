@@ -43,10 +43,11 @@
 		<type>select</type>
 		<object-name>spd-ias</object-name>
 		<condition>
-			<equals>
+			<!--equals>
 				<property>/flight-management/control/spd-mode</property>
 				<value>ias</value>
-			</equals>
+			</equals-->
+            <property>/instrumentation/pfd-old/enabled</property>
 		</condition>
 	</animation>
 	
@@ -54,10 +55,11 @@
 		<type>select</type>
 		<object-name>spd-mach</object-name>
 		<condition>
-			<equals>
+			<!--equals>
 				<property>/flight-management/control/spd-mode</property>
 				<value>mach</value>
-			</equals>
+			</equals-->
+            <property>/instrumentation/pfd-old/enabled</property>
 		</condition>
 	</animation>
 	
@@ -67,7 +69,7 @@
 		<type>select</type>
 		<object-name>gs_</object-name>
 		<condition>
-		<and>
+		<!--and>
 			<equals>
 				<property>/flight-management/control/ver-mode</property>
 				<value>ils</value>
@@ -76,7 +78,8 @@
 				<property>/flight-management/control/ver-ctrl</property>
 				<value>man-set</value>
 			</equals>
-		</and>
+		</and-->
+            <property>/instrumentation/pfd-old/enabled</property>
 		</condition>
 	</animation>
 	
@@ -84,12 +87,21 @@
 		<type>select</type>
 		<object-name>vnav</object-name>
 		<condition>
-			<equals>
+			<!--equals>
 				<property>/flight-management/control/ver-ctrl</property>
 				<value>fmgc</value>
-			</equals>
+			</equals-->
+            <property>/instrumentation/pfd-old/enabled</property>
 		</condition>
 	</animation>
+    
+    <animation>
+        <type>select</type>
+        <object-name>hold</object-name>
+        <condition>
+            <property>/instrumentation/pfd-old/enabled</property>
+        </condition>
+    </animation>
 	
 	<!--<animation>
 		<type>select</type>
@@ -137,20 +149,17 @@
 		<type>select</type>
 		<object-name>lvlch</object-name>
 		<condition>
-		<and>
-			<equals>
-				<property>/flight-management/flch_active</property>
-				<value>1</value>
-			</equals>
-			<equals>
-				<property>/flight-management/control/ver-mode</property>
-				<value>alt</value>
-			</equals>
-			<equals>
-				<property>/flight-management/control/ver-ctrl</property>
-				<value>man-set</value>
-			</equals>
-		</and>
+            <!--and>
+                <equals>
+                    <property>/flight-management/fcu/level_ch</property>
+                    <value>1</value>
+                </equals>
+                <equals>
+                    <property>/flight-management/control/ver-mode</property>
+                    <value>alt</value>
+                </equals>
+            </and-->
+            <property>/instrumentation/pfd-old/enabled</property>
 		</condition>
 	</animation>
 	
@@ -160,7 +169,7 @@
 		<type>select</type>
 		<object-name>loc_</object-name>
 		<condition>
-		<and>
+		<!--and>
 			<equals>
 				<property>/flight-management/control/lat-mode</property>
 				<value>nav1</value>
@@ -169,7 +178,8 @@
 				<property>/flight-management/control/lat-ctrl</property>
 				<value>man-set</value>
 			</equals>
-		</and>
+		</and-->
+            <property>/instrumentation/pfd-old/enabled</property>
 		</condition>
 	</animation>
 	
@@ -177,10 +187,11 @@
 		<type>select</type>
 		<object-name>lnav</object-name>
 		<condition>
-			<equals>
+			<!--equals>
 				<property>/flight-management/control/lat-ctrl</property>
 				<value>fmgc</value>
-			</equals>
+			</equals-->
+            <property>/instrumentation/pfd-old/enabled</property>
 		</condition>
 	</animation>
 
@@ -197,6 +208,7 @@
 				<property>/flight-management/control/lat-ctrl</property>
 				<value>man-set</value>
 			</equals>
+            <property>/instrumentation/pfd-old/enabled</property>
 		</and>
 		</condition>
 	</animation>
@@ -209,10 +221,11 @@
 		<type>select</type>
 		<object-name>ap1_</object-name>
 		<condition>
-			<equals>
+			<!--equals>
 				<property>/flight-management/control/ap1-master</property>
 				<value>eng</value>
-			</equals>
+			</equals-->
+            <property>/instrumentation/pfd-old/enabled</property>
 		</condition>
 	</animation>
 	
@@ -220,10 +233,11 @@
 		<type>select</type>
 		<object-name>ap2_</object-name>
 		<condition>
-			<equals>
+			<!--equals>
 				<property>/flight-management/control/ap2-master</property>
 				<value>eng</value>
-			</equals>
+			</equals-->
+            <property>/instrumentation/pfd-old/enabled</property>
 		</condition>
 	</animation>
 	
@@ -231,7 +245,7 @@
 		<type>select</type>
 		<object-name>ap</object-name>
 		<condition>
-		<or>
+		<!--or>
 			<equals>
 				<property>/flight-management/control/ap1-master</property>
 				<value>eng</value>
@@ -240,7 +254,8 @@
 				<property>/flight-management/control/ap2-master</property>
 				<value>eng</value>
 			</equals>
-		</or>
+		</or-->
+            <property>/instrumentation/pfd-old/enabled</property>
 		</condition>
 	</animation>
 	
@@ -248,13 +263,81 @@
 	
 	<animation>
 		<type>select</type>
-		<object-name>fd</object-name>
-		<object-name>fd_pitch</object-name>
+		<!--object-name>fd</object-name-->
 		<object-name>fd_roll</object-name>
 		<condition>
-			<property>/flight-management/control/fd</property>
+            <property>/flight-management/control/fd</property>
+            <not>
+                <property>/gear/gear/wow</property>
+            </not>
+            <not>
+                <property>/gear/gear[3]/wow</property>
+            </not>
+            <not>
+                <equals>
+                    <property>/flight-management/flight-modes/lateral/active</property>
+                    <value>RWY</value>
+                </equals>
+            </not>
+            <not>
+                <equals>
+                    <property>/flight-management/flight-modes/common/active</property>
+                    <value>ROLL OUT</value>
+                </equals>
+            </not>
+            <not>
+                <equals>
+                    <property>/flight-management/control/ver-sub</property>
+                    <value>fpa</value>
+                </equals>
+            </not>
 		</condition>
 	</animation>
+    
+    <animation>
+        <type>select</type>
+        <!--object-name>fd</object-name-->
+        <object-name>rudder_bar</object-name>
+        <condition>
+            <and>
+                <property>/flight-management/control/fd</property>
+                <property>/gear/gear[3]/wow</property>
+                <or>
+                    <equals>
+                        <property>/flight-management/flight-modes/lateral/active</property>
+                        <value>RWY</value>
+                    </equals>
+                    <equals>
+                        <property>/flight-management/flight-modes/common/active</property>
+                        <value>ROLL OUT</value>
+                    </equals>
+                </or>
+            </and> 
+        </condition>
+    </animation>
+
+    
+    <animation>
+        <type>select</type>
+        <object-name>fd_pitch</object-name>
+        <condition>
+            <and>
+                <property>/flight-management/control/fd</property>
+                <not>
+                    <property>/gear/gear/wow</property>
+                </not>
+                <not>
+                    <property>/gear/gear[3]/wow</property>
+                </not>
+                <not>
+                    <equals>
+                        <property>/flight-management/control/ver-sub</property>
+                        <value>fpa</value>
+                    </equals>
+                </not>
+            </and> 
+        </condition>
+    </animation>
 	
 	<!-- AUTO-THROTTLE -->
 	
@@ -262,10 +345,12 @@
 		<type>select</type>
 		<object-name>a-thr_</object-name>
 		<condition>
-			<equals>
+			<!--equals>
 				<property>/flight-management/control/a-thrust</property>
 				<value>eng</value>
-			</equals>
+                
+			</equals-->
+            <property>/instrumentation/pfd-old/enabled</property>
 		</condition>
 	</animation>
 	
@@ -321,13 +406,404 @@
     <animation>
     	<type>textranslate</type>
     	<object-name>spd-tape</object-name>
-    	<object-name>stall-tape</object-name>
+    	<!--object-name>stall-tape</object-name-->
+    	<!--object-name>trgt-spd</object-name-->
     	<property>instrumentation/airspeed-indicator/indicated-speed-kt</property>
     	<factor>0.002001953</factor>
     	<axis>
     		<y>1</y>
     	</axis>
     </animation>
+
+    <!-- Target Speed -->
+
+    <!--animation>
+    	<type>texmultiple</type>
+    	<object-name>trgt-spd-man</object-name>
+        <transform>
+            <subtype>textranslate</subtype>
+            <property>/flight-management/fcu-values/ias</property>
+            <factor>0.002001953</factor>
+            <axis>
+                    <y>-1</y>
+                    <x>0</x>
+                    <z>0</z>
+            </axis>
+        </transform>
+        <transform>
+            <subtype>textranslate</subtype>
+            <property>instrumentation/airspeed-indicator/indicated-speed-kt</property>
+            <factor>0.002001953</factor>
+            <axis>
+                    <y>1</y>
+                    <x>0</x>
+                    <z>0</z>
+            </axis>
+        </transform>
+    </animation-->
+    
+    <animation>
+    	<type>texmultiple</type>
+    	<object-name>trgt-spd-man</object-name>
+        <transform>
+            <subtype>textranslate</subtype>
+            <property>/flight-management/fcu-values/ias</property>
+            <factor>0.002001953</factor>
+            <axis>
+                <y>-1</y>
+                <x>0</x>
+                <z>0</z>
+            </axis>
+        </transform>
+        <transform>
+            <subtype>textranslate</subtype>
+            <property>instrumentation/airspeed-indicator/indicated-speed-kt</property>
+            <factor>0.002001953</factor>
+            <axis>
+                <y>1</y>
+                <x>0</x>
+                <z>0</z>
+            </axis>
+        </transform>
+    </animation>
+    
+    <animation>
+    	<type>texmultiple</type>
+    	<object-name>trgt-spd-mng</object-name>
+        <transform>
+            <subtype>textranslate</subtype>
+            <property>/instrumentation/pfd/target-spd</property>
+            <factor>0.002001953</factor>
+            <axis>
+                <y>-1</y>
+                <x>0</x>
+                <z>0</z>
+            </axis>
+        </transform>
+        <transform>
+            <subtype>textranslate</subtype>
+            <property>instrumentation/airspeed-indicator/indicated-speed-kt</property>
+            <factor>0.002001953</factor>
+            <axis>
+                <y>1</y>
+                <x>0</x>
+                <z>0</z>
+            </axis>
+        </transform>
+    </animation>
+    
+    <animation>
+        <type>texmultiple</type>
+        <object-name>green-dot-spd</object-name>
+        <transform>
+            <subtype>textranslate</subtype>
+            <property>instrumentation/pfd/green-dot-speed</property>
+            <factor>0.002001953</factor>
+            <axis>
+                <y>-1</y>
+                <x>0</x>
+                <z>0</z>
+            </axis>
+        </transform>
+        <transform>
+            <subtype>textranslate</subtype>
+            <property>instrumentation/airspeed-indicator/indicated-speed-kt</property>
+            <factor>0.002001953</factor>
+            <axis>
+                <y>1</y>
+                <x>0</x>
+                <z>0</z>
+            </axis>
+        </transform>
+    </animation>
+    
+    <animation>
+        <type>texmultiple</type>
+        <object-name>min-flaps</object-name>
+        <transform>
+            <subtype>textranslate</subtype>
+            <property>instrumentation/pfd/min-flaps-retract-speed</property>
+            <factor>0.002001953</factor>
+            <axis>
+                <y>-1</y>
+                <x>0</x>
+                <z>0</z>
+            </axis>
+        </transform>
+        <transform>
+            <subtype>textranslate</subtype>
+            <property>instrumentation/airspeed-indicator/indicated-speed-kt</property>
+            <factor>0.002001953</factor>
+            <axis>
+                <y>1</y>
+                <x>0</x>
+                <z>0</z>
+            </axis>
+        </transform>
+    </animation>
+    
+    <animation>
+        <type>texmultiple</type>
+        <object-name>max-flaps</object-name>
+        <transform>
+            <subtype>textranslate</subtype>
+            <property>instrumentation/pfd/max-flaps-extend-speed</property>
+            <factor>0.002001953</factor>
+            <axis>
+                <y>-1</y>
+                <x>0</x>
+                <z>0</z>
+            </axis>
+        </transform>
+        <transform>
+            <subtype>textranslate</subtype>
+            <property>instrumentation/airspeed-indicator/indicated-speed-kt</property>
+            <factor>0.002001953</factor>
+            <axis>
+                <y>1</y>
+                <x>0</x>
+                <z>0</z>
+            </axis>
+        </transform>
+    </animation>
+
+    <animation>
+        <type>texmultiple</type>
+        <object-name>v1-spd-indicator</object-name>
+        <transform>
+            <subtype>textranslate</subtype>
+            <property>/instrumentation/fmc/vspeeds/V1</property>
+            <factor>0.002001953</factor>
+            <axis>
+                <y>-1</y>
+                <x>0</x>
+                <z>0</z>
+            </axis>
+        </transform>
+        <transform>
+            <subtype>textranslate</subtype>
+            <property>instrumentation/airspeed-indicator/indicated-speed-kt</property>
+            <factor>0.002001953</factor>
+            <axis>
+                <y>1</y>
+                <x>0</x>
+                <z>0</z>
+            </axis>
+        </transform>
+    </animation>
+    
+    <!-- -->
+    
+    <animation>
+        <type>texmultiple</type>
+        <object-name>target-alt-sel</object-name>
+        <transform>
+            <subtype>textranslate</subtype>
+            <property>/flight-management/fcu-values/fcu-alt</property>
+            <factor>0.000019141</factor>
+            <axis>
+                <y>-1</y>
+                <x>0</x>
+                <z>0</z>
+            </axis>
+        </transform>
+        <transform>
+            <subtype>textranslate</subtype>
+            <property>instrumentation/altimeter/indicated-altitude-ft</property>
+            <factor>0.000019141</factor>
+            <axis>
+                <y>1</y>
+                <x>0</x>
+                <z>0</z>
+            </axis>
+        </transform>
+    </animation>
+
+    <animation>
+        <type>texmultiple</type>
+        <object-name>target-alt-mng</object-name>
+        <transform>
+            <subtype>textranslate</subtype>
+            <property>/flight-management/fmgc-values/vnav-target-alt</property>
+            <factor>0.000019141</factor>
+            <axis>
+                <y>-1</y>
+                <x>0</x>
+                <z>0</z>
+            </axis>
+        </transform>
+        <transform>
+            <subtype>textranslate</subtype>
+            <property>instrumentation/altimeter/indicated-altitude-ft</property>
+            <factor>0.000019141</factor>
+            <axis>
+                <y>1</y>
+                <x>0</x>
+                <z>0</z>
+            </axis>
+        </transform>
+    </animation>
+
+    <animation>
+    	<type>select</type>
+    	<object-name>trgt-spd-man</object-name>
+    	<property>instrumentation/airspeed-indicator/indicated-speed-kt</property>
+        <condition>
+            <and>
+                <equals>
+                    <property>/flight-management/control/spd-mode</property>
+                    <value>ias</value>
+                </equals>
+                <equals>
+                    <property>/flight-management/control/spd-ctrl</property>
+                    <value>man-set</value>
+                </equals>
+            </and>
+        </condition>
+    </animation>
+    
+    <animation>
+    	<type>select</type>
+    	<object-name>trgt-spd-mng</object-name>
+    	<property>instrumentation/airspeed-indicator/indicated-speed-kt</property>
+        <condition>
+            <and>
+                <equals>
+                    <property>/flight-management/control/spd-ctrl</property>
+                    <value>fmgc</value>
+                </equals>
+                <!--equals>
+                    <property>/flight-management/control/fmgc/ias</property>
+                    <value>1</value>
+                </equals-->
+                <equals>
+                    <property>/flight-management/control/spd-mode</property>
+                    <value>ias</value>
+                </equals>
+            </and>
+        </condition>
+    </animation>
+    
+    <animation>
+        <type>select</type>
+        <object-name>green-dot-spd</object-name>
+        <condition>
+            <and>
+                <greater-than>
+                    <property>instrumentation/pfd/green-dot-speed</property>
+                    <value>100</value>
+                </greater-than>
+                <equals>
+                    <property>controls/flight/flaps</property>
+                    <value>0</value>
+                </equals>
+            </and>
+        </condition>
+    </animation>
+    
+    <animation>
+        <type>select</type>
+        <object-name>max-flaps</object-name>
+        <condition>
+            <and>
+                <not>
+                    <property>gear/gear/wow</property>
+                </not>
+                <greater-than>
+                    <property>instrumentation/pfd/max-flaps-extend-speed</property>
+                    <value>0</value>
+                </greater-than>
+                <less-than>
+                    <property>controls/flight/flaps</property>
+                    <value>1</value>
+                </less-than>
+            </and>
+        </condition>
+    </animation>
+    
+    <animation>
+        <type>select</type>
+        <object-name>min-flaps</object-name>
+        <condition>
+            <and>
+                <not>
+                    <property>gear/gear/wow</property>
+                </not>
+                <greater-than>
+                    <property>instrumentation/pfd/min-flaps-retract-speed</property>
+                    <value>0</value>
+                </greater-than>
+                <greater-than>
+                    <property>controls/flight/flaps</property>
+                    <value>0</value>
+                </greater-than>
+            </and>
+        </condition>
+    </animation>
+    
+    <animation>
+        <type>select</type>
+        <object-name>v1-spd-indicator</object-name>
+        <condition>
+            <and>
+                <equals>
+                    <property>flight-management/phase</property>
+                    <value>T/O</value>
+                </equals>
+                <greater-than>
+                    <property>/instrumentation/fmc/vspeeds/V1</property>
+                    <value>0</value>
+                </greater-than>
+            </and>
+        </condition>
+    </animation>
+    
+    <animation>
+        <type>select</type>
+        <object-name>v1-spd</object-name>
+        <condition>
+            <and>
+                <equals>
+                    <property>flight-management/phase</property>
+                    <value>T/O</value>
+                </equals>
+                <greater-than>
+                    <property>/instrumentation/fmc/vspeeds/V1</property>
+                    <value>0</value>
+                </greater-than>
+                <greater-than>
+                    <property>instrumentation/pfd/v1-speed-diff</property>
+                    <value>70</value>
+                </greater-than>
+            </and>
+        </condition>
+    </animation>
+    
+    <animation>
+        <type>texmultiple</type>
+        <object-name>stall-tape</object-name>
+        <transform>
+            <property>/flight-management/fmgc-values/ind-stall-speed</property>
+            <subtype>textranslate</subtype>
+            <factor>0.002001953</factor>
+            <axis>
+                <x>0</x>
+                <y>-1</y>
+                <z>0</z>
+            </axis>
+        </transform>
+        <transform>
+            <subtype>textranslate</subtype>
+            <property>instrumentation/airspeed-indicator/indicated-speed-kt</property>
+            <factor>0.002001953</factor>
+            <axis>
+                <x>0</x>
+                <y>1</y>
+                <z>0</z>
+            </axis>
+        </transform>
+    </animation>
+
     
     <!-- Stall Speed Tape Select -->
     
@@ -386,6 +862,49 @@
     		<y>1</y>
     	</axis>
     </animation>
+
+	<animation>
+    	<type>texmultiple</type>
+    	<object-name>radar-alt</object-name>
+		<transform>
+        	<subtype>textranslate</subtype>
+            <property>instrumentation/altimeter/indicated-altitude-ft</property>
+            <factor>0.000019141</factor>
+            <axis>
+                <y>1</y>
+            </axis>
+        </transform>
+        <transform>
+            <subtype>textranslate</subtype>
+            <property>instrumentation/pfd/ground-level-diff</property>
+            <factor>0.000019141</factor>
+            <axis>
+                <y>1</y>
+            </axis>
+        </transform>
+    </animation>
+    
+    <animation>
+        <type>texmultiple</type>
+        <object-name>landing-elev</object-name>
+        <transform>
+            <subtype>textranslate</subtype>
+            <property>instrumentation/altimeter/indicated-altitude-ft</property>
+            <factor>0.000019141</factor>
+            <axis>
+                <y>1</y>
+            </axis>
+        </transform>
+        <transform>
+            <subtype>textranslate</subtype>
+            <property>autopilot/route-manager/destination/field-elevation-ft</property>
+            <factor>0.000019141</factor>
+            <axis>
+                <y>1</y>
+            </axis>
+        </transform>
+    </animation>
+    
     
     <animation>
     	<type>textranslate</type>
@@ -420,11 +939,196 @@
     <animation>
     	<type>textranslate</type>
     	<object-name>hdg-tape</object-name>
-    	<property>/orientation/heading-deg</property>
-    	<factor>0.002832031</factor>
+        <property>instrumentation/pfd/heading-deg</property>
+    	<factor>0.002783031</factor>
     	<axis>
     		<x>1</x>
     	</axis>
+    </animation>
+    
+    <!--animation>
+        <type>select</type>
+        <object-name>hdg-tape</object-name>
+        <condition>
+            <property>no-prop</property>
+        </condition>
+    </animation-->
+    
+    <animation>
+        <type>texmultiple</type>
+        <object-name>hdg-bug</object-name>
+        <transform>
+            <subtype>textranslate</subtype>
+            <property>/autopilot/settings/heading-bug-deg</property>
+            <factor>0.002783031</factor>
+            <axis>
+                <x>-1</x>
+            </axis>
+        </transform>
+        <transform>
+            <subtype>textranslate</subtype>
+            <property>instrumentation/pfd/heading-deg</property>
+            <factor>0.002783031</factor>
+            <axis>
+                <x>1</x>
+            </axis>
+        </transform>
+    </animation>
+    
+    <animation>
+        <type>select</type>
+        <object-name>hdg-bug</object-name>
+        <condition>
+            <equals>
+                <property>flight-management/control/lat-ctrl</property>
+                <value>man-set</value>
+            </equals>
+        </condition>
+    </animation>
+    
+    <animation>
+        <type>select</type>
+        <object-name>hdg-label-left</object-name>
+        <object-name>hdg-box-left</object-name>
+        <condition>
+            <and>
+                <equals>
+                    <property>flight-management/control/lat-ctrl</property>
+                    <value>man-set</value>
+                </equals>
+                <less-than>
+                    <property>instrumentation/pfd/hdg-diff</property>
+                    <value>-21</value>
+                </less-than>
+            </and>
+        </condition>
+    </animation>
+    
+    <animation>
+        <type>select</type>
+        <object-name>hdg-label-right</object-name>
+        <object-name>hdg-box-right</object-name>
+        <condition>
+            <and>
+                <equals>
+                    <property>flight-management/control/lat-ctrl</property>
+                    <value>man-set</value>
+                </equals>
+                <greater-than>
+                    <property>instrumentation/pfd/hdg-diff</property>
+                    <value>21</value>
+                </greater-than>
+            </and>
+        </condition>
+    </animation>
+    
+    <animation>
+        <type>texmultiple</type>
+        <object-name>trk-ind</object-name>
+        <transform>
+            <subtype>textranslate</subtype>
+            <property>instrumentation/pfd/track-deg</property>
+            <factor>0.002783031</factor>
+            <axis>
+                <x>-1</x>
+            </axis>
+        </transform>
+        <transform>
+            <subtype>textranslate</subtype>
+            <property>instrumentation/pfd/heading-deg</property>
+            <factor>0.002783031</factor>
+            <axis>
+                <x>1</x>
+            </axis>
+        </transform>
+    </animation>
+    
+    <animation>
+        <type>select</type>
+        <object-name>trk-ind</object-name>
+        <condition>
+            <greater-than>
+                <property>/velocities/groundspeed-kt</property>
+                <value>80</value>
+            </greater-than>
+        </condition>
+    </animation>
+    
+    <animation>
+        <type>texmultiple</type>
+        <object-name>loc-crs</object-name>
+        <transform>
+            <subtype>textranslate</subtype>
+            <property>/instrumentation/nav/radials/selected-deg</property>
+            <factor>0.002832031</factor>
+            <axis>
+                <x>-1</x>
+            </axis>
+        </transform>
+        <transform>
+            <subtype>textranslate</subtype>
+            <property>instrumentation/pfd/heading-deg</property>
+            <factor>0.002832031</factor>
+            <axis>
+                <x>1</x>
+            </axis>
+        </transform>
+    </animation>
+    
+    <animation>
+        <type>select</type>
+        <object-name>loc-crs</object-name>
+        <condition>
+            <property>/flight-management/freq/ils-mode</property>
+            <not>
+                <equals>
+                    <property>/instrumentation/nav/nav-id</property>
+                    <value></value>
+                </equals>
+            </not>
+        </condition>
+    </animation>
+    
+    <animation>
+        <type>select</type>
+        <object-name>loc-label-left</object-name>
+        <object-name>loc-box-left</object-name>
+        <condition>
+            <and>
+                <property>/flight-management/freq/ils-mode</property>
+                <not>
+                    <equals>
+                        <property>/instrumentation/nav/nav-id</property>
+                        <value></value>
+                    </equals>
+                </not>
+                <less-than>
+                    <property>instrumentation/pfd/loc-crs-diff</property>
+                    <value>-21</value>
+                </less-than>
+            </and>
+        </condition>
+    </animation>
+
+    <animation>
+        <type>select</type>
+        <object-name>loc-label-right</object-name>
+        <object-name>loc-box-right</object-name>
+        <condition>
+            <and>
+                <property>/flight-management/freq/ils-mode</property>
+                <not>
+                    <equals>
+                        <property>/instrumentation/nav/nav-id</property>
+                        <value></value>
+                    </equals>
+                </not>
+                <greater-than>
+                    <property>instrumentation/pfd/loc-crs-diff</property>
+                    <value>21</value>
+                </greater-than>
+            </and>
+        </condition>
     </animation>
     
     <!-- Glideslope pointer -->
@@ -502,7 +1206,7 @@
 		<offsets>
 			<x-m>0.0010</x-m>
 			<y-m>-0.069</y-m>
-			<z-m>-0.048</z-m>
+			<z-m>-0.052</z-m>
 		</offsets>
 		<alignment>left-center</alignment>
 		<axis-alignment>yz-plane</axis-alignment>
@@ -510,7 +1214,7 @@
 		<format type="string">%0.3f</format>
 		<property>/velocities/mach</property>
 		<truncate type="bool">false</truncate>
-		<font type="string">led.txf</font>
+        <font type="string">helvetica_bold.txf</font>
 		<draw-text type="bool">true</draw-text>
 		<draw-alignment type="bool">false</draw-alignment>
 		<draw-boundingbox type="bool">false</draw-boundingbox>
@@ -522,11 +1226,11 @@
 	</text>
     
     <text>
-		<name>osgtext-magenta</name>
+		<name>nav-id</name>
 		<offsets>
 			<x-m>0.0010</x-m>
 			<y-m>-0.069</y-m>
-			<z-m>-0.054</z-m>
+			<z-m>-0.058</z-m>
 		</offsets>
 		<alignment>left-center</alignment>
 		<axis-alignment>yz-plane</axis-alignment>
@@ -546,11 +1250,11 @@
 	</text>
 	
 	<text>
-		<name>osgtext-magenta</name>
+		<name>nav-frq</name>
 		<offsets>
 			<x-m>0.0010</x-m>
 			<y-m>-0.069</y-m>
-			<z-m>-0.06</z-m>
+			<z-m>-0.064</z-m>
 		</offsets>
 		<alignment>left-center</alignment>
 		<axis-alignment>yz-plane</axis-alignment>
@@ -570,11 +1274,11 @@
 	</text>
 	
 	<text>
-		<name>osgtext-magenta</name>
+		<name>nav-hdg</name>
 		<offsets>
 			<x-m>0.0010</x-m>
 			<y-m>-0.069</y-m>
-			<z-m>-0.066</z-m>
+			<z-m>-0.07</z-m>
 		</offsets>
 		<alignment>left-center</alignment>
 		<axis-alignment>yz-plane</axis-alignment>
@@ -596,11 +1300,11 @@
     <!-- ONH -->
 
 	<text>
-		<name>osgtext-cyan</name>
+        <name>qnh-indicator-inhg</name>
 		<offsets>
 			<x-m>0.0010</x-m>
 			<y-m>0.05</y-m>
-			<z-m>-0.049</z-m>
+			<z-m>-0.055</z-m>
 		</offsets>
 		<alignment>center-center</alignment>
 		<axis-alignment>yz-plane</axis-alignment>
@@ -618,13 +1322,61 @@
 			<height type="int">32</height>
 		</font-resolution>
 	</text>
+    
+    <text>
+        <name>qnh-indicator-hpa</name>
+        <offsets>
+            <x-m>0.0010</x-m>
+            <y-m>0.05</y-m>
+            <z-m>-0.055</z-m>
+        </offsets>
+        <alignment>center-center</alignment>
+        <axis-alignment>yz-plane</axis-alignment>
+        <type type="string">number-value</type>
+        <format type="string">%2.0f</format>
+        <property>instrumentation/altimeter/setting-hpa</property>
+        <truncate type="bool">false</truncate>
+        <font type="string">helvetica_bold.txf</font>
+        <draw-text type="bool">true</draw-text>
+        <draw-alignment type="bool">false</draw-alignment>
+        <draw-boundingbox type="bool">false</draw-boundingbox>
+        <character-size>0.006</character-size>
+        <font-resolution>
+            <width type="int">32</width>
+            <height type="int">32</height>
+        </font-resolution>
+    </text>
+    
+    <text>
+        <name>qnh-indicator-std</name>
+        <offsets>
+            <x-m>0.0010</x-m>
+            <y-m>0.05</y-m>
+            <z-m>-0.055</z-m>
+        </offsets>
+        <alignment>center-center</alignment>
+        <axis-alignment>yz-plane</axis-alignment>
+        <type type="string">text-value</type>
+        <format type="string">%s</format>
+        <property>/flight-management/text/qnh</property>
+        <truncate type="bool">false</truncate>
+        <font type="string">helvetica_bold.txf</font>
+        <draw-text type="bool">true</draw-text>
+        <draw-alignment type="bool">false</draw-alignment>
+        <draw-boundingbox type="bool">false</draw-boundingbox>
+        <character-size>0.006</character-size>
+        <font-resolution>
+            <width type="int">32</width>
+            <height type="int">32</height>
+        </font-resolution>
+    </text>
 
 	<text>
-		<name>osgtext-cyan</name>
+		<name>qnh-text</name>
 		<offsets>
 			<x-m>0.0010</x-m>
 			<y-m>0.05</y-m>
-			<z-m>-0.055</z-m>
+			<z-m>-0.061</z-m>
 		</offsets>
 		<alignment>center-center</alignment>
 		<axis-alignment>yz-plane</axis-alignment>
@@ -642,7 +1394,299 @@
 			<height type="int">32</height>
 		</font-resolution>
 	</text>
+    
+    <text>
+        <name>qnh-alert-box</name>
+        <offsets>
+            <x-m>0.0010</x-m>
+            <y-m>0.05</y-m>
+            <z-m>-0.055</z-m>
+        </offsets>
+        <alignment>center-center</alignment>
+        <axis-alignment>yz-plane</axis-alignment>
+        <type type="string">text-value</type>
+        <format type="string">%s</format>
+        <truncate type="bool">false</truncate>
+        <font type="string">helvetica_bold.txf</font>
+        <property>flight-management/text/qnh</property>
+        <draw-text type="bool">false</draw-text>
+        <draw-alignment type="bool">false</draw-alignment>
+        <draw-boundingbox type="bool">true</draw-boundingbox>
+        <character-size>0.008
+        </character-size>
+        <font-resolution>
+            <width type="int">32</width>
+            <height type="int">32</height>
+        </font-resolution>
+    </text>
+    
+    <text>
+        <name>inner-beacon-marker</name>
+        <offsets>
+            <x-m>0.0010</x-m>
+            <y-m>0.03</y-m>
+            <z-m>-0.040</z-m>
+        </offsets>
+        <alignment>center-center</alignment>
+        <axis-alignment>yz-plane</axis-alignment>
+        <type type="string">text-value</type>
+        <format type="string">%s</format>
+        <truncate type="bool">false</truncate>
+        <font type="string">helvetica_bold.txf</font>
+        <property>instrumentation/texts/im-beacon</property>
+        <draw-text type="bool">true</draw-text>
+        <draw-alignment type="bool">false</draw-alignment>
+        <draw-boundingbox type="bool">false</draw-boundingbox>
+        <character-size>0.005
+        </character-size>
+        <font-resolution>
+            <width type="int">32</width>
+            <height type="int">32</height>
+        </font-resolution>
+    </text>
+    
+    <text>
+        <name>middle-beacon-marker</name>
+        <offsets>
+            <x-m>0.0010</x-m>
+            <y-m>0.03</y-m>
+            <z-m>-0.040</z-m>
+        </offsets>
+        <alignment>center-center</alignment>
+        <axis-alignment>yz-plane</axis-alignment>
+        <type type="string">text-value</type>
+        <format type="string">%s</format>
+        <truncate type="bool">false</truncate>
+        <font type="string">helvetica_bold.txf</font>
+        <property>instrumentation/texts/mm-beacon</property>
+        <draw-text type="bool">true</draw-text>
+        <draw-alignment type="bool">false</draw-alignment>
+        <draw-boundingbox type="bool">false</draw-boundingbox>
+        <character-size>0.005
+        </character-size>
+        <font-resolution>
+            <width type="int">32</width>
+            <height type="int">32</height>
+        </font-resolution>
+    </text>
+    
+    <text>
+        <name>outer-beacon-marker</name>
+        <offsets>
+            <x-m>0.0010</x-m>
+            <y-m>0.03</y-m>
+            <z-m>-0.040</z-m>
+        </offsets>
+        <alignment>center-center</alignment>
+        <axis-alignment>yz-plane</axis-alignment>
+        <type type="string">text-value</type>
+        <format type="string">%s</format>
+        <truncate type="bool">false</truncate>
+        <font type="string">helvetica_bold.txf</font>
+        <property>instrumentation/texts/om-beacon</property>
+        <draw-text type="bool">true</draw-text>
+        <draw-alignment type="bool">false</draw-alignment>
+        <draw-boundingbox type="bool">false</draw-boundingbox>
+        <character-size>0.005
+        </character-size>
+        <font-resolution>
+            <width type="int">32</width>
+            <height type="int">32</height>
+        </font-resolution>
+    </text>
+    
+    <text>
+        <name>hdg-label-right</name>
+        <offsets>
+            <x-m>0.0010</x-m>
+            <y-m>0.03</y-m>
+            <z-m>-0.061</z-m>
+        </offsets>
+        <alignment>center-center</alignment>
+        <axis-alignment>yz-plane</axis-alignment>
+        <type type="string">number-value</type>
+        <format type="string">%3.0f</format>
+        <truncate type="bool">false</truncate>
+        <font type="string">helvetica_bold.txf</font>
+        <property>autopilot/settings/heading-bug-deg</property>
+        <draw-text type="bool">true</draw-text>
+        <draw-alignment type="bool">false</draw-alignment>
+        <draw-boundingbox type="bool">false</draw-boundingbox>
+        <character-size>0.005</character-size>
+        <font-resolution>
+            <width type="int">32</width>
+            <height type="int">32</height>
+        </font-resolution>
+    </text>
+    
+    <text>
+        <name>hdg-box-right</name>
+        <offsets>
+            <x-m>0.0010</x-m>
+            <y-m>0.03</y-m>
+            <z-m>-0.061</z-m>
+        </offsets>
+        <alignment>center-center</alignment>
+        <axis-alignment>yz-plane</axis-alignment>
+        <type type="string">number-value</type>
+        <format type="string">%3.0f</format>
+        <truncate type="bool">false</truncate>
+        <font type="string">helvetica_bold.txf</font>
+        <property>autopilot/settings/heading-bug-deg</property>
+        <draw-text type="bool">false</draw-text>
+        <draw-alignment type="bool">false</draw-alignment>
+        <draw-boundingbox type="bool">true</draw-boundingbox>
+        <character-size>0.0058</character-size>
+        <font-resolution>
+            <width type="int">32</width>
+            <height type="int">32</height>
+        </font-resolution>
+    </text>
+    
+    <text>
+        <name>hdg-label-left</name>
+        <offsets>
+            <x-m>0.0010</x-m>
+            <y-m>-0.04</y-m>
+            <z-m>-0.061</z-m>
+        </offsets>
+        <alignment>center-center</alignment>
+        <axis-alignment>yz-plane</axis-alignment>
+        <type type="string">number-value</type>
+        <format type="string">%3.0f</format>
+        <truncate type="bool">false</truncate>
+        <font type="string">helvetica_bold.txf</font>
+        <property>autopilot/settings/heading-bug-deg</property>
+        <draw-text type="bool">true</draw-text>
+        <draw-alignment type="bool">false</draw-alignment>
+        <draw-boundingbox type="bool">false</draw-boundingbox>
+        <character-size>0.005</character-size>
+        <font-resolution>
+            <width type="int">32</width>
+            <height type="int">32</height>
+        </font-resolution>
+    </text>
+
+    <text>
+        <name>hdg-box-left</name>
+        <offsets>
+            <x-m>0.0010</x-m>
+            <y-m>-0.04</y-m>
+            <z-m>-0.061</z-m>
+        </offsets>
+        <alignment>center-center</alignment>
+        <axis-alignment>yz-plane</axis-alignment>
+        <type type="string">number-value</type>
+        <format type="string">%3.0f</format>
+        <truncate type="bool">false</truncate>
+        <font type="string">helvetica_bold.txf</font>
+        <property>autopilot/settings/heading-bug-deg</property>
+        <draw-text type="bool">false</draw-text>
+        <draw-alignment type="bool">false</draw-alignment>
+        <draw-boundingbox type="bool">true</draw-boundingbox>
+        <character-size>0.0058</character-size>
+        <font-resolution>
+            <width type="int">32</width>
+            <height type="int">32</height>
+        </font-resolution>
+    </text>
 	
+    <text>
+        <name>loc-label-right</name>
+        <offsets>
+            <x-m>0.0230</x-m>
+            <y-m>0.03</y-m>
+            <z-m>-0.061</z-m>
+        </offsets>
+        <alignment>center-center</alignment>
+        <axis-alignment>yz-plane</axis-alignment>
+        <type type="string">number-value</type>
+        <format type="string">%3.0f</format>
+        <truncate type="bool">false</truncate>
+        <font type="string">helvetica_bold.txf</font>
+        <property>instrumentation/nav/radials/selected-deg</property>
+        <draw-text type="bool">true</draw-text>
+        <draw-alignment type="bool">false</draw-alignment>
+        <draw-boundingbox type="bool">false</draw-boundingbox>
+        <character-size>0.005</character-size>
+        <font-resolution>
+            <width type="int">32</width>
+            <height type="int">32</height>
+        </font-resolution>
+    </text>
+
+    <text>
+        <name>loc-box-right</name>
+        <offsets>
+            <x-m>0.0230</x-m>
+            <y-m>0.03</y-m>
+            <z-m>-0.061</z-m>
+        </offsets>
+        <alignment>center-center</alignment>
+        <axis-alignment>yz-plane</axis-alignment>
+        <type type="string">number-value</type>
+        <format type="string">%3.0f</format>
+        <truncate type="bool">false</truncate>
+        <font type="string">helvetica_bold.txf</font>
+        <property>instrumentation/nav/radials/selected-deg</property>
+        <draw-text type="bool">false</draw-text>
+        <draw-alignment type="bool">false</draw-alignment>
+        <draw-boundingbox type="bool">true</draw-boundingbox>
+        <character-size>0.0058</character-size>
+        <font-resolution>
+            <width type="int">32</width>
+            <height type="int">32</height>
+        </font-resolution>
+    </text>
+
+    <text>
+        <name>loc-label-left</name>
+        <offsets>
+            <x-m>0.0230</x-m>
+            <y-m>-0.04</y-m>
+            <z-m>-0.061</z-m>
+        </offsets>
+        <alignment>center-center</alignment>
+        <axis-alignment>yz-plane</axis-alignment>
+        <type type="string">number-value</type>
+        <format type="string">%3.0f</format>
+        <truncate type="bool">false</truncate>
+        <font type="string">helvetica_bold.txf</font>
+        <property>instrumentation/nav/radials/selected-deg</property>
+        <draw-text type="bool">true</draw-text>
+        <draw-alignment type="bool">false</draw-alignment>
+        <draw-boundingbox type="bool">false</draw-boundingbox>
+        <character-size>0.005</character-size>
+        <font-resolution>
+            <width type="int">32</width>
+            <height type="int">32</height>
+        </font-resolution>
+    </text>
+
+    <text>
+        <name>loc-box-left</name>
+        <offsets>
+            <x-m>0.0230</x-m>
+            <y-m>-0.04</y-m>
+            <z-m>-0.061</z-m>
+        </offsets>
+        <alignment>center-center</alignment>
+        <axis-alignment>yz-plane</axis-alignment>
+        <type type="string">number-value</type>
+        <format type="string">%3.0f</format>
+        <truncate type="bool">false</truncate>
+        <font type="string">helvetica_bold.txf</font>
+        <property>instrumentation/nav/radials/selected-deg</property>
+        <draw-text type="bool">false</draw-text>
+        <draw-alignment type="bool">false</draw-alignment>
+        <draw-boundingbox type="bool">true</draw-boundingbox>
+        <character-size>0.0058</character-size>
+        <font-resolution>
+            <width type="int">32</width>
+            <height type="int">32</height>
+        </font-resolution>
+    </text>
+    
 	<!-- Altitude -->
 	
 	<!-- Current Altitude 100s -->
@@ -696,11 +1740,85 @@
 			<height type="int">32</height>
 		</font-resolution>
 	</text>
+    
+    <text>
+        <name>radio-alt-land</name>
+        <offsets>
+            <x-m>0.0010</x-m>
+            <y-m>-0.0051</y-m>
+            <z-m>-0.0342</z-m>
+        </offsets>
+        <alignment>center-center</alignment>
+        <axis-alignment>yz-plane</axis-alignment>
+        <type type="string">number-value</type>
+        <format type="string">%4.0f</format>
+        <property>position/altitude-agl-ft</property>
+        <truncate type="bool">false</truncate>
+        <font type="string">helvetica_bold.txf</font>
+        <draw-text type="bool">true</draw-text>
+        <draw-alignment type="bool">false</draw-alignment>
+        <draw-boundingbox type="bool">false</draw-boundingbox>
+        <character-size>0.007</character-size>
+        <font-resolution>
+            <width type="int">32</width>
+            <height type="int">32</height>
+        </font-resolution>
+    </text>
 	
 	<!-- Manually Set Altitude -->
 	
 	<text>
-		<name>osgtext-cyan</name>
+		<name>man-alt</name>
+		<offsets>
+			<x-m>0.0010</x-m>
+			<y-m>0.0553</y-m>
+			<z-m>0.0462</z-m>
+		</offsets>
+		<alignment>right-center</alignment>
+		<axis-alignment>yz-plane</axis-alignment>
+		<type type="string">text-value</type>
+		<format type="string">%s</format>
+		<property>flight-management/fcu-values/alt-disp</property>
+		<truncate type="bool">false</truncate>
+		<font type="string">helvetica_bold.txf</font>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.006</character-size>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+    
+    <text>
+        <name>man-alt-lower</name>
+        <offsets>
+            <x-m>0.0010</x-m>
+            <y-m>0.0553</y-m>
+            <z-m>-0.0462</z-m>
+        </offsets>
+        <alignment>right-center</alignment>
+        <axis-alignment>yz-plane</axis-alignment>
+        <type type="string">text-value</type>
+        <format type="string">%s</format>
+        <property>flight-management/fcu-values/alt-disp</property>
+        <truncate type="bool">false</truncate>
+        <font type="string">helvetica_bold.txf</font>
+        <draw-text type="bool">true</draw-text>
+        <draw-alignment type="bool">false</draw-alignment>
+        <draw-boundingbox type="bool">false</draw-boundingbox>
+        <character-size>0.006</character-size>
+        <font-resolution>
+            <width type="int">32</width>
+            <height type="int">32</height>
+        </font-resolution>
+    </text>
+
+	<!-- FMGC Target Altitude -->
+	
+	<text>
+		<name>fmgc-alt</name>
 		<offsets>
 			<x-m>0.0010</x-m>
 			<y-m>0.0553</y-m>
@@ -710,13 +1828,330 @@
 		<axis-alignment>yz-plane</axis-alignment>
 		<type type="string">number-value</type>
 		<format type="string">%5.0f</format>
-		<property>flight-management/fcu-values/alt</property>
+		<property>/flight-management/fmgc-values/vnav-target-alt</property>
 		<truncate type="bool">false</truncate>
 		<font type="string">helvetica_bold.txf</font>
 		<draw-text type="bool">true</draw-text>
 		<draw-alignment type="bool">false</draw-alignment>
 		<draw-boundingbox type="bool">false</draw-boundingbox>
 		<character-size>0.006</character-size>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+    
+    <text>
+        <name>fmgc-alt-lower</name>
+        <offsets>
+            <x-m>0.0010</x-m>
+            <y-m>0.0553</y-m>
+            <z-m>-0.0462</z-m>
+        </offsets>
+        <alignment>right-center</alignment>
+        <axis-alignment>yz-plane</axis-alignment>
+        <type type="string">number-value</type>
+        <format type="string">%5.0f</format>
+        <property>/flight-management/fmgc-values/vnav-target-alt</property>
+        <truncate type="bool">false</truncate>
+        <font type="string">helvetica_bold.txf</font>
+        <draw-text type="bool">true</draw-text>
+        <draw-alignment type="bool">false</draw-alignment>
+        <draw-boundingbox type="bool">false</draw-boundingbox>
+        <character-size>0.006</character-size>
+        <font-resolution>
+            <width type="int">32</width>
+            <height type="int">32</height>
+        </font-resolution>
+    </text>
+    
+    <!-- Manually Set Speed -->
+
+    <text>
+        <name>man-spd</name>
+        <offsets>
+            <x-m>0.0010</x-m>
+            <y-m>-0.042</y-m>
+            <z-m>0.0462</z-m>
+        </offsets>
+        <alignment>right-center</alignment>
+        <axis-alignment>yz-plane</axis-alignment>
+        <type type="string">number-value</type>
+        <format type="string">%3.0f</format>
+        <property>/flight-management/fcu-values/ias</property>
+        <truncate type="bool">false</truncate>
+        <font type="string">helvetica_bold.txf</font>
+        <draw-text type="bool">true</draw-text>
+        <draw-alignment type="bool">false</draw-alignment>
+        <draw-boundingbox type="bool">false</draw-boundingbox>
+        <character-size>0.006</character-size>
+        <font-resolution>
+            <width type="int">32</width>
+            <height type="int">32</height>
+        </font-resolution>
+    </text>
+
+    <text>
+        <name>man-spd-lower</name>
+        <offsets>
+            <x-m>0.0010</x-m>
+            <y-m>-0.042</y-m>
+            <z-m>-0.0462</z-m>
+        </offsets>
+        <alignment>right-center</alignment>
+        <axis-alignment>yz-plane</axis-alignment>
+        <type type="string">number-value</type>
+        <format type="string">%5.0f</format>
+        <property>/flight-management/fcu-values/ias</property>
+        <truncate type="bool">false</truncate>
+        <font type="string">helvetica_bold.txf</font>
+        <draw-text type="bool">true</draw-text>
+        <draw-alignment type="bool">false</draw-alignment>
+        <draw-boundingbox type="bool">false</draw-boundingbox>
+        <character-size>0.006</character-size>
+        <font-resolution>
+            <width type="int">32</width>
+            <height type="int">32</height>
+        </font-resolution>
+    </text>
+    
+    <text>
+        <name>man-mach</name>
+        <offsets>
+            <x-m>0.0010</x-m>
+            <y-m>-0.042</y-m>
+            <z-m>0.0462</z-m>
+        </offsets>
+        <alignment>right-center</alignment>
+        <axis-alignment>yz-plane</axis-alignment>
+        <type type="string">number-value</type>
+        <format type="string">%1.2f</format>
+        <property>/flight-management/fcu-values/mach</property>
+        <truncate type="bool">false</truncate>
+        <font type="string">helvetica_bold.txf</font>
+        <draw-text type="bool">true</draw-text>
+        <draw-alignment type="bool">false</draw-alignment>
+        <draw-boundingbox type="bool">false</draw-boundingbox>
+        <character-size>0.006</character-size>
+        <font-resolution>
+            <width type="int">32</width>
+            <height type="int">32</height>
+        </font-resolution>
+    </text>
+
+    <text>
+        <name>man-mach-lower</name>
+        <offsets>
+            <x-m>0.0010</x-m>
+            <y-m>-0.042</y-m>
+            <z-m>-0.0462</z-m>
+        </offsets>
+        <alignment>right-center</alignment>
+        <axis-alignment>yz-plane</axis-alignment>
+        <type type="string">number-value</type>
+        <format type="string">%1.2f</format>
+        <property>/flight-management/fcu-values/mach</property>
+        <truncate type="bool">false</truncate>
+        <font type="string">helvetica_bold.txf</font>
+        <draw-text type="bool">true</draw-text>
+        <draw-alignment type="bool">false</draw-alignment>
+        <draw-boundingbox type="bool">false</draw-boundingbox>
+        <character-size>0.006</character-size>
+        <font-resolution>
+            <width type="int">32</width>
+            <height type="int">32</height>
+        </font-resolution>
+    </text>
+    
+    <!-- FMGC Speed -->
+
+    <text>
+        <name>fmgc-spd</name>
+        <offsets>
+            <x-m>0.0010</x-m>
+            <y-m>-0.042</y-m>
+            <z-m>0.0462</z-m>
+        </offsets>
+        <alignment>right-center</alignment>
+        <axis-alignment>yz-plane</axis-alignment>
+        <type type="string">number-value</type>
+        <format type="string">%3.0f</format>
+        <property>/instrumentation/pfd/target-spd</property>
+        <truncate type="bool">false</truncate>
+        <font type="string">helvetica_bold.txf</font>
+        <draw-text type="bool">true</draw-text>
+        <draw-alignment type="bool">false</draw-alignment>
+        <draw-boundingbox type="bool">false</draw-boundingbox>
+        <character-size>0.006</character-size>
+        <font-resolution>
+            <width type="int">32</width>
+            <height type="int">32</height>
+        </font-resolution>
+    </text>
+
+    <text>
+        <name>fmgc-spd-lower</name>
+        <offsets>
+            <x-m>0.0010</x-m>
+            <y-m>-0.042</y-m>
+            <z-m>-0.0462</z-m>
+        </offsets>
+        <alignment>right-center</alignment>
+        <axis-alignment>yz-plane</axis-alignment>
+        <type type="string">number-value</type>
+        <format type="string">%5.0f</format>
+        <property>/instrumentation/pfd/target-spd</property>
+        <truncate type="bool">false</truncate>
+        <font type="string">helvetica_bold.txf</font>
+        <draw-text type="bool">true</draw-text>
+        <draw-alignment type="bool">false</draw-alignment>
+        <draw-boundingbox type="bool">false</draw-boundingbox>
+        <character-size>0.006</character-size>
+        <font-resolution>
+            <width type="int">32</width>
+            <height type="int">32</height>
+        </font-resolution>
+    </text>
+    
+    <text>
+        <name>fmgc-mach</name>
+        <offsets>
+            <x-m>0.0010</x-m>
+            <y-m>-0.042</y-m>
+            <z-m>0.0462</z-m>
+        </offsets>
+        <alignment>right-center</alignment>
+        <axis-alignment>yz-plane</axis-alignment>
+        <type type="string">number-value</type>
+        <format type="string">%1.2f</format>
+        <property>/instrumentation/pfd/target-spd</property>
+        <truncate type="bool">false</truncate>
+        <font type="string">helvetica_bold.txf</font>
+        <draw-text type="bool">true</draw-text>
+        <draw-alignment type="bool">false</draw-alignment>
+        <draw-boundingbox type="bool">false</draw-boundingbox>
+        <character-size>0.006</character-size>
+        <font-resolution>
+            <width type="int">32</width>
+            <height type="int">32</height>
+        </font-resolution>
+    </text>
+
+    <text>
+        <name>fmgc-mach-lower</name>
+        <offsets>
+            <x-m>0.0010</x-m>
+            <y-m>-0.042</y-m>
+            <z-m>-0.0462</z-m>
+        </offsets>
+        <alignment>right-center</alignment>
+        <axis-alignment>yz-plane</axis-alignment>
+        <type type="string">number-value</type>
+        <format type="string">%1.2f</format>
+        <property>/instrumentation/pfd/target-spd</property>
+        <truncate type="bool">false</truncate>
+        <font type="string">helvetica_bold.txf</font>
+        <draw-text type="bool">true</draw-text>
+        <draw-alignment type="bool">false</draw-alignment>
+        <draw-boundingbox type="bool">false</draw-boundingbox>
+        <character-size>0.006</character-size>
+        <font-resolution>
+            <width type="int">32</width>
+            <height type="int">32</height>
+        </font-resolution>
+    </text>
+    
+    <text>
+        <name>spd-sel-alert</name>
+        <offsets>
+            <x-m>0.0010</x-m>
+            <y-m>-0.056</y-m>
+            <z-m>0.0462</z-m>
+        </offsets>
+        <alignment>right-center</alignment>
+        <axis-alignment>yz-plane</axis-alignment>
+        <type type="string">literal</type>
+        <text type="string">SPD SEL</text>
+        <font type="string">helvetica_bold.txf</font>
+        <draw-text type="bool">true</draw-text>
+        <draw-alignment type="bool">false</draw-alignment>
+        <draw-boundingbox type="bool">false</draw-boundingbox>
+        <character-size>0.005</character-size>
+        <font-resolution>
+            <width type="int">32</width>
+            <height type="int">32</height>
+        </font-resolution>
+    </text>
+    
+    <text>
+        <name>v1-spd</name>
+        <offsets>
+            <x-m>0.0010</x-m>
+            <y-m>-0.041</y-m>
+            <z-m>0.0402</z-m>
+        </offsets>
+        <alignment>right-center</alignment>
+        <axis-alignment>yz-plane</axis-alignment>
+        <type type="string">number-value</type>
+        <format type="string">%3.0f</format>
+        <property>/instrumentation/fmc/vspeeds/V1</property>
+        <truncate type="bool">false</truncate>
+        <font type="string">helvetica_bold.txf</font>
+        <draw-text type="bool">true</draw-text>
+        <draw-alignment type="bool">false</draw-alignment>
+        <draw-boundingbox type="bool">false</draw-boundingbox>
+        <character-size>0.005</character-size>
+        <font-resolution>
+            <width type="int">32</width>
+            <height type="int">32</height>
+        </font-resolution>
+    </text>
+
+
+    <!-- VS LABELS -->
+
+	<text>
+		<name>vs-up</name>
+		<offsets>
+			<x-m>0.0020</x-m>
+			<y-m>0.0733</y-m>
+			<z-m>0.0392</z-m>
+		</offsets>
+		<alignment>right-center</alignment>
+		<axis-alignment>yz-plane</axis-alignment>
+		<type type="string">number-value</type>
+		<format type="string">%2.0f</format>
+		<property>/instrumentation/pfd/vs-100</property>
+		<truncate type="bool">false</truncate>
+		<font type="string">helvetica_bold.txf</font>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.0055</character-size>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+
+	<text>
+		<name>vs-down</name>
+		<offsets>
+			<x-m>0.0020</x-m>
+			<y-m>0.0733</y-m>
+			<z-m>-0.0392</z-m>
+		</offsets>
+		<alignment>right-center</alignment>
+		<axis-alignment>yz-plane</axis-alignment>
+		<type type="string">number-value</type>
+		<format type="string">%2.0f</format>
+		<property>/instrumentation/pfd/vs-100</property>
+		<truncate type="bool">false</truncate>
+		<font type="string">helvetica_bold.txf</font>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.0055</character-size>
 		<font-resolution>
 			<width type="int">32</width>
 			<height type="int">32</height>
@@ -729,18 +2164,1192 @@
         <type>select</type>
         <object-name>radio-alt</object-name>
         <condition>
-        	<less-than>
-            	<property>position/altitude-agl-ft</property>
-            	<value>3000</value>
+        	<and>
+                <less-than>
+                    <property>position/altitude-agl-ft</property>
+                    <value>3000</value>
+                </less-than>
+                <greater-than>
+                    <property>position/altitude-agl-ft</property>
+                    <value>400</value>
+                </greater-than>
+            </and>
+        </condition>
+    </animation>
+    
+
+    <animation>
+        <type>select</type>
+        <object-name>radio-alt-land</object-name>
+        <condition>
+            <less-than-equals>
+                <property>position/altitude-agl-ft</property>
+                <value>400</value>
+            </less-than-equals>
+        </condition>
+    </animation>
+    
+    <animation>
+        <type>select</type>
+        <object-name>radar-alt</object-name>
+        <condition>
+            <less-than>
+                <property>position/altitude-agl-ft</property>
+                <value>3000</value>
             </less-than>
         </condition>
     </animation>
+    
+    
+    
+    <animation>
+        <type>select</type>
+        <object-name>landing-elev</object-name>
+        <condition>
+            <and>
+                <equals>
+                    <property>flight-management/phase</property>
+                    <value>APP</value>
+                </equals>
+                <or>
+                    <not>
+                        <equals>
+                            <property>autopilot/route-manager/destination/airport</property>
+                            <value></value>
+                        </equals>
+                    </not>
+                    <not>
+                        <equals>
+                            <property>autopilot/route-manager/destination/runway</property>
+                            <value></value>
+                        </equals>
+                    </not>
+                </or>
+            </and>
+        </condition>
+    </animation>
+    
+    <!-- FMA separators -->
+    
+    <text>
+        <name>upper-black-separator</name>
+        <offsets>
+            <x-m>0.00090828</x-m>
+            <y-m>-0.0052</y-m>
+            <z-m>0.0680781</z-m>
+        </offsets>
+        <alignment>center-center</alignment>
+        <axis-alignment>yz-plane</axis-alignment>
+        <type type="string">text-value</type>
+        <format type="string">%s</format>
+        <truncate type="bool">false</truncate>
+        <font type="string">helvetica_medium.txf</font>
+        <property>/instrumentation/texts/sep-string</property>
+        <draw-text type="bool">true</draw-text>
+        <draw-alignment type="bool">false</draw-alignment>
+        <draw-boundingbox type="bool">true</draw-boundingbox>
+        <character-size>0.008</character-size>
+        <font-resolution>
+            <width type="int">32</width>
+            <height type="int">32</height>
+        </font-resolution>
+    </text>
+
+    <text>
+        <name>middle-black-separator</name>
+        <offsets>
+            <x-m>0.00090828</x-m>
+            <y-m>-0.0052</y-m>
+            <z-m>0.0605781</z-m>
+        </offsets>
+        <alignment>center-center</alignment>
+        <axis-alignment>yz-plane</axis-alignment>
+        <type type="string">text-value</type>
+        <format type="string">%s</format>
+        <truncate type="bool">false</truncate>
+        <font type="string">helvetica_medium.txf</font>
+        <property>/instrumentation/texts/sep-string</property>
+        <draw-text type="bool">true</draw-text>
+        <draw-alignment type="bool">false</draw-alignment>
+        <draw-boundingbox type="bool">true</draw-boundingbox>
+        <character-size>0.008</character-size>
+        <font-resolution>
+            <width type="int">32</width>
+            <height type="int">32</height>
+        </font-resolution>
+    </text>
+
+    <text>
+        <name>lower-black-separator</name>
+        <offsets>
+            <x-m>0.00090828</x-m>
+            <y-m>-0.0052</y-m>
+            <z-m>0.0531781</z-m>
+        </offsets>
+        <alignment>center-center</alignment>
+        <axis-alignment>yz-plane</axis-alignment>
+        <type type="string">text-value</type>
+        <format type="string">%s</format>
+        <truncate type="bool">false</truncate>
+        <font type="string">helvetica_medium.txf</font>
+        <property>/instrumentation/texts/sep-string</property>
+        <draw-text type="bool">true</draw-text>
+        <draw-alignment type="bool">false</draw-alignment>
+        <draw-boundingbox type="bool">true</draw-boundingbox>
+        <character-size>0.008</character-size>
+        <font-resolution>
+            <width type="int">32</width>
+            <height type="int">32</height>
+        </font-resolution>
+    </text>
+    
+    <!-- FMGC Modes -->
+    
+    <text>
+        <name>athr-active-mode</name>
+        <offsets>
+            <x-m>0.00091828</x-m>
+            <y-m>-0.0606226</y-m>
+            <z-m>0.0680781</z-m>
+        </offsets>
+        <alignment>center-center</alignment>
+        <axis-alignment>yz-plane</axis-alignment>
+        <type type="string">text-value</type>
+        <format type="string">%s</format>
+        <truncate type="bool">false</truncate>
+        <font type="string">helvetica_medium.txf</font>
+        <property>/flight-management/flight-modes/athr/active</property>
+        <draw-text type="bool">true</draw-text>
+        <draw-alignment type="bool">false</draw-alignment>
+        <draw-boundingbox type="bool">false</draw-boundingbox>
+        <character-size>0.0055</character-size>
+        <font-resolution>
+            <width type="int">32</width>
+            <height type="int">32</height>
+        </font-resolution>
+    </text>
+    
+    <text>
+        <name>athr-armed-mode</name>
+        <offsets>
+            <x-m>0.00091828</x-m>
+            <y-m>-0.0686226</y-m>
+            <z-m>0.0703781</z-m>
+        </offsets>
+        <alignment>left-top</alignment>
+        <axis-alignment>yz-plane</axis-alignment>
+        <type type="string">text-value</type>
+        <format type="string">%s</format>
+        <truncate type="bool">false</truncate>
+        <font type="string">helvetica_medium.txf</font>
+        <property>/flight-management/flight-modes/athr/armed</property>
+        <draw-text type="bool">true</draw-text>
+        <draw-alignment type="bool">false</draw-alignment>
+        <draw-boundingbox type="bool">false</draw-boundingbox>
+        <character-size>0.0055</character-size>
+        <font-resolution>
+            <width type="int">32</width>
+            <height type="int">32</height>
+        </font-resolution>
+    </text>
+    
+    <text>
+        <name>athr-flx-to-temp</name>
+        <offsets>
+            <x-m>0.00091828</x-m>
+            <y-m>-0.0566226</y-m>
+            <z-m>0.0645781</z-m>
+        </offsets>
+        <alignment>left-top</alignment>
+        <axis-alignment>yz-plane</axis-alignment>
+        <type type="string">text-value</type>
+        <format type="string">%s</format>
+        <truncate type="bool">false</truncate>
+        <font type="string">helvetica_medium.txf</font>
+        <property>/instrumentation/fmc/flex-to-temp</property>
+        <draw-text type="bool">true</draw-text>
+        <draw-alignment type="bool">false</draw-alignment>
+        <draw-boundingbox type="bool">false</draw-boundingbox>
+        <character-size>0.0055</character-size>
+        <font-resolution>
+            <width type="int">32</width>
+            <height type="int">32</height>
+        </font-resolution>
+    </text>
+    
+    <text>
+        <name>athr-fma-msg</name>
+        <offsets>
+            <x-m>0.00091828</x-m>
+            <y-m>-0.0606226</y-m>
+            <z-m>0.0531781</z-m>
+        </offsets>
+        <alignment>center-center</alignment>
+        <axis-alignment>yz-plane</axis-alignment>
+        <type type="string">text-value</type>
+        <format type="string">%s</format>
+        <truncate type="bool">false</truncate>
+        <font type="string">helvetica_medium.txf</font>
+        <property>/flight-management/flight-modes/athr/msg</property>
+        <draw-text type="bool">true</draw-text>
+        <draw-alignment type="bool">false</draw-alignment>
+        <draw-boundingbox type="bool">false</draw-boundingbox>
+        <character-size>0.0055</character-size>
+        <font-resolution>
+            <width type="int">32</width>
+            <height type="int">32</height>
+        </font-resolution>
+    </text>
+    
+    <text>
+        <name>athr-fma-alert</name>
+        <offsets>
+            <x-m>0.00091828</x-m>
+            <y-m>-0.0606226</y-m>
+            <z-m>0.0680781</z-m>
+        </offsets>
+        <alignment>center-center</alignment>
+        <axis-alignment>yz-plane</axis-alignment>
+        <type type="string">text-value</type>
+        <format type="string">%s</format>
+        <truncate type="bool">false</truncate>
+        <font type="string">helvetica_medium.txf</font>
+        <property>/flight-management/flight-modes/athr/alert</property>
+        <draw-text type="bool">true</draw-text>
+        <draw-alignment type="bool">false</draw-alignment>
+        <draw-boundingbox type="bool">false</draw-boundingbox>
+        <character-size>0.0055</character-size>
+        <font-resolution>
+            <width type="int">32</width>
+            <height type="int">32</height>
+        </font-resolution>
+    </text>
+    
+    <text>
+        <name>ver-active-mode</name>
+        <offsets>
+            <x-m>0.00091828</x-m>
+            <y-m>-0.0206226</y-m>
+            <z-m>0.0680781</z-m>
+        </offsets>
+        <alignment>center-center</alignment>
+        <axis-alignment>yz-plane</axis-alignment>
+        <type type="string">text-value</type>
+        <format type="string">%s</format>
+        <truncate type="bool">false</truncate>
+        <font type="string">helvetica_medium.txf</font>
+        <property>/flight-management/flight-modes/vertical/active</property>
+        <draw-text type="bool">true</draw-text>
+        <draw-alignment type="bool">false</draw-alignment>
+        <draw-boundingbox type="bool">false</draw-boundingbox>
+        <character-size>0.0055</character-size>
+        <font-resolution>
+            <width type="int">32</width>
+            <height type="int">32</height>
+        </font-resolution>
+    </text>
+    
+    <text>
+        <name>ver-active-mode-left</name>
+        <offsets>
+            <x-m>0.00091828</x-m>
+            <y-m>-0.0218226</y-m>
+            <z-m>0.0680781</z-m>
+        </offsets>
+        <alignment>right-center</alignment>
+        <axis-alignment>yz-plane</axis-alignment>
+        <type type="string">text-value</type>
+        <format type="string">%s</format>
+        <truncate type="bool">false</truncate>
+        <font type="string">helvetica_medium.txf</font>
+        <property>/flight-management/flight-modes/vertical/active</property>
+        <draw-text type="bool">true</draw-text>
+        <draw-alignment type="bool">false</draw-alignment>
+        <draw-boundingbox type="bool">false</draw-boundingbox>
+        <character-size>0.0055</character-size>
+        <font-resolution>
+            <width type="int">32</width>
+            <height type="int">32</height>
+        </font-resolution>
+    </text>
+
+    <text>
+        <name>ver-armed-mode</name>
+        <offsets>
+            <x-m>0.00091828</x-m>
+            <y-m>-0.0206226</y-m>
+            <z-m>0.0605781</z-m>
+        </offsets>
+        <alignment>center-center</alignment>
+        <axis-alignment>yz-plane</axis-alignment>
+        <type type="string">text-value</type>
+        <format type="string">%s</format>
+        <truncate type="bool">false</truncate>
+        <font type="string">helvetica_medium.txf</font>
+        <property>/instrumentation/pfd/ver-armed-mode</property>
+        <draw-text type="bool">true</draw-text>
+        <draw-alignment type="bool">false</draw-alignment>
+        <draw-boundingbox type="bool">false</draw-boundingbox>
+        <character-size>0.0055</character-size>
+        <font-resolution>
+            <width type="int">32</width>
+            <height type="int">32</height>
+        </font-resolution>
+    </text>
+    
+    <text>
+        <name>ver-armed-mode-left</name>
+        <offsets>
+            <x-m>0.00091828</x-m>
+            <y-m>-0.0226226</y-m>
+            <z-m>0.0605781</z-m>
+        </offsets>
+        <alignment>right-center</alignment>
+        <axis-alignment>yz-plane</axis-alignment>
+        <type type="string">text-value</type>
+        <format type="string">%s</format>
+        <truncate type="bool">false</truncate>
+        <font type="string">helvetica_medium.txf</font>
+        <property>/instrumentation/pfd/ver-armed-mode-l</property>
+        <draw-text type="bool">true</draw-text>
+        <draw-alignment type="bool">false</draw-alignment>
+        <draw-boundingbox type="bool">false</draw-boundingbox>
+        <character-size>0.0055</character-size>
+        <font-resolution>
+            <width type="int">32</width>
+            <height type="int">32</height>
+        </font-resolution>
+    </text>
+    
+    <text>
+        <name>ver-armed-fmgc</name>
+        <offsets>
+            <x-m>0.00091828</x-m>
+            <y-m>-0.0226226</y-m>
+            <z-m>0.0605781</z-m>
+        </offsets>
+        <alignment>right-center</alignment>
+        <axis-alignment>yz-plane</axis-alignment>
+        <type type="string">text-value</type>
+        <format type="string">%s</format>
+        <truncate type="bool">false</truncate>
+        <font type="string">helvetica_medium.txf</font>
+        <property>/instrumentation/pfd/ver-armed-mode-l</property>
+        <draw-text type="bool">true</draw-text>
+        <draw-alignment type="bool">false</draw-alignment>
+        <draw-boundingbox type="bool">false</draw-boundingbox>
+        <character-size>0.0055</character-size>
+        <font-resolution>
+            <width type="int">32</width>
+            <height type="int">32</height>
+        </font-resolution>
+    </text>
+    
+    <text>
+        <name>ver-armed-mode-right</name>
+        <offsets>
+            <x-m>0.00091828</x-m>
+            <y-m>-0.0206226</y-m>
+            <z-m>0.0605781</z-m>
+        </offsets>
+        <alignment>left-center</alignment>
+        <axis-alignment>yz-plane</axis-alignment>
+        <type type="string">text-value</type>
+        <format type="string">%s</format>
+        <truncate type="bool">false</truncate>
+        <font type="string">helvetica_medium.txf</font>
+        <property>/instrumentation/pfd/ver-armed-mode-r</property>
+        <draw-text type="bool">true</draw-text>
+        <draw-alignment type="bool">false</draw-alignment>
+        <draw-boundingbox type="bool">false</draw-boundingbox>
+        <character-size>0.0055</character-size>
+        <font-resolution>
+            <width type="int">32</width>
+            <height type="int">32</height>
+        </font-resolution>
+    </text>
+    
+    <text>
+        <name>lat-active-mode</name>
+        <offsets>
+            <x-m>0.00091828</x-m>
+            <y-m>0.0106226</y-m>
+            <z-m>0.0680781</z-m>
+        </offsets>
+        <alignment>center-center</alignment>
+        <axis-alignment>yz-plane</axis-alignment>
+        <type type="string">text-value</type>
+        <format type="string">%s</format>
+        <truncate type="bool">false</truncate>
+        <font type="string">helvetica_medium.txf</font>
+        <property>/flight-management/flight-modes/lateral/active</property>
+        <draw-text type="bool">true</draw-text>
+        <draw-alignment type="bool">false</draw-alignment>
+        <draw-boundingbox type="bool">false</draw-boundingbox>
+        <character-size>0.0055</character-size>
+        <font-resolution>
+            <width type="int">32</width>
+            <height type="int">32</height>
+        </font-resolution>
+    </text>
+
+    <text>
+        <name>lat-armed-mode</name>
+        <offsets>
+            <x-m>0.00091828</x-m>
+            <y-m>0.0106226</y-m>
+            <z-m>0.0605781</z-m>
+        </offsets>
+        <alignment>center-center</alignment>
+        <axis-alignment>yz-plane</axis-alignment>
+        <type type="string">text-value</type>
+        <format type="string">%s</format>
+        <truncate type="bool">false</truncate>
+        <font type="string">helvetica_medium.txf</font>
+        <property>/flight-management/flight-modes/lateral/armed</property>
+        <draw-text type="bool">true</draw-text>
+        <draw-alignment type="bool">false</draw-alignment>
+        <draw-boundingbox type="bool">false</draw-boundingbox>
+        <character-size>0.0055</character-size>
+        <font-resolution>
+            <width type="int">32</width>
+            <height type="int">32</height>
+        </font-resolution>
+    </text>
+    
+    <text>
+        <name>common-active-mode</name>
+        <offsets>
+            <x-m>0.00091828</x-m>
+            <y-m>-0.005</y-m>
+            <z-m>0.0680781</z-m>
+        </offsets>
+        <alignment>center-center</alignment>
+        <axis-alignment>yz-plane</axis-alignment>
+        <type type="string">text-value</type>
+        <format type="string">%s</format>
+        <truncate type="bool">false</truncate>
+        <font type="string">helvetica_medium.txf</font>
+        <property>/flight-management/flight-modes/common/active</property>
+        <draw-text type="bool">true</draw-text>
+        <draw-alignment type="bool">false</draw-alignment>
+        <draw-boundingbox type="bool">false</draw-boundingbox>
+        <character-size>0.0055</character-size>
+        <font-resolution>
+            <width type="int">32</width>
+            <height type="int">32</height>
+        </font-resolution>
+    </text>
+
+    <text>
+        <name>common-armed-mode</name>
+        <offsets>
+            <x-m>0.00091828</x-m>
+            <y-m>-0.005</y-m>
+            <z-m>0.0605781</z-m>
+        </offsets>
+        <alignment>center-center</alignment>
+        <axis-alignment>yz-plane</axis-alignment>
+        <type type="string">text-value</type>
+        <format type="string">%s</format>
+        <truncate type="bool">false</truncate>
+        <font type="string">helvetica_medium.txf</font>
+        <property>/flight-management/flight-modes/common/armed</property>
+        <draw-text type="bool">true</draw-text>
+        <draw-alignment type="bool">false</draw-alignment>
+        <draw-boundingbox type="bool">false</draw-boundingbox>
+        <character-size>0.0055</character-size>
+        <font-resolution>
+            <width type="int">32</width>
+            <height type="int">32</height>
+        </font-resolution>
+    </text>
+    
+    <text>
+        <name>ils-cat</name>
+        <offsets>
+            <x-m>0.00091828</x-m>
+            <y-m>0.0406226</y-m>
+            <z-m>0.0680781</z-m>
+        </offsets>
+        <alignment>center-center</alignment>
+        <axis-alignment>yz-plane</axis-alignment>
+        <type type="string">text-value</type>
+        <format type="string">%s</format>
+        <truncate type="bool">false</truncate>
+        <font type="string">helvetica_medium.txf</font>
+        <property>/flight-management/freq/ils-cat</property>
+        <draw-text type="bool">true</draw-text>
+        <draw-alignment type="bool">false</draw-alignment>
+        <draw-boundingbox type="bool">false</draw-boundingbox>
+        <character-size>0.0055</character-size>
+        <font-resolution>
+            <width type="int">32</width>
+            <height type="int">32</height>
+        </font-resolution>
+    </text>
+    
+    <text>
+        <name>dh-label</name>
+        <offsets>
+            <x-m>0.00091828</x-m>
+            <y-m>0.0326226</y-m>
+            <z-m>0.0531781</z-m>
+        </offsets>
+        <alignment>center-center</alignment>
+        <axis-alignment>yz-plane</axis-alignment>
+        <type type="string">text-value</type>
+        <format type="string">%s</format>
+        <truncate type="bool">false</truncate>
+        <font type="string">helvetica_medium.txf</font>
+        <property>/instrumentation/pfd/minimums-mode</property>
+        <draw-text type="bool">true</draw-text>
+        <draw-alignment type="bool">false</draw-alignment>
+        <draw-boundingbox type="bool">false</draw-boundingbox>
+        <character-size>0.0055</character-size>
+        <font-resolution>
+            <width type="int">32</width>
+            <height type="int">32</height>
+        </font-resolution>
+    </text>
+    
+    <text>
+        <name>decision-height</name>
+        <offsets>
+            <x-m>0.00091828</x-m>
+            <y-m>0.0436226</y-m>
+            <z-m>0.0531781</z-m>
+        </offsets>
+        <alignment>center-center</alignment>
+        <axis-alignment>yz-plane</axis-alignment>
+        <type type="string">number-value</type>
+        <format type="string">%4.0f</format>
+        <truncate type="bool">false</truncate>
+        <font type="string">helvetica_medium.txf</font>
+        <property>/instrumentation/mk-viii/inputs/arinc429/decision-height</property>
+        <draw-text type="bool">true</draw-text>
+        <draw-alignment type="bool">false</draw-alignment>
+        <draw-boundingbox type="bool">false</draw-boundingbox>
+        <character-size>0.0051</character-size>
+        <font-resolution>
+            <width type="int">32</width>
+            <height type="int">32</height>
+        </font-resolution>
+    </text>
+    
+    <text>
+        <name>ils-appr-mode</name>
+        <offsets>
+            <x-m>0.00091828</x-m>
+            <y-m>0.0406226</y-m>
+            <z-m>0.0605781</z-m>
+        </offsets>
+        <alignment>center-center</alignment>
+        <axis-alignment>yz-plane</axis-alignment>
+        <type type="string">text-value</type>
+        <format type="string">%s</format>
+        <truncate type="bool">false</truncate>
+        <font type="string">helvetica_medium.txf</font>
+        <property>/instrumentation/pfd/ils-appr-mode</property>
+        <draw-text type="bool">true</draw-text>
+        <draw-alignment type="bool">false</draw-alignment>
+        <draw-boundingbox type="bool">false</draw-boundingbox>
+        <character-size>0.0055</character-size>
+        <font-resolution>
+            <width type="int">32</width>
+            <height type="int">32</height>
+        </font-resolution>
+    </text>
+    
+    <text>
+        <name>ap-engaged</name>
+        <offsets>
+            <x-m>0.00091828</x-m>
+            <y-m>0.0656226</y-m>
+            <z-m>0.0680781</z-m>
+        </offsets>
+        <alignment>center-center</alignment>
+        <axis-alignment>yz-plane</axis-alignment>
+        <type type="string">text-value</type>
+        <format type="string">%s</format>
+        <truncate type="bool">false</truncate>
+        <font type="string">helvetica_medium.txf</font>
+        <property>/instrumentation/texts/ap-status</property>
+        <draw-text type="bool">true</draw-text>
+        <draw-alignment type="bool">false</draw-alignment>
+        <draw-boundingbox type="bool">false</draw-boundingbox>
+        <character-size>0.0055</character-size>
+        <font-resolution>
+            <width type="int">32</width>
+            <height type="int">32</height>
+        </font-resolution>
+    </text>
+
+    <text>
+        <name>fd-engaged</name>
+        <offsets>
+            <x-m>0.00091828</x-m>
+            <y-m>0.0656226</y-m>
+            <z-m>0.0605781</z-m>
+        </offsets>
+        <alignment>center-center</alignment>
+        <axis-alignment>yz-plane</axis-alignment>
+        <type type="string">text-value</type>
+        <format type="string">%s</format>
+        <truncate type="bool">false</truncate>
+        <font type="string">helvetica_medium.txf</font>
+        <property>/instrumentation/texts/fd-status</property>
+        <draw-text type="bool">true</draw-text>
+        <draw-alignment type="bool">false</draw-alignment>
+        <draw-boundingbox type="bool">false</draw-boundingbox>
+        <character-size>0.0055</character-size>
+        <font-resolution>
+            <width type="int">32</width>
+            <height type="int">32</height>
+        </font-resolution>
+    </text>
+    
+    <text>
+        <name>athr-armed</name>
+        <offsets>
+            <x-m>0.00091828</x-m>
+            <y-m>0.0656226</y-m>
+            <z-m>0.0531781</z-m>
+        </offsets>
+        <alignment>center-center</alignment>
+        <axis-alignment>yz-plane</axis-alignment>
+        <type type="string">text-value</type>
+        <format type="string">%s</format>
+        <truncate type="bool">false</truncate>
+        <font type="string">helvetica_medium.txf</font>
+        <property>/instrumentation/texts/athr-status</property>
+        <draw-text type="bool">true</draw-text>
+        <draw-alignment type="bool">false</draw-alignment>
+        <draw-boundingbox type="bool">false</draw-boundingbox>
+        <character-size>0.0055</character-size>
+        <font-resolution>
+            <width type="int">32</width>
+            <height type="int">32</height>
+        </font-resolution>
+    </text>
+    
+    <text>
+        <name>athr-engaged</name>
+        <offsets>
+            <x-m>0.00091828</x-m>
+            <y-m>0.0656226</y-m>
+            <z-m>0.0531781</z-m>
+        </offsets>
+        <alignment>center-center</alignment>
+        <axis-alignment>yz-plane</axis-alignment>
+        <type type="string">text-value</type>
+        <format type="string">%s</format>
+        <truncate type="bool">false</truncate>
+        <font type="string">helvetica_medium.txf</font>
+        <property>/instrumentation/texts/athr-status</property>
+        <draw-text type="bool">true</draw-text>
+        <draw-alignment type="bool">false</draw-alignment>
+        <draw-boundingbox type="bool">false</draw-boundingbox>
+        <character-size>0.0055</character-size>
+        <font-resolution>
+            <width type="int">32</width>
+            <height type="int">32</height>
+        </font-resolution>
+    </text>
+    
+    <!-- -->
+    
+    <text>
+        <name>fma-message-white</name>
+        <offsets>
+            <x-m>0.00091828</x-m>
+            <y-m>-0.005</y-m>
+            <z-m>0.0531781</z-m>
+        </offsets>
+        <alignment>center-center</alignment>
+        <axis-alignment>yz-plane</axis-alignment>
+        <type type="string">text-value</type>
+        <format type="string">%s</format>
+        <truncate type="bool">false</truncate>
+        <font type="string">helvetica_medium.txf</font>
+        <property>/flight-management/flight-modes/message</property>
+        <draw-text type="bool">true</draw-text>
+        <draw-alignment type="bool">false</draw-alignment>
+        <draw-boundingbox type="bool">false</draw-boundingbox>
+        <character-size>0.0055</character-size>
+        <font-resolution>
+            <width type="int">32</width>
+            <height type="int">32</height>
+        </font-resolution>
+    </text>
+    
+    <text>
+        <name>fma-vs</name>
+        <offsets>
+            <x-m>0.00091828</x-m>
+            <y-m>-0.0206226</y-m>
+            <z-m>0.0680781</z-m>
+        </offsets>
+        <alignment>left-center</alignment>
+        <axis-alignment>yz-plane</axis-alignment>
+        <type type="string">number-value</type>
+        <format type="string">%4.0f</format>
+        <truncate type="bool">false</truncate>
+        <font type="string">helvetica_medium.txf</font>
+        <property>/flight-management/fcu-values/vs</property>
+        <draw-text type="bool">true</draw-text>
+        <draw-alignment type="bool">false</draw-alignment>
+        <draw-boundingbox type="bool">false</draw-boundingbox>
+        <character-size>0.0055</character-size>
+        <font-resolution>
+            <width type="int">32</width>
+            <height type="int">32</height>
+        </font-resolution>
+    </text>
+
+    <text>
+        <name>fma-fpa</name>
+        <offsets>
+            <x-m>0.00091828</x-m>
+            <y-m>-0.0206226</y-m>
+            <z-m>0.0680781</z-m>
+        </offsets>
+        <alignment>left-center</alignment>
+        <axis-alignment>yz-plane</axis-alignment>
+        <type type="string">number-value</type>
+        <format type="string">%4.0f</format>
+        <truncate type="bool">false</truncate>
+        <font type="string">helvetica_medium.txf</font>
+        <property>/flight-management/fcu-values/fpa</property>
+        <draw-text type="bool">true</draw-text>
+        <draw-alignment type="bool">false</draw-alignment>
+        <draw-boundingbox type="bool">false</draw-boundingbox>
+        <character-size>0.0055</character-size>
+        <font-resolution>
+            <width type="int">32</width>
+            <height type="int">32</height>
+        </font-resolution>
+    </text>
+    
+    <text>
+        <name>presel-spd</name>
+        <offsets>
+            <x-m>0.00091828</x-m>
+            <y-m>-0.0706226</y-m>
+            <z-m>0.0531781</z-m>
+        </offsets>
+        <alignment>left-center</alignment>
+        <axis-alignment>yz-plane</axis-alignment>
+        <type type="string">text-value</type>
+        <format type="string">%s</format>
+        <truncate type="bool">false</truncate>
+        <font type="string">helvetica_medium.txf</font>
+        <property>/instrumentation/pfd/presel-spd</property>
+        <draw-text type="bool">true</draw-text>
+        <draw-alignment type="bool">false</draw-alignment>
+        <draw-boundingbox type="bool">false</draw-boundingbox>
+        <character-size>0.0055</character-size>
+        <font-resolution>
+            <width type="int">32</width>
+            <height type="int">32</height>
+        </font-resolution>
+    </text>
+    
+    <!-- PFD Boxes -->
+    
+    <text>
+        <name>athr-active-box</name>
+        <offsets>
+            <x-m>0.00091828</x-m>
+            <y-m>-0.0606226</y-m>
+            <z-m>0.0680781</z-m>
+        </offsets>
+        <alignment>center-center</alignment>
+        <axis-alignment>yz-plane</axis-alignment>
+        <type type="string">text-value</type>
+        <format type="string">%s</format>
+        <truncate type="bool">false</truncate>
+        <font type="string">helvetica_medium.txf</font>
+        <property>/instrumentation/texts/pfd-fmgc-empty-box</property>
+        <draw-text type="bool">false</draw-text>
+        <draw-alignment type="bool">false</draw-alignment>
+        <draw-boundingbox type="bool">true</draw-boundingbox>
+        <character-size>0.008</character-size>
+        <font-resolution>
+            <width type="int">36</width>
+            <height type="int">36</height>
+        </font-resolution>
+    </text>
+    
+
+    <text>
+        <name>athr-armed-box</name>
+        <offsets>
+            <x-m>0.00091828</x-m>
+            <y-m>-0.0606226</y-m>
+            <z-m>0.0723781</z-m>
+        </offsets>
+        <alignment>center-top</alignment>
+        <axis-alignment>yz-plane</axis-alignment>
+        <type type="string">text-value</type>
+        <format type="string">%s 5</format>
+        <truncate type="bool">false</truncate>
+        <font type="string">helvetica_medium.txf</font>
+        <property>/flight-management/flight-modes/athr/armed</property>
+        <draw-text type="bool">false</draw-text>
+        <draw-alignment type="bool">false</draw-alignment>
+        <draw-boundingbox type="bool">true</draw-boundingbox>
+        <character-size>0.008</character-size>
+        <font-resolution>
+            <width type="int">32</width>
+            <height type="int">32</height>
+        </font-resolution>
+    </text>
+    
+    <text>
+        <name>athr-alert-box</name>
+        <offsets>
+            <x-m>0.00091828</x-m>
+            <y-m>-0.0606226</y-m>
+            <z-m>0.0680781</z-m>
+        </offsets>
+        <alignment>center-center</alignment>
+        <axis-alignment>yz-plane</axis-alignment>
+        <type type="string">text-value</type>
+        <format type="string">%s</format>
+        <truncate type="bool">false</truncate>
+        <font type="string">helvetica_medium.txf</font>
+        <property>/instrumentation/texts/pfd-fmgc-empty-box</property>
+        <draw-text type="bool">false</draw-text>
+        <draw-alignment type="bool">false</draw-alignment>
+        <draw-boundingbox type="bool">true</draw-boundingbox>
+        <character-size>0.008</character-size>
+        <font-resolution>
+            <width type="int">36</width>
+            <height type="int">36</height>
+        </font-resolution>
+    </text>
+    
+    <text>
+        <name>ver-active-box</name>
+        <offsets>
+            <x-m>0.00091828</x-m>
+            <y-m>-0.0206226</y-m>
+            <z-m>0.0680781</z-m>
+        </offsets>
+        <alignment>center-center</alignment>
+        <axis-alignment>yz-plane</axis-alignment>
+        <type type="string">text-value</type>
+        <format type="string">%s</format>
+        <truncate type="bool">false</truncate>
+        <font type="string">helvetica_medium.txf</font>
+        <property>/instrumentation/texts/pfd-fmgc-empty-box</property>
+        <draw-text type="bool">false</draw-text>
+        <draw-alignment type="bool">false</draw-alignment>
+        <draw-boundingbox type="bool">true</draw-boundingbox>
+        <character-size>0.008</character-size>
+        <font-resolution>
+            <width type="int">36</width>
+            <height type="int">36</height>
+        </font-resolution>
+    </text>
+    
+    <text>
+        <name>lat-active-box</name>
+        <offsets>
+            <x-m>0.00091828</x-m>
+            <y-m>0.0106226</y-m>
+            <z-m>0.0680781</z-m>
+        </offsets>
+        <alignment>center-center</alignment>
+        <axis-alignment>yz-plane</axis-alignment>
+        <type type="string">text-value</type>
+        <format type="string">%s</format>
+        <truncate type="bool">false</truncate>
+        <font type="string">helvetica_medium.txf</font>
+        <property>/instrumentation/texts/pfd-fmgc-empty-box</property>
+        <draw-text type="bool">false</draw-text>
+        <draw-alignment type="bool">false</draw-alignment>
+        <draw-boundingbox type="bool">true</draw-boundingbox>
+        <character-size>0.008</character-size>
+        <font-resolution>
+            <width type="int">36</width>
+            <height type="int">36</height>
+        </font-resolution>
+    </text>
+    
+    <text>
+        <name>ver-alert-box</name>
+        <offsets>
+            <x-m>0.00091828</x-m>
+            <y-m>-0.0206226</y-m>
+            <z-m>0.0680781</z-m>
+        </offsets>
+        <alignment>center-center</alignment>
+        <axis-alignment>yz-plane</axis-alignment>
+        <type type="string">text-value</type>
+        <format type="string">%s</format>
+        <truncate type="bool">false</truncate>
+        <font type="string">helvetica_medium.txf</font>
+        <property>/instrumentation/texts/pfd-fmgc-empty-box</property>
+        <draw-text type="bool">false</draw-text>
+        <draw-alignment type="bool">false</draw-alignment>
+        <draw-boundingbox type="bool">true</draw-boundingbox>
+        <character-size>0.008</character-size>
+        <font-resolution>
+            <width type="int">36</width>
+            <height type="int">36</height>
+        </font-resolution>
+    </text>
+    
+    <text>
+        <name>common-active-box</name>
+        <offsets>
+            <x-m>0.00091828</x-m>
+            <y-m>-0.005</y-m>
+            <z-m>0.0680781</z-m>
+        </offsets>
+        <alignment>center-center</alignment>
+        <axis-alignment>yz-plane</axis-alignment>
+        <type type="string">text-value</type>
+        <format type="string">%s</format>
+        <truncate type="bool">false</truncate>
+        <font type="string">helvetica_medium.txf</font>
+        <property>/flight-management/flight-modes/common/active</property>
+        <draw-text type="bool">false</draw-text>
+        <draw-alignment type="bool">false</draw-alignment>
+        <draw-boundingbox type="bool">true</draw-boundingbox>
+        <character-size>0.008</character-size>
+        <font-resolution>
+            <width type="int">32</width>
+            <height type="int">32</height>
+        </font-resolution>
+    </text>
+    
+    <text>
+        <name>fma-message-box-white</name>
+        <offsets>
+            <x-m>0.00091828</x-m>
+            <y-m>-0.005</y-m>
+            <z-m>0.0531781</z-m>
+        </offsets>
+        <alignment>center-center</alignment>
+        <axis-alignment>yz-plane</axis-alignment>
+        <type type="string">text-value</type>
+        <format type="string">%s</format>
+        <truncate type="bool">false</truncate>
+        <font type="string">helvetica_medium.txf</font>
+        <property>/flight-management/flight-modes/message</property>
+        <draw-text type="bool">false</draw-text>
+        <draw-alignment type="bool">false</draw-alignment>
+        <draw-boundingbox type="bool">true</draw-boundingbox>
+        <character-size>0.008</character-size>
+        <font-resolution>
+            <width type="int">32</width>
+            <height type="int">32</height>
+        </font-resolution>
+    </text>
+    
+
+    <text>
+        <name>ils-cat-box</name>
+        <offsets>
+            <x-m>0.00091828</x-m>
+            <y-m>0.0406226</y-m>
+            <z-m>0.0680781</z-m>
+        </offsets>
+        <alignment>center-center</alignment>
+        <axis-alignment>yz-plane</axis-alignment>
+        <type type="string">literal</type>
+        <font type="string">helvetica_medium.txf</font>
+        <text>IIIIIIIIIIII</text>
+        <draw-text type="bool">false</draw-text>
+        <draw-alignment type="bool">false</draw-alignment>
+        <draw-boundingbox type="bool">true</draw-boundingbox>
+        <character-size>0.008</character-size>
+        <font-resolution>
+            <width type="int">32</width>
+            <height type="int">32</height>
+        </font-resolution>
+    </text>
+
+    <!--text>
+        <name>dh-box</name>
+        <offsets>
+            <x-m>0.00091828</x-m>
+            <y-m>0.0406226</y-m>
+            <z-m>0.0531781</z-m>
+        </offsets>
+        <alignment>center-center</alignment>
+        <axis-alignment>yz-plane</axis-alignment>
+        <type type="string">literal</type>
+        <text type="string">MDA 2000</format>
+        <font type="string">helvetica_medium.txf</font>
+        <draw-text type="bool">false</draw-text>
+        <draw-alignment type="bool">false</draw-alignment>
+        <draw-boundingbox type="bool">true</draw-boundingbox>
+        <character-size>0.008</character-size>
+        <font-resolution>
+            <width type="int">32</width>
+            <height type="int">32</height>
+        </font-resolution>
+    </text-->
+
+    <text>
+        <name>ils-appr-mode-box</name>
+        <offsets>
+            <x-m>0.00091828</x-m>
+            <y-m>0.0406226</y-m>
+            <z-m>0.0605781</z-m>
+        </offsets>
+        <alignment>center-center</alignment>
+        <axis-alignment>yz-plane</axis-alignment>
+        <type type="string">literal</type>
+        <font type="string">helvetica_medium.txf</font>
+        <text>IIIIIIIIIIII</text>
+        <draw-text type="bool">false</draw-text>
+        <draw-alignment type="bool">false</draw-alignment>
+        <draw-boundingbox type="bool">true</draw-boundingbox>
+        <character-size>0.008</character-size>
+        <font-resolution>
+            <width type="int">32</width>
+            <height type="int">32</height>
+        </font-resolution>
+    </text>
+
+    <text>
+        <name>ap-status-box</name>
+        <offsets>
+            <x-m>0.00091828</x-m>
+            <y-m>0.0666226</y-m>
+            <z-m>0.0680781</z-m>
+        </offsets>
+        <alignment>center-center</alignment>
+        <axis-alignment>yz-plane</axis-alignment>
+        <type type="string">literal</type>
+        <font type="string">helvetica_medium.txf</font>
+        <text>IIIIIIIIIIII</text>
+        <draw-text type="bool">false</draw-text>
+        <draw-alignment type="bool">false</draw-alignment>
+        <draw-boundingbox type="bool">true</draw-boundingbox>
+        <character-size>0.008</character-size>
+        <font-resolution>
+            <width type="int">32</width>
+            <height type="int">32</height>
+        </font-resolution>
+    </text>
+
+    <text>
+        <name>fd-status-box</name>
+        <offsets>
+            <x-m>0.00091828</x-m>
+            <y-m>0.0666226</y-m>
+            <z-m>0.0605781</z-m>
+        </offsets>
+        <alignment>center-center</alignment>
+        <axis-alignment>yz-plane</axis-alignment>
+        <type type="string">literal</type>
+        <font type="string">helvetica_medium.txf</font>
+        <text>IIIIIIIIIIII</text>
+        <draw-text type="bool">false</draw-text>
+        <draw-alignment type="bool">false</draw-alignment>
+        <draw-boundingbox type="bool">true</draw-boundingbox>
+        <character-size>0.008</character-size>
+        <font-resolution>
+            <width type="int">32</width>
+            <height type="int">32</height>
+        </font-resolution>
+    </text>
+
+    <text>
+        <name>athr-status-box</name>
+        <offsets>
+            <x-m>0.00091828</x-m>
+            <y-m>0.0666226</y-m>
+            <z-m>0.0531781</z-m>
+        </offsets>
+        <alignment>center-center</alignment>
+        <axis-alignment>yz-plane</axis-alignment>
+        <type type="string">literal</type>
+        <font type="string">helvetica_medium.txf</font>
+        <text>IIIIIIIIIIII</text>
+        <draw-text type="bool">false</draw-text>
+        <draw-alignment type="bool">false</draw-alignment>
+        <draw-boundingbox type="bool">true</draw-boundingbox>
+        <character-size>0.008</character-size>
+        <font-resolution>
+            <width type="int">32</width>
+            <height type="int">32</height>
+        </font-resolution>
+    </text>
+
 	
 	<!-- Material Animation -->
+    
+    <animation>
+        <type>material</type>
+        <object-name>osgtext-white</object-name>
+        <object-name>inner-beacon-marker</object-name>
+        <object-name>dh-label</object-name>
+        <object-name>ils-appr-mode</object-name>
+        <diffuse>
+            <red>1</red>
+            <green>1</green>
+            <blue>1</blue>
+        </diffuse>
+        <ambient>
+            <red>0</red>
+            <green>0</green>
+            <blue>0</blue>
+        </ambient>
+        <specular>
+            <red>0</red>
+            <green>0</green>
+            <blue>0</blue>
+        </specular>
+        <emission>
+            <red>1</red>
+            <green>1</green>
+            <blue>1</blue>
+        </emission>
+    </animation>
+    
+    <animation>
+        <type>material</type>
+        <object-name>hdg-box-right</object-name>
+        <object-name>hdg-box-left</object-name>
+        <object-name>loc-box-right</object-name>
+        <object-name>loc-box-left</object-name>
+        <diffuse>
+            <red>0.65</red>
+            <green>0.65</green>
+            <blue>0.65</blue>
+        </diffuse>
+        <ambient>
+            <red>0</red>
+            <green>0</green>
+            <blue>0</blue>
+        </ambient>
+        <specular>
+            <red>0</red>
+            <green>0</green>
+            <blue>0</blue>
+        </specular>
+        <emission>
+            <red>0.65</red>
+            <green>0.65</green>
+            <blue>0.65</blue>
+        </emission>
+    </animation>
 	
 	<animation>
 		<type>material</type>
 		<object-name>osgtext-magenta</object-name>
+        <object-name>nav-id</object-name>
+        <object-name>nav-frq</object-name>
+        <object-name>nav-hdg</object-name>
+        <object-name>loc-label-left</object-name>
+        <object-name>loc-label-right</object-name>
 		<diffuse>
 			<red>1</red>
 			<green>0</green>
@@ -766,6 +3375,10 @@
 	<animation>
 		<type>material</type>
 		<object-name>osgtext-cyan</object-name>
+        <object-name>qnh-indicator-inhg</object-name>
+        <object-name>qnh-indicator-hpa</object-name>
+        <object-name>qnh-indicator-std</object-name>
+        <object-name>qnh-text</object-name>
 		<diffuse>
 			<red>0</red>
 			<green>0.886</green>
@@ -817,7 +3430,7 @@
 		<type>material</type>
 		<object-name>radio-alt</object-name>
 		<diffuse>
-			<red>1</red>
+			<red>0</red>
 			<green>0.745</green>
 			<blue>0</blue>
 		</diffuse>
@@ -832,20 +3445,811 @@
 			<blue>0</blue>
 		</specular>
 		<emission>
-			<red>1</red>
+			<red>0</red>
 			<green>0.745</green>
 			<blue>0</blue>
 		</emission>
 	</animation>
+
+	<animation>
+		<type>material</type>
+		<object-name>fmgc-alt</object-name>
+        <object-name>fmgc-alt-lower</object-name>
+        <object-name>fmgc-spd</object-name>
+        <object-name>fmgc-spd-lower</object-name>
+        <object-name>fmgc-mach</object-name>
+        <object-name>fmgc-mach-lower</object-name>
+		<diffuse>
+			<red>1</red>
+			<green>0</green>
+			<blue>1</blue>
+		</diffuse>
+		<ambient>
+			<red>0</red>
+			<green>0</green>
+			<blue>0</blue>
+		</ambient>
+		<specular>
+			<red>0</red>
+			<green>0</green>
+			<blue>0</blue>
+		</specular>
+		<emission>
+			<red>1</red>
+			<green>0</green>
+			<blue>1</blue>
+		</emission>
+	</animation>
+	
+	<animation>
+		<type>material</type>
+		<object-name>man-alt</object-name>
+        <object-name>man-alt-lower</object-name>
+        <object-name>man-spd</object-name>
+        <object-name>man-spd-lower</object-name>
+        <object-name>man-mach</object-name>
+        <object-name>man-mach-lower</object-name>
+        <object-name>v1-spd</object-name>
+        <object-name>hdg-label-right</object-name>
+        <object-name>hdg-label-left</object-name>
+        <!--object-name>presel-spd</object-name-->
+		<diffuse>
+			<red>0</red>
+			<green>0.886</green>
+			<blue>0.933</blue>
+		</diffuse>
+		<ambient>
+			<red>0</red>
+			<green>0</green>
+			<blue>0</blue>
+		</ambient>
+		<specular>
+			<red>0</red>
+			<green>0</green>
+			<blue>0</blue>
+		</specular>
+		<emission>
+			<red>0</red>
+			<green>0.886</green>
+			<blue>0.933</blue>
+		</emission>
+	</animation>
+
+	<animation>
+		<type>material</type>
+		<object-name>vs-up</object-name>
+		<diffuse>
+			<red>0</red>
+			<green>0.843</green>
+			<blue>0</blue>
+		</diffuse>
+		<ambient>
+			<red>0</red>
+			<green>0</green>
+			<blue>0</blue>
+		</ambient>
+		<specular>
+			<red>0</red>
+			<green>0</green>
+			<blue>0</blue>
+		</specular>
+		<emission>
+			<red>0</red>
+			<green>0.843</green>
+			<blue>0</blue>
+		</emission>
+	</animation>
+
+	<animation>
+		<type>material</type>
+		<object-name>vs-down</object-name>
+		<diffuse>
+			<red>0</red>
+			<green>0.843</green>
+			<blue>0</blue>
+		</diffuse>
+		<ambient>
+			<red>0</red>
+			<green>0</green>
+			<blue>0</blue>
+		</ambient>
+		<specular>
+			<red>0</red>
+			<green>0</green>
+			<blue>0</blue>
+		</specular>
+		<emission>
+			<red>0</red>
+			<green>0.843</green>
+			<blue>0</blue>
+		</emission>
+	</animation>
+    
+    <animation>
+        <type>material</type>
+        <object-name>athr-active-mode</object-name>
+        <object-name>ver-active-mode</object-name>
+        <object-name>lat-active-mode</object-name>
+        <object-name>common-active-mode</object-name>
+        <object-name>ver-active-mode-left</object-name>
+        <diffuse>
+            <red>0</red>
+            <green>0.57</green>
+            <blue>0</blue>
+        </diffuse>
+        <ambient>
+            <red>0</red>
+            <green>0</green>
+            <blue>0</blue>
+        </ambient>
+        <specular>
+            <red>0</red>
+            <green>0</green>
+            <blue>0</blue>
+        </specular>
+        <emission>
+            <red>0</red>
+            <green>0.57</green>
+            <blue>0</blue>
+        </emission>
+    </animation>
+    
+    <animation>
+        <type>material</type>
+        <object-name>ver-armed-mode</object-name>
+        <object-name>ver-armed-mode-left</object-name>
+        <object-name>ver-armed-mode-right</object-name>
+        <object-name>lat-armed-mode</object-name>
+        <object-name>common-armed-mode</object-name>
+        <object-name>athr-armed</object-name>
+        <object-name>outer-beacon-marker</object-name>
+        <object-name>decision-height</object-name>
+        <object-name>athr-flx-to-temp</object-name>
+        <object-name>fma-vs</object-name>
+        <object-name>fma-fpa</object-name>
+        <object-name>presel-spd</object-name>
+        <diffuse>
+            <red>0.06</red>
+            <green>0.55</green>
+            <blue>1</blue>
+        </diffuse>
+        <ambient>
+            <red>0</red>
+            <green>0</green>
+            <blue>0</blue>
+        </ambient>
+        <specular>
+            <red>0</red>
+            <green>0</green>
+            <blue>0</blue>
+        </specular>
+        <emission>
+            <red>0.06</red>
+            <green>0.55</green>
+            <blue>1</blue>
+        </emission>
+    </animation>
+    
+    <animation>
+        <type>material</type>
+        <object-name>ver-armed-fmgc</object-name>
+        <diffuse>
+            <red>1</red>
+            <green>0</green>
+            <blue>1</blue>
+        </diffuse>
+        <ambient>
+            <red>0</red>
+            <green>0</green>
+            <blue>0</blue>
+        </ambient>
+        <specular>
+            <red>0</red>
+            <green>0</green>
+            <blue>0</blue>
+        </specular>
+        <emission>
+            <red>1</red>
+            <green>0</green>
+            <blue>1</blue>
+        </emission>
+    </animation>
+    
+    <animation>
+        <type>material</type>
+        <object-name>athr-active-box</object-name>
+        <object-name>athr-armed-box</object-name>
+        <object-name>ver-active-box</object-name>
+        <object-name>lat-active-box</object-name>
+        <object-name>common-active-box</object-name>
+        <object-name>athr-armed-mode</object-name>
+        <object-name>athr-fma-msg</object-name>
+        <object-name>fma-message-white</object-name>
+        <object-name>fma-message-box-white</object-name>
+        <object-name>athr-engaged</object-name>
+        <object-name>fd-engaged</object-name>
+        <object-name>ap-engaged</object-name>
+        <object-name>ils-cat</object-name>
+        <object-name>ils-cat-box</object-name>
+        <object-name>ils-appr-mode-box</object-name>
+        <!--object-name>dh-box</object-name-->
+        <object-name>ap-status-box</object-name>
+        <object-name>athr-status-box</object-name>
+        <object-name>fd-status-box</object-name>
+        <diffuse>
+            <red>1</red>
+            <green>1</green>
+            <blue>1</blue>
+        </diffuse>
+        <ambient>
+            <red>0</red>
+            <green>0</green>
+            <blue>0</blue>
+        </ambient>
+        <specular>
+            <red>0</red>
+            <green>0</green>
+            <blue>0</blue>
+        </specular>
+        <emission>
+            <red>1</red>
+            <green>1</green>
+            <blue>1</blue>
+        </emission>
+    </animation>
+    
+    <animation>
+        <type>material</type>
+        <object-name>ver-alert-box</object-name>
+        <object-name>athr-alert-box</object-name>
+        <object-name>qnh-alert-box</object-name>
+        <object-name>radio-alt-land</object-name>
+        <object-name>middle-beacon-marker</object-name>
+        <object-name>athr-fma-alert</object-name>
+        <diffuse>
+            <red>0.99</red>
+            <green>0.6</green>
+            <blue>0.04</blue>
+        </diffuse>
+        <ambient>
+            <red>0</red>
+            <green>0</green>
+            <blue>0</blue>
+        </ambient>
+        <specular>
+            <red>0</red>
+            <green>0</green>
+            <blue>0</blue>
+        </specular>
+        <emission>
+            <red>0.99</red>
+            <green>0.6</green>
+            <blue>0.04</blue>
+        </emission>
+    </animation>
+    
+    <animation>
+        <type>material</type>
+        <object-name>upper-black-separator</object-name>
+        <object-name>middle-black-separator</object-name>
+        <object-name>lower-black-separator</object-name>
+        <diffuse>
+            <red>0</red>
+            <green>0</green>
+            <blue>0</blue>
+        </diffuse>
+        <ambient>
+            <red>0</red>
+            <green>0</green>
+            <blue>0</blue>
+        </ambient>
+        <specular>
+            <red>0</red>
+            <green>0</green>
+            <blue>0</blue>
+        </specular>
+        <emission>
+            <red>0</red>
+            <green>0</green>
+            <blue>0</blue>
+        </emission>
+    </animation>
+    
+    <animation>
+        <type>material</type>
+        <object-name>spd-sel-alert</object-name>
+        <diffuse>
+            <red>1</red>
+            <green>0</green>
+            <blue>0</blue>
+        </diffuse>
+        <ambient>
+            <red>0</red>
+            <green>0</green>
+            <blue>0</blue>
+        </ambient>
+        <specular>
+            <red>0</red>
+            <green>0</green>
+            <blue>0</blue>
+        </specular>
+        <emission>
+            <red>1</red>
+            <green>0</green>
+            <blue>0</blue>
+        </emission>
+    </animation>
+    
+
+    <animation>
+        <type>select</type>
+        <object-name>qnh-indicator-inhg</object-name>
+        <condition>
+            <and>
+                <equals>
+                    <property>/flight-management/control/qnh-mode</property>
+                    <value>inhg</value>
+                </equals>
+                <equals>
+                    <property>/flight-management/text/qnh</property>
+                    <value>QNH</value>
+                </equals>
+            </and>
+        </condition>
+    </animation>
+
+    <animation>
+        <type>select</type>
+        <object-name>qnh-indicator-hpa</object-name>
+        <condition>
+            <and>
+                <equals>
+                    <property>/flight-management/control/qnh-mode</property>
+                    <value>hpa</value>
+                </equals>
+                <equals>
+                    <property>/flight-management/text/qnh</property>
+                    <value>QNH</value>
+                </equals>
+            </and>
+        </condition>
+    </animation>
+    
+    <animation>
+        <type>select</type>
+        <object-name>qnh-indicator-std</object-name>
+        <condition>
+            <equals>
+                <property>/flight-management/text/qnh</property>
+                <value>STD</value>
+            </equals>
+        </condition>
+    </animation>
+    
+    <animation>
+        <type>select</type>
+        <object-name>qnh-text</object-name>
+        <condition>
+            <equals>
+                <property>/flight-management/text/qnh</property>
+                <value>QNH</value>
+            </equals>
+        </condition>
+    </animation>
+    
+    <animation>
+        <type>select</type>
+        <object-name>ver-armed-mode-left</object-name>
+        <condition>
+            <not>
+                <property>flight-management/control/follow-alt-cstr</property>
+            </not>
+        </condition>
+    </animation> 
+    
+    <animation>
+        <type>select</type>
+        <object-name>ver-armed-fmgc</object-name>
+        <condition>
+            <property>flight-management/control/follow-alt-cstr</property>
+        </condition>
+    </animation> 
+    
+    <animation>
+        <type>select</type>
+        <object-name>ap-engaged</object-name>
+        <condition>
+            <or>
+                <equals>
+                    <property>/flight-management/control/ap1-master</property>
+                    <value>eng</value>
+                </equals>
+                <equals>
+                    <property>/flight-management/control/ap2-master</property>
+                    <value>eng</value>
+                </equals>           
+            </or>
+        </condition>
+    </animation> 
+    
+    <animation>
+        <type>select</type>
+        <object-name>fd-engaged</object-name>
+        <condition>
+            <property>/flight-management/control/fd</property>
+        </condition>
+    </animation> 
+    
+    <animation>
+        <type>select</type>
+        <object-name>athr-armed</object-name>
+        <condition>
+            <equals>
+                <property>/flight-management/control/a-thrust</property>
+                <value>armed</value>
+            </equals>
+        </condition>
+    </animation>
+    
+    <animation>
+        <type>select</type>
+        <object-name>athr-engaged</object-name>
+        <condition>
+            <equals>
+                <property>/flight-management/control/a-thrust</property>
+                <value>eng</value>
+            </equals>
+        </condition>
+    </animation> 
+    
+    <animation>
+        <type>select</type>
+        <object-name>ils-appr-mode</object-name>
+        <!--object-name>dh-label</object-name>
+        <object-name>decision-height</object-name-->
+        <condition>
+            <not>
+                <equals>
+                    <property>/flight-management/freq/ils-cat</property>
+                    <value></value>
+                </equals>
+            </not>
+        </condition>
+    </animation>
+
+	<animation>
+		<type>select</type>
+		<object-name>man-alt</object-name>
+		<condition>
+            <and>
+                <or>
+                    <not>
+                        <equals>
+                            <property>/flight-management/control/ver-ctrl</property>
+                            <value>fmgc</value>
+                        </equals>
+                    </not>
+                    <not>
+                        <property>/flight-management/control/is-alt-constraint</property>
+                    </not>
+                </or>
+                <greater-than-equals>
+                    <property>instrumentation/pfd/sel-alt-diff</property>
+                    <value>5548</value>
+                </greater-than-equals>
+            </and>
+		</condition>
+	</animation>
+    
+    <animation>
+        <type>select</type>
+        <object-name>man-alt-lower</object-name>
+        <condition>
+            <and>
+                <or>
+                    <not>
+                        <equals>
+                            <property>/flight-management/control/ver-ctrl</property>
+                            <value>fmgc</value>
+                        </equals>
+                    </not>
+                    <not>
+                        <property>/flight-management/control/is-alt-constraint</property>
+                    </not>
+                </or>
+                <less-than>
+                    <property>instrumentation/pfd/sel-alt-diff</property>
+                    <value>-5548</value>
+                </less-than>
+            </and>
+        </condition>
+    </animation>
+    
+	<animation>
+		<type>select</type>
+		<object-name>fmgc-alt</object-name>
+		<condition>
+            <and>
+                <equals>
+                    <property>/flight-management/control/ver-ctrl</property>
+                    <value>fmgc</value>
+                </equals>
+                <property>/flight-management/control/is-alt-constraint</property>
+                <!--greater-than-equals>
+                    <property>/flight-management/fmgc-values/vnav-target-alt</property>
+                    <property>/instrumentation/altimeter/indicated-altitude-ft</property>
+                </greater-than-equals-->
+                <greater-than-equals>
+                    <property>instrumentation/pfd/fmgc-alt-diff</property>
+                    <value>5548</value>
+                </greater-than-equals>
+            </and>
+		</condition>
+	</animation>
+    
+    <animation>
+        <type>select</type>
+        <object-name>fmgc-alt-lower</object-name>
+        <condition>
+            <and>
+                <equals>
+                    <property>/flight-management/control/ver-ctrl</property>
+                    <value>fmgc</value>
+                </equals>
+                <property>/flight-management/control/is-alt-constraint</property>
+                <!--less-than>
+                    <property>/flight-management/fmgc-values/vnav-target-alt</property>
+                    <property>/instrumentation/altimeter/indicated-altitude-ft</property>
+                </less-than-->
+                <less-than>
+                    <property>instrumentation/pfd/fmgc-alt-diff</property>
+                    <value>-5548</value>
+                </less-than>
+            </and>
+        </condition>
+    </animation>
+    
+    <animation>
+        <type>select</type>
+        <object-name>man-spd</object-name>
+        <condition>
+            <and>
+                <equals>
+                    <property>/flight-management/control/spd-mode</property>
+                    <value>ias</value>
+                </equals>
+                <equals>
+                    <property>/flight-management/control/spd-ctrl</property>
+                    <value>man-set</value>
+                </equals>
+                <greater-than>
+                    <property>instrumentation/pfd/sel-speed-diff</property>
+                    <value>76</value>
+                </greater-than>
+            </and>
+        </condition>
+    </animation>
+
+    <animation>
+        <type>select</type>
+        <object-name>man-spd-lower</object-name>
+        <condition>
+            <and>
+                <equals>
+                    <property>/flight-management/control/spd-mode</property>
+                    <value>ias</value>
+                </equals>
+                <equals>
+                    <property>/flight-management/control/spd-ctrl</property>
+                    <value>man-set</value>
+                </equals>
+                <less-than>
+                    <property>instrumentation/pfd/sel-speed-diff</property>
+                    <value>-76</value>
+                </less-than>
+            </and>
+        </condition>
+    </animation>
+
+    <animation>
+        <type>select</type>
+        <object-name>man-mach</object-name>
+        <condition>
+            <and>
+                <equals>
+                    <property>/flight-management/control/spd-mode</property>
+                    <value>mach</value>
+                </equals>
+                <equals>
+                    <property>/flight-management/control/spd-ctrl</property>
+                    <value>man-set</value>
+                </equals>
+                <greater-than-equals>
+                    <property>/flight-management/fcu-values/mach</property>
+                    <property>velocities/mach</property>
+                </greater-than-equals>
+            </and>
+        </condition>
+    </animation>
+
+    <animation>
+        <type>select</type>
+        <object-name>man-mach-lower</object-name>
+        <condition>
+            <and>
+                <equals>
+                    <property>/flight-management/control/spd-mode</property>
+                    <value>mach</value>
+                </equals>
+                <equals>
+                    <property>/flight-management/control/spd-ctrl</property>
+                    <value>man-set</value>
+                </equals>
+                <less-than>
+                    <property>/flight-management/fcu-values/mach</property>
+                    <property>velocities/mach</property>
+                </less-than>
+            </and>
+        </condition>
+    </animation>
+    
+    <animation>
+        <type>select</type>
+        <object-name>fmgc-spd</object-name>
+        <condition>
+            <and>
+                <equals>
+                    <property>/flight-management/control/spd-mode</property>
+                    <value>ias</value>
+                </equals>
+                <equals>
+                    <property>/flight-management/control/spd-ctrl</property>
+                    <value>fmgc</value>
+                </equals>
+                <greater-than>
+                    <property>instrumentation/pfd/fmgc-speed-diff</property>
+                    <value>76</value>
+                </greater-than>
+            </and>
+        </condition>
+    </animation>
+
+    <animation>
+        <type>select</type>
+        <object-name>fmgc-spd-lower</object-name>
+        <condition>
+            <and>
+                <equals>
+                    <property>/flight-management/control/spd-mode</property>
+                    <value>ias</value>
+                </equals>
+                <equals>
+                    <property>/flight-management/control/spd-ctrl</property>
+                    <value>fmgc</value>
+                </equals>
+                <less-than>
+                    <property>instrumentation/pfd/fmgc-speed-diff</property>
+                    <value>-76</value>
+                </less-than>
+            </and>
+        </condition>
+    </animation>
+    
+    <animation>
+        <type>select</type>
+        <object-name>fmgc-mach</object-name>
+        <condition>
+            <and>
+                <equals>
+                    <property>/flight-management/control/spd-mode</property>
+                    <value>mach</value>
+                </equals>
+                <equals>
+                    <property>/flight-management/control/spd-ctrl</property>
+                    <value>fmgc</value>
+                </equals>
+                <greater-than-equals>
+                    <property>/instrumentation/pfd/target-spd</property>
+                    <property>velocities/mach</property>
+                </greater-than-equals>
+            </and>
+        </condition>
+    </animation>
+
+    <animation>
+        <type>select</type>
+        <object-name>fmgc-mach-lower</object-name>
+        <condition>
+            <and>
+                <equals>
+                    <property>/flight-management/control/spd-mode</property>
+                    <value>mach</value>
+                </equals>
+                <equals>
+                    <property>/flight-management/control/spd-ctrl</property>
+                    <value>fmgc</value>
+                </equals>
+                <less-than>
+                    <property>/instrumentation/pfd/target-spd</property>
+                    <property>velocities/mach</property>
+                </less-than>
+            </and>
+        </condition>
+    </animation>
+    
+    <animation>
+        <type>select</type>
+        <object-name>spd-sel-alert</object-name>
+        <condition>
+            <and>
+                <property>gear/gear/wow</property>
+                <not>
+                    <property>/instrumentation/fmc/vspeeds/V1</property>
+                </not>
+                <not>
+                    <property>/instrumentation/fmc/vspeeds/VR</property>
+                </not>
+                <not>
+                    <property>/instrumentation/fmc/vspeeds/V2</property>
+                </not>
+            </and>
+        </condition>
+    </animation>
+    
+    <animation>
+        <type>select</type>
+        <object-name>target-alt-sel</object-name>
+        <condition>
+            <or>
+                <not>
+                    <equals>
+                        <property>/flight-management/control/ver-ctrl</property>
+                        <value>fmgc</value>
+                    </equals>
+                </not>
+                <not>
+                    <property>/flight-management/control/is-alt-constraint</property>
+                </not>
+            </or>
+        </condition>
+    </animation>
+    
+    <animation>
+        <type>select</type>
+        <object-name>target-alt-mng</object-name>
+        <condition>
+            <and>
+                <equals>
+                    <property>/flight-management/control/ver-ctrl</property>
+                    <value>fmgc</value>
+                </equals>
+                <property>/flight-management/control/is-alt-constraint</property>
+            </and>
+        </condition>
+    </animation>
+    
+    <animation>
+        <type>select</type>
+        <object-name>nav-id</object-name>
+        <object-name>nav-frq</object-name>
+        <object-name>nav-hdg</object-name>
+        <condition>
+            <greater-than>
+                <property>instrumentation/nav/frequencies/selected-mhz</property>
+                <value>0</value>
+            </greater-than>
+        </condition>
+    </animation>
 	
 	<animation>
 		<type>select</type>
 		<object-name>autoland.land</object-name>
 		<condition>
-			<equals>
+			<!--equals>
 				<property>/autoland/phase</property>
 				<value>land</value>
-			</equals>
+			</equals-->
+            <property>/instrumentation/pfd-old/enabled</property>
 		</condition>
 	</animation>
 	
@@ -853,10 +4257,11 @@
 		<type>select</type>
 		<object-name>autoland.flare</object-name>
 		<condition>
-			<equals>
+			<!--equals>
 				<property>/autoland/phase</property>
 				<value>flare</value>
-			</equals>
+			</equals-->
+            <property>/instrumentation/pfd-old/enabled</property>
 		</condition>
 	</animation>
 	
@@ -864,13 +4269,374 @@
 		<type>select</type>
 		<object-name>autoland.retard</object-name>
 		<condition>
-			<equals>
+			<!--equals>
 				<property>/autoland/phase</property>
 				<value>retard</value>
-			</equals>
+			</equals-->
+            <property>/instrumentation/pfd-old/enabled</property>
 		</condition>
 	</animation>
+
+	<animation>
+		<type>select</type>
+		<object-name>vs-up</object-name>
+		<condition>
+                    <greater-than>
+                            <property>/velocities/vertical-speed-fps</property>
+                            <value>8</value>
+                    </greater-than>
+		</condition>
+	</animation>
+	<animation>
+		<type>select</type>
+		<object-name>vs-down</object-name>
+		<condition>
+                    <less-than>
+                            <property>/velocities/vertical-speed-fps</property>
+                            <value>-8</value>
+                    </less-than>
+		</condition>
+	</animation>
+    
+    <!-- FMA announciators visibility -->
+    
+    <animation>
+        <type>select</type>
+        <object-name>athr-active-mode</object-name>
+        <condition>
+            <equals>
+                <property>/flight-management/control/a-thrust</property>
+                <value>eng</value>
+            </equals>
+        </condition>
+    </animation>
+    
+    <animation>
+        <type>select</type>
+        <object-name>ver-active-mode</object-name>
+        <condition>
+            <and>
+                <not>
+                    <equals>
+                        <property>/flight-management/flight-modes/vertical/active</property>
+                        <value>VS</value>
+                    </equals>
+                </not>
+                <not>
+                    <equals>
+                        <property>/flight-management/flight-modes/vertical/active</property>
+                        <value>FPA</value>
+                    </equals>
+                </not>
+            </and>
+        </condition>
+    </animation>
+    
+    <animation>
+        <type>select</type>
+        <object-name>ver-active-mode-left</object-name>
+        <condition>
+            <or>
+                <equals>
+                    <property>/flight-management/flight-modes/vertical/active</property>
+                    <value>VS</value>
+                </equals>
+                <equals>
+                    <property>/flight-management/flight-modes/vertical/active</property>
+                    <value>FPA</value>
+                </equals>
+            </or>
+        </condition>
+    </animation>
+    
+    <animation>
+        <type>select</type>
+        <object-name>fma-vs</object-name>
+        <condition>
+            <equals>
+                <property>/flight-management/flight-modes/vertical/active</property>
+                <value>VS</value>
+            </equals>
+        </condition>
+    </animation>
+    
+    <animation>
+        <type>select</type>
+        <object-name>fma-fpa</object-name>
+        <condition>
+            <equals>
+                <property>/flight-management/flight-modes/vertical/active</property>
+                <value>FPA</value>
+            </equals>
+        </condition>
+    </animation>
+    
+    <animation>
+        <type>select</type>
+        <object-name>athr-fma-msg</object-name>
+        <condition>
+            <property>instrumentation/pfd/flashing/show</property>
+        </condition>
+    </animation>
+    
+    <animation>
+        <type>select</type>
+        <object-name>athr-fma-alert</object-name>
+        <condition>
+            <or>
+                <equals>
+                    <property>/flight-management/flight-modes/athr/alert</property>
+                    <value>LVR ASYM</value>
+                </equals>
+                <property>instrumentation/pfd/flashing/show</property>
+            </or>
+        </condition>
+    </animation>
+    
+    <animation>
+        <type>select</type>
+        <object-name>athr-flx-to-temp</object-name>
+        <condition>
+            <property>instrumentation/pfd/flx-indication</property>
+        </condition>
+    </animation>
+    
+    <animation>
+        <type>select</type>
+        <object-name>presel-spd</object-name>
+        <condition>
+            <equals>
+                <property>/flight-management/flight-modes/athr/msg</property>
+                <value></value>
+            </equals>
+        </condition>
+    </animation>
+    
+    <!-- FMGC Modes Boxes -->
 	
+    <animation>
+        <type>select</type>
+        <object-name>athr-active-box</object-name>
+        <condition>
+            <and>
+                <property>instrumentation/pfd/athr-active-box</property>
+                <not>
+                    <property>instrumentation/pfd/athr-alert-box</property>
+                </not>
+            </and>
+        </condition>
+    </animation>
+    
+    <animation>
+        <type>select</type>
+        <object-name>athr-armed-box</object-name>
+        <condition>
+            <property>instrumentation/pfd/athr-armed-box</property>
+        </condition>
+    </animation>
+    
+    <animation>
+        <type>select</type>
+        <object-name>lat-active-box</object-name>
+        <condition>
+            <property>instrumentation/pfd/lat-active-box</property>
+        </condition>
+    </animation>
+    
+    <animation>
+        <type>select</type>
+        <object-name>ver-active-box</object-name>
+        <condition>
+            <property>instrumentation/pfd/ver-active-box</property>
+        </condition>
+    </animation>
+    
+    <animation>
+        <type>select</type>
+        <object-name>common-active-box</object-name>
+        <condition>
+            <property>instrumentation/pfd/common-active-box</property>
+        </condition>
+    </animation>
+    
+    <animation>
+        <type>select</type>
+        <object-name>ver-alert-box</object-name>
+        <condition>
+            <property>instrumentation/pfd/ver-alert-box</property>
+        </condition>
+    </animation>
+    
+    <animation>
+        <type>select</type>
+        <object-name>athr-alert-box</object-name>
+        <condition>
+            <property>instrumentation/pfd/athr-alert-box</property>
+        </condition>
+    </animation>
+    
+    <animation>
+        <type>select</type>
+        <object-name>ils-cat-box</object-name>
+        <condition>
+            <property>instrumentation/pfd/ils-cat-box</property>
+        </condition>
+    </animation>
+    
+    <animation>
+        <type>select</type>
+        <object-name>ils-appr-mode-box</object-name>
+        <condition>
+            <property>instrumentation/pfd/ils-appr-mode-box</property>
+        </condition>
+    </animation>
+    
+    <animation>
+        <type>select</type>
+        <object-name>ap-status-box</object-name>
+        <condition>
+            <property>instrumentation/pfd/ap-status-box</property>
+        </condition>
+    </animation>
+    
+    <animation>
+        <type>select</type>
+        <object-name>fd-status-box</object-name>
+        <condition>
+            <property>instrumentation/pfd/fd-status-box</property>
+        </condition>
+    </animation>
+    
+    <animation>
+        <type>select</type>
+        <object-name>athr-status-box</object-name>
+        <condition>
+            <property>instrumentation/pfd/athr-status-box</property>
+        </condition>
+    </animation>
+    
+    <animation>
+        <type>select</type>
+        <object-name>fma-message-box-white</object-name>
+        <condition>
+            <property>instrumentation/pfd/msg-alert-box</property>
+        </condition>
+    </animation>
+    
+    <animation>
+        <type>select</type>
+        <object-name>qnh-alert-box</object-name>
+        <condition>
+            <or>
+                <and>
+                    <greater-than-equals>
+                        <property>/instrumentation/altimeter/indicated-altitude-ft</property>
+                        <property>/flight-management/fmgc-values/trans-alt</property>
+                    </greater-than-equals>
+                    <equals>
+                        <property>flight-management/text/qnh</property>
+                        <value>QNH</value>
+                    </equals>
+                </and>
+                <and>
+                    <less-than>
+                        <property>/instrumentation/altimeter/indicated-altitude-ft</property>
+                        <property>/flight-management/fmgc-values/trans-alt</property>
+                    </less-than>
+                    <equals>
+                        <property>flight-management/text/qnh</property>
+                        <value>STD</value>
+                    </equals>
+                </and>
+            </or>
+        </condition>
+    </animation>
+    
+    <animation>
+        <type>select</type>
+        <object-name>upper-black-separator</object-name>
+        <condition>
+            <not>
+                <equals>
+                    <property>/flight-management/flight-modes/common/active</property>
+                    <value></value>
+                </equals>
+            </not>
+        </condition>
+    </animation>
+    
+    <animation>
+        <type>select</type>
+        <object-name>middle-black-separator</object-name>
+        <condition>
+            <or>
+                <not>
+                    <equals>
+                        <property>/flight-management/flight-modes/common/armed</property>
+                        <value></value>
+                    </equals>
+                </not>
+                <not>
+                    <equals>
+                        <property>/flight-management/flight-modes/common/active</property>
+                        <value></value>
+                    </equals>
+                </not>
+            </or>
+        </condition>
+    </animation>
+    
+    <animation>
+        <type>select</type>
+        <object-name>lower-black-separator</object-name>
+        <condition>
+            <or>
+                <not>
+                    <equals>
+                        <property>/flight-management/flight-modes/message</property>
+                        <value></value>
+                    </equals>
+                </not>
+                <not>
+                    <equals>
+                        <property>/flight-management/flight-modes/common/armed</property>
+                        <value></value>
+                    </equals>
+                </not>
+                <not>
+                    <equals>
+                        <property>/flight-management/flight-modes/common/active</property>
+                        <value></value>
+                    </equals>
+                </not>
+            </or>
+        </condition>
+    </animation>
+    
+    <animation>
+        <type>select</type>
+        <object-name>outer-beacon-marker</object-name>
+        <condition>
+            <property>instrumentation/marker-beacon/outer</property>
+        </condition>
+    </animation>
+    
+    <animation>
+        <type>select</type>
+        <object-name>middle-beacon-marker</object-name>
+        <condition>
+            <property>instrumentation/marker-beacon/middle</property>
+        </condition>
+    </animation>
+    
+    <animation>
+        <type>select</type>
+        <object-name>inner-beacon-marker</object-name>
+        <condition>
+            <property>instrumentation/marker-beacon/inner</property>
+        </condition>
+    </animation>
+    
 	<!-- Sidestick Deflection -->
 	
     <animation>
@@ -897,26 +4663,41 @@
         </axis>
     </animation>
     
-    <!-- Flight Director -->
-	
+    <!-- Flight Path Vector -->
+    
+    <animation>
+        <type>select</type>
+        <object-name>fpv</object-name>
+        <condition>
+            <and>
+                <equals>
+                    <property>/flight-management/control/ver-sub</property>
+                    <value>fpa</value>
+                </equals>
+                <greater-than>
+                    <property>instrumentation/airspeed-indicator/indicated-speed-kt</property>
+                    <value>70</value>
+                </greater-than>
+            </and>
+        </condition>
+    </animation>
+    
     <animation>
         <type>translate</type>
-        <object-name>fd_pitch</object-name>
-        <property>/servo-control/fd-target-pitch</property>
-        <!--<factor>0.0258</factor>-->
-        <factor>0.001955078</factor>
+        <object-name>fpv</object-name>
+        <property>instrumentation/pfd/track-diff</property>
+        <factor>0.00260</factor>
         <axis>
             <x>0</x>
-            <y>0</y>
-            <z>1</z>
+            <y>1</y>
+            <z>0</z>
         </axis>
     </animation>
-
+    
     <animation>
         <type>translate</type>
-        <object-name>fd_pitch</object-name>
+        <object-name>fpv</object-name>
         <property>orientation/pitch-deg</property>
-        <!--<factor>0.0258</factor>-->
         <factor>0.001955078</factor>
         <axis>
             <x>0</x>
@@ -925,11 +4706,49 @@
         </axis>
     </animation>
 
+    <animation>
+        <type>translate</type>
+        <object-name>fpv</object-name>
+        <property>/flight-management/fmgc-values/fpa-angle</property>
+        <factor>0.001955078</factor>
+        <axis>
+            <x>0</x>
+            <y>0</y>
+            <z>1</z>
+        </axis>
+    </animation>
+    
+    <!-- Flight Director -->
+    
+    <animation>
+        <type>translate</type>
+        <object-name>fd_pitch</object-name>
+        <property>orientation/pitch-deg</property>
+        <factor>0.001955078</factor>
+        <axis>
+            <x>0</x>
+            <y>0</y>
+            <z>-1</z>
+        </axis>
+    </animation>
+    
+    <animation>
+        <type>translate</type>
+        <object-name>fd_pitch</object-name>
+        <property>instrumentation/pfd/fd_pitch</property>
+        <factor>0.001955078</factor>
+        <axis>
+            <x>0</x>
+            <y>0</y>
+            <z>1</z>
+        </axis>
+    </animation>
+
     
     <animation>
         <type>translate</type>
         <object-name>fd_roll</object-name>
-        <property>/autopilot/internal/fd-bank</property>
+        <property>/instrumentation/pfd/fd_bank</property>
         <factor>0.0260</factor>
         <axis>
             <x>0</x>
@@ -937,5 +4756,95 @@
             <z>0</z>
         </axis>
     </animation>
+    
+    <animation>
+        <type>translate</type>
+        <object-name>rudder_bar</object-name>
+        <property>/instrumentation/pfd/fd_bank</property>
+        <factor>0.0260</factor>
+        <axis>
+            <x>0</x>
+            <y>1</y>
+            <z>0</z>
+        </axis>
+    </animation>
+    
+    <!-- Flight Path Director -->
+    
+    <animation>
+        <type>select</type>
+        <object-name>flight-path-director</object-name>
+        <condition>
+            <and>
+                <property>/flight-management/control/fd</property>
+                <not>
+                    <property>/gear/gear/wow</property>
+                </not>
+                <not>
+                    <property>/gear/gear[1]/wow</property>
+                </not>
+                <not>
+                    <property>/gear/gear[2]/wow</property>
+                </not>
+                <equals>
+                    <property>/flight-management/control/ver-sub</property>
+                    <value>fpa</value>
+                </equals>
+            </and> 
+        </condition>
+    </animation>
+    
+    <animation>
+        <type>translate</type>
+        <object-name>flight-path-director</object-name>
+        <property>instrumentation/pfd/track-diff</property>
+        <factor>0.00260</factor>
+        <axis>
+            <x>0</x>
+            <y>1</y>
+            <z>0</z>
+        </axis>
+    </animation>
+    
+    <animation>
+        <type>translate</type>
+        <object-name>flight-path-director</object-name>
+        <property>orientation/pitch-deg</property>
+        <factor>0.001955078</factor>
+        <axis>
+            <x>0</x>
+            <y>0</y>
+            <z>-1</z>
+        </axis>
+    </animation>
 
+    <animation>
+        <type>translate</type>
+        <object-name>flight-path-director</object-name>
+        <!--property>/flight-management/fcu-values/fpa</property-->
+        <property>instrumentation/pfd/fd_pitch</property><!-- It should be based on Target FPA -->
+        <factor>0.001955078</factor>
+        <axis>
+            <x>0</x>
+            <y>0</y>
+            <z>1</z>
+        </axis>
+    </animation>
+    
+    <animation>
+        <type>rotate</type>
+        <object-name>flight-path-director</object-name>
+        <property>/instrumentation/pfd/fd_bank</property>
+        <factor>100</factor>
+        <center>
+            <x>0.50</x>
+            <y>0.50</y>
+        </center>
+        <axis>
+            <x>-1</x>
+            <y>0</y>
+            <z>0</z>
+        </axis>
+    </animation>
+    
 </PropertyList>

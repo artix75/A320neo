@@ -1,0 +1,56 @@
+<?xml version="1.0"?>
+<PropertyList>
+
+    <path>res/ND_R.ac</path>
+	<model>
+		<path>Aircraft/A320neo/Models/Instruments/ND/terrain-map-pixel.xml</path>
+		<condition>
+			<and>
+				<greater-than>
+					<property>systems/electrical/outputs/efis</property>
+					<value>15</value>
+				</greater-than>
+
+				<property>/instrumentation/efis/nd/terrain-on-nd</property>
+
+			</and>
+		</condition>
+
+		<offsets>
+			<x-m>0.001</x-m>
+		</offsets>
+	</model>
+    <animation>
+        <type>select</type>
+        <object-name>Power_R.off</object-name>
+        <condition>
+            <less-than>
+                <property>systems/electrical/outputs/efis</property>
+                <value>15</value>
+            </less-than>
+        </condition>
+    </animation>
+    <animation>
+        <type>select</type>
+        <object-name>ND_R.screen</object-name>
+        <condition>
+            <greater-than>
+                <property>systems/electrical/outputs/efis</property>
+                <value>15</value>
+            </greater-than>
+        </condition>
+    </animation>
+    <animation>
+        <type>pick</type>
+        <object-name>ND_R.screen</object-name>
+        <action>
+                <button>0</button>
+                <repeatable>false</repeatable>
+                <binding>
+                        <command>nasal</command>
+                        <script>canvas_nd.showNd('right');</script>
+                </binding>
+        </action>
+</animation>    
+   
+</PropertyList>

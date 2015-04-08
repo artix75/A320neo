@@ -9694,7 +9694,7 @@ refs 4
 33 0.784475 0.104254
 kids 0
 OBJECT poly
-name "cylinder"
+name "overfly"
 loc 0.0515687 0.00110786 -0.0293327
 texture "bg.png"
 crease 45.000000

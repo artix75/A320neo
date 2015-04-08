@@ -143,6 +143,47 @@
 			<factor-prop>controls/lighting/overhead-panel-norm</factor-prop>
 		</emission>
 	</animation>
+	
+	<!-- Call -->
+	
+	<animation>
+		<name>Ground Call pick</name>
+		<type>pick</type>
+		<object-name>GroundCall</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>nasal</command>
+				<script>
+					utils.clickSound(4);
+					var dlg = gui.Dialog.new("sim/gui/dialogs/ground-call/dialog", 
+											 "Aircraft/A320neo/Systems/call-ground.xml");
+					dlg.open();
+				</script>
+			</binding>
+		</action>
+	</animation>
+    
+	<animation>
+		<name>Cabin Call pick</name>
+		<type>pick</type>
+		<object-name>FwdCabinACKnb</object-name>
+		<object-name>FwdCabinCall</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>nasal</command>
+				<script>
+					utils.clickSound(4);
+					var dlg = gui.Dialog.new("sim/gui/dialogs/cabin-call/dialog", 
+					"Aircraft/A320neo/Systems/call-cabin.xml");
+					dlg.open();
+				</script>
+			</binding>
+		</action>
+	</animation>
 
 	<!-- GPWS -->
 	<animation>
@@ -157,6 +198,10 @@
 				<command>property-toggle</command>
 				<property>instrumentation/mk-viii/inputs/discretes/gpws-inhibit</property>
 			</binding>
+                        <binding>
+                            <command>nasal</command>
+                            <script>utils.clickSound(6)</script>
+                        </binding>
 		</action>
 	</animation>
 	<animation>
@@ -197,6 +242,10 @@
 				<command>property-toggle</command>
 				<property>instrumentation/mk-viii/inputs/discretes/glideslope-cancel</property>
 			</binding>
+                        <binding>
+                            <command>nasal</command>
+                            <script>utils.clickSound(6)</script>
+                        </binding>
 		</action>
 	</animation>
 	<animation>
@@ -223,6 +272,10 @@
 				<command>property-toggle</command>
 				<property>instrumentation/mk-viii/inputs/discretes/momentary-flap-override</property>
 			</binding>
+                        <binding>
+                            <command>nasal</command>
+                            <script>utils.clickSound(6)</script>
+                        </binding>
 		</action>
 	</animation>
 	<animation>
@@ -230,6 +283,36 @@
 		<type>textranslate</type>
 		<object-name>GPWSFlpBtn2</object-name>
 		<property>instrumentation/mk-viii/inputs/discretes/momentary-flap-override</property>
+		<factor>0.5</factor>
+		<axis>
+			<x>1</x>
+			<y>0</y>
+		</axis>
+	</animation>
+	
+	<animation>
+		<name>GPWS flaps pick</name>
+		<type>pick</type>
+		<object-name>GPWSFlp3Btn1</object-name>
+		<object-name>GPWSFlp3Btn2</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-toggle</command>
+				<property>instrumentation/mk-viii/inputs/discretes/momentary-flap3-override</property>
+			</binding>
+                        <binding>
+                            <command>nasal</command>
+                            <script>utils.clickSound(6)</script>
+                        </binding>
+		</action>
+	</animation>
+	<animation>
+		<name>GPWS flaps off</name>
+		<type>textranslate</type>
+		<object-name>GPWSFlp3Btn2</object-name>
+		<property>instrumentation/mk-viii/inputs/discretes/momentary-flap3-override</property>
 		<factor>0.5</factor>
 		<axis>
 			<x>1</x>
@@ -249,6 +332,10 @@
 				<command>property-toggle</command>
 				<property>controls/engines/engine[0]/fire-bottle-discharge</property>
 			</binding>
+                        <binding>
+                            <command>nasal</command>
+                            <script>utils.clickSound(7)</script>
+                        </binding>
 		</action>
 	</animation>
 	<animation>
@@ -274,6 +361,10 @@
 				<command>property-toggle</command>
 				<property>controls/APU/fire-switch</property>
 			</binding>
+                        <binding>
+                            <command>nasal</command>
+                            <script>utils.clickSound(7)</script>
+                        </binding>
 		</action>
 	</animation>
 	<animation>
@@ -299,6 +390,10 @@
 				<command>property-toggle</command>
 				<property>controls/engines/engine[1]/fire-bottle-discharge</property>
 			</binding>
+                        <binding>
+                            <command>nasal</command>
+                            <script>utils.clickSound(7)</script>
+                        </binding>
 		</action>
 	</animation>
 	<animation>
@@ -327,6 +422,10 @@
 				<!-- property>consumables/fuel/tank[0]/selected</property -->
 				<property>controls/fuel/tank[2]/boost-pump[0]</property>
 			</binding>
+                        <binding>
+                            <command>nasal</command>
+                            <script>utils.clickSound(7)</script>
+                        </binding>
 		</action>
 	</animation>
 	<animation>
@@ -357,6 +456,10 @@
 				<!--property>consumables/fuel/tank[1]/selected</property-->
 				<property>controls/fuel/tank[2]/boost-pump[1]</property>
 			</binding>
+                        <binding>
+                            <command>nasal</command>
+                            <script>utils.clickSound(7)</script>
+                        </binding>
 		</action>
 	</animation>
 	<animation>
@@ -388,6 +491,10 @@
 				<!--property>consumables/fuel/tank[3]/selected</property-->
 				<property>controls/fuel/tank[3]/boost-pump[0]</property>
 			</binding>
+                        <binding>
+                            <command>nasal</command>
+                            <script>utils.clickSound(6)</script>
+                        </binding>
 		</action>
 	</animation>
 	<animation>
@@ -418,6 +525,10 @@
 				<!--property>consumables/fuel/tank[3]/selected</property-->
 				<property>controls/fuel/tank[3]/boost-pump[1]</property>
 			</binding>
+                        <binding>
+                            <command>nasal</command>
+                            <script>utils.clickSound(6)</script>
+                        </binding>
 		</action>
 	</animation>
 	<animation>
@@ -448,12 +559,16 @@
 				<command>property-toggle</command>
 				<property>controls/fuel/x-feed</property>
 			</binding>
+                        <binding>
+                            <command>nasal</command>
+                            <script>utils.clickSound(6)</script>
+                        </binding>
 		</action>
 	</animation>
 	<animation>
 		<name>X-Feed Valve off</name>
 		<type>textranslate</type>
-		<object-name>FuelXfeedBtn1</object-name>
+		<object-name>FuelXfeedBtn2</object-name>
 
 		<property>controls/fuel/x-feed</property>
 		<!-- interpolation>
@@ -480,6 +595,10 @@
 				<!--property>consumables/fuel/tank[4]/selected</property-->
 				<property>controls/fuel/tank[4]/boost-pump[0]</property>
 			</binding>
+                        <binding>
+                            <command>nasal</command>
+                            <script>utils.clickSound(6)</script>
+                        </binding>
 		</action>
 	</animation>
 	<animation>
@@ -510,6 +629,10 @@
 				<!--property>consumables/fuel/tank[5]/selected</property-->
 				<property>controls/fuel/tank[4]/boost-pump[1]</property>
 			</binding>
+                        <binding>
+                            <command>nasal</command>
+                            <script>utils.clickSound(6)</script>
+                        </binding>
 		</action>
 	</animation>
 	<animation>
@@ -522,6 +645,68 @@
 			<entry><ind>0</ind><dep>0.5</dep></entry>
 			<entry><ind>1</ind><dep>0</dep></entry>
 		</interpolation>
+		<axis>
+			<x>1</x>
+			<y>0</y>
+		</axis>
+	</animation>
+	
+	<!-- Fuel Jettison -->
+	
+	<animation>
+		<name>Fuel Jettison Arm</name>
+		<type>pick</type>
+		<object-name>fueldumpARM1</object-name>
+		<object-name>fueldumpARM2</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-toggle</command>
+				<property>controls/fuel-dump/arm</property>
+			</binding>
+                        <binding>
+                            <command>nasal</command>
+                            <script>utils.clickSound(6)</script>
+                        </binding>
+		</action>
+	</animation>
+	<animation>
+		<name>Fuel Jettison Arm animation</name>
+		<type>textranslate</type>
+		<object-name>fueldumpARM2</object-name>
+		<property>controls/fuel-dump/arm</property>
+		<factor>0.5</factor>
+		<axis>
+			<x>1</x>
+			<y>0</y>
+		</axis>
+	</animation>
+	
+	<animation>
+		<name>Fuel Jettison Active</name>
+		<type>pick</type>
+		<object-name>fueldumpACT1</object-name>
+		<object-name>fueldumpACT2</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-toggle</command>
+				<property>controls/fuel-dump/active</property>
+			</binding>
+                        <binding>
+                            <command>nasal</command>
+                            <script>utils.clickSound(6)</script>
+                        </binding>
+		</action>
+	</animation>
+	<animation>
+		<name>Fuel Jettison Arm animation</name>
+		<type>textranslate</type>
+		<object-name>fueldumpACT2</object-name>
+		<property>controls/fuel-dump/active</property>
+		<factor>0.5</factor>
 		<axis>
 			<x>1</x>
 			<y>0</y>
@@ -541,6 +726,10 @@
 				<command>property-toggle</command>
 				<property>controls/electric/battery-switch</property>
 			</binding>
+                        <binding>
+                            <command>nasal</command>
+                            <script>utils.clickSound(6)</script>
+                        </binding>
 		</action>
 	</animation>
 	<animation>
@@ -570,6 +759,10 @@
 				<command>property-toggle</command>
 				<property>controls/electric/engine[0]/generator</property>
 			</binding>
+                        <binding>
+                            <command>nasal</command>
+                            <script>utils.clickSound(6)</script>
+                        </binding>
 		</action>
 	</animation>
 	<animation>
@@ -599,6 +792,10 @@
 				<command>property-toggle</command>
 				<property>controls/electric/APU-generator</property>
 			</binding>
+                        <binding>
+                            <command>nasal</command>
+                            <script>utils.clickSound(6)</script>
+                        </binding>
 		</action>
 	</animation>
 	<animation>
@@ -628,6 +825,10 @@
 				<command>property-toggle</command>
 				<property>controls/electric/external-power</property>
 			</binding>
+                        <binding>
+                            <command>nasal</command>
+                            <script>utils.clickSound(6)</script>
+                        </binding>
 		</action>
 	</animation>
 	<animation>
@@ -654,6 +855,10 @@
 				<command>property-toggle</command>
 				<property>controls/electric/engine[1]/generator</property>
 			</binding>
+                        <binding>
+                            <command>nasal</command>
+                            <script>utils.clickSound(6)</script>
+                        </binding>
 		</action>
 	</animation>
 	<animation>
@@ -685,6 +890,10 @@
 				<step>0.5</step>
 				<max>1</max>
 			</binding>
+                        <binding>
+                            <command>nasal</command>
+                            <script>utils.clickSound(6)</script>
+                        </binding>
 		</action>
 		<action>
 			<button>1</button>
@@ -731,6 +940,10 @@
 				<command>property-toggle</command>
 				<property>controls/pressurization/pack[0]/pack-on</property>
 			</binding>
+                        <binding>
+                            <command>nasal</command>
+                            <script>utils.clickSound(6)</script>
+                        </binding>
 		</action>
 	</animation>
 	<animation>
@@ -757,6 +970,10 @@
 				<command>property-toggle</command>
 				<property>controls/pneumatic/engine[0]/bleed</property>
 			</binding>
+                        <binding>
+                            <command>nasal</command>
+                            <script>utils.clickSound(6)</script>
+                        </binding>
 		</action>
 	</animation>
 	<animation>
@@ -783,6 +1000,10 @@
 				<command>property-toggle</command>
 				<property>controls/pneumatic/APU-bleed</property>
 			</binding>
+                        <binding>
+                            <command>nasal</command>
+                            <script>utils.clickSound(6)</script>
+                        </binding>
 		</action>
 	</animation>
 	<animation>
@@ -809,6 +1030,10 @@
 				<command>property-toggle</command>
 				<property>controls/pneumatic/engine[1]/bleed</property>
 			</binding>
+                        <binding>
+                            <command>nasal</command>
+                            <script>utils.clickSound(6)</script>
+                        </binding>
 		</action>
 	</animation>
 	<animation>
@@ -835,6 +1060,10 @@
 				<command>property-toggle</command>
 				<property>controls/pressurization/pack[1]/pack-on</property>
 			</binding>
+                        <binding>
+                            <command>nasal</command>
+                            <script>utils.clickSound(6)</script>
+                        </binding>
 		</action>
 	</animation>
 	<animation>
@@ -862,6 +1091,10 @@
 				<command>property-toggle</command>
 				<property>controls/anti-ice/wing-heat</property>
 			</binding>
+                        <binding>
+                            <command>nasal</command>
+                            <script>utils.clickSound(6)</script>
+                        </binding>
 		</action>
 	</animation>
 	<animation>
@@ -888,6 +1121,10 @@
 				<command>property-toggle</command>
 				<property>controls/anti-ice/engine[0]/inlet-heat</property>
 			</binding>
+                        <binding>
+                            <command>nasal</command>
+                            <script>utils.clickSound(6)</script>
+                        </binding>
 		</action>
 	</animation>
 	<animation>
@@ -914,6 +1151,10 @@
 				<command>property-toggle</command>
 				<property>controls/anti-ice/engine[1]/inlet-heat</property>
 			</binding>
+                        <binding>
+                            <command>nasal</command>
+                            <script>utils.clickSound(6)</script>
+                        </binding>
 		</action>
 	</animation>
 	<animation>
@@ -945,6 +1186,10 @@
 				<property>controls/anti-ice/window-heat</property>
 				<property>controls/anti-ice/pitot-heat</property>
 			</binding>
+                        <binding>
+                            <command>nasal</command>
+                            <script>utils.clickSound(6)</script>
+                        </binding>
 		</action>
 	</animation>
 	<animation>
@@ -971,6 +1216,14 @@
 				<command>property-toggle</command>
 				<property>controls/lighting/strobe</property>
 			</binding>
+                        <binding>
+                            <command>nasal</command>
+                            <script>utils.clickSound(7)</script>
+                        <binding>
+                            <command>nasal</command>
+                            <script>utils.clickSound(6)</script>
+                        </binding>
+                        </binding>
 		</action>
 	</animation>
 	<animation>
@@ -1005,6 +1258,10 @@
 				<command>property-toggle</command>
 				<property>controls/lighting/beacon</property>
 			</binding>
+                        <binding>
+                            <command>nasal</command>
+                            <script>utils.clickSound(7)</script>
+                        </binding>
 		</action>
 	</animation>
 	<animation>
@@ -1012,6 +1269,44 @@
 		<type>rotate</type>
 		<object-name>BeaconLtSwtch</object-name>
 		<property>controls/lighting/beacon</property>
+		<interpolation>
+			<entry><ind>0</ind><dep>35</dep></entry>
+			<entry><ind>1</ind><dep>-35</dep></entry>
+		</interpolation>
+		<axis>
+			<x>0</x>
+			<y>1</y>
+			<z>0</z>
+		</axis>
+		<center>
+			<x-m>-0.01</x-m>
+			<y-m>0</y-m>
+			<z-m>-0.265</z-m>
+		</center>
+	</animation>
+
+	<animation>
+		<name>Wing lights pick</name>
+		<type>pick</type>
+		<object-name>WingLtSwtch</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-toggle</command>
+				<property>controls/lighting/wing-lights</property>
+			</binding>
+                        <binding>
+                            <command>nasal</command>
+                            <script>utils.clickSound(7)</script>
+                        </binding>
+		</action>
+	</animation>
+	<animation>
+		<name>Wing lights rotate</name>
+		<type>rotate</type>
+		<object-name>WingLtSwtch</object-name>
+		<property>controls/lighting/wing-lights</property>
 		<interpolation>
 			<entry><ind>0</ind><dep>35</dep></entry>
 			<entry><ind>1</ind><dep>-35</dep></entry>
@@ -1042,6 +1337,10 @@
 				<value type="int">1</value>
 				<value type="int">2</value>
 			</binding>
+                        <binding>
+                            <command>nasal</command>
+                            <script>utils.clickSound(8)</script>
+                        </binding>
 		</action>
 	</animation>
 	<animation>
@@ -1077,6 +1376,10 @@
 				<command>property-toggle</command>
 				<property>controls/lighting/landing-lights[0]</property>
 			</binding>
+                        <binding>
+                            <command>nasal</command>
+                            <script>utils.clickSound(7)</script>
+                        </binding>
 		</action>
 	</animation>
 	<animation>
@@ -1111,6 +1414,10 @@
 				<command>property-toggle</command>
 				<property>controls/lighting/landing-lights[2]</property>
 			</binding>
+                        <binding>
+                            <command>nasal</command>
+                            <script>utils.clickSound(7)</script>
+                        </binding>
 		</action>
 	</animation>
 	<animation>
@@ -1145,6 +1452,10 @@
 				<command>property-toggle</command>
 				<property>controls/lighting/landing-lights[1]</property>
 			</binding>
+                        <binding>
+                            <command>nasal</command>
+                            <script>utils.clickSound(7)</script>
+                        </binding>
 		</action>
 	</animation>
 	<animation>
@@ -1181,6 +1492,10 @@
 				<command>property-toggle</command>
 				<property>controls/APU/master-switch</property>
 			</binding>
+                        <binding>
+                            <command>nasal</command>
+                            <script>utils.clickSound(6)</script>
+                        </binding>
 		</action>
 	</animation>
 	<animation>
@@ -1221,6 +1536,10 @@
 				<command>property-toggle</command>
 				<property>controls/APU/starter</property>
 			</binding>
+                        <binding>
+                            <command>nasal</command>
+                            <script>utils.clickSound(6)</script>
+                        </binding>
 		</action>
 	</animation>
 	<animation>
@@ -1334,6 +1653,10 @@
 				<command>property-toggle</command>
 				<property>controls/switches/seatbelt-sign</property>
 			</binding>
+                        <binding>
+                            <command>nasal</command>
+                            <script>utils.clickSound(6)</script>
+                        </binding>
 		</action>
 	</animation>
 	<animation>
@@ -1368,6 +1691,10 @@
 				<command>property-toggle</command>
 				<property>controls/switches/no-smoking-sign</property>
 			</binding>
+                        <binding>
+                            <command>nasal</command>
+                            <script>utils.clickSound(6)</script>
+                        </binding>
 		</action>
 	</animation>
 	<animation>
@@ -1404,6 +1731,10 @@
 				<command>property-toggle</command>
 				<property>controls/engines/engine[0]/starter-switch</property>
 			</binding>
+                        <binding>
+                            <command>nasal</command>
+                            <script>utils.clickSound(6)</script>
+                        </binding>
 		</action>
 	</animation>
 	<animation>
@@ -1430,6 +1761,10 @@
 				<command>property-toggle</command>
 				<property>controls/engines/engine[1]/starter-switch</property>
 			</binding>
+                        <binding>
+                            <command>nasal</command>
+                            <script>utils.clickSound(6)</script>
+                        </binding>
 		</action>
 	</animation>
 	<animation>
@@ -1458,6 +1793,10 @@
 				<command>property-toggle</command>
 				<property>hydraulics/control/eng1-pump</property>
 			</binding>
+                        <binding>
+                            <command>nasal</command>
+                            <script>utils.clickSound(6)</script>
+                        </binding>
 		</action>
 	</animation>
 	
@@ -1473,6 +1812,10 @@
 				<command>property-toggle</command>
 				<property>hydraulics/control/eng2-pump</property>
 			</binding>
+                        <binding>
+                            <command>nasal</command>
+                            <script>utils.clickSound(6)</script>
+                        </binding>
 		</action>
 	</animation>
 	
@@ -1488,6 +1831,10 @@
 				<command>property-toggle</command>
 				<property>hydraulics/control/elec-pump</property>
 			</binding>
+                        <binding>
+                            <command>nasal</command>
+                            <script>utils.clickSound(6)</script>
+                        </binding>
 		</action>
 	</animation>
 	
@@ -1503,6 +1850,10 @@
 				<command>property-toggle</command>
 				<property>hydraulics/control/y-elec-pump</property>
 			</binding>
+                        <binding>
+                            <command>nasal</command>
+                            <script>utils.clickSound(6)</script>
+                        </binding>
 		</action>
 	</animation>
 	
@@ -1519,6 +1870,10 @@
 				<property>hydraulics/control/rat-unlck</property>
 				<value>1</value>
 			</binding>
+                        <binding>
+                            <command>nasal</command>
+                            <script>utils.clickSound(6)</script>
+                        </binding>
 		</action>
 	</animation>
 	
@@ -1533,6 +1888,10 @@
 				<command>property-toggle</command>
 				<property>hydraulics/control/ptu</property>
 			</binding>
+                        <binding>
+                            <command>nasal</command>
+                            <script>utils.clickSound(6)</script>
+                        </binding>
 		</action>
 	</animation>
 	

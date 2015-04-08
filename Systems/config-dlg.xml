@@ -1,0 +1,85 @@
+<?xml version="1.0"?>
+<PropertyList>
+    <name>Aircraft Configuration Dialog</name>
+    <layout>vbox</layout>
+	<default-padding>3</default-padding>
+    
+    <text>
+		<label>Aircraft Configuration</label>
+    </text>
+    <hrule/>
+
+    <group>
+		<layout>vbox</layout>
+		<halign>left</halign>
+		<text>
+			<halign>left</halign>
+			<label>FCU Controls</label>
+		</text>
+		<checkbox>
+			<label>Shift to rotate knobs</label>
+			<halign>left</halign>
+			<property>aircraft-config/saved/fcu/shift-to-rotate</property>
+			<live>true</live>
+			<binding>
+				<command>property-toggle</command>
+				<property>aircraft-config/saved/fcu/shift-to-rotate</property>
+			</binding>
+		</checkbox>
+		<checkbox>
+			<label>Disable Tooltips</label>
+			<halign>left</halign>
+			<property>aircraft-config/saved/fcu/disable-tooltips</property>
+			<live>true</live>
+			<binding>
+				<command>property-toggle</command>
+				<property>aircraft-config/saved/fcu/disable-tooltips</property>
+			</binding>
+		</checkbox>
+    </group>
+	
+	<group>
+		<layout>vbox</layout>
+		<halign>left</halign>
+		<text>
+			<halign>left</halign>
+			<label>mCDU Controls</label>
+		</text>
+		<checkbox>
+			<label>Inverted Vertical Arrow Keys (like real Airbus)</label>
+			<halign>left</halign>
+			<property>aircraft-config/saved/mcdu/invert-arrow-keys</property>
+			<live>true</live>
+			<binding>
+				<command>property-toggle</command>
+				<property>aircraft-config/saved/mcdu/invert-arrow-keys</property>
+			</binding>
+		</checkbox>
+	</group>
+
+    <group>
+        <layout>hbox</layout>
+        <empty><stretch>true</stretch></empty>
+
+        <button>
+            <legend>Close</legend>
+            <default>true</default>
+            <key>Esc</key>
+            <binding>
+                <command>dialog-close</command>
+            </binding>
+        </button>
+
+        <empty><stretch>true</stretch></empty>
+    </group>
+	<nasal>
+		<close>
+			<![CDATA[
+ 				var home = getprop('sim/fg-home');
+ 				var aircraft = getprop('sim/aircraft');
+ 				var fname = home ~ '/Export/' ~ aircraft ~ '-config.xml';
+				var res = io.write_properties(fname, 'aircraft-config/saved');
+			]]>
+		</close>
+	</nasal>
+</PropertyList>

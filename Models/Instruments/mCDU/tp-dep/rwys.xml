@@ -52,6 +52,10 @@
 	<animation>
 		<type>material</type>
 		<object-name>text-cyan</object-name>
+        <object-name>l1-ils</object-name>
+        <object-name>l2-ils</object-name>
+        <object-name>l3-ils</object-name>
+        <object-name>l4-ils</object-name>
 		<emission>
 			<red>0</red>
 			<green>1</green>
@@ -64,7 +68,58 @@
 			<blue>1</blue>
 		</diffuse>
 	</animation>
-	
+    
+    <!-- ILS Conditionals -->
+    
+    <animation>
+        <type>select</type>
+        <object-name>l1-ils</object-name>
+        <condition>
+            <greater-than>
+                <property>flight-management/procedures/sid/rwy-disp/line/ils-frequency-mhz</property>
+                <value>0</value>
+            </greater-than>
+        </condition>
+        
+    </animation>
+    
+    <animation>
+        <type>select</type>
+        <object-name>l2-ils</object-name>
+        <condition>
+            <greater-than>
+                <property>flight-management/procedures/sid/rwy-disp/line[1]/ils-frequency-mhz</property>
+                <value>0</value>
+            </greater-than>
+        </condition>
+        
+    </animation>
+    
+    <animation>
+        <type>select</type>
+        <object-name>l3-ils</object-name>
+        <condition>
+            <greater-than>
+                <property>flight-management/procedures/sid/rwy-disp/line[2]/ils-frequency-mhz</property>
+                <value>0</value>
+            </greater-than>
+        </condition>
+        
+    </animation>
+    
+    <animation>
+        <type>select</type>
+        <object-name>l4-ils</object-name>
+        <condition>
+            <greater-than>
+                <property>flight-management/procedures/sid/rwy-disp/line[3]/ils-frequency-mhz</property>
+                <value>0</value>
+            </greater-than>
+        </condition>
+        
+    </animation>
+
+
 	<!-- Button Pick Animations -->
 	
 	<animation>
@@ -181,9 +236,16 @@
 		 		<script>
 		 		
 		 			var first = getprop("/flight-management/procedures/sid/first");
-		 			
-		 			if (first != 0)
-		 				setprop("/flight-management/procedures/sid/first", first - 4);
+					var invert = getprop('aircraft-config/saved/mcdu/invert-arrow-keys') or 0;
+					if(!invert){
+						if (first != 0)
+							setprop("/flight-management/procedures/sid/first", first - 4);
+					} else {
+						var max = getprop("/flight-management/procedures/sid/runways");
+
+						if (max > first + 4)
+							setprop("/flight-management/procedures/sid/first", first + 4);
+					}
 		 				
 		 			mcdu.sid.update_rwys();
 		 			
@@ -201,13 +263,18 @@
             <binding>
 				<command>nasal</command>
 		 		<script>
-		 		
-		 			var first = getprop("/flight-management/procedures/sid/first");
-		 			
-		 			var max = getprop("/flight-management/procedures/sid/runways");
-		 			
-		 			if (max > first + 4)
-		 				setprop("/flight-management/procedures/sid/first", first + 4);
+
+					var first = getprop("/flight-management/procedures/sid/first");
+					var invert = getprop('aircraft-config/saved/mcdu/invert-arrow-keys') or 0;
+					if(!invert){
+						var max = getprop("/flight-management/procedures/sid/runways");
+
+						if (max > first + 4)
+							setprop("/flight-management/procedures/sid/first", first + 4);
+					} else {
+						if (first != 0)
+							setprop("/flight-management/procedures/sid/first", first - 4);
+					}
 		 				
 		 			mcdu.sid.update_rwys();
 		 			
@@ -689,6 +756,108 @@
 		<type type="string">number-value</type>
 		<format type="string">%3.2f</format>
 		<property>flight-management/procedures/sid/rwy-disp/line[3]/width-ft</property>
+		<truncate type="bool">false</truncate>
+		<font type="string">courier-bold.txf</font>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.003</character-size>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+    
+    <!-- ILS FREQ -->
+    
+	<text>
+		<name>l1-ils</name>
+		<offsets>
+			<x-m>-0.0572</x-m>
+			<y-m>0.0030</y-m>
+			<z-m>-0.0006</z-m>
+			<heading-deg>90</heading-deg>
+		</offsets>
+		<alignment>right-center</alignment>
+		<axis-alignment>xy-plane</axis-alignment>
+		<type type="string">number-value</type>
+		<format type="string">ILS %3.2fmhz</format>
+		<property>flight-management/procedures/sid/rwy-disp/line/ils-frequency-mhz</property>
+		<truncate type="bool">false</truncate>
+		<font type="string">courier-bold.txf</font>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.003</character-size>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	
+	<text>
+		<name>l2-ils</name>
+		<offsets>
+			<x-m>-0.0478</x-m>
+			<y-m>0.0030</y-m>
+			<z-m>-0.0006</z-m>
+			<heading-deg>90</heading-deg>
+		</offsets>
+		<alignment>right-center</alignment>
+		<axis-alignment>xy-plane</axis-alignment>
+		<type type="string">number-value</type>
+		<format type="string">ILS %3.2fmhz</format>
+		<property>flight-management/procedures/sid/rwy-disp/line[1]/ils-frequency-mhz</property>
+		<truncate type="bool">false</truncate>
+		<font type="string">courier-bold.txf</font>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.003</character-size>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	
+	<text>
+		<name>l3-ils</name>
+		<offsets>
+			<x-m>-0.0382</x-m>
+			<y-m>0.0030</y-m>
+			<z-m>-0.0006</z-m>
+			<heading-deg>90</heading-deg>
+		</offsets>
+		<alignment>right-center</alignment>
+		<axis-alignment>xy-plane</axis-alignment>
+		<type type="string">number-value</type>
+		<format type="string">ILS %3.2fmhz</format>
+		<property>flight-management/procedures/sid/rwy-disp/line[2]/ils-frequency-mhz</property>
+		<truncate type="bool">false</truncate>
+		<font type="string">courier-bold.txf</font>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.003</character-size>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	
+	<text>
+		<name>l4-ils</name>
+		<offsets>
+			<x-m>-0.0290</x-m>
+			<y-m>0.0030</y-m>
+			<z-m>-0.0006</z-m>
+			<heading-deg>90</heading-deg>
+		</offsets>
+		<alignment>right-center</alignment>
+		<axis-alignment>xy-plane</axis-alignment>
+		<type type="string">number-value</type>
+		<format type="string">ILS %3.2fmhz</format>
+		<property>flight-management/procedures/sid/rwy-disp/line[3]/ils-frequency-mhz</property>
 		<truncate type="bool">false</truncate>
 		<font type="string">courier-bold.txf</font>
 		<draw-text type="bool">true</draw-text>

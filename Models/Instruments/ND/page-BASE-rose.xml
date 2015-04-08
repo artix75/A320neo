@@ -11,7 +11,7 @@
 			<w>225</w>
 			<h>225</h>
 			<texture>
-				<path>Aircraft/A320neo/Models/Instruments/ND/res/hsi2a.png</path>
+				<path>Aircraft/A330-200/Models/Instruments/ND/res/hsi2a.png</path>
 				<x1>0</x1>
 				<y1>0</y1>
 				<x2>1</x2>
@@ -37,7 +37,7 @@
 			<w>256</w>
 			<h>256</h>
 			<texture>
-				<path>Aircraft/A320neo/Models/Instruments/ND/res/maskfull.png</path>
+				<path>Aircraft/A330-200/Models/Instruments/ND/res/maskfull.png</path>
 				<x1>0</x1>
 				<y1>0</y1>
 				<x2>1</x2>
@@ -50,7 +50,7 @@
 			<w>5</w>
 			<h>14</h>
 			<texture>
-				<path>Aircraft/A320neo/Models/Instruments/ND/res/A320neo_symbols.png</path>
+				<path>Aircraft/A330-200/Models/Instruments/ND/res/A320neo_symbols.png</path>
 
 				<!-- Orign is down left-->
 				<x1>0.841</x1>
@@ -72,7 +72,7 @@
 			<w>14</w>
 			<h>14</h>
 			<texture>
-				<path>Aircraft/A320neo/Models/Instruments/ND/res/A320neo_symbols.png</path>
+				<path>Aircraft/A330-200/Models/Instruments/ND/res/A320neo_symbols.png</path>
 
 				<!-- Orign is down left-->
 				<x1>0.742</x1>
@@ -86,10 +86,16 @@
 					<type>y-shift</type>
 					<offset>-12</offset>
 				</transformation>
+				<transformation>
+					<type>rotation</type>
+					<property>orientation/heading-magnetic-deg</property>
+					<scale>-1</scale>
+				</transformation>
 				<!-- first: Rotate fron layer center -->
 				<transformation>
 					<type>rotation</type>
-					<property>autopilot/internal/fdm-heading-bug-error-deg</property>
+					<!--<property>autopilot/internal/fdm-heading-bug-error-deg</property>-->
+					<property>flight-management/fcu-values/hdg</property>
 				</transformation>
 				<!-- second: shift from rotation origin -->
 				<transformation>
@@ -105,7 +111,7 @@
 			<w>12</w>
 			<h>14</h>
 			<texture>
-				<path>Aircraft/A320neo/Models/Instruments/ND/res/A320neo_symbols.png</path>
+				<path>Aircraft/A330-200/Models/Instruments/ND/res/A320neo_symbols.png</path>
 
 				<!-- Orign is down left-->
 				<x1>0.9472</x1>
@@ -137,7 +143,7 @@
 			<w>30</w>
 			<h>30</h>
 			<texture>
-				<path>Aircraft/A320neo/Models/Instruments/ND/res/A320neo_symbols.png</path>
+				<path>Aircraft/A330-200/Models/Instruments/ND/res/A320neo_symbols.png</path>
 
 				<!-- Orign is down left-->
 				<x1>0.824</x1>

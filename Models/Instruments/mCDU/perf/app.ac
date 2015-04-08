@@ -5,7 +5,7 @@ kids 17
 OBJECT poly
 name "perf"
 loc -0.0366278 -0.0788433 0.0336479
-texture "des-app.png"
+texture "des-app2.png"
 crease 45.000000
 numvert 4
 -0.000621304 0.0782193 -0.0076531
@@ -24,7 +24,7 @@ kids 0
 OBJECT poly
 name "perf"
 loc -0.0214163 -0.0788433 0.0346174
-texture "des-app.png"
+texture "des-app2.png"
 crease 45.000000
 numvert 4
 -0.00887647 0.0782163 0.00753506
@@ -43,7 +43,7 @@ kids 0
 OBJECT poly
 name "perf"
 loc -0.0462418 -0.0788433 0.0304011
-texture "des-app.png"
+texture "des-app2.png"
 crease 45.000000
 numvert 4
 -0.0032512 0.0782163 0.0114371
@@ -62,7 +62,7 @@ kids 0
 OBJECT poly
 name "perf"
 loc -0.0724505 -0.0788433 0.0340636
-texture "des-app.png"
+texture "des-app2.png"
 crease 45.000000
 numvert 4
 -0.000621304 0.0782193 -0.00708897
@@ -81,7 +81,7 @@ kids 0
 OBJECT poly
 name "l1"
 loc -0.0724167 0.0022679 0.0585503
-texture "des-app.png"
+texture "des-app2.png"
 crease 45.000000
 numvert 16
 -0.000319004 0.00110412 -2.45571e-05
@@ -124,7 +124,7 @@ kids 0
 OBJECT poly
 name "r1"
 loc -0.0724409 0.0022679 -0.0508449
-texture "des-app.png"
+texture "des-app2.png"
 crease 45.000000
 numvert 16
 -0.000272155 0.00110364 0.000166699
@@ -167,7 +167,7 @@ kids 0
 OBJECT poly
 name "l2"
 loc -0.0632022 0.0022679 0.0585965
-texture "des-app.png"
+texture "des-app2.png"
 crease 45.000000
 numvert 16
 -0.000272155 0.00110364 0.000166714
@@ -210,7 +210,7 @@ kids 0
 OBJECT poly
 name "r2"
 loc -0.0632267 0.0022679 -0.0507984
-texture "des-app.png"
+texture "des-app2.png"
 crease 45.000000
 numvert 16
 -0.000319093 0.00110412 -2.4572e-05
@@ -253,7 +253,7 @@ kids 0
 OBJECT poly
 name "l3"
 loc -0.0544813 0.0022679 0.0585965
-texture "des-app.png"
+texture "des-app2.png"
 crease 45.000000
 numvert 16
 -0.000319064 0.00110412 -2.45571e-05
@@ -296,7 +296,7 @@ kids 0
 OBJECT poly
 name "r3"
 loc -0.0545055 0.0022679 -0.0507984
-texture "des-app.png"
+texture "des-app2.png"
 crease 45.000000
 numvert 16
 -0.000272155 0.00110364 0.000166707
@@ -339,7 +339,7 @@ kids 0
 OBJECT poly
 name "l4"
 loc -0.0451073 0.0022679 0.0585525
-texture "des-app.png"
+texture "des-app2.png"
 crease 45.000000
 numvert 16
 -0.000272125 0.00110364 0.000166744
@@ -382,7 +382,7 @@ kids 0
 OBJECT poly
 name "r4"
 loc -0.0451319 0.0022679 -0.0508423
-texture "des-app.png"
+texture "des-app2.png"
 crease 45.000000
 numvert 16
 -0.000319034 0.00110412 -2.45795e-05
@@ -425,7 +425,7 @@ kids 0
 OBJECT poly
 name "l5"
 loc -0.0357998 0.0022679 0.0585305
-texture "des-app.png"
+texture "des-app2.png"
 crease 45.000000
 numvert 16
 -0.000319004 0.00110412 -2.45422e-05
@@ -468,7 +468,7 @@ kids 0
 OBJECT poly
 name "r5"
 loc -0.035824 0.0022679 -0.0508643
-texture "des-app.png"
+texture "des-app2.png"
 crease 45.000000
 numvert 16
 -0.000272185 0.00110364 0.000166699
@@ -511,7 +511,7 @@ kids 0
 OBJECT poly
 name "l6"
 loc -0.0271082 0.0022679 0.0586185
-texture "des-app.png"
+texture "des-app2.png"
 crease 45.000000
 numvert 16
 -0.000272155 0.00110364 0.000166699
@@ -554,7 +554,7 @@ kids 0
 OBJECT poly
 name "r6"
 loc -0.0271325 0.0022679 -0.0507764
-texture "des-app.png"
+texture "des-app2.png"
 crease 45.000000
 numvert 16
 -0.000319123 0.00110412 -2.45422e-05
@@ -597,7 +597,7 @@ kids 0
 OBJECT poly
 name "perf"
 loc -0.0747618 -0.0788433 -0.00191672
-texture "des-app.png"
+texture "des-app2.png"
 crease 45.000000
 numvert 4
 -0.0052371 0.0782163 0.0136033

@@ -15,9 +15,12 @@
 		<object-name>mCDU_tp</object-name>
 		<object-name>mCDU_perf</object-name>
 		<object-name>mCDU_prog</object-name>
+		<object-name>mCDU_runways</object-name>
 		<object-name>input</object-name>
 		<object-name>msg</object-name>
 		<object-name>start</object-name>
+		<object-name>CLR_SYM</object-name>
+		<object-name>OVFLY_SYM</object-name>
 		<condition>
 			<and>
 				<greater-than-equals>
@@ -34,6 +37,22 @@
 		</condition>
 	</animation>
 	
+	<animation>
+		<type>select</type>
+		<object-name>OVFLY_SYM</object-name>
+		<condition>
+			<property>/instrumentation/mcdu/overfly-mode</property>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>CLR_SYM</object-name>
+		<condition>
+			<property>/instrumentation/mcdu/clear-mode</property>
+		</condition>
+	</animation>
+	
 	<!-- Input Text Brightness -->
 	
 	<animation>
@@ -41,6 +60,8 @@
 		<object-name>input</object-name>
 		<object-name>start</object-name>
 		<object-name>msg</object-name>
+		<object-name>CLR_SYM</object-name>
+		<object-name>OVFLY_SYM</object-name>
 		<emission>
 			<red>1</red>
 			<green>1</green>
@@ -193,6 +214,28 @@
 	</model>
 	
 	<model>
+		<name>mCDU_f-pln2</name>
+		<path>sec-f-pln/sec-f-pln.xml</path>
+		<condition>
+			<equals>
+				<property>/instrumentation/mcdu/page</property>
+				<value>f-pln2</value>
+			</equals>
+		</condition>
+	</model>
+	
+	<model>
+		<name>mCDU_f-pln2</name>
+		<path>sec-f-pln/init-sec.xml</path>
+		<condition>
+			<equals>
+				<property>/instrumentation/mcdu/page</property>
+				<value>init-sec</value>
+			</equals>
+		</condition>
+	</model>
+	
+	<model>
 		<name>mCDU_radio</name>
 		<path>rad-nav/radios.xml</path>
 		<condition>
@@ -325,6 +368,17 @@
 	</model>
 	
 	<model>
+		<name>mCDU_perf</name>
+		<path>perf/ga.xml</path>
+		<condition>
+			<equals>
+				<property>/instrumentation/mcdu/page</property>
+				<value>perf-ga</value>
+			</equals>
+		</condition>
+	</model>
+	
+	<model>
 		<name>mCDU_prog</name>
 		<path>prog/prog.xml</path>
 		<condition>
@@ -334,6 +388,41 @@
 			</equals>
 		</condition>
 	</model>
+	
+	<model>
+		<name>mCDU_f-pln</name>
+		<path>hold/hold.xml</path>
+		<condition>
+			<equals>
+				<property>/instrumentation/mcdu/page</property>
+				<value>hold</value>
+			</equals>
+		</condition>
+	</model>
+	
+	<model>
+		<name>mCDU_load</name>
+		<path>f-pln/load.xml</path>
+		<condition>
+			<equals>
+				<property>/instrumentation/mcdu/page</property>
+				<value>load_rtes</value>
+			</equals>
+		</condition>
+	</model>
+    
+    <model>
+		<name>mCDU_runways</name>
+		<path>data/runways.xml</path>
+		<condition>
+			<equals>
+				<property>/instrumentation/mcdu/page</property>
+				<value>RUNWAYS</value>
+			</equals>
+		</condition>
+	</model>
+    
+    <!-- Animations -->
 	
 	<animation>
 		<type>pick</type>
@@ -393,6 +482,7 @@
             <binding>
 				<command>nasal</command>
 		 		<script>
+					setprop('instrumentation/mcdu/sec-f-pln/disp', 0);
 					setprop("/instrumentation/mcdu/page", "prog");
 					
 					# Reset BRG/DIST
@@ -436,7 +526,20 @@
             <binding>
 				<command>nasal</command>
 		 		<script>
-					setprop("/instrumentation/mcdu/page", "perf");
+					setprop('instrumentation/mcdu/sec-f-pln/disp', 0);
+					var phase = getprop('flight-management/phase');
+					var page = 'perf';
+					if(phase == 'CLB')
+						page = 'perf-clb'
+					elsif(phase == 'CRZ')
+						page = 'perf-crz';
+					elsif(phase == 'DES')
+						page = 'perf-des';
+					elsif(phase == 'APP')
+						page = 'perf-app';
+					elsif(phase == 'G/A')
+						page = 'perf-ga';
+					setprop("/instrumentation/mcdu/page", page);
 				</script>
             </binding>
         </action>
@@ -451,6 +554,7 @@
             <binding>
 				<command>nasal</command>
 		 		<script>
+					setprop('instrumentation/mcdu/sec-f-pln/disp', 0);
 					setprop("/instrumentation/mcdu/page", "dir");
 				</script>
             </binding>
@@ -466,6 +570,7 @@
             <binding>
 				<command>nasal</command>
 		 		<script>
+					setprop('instrumentation/mcdu/sec-f-pln/disp', 0);
 					setprop("/instrumentation/mcdu/page", "init");
 				</script>
             </binding>
@@ -481,6 +586,7 @@
             <binding>
 				<command>nasal</command>
 		 		<script>
+					setprop('instrumentation/mcdu/sec-f-pln/disp', 0);
 					setprop("/instrumentation/mcdu/page", "data1");
 				</script>
             </binding>
@@ -496,9 +602,31 @@
             <binding>
 				<command>nasal</command>
 		 		<script>
+					setprop('instrumentation/mcdu/sec-f-pln/disp', 0);
 					setprop("/instrumentation/mcdu/page", "f-pln");
 					
+					setprop("/instrumentation/mcdu/f-pln/show-hold", 0);
+		
+					var first = getprop("/instrumentation/mcdu/f-pln/disp/first");
+					var cur = getprop("/instrumentation/mcdu/f-pln/disp/current-flightplan");
+					if(cur != 'temporary'){
+						mcdu.f_pln.update_flightplan_waypoints();
+						var from_idx = mcdu.f_pln.from_wpt_idx;
+						var wp = mcdu.f_pln.waypoints[from_idx];
+						while(from_idx >= 0 and typeof(wp) == 'scalar' and wp == '---'){
+							from_idx -= 1;
+							if(0 > from_idx) break;
+							wp = mcdu.f_pln.waypoints[from_idx];
+						}
+						if(0 > from_idx) from_idx = 0;
+						setprop("/instrumentation/mcdu/f-pln/disp/first", from_idx);
+					}
 					mcdu.f_pln.update_disp();
+					var wp = mcdu.f_pln.first_displayed_wp();
+					if(wp != nil){
+						setprop("instrumentation/efis/inputs/plan-wpt-index", first);
+						setprop("instrumentation/efis[1]/inputs/plan-wpt-index", first);
+					}
 				</script>
             </binding>
         </action>
@@ -513,6 +641,7 @@
             <binding>
 				<command>nasal</command>
 		 		<script>
+					setprop('instrumentation/mcdu/sec-f-pln/disp', 1);
 					setprop("/instrumentation/mcdu/page", "f-pln2");
 				</script>
             </binding>
@@ -528,6 +657,7 @@
             <binding>
 				<command>nasal</command>
 		 		<script>
+					setprop('instrumentation/mcdu/sec-f-pln/disp', 0);
 					setprop("/instrumentation/mcdu/page", "radio");
 				</script>
             </binding>
@@ -543,6 +673,7 @@
             <binding>
 				<command>nasal</command>
 		 		<script>
+					setprop('instrumentation/mcdu/sec-f-pln/disp', 0);
 					setprop("/instrumentation/mcdu/page", "fuel-pred");
 				</script>
             </binding>
@@ -558,6 +689,7 @@
             <binding>
 				<command>nasal</command>
 		 		<script>
+					setprop('instrumentation/mcdu/sec-f-pln/disp', 0);
 					setprop("/instrumentation/mcdu/page", "atc");
 				</script>
             </binding>
@@ -573,6 +705,7 @@
             <binding>
 				<command>nasal</command>
 		 		<script>
+					setprop('instrumentation/mcdu/sec-f-pln/disp', 0);
 					setprop("/instrumentation/mcdu/page", "menu");
 				</script>
             </binding>
@@ -588,10 +721,72 @@
             <binding>
 				<command>nasal</command>
 		 		<script>
-					setprop("/instrumentation/mcdu/page", "arpt");
+					setprop('instrumentation/mcdu/sec-f-pln/disp', 0);
+                    setprop("/instrumentation/mcdu/page", "f-pln");
+					var num = getprop('autopilot/route-manager/route/num');
+					if(num == 0) return;
+                    
+					var first = getprop("/instrumentation/mcdu/f-pln/disp/first");
+
+					mcdu.f_pln.update_flightplan_waypoints();
+                    var cur_wp = getprop("autopilot/route-manager/current-wp");
+					
+					
+					#var dest_apt = getprop('autopilot/route-manager/destination/airport');
+					#
+					var fp = mcdu.f_pln.get_current_flightplan();
+					var wpts = mcdu.f_pln.waypoints;
+					var wpcount = size(wpts);
+					var dest_idx = wpcount - 1;
+					var dest_apt = fp.destination;
+					if(dest_apt != nil) dest_apt = dest_apt.id;
+					for(var idx = dest_idx; idx > 0; idx = idx - 1){
+						var wp = wpts[idx];
+						if(typeof(wp) == 'scalar') continue;
+						if(wp.wp_role != 'approach') continue;
+						if(wp.wp_type == 'runway' or wp.id == dest_apt){
+							dest_idx = idx;
+							break;
+						}
+					}
+					if(cur_wp == 0 or cur_wp == 1){
+						if(first == 0)
+							first = dest_idx;
+						else
+							first = 0;
+					} else {
+						first = dest_idx;
+					}
+
+					setprop("/instrumentation/mcdu/f-pln/disp/first", first);
+
+					setprop("/instrumentation/mcdu/f-pln/show-hold", 0);
+
+					var first = getprop("/instrumentation/mcdu/f-pln/disp/first");
+
+					var hold = getprop("/flight-management/hold/wp_id");
+
+					var hold_id = 0;
+
+					if ((hold >= first) and (first + 4 > hold) and (hold != 0)) {
+
+						setprop("/instrumentation/mcdu/f-pln/show-hold", 1);
+
+						hold_id = (hold - first) + (first == 0);
+
+					}
+
+					setprop("/instrumentation/mcdu/f-pln/hold-id", hold_id);
+
+					mcdu.f_pln.update_disp();
+					var wp = mcdu.f_pln.first_displayed_wp();
+					if(wp != nil){
+						setprop("instrumentation/efis/inputs/plan-wpt-index", first);
+						setprop("instrumentation/efis[1]/inputs/plan-wpt-index", first);
+					}
 				</script>
-            </binding>
-        </action>
+			</binding>
+		</action>
 	</animation>
 	
 	<!-- Number Pad -->
@@ -1258,22 +1453,46 @@
 	
 	<animation>
 		<type>pick</type>
+		<object-name>overfly</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-toggle</command>
+				<property>/instrumentation/mcdu/overfly-mode</property>
+			</binding>
+			<binding>
+				<command>property-set</command>
+				<property>/instrumentation/mcdu/clear-mode</property>
+				<value>0</value>
+			</binding>
+		</action>
+	</animation>
+	
+	<animation>
+		<type>pick</type>
 		<object-name>clr</object-name>
 		<action>
-            <button>0</button>
-	   		<repeatable type="bool">false</repeatable>
-            <binding>
+			<button>0</button>
+			<repeatable type="bool">true</repeatable>
+			<binding>
 				<command>nasal</command>
-		 		<script>
+				<script>
 					var input = "/instrumentation/mcdu/input";
-					
+
 					var inp_size = size(getprop(input));
+					if(!inp_size){
+						var clr_mode = getprop('/instrumentation/mcdu/clear-mode') or 0;
+						setprop('/instrumentation/mcdu/clear-mode', !clr_mode);
+						setprop('/instrumentation/mcdu/overfly-mode', 0);
+					} else {
+						setprop(input, substr(getprop(input), 0, inp_size - 1))
+					}
 					
-					setprop(input, substr(getprop(input), 0, inp_size - 1))
-					
+
 				</script>
-            </binding>
-        </action>
+			</binding>
+		</action>
 	</animation>
 	
 	<!-- Input OSGText -->
@@ -1291,16 +1510,86 @@
 		<type type="string">text-value</type>
 		<format type="string">%s</format>
 		<property>/instrumentation/mcdu/input</property>
-  <truncate type="bool">false</truncate>
-  <font type="string">courier-bold.txf</font>
-  <draw-text type="bool">true</draw-text>
-  <draw-alignment type="bool">false</draw-alignment>
-  <draw-boundingbox type="bool">false</draw-boundingbox>
+		<truncate type="bool">false</truncate>
+		<font type="string">courier-bold.txf</font>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
 		<character-size>0.003</character-size>
 		<font-resolution>
 			<width type="int">32</width>
 			<height type="int">32</height>
 		</font-resolution>
 	</text>
+	
+	<text>
+		<name>CLR_SYM</name>
+		<offsets>
+			<x-m>-0.0196</x-m>
+			<y-m>-0.046</y-m>
+			<z-m>-0.0006</z-m>
+			<heading-deg>90</heading-deg>
+		</offsets>
+		<alignment>left-center</alignment>
+		<axis-alignment>xy-plane</axis-alignment>
+		<type type="string">literal</type>
+		<text>CLR</text>
+		<font type="string">courier-bold.txf</font>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.003</character-size>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	
+	<text>
+		<name>CLR_SYM</name>
+		<offsets>
+			<x-m>-0.0196</x-m>
+			<y-m>-0.046</y-m>
+			<z-m>-0.0006</z-m>
+			<heading-deg>90</heading-deg>
+		</offsets>
+		<alignment>left-center</alignment>
+		<axis-alignment>xy-plane</axis-alignment>
+		<type type="string">literal</type>
+		<text>CLR</text>
+		<font type="string">courier-bold.txf</font>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.003</character-size>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	
+	<text>
+		<name>OVFLY_SYM</name>
+		<offsets>
+			<x-m>-0.0196</x-m>
+			<y-m>-0.046</y-m>
+			<z-m>-0.0006</z-m>
+			<heading-deg>90</heading-deg>
+		</offsets>
+		<alignment>left-center</alignment>
+		<axis-alignment>xy-plane</axis-alignment>
+		<type type="string">literal</type>
+		<text>D</text>
+		<font type="string">symbol.txf</font>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.003</character-size>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+
 
 </PropertyList>

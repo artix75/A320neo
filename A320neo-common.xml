@@ -262,6 +262,11 @@
 				<path>Aircraft/A320neo/Systems/FMGC/elevator-ctrl.xml</path>
 			</autopilot>
 			
+			<autopilot>
+				<name>Flight Director</name>
+				<path>Aircraft/A320neo/Systems/FMGC/flight-director.xml</path>
+			</autopilot>
+			
 			<!-- Fly-by-wire =============================================== -->
 			
 			<autopilot>
@@ -282,6 +287,24 @@
 				<name>Spoilers</name>
 				<path>Aircraft/A320neo/Systems/a320-spoilers.xml</path>
 			</autopilot>
+			
+			<autopilot>
+				<name>Speed Trend</name>
+				<path>Aircraft/A320neo/Systems/a332-speedtrend.xml</path>
+			</autopilot>
+			<autopilot>
+				<name>PFD</name>
+				<path>Aircraft/A320neo/Systems/pfd.xml</path>
+			</autopilot>
+			<autopilot>
+				<name>Thrust Levers</name>
+				<path>Aircraft/A320neo/Systems/thrust_levers.xml</path>
+			</autopilot>
+			<autopilot>
+				<name>Thrust Levers</name>
+				<path>Aircraft/A320neo/Systems/flight-deck.xml</path>
+			</autopilot>
+			
 		</systems>
 
 		<chase-distance-m>-60</chase-distance-m>
@@ -430,6 +453,35 @@
 							</script>
 						</binding>
 					</item>
+					<item>
+						<label>WXR Live</label>
+						<binding>
+							<command>nasal</command>
+							<script>
+								var version = getprop('sim/version/flightgear');
+								var v = split('.', version);
+								version = num(v[0]~'.'~v[1]);
+								if(version >= 3.4)
+									a332_gui.WXRLiveDialog.new().show();
+								else {
+									var dlg = gui.Dialog.new("/sim/gui/dialogs/wxr-live/dialog",
+															 "Aircraft/A320neo/Systems/wxr-live-dialog.xml");
+									dlg.open();
+								}
+							</script>
+						</binding>
+					</item>
+					<item>
+						<label>Configuration</label>
+						<binding>
+							<command>nasal</command>
+							<script>
+								var cfg = gui.Dialog.new("sim/gui/dialogs/aircraft-config/dialog",
+														 "Aircraft/A320neo/Systems/config-dlg.xml");
+								cfg.open();
+							</script>
+						</binding>
+					</item>
 				</menu>
 			</default>
 		</menubar>
@@ -504,31 +556,70 @@
 		</help>
 	</sim>
 	
+	<aircraft-config>
+		<auto-annunciator type="bool">0</auto-annunciator>
+		<saved>
+			<fcu>
+				<shift-to-rotate type="bool">0</shift-to-rotate>
+				<disable-tooltips type="bool">0</disable-tooltips>
+			</fcu>
+			<mcdu>
+				<invert-arrow-keys type="bool">0</invert-arrow-keys>
+			</mcdu>
+		</saved>
+	</aircraft-config>
+
+	<copilot>
+		<lights type="bool">0</lights>
+	</copilot>
+	
 	<flight-management>
 		<phase type="string">T/O</phase>
 		<spd-manager>
 			<climb>
-				<mode type="string">MANAGED (F-PLN)</mode>
-				<spd1 type="int">240</spd1>
-				<spd2 type="int">280</spd2>
-				<mach type="float">0.75</mach>
+				<mode type="string">MANAGED</mode>
+				<!--spd1 type="int">240</spd1>
+ <spd2 type="int">280</spd2>
+ <mach type="float">0.75</mach-->
+				<spd1 type="int">0</spd1>
+				<spd2 type="int">0</spd2>
+				<mach type="float">0</mach>
 			</climb>
 			<cruise>
-				<mode type="string">MANAGED (F-PLN)</mode>
-				<mach type="float">0.82</mach>
+				<mode type="string">MANAGED</mode>
+				<spd1 type="int">0</spd1>
+				<!--mach type="float">0.82</mach-->
 			</cruise>
 			<descent>
-				<mode type="string">MANAGED (F-PLN)</mode>
-				<spd1 type="int">240</spd1>
-				<spd2 type="int">250</spd2>
-				<mach type="float">0.68</mach>
+				<mode type="string">MANAGED</mode>
+				<!--spd1 type="int">240</spd1>
+ <spd2 type="int">250</spd2>
+ <mach type="float">0.68</mach-->
+				<spd1 type="int">0</spd1>
+				<spd2 type="int">0</spd2>
+				<mach type="float">0</mach>
 			</descent>
 			<approach>
-				<mode type="string">MANAGED (AUTO)</mode>
-				<app-spd type="int">145</app-spd>
+				<mode type="string">MANAGED</mode>
+				<app-spd type="int">0</app-spd>
 				<flare-spd type="int">125</flare-spd>
 			</approach>
 		</spd-manager>
+		<thrust-lock type="float">0</thrust-lock>
+		<thrust-lock-reason type="string"></thrust-lock-reason>
+		<control>
+			<exped-mode type="bool">false</exped-mode>
+		</control>
+		<settings>
+			<min-elevator-ctrl type="double">-0.15</min-elevator-ctrl>
+			<ldg-conf-flaps>4</ldg-conf-flaps>
+			<ldg-conf>FULL</ldg-conf>
+			<ldg-conf-inactive>CONF3</ldg-conf-inactive>
+			<acc-alt>1500</acc-alt>
+			<ga-acc-alt>1500</ga-acc-alt>
+			<thr-red>1500</thr-red>
+			<ga-thr-red>1500</ga-thr-red>
+		</settings>
 	</flight-management>
 
 	<consumables>
@@ -603,13 +694,24 @@
 				<cutoff-switch type="bool">true</cutoff-switch>
 				<starter type="bool">false</starter>
 				<starter-switch type="bool">false</starter-switch>
+				<max-athr-thrust type="float">0.94</max-athr-thrust>
 			</engine>
 			<engine n="1">
 				<cutoff type="bool">true</cutoff>
 				<cutoff-switch type="bool">true</cutoff-switch>
 				<starter type="bool">false</starter>
 				<starter-switch type="bool">false</starter-switch>
+				<max-athr-thrust type="float">0.94</max-athr-thrust>
 			</engine>
+			<detents>
+				<current type="string">none</current>
+				<throttle type="float">0</throttle>
+				<rev type="float">-0.59</rev>
+				<idle type="float">0</idle>
+				<clb type="float">0.72</clb>
+				<flex type="float">0.98</flex>
+				<toga type="float">1</toga>
+			</detents>
 		</engines>
 		<flight>
 			<ground-spoilers-armed type="bool">false</ground-spoilers-armed>
@@ -682,6 +784,22 @@
 	</gear>
 
 	<instrumentation>
+		
+		<mcdu>
+			<prog>
+				<ident type="string">empty</ident>
+				<brg type="string">empty</brg>
+				<dist type="string">empty</dist>
+			</prog>
+			<hold>
+				<wp type="string">---</wp>
+				<wp_id type="int">0</wp_id>
+			</hold>
+			<texts>
+				<MDA type="string">MDA</MDA>
+				<DH type="string">DH</DH>
+			</texts>
+		</mcdu>
 	
 		<efis n="0">
 
@@ -689,10 +807,13 @@
 					<display-mode type="string">FUEL</display-mode>
 			</ecam>
 			<nd>
-					<display-mode type="string">VOR</display-mode>
-					<display-mode-knob type="int">2</display-mode-knob>
-					<display-range type="int">40</display-range>
-				
+				<display-mode type="string">ILS</display-mode>
+				<display-mode-knob type="int">0</display-mode-knob>
+				<display-mode-num type="int">0</display-mode-num>
+				<display-range type="int">40</display-range>
+				<terrain-on-nd type="int">0</terrain-on-nd>
+				<canvas-display-mode type="string">APP</canvas-display-mode>
+
 			</nd>
 			<input>
 				<vor-adf-1 type="int">1</vor-adf-1>
@@ -702,13 +823,19 @@
 				<CSTR type="bool">true</CSTR>
 				<WPT type="bool">true</WPT>
 				<VORD type="bool">true</VORD>
+				<DME type="bool">true</DME>
 				<NDB type="bool">true</NDB>
 				<ARPT type="bool">true</ARPT>
 				<WX type="bool">true</WX>
 				<TERR type="bool">true</TERR>
 				<TRAF type="bool">true</TRAF>
 				<taxi type="bool">true</taxi>
+				<range-nm type="int">10</range-nm>
+				<nd-centered type="bool">true</nd-centered>
+				<wxr type="bool">true</wxr>
+				<tfc type="bool">true</tfc>
 			</inputs>
+
 
 		</efis>
 	
@@ -718,10 +845,12 @@
 					<display-mode type="string">FUEL</display-mode>
 			</ecam>
 			<nd>
-					<display-mode type="string">VOR</display-mode>
-					<display-mode-knob type="int">2</display-mode-knob>
-					<display-range type="int">40</display-range>
-				
+				<display-mode type="string">ILS</display-mode>
+				<display-mode-knob type="int">0</display-mode-knob>
+				<display-mode-num type="int">0</display-mode-num>
+				<display-range type="int">40</display-range>
+				<terrain-on-nd type="int">0</terrain-on-nd>
+				<canvas-display-mode type="string">APP</canvas-display-mode>
 			</nd>
 			<input>
 				<vor-adf-1 type="int">1</vor-adf-1>
@@ -731,12 +860,17 @@
 				<CSTR type="bool">true</CSTR>
 				<WPT type="bool">true</WPT>
 				<VORD type="bool">true</VORD>
+				<DME type="bool">true</DME>
 				<NDB type="bool">true</NDB>
 				<ARPT type="bool">true</ARPT>
 				<WX type="bool">true</WX>
 				<TERR type="bool">true</TERR>
 				<TRAF type="bool">true</TRAF>
 				<taxi type="bool">true</taxi>
+				<range-nm type="int">10</range-nm>
+				<nd-centered type="bool">true</nd-centered>
+				<wxr type="bool">true</wxr>
+				<tfc type="bool">true</tfc>
 			</inputs>
 
 		</efis>
@@ -772,6 +906,12 @@
 				<VR type="double">0</VR>
 				<V2 type="double">0</V2>
 			</vspeeds>
+			<trans-alt type="int">18000</trans-alt>
+			<appr-trans-alt type="int">18000</appr-trans-alt>
+			<thr-red-acc type="string">1500/1500</thr-red-acc>
+			<ga-thr-red-acc type="string">1500/1500</ga-thr-red-acc>
+			<flex-to-temp type="int">-999</flex-to-temp>
+			<mach-trans-alt type="int">25000</mach-trans-alt>
 		</fmc>
 		<dme n="1">
 			<serviceable type="bool">true</serviceable>
@@ -780,6 +920,9 @@
 			<nav-display n="0" type="int">0</nav-display>
 			<nav-display n="1" type="int">0</nav-display>
 		</nav-compass>
+		<pfd-old>
+			<enabled type="bool">false</enabled>
+		</pfd-old>
 
 		<!-- See http://wiki.flightgear.org/index.php/GPWS -->
 		<mk-viii>
@@ -932,6 +1075,32 @@
 			<x-center type="float">0.499</x-center>
 			<y-center type="float">0.182</y-center>
 		</nd>
+		
+		<texts>
+			<ap-status type="string"></ap-status>
+			<fd-status type="string">1 FD 2</fd-status>
+			<athr-status type="string">ATHR</athr-status>
+			<om-beacon>OM</om-beacon>
+			<mm-beacon>MM</mm-beacon>
+			<im-beacon>AWY</im-beacon>
+		</texts>
+		
+		<chrono n="0">
+			<started type="bool">false</started>
+			<paused type="bool">false</paused>
+			<text type="string">0' 00'</text>
+			<started-at type="int">0</started-at>
+			<elapsed-time type="int">0</elapsed-time>
+		</chrono>
+
+		<chrono n="1">
+			<started type="bool">false</started>
+			<paused type="bool">false</paused>
+			<text type="string">0' 00'</text>
+			<started-at type="int">0</started-at>
+			<elapsed-time type="int">0</elapsed-time>
+		</chrono>
+		
 	</instrumentation>
 
 	<input>
@@ -966,6 +1135,20 @@
 					<value>0</value>
 					<value>0.5</value>
 					<value>1</value>
+				</binding>
+				<binding>
+					<property>/controls/flight/ground-spoilers-armed</property>
+					<command>nasal</command>
+					<script>
+						#var spLever = 'controls/flight/speedbrake-lever';
+						var grnBrkArmed = '/controls/flight/ground-spoilers-armed';
+						#if(getprop(spLever) == 0){
+						#    setprop(grnBrkArmed, 1);
+						#} else {
+						setprop(grnBrkArmed, 0);
+						#}
+
+					</script>
 				</binding>
 			</key>
 			<key n="11">
@@ -1022,6 +1205,122 @@
 					</script>
 				</binding>
 			</key>
+			
+			<key n="66">
+				<name>B</name>
+				<desc>Toggle parking brake on or off</desc>
+				<binding>
+					<command>nasal</command>
+					<script>a332.toggle_parkingbrakes();</script>
+				</binding>
+			</key>
+			<key n="106">
+				<name>j</name>
+				<repeatable type="bool">true</repeatable>
+				<desc>Steer Left (Tiller)</desc>
+				<binding>
+					<command>nasal</command>
+					<script>
+						setprop("/controls/gear/tiller-cmd-norm", getprop("/controls/gear/tiller-cmd-norm") - (1/70));
+					</script>
+				</binding>
+			</key>
+
+			<key n="107">
+				<name>k</name>
+				<repeatable type="bool">true</repeatable>
+				<desc>Center Tiller</desc>
+				<binding>
+					<command>nasal</command>
+					<script>
+						setprop("/controls/gear/tiller-cmd-norm", 0);
+					</script>
+				</binding>
+			</key>
+
+			<key n="108">
+				<name>l</name>
+				<repeatable type="bool">true</repeatable>
+				<desc>Steer Right (Tiller)</desc>
+				<binding>
+					<command>nasal</command>
+					<script>
+						setprop("/controls/gear/tiller-cmd-norm", getprop("/controls/gear/tiller-cmd-norm") + (1/70));
+					</script>
+				</binding>
+			</key>
+			
+			<key n="19">
+				<name>CTRL+s</name>
+				<desc>Arm/Disarm ground spoilers</desc>
+				<repeatable type="bool">false</repeatable>
+				<binding>
+					<command>nasal</command>
+					<script>
+						setprop('controls/flight/speedbrake-lever', 0);
+					</script>
+				</binding>
+				<binding>
+					<command>property-toggle</command>
+					<property>/controls/flight/ground-spoilers-armed</property>
+				</binding>
+			</key>
+			<key n="82">
+				<name>R</name>
+				<desc>Throttle Detent: Reverse</desc>
+				<repeatable type="bool">false</repeatable>
+				<binding>
+					<command>nasal</command>
+					<script>
+						throttle_detents.set_detent('rev');
+					</script>
+				</binding>
+			</key>
+			<key n="73">
+				<name>I</name>
+				<desc>Throttle Detent: Idle</desc>
+				<repeatable type="bool">false</repeatable>
+				<binding>
+					<command>nasal</command>
+					<script>
+						throttle_detents.set_detent('idle');
+					</script>
+				</binding>
+			</key>
+			<key n="67">
+				<name>C</name>
+				<desc>Throttle Detent: CL</desc>
+				<repeatable type="bool">false</repeatable>
+				<binding>
+					<command>nasal</command>
+					<script>
+						throttle_detents.set_detent('clb');
+					</script>
+				</binding>
+			</key>
+			<key n="70">
+				<name>F</name>
+				<desc>Throttle Detent: Flex/MCT</desc>
+				<repeatable type="bool">false</repeatable>
+				<binding>
+					<command>nasal</command>
+					<script>
+						throttle_detents.set_detent('flex');
+					</script>
+				</binding>
+			</key>
+			<key n="84">
+				<name>T</name>
+				<desc>Throttle Detent: TOGA</desc>
+				<repeatable type="bool">false</repeatable>
+				<binding>
+					<command>nasal</command>
+					<script>
+						throttle_detents.set_detent('toga');
+					</script>
+				</binding>
+			</key>
+			
 		</keyboard>
 	</input>
 
@@ -1035,6 +1334,8 @@
 			<file>Aircraft/A320neo/Nasal/mCDU/f-pln.nas</file>
 			<file>Aircraft/A320neo/Nasal/mCDU/lat_rev.nas</file>
 			<file>Aircraft/A320neo/Nasal/mCDU/common.nas</file>
+			<file>Aircraft/A320neo/Nasal/mCDU/perf.nas</file>
+			<file>Aircraft/A320neo/Nasal/mCDU/prog.nas</file>
 			<file>Aircraft/A320neo/Nasal/mCDU/loop.nas</file>
 			<file>Aircraft/A320neo/Nasal/mCDU/parse_DB.nas</file>
 		</mcdu>
@@ -1053,6 +1354,7 @@
 			<file>Aircraft/A320neo/Nasal/FMGC/deflection.nas</file>
 			<file>Aircraft/A320neo/Nasal/FMGC/procedure.nas</file>
 			<file>Aircraft/A320neo/Nasal/FMGC/fmgc_loop.nas</file>
+			<file>Aircraft/A320neo/Nasal/FMGC/route.nas</file>
 			<file>Aircraft/A320neo/Nasal/FMGC/wp_transit.nas</file>
 		</fmgc>
 		
@@ -1081,9 +1383,27 @@
             <file>Aircraft/A320neo/Nasal/ground-services.nas</file>
 			<file>Aircraft/A320neo/Nasal/general_loop.nas</file>
 		</a320neo>
+		<a332_gui>
+			<file>Aircraft/A320neo/Nasal/GUI/WXRLiveDialog.nas</file>
+		</a332_gui>
+		<canvas_nd>
+			<file>Aircraft/A320neo/Models/Instruments/ND/canvas/ND.nas</file>
+		</canvas_nd>
 		<systems>
 			<file>Aircraft/A320neo/Nasal/systems.nas</file>
 		</systems>
+		<flightdeck>
+			<file>Aircraft/A320neo/Nasal/flightdeck.nas</file>
+		</flightdeck>
+		<utils>
+			<file>Aircraft/A320neo/Nasal/utils.nas</file>
+		</utils>
+		<throttle_detents>
+			<file>Aircraft/A320neo/Nasal/throttle_detents.nas</file>
+		</throttle_detents>
+		<thrust_levers>
+			<file>Aircraft/A320neo/Nasal/thrust_levers.nas</file>
+		</thrust_levers>
 		<electrical>
 			<file>Aircraft/A320neo/Nasal/electrical.nas</file>
 		</electrical>

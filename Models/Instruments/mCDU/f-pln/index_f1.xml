@@ -28,9 +28,20 @@
             <binding>
 				<command>nasal</command>
 		 		<script>
-		 			setprop("/autopilot/route-manager/destination/airport", "");
-		 		
-					setprop("/autopilot/route-manager/input", "@CLEAR");
+					var f_pln_disp = "/instrumentation/mcdu/f-pln/disp/";
+					var cur = getprop(f_pln_disp~ 'current-flightplan');
+					if(cur == 'temporary'){
+						setprop(f_pln_disp~ 'current-flightplan', '');
+						fmgc.RouteManager.deleteFlightPlan('temporary');
+						setprop("/instrumentation/mcdu/page", "f-pln");
+						setprop("/instrumentation/mcdu/f-pln/enabling-altn", 0);
+						mcdu.f_pln.update_disp();
+					} else {
+						setprop("/autopilot/route-manager/destination/airport", "");
+						setprop("/instrumentation/mcdu/f-pln/enabling-altn", 0);
+						setprop("/autopilot/route-manager/input", "@CLEAR");
+					}
+					mcdu.lat_rev.tmpy_fplan = nil;
 				</script>
             </binding>
         </action>
@@ -82,11 +93,85 @@
             <binding>
 				<command>nasal</command>
 		 		<script>
-					setprop("/autopilot/route-manager/input", "@ACTIVATE");
+					var actv = getprop('autopilot/route-manager/active');
+					if(!actv){
+						setprop("/autopilot/route-manager/input", "@ACTIVATE");
+
+						setprop("/autopilot/route-manager/input", "@JUMP1"); # Assumes WP0 is Departure ICAO
+						setprop("/flight-management/current-wp", 1); # Backup Waypoint holder for confirmed transition
+						setprop('/flight-management/dir-to', 0);
+						setprop('/instrumentation/mcdu/f-pln/dir-to-mode', 1);
+						if(getprop("/flight-management/control/lat-ctrl") == 'fmgc')
+							setprop("/flight-management/control/lat-ctrl", 'man-set');
+						setprop("/flight-management/control/lat-ctrl", 'fmgc');
+					} else {
+						var f_pln_disp = "/instrumentation/mcdu/f-pln/disp/";
+						var cur_fp = getprop(f_pln_disp~ 'current-flightplan');
+						if(cur_fp == 'temporary'){
+							#setprop("/autopilot/route-manager/input", "@CLEAR");
+							if(getprop("/instrumentation/mcdu/f-pln/enabling-altn")){
+								fmgc.RouteManager.deleteAlternateDestination();
+								setprop("/instrumentation/mcdu/f-pln/enabling-altn", 0);
+							}
+							fmgc.RouteManager.copyFlightPlanToActive('temporary', 1);
+							mcdu.f_pln.tmpy_fplan = nil;
+							mcdu.lat_rev.tmpy_fplan = nil;
+							setprop(f_pln_disp~ 'current-flightplan', '');
+							if(getprop('/instrumentation/mcdu/f-pln/dir-to-mode')){
+								setprop('/instrumentation/mcdu/f-pln/dir-to-mode', 0);
+								var dir_to = getprop('/flight-management/dir-to');
+								if(dir_to) {
+									setprop("/autopilot/route-manager/input", "@JUMP"~ dir_to);
+									setprop("/flight-management/current-wp", 1);
+								}
+								setprop('/flight-management/dir-to',0);
+							}
+							if(getprop("/flight-management/control/lat-ctrl") == 'fmgc'){
+								setprop("/flight-management/control/lat-ctrl", 'man-set');
+								setprop("/flight-management/control/lat-ctrl", 'fmgc');
+							}
 					
-					setprop("/autopilot/route-manager/input", "@JUMP1"); # Assumes WP0 is Departure ICAO
+							#setprop("/autopilot/route-manager/input", "@ACTIVATE");
+						}
+					}
 					
-					setprop("/flight-management/current-wp", 1); # Backup Waypoint holder for confirmed transition
+				</script>
+            </binding>
+        </action>
+	</animation>
+	
+	<animation>
+		<type>pick</type>
+		<object-name>r1</object-name>
+		<action>
+            <button>0</button>
+	   		<repeatable type="bool">false</repeatable>
+            <binding>
+				<command>nasal</command>
+		 		<script>
+					mcdu.user.load_rte_list();
+					setprop("/instrumentation/mcdu/page", "load_rtes");
+				</script>
+            </binding>
+        </action>
+	</animation>
+	
+	<animation>
+		<type>pick</type>
+		<object-name>r2</object-name>
+		<action>
+            <button>0</button>
+	   		<repeatable type="bool">false</repeatable>
+            <binding>
+				<command>nasal</command>
+		 		<script>
+					var input = getprop("/instrumentation/mcdu/input");
+					
+					if ((input != nil) and (input != "f-pln")) {
+						mcdu.user.save_user_rte(input);
+					}
+					
+					setprop("/instrumentation/mcdu/page", "f-pln");
 				</script>
             </binding>
         </action>
@@ -96,10 +181,15 @@
 		<type>select</type>
 		<object-name>active</object-name>
 		<condition>
-			<equals>
-				<property>/autopilot/route-manager/active</property>
-				<value>0</value>
-			</equals>
+			<or>
+				<not>
+					<property>/autopilot/route-manager/active</property>
+				</not>
+				<equals>
+					<property>/instrumentation/mcdu/f-pln/disp/current-flightplan</property>
+					<value>temporary</value>
+				</equals>
+			</or>
 		</condition>
 	</animation>
 	

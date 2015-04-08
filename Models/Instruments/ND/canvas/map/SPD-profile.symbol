@@ -1,0 +1,34 @@
+# See: http://wiki.flightgear.org/MapStructure
+# Class things:
+var name = 'SPD-profile';
+var parents = [canvas.DotSym];
+var __self__ = caller(0)[0];
+canvas.DotSym.makeinstance( name, __self__ );
+ 
+#canvas.SymbolLayer.get(name).df_style = {
+#    radius: 13,
+#};
+ 
+var element_type = "group";
+
+var init = func {
+    var name = me.model.getName();
+    #var radius = me.style.radius;
+    var sym_group = me.element.createChild("group", name);
+    sym_group.set("z-index",5);
+    var color = me.getStyle('color');
+    var spd_path = sym_group.createChild("path").
+    setStrokeLineWidth(3).
+    moveTo(-17,0).
+    arcSmallCW(17,17,0,34,0).
+    arcSmallCW(17,17,0,-34,0).
+    setColor(color).
+    setColorFill(color).
+    set("z-index",5);
+}
+
+var draw = func{
+    var name = me.model.getName();
+    var sym_group = me.element.getElementById(name);
+    sym_group.set('z-index', 5);
+}

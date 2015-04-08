@@ -33,6 +33,22 @@
 		</diffuse>
 	</animation>
 	
+	<animation>
+		<type>material</type>
+		<object-name>enable_altn</object-name>
+		<emission>
+			<red>0</red>
+			<green>0.4823</green>
+			<blue>0.5372</blue>
+			<factor-prop>/instrumentation/mcdu/brt</factor-prop>
+		</emission>
+		<diffuse>
+			<red>0</red>
+			<green>0.4823</green>
+			<blue>0.5372</blue>
+		</diffuse>
+	</animation>
+	
 	<!-- Button Pick Animations -->
 	
 	<animation>
@@ -51,18 +67,50 @@
 		 		
 		 			# HOLD
 		 			
-		 			if ((dep == 0) and (arr == 0))
-		 				mcdu.hold.hold(getprop("/instrumentation/mcdu/lat_rev/id"));
+		 			if ((dep == 0) and (arr == 0)) {
+		 				
+		 				var id = getprop("/instrumentation/mcdu/lat_rev/id");
+		 				
+		 				var name = getprop("/autopilot/route-manager/route/wp[" ~ id ~ "]/id");
+		 				
+		 				setprop("/instrumentation/mcdu/page", "hold");
+		 				
+		 				setprop("/instrumentation/mcdu/hold/wp", name);
+		 				
+		 				setprop("/instrumentation/mcdu/hold/wp_id", id);
+		 				
+		 				var wp = getprop("/instrumentation/mcdu/hold/wp");
+		 			
+			 			setprop("/instrumentation/gps/scratch/query", wp);
+			 			
+			 			if (3 >= size(wp))
+			 				setprop("/instrumentation/gps/scratch/type", "vor");
+			 			else
+			 				setprop("/instrumentation/gps/scratch/type", "fix");
+			 				
+			 			setprop("/instrumentation/gps/command", "search");
+			 			
+			 			setprop("/flight-management/hold/crs", getprop("/instrumentation/gps/scratch/mag-bearing-deg"));
+		 			
+		 			}
 		 			
 		 			# DEPARTURE
 		 			
-		 			elsif (dep == 1)
-		 				mcdu.sid.select_arpt(getprop("autopilot/route-manager/departure/airport"));
+		 			elsif (dep == 1){
+						var fp = mcdu.f_pln.get_current_flightplan();
+						var dep = fp.departure;
+						if(dep != nil)
+							mcdu.sid.select_arpt(dep.id);
+					}
 		 			
 		 			# ARRIVAL
 		 			
-		 			else
-		 				mcdu.star.select_arpt(getprop("autopilot/route-manager/destination/airport"));
+		 			else{
+						var dest_arpt = mcdu.f_pln.get_destination_airport();
+						var dest_id = (dest_arpt != nil ? dest_arpt.id : getprop("autopilot/route-manager/destination/airport"));
+						mcdu.star.select_arpt(dest_id);
+					}
+		 				
 		 			
 				</script>
             </binding>
@@ -92,6 +140,26 @@
 	
 	<animation>
 		<type>pick</type>
+		<object-name>l4</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>nasal</command>
+				<script>
+					if(getprop('/instrumentation/mcdu/lat_rev/enable-altn')){
+						var idx = getprop("/instrumentation/mcdu/lat_rev/id");
+						mcdu.f_pln.enable_alternate(idx);
+						mcdu.f_pln.update_disp();
+						setprop("/instrumentation/mcdu/page", "f-pln");
+					}
+				</script>
+			</binding>
+		</action>
+	</animation>
+	
+	<animation>
+		<type>pick</type>
 		<object-name>r6</object-name>
 		<action>
             <button>0</button>
@@ -101,14 +169,16 @@
 		 		<script>
 		 			# Direct To
 		 			
-		 				setprop("/autopilot/route-manager/input", "@ACTIVATE");
+		 				#setprop("/flight-management/hold/init", 0);
+		 			
+		 				#setprop("/autopilot/route-manager/input", "@ACTIVATE");
 		 			
 		 				var id = getprop("/instrumentation/mcdu/lat_rev/id");
 		 			
-		 				setprop("/autopilot/route-manager/input", "@JUMP" ~ id);
+		 				#setprop("/autopilot/route-manager/input", "@JUMP" ~ id);
 		 				
-		 				setprop("/flight-management/current-wp", id);
-		 				
+		 				#setprop("/flight-management/current-wp", id);
+						mcdu.f_pln.dir_to(id);
 		 				setprop("/instrumentation/mcdu/page", "f-pln");
 		 			
 		 				mcdu.f_pln.update_disp();
@@ -131,6 +201,24 @@
 		 			# Remove WP
 		 			
 		 				mcdu.lat_rev.rm_wp(getprop("/instrumentation/mcdu/lat_rev/id"));
+		 				
+		 			# Remove Hold if Exists
+		 				
+		 				var hold = getprop("/flight-management/hold/wp_id");
+		 				
+		 				var lat_rev = getprop("/instrumentation/mcdu/lat_rev/id");
+		 				
+		 				if (lat_rev == hold) {
+		 					
+		 					setprop("/flight-management/hold/wp", "---");
+		 					
+		 					setprop("/flight-management/hold/wp_id", 0);
+		 					
+		 					setprop("/instrumentation/mcdu/f-pln/hold-id", 0);
+		 					
+		 					setprop("/instrumentation/mcdu/f-pln/show-hold", 0);
+		 				
+		 				}		 				
 		 				
 		 			setprop("/instrumentation/mcdu/page", "f-pln");
 		 				
@@ -172,11 +260,11 @@
 		 			
 		 			# Next WPT
 		 			
-		 				mcdu.lat_rev.next_wp(getprop("/instrumentation/mcdu/lat_rev/id"), getprop("/instrumentation/mcdu/input"));
+		 				var new_id = mcdu.lat_rev.next_wp(getprop("/instrumentation/mcdu/lat_rev/id"), getprop("/instrumentation/mcdu/input"));
 		 				
 		 				mcdu.clear_inp();
 		 				
-		 				mcdu.lat_rev.revise(getprop("/instrumentation/mcdu/lat_rev/id") + 1);
+						mcdu.lat_rev.revise(new_id);
 		 			
 				</script>
             </binding>
@@ -194,6 +282,11 @@
 		 		<script>
 		 			
 		 			# NEW DESTINATION (COME BACK LATER)
+					mcdu.lat_rev.new_dest(getprop("/instrumentation/mcdu/lat_rev/id"), getprop("/instrumentation/mcdu/input"));
+					mcdu.clear_inp();
+					setprop("/instrumentation/mcdu/page", "f-pln");
+
+					mcdu.f_pln.update_disp();
 		 			
 				</script>
             </binding>
@@ -241,6 +334,14 @@
 		</condition>
 	</animation>
 	
+	<animation>
+		<type>select</type>
+		<object-name>enable_altn</object-name>
+		<condition>
+			<property>/instrumentation/mcdu/lat_rev/enable-altn</property>
+		</condition>
+	</animation>
+	
 	<!-- OSGText -->
 	
 	<text>
@@ -282,6 +383,52 @@
 		<format type="string">%s</format>
 		<property>/instrumentation/mcdu/lat_rev/pos-string</property>
 		<truncate type="bool">false</truncate>
+		<font type="string">courier-bold.txf</font>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.0035</character-size>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	
+	<text>
+		<name>enable_altn</name>
+		<offsets>
+			<x-m>-0.0474</x-m>
+			<y-m>-0.0360</y-m>
+			<z-m>-0.0006</z-m>
+			<heading-deg>90</heading-deg>
+		</offsets>
+		<alignment>left-center</alignment>
+		<axis-alignment>xy-plane</axis-alignment>
+		<type type="string">literal</type>
+		<text>ENABLE</text>
+		<font type="string">courier-bold.txf</font>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.0030</character-size>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	
+	<text>
+		<name>enable_altn</name>
+		<offsets>
+			<x-m>-0.0424</x-m>
+			<y-m>-0.04</y-m>
+			<z-m>-0.0006</z-m>
+			<heading-deg>90</heading-deg>
+		</offsets>
+		<alignment>left-center</alignment>
+		<axis-alignment>xy-plane</axis-alignment>
+		<type type="string">literal</type>
+		<text>&lt; ALTN</text>
 		<font type="string">courier-bold.txf</font>
 		<draw-text type="bool">true</draw-text>
 		<draw-alignment type="bool">false</draw-alignment>

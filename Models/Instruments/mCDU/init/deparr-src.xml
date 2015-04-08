@@ -76,7 +76,13 @@
             <binding>
 				<command>nasal</command>
 		 		<script>
-		 			setprop("/instrumentation/mcdu/page", "init");
+					var results = "/instrumentation/mcdu/from-to-results/";
+					var sec = getprop(results~ 'secondary-fpln');
+					if(sec == nil) sec = 0;
+					if(!sec)
+		 				setprop("/instrumentation/mcdu/page", "init");
+					else
+						setprop("/instrumentation/mcdu/page", "init-sec");
 				</script>
             </binding>
         </action>
@@ -93,8 +99,16 @@
 		 		<script>
 		 		
 		 			var active_rte = "/flight-management/active-rte/";
+					var sec_rte = "/flight-management/secondary-rte/";
 		 		
 		 			var results = "/instrumentation/mcdu/from-to-results/";
+					var sec = getprop(results~ 'secondary-fpln');
+					if(sec == nil) sec = 0;
+					if(!sec)
+						mcdu.mCDU_init.clear_active();
+					else 
+						mcdu.mCDU_init.clear_sec();
+					var tree = (sec ? sec_rte : active_rte);
 		 			
 		 			var dep = getprop(results~ "empty-dep");
 		 			
@@ -108,23 +122,26 @@
 					
 					if (empty) {
 					
-						setprop(active_rte~ "depicao", dep);
+						setprop(tree~ "depicao", dep);
+
+						setprop(tree~ "arricao", arr);
+
+						setprop(tree~ "id", "----------");
 						
-						setprop(active_rte~ "arricao", arr);
-						
-						setprop(active_rte~ "id", "----------");
-						
-						mcdu.f_pln.init_f_pln();
+						if(!sec)
+							mcdu.f_pln.init_f_pln();
+						else
+							mcdu.f_pln.init_sec_f_pln();
 					
 					} else {
 					
-						mcdu.mCDU_init.co_rte(0, select_rte);
+						mcdu.mCDU_init.co_rte(0, select_rte, sec);
 					
 					}
 					
 					mcdu.clear_inp();
-					
-					setprop("/instrumentation/mcdu/page", "init");
+					var init_page = (sec ? 'init-sec' : 'init');
+					setprop("/instrumentation/mcdu/page", init_page);
 				</script>
             </binding>
         </action>

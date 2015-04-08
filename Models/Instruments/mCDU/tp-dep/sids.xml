@@ -173,9 +173,16 @@
 		 		<script>
 		 		
 		 			var first = getprop("/flight-management/procedures/sid/first");
-		 			
-		 			if (first != 0)
-		 				setprop("/flight-management/procedures/sid/first", first - 4);
+					var invert = getprop('aircraft-config/saved/mcdu/invert-arrow-keys') or 0;
+					if(!invert){
+						if (first != 0)
+							setprop("/flight-management/procedures/sid/first", first - 4);
+					} else {
+						var max = getprop("/flight-management/procedures/sid/sids");
+
+						if (max > first + 4)
+							setprop("/flight-management/procedures/sid/first", first + 4);
+					}
 		 				
 		 			mcdu.sid.update_sids();
 		 			
@@ -195,11 +202,17 @@
 		 		<script>
 		 		
 		 			var first = getprop("/flight-management/procedures/sid/first");
-		 			
-		 			var max = getprop("/flight-management/procedures/sid/sids");
-		 			
-		 			if (max > first + 4)
-		 				setprop("/flight-management/procedures/sid/first", first + 4);
+					var invert = getprop('aircraft-config/saved/mcdu/invert-arrow-keys') or 0;
+					if(!invert){
+						var max = getprop("/flight-management/procedures/sid/sids");
+
+						if (max > first + 4)
+							setprop("/flight-management/procedures/sid/first", first + 4);
+					} else {
+						if (first != 0)
+							setprop("/flight-management/procedures/sid/first", first - 4);
+					}
+
 		 				
 		 			mcdu.sid.update_sids();
 		 			

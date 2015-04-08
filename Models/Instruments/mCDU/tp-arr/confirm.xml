@@ -63,7 +63,7 @@
 		 		
 		 			# ERASE star (by restarting this selection process)
 		 		
-		 			mcdu.star.select_arpt(getprop("/autopilot/route-manager/destination/airport"));
+					mcdu.star.select_arpt(getprop("/instrumentation/mcdu/f-pln/disp/destination"));
 		 			
 		 			setprop(dep~ "active-star/name", "------");
 		 			

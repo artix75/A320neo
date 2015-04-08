@@ -4,11 +4,27 @@
 
 <PropertyList>
 
+	<predict-simple>
+		<name>mach speed in 5 seconds predictor</name>
+		<debug>false</debug>
+		<input>/velocities/mach</input>
+		<output>autopilot/internal/lookahead-5-sec-mach</output>
+		<seconds>5.0</seconds>
+		<filter-gain>0.0</filter-gain>
+	</predict-simple>
+
 	<pid-controller>
 		<name>FCU/AP Elevator Control</name>
 		<debug type="bool">false</debug>
 		<enable>
-			<prop>/servo-control/elevator</prop>
+			<condition>
+				<and>
+					<property>/servo-control/elevator</property>
+					<not>
+						<property>/flight-management/control/spd-with-pitch</property>
+					</not>
+				</and>
+			</condition>
 		</enable>
 		<input>
 			<prop>/orientation/pitch-deg</prop>
@@ -26,16 +42,25 @@
 			<gamma>0</gamma>
 			<Ti>10</Ti>
 			<Td>0.00001</Td>
-			<u_min>-0.15</u_min>
+			<u_min>
+				<property>/flight-management/settings/min-elevator-ctrl</property>
+			</u_min>
 			<u_max>0.1</u_max>
 		</config>
 	</pid-controller>
-	
+
 	<pid-controller>
 		<name>FCU/AP Elevator Control VS</name>
 		<debug type="bool">false</debug>
 		<enable>
-			<prop>/servo-control/elevator-vs</prop>
+			<condition>
+				<and>
+					<property>/servo-control/elevator-vs</property>
+					<not>
+						<property>/flight-management/control/spd-with-pitch</property>
+					</not>
+				</and>
+			</condition>
 		</enable>
 		<input>
 			<prop>/velocities/vertical-speed-fps</prop>
@@ -53,20 +78,67 @@
 			<gamma>0</gamma>
 			<Ti>10</Ti>
 			<Td>0.00001</Td>
-			<u_min>-0.15</u_min>
+			<u_min>
+				<property>/flight-management/settings/min-elevator-ctrl</property>
+			</u_min>
 			<u_max>0.1</u_max>
 		</config>
 	</pid-controller>
-	
+
+	<pid-controller>
+		<name>FCU/AP Elevator Control FPA</name>
+		<debug type="bool">false</debug>
+		<enable>
+			<condition>
+				<and>
+					<property>/servo-control/elevator-fpa</property>
+					<not>
+						<property>/flight-management/control/spd-with-pitch</property>
+					</not>
+				</and>
+			</condition>
+		</enable>
+		<input>
+			<prop>/flight-management/fmgc-values/fpa-angle</prop>
+		</input>
+		<reference>
+			<prop>/servo-control/target-fpa</prop>
+		</reference>
+		<output>
+			<prop>/controls/flight/elevator</prop> <!-- This is basically the fbw input prop -->
+		</output>
+		<config>
+			<Kp>-0.0075</Kp>
+			<beta>1</beta>
+			<alpha>0.1</alpha>
+			<gamma>0</gamma>
+			<Ti>10</Ti>
+			<Td>0.00001</Td>
+			<u_min>
+				<property>/flight-management/settings/min-elevator-ctrl</property>
+			</u_min>
+			<u_max>0.1</u_max>
+		</config>
+	</pid-controller>
+
 	<pid-controller>
 		<name>FCU/AP Elevator Control GS</name>
-		<debug type="bool">false</debug>
+		<debug type="bool">true</debug>
 		<enable>
 			<prop>/servo-control/elevator-gs</prop>
 		</enable>
 		<input>
 			<prop>/velocities/vertical-speed-fps</prop>
 		</input>
+		<reference><!-- When the aircraft is below glideslope keep level -->
+			<condition>
+				<greater-than>
+					<property>instrumentation/nav/gs-needle-deflection-norm</property>
+					<value>0.15</value>
+				</greater-than>
+			</condition>
+			<value>0</value>
+		</reference>
 		<reference>
 			<prop>/instrumentation/nav[0]/gs-rate-of-climb</prop>
 		</reference>
@@ -80,8 +152,315 @@
 			<gamma>0</gamma>
 			<Ti>10</Ti>
 			<Td>0.00001</Td>
-			<u_min>-0.15</u_min>
+			<u_min>
+				<property>/flight-management/settings/min-elevator-ctrl</property>
+			</u_min>
 			<u_max>0.1</u_max>
+		</config>
+	</pid-controller>
+
+	<!-- Flight Director -->
+
+	<!-- <pid-controller>
+		<name>FCU/FD Elevator Control</name>
+		<debug type="bool">false</debug>
+		<enable>
+			<prop>/servo-control/fd-elevator</prop>
+		</enable>
+		<input>
+			<prop>/servo-control/fd-target-pitch</prop>
+		</input>
+		<reference>
+					<value>0</value>
+		</reference>
+		<output>
+			<prop>/autopilot/internal/fd-pitch</prop>
+		</output>
+		<config>
+			<Kp>-0.01</Kp>
+			<beta>1</beta>
+			<alpha>0.1</alpha>
+			<gamma>0</gamma>
+			<Ti>10</Ti>
+			<Td>0.00001</Td>
+			<u_min>-15</u_min>
+			<u_max>25</u_max>
+		</config>
+	</pid-controller>
+
+	<pid-controller>
+		<name>FCU/AP Elevator Control VS</name>
+		<debug type="bool">false</debug>
+		<enable>
+			<prop>/servo-control/fd-elevator-vs</prop>
+		</enable>
+		<input>
+			<prop>/velocities/vertical-speed-fps</prop>
+		</input>
+		<reference>
+			<prop>/servo-control/fd-target-vs</prop>
+		</reference>
+		<output>
+			<prop>/autopilot/internal/fd-pitch</prop>
+		</output>
+		<config>
+			<Kp>-0.0075</Kp>
+			<beta>1</beta>
+			<alpha>0.1</alpha>
+			<gamma>0</gamma>
+			<Ti>10</Ti>
+			<Td>0.00001</Td>
+			<u_min>-15</u_min>
+			<u_max>30</u_max>
+		</config>
+	</pid-controller>
+
+	<pid-controller>
+		<name>FCU/AP Elevator Control GS</name>
+		<debug type="bool">false</debug>
+		<enable>
+			<prop>/servo-control/fd-elevator-gs</prop>
+		</enable>
+		<input>
+			<prop>/velocities/vertical-speed-fps</prop>
+		</input>
+		<reference>
+			<prop>/instrumentation/nav[0]/gs-rate-of-climb</prop>
+		</reference>
+		<output>
+			<prop>/autopilot/internal/fd-pitch</prop>
+		</output>
+		<config>
+			<Kp>-0.0075</Kp>
+			<beta>1</beta>
+			<alpha>0.1</alpha>
+			<gamma>0</gamma>
+			<Ti>10</Ti>
+			<Td>0.00001</Td>
+			<u_min>-15</u_min>
+			<u_max>30</u_max>
+		</config>
+	</pid-controller>-->
+
+	<!-- Hold FCU speed by varying pitch (Two stage cascading controller) -->
+
+	<pid-controller>
+		<name>FCU Speed hold (vary pitch) Stage #1</name>
+		<debug>false</debug>
+		<enable>
+			<condition>
+				<and>
+					<property>/flight-management/control/spd-with-pitch</property>
+					<equals>
+						<property>/flight-management/control/spd-ctrl</property>
+						<value>man-set</value>
+					</equals>
+					<equals>
+						<property>/flight-management/control/spd-mode</property>
+						<value>ias</value>
+					</equals>
+				</and>
+			</condition>
+		</enable>
+		<input>
+			<prop>/autopilot/internal/lookahead-5-sec-airspeed-kt</prop>
+		</input>
+		<reference>
+			<prop>/flight-management/fcu-values/ias</prop>
+		</reference>
+		<output>
+			<prop>/autopilot/settings/target-pitch-deg</prop>
+		</output>
+		<config>
+			<Kp>-0.5</Kp>       <!-- proportional gain -->
+			<beta>1.0</beta>    <!-- input value weighing factor -->
+			<alpha>0.1</alpha>  <!-- low pass filter weighing factor -->
+			<gamma>0.0</gamma>  <!-- input value weighing factor for -->
+			<!-- unfiltered derivative error -->
+			<Ti>40.0</Ti>        <!-- integrator time -->
+			<Td>0.00001</Td>    <!-- derivator time -->
+			<u_min>
+				<property>/flight-management/settings/spd-pitch-min</property>
+			</u_min><!-- minimum output clamp -->
+			<u_max>
+				<property>/flight-management/settings/spd-pitch-max</property>
+			</u_max> <!-- maximum output clamp -->
+		</config>
+	</pid-controller>
+
+	<!-- Hold FMGC speed by varying pitch (Two stage cascading controller) -->
+
+	<pid-controller>
+		<name>FMGC Speed hold (vary pitch) Stage #1</name>
+		<debug>false</debug>
+		<enable>
+			<condition>
+				<and>
+					<property>/flight-management/control/spd-with-pitch</property>
+					<equals>
+						<property>/flight-management/control/spd-ctrl</property>
+						<value>fmgc</value>
+					</equals>
+					<equals>
+						<property>/flight-management/control/spd-mode</property>
+						<value>ias</value>
+					</equals>
+				</and>
+			</condition>
+		</enable>
+		<input>
+			<prop>/autopilot/internal/lookahead-5-sec-airspeed-kt</prop>
+		</input>
+		<reference>
+			<prop>/flight-management/fmgc-values/target-spd</prop>
+		</reference>
+		<output>
+			<prop>/autopilot/settings/target-pitch-deg</prop>
+		</output>
+		<config>
+			<Kp>-0.5</Kp>       <!-- proportional gain -->
+			<beta>1.0</beta>    <!-- input value weighing factor -->
+			<alpha>0.1</alpha>  <!-- low pass filter weighing factor -->
+			<gamma>0.0</gamma>  <!-- input value weighing factor for -->
+			<!-- unfiltered derivative error -->
+			<Ti>40.0</Ti>        <!-- integrator time -->
+			<Td>0.00001</Td>    <!-- derivator time -->
+			<u_min>
+				<property>/flight-management/settings/spd-pitch-min</property>
+			</u_min><!-- minimum output clamp -->
+			<u_max>
+				<property>/flight-management/settings/spd-pitch-max</property>
+			</u_max> <!-- maximum output clamp -->
+		</config>
+	</pid-controller>
+
+	<!-- Hold FCU Mach by varying pitch (Two stage cascading controller) -->
+
+	<pid-controller>
+		<name>FCU Mach hold (vary pitch) Stage #1</name>
+		<debug>false</debug>
+		<enable>
+			<condition>
+				<and>
+					<property>/flight-management/control/spd-with-pitch</property>
+					<equals>
+						<property>/flight-management/control/spd-ctrl</property>
+						<value>man-set</value>
+					</equals>
+					<equals>
+						<property>/flight-management/control/spd-mode</property>
+						<value>mach</value>
+					</equals>
+				</and>
+			</condition>
+		</enable>
+		<input>
+			<prop>/autopilot/internal/lookahead-5-sec-mach</prop>
+		</input>
+		<reference>
+			<prop>/flight-management/fcu-values/mach</prop>
+		</reference>
+		<output>
+			<prop>/autopilot/settings/target-pitch-deg</prop>
+		</output>
+		<config>
+			<Kp>-40</Kp>       <!-- proportional gain -->
+			<beta>1.0</beta>    <!-- input value weighing factor -->
+			<alpha>0.1</alpha>  <!-- low pass filter weighing factor -->
+			<gamma>0.0</gamma>  <!-- input value weighing factor for -->
+			<!-- unfiltered derivative error -->
+			<Ti>60.0</Ti>        <!-- integrator time -->
+			<Td>0.00001</Td>    <!-- derivator time -->
+			<u_min>
+				<property>/flight-management/settings/spd-pitch-min</property>
+			</u_min><!-- minimum output clamp -->
+			<u_max>
+				<property>/flight-management/settings/spd-pitch-max</property>
+			</u_max> <!-- maximum output clamp -->
+		</config>
+	</pid-controller>
+
+	<!-- Hold FMGC Mach by varying pitch (Two stage cascading controller) -->
+
+	<pid-controller>
+		<name>FMGC MAch hold (vary pitch) Stage #1</name>
+		<debug>false</debug>
+		<enable>
+			<condition>
+				<and>
+					<property>/flight-management/control/spd-with-pitch</property>
+					<equals>
+						<property>/flight-management/control/spd-ctrl</property>
+						<value>fmgc</value>
+					</equals>
+					<equals>
+						<property>/flight-management/control/spd-mode</property>
+						<value>mach</value>
+					</equals>
+				</and>
+			</condition>
+		</enable>
+		<input>
+			<prop>/velocities/mach</prop>
+		</input>
+		<reference>
+			<prop>/flight-management/fmgc-values/target-spd</prop>
+		</reference>
+		<output>
+			<prop>/autopilot/settings/target-pitch-deg</prop>
+		</output>
+		<config>
+			<Kp>-40</Kp>       <!-- proportional gain -->
+			<beta>1.0</beta>    <!-- input value weighing factor -->
+			<alpha>0.1</alpha>  <!-- low pass filter weighing factor -->
+			<gamma>0.0</gamma>  <!-- input value weighing factor for -->
+			<!-- unfiltered derivative error -->
+			<Ti>60.0</Ti>        <!-- integrator time -->
+			<Td>0.00001</Td>    <!-- derivator time -->
+			<u_min>
+				<property>/flight-management/settings/spd-pitch-min</property>
+			</u_min><!-- minimum output clamp -->
+			<u_max>
+				<property>/flight-management/settings/spd-pitch-max</property>
+			</u_max> <!-- maximum output clamp -->
+		</config>
+	</pid-controller>
+
+	<pid-controller>
+		<name>Speed hold (vary pitch) Stage #2</name>
+		<debug>false</debug>
+		<enable>
+			<condition>
+				<and>
+					<equals>
+						<property>/flight-management/control/ap1-master</property>
+						<value>eng</value>
+					</equals>
+					<property>/flight-management/control/spd-with-pitch</property>
+				</and>
+			</condition>
+		</enable>
+		<input>
+			<prop>/orientation/pitch-deg</prop>
+		</input>
+		<reference>
+			<prop>/autopilot/settings/target-pitch-deg</prop>
+		</reference>
+		<output>
+			<prop>/controls/flight/elevator</prop>
+		</output>
+		<config>
+			<Kp>-0.01</Kp>      <!-- proportional gain -->
+			<beta>1.0</beta>    <!-- input value weighing factor -->
+			<alpha>0.1</alpha>  <!-- low pass filter weighing factor -->
+			<gamma>0.0</gamma>  <!-- input value weighing factor for -->
+			<!-- unfiltered derivative error -->
+			<Ti>20.0</Ti>        <!-- integrator time -->
+			<Td>0.00001</Td>    <!-- derivator time -->
+			<u_min>
+				<property>/flight-management/settings/min-elevator-ctrl</property>
+			</u_min> <!-- minimum output clamp -->
+			<u_max>0.1</u_max>  <!-- maximum output clamp -->
 		</config>
 	</pid-controller>
 

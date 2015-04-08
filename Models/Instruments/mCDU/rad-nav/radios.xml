@@ -79,15 +79,16 @@
 		 				 if (substr(input, 0, 1) == "1") { # FREQ
 		 				 
 		 				 	setprop(radio~ "vor1", input);
-                            
-                            setprop("/instrumentation/nav/frequencies/selected-mhz",input);
+							#setprop("/instrumentation/nav/frequencies/selected-mhz",input);
+							var vor = findNavaidByFrequency(num(input));
+							if(vor != nil) setprop(radio~ "vor1-id", vor.id);
 		 				 
 		 				 } else { # NAV ID
 		 				 
 		 				 	setprop(radio~ "vor1", mcdu.rad_nav.search_vor(input));
 		 				 	
 		 				 	setprop(radio~ "vor1-id", input);
-                            setprop("/instrumentation/nav/frequencies/selected-mhz",mcdu.rad_nav.search_vor(input));
+							#setprop("/instrumentation/nav/frequencies/selected-mhz",mcdu.rad_nav.search_vor(input));
 		 				 
 		 				 }
 		 				
@@ -98,7 +99,8 @@
 		 				setprop("/instrumentation/mcdu/input", "ERROR: WRONG FORMAT");
 		 			
 		 			}
-		 			
+					if(input != '')
+						setprop(radio~ 'autotuned-vor', 0);
 		 			#mcdu.rad_nav.nav_ids_update();
 		 			
 		 			if (getprop(radio~ "ils-mode") != 1) {
@@ -139,6 +141,8 @@
 		 				 if (substr(input, 0, 1) == "1") { # FREQ
 		 				 
 		 				 	setprop(radio~ "vor2", input);
+							var vor = findNavaidByFrequency(num(input));
+							if(vor != nil) setprop(radio~ "vor2-id", vor.id);
 		 				 
 		 				 } else { # NAV ID
 		 				 
@@ -188,7 +192,7 @@
 		 			if (typeof(input) == "scalar") {
 		 			
 						setprop(radio~ "vor1-crs", input);
-                        setprop("/instrumentation/nav/radials/selected-deg",input);
+						#setprop("/instrumentation/nav/radials/selected-deg",input);
 						
 						mcdu.clear_inp();
 		 			
@@ -265,12 +269,24 @@
 		 			# Check if a frequency was entered or text
 		 			
 		 			if (typeof(input) == "scalar") {
+                        if (substr(input, 0, 1) == "1" or input == '') { # FREQ
 		 			
-						setprop(radio~ "ils", input);
-                        setprop("/instrumentation/nav/frequencies/selected-mhz",input);
-						
-						mcdu.clear_inp();
-		 			
+                            setprop(radio~ "ils", input);
+                            
+                            #setprop("/instrumentation/nav/frequencies/selected-mhz",input);
+                            mcdu.clear_inp();
+                        } else {
+                            var ils = mcdu.rad_nav.search_ils(input);
+                            if(ils != nil){
+                                setprop(radio~ "ils", ils.frequency / 100);
+                                setprop(radio~ "ils-crs", ils.course);
+                                setprop(radio~ "ils-id", ils.id);
+                                mcdu.clear_inp();
+                            } else {
+                            }
+                        }
+                        if(input != '')
+                            setprop(radio~ 'autotuned', 0);
 		 			} else {
 		 			
 		 				setprop("/instrumentation/mcdu/input", "ERROR: WRONG FORMAT");
@@ -309,8 +325,6 @@
 		 			if (typeof(input) == "scalar") {
 		 			
 						setprop(radio~ "ils-crs", input);
-                        setprop("/instrumentation/nav/radials/selected-deg",input);
-						
 						mcdu.clear_inp();
 		 			
 		 			} else {
@@ -425,9 +439,20 @@
 		 			# Check if a frequency was entered or text
 		 			
 		 			if (typeof(input) == "scalar") {
-		 			
-						setprop("/instrumentation/adf[0]/frequencies/selected-khz", input);
-						
+						if (num(input) != nil or input == '') { # FREQ
+							setprop("/instrumentation/adf[0]/frequencies/selected-khz", input);
+							var ndb = findNavaidByFrequency(num(input));
+							if(ndb != nil) setprop('flight-management/freq/adf1-id', ndb.id);
+						} else {
+							var frq = mcdu.rad_nav.search_ndb(input);
+							if(frq != nil){
+								setprop("/instrumentation/adf[0]/frequencies/selected-khz", frq);
+								setprop('flight-management/freq/adf1-id', input);
+							} else {
+							}
+						}
+						if(input != '')
+							setprop(radio~ 'autotuned-adf', 0);
 						mcdu.clear_inp();
 		 			
 		 			} else {
@@ -451,21 +476,29 @@
 				<command>nasal</command>
 		 		<script>
 		 		
-		 			var input = getprop("/instrumentation/mcdu/input");
-		 			
-		 			# Check if a frequency was entered or text
-		 			
-		 			if (typeof(input) == "scalar") {
-		 			
-						setprop("/instrumentation/adf[1]/frequencies/selected-khz", input);
-						
+					var input = getprop("/instrumentation/mcdu/input");
+
+					# Check if a frequency was entered or text
+					if (typeof(input) == "scalar") {
+						if (num(input) != nil or input == '') { # FREQ
+							setprop("/instrumentation/adf[1]/frequencies/selected-khz", input);
+							var ndb = findNavaidByFrequency(num(input));
+							if(ndb != nil) setprop('flight-management/freq/adf2-id', ndb.id);
+						} else {
+							var frq = mcdu.rad_nav.search_ndb(input);
+							if(frq != nil){
+								setprop("/instrumentation/adf[1]/frequencies/selected-khz", frq);
+								setprop('flight-management/freq/adf2-id', input);
+							} else {
+							}
+						}
 						mcdu.clear_inp();
-		 			
-		 			} else {
-		 			
-		 				setprop("/instrumentation/mcdu/input", "ERROR: WRONG FORMAT");
-		 			
-		 			}
+
+					} else {
+
+						setprop("/instrumentation/mcdu/input", "ERROR: WRONG FORMAT");
+
+					}
 		 			
 				</script>
             </binding>
@@ -829,6 +862,31 @@
 		</font-resolution>
 	</text>
 	
+	<text>
+		<name>adf1</name>
+		<offsets>
+			<x-m>-0.0336</x-m>
+			<y-m>-0.0362</y-m>
+			<z-m>-0.0006</z-m>
+			<heading-deg>90</heading-deg>
+		</offsets>
+		<alignment>right-center</alignment>
+		<axis-alignment>xy-plane</axis-alignment>
+		<type type="string">text-value</type>
+		<format type="string">%s</format>
+		<property>flight-management/freq/adf1-id</property>
+		<truncate type="bool">false</truncate>
+		<font type="string">courier-bold.txf</font>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.0025</character-size>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	
 	<!-- Right Side -->
 	
 	<text>
@@ -1000,6 +1058,31 @@
 		<draw-alignment type="bool">false</draw-alignment>
 		<draw-boundingbox type="bool">false</draw-boundingbox>
 		<character-size>0.003</character-size>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	
+	<text>
+		<name>adf2</name>
+		<offsets>
+			<x-m>-0.0336</x-m>
+			<y-m>0.0348</y-m>
+			<z-m>-0.0006</z-m>
+			<heading-deg>90</heading-deg>
+		</offsets>
+		<alignment>left-center</alignment>
+		<axis-alignment>xy-plane</axis-alignment>
+		<type type="string">text-value</type>
+		<format type="string">%s</format>
+		<property>flight-management/freq/adf2-id</property>
+		<truncate type="bool">false</truncate>
+		<font type="string">courier-bold.txf</font>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.0025</character-size>
 		<font-resolution>
 			<width type="int">32</width>
 			<height type="int">32</height>

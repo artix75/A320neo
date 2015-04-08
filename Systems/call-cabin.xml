@@ -1,0 +1,53 @@
+<?xml version="1.0"?>
+<PropertyList>
+    <name>Cabin Call</name>
+    <layout>vbox</layout>
+    <default-padding>3</default-padding>
+
+    <text>
+        <label>Cabin Call</label>
+    </text>
+    <hrule/>
+
+    <group>
+        <layout>vbox</layout>
+        <halign>left</halign>
+        <checkbox>
+            <label>Cabin Lights</label>
+            <property>controls/lighting/cabin-lights</property>
+            <binding>
+                <command>dialog-apply</command>
+            </binding>
+            <live>true</live>
+        </checkbox>
+        <button>
+            <legend>Announcements</legend>
+            <default>true</default>
+            <binding>
+                <command>nasal</command>
+                <script>
+                    var mal = gui.Dialog.new("/sim/gui/dialogs/announce/dialog",
+                    "Aircraft/A320neo/Systems/announcements-dlg.xml");
+                    mal.open();
+                </script>
+            </binding>
+        </button>
+    </group>
+
+    <group>
+        <layout>hbox</layout>
+        <empty><stretch>true</stretch></empty>
+
+        <button>
+            <legend>Close</legend>
+            <default>true</default>
+            <key>Esc</key>
+            <binding>
+                <command>dialog-close</command>
+            </binding>
+        </button>
+
+        <empty><stretch>true</stretch></empty>
+    </group>
+
+</PropertyList>
