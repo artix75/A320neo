@@ -78,10 +78,18 @@ var star = {
 	
 	select_rwy : func(id) {
 	
-		me.STARList = me.ArrICAO.getSTARList(id);
+		if(me.ArrICAO != nil){
+			me.STARList = me.ArrICAO.getSTARList(id);
+			me.ApproachList = me.ArrICAO.getApproachList(id);
+		}else {
+			var defaultTp = procedures.fmsTP.new();
+			defaultTp.tp_type = 'star';
+			defaultTp.wp_name = 'DEFAULT';
+			defaultTp.runways = [id];
+			me.STARList = [defaultTp];
+			me.ApproachList = [];
+		}
 		me.STARmax = size(me.STARList);
-		
-		me.ApproachList = me.ArrICAO.getApproachList(id);
 		
 		for(var star_index = 0; star_index < me.STARmax; star_index += 1) {
 		

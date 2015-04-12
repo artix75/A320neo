@@ -48,7 +48,7 @@ var manage_speeds = func(descent_started, decel_point_passed, vmin, vmax) {
 	
 		var agl = getprop("/position/altitude-agl-ft");
 	
-		var main_wow = getprop("/gear/gear[3]/wow");
+		var main_wow = getprop("/gear/gear[2]/wow");
 		
 		if (main_wow) {
 			setprop("/flight-management/control/a-thrust", "off");		

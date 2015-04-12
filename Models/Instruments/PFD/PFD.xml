@@ -271,7 +271,7 @@
                 <property>/gear/gear/wow</property>
             </not>
             <not>
-                <property>/gear/gear[3]/wow</property>
+                <property>/gear/gear[2]/wow</property>
             </not>
             <not>
                 <equals>
@@ -301,7 +301,7 @@
         <condition>
             <and>
                 <property>/flight-management/control/fd</property>
-                <property>/gear/gear[3]/wow</property>
+                <property>/gear/gear[2]/wow</property>
                 <or>
                     <equals>
                         <property>/flight-management/flight-modes/lateral/active</property>
@@ -327,7 +327,7 @@
                     <property>/gear/gear/wow</property>
                 </not>
                 <not>
-                    <property>/gear/gear[3]/wow</property>
+                    <property>/gear/gear[2]/wow</property>
                 </not>
                 <not>
                     <equals>

@@ -1,0 +1,70 @@
+<?xml version="1.0"?>
+<PropertyList>
+    <name>Crew</name>
+    <layout>vbox</layout>
+    
+    <text>
+        <label>Crew</label>
+    </text>
+    <hrule/>
+
+    <group>
+        <layout>vbox</layout>
+        <halign>left</halign>
+        <text>
+            <label>Copilot</label>
+        </text>
+        <checkbox>
+            <label>Lights</label>
+            <halign>left</halign>
+            <property>copilot/lights</property>
+            <binding>
+                <command>property-toggle</command>
+                <property>copilot/lights</property>
+            </binding>
+        </checkbox>
+        <checkbox>
+            <label>Seat belts</label>
+            <halign>left</halign>
+            <property>copilot/seatbelts</property>
+            <binding>
+                <command>property-toggle</command>
+                <property>copilot/seatbelts</property>
+            </binding>
+        </checkbox>
+    </group>
+    <hrule/>
+    <group>
+        <layout>vbox</layout>
+        <halign>left</halign>
+        <text>
+            <label>Cabin crew</label>
+        </text>
+        <checkbox>
+            <label>Announcements</label>
+            <property>aircraft-config/auto-annunciator</property>
+            <binding>
+                <command>property-toggle</command>
+                <property>aircraft-config/auto-annunciator</property>
+            </binding>
+        </checkbox>
+    </group>
+    
+    <hrule/>
+
+    <group>
+        <layout>hbox</layout>
+        <empty><stretch>true</stretch></empty>
+
+        <button>
+            <legend>Close</legend>
+            <default>true</default>
+            <key>Esc</key>
+            <binding>
+                <command>dialog-close</command>
+            </binding>
+        </button>
+
+        <empty><stretch>true</stretch></empty>
+    </group>
+</PropertyList>

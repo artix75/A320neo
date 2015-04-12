@@ -764,7 +764,7 @@
 
 					var first = getprop("/instrumentation/mcdu/f-pln/disp/first");
 
-					var hold = getprop("/flight-management/hold/wp_id");
+					var hold = getprop("/flight-management/hold/wp_id") or 0;
 
 					var hold_id = 0;
 

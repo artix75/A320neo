@@ -165,7 +165,7 @@
             <and>
                 <property>/instrumentation/nav[0]/nav-loc</property>
                 <property>/instrumentation/nav[0]/in-range</property>
-                <property>/gear/gear[3]/wow</property>
+                <property>/gear/gear[2]/wow</property>
             </and>
         </enable>
         <input>

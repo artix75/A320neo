@@ -454,6 +454,28 @@
 						</binding>
 					</item>
 					<item>
+						<label>Crew</label>
+						<binding>
+							<command>nasal</command>
+							<script>
+								var crw = gui.Dialog.new("sim/gui/dialogs/crew/dialog",
+								"Aircraft/A320neo/Systems/crew-dlg.xml");
+								crw.open();
+							</script>
+						</binding>
+					</item>
+					<item>
+						<label>Announcements</label>
+						<binding>
+							<command>nasal</command>
+							<script>
+								var mal = gui.Dialog.new("/sim/gui/dialogs/announce/dialog",
+								"Aircraft/A320neo/Systems/announcements-dlg.xml");
+								mal.open();
+							</script>
+						</binding>
+					</item>
+					<item>
 						<label>WXR Live</label>
 						<binding>
 							<command>nasal</command>
@@ -1382,6 +1404,7 @@
 			<file>Aircraft/A320neo/Nasal/copilot.nas</file>
             <file>Aircraft/A320neo/Nasal/ground-services.nas</file>
 			<file>Aircraft/A320neo/Nasal/general_loop.nas</file>
+			<file>Aircraft/A330-200/Nasal/autoannunciator.nas</file>
 		</a320neo>
 		<a332_gui>
 			<file>Aircraft/A320neo/Nasal/GUI/WXRLiveDialog.nas</file>

@@ -1314,8 +1314,7 @@ var fmgc_loop = {
         
         me.airborne = !getprop("/gear/gear[0]/wow") and 
                       !getprop("/gear/gear[1]/wow") and 
-                      !getprop("/gear/gear[2]/wow") and 
-                      !getprop("/gear/gear[3]/wow");
+                      !getprop("/gear/gear[2]/wow");
         me.nav_in_range = getprop('instrumentation/nav/in-range');
         me.gs_in_range = getprop('instrumentation/nav/gs-in-range');
         me.autoland_phase = getprop('/autoland/phase');
@@ -2203,7 +2202,7 @@ var fmgc_loop = {
 
         if ((phase == "T/O")) {
             me.check_next_phase_speed('CLB');
-            if(!getprop("/gear/gear[3]/wow") and ias > 70){
+            if(!getprop("/gear/gear[2]/wow") and ias > 70){
                 if(me.agl > acc_alt)
                     setprop("/flight-management/phase", "CLB");
             }
@@ -2712,7 +2711,7 @@ var fmgc_loop = {
         if(RouteManager.sequencing) return;
         var spdChangeNode = "/autopilot/route-manager/spd/spd-change-point";
         var spd_change_raw = 'instrumentation/efis/nd/spd-change-raw';
-        if (!getprop("/autopilot/route-manager/active") or getprop("/gear/gear[3]/wow"))
+        if (!getprop("/autopilot/route-manager/active") or getprop("/gear/gear[2]/wow"))
             return 0;
         if ((me.spd_ctrl != "fmgc") or (me.a_thr != "eng")) 
             return 0;

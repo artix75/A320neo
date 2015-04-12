@@ -69,8 +69,17 @@ var sid = {
 	},
 	
 	select_rwy : func(id) {
-	
-		me.SIDList = me.DepICAO.getSIDList(id);
+		
+		if(me.DepICAO != nil){
+			me.SIDList = me.DepICAO.getSIDList(id);
+		} else {
+			var defaultTp = procedures.fmsTP.new();
+			defaultTp.tp_type = 'sid';
+			defaultTp.wp_name = 'DEFAULT';
+			defaultTp.runways = [id];
+			me.SIDList = [defaultTp];
+		}
+
 		me.SIDmax = size(me.SIDList);
 		
 		for(var sid_index = 0; sid_index < me.SIDmax; sid_index += 1) {

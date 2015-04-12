@@ -141,9 +141,14 @@ var fmsDB = {
             #if (len == 9) {
             #  pos = int(len-3);
             #}
-            var run = substr(tp.wp_name,3);
-            ##print("   set approach runway: "~run);
-            append(tp.runways,run);
+              var run = substr(tp.wp_name,3,3);
+              if(size(run) == 3){
+                  var last_c = string.uc(substr(run, 2, 1));
+                  if(last_c != 'L' and last_c != 'R')
+                      run = substr(run, 0, 2);
+              }
+              #print(icao~"   set approach runway: "~run);
+              append(tp.runways,run);
           }
         }
         if (name == "App_Waypoint") {
@@ -249,6 +254,7 @@ var fmsDB = {
                 }
               }
             }
+            wp.real_type = data;
           }
           if (name == "Sid_Transition" or name == "Star_Transition") {
             ##print("-- end Sid transition to TP: "~trans.trans_name);
@@ -299,34 +305,42 @@ var fmsDB = {
     # getSIDList
     #
     getSIDList : func(runway) {
-      var sidList = [];
-      foreach(var s; me.wptps) {
-        if (s.tp_type == "sid") {
-          foreach(var r; s.runways) {
-            if (r == runway or r == "All") {
-              append(sidList, s);
+        var defaultTp = fmsTP.new();
+        defaultTp.tp_type = 'sid';
+        defaultTp.wp_name = 'DEFAULT';
+        defaultTp.runways = [runway];
+        var sidList = [defaultTp];
+        foreach(var s; me.wptps) {
+            if (s.tp_type == "sid") {
+                foreach(var r; s.runways) {
+                    if (r == runway or r == "All") {
+                        append(sidList, s);
+                    }
+                }
             }
-          }
         }
-      }
-      return sidList;
+        return sidList;
     },
 
     #################################
     # getSTARList
     #
     getSTARList : func(runway) {
-      var starList = [];
-      foreach(var s; me.wptps) {
-        if (s.tp_type == "star") {
-          foreach(var r; s.runways) {
-            if (r == runway or r == "All") {
-              append(starList, s);
+        var defaultTp = fmsTP.new();
+        defaultTp.tp_type = 'star';
+        defaultTp.wp_name = 'DEFAULT';
+        defaultTp.runways = [runway];
+        var starList = [defaultTp];
+        foreach(var s; me.wptps) {
+            if (s.tp_type == "star") {
+                foreach(var r; s.runways) {
+                    if (r == runway or r == "All") {
+                        append(starList, s);
+                    }
+                }
             }
-          }
         }
-      }
-      return starList;
+        return starList;
     },
 
     ##############################

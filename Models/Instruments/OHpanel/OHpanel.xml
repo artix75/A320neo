@@ -157,9 +157,12 @@
 				<command>nasal</command>
 				<script>
 					utils.clickSound(4);
+					var gs = getprop('velocities/groundspeed-kt');
+					var on_ground = getprop('gear/gear[2]/wow');
 					var dlg = gui.Dialog.new("sim/gui/dialogs/ground-call/dialog", 
 											 "Aircraft/A320neo/Systems/call-ground.xml");
-					dlg.open();
+					if(1.5 > gs and on_ground)
+						dlg.open();
 				</script>
 			</binding>
 		</action>

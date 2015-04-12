@@ -71,5 +71,6 @@ var pfd_flashing_loop = {
 
 setlistener("sim/signals/fdm-initialized", func
  {
- general_loop_1.init();
+    general_loop_1.init();
+    pfd_flashing_loop.init();
  });

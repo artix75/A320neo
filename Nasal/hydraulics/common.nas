@@ -15,7 +15,7 @@ var hydraulics = {
 		var avg_psi = (me.green_psi + me.yellow_psi) / 2;
 		
 		if (math.abs(me.green_psi - me.yellow_psi) >= 500) {
-		
+			setprop('/hydraulics/control/ptu-apply', 1);
 			me.green_psi = avg_psi;
 			
 			me.yellow_psi = avg_psi;

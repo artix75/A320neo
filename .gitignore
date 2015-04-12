@@ -1,2 +1,5 @@
 Models/FlightDeck/res.old
 Models/Instruments/PFD.old
+tmp
+Database/Procedures/*
+Database/Company/*

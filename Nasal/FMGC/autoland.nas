@@ -14,7 +14,7 @@ var autoland = {
 		
 		var nose_wow = getprop("/gear/gear/wow");
 		
-		var main_wow = getprop("/gear/gear[3]/wow");
+		var main_wow = getprop("/gear/gear[2]/wow");
         var athr = getprop("/flight-management/control/a-thrust");
         
         #print("Autoland phase check");
