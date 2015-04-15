@@ -39,7 +39,7 @@ canvas.SymbolLayer.add(name, {
         current_wp_color: [1,1,1],
         translation: {
             'airport': [-24,-24],
-                'VOR': [-24,-24]
+                'vor': [-24,-24]
         }
     },
     toggle_cstr: 0
@@ -79,21 +79,40 @@ var WPTModel = {
         m.name = wp.wp_name;
         m.alt = wp.alt_cstr;
         m.spd = wp.speed_cstr;
-        m.wp_id = wp.id;
         m.type = wp.wp_type;
-
         (m.lat,m.lon) = (wp.wp_lat,wp.wp_lon);
+        var is_rwy = (m.type == 'runway');
+        var id_len = size(m.id);
+        if(!is_rwy and id_len < 5){
+            if(id_len == 4 and airportinfo(m.id) != nil)
+                m.navtype = 'airport';
+            else {
+                var navaid = nil;
+                foreach(var t; ['vor', 'ndb']){
+                    navaid = navinfo(m.lat, m.lon, t, m.id);
+                    if(navaid != nil){
+                        m.navtype = t;
+                        break;
+                    }
+                }
+                if(navaid == nil) m.navtype = 'fix';
+            }
+        } else {
+            m.navtype = (is_rwy ? 'rwy' : 'fix');
+        }
+
         m.wp = wp;
         idx = wp.index;
         m.idx = idx;
-        m.is_departure = (idx == 0 and m.type == 'runway');
-        m.is_destination = (idx > 0 and m.type == 'runway');
+        m.is_departure = (idx == 0 and is_rwy);
+        m.is_destination = (idx > 0 and is_rwy);
         return m;
     },
     equals: func(other) {
         # this is set on symbol init, so use this for equality...
         me.name == other.name and me.alt == other.alt and
-        me.type == other.type and me.idx == other.idx
+        me.type == other.type and me.idx == other.idx and 
+        me.navtype == other.navtype
     },
 };
 

@@ -8,10 +8,14 @@ var element_type = "group"; # we want a group, becomes "me.element"
 var text_vor = nil;
 
 var svg_path = get_local_path('res/airbus_vor.svg');
+var vor_sym = nil;
 
 var draw = func{
+    if(me.vor_sym == nil) 
+        me.vor_sym = me.element.getElementById("airbus-vor-sym");
+    me.vor_sym.setTranslation(-24,-24);
     if(me.text_vor == nil){
-        var transl = me.getStyle('translation', [45,25]);
+        var transl = me.getStyle('translation', [25,10]);
         var text_color = me.getStyle('text_color', [1,1,1]);
         me.text_vor = me.element.createChild("text")
         .setDrawMode( canvas.Text.TEXT )

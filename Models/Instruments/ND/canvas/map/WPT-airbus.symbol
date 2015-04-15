@@ -11,7 +11,6 @@ var init = func {
     var name = me.model.name;
     var alt = me.model.alt;
     var spd = me.model.spd;
-    var wp_type = me.model.type;
     var wp_group = me.element;
     me.alt_path = nil;
 
@@ -26,29 +25,16 @@ var init = func {
         me[col] = me.getStyle(col, me.getOption(col));
     }
 
-    var idLen = size(me.model.wp_id);
+    var idLen = size(me.model.id);
     var draw_sym = nil;
-    if(wp_type == 'navaid'){
-        if(idLen == 4){
-            draw_sym = me.options.airport_symbol;
-            wp_type = 'airport';
-        }
-        elsif(idLen == 3){
-            var navaids = navinfo(me.model.lat,me.model.lon,me.model.wp_id);
-            var type = 'VOR';
-            if(size(navaids) > 0)
-                type = navaids[0].type;
-            if(type == nil) type = 'VOR';
-            if(type == 'DME') type = 'VOR'; # unsupported yet
-            if(type == 'VOR')
-                draw_sym = me.options.vor_symbol;
-            else
-                draw_sym = me.options.ndb_symbol;
-            wp_type = type;
-        }
-        else
-            draw_sym = me.options.fix_symbol;
-    }
+    var navtype = me.model.navtype;
+    if (navtype == nil) navtype = 'fix';
+    if(navtype == 'airport')
+        draw_sym = me.options.airport_symbol;
+    elsif(navtype == 'vor')
+        draw_sym = me.options.vor_symbol;
+    elsif(navtype == 'ndb')
+        draw_sym = me.options.ndb_symbol;
     else
         draw_sym = me.options.fix_symbol;
     me.wp_sym = me.element.createChild('group', 'wp-'~ me.model.idx);
@@ -57,8 +43,8 @@ var init = func {
     elsif(typeof(draw_sym) == 'scalar')
         canvas.parsesvg(me.wp_sym, draw_sym);
     var translation = me.getStyle('translation', {});
-    if(contains(translation, wp_type)){
-        me.wp_sym.setTranslation(translation[wp_type]);
+    if(contains(translation, navtype)){
+        me.wp_sym.setTranslation(translation[navtype]);
     }
     me.text_wps = wp_group.createChild("text", "wp-text-" ~ me.model.idx)
     .setDrawMode( canvas.Text.TEXT )
