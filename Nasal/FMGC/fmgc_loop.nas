@@ -2992,8 +2992,7 @@ var fmgc_loop = {
                     vor_data['current_wp'] = wp_id;
                 } else {
                     var vor_pos = geo.Coord.new();
-                    vor_pos.lat = vor.lat;
-                    vor_pos.lon = vor.lon;
+                    vor_pos.set_latlon(vor.lat, vor.lon);
                     radial = me.aircraft_pos.course_to(vor_pos);
                 }
                 radial = int(radial);

@@ -58,7 +58,7 @@
 					
 					} else {
 					
-						setprop("/instrumentation/mcdu/input", "ERROR: WRONG FORMAT");
+						mcdu.display_message(mcdu.MSG.FORMAT_ERROR);
 					
 					}
 				</script>
@@ -89,7 +89,7 @@
 					
 					} else {
 					
-						setprop("/instrumentation/mcdu/input", "ERROR: WRONG FORMAT");
+						mcdu.display_message(mcdu.MSG.FORMAT_ERROR);
 					
 					}
 				</script>
@@ -165,7 +165,7 @@
 					
 					} else {
 					
-						setprop("/instrumentation/mcdu/input", "ERROR: WRONG FORMAT");
+						mcdu.display_message(mcdu.MSG.FORMAT_ERROR);
 					
 					}
 				</script>
@@ -196,7 +196,7 @@
 					
 					} else {
 					
-						setprop("/instrumentation/mcdu/input", "ERROR: WRONG FORMAT");
+						mcdu.display_message(mcdu.MSG.FORMAT_ERROR);
 					
 					}
 				</script>

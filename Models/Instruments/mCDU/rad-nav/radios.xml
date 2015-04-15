@@ -96,8 +96,8 @@
 		 			
 		 			} else {
 		 			
-		 				setprop("/instrumentation/mcdu/input", "ERROR: WRONG FORMAT");
-		 			
+						mcdu.display_message(mcdu.MSG.FORMAT_ERROR);
+		 				
 		 			}
 					if(input != '')
 						setprop(radio~ 'autotuned-vor', 0);
@@ -156,7 +156,7 @@
 		 			
 		 			} else {
 		 			
-		 				setprop("/instrumentation/mcdu/input", "ERROR: WRONG FORMAT");
+						mcdu.display_message(mcdu.MSG.FORMAT_ERROR);
 		 			
 		 			}
 		 			
@@ -198,7 +198,7 @@
 		 			
 		 			} else {
 		 			
-		 				setprop("/instrumentation/mcdu/input", "ERROR: WRONG FORMAT");
+						mcdu.display_message(mcdu.MSG.FORMAT_ERROR);
 		 			
 		 			}
 		 			
@@ -237,7 +237,7 @@
 		 			
 		 			} else {
 		 			
-		 				setprop("/instrumentation/mcdu/input", "ERROR: WRONG FORMAT");
+						mcdu.display_message(mcdu.MSG.FORMAT_ERROR);
 		 			
 		 			}
 		 			
@@ -289,7 +289,7 @@
                             setprop(radio~ 'autotuned', 0);
 		 			} else {
 		 			
-		 				setprop("/instrumentation/mcdu/input", "ERROR: WRONG FORMAT");
+						mcdu.display_message(mcdu.MSG.FORMAT_ERROR);
 		 			
 		 			}
 		 			
@@ -329,7 +329,7 @@
 		 			
 		 			} else {
 		 			
-		 				setprop("/instrumentation/mcdu/input", "ERROR: WRONG FORMAT");
+						mcdu.display_message(mcdu.MSG.FORMAT_ERROR);
 		 			
 		 			}
 		 			
@@ -368,7 +368,7 @@
 		 			
 		 			} else {
 		 			
-		 				setprop("/instrumentation/mcdu/input", "ERROR: WRONG FORMAT");
+						mcdu.display_message(mcdu.MSG.FORMAT_ERROR);
 		 			
 		 			}
 		 			
@@ -409,7 +409,7 @@
 		 			
 		 			} else {
 		 			
-		 				setprop("/instrumentation/mcdu/input", "ERROR: WRONG FORMAT");
+						mcdu.display_message(mcdu.MSG.FORMAT_ERROR);
 		 			
 		 			}
 		 			
@@ -457,7 +457,7 @@
 		 			
 		 			} else {
 		 			
-		 				setprop("/instrumentation/mcdu/input", "ERROR: WRONG FORMAT");
+						mcdu.display_message(mcdu.MSG.FORMAT_ERROR);
 		 			
 		 			}
 		 			
@@ -496,7 +496,7 @@
 
 					} else {
 
-						setprop("/instrumentation/mcdu/input", "ERROR: WRONG FORMAT");
+						mcdu.display_message(mcdu.MSG.FORMAT_ERROR);
 
 					}
 		 			

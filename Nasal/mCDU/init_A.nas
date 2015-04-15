@@ -96,7 +96,8 @@ var mCDU_init = {
 				} 
 			}
 			if(!rte_found)
-				setprop("/instrumentation/mcdu[" ~ mcdu ~ "]/input", "ERROR: NOT IN DATABASE");
+				display_message(MSG.NOT_IN_DB);
+				#setprop("/instrumentation/mcdu[" ~ mcdu ~ "]/input", "ERROR: NOT IN DATABASE");
 		} else {
 
 			var dep = getprop(user_rte~ "depicao");
@@ -418,12 +419,12 @@ var mCDU_init = {
 					if(arr == icao and dep == fp.departure.id and dep == fp_dest.id) {
 						me.altn_rte_sel(id, dep, arr, secondary);
 					} else {
-						setprop("/instrumentation/mcdu[" ~ mcdu ~ "]/input", "DEST/ALTN MISMATCH");
+						display_message("DEST/ALTN MISMATCH");
 					}
 					break;
 				}
 				if(!rte_found)
-					setprop("/instrumentation/mcdu[" ~ mcdu ~ "]/input", "ERROR: NOT IN DATABASE");
+					display_message(MSG.NOT_IN_DB);
 			}
 		}
 		if(!secondary)

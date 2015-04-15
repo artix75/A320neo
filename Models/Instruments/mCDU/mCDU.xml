@@ -17,6 +17,9 @@
 		<object-name>mCDU_prog</object-name>
 		<object-name>mCDU_runways</object-name>
 		<object-name>input</object-name>
+		<object-name>s-pad-msg</object-name>
+		<object-name>s-pad-warn</object-name>
+		<object-name>input</object-name>
 		<object-name>msg</object-name>
 		<object-name>start</object-name>
 		<object-name>CLR_SYM</object-name>
@@ -53,11 +56,54 @@
 		</condition>
 	</animation>
 	
+	<animation>
+		<type>select</type>
+		<object-name>s-pad-msg</object-name>
+		<condition>
+			<and>
+				<not>
+					<property>/instrumentation/mcdu/s-pad-warn-level</property>
+				</not>
+				<not>
+					<property>/instrumentation/mcdu/hide-message</property>
+				</not>
+				<not>
+					<property>/instrumentation/mcdu/overfly-mode</property>
+				</not>
+			</and>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>s-pad-warn</object-name>
+		<condition>
+			<and>
+				<property>/instrumentation/mcdu/s-pad-warn-level</property>
+				<not>
+					<property>/instrumentation/mcdu/hide-message</property>
+				</not>
+				<not>
+					<property>/instrumentation/mcdu/overfly-mode</property>
+				</not>
+			</and>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>input</object-name>
+		<condition>
+			<property>/instrumentation/mcdu/hide-message</property>
+		</condition>
+	</animation>
+	
 	<!-- Input Text Brightness -->
 	
 	<animation>
 		<type>material</type>
 		<object-name>input</object-name>
+		<object-name>s-pad-msg</object-name>
 		<object-name>start</object-name>
 		<object-name>msg</object-name>
 		<object-name>CLR_SYM</object-name>
@@ -66,6 +112,17 @@
 			<red>1</red>
 			<green>1</green>
 			<blue>1</blue>
+			<factor-prop>/instrumentation/mcdu/brt</factor-prop>
+		</emission>
+	</animation>
+	
+	<animation>
+		<type>material</type>
+		<object-name>s-pad-warn</object-name>
+		<emission>
+			<red>0.97</red>
+			<green>0.6</green>
+			<blue>0.05</blue>
 			<factor-prop>/instrumentation/mcdu/brt</factor-prop>
 		</emission>
 	</animation>
@@ -1485,6 +1542,8 @@
 						var clr_mode = getprop('/instrumentation/mcdu/clear-mode') or 0;
 						setprop('/instrumentation/mcdu/clear-mode', !clr_mode);
 						setprop('/instrumentation/mcdu/overfly-mode', 0);
+						setprop('/instrumentation/mcdu/s-pad-msg', '');
+						setprop('/instrumentation/mcdu/s-pad-warn-level', 0);
 					} else {
 						setprop(input, substr(getprop(input), 0, inp_size - 1))
 					}
@@ -1510,6 +1569,56 @@
 		<type type="string">text-value</type>
 		<format type="string">%s</format>
 		<property>/instrumentation/mcdu/input</property>
+		<truncate type="bool">false</truncate>
+		<font type="string">courier-bold.txf</font>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.003</character-size>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	
+	<text>
+		<name>s-pad-msg</name>
+		<offsets>
+			<x-m>-0.0196</x-m>
+			<y-m>-0.046</y-m>
+			<z-m>-0.0006</z-m>
+			<heading-deg>90</heading-deg>
+		</offsets>
+		<alignment>left-center</alignment>
+		<axis-alignment>xy-plane</axis-alignment>
+		<type type="string">text-value</type>
+		<format type="string">%s</format>
+		<property>/instrumentation/mcdu/s-pad-msg</property>
+		<truncate type="bool">false</truncate>
+		<font type="string">courier-bold.txf</font>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.003</character-size>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	
+	<text>
+		<name>s-pad-warn</name>
+		<offsets>
+			<x-m>-0.0196</x-m>
+			<y-m>-0.046</y-m>
+			<z-m>-0.0006</z-m>
+			<heading-deg>90</heading-deg>
+		</offsets>
+		<alignment>left-center</alignment>
+		<axis-alignment>xy-plane</axis-alignment>
+		<type type="string">text-value</type>
+		<format type="string">%s</format>
+		<property>/instrumentation/mcdu/s-pad-msg</property>
 		<truncate type="bool">false</truncate>
 		<font type="string">courier-bold.txf</font>
 		<draw-text type="bool">true</draw-text>

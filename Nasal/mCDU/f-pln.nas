@@ -354,7 +354,7 @@ var f_pln = {
 		
 		}
 		
-		setprop("/instrumentation/mcdu/input", "MSG: F-PLN SAVED TO ACTIVE RTE");
+		mcdu.display_message("F-PLN SAVED TO ACTIVE RTE");
 	
 	},
 	get_flightplan_id: func(){
@@ -1041,8 +1041,11 @@ var f_pln = {
 			lon: lon
 		};
 		var wp = createWP(wp_pos, wp_id);
+		type = string.lc(type);
 		if(type == 'fix' or type == 'vor' or type == 'ndb' or type == 'dme')
 			type = 'navaid';
+		else 
+			type = 'basic';
 		wp.wp_type = type;
 		return wp;
 	},

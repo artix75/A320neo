@@ -191,12 +191,12 @@
                 <script>
                     var ipt = getprop("/instrumentation/mcdu/input");
                     if(size(ipt) > 7){
-                        setprop("/instrumentation/mcdu/input", "ERROR: WRONG FORMAT!");
+                        mcdu.display_message(mcdu.MSG.FORMAT_ERROR);
                     } else {
                         var icao = substr(ipt,0,4);
                         var info = airportinfo(icao);
                         if(info == nil){
-                            setprop("/instrumentation/mcdu/input", "NOT FOUND!");
+                            mcdu.display_message(mcdu.MSG.NOT_IN_DB);
                         } else {
                             setprop("/instrumentation/mcdu/runways/ident", ipt);
                             var rwy_id = substr(ipt, 4, size(ipt) - 4);
