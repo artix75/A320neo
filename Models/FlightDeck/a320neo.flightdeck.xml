@@ -2365,6 +2365,10 @@
                 <command>property-toggle</command>
                 <property>/instrumentation/efis/inputs/wxr</property>
             </binding>
+            <binding>
+                <command>property-toggle</command>
+                <property>/instrumentation/efis[1]/inputs/wxr</property>
+            </binding>
         </action>
     </animation>
     
