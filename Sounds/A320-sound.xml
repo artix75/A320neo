@@ -360,9 +360,9 @@
 			<volume>
 				<property>/engines/engine[1]/n1</property>
 				<offset>0.0</offset>
-				<factor>0.008</factor>
+				<factor>0.006</factor>
 				<min>0</min>
-				<max>0.8</max>
+				<max>0.6</max>
 			</volume>
 
 			<position>
@@ -402,9 +402,9 @@
 			<volume>
 				<property>/engines/engine[1]/n1</property>
 				<offset>0.0</offset>
-				<factor>0.008</factor>
+				<factor>0.006</factor>
 				<min>0</min>
-				<max>0.8</max>
+				<max>0.6</max>
 			</volume>
 
 			<position>

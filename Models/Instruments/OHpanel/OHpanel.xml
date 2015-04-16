@@ -69,6 +69,41 @@
 			<factor-prop>controls/lighting/dome-norm</factor-prop>
 		</emission>
 	</animation>
+	
+	<animation>
+		<type>material</type>
+		<object-name>adirs-coords</object-name>
+		<object-name>battery-lvl</object-name>
+		<emission>
+			<red>1</red>
+			<green>1</green>
+			<blue>1</blue>
+		</emission>
+		<diffuse>
+			<red>1</red>
+			<green>1</green>
+			<blue>1</blue>
+		</diffuse>
+	</animation>
+
+	<animation>
+		<type>select</type>
+		<object-name>adirs-coords</object-name>
+		<condition>
+			<greater-than-equals>
+				<property>/systems/electrical/outputs/efis</property>
+				<value>9</value>
+			</greater-than-equals>
+		</condition>
+	</animation>
+
+	<animation>
+		<type>select</type>
+		<object-name>battery-lvl</object-name>
+		<condition>
+			<property>controls/electric/battery-switch</property>
+		</condition>
+	</animation>
 
 	<!-- Panel lighting -->
 	<animation>
@@ -1963,5 +1998,85 @@
 			<y>0</y>
 		</axis>
 	</animation>
+	
+	<!-- Texts -->
+
+	<text>
+		<name>adirs-coords</name>
+		<offsets>
+			<x-m>0.005</x-m>
+			<y-m>-0.246</y-m>
+			<z-m>0.245</z-m>
+			<pitch-deg>62</pitch-deg>
+			<roll-deg>90</roll-deg>
+			<heading-deg>32</heading-deg>
+		</offsets>
+		<alignment>center-center</alignment>
+		<axis-alignment>xy-plane</axis-alignment>
+		<type type="string">text-value</type>
+		<format type="string">%s</format>
+		<property>/instrumentation/oh-panel/pos-string</property>
+		<font type="string">Helvetica.txf</font>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.0095</character-size>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+
+	<text>
+		<name>battery-lvl</name>
+		<offsets>
+			<x-m>-0.008</x-m>
+			<y-m>-0.057</y-m>
+			<z-m>0.0155</z-m>
+			<pitch-deg>62</pitch-deg>
+			<roll-deg>88</roll-deg>
+			<heading-deg>32</heading-deg>
+		</offsets>
+		<alignment>center-center</alignment>
+		<axis-alignment>xy-plane</axis-alignment>
+		<type type="string">number-value</type>
+		<format type="string">%2.1f</format>
+		<property>/systems/electrical/suppliers/battery</property>
+		<font type="string">led.txf</font>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.007</character-size>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+
+	<text>
+		<name>battery-lvl</name>
+		<offsets>
+			<x-m>-0.008</x-m>
+			<y-m>0.035</y-m>
+			<z-m>0.0155</z-m>
+			<pitch-deg>62</pitch-deg>
+			<roll-deg>90</roll-deg>
+			<heading-deg>32</heading-deg>
+		</offsets>
+		<alignment>center-center</alignment>
+		<axis-alignment>xy-plane</axis-alignment>
+		<type type="string">number-value</type>
+		<format type="string">%2.1f</format>
+		<property>/systems/electrical/suppliers/battery</property>
+		<font type="string">led.txf</font>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.007</character-size>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
 
 </PropertyList>

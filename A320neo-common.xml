@@ -1233,7 +1233,7 @@
 				<desc>Toggle parking brake on or off</desc>
 				<binding>
 					<command>nasal</command>
-					<script>a332.toggle_parkingbrakes();</script>
+					<script>a320neo.toggle_parkingbrakes();</script>
 				</binding>
 			</key>
 			<key n="106">
@@ -1402,7 +1402,7 @@
 		<a320neo>
 			<file>Aircraft/Generic/limits.nas</file>
 			<file>Aircraft/A320neo/Nasal/copilot.nas</file>
-            <file>Aircraft/A320neo/Nasal/ground-services.nas</file>
+                        <file>Aircraft/A320neo/Nasal/ground-services.nas</file>
 			<file>Aircraft/A320neo/Nasal/general_loop.nas</file>
 			<file>Aircraft/A330-200/Nasal/autoannunciator.nas</file>
 		</a320neo>

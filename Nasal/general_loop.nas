@@ -16,33 +16,37 @@ var target = func(prop, value, step, deadband) {
 };
 
 var general_loop_1 = {
-       init : func {
-            me.UPDATE_INTERVAL = 0.02;
-            me.loopid = 0;
-            
-            setprop("/gear/tilt/left-tilt-deg", 0);
-            setprop("/gear/tilt/right-tilt-deg", 0);
-            
-            me.reset();
-    },
-    	update : func {
-    	
-    	# Engine Fuel Flow Conversion
-    	
-    	setprop("/engines/engine/fuel-flow-kgph", getprop("/engines/engine/fuel-flow_pph") * 0.45359237);
-    	setprop("/engines/engine[1]/fuel-flow-kgph", getprop("/engines/engine[1]/fuel-flow_pph") * 0.45359237);
-    	
+	init : func {
+		me.UPDATE_INTERVAL = 0.02;
+		me.loopid = 0;
+
+		setprop("/gear/tilt/left-tilt-deg", 0);
+		setprop("/gear/tilt/right-tilt-deg", 0);
+
+		me.reset();
+	},
+	update : func {
+
+		# Engine Fuel Flow Conversion
+
+		setprop("/engines/engine/fuel-flow-kgph", getprop("/engines/engine/fuel-flow_pph") * 0.45359237);
+		setprop("/engines/engine[1]/fuel-flow-kgph", getprop("/engines/engine[1]/fuel-flow_pph") * 0.45359237);
+
+		setprop("/instrumentation/oh-panel/pos-string", 
+				getprop("/position/latitude-string") ~ "  " ~ 
+				getprop("/position/longitude-string"));
+
 	},
 
-        reset : func {
-            me.loopid += 1;
-            me._loop_(me.loopid);
-    },
-        _loop_ : func(id) {
-            id == me.loopid or return;
-            me.update();
-            settimer(func { me._loop_(id); }, me.UPDATE_INTERVAL);
-    }
+	reset : func {
+		me.loopid += 1;
+		me._loop_(me.loopid);
+	},
+	_loop_ : func(id) {
+		id == me.loopid or return;
+		me.update();
+		settimer(func { me._loop_(id); }, me.UPDATE_INTERVAL);
+	}
 
 };
 
