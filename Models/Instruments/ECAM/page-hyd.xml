@@ -22,6 +22,96 @@
 			</texture>
 			<emissive>true</emissive>
 		</layer>
+        
+		<layer>
+
+			<type>text</type>
+			<name>GREEN_PSI</name>
+			<color>
+				<red>0</red>
+				<green>1.0</green>
+				<blue>0</blue>
+			</color>
+			<font>helvetica_bold</font>
+			<point-size>11</point-size>
+			<chunks>
+				<chunk>
+					<type>number-value</type>
+					<property>/hydraulics/green/pressure-psi</property><!-- There is no TAT temperature property-->
+					<format type="string">%4.0f</format>
+				</chunk>
+			</chunks>
+			<transformations>
+				<transformation>
+					<type>y-shift</type>
+					<offset>72</offset>
+				</transformation>
+				<transformation>
+					<type>x-shift</type>
+					<offset>-98	</offset>
+				</transformation>
+			</transformations>
+		</layer>
+		
+		<layer>
+
+			<type>text</type>
+			<name>BLUE_PSI</name>
+			<color>
+				<red>0</red>
+				<green>1.0</green>
+				<blue>0</blue>
+			</color>
+			<font>helvetica_bold</font>
+			<point-size>11</point-size>
+			<chunks>
+				<chunk>
+					<type>number-value</type>
+					<property>/hydraulics/blue/pressure-psi</property><!-- There is no TAT temperature property-->
+					<format type="string">%4.0f</format>
+				</chunk>
+			</chunks>
+			<transformations>
+				<transformation>
+					<type>y-shift</type>
+					<offset>72</offset>
+				</transformation>
+				<transformation>
+					<type>x-shift</type>
+					<offset>-42	</offset>
+				</transformation>
+			</transformations>
+		</layer>
+		
+		<layer>
+
+			<type>text</type>
+			<name>YELLOW_PSI</name>
+			<color>
+				<red>0</red>
+				<green>1.0</green>
+				<blue>0</blue>
+			</color>
+			<font>helvetica_bold</font>
+			<point-size>11</point-size>
+			<chunks>
+				<chunk>
+					<type>number-value</type>
+					<property>/hydraulics/yellow/pressure-psi</property><!-- There is no TAT temperature property-->
+					<format type="string">%4.0f</format>
+				</chunk>
+			</chunks>
+			<transformations>
+				<transformation>
+					<type>y-shift</type>
+					<offset>72</offset>
+				</transformation>
+				<transformation>
+					<type>x-shift</type>
+					<offset>14	</offset>
+				</transformation>
+			</transformations>
+		</layer>
 
 <!-- ################################## Bottom  #################################-->
 
