@@ -24,6 +24,36 @@
 		</layer>
 
 		<layer>
+			<name>apu-n-needle</name>
+			<w>54</w>
+			<h>6</h>
+			<texture>
+				<path>Aircraft/A320neo/Models/Instruments/ECAM/res/apu-needle.png</path>
+				<x1>0.0</x1>
+				<y1>0.0</y1>
+				<x2>1</x2>
+				<y2>1</y2>
+			</texture>
+			<emissive>true</emissive>
+			<transformations>
+				<transformation>
+					<type>y-shift</type>
+					<offset>-20</offset>
+				</transformation>
+				<transformation>
+					<type>x-shift</type>
+					<offset>-68</offset>
+				</transformation>
+				<transformation>
+					<type>rotation</type>
+					<offset>-30</offset>
+					<scale>1.6</scale>
+					<property>engines/apu/rpm</property>
+				</transformation>
+			</transformations>
+		</layer>
+
+		<layer>
 			<type>text</type>
 			<name>APU N</name>
 	 		<color>
