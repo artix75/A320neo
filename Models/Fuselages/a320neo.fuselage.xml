@@ -12,6 +12,7 @@
     
 	<animation>
 		<type>select</type>
+		<object-name>Windsheild</object-name>
 		<condition>
 			<property>aircraft/render/interior-windows</property>
 		</condition>
