@@ -1181,18 +1181,6 @@
 					<property>controls/flight/ground-spoilers-armed</property>
 				</binding>
 			</key>
-			<key n="9">
-				<name>Tab</name>
-				<desc>Cycle autobrake setting</desc>
-				<binding>
-					<command>property-cycle</command>
-					<property>autopilot/autobrake/step</property>
-					<value type="int">0</value> <!-- OFF -->
-					<value type="int">1</value> <!-- LOW -->
-					<value type="int">2</value> <!-- MED -->
-					<value type="int">3</value> <!-- MAX -->
-				</binding>
-			</key>
 			<key n="87">
 				<name>W</name>
 				<desc>Run forward toward view</desc>
