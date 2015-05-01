@@ -1348,6 +1348,7 @@
 			<file>Aircraft/A320neo/Nasal/mCDU/prog.nas</file>
 			<file>Aircraft/A320neo/Nasal/mCDU/loop.nas</file>
 			<file>Aircraft/A320neo/Nasal/mCDU/parse_DB.nas</file>
+			<file>Aircraft/A320neo/Nasal/mCDU/user.nas</file>
 		</mcdu>
 		
 		<procedures>

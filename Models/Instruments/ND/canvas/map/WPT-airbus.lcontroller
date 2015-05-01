@@ -90,12 +90,12 @@ var WPTModel = {
                 var navaid = nil;
                 foreach(var t; ['vor', 'ndb']){
                     navaid = navinfo(m.lat, m.lon, t, m.id);
-                    if(navaid != nil){
+                    if(navaid != nil and size(navaid)){
                         m.navtype = t;
                         break;
                     }
                 }
-                if(navaid == nil) m.navtype = 'fix';
+                if(navaid == nil or !size(navaid)) m.navtype = 'fix';
             }
         } else {
             m.navtype = (is_rwy ? 'rwy' : 'fix');
