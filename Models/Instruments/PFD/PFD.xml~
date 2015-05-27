@@ -1,0 +1,816 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!-- Primary Flight Display -->
+
+<PropertyList>
+
+	<path>res/pfd-3d.ac</path>
+	
+	<!-- AP Indicators Select -->
+	
+	<!-- AUTO-THROTTLE SECTION -->
+	
+	<animation>
+		<type>select</type>
+		<object-name>spd-ias</object-name>
+		<condition>
+			<equals>
+				<property>/flight-management/control/spd-mode</property>
+				<value>ias</value>
+			</equals>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>spd-mach</object-name>
+		<condition>
+			<equals>
+				<property>/flight-management/control/spd-mode</property>
+				<value>mach</value>
+			</equals>
+		</condition>
+	</animation>
+	
+	<!-- VERTICAL NAVIGATION SECTION -->
+	
+	<animation>
+		<type>select</type>
+		<object-name>gs_</object-name>
+		<condition>
+		<and>
+			<equals>
+				<property>/flight-management/control/ver-mode</property>
+				<value>ils</value>
+			</equals>
+			<equals>
+				<property>/flight-management/control/ver-ctrl</property>
+				<value>man-set</value>
+			</equals>
+		</and>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>vnav</object-name>
+		<condition>
+			<equals>
+				<property>/flight-management/control/ver-ctrl</property>
+				<value>fmgc</value>
+			</equals>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>lvlch</object-name>
+		<condition>
+		<and>
+			<greater-than>
+				<property>/velocities/vertical-speed-fps</property>
+				<value>8</value>
+			</greater-than>
+			<equals>
+				<property>/flight-management/control/ver-mode</property>
+				<value>alt</value>
+			</equals>
+			<equals>
+				<property>/flight-management/control/ver-ctrl</property>
+				<value>man-set</value>
+			</equals>
+		</and>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>lvlch</object-name>
+		<condition>
+		<and>
+			<less-than-equals>
+				<property>/velocities/vertical-speed-fps</property>
+				<value>8</value>
+			</less-than-equals>
+			<equals>
+				<property>/flight-management/control/ver-mode</property>
+				<value>alt</value>
+			</equals>
+			<equals>
+				<property>/flight-management/control/ver-ctrl</property>
+				<value>man-set</value>
+			</equals>
+		</and>
+		</condition>
+	</animation>
+	
+	<!-- LATERAL NAVIGATION SECTION -->
+	
+	<animation>
+		<type>select</type>
+		<object-name>loc_</object-name>
+		<condition>
+		<and>
+			<equals>
+				<property>/flight-management/control/lat-mode</property>
+				<value>nav1</value>
+			</equals>
+			<equals>
+				<property>/flight-management/control/lat-ctrl</property>
+				<value>man-set</value>
+			</equals>
+		</and>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>lnav</object-name>
+		<condition>
+			<equals>
+				<property>/flight-management/control/lat-ctrl</property>
+				<value>fmgc</value>
+			</equals>
+		</condition>
+	</animation>
+
+	<animation>
+		<type>select</type>
+		<object-name>hdg</object-name>
+		<condition>
+		<and>
+			<equals>
+				<property>/flight-management/control/lat-mode</property>
+				<value>hdg</value>
+			</equals>
+			<equals>
+				<property>/flight-management/control/lat-ctrl</property>
+				<value>man-set</value>
+			</equals>
+		</and>
+		</condition>
+	</animation>
+	
+	<!-- MASTER AUTOPILOT SECTION -->
+	
+	<!-- AUTOPILOT 1 & 2 -->
+	
+	<animation>
+		<type>select</type>
+		<object-name>ap1_</object-name>
+		<condition>
+			<equals>
+				<property>/flight-management/control/ap1-master</property>
+				<value>eng</value>
+			</equals>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>ap2_</object-name>
+		<condition>
+			<equals>
+				<property>/flight-management/control/ap2-master</property>
+				<value>eng</value>
+			</equals>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>ap</object-name>
+		<condition>
+		<or>
+			<equals>
+				<property>/flight-management/control/ap1-master</property>
+				<value>eng</value>
+			</equals>
+			<equals>
+				<property>/flight-management/control/ap2-master</property>
+				<value>eng</value>
+			</equals>
+		</or>
+		</condition>
+	</animation>
+	
+	<!-- FLIGHT DIRECTOR (COME BACK LATER) -->
+	
+	<!-- AUTO-THROTTLE -->
+	
+	<animation>
+		<type>select</type>
+		<object-name>a-thr_</object-name>
+		<condition>
+			<equals>
+				<property>/flight-management/control/a-thrust</property>
+				<value>eng</value>
+			</equals>
+		</condition>
+	</animation>
+	
+	<!-- ################################################################### -->
+
+	<!-- ARTIFICIAL HORIZON -->
+	
+	<animation>
+        <type>texmultiple</type>
+        <object-name>horizon</object-name>
+        <transform>
+            <property>orientation/pitch-deg</property>
+            <subtype>textranslate</subtype>
+            <factor>0.003955078</factor>
+            <axis>
+                <x>0</x>
+                <y>1</y>
+            </axis>
+        </transform>
+        <transform>
+            <property>orientation/roll-deg</property>
+            <subtype>texrotate</subtype>
+            <center>
+                <x>0.50</x>
+                <y>0.50</y>
+            </center>
+            <axis>
+                <x>0</x>
+                <y>0</y>
+                <z>-1</z>
+            </axis>
+        </transform>
+    </animation>
+    
+    <animation>
+    	<type>rotate</type>
+    	<object-name>bank</object-name>
+    	<property>orientation/roll-deg</property>
+    	<center>
+    		<x-m>0</x-m>
+    		<y-m>-0.0049</y-m>
+    		<z-m>0.0005</z-m>
+    	</center>
+    	<axis>
+    		<x>1</x>
+    		<y>0</y>
+    		<z>0</z>
+    	</axis>
+    </animation>
+    
+    <!-- SPEED TAPE (S) -->
+    
+    <animation>
+    	<type>textranslate</type>
+    	<object-name>spd-tape</object-name>
+    	<object-name>stall-tape</object-name>
+    	<property>/velocities/airspeed-kt</property>
+    	<factor>0.002001953</factor>
+    	<axis>
+    		<y>1</y>
+    	</axis>
+    </animation>
+    
+    <!-- Stall Speed Tape Select -->
+    
+    <animation>
+		<type>select</type>
+		<object-name>stall-tape</object-name>
+		<condition>
+			<greater-than-equals>
+				<property>/position/altitude-agl-ft</property>
+				<value>30</value>
+			</greater-than-equals>
+		</condition>
+	</animation>
+	
+	<!-- Max Flap Extension speeds (Vfe) -->
+	
+	<animation>
+		<type>texmultiple</type>
+		<object-name>vfe-tape</object-name>
+		<transform>
+			<subtype>textranslate</subtype>
+			<property>/velocities/airspeed-kt</property>
+    		<factor>0.002001953</factor>
+			<axis>
+				<x>0</x>
+				<y>1</y>
+				<z>0</z>
+			</axis>
+			</transform>
+			<transform>
+			<property>/controls/flight/flaps</property>
+			<subtype>textranslate</subtype>
+			<interpolation>
+				<entry><ind>0</ind><dep>0</dep></entry>
+				<entry><ind>0.29</ind><dep>0.0703125</dep></entry>
+				<entry><ind>0.596</ind><dep>0.140625</dep></entry>
+				<entry><ind>0.645</ind><dep>0.2109375</dep></entry>
+				<entry><ind>1</ind><dep>0.28125</dep></entry>
+			</interpolation>
+			<axis>
+				<x>1</x>
+				<y>0</y>
+				<z>0</z>
+			</axis>
+		</transform>
+	</animation>
+	
+	<!-- ALT TAPE (s) -->
+	
+	<animation>
+    	<type>textranslate</type>
+    	<object-name>alt-tape-1</object-name>
+    	<property>instrumentation/altimeter/indicated-altitude-ft</property>
+    	<factor>0.000019141</factor>
+    	<axis>
+    		<y>1</y>
+    	</axis>
+    </animation>
+    
+    <animation>
+    	<type>textranslate</type>
+    	<object-name>alt-tape-2</object-name>
+    	<property>instrumentation/altimeter/indicated-altitude-ft</property>
+    	<factor>0.009765625</factor>
+    	<axis>
+    		<y>1</y>
+    	</axis>
+    </animation>
+    
+    <!-- Vertical Speed Indicator (range: -60 to 60 fps) -->
+    
+    <animation>
+    	<type>texrotate</type>
+    	<object-name>vsi</object-name>
+    	<property>/velocities/vertical-speed-fps</property>
+    	<factor>-0.75</factor>
+    	<center>
+            <x>0.76</x>
+            <y>0.463</y>
+        </center>
+        <axis>
+                <x>0</x>
+                <y>0</y>
+                <z>-1</z>
+            </axis>
+    </animation>
+    
+    <!-- HEADING TAPE -->
+    
+    <animation>
+    	<type>textranslate</type>
+    	<object-name>hdg-tape</object-name>
+    	<property>/orientation/heading-deg</property>
+    	<factor>0.002832031</factor>
+    	<axis>
+    		<x>1</x>
+    	</axis>
+    </animation>
+    
+    <!-- Glideslope pointer -->
+
+    <animation>
+        <type>select</type>
+        <object-name>gsscale</object-name>
+        <condition>
+            <property>instrumentation/nav/has-gs</property>
+        </condition>
+    </animation>
+
+    <animation>
+        <type>select</type>
+        <object-name>gspointer</object-name>
+        <condition>
+            <and>
+                <property>instrumentation/nav/gs-in-range</property>
+                <property>instrumentation/nav/has-gs</property>
+            </and>
+        </condition>
+    </animation>
+
+    <animation>
+        <type>translate</type>
+        <object-name>gspointer</object-name>
+        <property>instrumentation/nav/gs-needle-deflection-norm</property>
+        <factor>0.0322</factor>
+        <axis>
+            <x>0</x>
+            <y>0</y>
+            <z>1</z>
+        </axis>
+    </animation>
+
+<!-- LOC pointer -->
+
+    <animation>
+        <type>select</type>
+        <object-name>locscale</object-name>
+        <condition>
+            <property>instrumentation/nav/nav-loc</property>
+        </condition>
+    </animation>
+
+    <animation>
+        <type>select</type>
+        <object-name>locpointer</object-name>
+        <condition>
+            <and>
+                <property>instrumentation/nav/in-range</property>
+                <property>instrumentation/nav/nav-loc</property>
+            </and>
+        </condition>
+    </animation>
+
+    <animation>
+        <type>translate</type>
+        <object-name>locpointer</object-name>
+        <property>instrumentation/nav/heading-needle-deflection-norm</property>
+        <factor>-0.0322</factor>
+        <axis>
+            <x>0</x>
+            <y>-1</y>
+            <z>0</z>
+        </axis>
+    </animation>
+    
+    <!-- OSGText -->
+    
+    <!-- Next WPT Info -->
+    
+    <text>
+		<name>osgtext-magenta</name>
+		<offsets>
+			<x-m>0.0010</x-m>
+			<y-m>-0.0583</y-m>
+			<z-m>-0.049</z-m>
+		</offsets>
+		<alignment>center-center</alignment>
+		<axis-alignment>yz-plane</axis-alignment>
+		<type type="string">text-value</type>
+		<format type="string">%s</format>
+		<property>instrumentation/nav/nav-id</property>
+		<truncate type="bool">false</truncate>
+		<font type="string">helvetica_bold.txf</font>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.006</character-size>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	
+	<text>
+		<name>osgtext-magenta</name>
+		<offsets>
+			<x-m>0.0010</x-m>
+			<y-m>-0.0583</y-m>
+			<z-m>-0.055</z-m>
+		</offsets>
+		<alignment>center-center</alignment>
+		<axis-alignment>yz-plane</axis-alignment>
+		<type type="string">number-value</type>
+		<format type="string">%3.2f</format>
+		<property>instrumentation/nav/frequencies/selected-mhz</property>
+		<truncate type="bool">false</truncate>
+		<font type="string">helvetica_bold.txf</font>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.006</character-size>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	
+	<text>
+		<name>osgtext-magenta</name>
+		<offsets>
+			<x-m>0.0010</x-m>
+			<y-m>-0.0583</y-m>
+			<z-m>-0.061</z-m>
+		</offsets>
+		<alignment>center-center</alignment>
+		<axis-alignment>yz-plane</axis-alignment>
+		<type type="string">number-value</type>
+		<format type="string">%3.0f°</format>
+		<property>instrumentation/nav/heading-deg</property>
+		<truncate type="bool">false</truncate>
+		<font type="string">helvetica_bold.txf</font>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.006</character-size>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+    
+    <!-- ONH -->
+
+	<text>
+		<name>osgtext-cyan</name>
+		<offsets>
+			<x-m>0.0010</x-m>
+			<y-m>0.05</y-m>
+			<z-m>-0.049</z-m>
+		</offsets>
+		<alignment>center-center</alignment>
+		<axis-alignment>yz-plane</axis-alignment>
+		<type type="string">number-value</type>
+		<format type="string">%2.2f</format>
+		<property>instrumentation/altimeter/setting-inhg</property>
+		<truncate type="bool">false</truncate>
+		<font type="string">helvetica_bold.txf</font>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.006</character-size>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+
+	<text>
+		<name>osgtext-cyan</name>
+		<offsets>
+			<x-m>0.0010</x-m>
+			<y-m>0.05</y-m>
+			<z-m>-0.055</z-m>
+		</offsets>
+		<alignment>center-center</alignment>
+		<axis-alignment>yz-plane</axis-alignment>
+		<type type="string">text-value</type>
+		<format type="string">%s</format>
+		<truncate type="bool">false</truncate>
+		<font type="string">helvetica_bold.txf</font>
+		<property>flight-management/text/qnh</property>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.006</character-size>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	
+	<!-- Altitude -->
+	
+	<!-- Current Altitude 100s -->
+	
+	<text>
+		<name>osgtext-green</name>
+		<offsets>
+			<x-m>0.0010</x-m>
+			<y-m>0.0553</y-m>
+			<z-m>0.0002</z-m>
+		</offsets>
+		<alignment>right-center</alignment>
+		<axis-alignment>yz-plane</axis-alignment>
+		<type type="string">number-value</type>
+		<format type="string">%3.0f</format>
+		<property>flight-management/fcu-values/alt-100</property>
+		<truncate type="bool">false</truncate>
+		<font type="string">helvetica_bold.txf</font>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.007</character-size>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	
+	<!-- Radio Altimeter -->
+	
+	<text>
+		<name>radio-alt</name>
+		<offsets>
+			<x-m>0.0010</x-m>
+			<y-m>-0.0051</y-m>
+			<z-m>-0.0342</z-m>
+		</offsets>
+		<alignment>center-center</alignment>
+		<axis-alignment>yz-plane</axis-alignment>
+		<type type="string">number-value</type>
+		<format type="string">%4.0f</format>
+		<property>position/altitude-agl-ft</property>
+		<truncate type="bool">false</truncate>
+		<font type="string">helvetica_bold.txf</font>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.007</character-size>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	
+	<!-- Manually Set Altitude -->
+	
+	<text>
+		<name>osgtext-cyan</name>
+		<offsets>
+			<x-m>0.0010</x-m>
+			<y-m>0.0553</y-m>
+			<z-m>0.0462</z-m>
+		</offsets>
+		<alignment>right-center</alignment>
+		<axis-alignment>yz-plane</axis-alignment>
+		<type type="string">number-value</type>
+		<format type="string">%5.0f</format>
+		<property>flight-management/fcu-values/alt</property>
+		<truncate type="bool">false</truncate>
+		<font type="string">helvetica_bold.txf</font>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.006</character-size>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	
+	<!-- Radio Altimeter shows only when under 10000 ft -->
+	
+	<animation>
+        <type>select</type>
+        <object-name>radio-alt</object-name>
+        <condition>
+        	<less-than>
+            	<property>position/altitude-agl-ft</property>
+            	<value>3000</value>
+            </less-than>
+        </condition>
+    </animation>
+	
+	<!-- Material Animation -->
+	
+	<animation>
+		<type>material</type>
+		<object-name>osgtext-magenta</object-name>
+		<diffuse>
+			<red>1</red>
+			<green>0</green>
+			<blue>1</blue>
+		</diffuse>
+		<ambient>
+			<red>0</red>
+			<green>0</green>
+			<blue>0</blue>
+		</ambient>
+		<specular>
+			<red>0</red>
+			<green>0</green>
+			<blue>0</blue>
+		</specular>
+		<emission>
+			<red>1</red>
+			<green>0</green>
+			<blue>1</blue>
+		</emission>
+	</animation>
+	
+	<animation>
+		<type>material</type>
+		<object-name>osgtext-cyan</object-name>
+		<diffuse>
+			<red>0</red>
+			<green>0.886</green>
+			<blue>0.933</blue>
+		</diffuse>
+		<ambient>
+			<red>0</red>
+			<green>0</green>
+			<blue>0</blue>
+		</ambient>
+		<specular>
+			<red>0</red>
+			<green>0</green>
+			<blue>0</blue>
+		</specular>
+		<emission>
+			<red>0</red>
+			<green>0.886</green>
+			<blue>0.933</blue>
+		</emission>
+	</animation>
+	
+	<animation>
+		<type>material</type>
+		<object-name>osgtext-green</object-name>
+		<diffuse>
+			<red>0</red>
+			<green>0.843</green>
+			<blue>0</blue>
+		</diffuse>
+		<ambient>
+			<red>0</red>
+			<green>0</green>
+			<blue>0</blue>
+		</ambient>
+		<specular>
+			<red>0</red>
+			<green>0</green>
+			<blue>0</blue>
+		</specular>
+		<emission>
+			<red>0</red>
+			<green>0.843</green>
+			<blue>0</blue>
+		</emission>
+	</animation>
+	
+	<animation>
+		<type>material</type>
+		<object-name>radio-alt</object-name>
+		<diffuse>
+			<red>1</red>
+			<green>0.745</green>
+			<blue>0</blue>
+		</diffuse>
+		<ambient>
+			<red>0</red>
+			<green>0</green>
+			<blue>0</blue>
+		</ambient>
+		<specular>
+			<red>0</red>
+			<green>0</green>
+			<blue>0</blue>
+		</specular>
+		<emission>
+			<red>1</red>
+			<green>0.745</green>
+			<blue>0</blue>
+		</emission>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>autoland.land</object-name>
+		<condition>
+			<equals>
+				<property>/autoland/phase</property>
+				<value>land</value>
+			</equals>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>autoland.flare</object-name>
+		<condition>
+			<equals>
+				<property>/autoland/phase</property>
+				<value>flare</value>
+			</equals>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>autoland.retard</object-name>
+		<condition>
+			<equals>
+				<property>/autoland/phase</property>
+				<value>retard</value>
+			</equals>
+		</condition>
+	</animation>
+	
+	<!-- Sidestick Deflection -->
+	
+	<animation>
+        <type>translate</type>
+        <object-name>sidestick-pos</object-name>
+        <property>controls/flight/elevator</property>
+        <factor>0.0258</factor>
+        <axis>
+            <x>0</x>
+            <y>0</y>
+            <z>-1</z>
+        </axis>
+    </animation>
+    
+    <animation>
+        <type>translate</type>
+        <object-name>sidestick-pos</object-name>
+        <property>controls/flight/aileron</property>
+        <factor>0.0260</factor>
+        <axis>
+            <x>0</x>
+            <y>1</y>
+            <z>0</z>
+        </axis>
+    </animation>
+
+</PropertyList>

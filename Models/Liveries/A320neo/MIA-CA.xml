@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<PropertyList>
+	<sim>
+		<model>
+			<livery>
+				<name>Merlion | Cloud9 Canada</name>
+				<neo-texture>Liveries/A320neo-MIA-CA.png</neo-texture>
+			</livery>
+		</model>
+	</sim>
+</PropertyList>

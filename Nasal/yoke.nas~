@@ -1,0 +1,73 @@
+var arduyoke = {
+       init : func {
+            me.UPDATE_INTERVAL = 0.01;
+            me.loopid = 0;
+            
+            me.reset();
+    },
+    	update : func {
+		
+		if(getprop("/arduino/input/rudder") != nil) {
+			setprop("/controls/flight/rudder", getprop("/arduino/input/rudder")*math.abs(getprop("/arduino/input/rudder"))*1.5);
+		}
+		
+		setprop("/controls/engines/engine[1]/throttle", getprop("/controls/engines/engine/throttle"));
+		
+		# Switches
+		
+		if (getprop("/arduino/input/switches/starter") != nil) {
+			controls.startEngine(getprop("/arduino/input/switches/starter"));
+			if (getprop("/arduino/input/switches/starter")) {
+				setprop("controls/engines/engine[0]/propeller-pitch",1);
+				setprop("controls/engines/engine[1]/propeller-pitch",1);
+				setprop("controls/engines/engine[0]/mixture",1);
+				setprop("controls/engines/engine[1]/mixture",1);
+			}
+		}
+		
+		setprop("/controls/gear/brake-left", getprop("/arduino/input/switches/brakes")/2);
+		
+		setprop("/controls/gear/brake-right", getprop("/arduino/input/switches/brakes")/2);
+		
+		var mag_l = getprop("/arduino/input/switches/mag-l");
+		var mag_r = getprop("/arduino/input/switches/mag-r");
+		
+		if (mag_l and !mag_r) {
+			setprop("/controls/engines/engine/magnetos", 1);
+			setprop("/controls/engines/engine[1]/magnetos", 1);
+		} elsif (!mag_l and mag_r) {
+			setprop("/controls/engines/engine/magnetos", 2);
+			setprop("/controls/engines/engine[1]/magnetos", 2);
+		} elsif (mag_l and mag_r) {
+			setprop("/controls/engines/engine/magnetos", 3);
+			setprop("/controls/engines/engine[1]/magnetos", 3);
+		} else {
+			setprop("/controls/engines/engine/magnetos", 0);
+			setprop("/controls/engines/engine[1]/magnetos", 0);
+		}
+	
+		setprop("/controls/engines/engine/fuel-pump", getprop("/arduino/input/switches/f-pump"));
+		setprop("/controls/engines/engine[1]/fuel-pump", getprop("/arduino/input/switches/f-pump"));
+		
+		setprop("/controls/electric/battery-switch", getprop("/arduino/input/switches/master"));
+		setprop("/controls/electric/engine/generator", getprop("/arduino/input/switches/master"));
+		setprop("/controls/electric/engine[1]/generator", getprop("/arduino/input/switches/master"));		
+    	
+	},
+
+        reset : func {
+            me.loopid += 1;
+            me._loop_(me.loopid);
+    },
+        _loop_ : func(id) {
+            id == me.loopid or return;
+            me.update();
+            settimer(func { me._loop_(id); }, me.UPDATE_INTERVAL);
+    }
+
+};
+
+setlistener("sim/signals/fdm-initialized", func {
+	arduyoke.init();
+	print("Initialized ArduCockpit Mega v1.0");
+});
