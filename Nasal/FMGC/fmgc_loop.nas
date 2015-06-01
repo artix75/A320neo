@@ -726,6 +726,10 @@ var fmgc_loop = {
             elsif(!me.airborne){
                 if(me.v2_spd){
                     spd = me.v2_spd;
+                } else {
+                    me.spd_ctrl == 'man-set';
+                    setprop(fmgc ~ 'spd-ctrl', 'man-set');
+                    spd = getprop(fcu ~ 'ias');
                 }
             } else {
                 var srs = 0;
@@ -805,18 +809,20 @@ var fmgc_loop = {
             }
             if(spd > 1 and spd < vmin)
                 spd = vmin;
-            setprop(fmgc_val~ "target-spd", spd);
+            if (me.spd_ctrl == 'fmgc') {
+                setprop(fmgc_val~ "target-spd", spd);
 
-            if (spd < 1) {
-                #TODO: change SPEED/MACH indication on PFD
-                setprop(fmgc~ "fmgc/ias", 0);
-                setprop(fmgc~ "fmgc/mach", 1);
-                setprop(fmgc~ "spd-mode", 'mach');
-            } else {
-                setprop(fmgc~ "fmgc/ias", 1);
-                setprop(fmgc~ "fmgc/mach", 0);
-                setprop("instrumentation/pfd/target-spd", pfd_spd);
-                setprop(fmgc~ "spd-mode", 'ias');
+                if (spd < 1) {
+                    #TODO: change SPEED/MACH indication on PFD
+                    setprop(fmgc~ "fmgc/ias", 0);
+                    setprop(fmgc~ "fmgc/mach", 1);
+                    setprop(fmgc~ "spd-mode", 'mach');
+                } else {
+                    setprop(fmgc~ "fmgc/ias", 1);
+                    setprop(fmgc~ "fmgc/mach", 0);
+                    setprop("instrumentation/pfd/target-spd", pfd_spd);
+                    setprop(fmgc~ "spd-mode", 'ias');
+                }
             }
         } else {
             var fcu_ias = getprop(fcu ~ 'ias');
