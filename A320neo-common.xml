@@ -300,8 +300,11 @@
 				<name>Thrust Levers</name>
 				<path>Aircraft/A320neo/Systems/thrust_levers.xml</path>
 			</autopilot>
+			<engines>
+				<file>Aircraft/A320neo/Nasal/engines.nas</file>
+			</engines>
 			<autopilot>
-				<name>Thrust Levers</name>
+				<name>Flight Deck</name>
 				<path>Aircraft/A320neo/Systems/flight-deck.xml</path>
 			</autopilot>
 			
