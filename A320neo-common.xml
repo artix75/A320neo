@@ -300,9 +300,6 @@
 				<name>Thrust Levers</name>
 				<path>Aircraft/A320neo/Systems/thrust_levers.xml</path>
 			</autopilot>
-			<engines>
-				<file>Aircraft/A320neo/Nasal/engines.nas</file>
-			</engines>
 			<autopilot>
 				<name>Flight Deck</name>
 				<path>Aircraft/A320neo/Systems/flight-deck.xml</path>
@@ -1425,6 +1422,9 @@
 		<reversethrust>
 			<file>Aircraft/A320neo/Nasal/reversethrust.nas</file>
 		</reversethrust>
+		<engines>
+			<file>Aircraft/A320neo/Nasal/engines.nas</file>
+		</engines>
 		<tyresmoke>
 			<file>Aircraft/A320neo/Nasal/tyresmoke.nas</file>
 		</tyresmoke>
