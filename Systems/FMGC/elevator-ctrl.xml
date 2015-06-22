@@ -123,7 +123,7 @@
 
 	<pid-controller>
 		<name>FCU/AP Elevator Control GS</name>
-		<debug type="bool">true</debug>
+		<debug type="bool">false</debug>
 		<enable>
 			<prop>/servo-control/elevator-gs</prop>
 		</enable>
