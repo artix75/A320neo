@@ -80,8 +80,8 @@
 			<height type="int">32</height>
 		</font-resolution>
 	</text>
-    
-    <text>
+
+	<text>
 		<name>osgtext-green</name>
 		<offsets>
 			<x-m>0.0004</x-m>
@@ -104,7 +104,7 @@
 			<height type="int">32</height>
 		</font-resolution>
 	</text>
-    
+
 	<text>
 		<name>osgtext-green</name>
 		<offsets>
@@ -347,7 +347,7 @@
     	<type>rotate</type>
     	<object-name>egt1</object-name>
     	<property>engines/engine/egt-degc</property>
-    	<factor>0.06</factor>
+    	<factor>0.19</factor>
     	<center>
     		<x-m>0</x-m>
     		<y-m>-0.0374</y-m>
@@ -364,7 +364,7 @@
     	<type>rotate</type>
     	<object-name>egt2</object-name>
     	<property>engines/engine[1]/egt-degc</property>
-    	<factor>0.06</factor>
+    	<factor>0.19</factor>
     	<center>
     		<x-m>0</x-m>
     		<y-m>0.0369</y-m>
@@ -434,7 +434,7 @@
     	</axis>
     </animation>
 	
-    <!-- AIRBUS WARNINGS AND CAUTION OSG TEXT -->
+	<!-- AIRBUS WARNINGS AND CAUTION OSG TEXT -->
 	
 	<!-- LEFT SIDE -->
 	
@@ -1621,7 +1621,7 @@
 			</equals>
 		</condition>
 	</animation>
-    
+
 	<!-- AIRBUS MEMO MESSAGES -->
 	
 	<animation>
@@ -1995,6 +1995,467 @@
 			</equals>
 		</condition>
 	</animation>
-
+    
+    <!-- TO/LDF CONFIG WARNS -->
+    
+    <text>
+		<name>to_cfg_label</name>
+		<offsets>
+			<x-m>0.0004</x-m>
+			<y-m>-0.0758</y-m>
+			<z-m>-0.0466</z-m>
+		</offsets>
+		<alignment>left-center</alignment>
+		<axis-alignment>yz-plane</axis-alignment>
+		<type type="string">text-value</type>
+		<format type="string">%s</format>
+		<property>warnings/texts/to_cfg</property>
+		<truncate type="bool">false</truncate>
+		<font type="string">helvetica_bold.txf</font>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.004</character-size>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+    
+    <text>
+		<name>ldg_cfg_label</name>
+		<offsets>
+			<x-m>0.0004</x-m>
+			<y-m>-0.0758</y-m>
+			<z-m>-0.0466</z-m>
+		</offsets>
+		<alignment>left-center</alignment>
+		<axis-alignment>yz-plane</axis-alignment>
+		<type type="string">text-value</type>
+		<format type="string">%s</format>
+		<property>warnings/texts/ldg_cfg</property>
+		<truncate type="bool">false</truncate>
+		<font type="string">helvetica_bold.txf</font>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.004</character-size>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+    
+    <animation>
+		<type>material</type>
+		<object-name>to_cfg_label</object-name>
+        <object-name>ldg_cfg_label</object-name>
+		<diffuse>
+			<red>0</red>
+			<green>0.543</green>
+			<blue>0</blue>
+		</diffuse>
+		<ambient>
+			<red>0</red>
+			<green>0</green>
+			<blue>0</blue>
+		</ambient>
+		<specular>
+			<red>0</red>
+			<green>0</green>
+			<blue>0</blue>
+		</specular>
+		<emission>
+			<red>0</red>
+			<green>0.543</green>
+			<blue>0</blue>
+		</emission>
+	</animation>
+    
+    <animation>
+        <type>select</type>
+        <object-name>to_cfg_label</object-name>
+        <condition>
+            <equals>
+                <property>warnings/to-config</property>
+                <value>1</value>
+            </equals>
+        </condition>
+    </animation>
+    
+    <animation>
+        <type>select</type>
+        <object-name>ldg_cfg_label</object-name>
+        <condition>
+            <equals>
+                <property>warnings/ldg-config</property>
+                <value>1</value>
+            </equals>
+        </condition>
+    </animation>
+    
+    <text>
+		<name>cfg0</name>
+		<offsets>
+			<x-m>0.0004</x-m>
+			<y-m>-0.0458</y-m>
+			<z-m>-0.0466</z-m>
+		</offsets>
+		<alignment>left-center</alignment>
+		<axis-alignment>yz-plane</axis-alignment>
+		<type type="string">text-value</type>
+		<format type="string">%s</format>
+		<property>warnings/ecam/cfg[0]/msg</property>
+		<truncate type="bool">false</truncate>
+		<font type="string">helvetica_bold.txf</font>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.004</character-size>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+    
+    <text>
+		<name>cfg1</name>
+		<offsets>
+			<x-m>0.0004</x-m>
+			<y-m>-0.0458</y-m>
+			<z-m>-0.0521</z-m>
+		</offsets>
+		<alignment>left-center</alignment>
+		<axis-alignment>yz-plane</axis-alignment>
+		<type type="string">text-value</type>
+		<format type="string">%s</format>
+		<property>warnings/ecam/cfg[1]/msg</property>
+		<truncate type="bool">false</truncate>
+		<font type="string">helvetica_bold.txf</font>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.004</character-size>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+    
+    <text>
+		<name>cfg2</name>
+		<offsets>
+			<x-m>0.0004</x-m>
+			<y-m>-0.0458</y-m>
+			<z-m>-0.0576</z-m>
+		</offsets>
+		<alignment>left-center</alignment>
+		<axis-alignment>yz-plane</axis-alignment>
+		<type type="string">text-value</type>
+		<format type="string">%s</format>
+		<property>warnings/ecam/cfg[2]/msg</property>
+		<truncate type="bool">false</truncate>
+		<font type="string">helvetica_bold.txf</font>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.004</character-size>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+    
+    <text>
+		<name>cfg3</name>
+		<offsets>
+			<x-m>0.0004</x-m>
+			<y-m>-0.0458</y-m>
+			<z-m>-0.0631</z-m>
+		</offsets>
+		<alignment>left-center</alignment>
+		<axis-alignment>yz-plane</axis-alignment>
+		<type type="string">text-value</type>
+		<format type="string">%s</format>
+		<property>warnings/ecam/cfg[3]/msg</property>
+		<truncate type="bool">false</truncate>
+		<font type="string">helvetica_bold.txf</font>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.004</character-size>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+    
+    <animation>
+        <type>select</type>
+        <object-name>cfg0</object-name>
+        <object-name>cfg1</object-name>
+        <object-name>cfg2</object-name>
+        <object-name>cfg3</object-name>
+        <condition>
+            <or>
+                <equals>
+                    <property>warnings/to-config</property>
+                    <value>1</value>
+                </equals>
+                <equals>
+                    <property>warnings/ldg-config</property>
+                    <value>1</value>
+                </equals>
+            </or>
+        </condition>
+    </animation>
+    
+    <animation>
+		<type>material</type>
+		<object-name>cfg0</object-name>
+		<diffuse>
+			<red>0</red>
+			<green>0.543</green>
+			<blue>0</blue>
+		</diffuse>
+		<ambient>
+			<red>0</red>
+			<green>0</green>
+			<blue>0</blue>
+		</ambient>
+		<specular>
+			<red>0</red>
+			<green>0</green>
+			<blue>0</blue>
+		</specular>
+		<emission>
+			<red>0</red>
+			<green>0.543</green>
+			<blue>0</blue>
+		</emission>
+		<condition>
+			<equals>
+				<property>/warnings/ecam/cfg/type</property>
+				<value>cfg_ok</value>
+			</equals>
+		</condition>
+	</animation>
+    
+    <animation>
+		<type>material</type>
+		<object-name>cfg0</object-name>
+		<diffuse>
+            <red>0</red>
+            <green>0.4823</green>
+            <blue>0.5372</blue>
+		</diffuse>
+		<ambient>
+			<red>0</red>
+			<green>0</green>
+			<blue>0</blue>
+		</ambient>
+		<specular>
+			<red>0</red>
+			<green>0</green>
+			<blue>0</blue>
+		</specular>
+		<emission>
+            <red>0</red>
+            <green>0.4823</green>
+            <blue>0.5372</blue>
+		</emission>
+		<condition>
+			<equals>
+				<property>/warnings/ecam/cfg/type</property>
+				<value>cfg_fail</value>
+			</equals>
+		</condition>
+	</animation>
+    
+    <animation>
+		<type>material</type>
+		<object-name>cfg1</object-name>
+		<diffuse>
+			<red>0</red>
+			<green>0.543</green>
+			<blue>0</blue>
+		</diffuse>
+		<ambient>
+			<red>0</red>
+			<green>0</green>
+			<blue>0</blue>
+		</ambient>
+		<specular>
+			<red>0</red>
+			<green>0</green>
+			<blue>0</blue>
+		</specular>
+		<emission>
+			<red>0</red>
+			<green>0.543</green>
+			<blue>0</blue>
+		</emission>
+		<condition>
+			<equals>
+				<property>/warnings/ecam/cfg[1]/type</property>
+				<value>cfg_ok</value>
+			</equals>
+		</condition>
+	</animation>
+    
+    <animation>
+		<type>material</type>
+		<object-name>cfg1</object-name>
+		<diffuse>
+            <red>0</red>
+            <green>0.4823</green>
+            <blue>0.5372</blue>
+		</diffuse>
+		<ambient>
+			<red>0</red>
+			<green>0</green>
+			<blue>0</blue>
+		</ambient>
+		<specular>
+			<red>0</red>
+			<green>0</green>
+			<blue>0</blue>
+		</specular>
+		<emission>
+            <red>0</red>
+            <green>0.4823</green>
+            <blue>0.5372</blue>
+		</emission>
+		<condition>
+			<equals>
+				<property>/warnings/ecam/cfg[1]/type</property>
+				<value>cfg_fail</value>
+			</equals>
+		</condition>
+	</animation>
+    
+    <animation>
+		<type>material</type>
+		<object-name>cfg2</object-name>
+		<diffuse>
+			<red>0</red>
+			<green>0.543</green>
+			<blue>0</blue>
+		</diffuse>
+		<ambient>
+			<red>0</red>
+			<green>0</green>
+			<blue>0</blue>
+		</ambient>
+		<specular>
+			<red>0</red>
+			<green>0</green>
+			<blue>0</blue>
+		</specular>
+		<emission>
+			<red>0</red>
+			<green>0.543</green>
+			<blue>0</blue>
+		</emission>
+		<condition>
+			<equals>
+				<property>/warnings/ecam/cfg[2]/type</property>
+				<value>cfg_ok</value>
+			</equals>
+		</condition>
+	</animation>
+    
+    <animation>
+		<type>material</type>
+		<object-name>cfg2</object-name>
+		<diffuse>
+            <red>0</red>
+            <green>0.4823</green>
+            <blue>0.5372</blue>
+		</diffuse>
+		<ambient>
+			<red>0</red>
+			<green>0</green>
+			<blue>0</blue>
+		</ambient>
+		<specular>
+			<red>0</red>
+			<green>0</green>
+			<blue>0</blue>
+		</specular>
+		<emission>
+            <red>0</red>
+            <green>0.4823</green>
+            <blue>0.5372</blue>
+		</emission>
+		<condition>
+			<equals>
+				<property>/warnings/ecam/cfg[2]/type</property>
+				<value>cfg_fail</value>
+			</equals>
+		</condition>
+	</animation>
+    
+    <animation>
+		<type>material</type>
+		<object-name>cfg3</object-name>
+		<diffuse>
+			<red>0</red>
+			<green>0.543</green>
+			<blue>0</blue>
+		</diffuse>
+		<ambient>
+			<red>0</red>
+			<green>0</green>
+			<blue>0</blue>
+		</ambient>
+		<specular>
+			<red>0</red>
+			<green>0</green>
+			<blue>0</blue>
+		</specular>
+		<emission>
+			<red>0</red>
+			<green>0.543</green>
+			<blue>0</blue>
+		</emission>
+		<condition>
+			<equals>
+				<property>/warnings/ecam/cfg[3]/type</property>
+				<value>cfg_ok</value>
+			</equals>
+		</condition>
+	</animation>
+    
+    <animation>
+		<type>material</type>
+		<object-name>cfg3</object-name>
+		<diffuse>
+            <red>0</red>
+            <green>0.4823</green>
+            <blue>0.5372</blue>
+		</diffuse>
+		<ambient>
+			<red>0</red>
+			<green>0</green>
+			<blue>0</blue>
+		</ambient>
+		<specular>
+			<red>0</red>
+			<green>0</green>
+			<blue>0</blue>
+		</specular>
+		<emission>
+            <red>0</red>
+            <green>0.4823</green>
+            <blue>0.5372</blue>
+		</emission>
+		<condition>
+			<equals>
+				<property>/warnings/ecam/cfg[3]/type</property>
+				<value>cfg_fail</value>
+			</equals>
+		</condition>
+	</animation>
 
 </PropertyList>

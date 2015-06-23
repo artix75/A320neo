@@ -1,3 +1,9 @@
+var oldApplyBrake = controls.applyBrakes;
+controls.applyBrakes = func(v, which = 0){
+    oldApplyBrake(v, which);
+    if(getprop("/hydraulics/brakes/autobrake-setting") < 3)
+        setprop("/hydraulics/brakes/autobrake-setting", 0);
+}
 var brakes = {
 
 	# Manual Brakes get hydraulic power supply from crew stepping on brake pedals. Autobrakes get power from yellow hydraulic system. The yellow hydraulic system needs to provide atleast 1400 PSI hydraulic power to get autobrakes to work. An accumulator is used with auto-brakes to maintain constant hydraulic flow.
@@ -38,10 +44,11 @@ var brakes = {
 		
 			var airspeed = getprop("/velocities/airspeed-kt");
 			
-			if (airspeed >= 70)
+			var throttle = getprop("controls/engines/engine[0]/throttle");
+			if (airspeed >= 70 and throttle == 0)
 				me.abs_active(brake_norm, brake_norm, hydraulics.yellow_psi);
-			else
-				setprop("/hydraulics/brakes/autobrake-setting", 0);
+			#else
+			#	setprop("/hydraulics/brakes/autobrake-setting", 0);
 		
 		}
 		
@@ -67,6 +74,7 @@ var brakes = {
 	abs_indicate : func(setting) {
 	
 		var airspeed = getprop("/velocities/airspeed-kt");
+		var throttle = getprop("controls/engines/engine[0]/throttle");
 	
 		if (setting == 0) {
 			setprop("/hydraulics/brakes/indicator/low", 0);
@@ -79,8 +87,12 @@ var brakes = {
 			setprop("/hydraulics/brakes/indicator/low", 1);
 			setprop("/hydraulics/brakes/indicator/med", 0);
 			setprop("/hydraulics/brakes/indicator/max", 0);
-			if (getprop("/gear/gear/wow") and (airspeed > 60)) {
+			if (getprop("/gear/gear/wow") and (airspeed > 60) and throttle == 0) {
 				setprop("/hydraulics/brakes/indicator/low-dec", 1);
+				setprop("/hydraulics/brakes/indicator/med-dec", 0);
+				setprop("/hydraulics/brakes/indicator/max-dec", 0);
+			} else {
+				setprop("/hydraulics/brakes/indicator/low-dec", 0);
 				setprop("/hydraulics/brakes/indicator/med-dec", 0);
 				setprop("/hydraulics/brakes/indicator/max-dec", 0);
 			}
@@ -88,19 +100,27 @@ var brakes = {
 			setprop("/hydraulics/brakes/indicator/low", 0);
 			setprop("/hydraulics/brakes/indicator/med", 1);
 			setprop("/hydraulics/brakes/indicator/max", 0);
-			if (getprop("/gear/gear/wow") and (airspeed > 60)) {
+			if (getprop("/gear/gear/wow") and (airspeed > 60) and throttle == 0) {
 				setprop("/hydraulics/brakes/indicator/low-dec", 0);
 				setprop("/hydraulics/brakes/indicator/med-dec", 1);
+				setprop("/hydraulics/brakes/indicator/max-dec", 0);
+			} else {
+				setprop("/hydraulics/brakes/indicator/low-dec", 0);
+				setprop("/hydraulics/brakes/indicator/med-dec", 0);
 				setprop("/hydraulics/brakes/indicator/max-dec", 0);
 			}
 		} else {
 			setprop("/hydraulics/brakes/indicator/low", 0);
 			setprop("/hydraulics/brakes/indicator/med", 0);
 			setprop("/hydraulics/brakes/indicator/max", 1);
-			if (getprop("/gear/gear/wow") and (airspeed > 60)) {
+			if (getprop("/gear/gear/wow") and (airspeed > 60) and throttle == 0) {
 				setprop("/hydraulics/brakes/indicator/low-dec", 0);
 				setprop("/hydraulics/brakes/indicator/med-dec", 0);
 				setprop("/hydraulics/brakes/indicator/max-dec", 1);
+			} else {
+				setprop("/hydraulics/brakes/indicator/low-dec", 0);
+				setprop("/hydraulics/brakes/indicator/med-dec", 0);
+				setprop("/hydraulics/brakes/indicator/max-dec", 0);
 			}
 		}
 	

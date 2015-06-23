@@ -76,6 +76,11 @@ var state_loop = {
             setprop("/warnings/master-caution-state", 0);
             setprop("/warnings/master-warning-light", 0);
             setprop("/warnings/master-caution-light", 0);
+            setprop("warnings/to-cfg-available", 0);
+            setprop("warnings/to-config", 0);
+            setprop("warnings/ldg-config", 0);
+            setprop("warnings/texts/to_cfg", 'T.O.');
+            setprop("warnings/texts/ldg_cfg", 'LDG');
 
             me.ws = "/warnings/master-warning-state";
             me.cs = "/warnings/master-caution-state";
@@ -84,8 +89,8 @@ var state_loop = {
   
             me.reset();
         },
-    	update : func {
-    	
+        update : func {
+        
             if ((getprop(me.ws) == 0) and (getprop(me.wl) == 1)) {
                     setprop(me.ws, 1);
             } else {
@@ -98,7 +103,7 @@ var state_loop = {
                     setprop(me.cs, 0);
             }
     	
-	},
+        },
 
         reset : func {
             me.loopid += 1;
@@ -108,7 +113,7 @@ var state_loop = {
             id == me.loopid or return;
             me.update();
             settimer(func { me._loop_(id); }, me.UPDATE_INTERVAL);
-    }
+        }
 
 };
 
@@ -117,6 +122,7 @@ var warning_system = {
             me.UPDATE_INTERVAL = 1;
             me.spdbrkcount = 0;
             me.loopid = 0;
+            me.should_check_autoland = 0;
            
             setprop("/warnings/master-warning-light", 0);
             setprop("/warnings/master-caution-light", 0);
@@ -134,9 +140,14 @@ var warning_system = {
             
             var stall = warning.new("STALL", "crc", "warning", "stall");
             stall.condition = func() {
-                var flaps = getprop("/controls/flight/flaps");
                 var ias = getprop("/velocities/airspeed-kt");
-                return ((getprop("/position/altitude-ft") > 400) and (((ias <= 150) and (flaps <=0.29 )) or ((ias <= 135) and (flaps == 0.529)) or ((ias <= 120) and (flaps >= 74))));
+                var airborn = ((getprop('/gear/gear/wow') == 0) and 
+                    (getprop('/gear/gear[1]/wow') == 0) and 
+                    (getprop('/gear/gear[2]/wow') == 0));
+                var phase = getprop("/flight-management/phase");
+                var agl = getprop("/position/altitude-agl-ft");
+                var stall_spd = getprop("/flight-management/fmgc-values/stall-speed");
+                return airborn and !(phase == 'APP' and agl < 50) and (ias <= stall_spd);
             };
             
             var spdbrk_stillout = warning.new("SPD BRK STILL OUT", "chime", "caution", "spdbrk-still");
@@ -355,17 +366,114 @@ var warning_system = {
             
             var ap_off = warning.new("AP 1+2 OFF", "ap_disc", "caution", "ap-off");
             ap_off.condition = func() {
-                    return ((getprop("/flight-management/control/ap1-master") == "off") and (getprop("/flight-management/control/ap2-master") == "off") and (((getprop("/position/altitude-agl-ft") > 400) and (getprop("/velocities/vertical-speed-fps") < -5)) or ((getprop("/position/altitude-agl-ft") > 10000) and (getprop("/velocities/vertical-speed-fps") > 5))));
+                return ((getprop("/flight-management/control/ap1-master") == "off") and 
+                    (getprop("/flight-management/control/ap2-master") == "off") and 
+                    (((getprop("/position/altitude-agl-ft") > 400) and (getprop("/velocities/vertical-speed-fps") < -5)) or 
+                    ((getprop("/position/altitude-agl-ft") > 10000) and (getprop("/velocities/vertical-speed-fps") > 5)) or 
+                    ((getprop('flight-management/phase') == 'APP') and (getprop("/velocities/airspeed-kt") > 70))));
             };
             
             var athr_off = warning.new("A/THR OFF", "chime", "caution", "athr-off");
             athr_off.condition = func() {
                     return ((getprop("/flight-management/a-thrust") == "off") and (getprop("/position/altitude-agl-ft") > 400));
-            };			
+            };
+
+            var athr_limited = warning.new("A/THR LIMITED", 'chime', 'caution', 'athr-limited');
+            athr_limited.condition = func(){
+                return ((getprop("/flight-management/control/a-thrust") == "eng") and (fmgc.fmgc_loop.max_throttle_pos < 0.6));
+            };
 
             # All warnings into a hash for easier use
             
-            me.warnings = [stall, spdbrk_stillout, apu_emer, to_cfg_pbrk, to_cfg_flaps, to_cfg_spdbrk, to_cfg_ptrim, to_cfg_rtrim, elv_fault, ail_fault, rud_fault, spdbrk_fault, flaps_fault, direct_law, altn_law, abn_law , engd_fail, eng1_fail, eng2_fail, engd_oilp, eng1_oilp, eng2_oilp, engd_shut, eng1_shut, eng2_shut, hydall, hydby, hydbg, hydgy, hydb_lopr, hydy_lopr, hydg_lopr, ptu_fault, fuel_1lo, fuel_2lo, fuel_clo, fuel_wlo, fuel_bal, apugen_fault, gen1_fault, gen2_fault, emer_conf, ap_off, athr_off];
+            me.warnings = [stall, spdbrk_stillout, apu_emer, to_cfg_pbrk, to_cfg_flaps, to_cfg_spdbrk, to_cfg_ptrim, to_cfg_rtrim, elv_fault, ail_fault, rud_fault, spdbrk_fault, flaps_fault, direct_law, altn_law, abn_law , engd_fail, eng1_fail, eng2_fail, engd_oilp, eng1_oilp, eng2_oilp, engd_shut, eng1_shut, eng2_shut, hydall, hydby, hydbg, hydgy, hydb_lopr, hydy_lopr, hydg_lopr, ptu_fault, fuel_1lo, fuel_2lo, fuel_clo, fuel_wlo, fuel_bal, apugen_fault, gen1_fault, gen2_fault, emer_conf, ap_off, athr_off, athr_limited];
+
+            #TO CONFIG
+
+            var to_auto_brk_ok = warning.new("AUTO BRK......MAX", "", "cfg_ok", "to-autobrake-ok");
+            to_auto_brk_ok.condition = func(){
+                var abrk = getprop("/hydraulics/brakes/autobrake-setting");
+                return (abrk == 3);
+            };
+            var to_auto_brk_fail = warning.new("AUTO BRK......MAX", "", "cfg_fail", "to-autobrake-fail");
+            to_auto_brk_fail.condition = func(){
+                var abrk = getprop("/hydraulics/brakes/autobrake-setting");
+                return (abrk != 3);
+            };
+            var to_signs_ok = warning.new("SIGNS ON", "", "cfg_ok", "to-signs-ok");
+            to_signs_ok.condition = func(){
+                return getprop("controls/switches/seatbelt-sign"); 
+            };
+            var to_signs_fail = warning.new("SIGNS ON", "", "cfg_fail", "to-signs-fail");
+            to_signs_fail.condition = func(){
+                return !(getprop("controls/switches/seatbelt-sign")); 
+            };
+            var to_spoliers_ok = warning.new("SPLRS........ARM", "", "cfg_ok", "to-splrs-ok");
+            to_spoliers_ok.condition = func(){
+                var splrs = getprop("/controls/flight/ground-spoilers-armed");
+                return (splrs == 1);
+            };
+            var to_spoliers_fail = warning.new("SPLRS........ARM", "", "cfg_fail", "to-splrs-fail");
+            to_spoliers_fail.condition = func(){
+                var splrs = getprop("/controls/flight/ground-spoilers-armed");
+                return (splrs != 1);
+            };
+
+            var to_flaps_ok = warning.new("FLAPS........T.O", "", "cfg_ok", "to-flaps-ok");
+            to_flaps_ok.condition = func(){
+                var flaps = getprop("/controls/flight/flaps");
+                return (flaps == 0.596);
+            };
+            var to_flaps_fail = warning.new("FLAPS........T.O", "", "cfg_fail", "to-flaps-fail");
+            to_flaps_fail.condition = func(){
+                var flaps = getprop("/controls/flight/flaps");
+                return (flaps != 0.596);
+            };
+
+            me.to_config = [to_auto_brk_ok, to_auto_brk_fail, to_signs_ok, to_signs_fail, to_spoliers_ok, to_spoliers_fail, to_flaps_ok, to_flaps_fail];
+
+            # LDG CONFIG
+
+            var ldg_gear_ok = warning.new("LDG GEAR DN", "", "cfg_ok", "ldg-gear-ok");
+            ldg_gear_ok.condition = func(){
+                var gear = getprop("/gear/gear[0]/position-norm");
+                return (gear == 1);
+            };
+            var ldg_gear_fail = warning.new("AUTO BRK......MAX", "", "cfg_fail", "ldg-gear-fail");
+            ldg_gear_fail.condition = func(){
+                var gear = getprop("/gear/gear[0]/position-norm");
+                return (gear != 1);
+            };
+            var ldg_signs_ok = warning.new("SIGNS ON", "", "cfg_ok", "ldg-signs-ok");
+            ldg_signs_ok.condition = func(){
+                return getprop("controls/switches/seatbelt-sign"); 
+            };
+            var ldg_signs_fail = warning.new("SIGNS ON", "", "cfg_fail", "ldg-signs-fail");
+            ldg_signs_fail.condition = func(){
+                return !(getprop("controls/switches/seatbelt-sign")); 
+            };
+            var ldg_spoliers_ok = warning.new("SPLRS........ARM", "", "cfg_ok", "ldg-splrs-ok");
+            ldg_spoliers_ok.condition = func(){
+                var splrs = getprop("/controls/flight/ground-spoilers-armed");
+                return (splrs == 1);
+            };
+            var ldg_spoliers_fail = warning.new("SPLRS........ARM", "", "cfg_fail", "ldg-splrs-fail");
+            ldg_spoliers_fail.condition = func(){
+                var splrs = getprop("/controls/flight/ground-spoilers-armed");
+                return (splrs != 1);
+            };
+
+            var ldg_flaps_ok = warning.new("FLAPS........FULL", "", "cfg_ok", "ldg-flaps-ok");
+            ldg_flaps_ok.condition = func(){
+                var flaps = getprop("/controls/flight/flaps");
+                return (flaps == 1);
+            };
+            var ldg_flaps_fail = warning.new("FLAPS........FULL", "", "cfg_fail", "ldg-flaps-fail");
+            ldg_flaps_fail.condition = func(){
+                var flaps = getprop("/controls/flight/flaps");
+                return (flaps < 1);
+            };
+
+            me.ldg_config = [ldg_gear_ok, ldg_gear_fail, ldg_signs_ok, ldg_signs_fail, ldg_spoliers_ok, ldg_spoliers_fail, ldg_flaps_ok, ldg_flaps_fail];
     
             ############################################
             
@@ -431,9 +539,17 @@ var warning_system = {
                 return (getprop("/controls/gear/brake-parking") != 0);
             }
             
+            var strobe_memo = memo.new("STROBE LT OFF", 'amber');
+            strobe_memo.condition = func(){
+                var airborn = ((getprop('/gear/gear/wow') == 0) and 
+                    (getprop('/gear/gear[1]/wow') == 0) and 
+                    (getprop('/gear/gear[2]/wow') == 0));
+                return airborn and !getprop('controls/lighting/strobe');
+            }
+            
             # All MEMO items into a hash for easier use (in order of display priority)
             
-            me.memos = [fuel_jett, apu_avail, spdbrk_a, rat_a, fob_low, spdbrk_g, rat_g, gnd_splrs, xfeed, hyd_ptu, refuel, park_memo];           
+            me.memos = [fuel_jett, apu_avail, spdbrk_a, rat_a, fob_low, spdbrk_g, rat_g, gnd_splrs, xfeed, hyd_ptu, refuel, park_memo, strobe_memo];           
             
             ############################################
             
@@ -483,6 +599,7 @@ var warning_system = {
                 }
                 n+=1;
             }
+            var warnings_size = size(me.disp_warnings);
             
             for(var n=0; n<12; n+=1) {
                 if (size(me.disp_warnings) > n) {
@@ -492,6 +609,51 @@ var warning_system = {
                 } else {
                     setprop("warnings/ecam/warn["~n~"]/msg", "");
                 }
+            }
+            if(warnings_size == 0){
+                var to_cfg_avail = getprop("warnings/to-cfg-available");
+                var phase = getprop("/flight-management/phase");
+                if(phase == 'T/O' and to_cfg_avail){
+                    var n = 0;
+                    foreach(var cfg; me.to_config){
+                        var idx = int((n / 2.0));
+                        if ((getprop(cfg.prop~"active") == 1)){
+                            setprop("warnings/ecam/cfg["~idx~"]/msg", cfg.msg);
+                            setprop("warnings/ecam/cfg["~idx~"]/index", idx);
+                            setprop("warnings/ecam/cfg["~idx~"]/type", cfg.light);
+                        } 
+                        n = n + 1;
+                    }
+                    setprop("warnings/to-config", 1);
+                } else {
+                    if(phase != 'T/O'){
+                        setprop("warnings/to-cfg-available", 0);
+                        setprop("warnings/to-config", 0); 
+                    }
+                    if(phase == 'APP'){
+                        var agl = getprop("/position/altitude-agl-ft");
+                        if(agl < 1000){
+                            var n = 0;
+                            foreach(var cfg; me.ldg_config){
+                                var idx = int((n / 2.0));
+                                if ((getprop(cfg.prop~"active") == 1)){
+                                    setprop("warnings/ecam/cfg["~idx~"]/msg", cfg.msg);
+                                    setprop("warnings/ecam/cfg["~idx~"]/index", idx);
+                                    setprop("warnings/ecam/cfg["~idx~"]/type", cfg.light);
+                                } 
+                                n = n + 1;
+                            }
+                            setprop("warnings/ldg-config", 1); 
+                        } else {
+                            setprop("warnings/ldg-config", 0); 
+                        }
+                    } else {
+                        setprop("warnings/ldg-config", 0); 
+                    }
+                }
+            } else {
+                setprop("warnings/to-config", 0); 
+                setprop("warnings/ldg-config", 0); 
             }
     
     },
@@ -509,6 +671,37 @@ var warning_system = {
                 }
         
         }
+    },
+    checkAutoland: func(){
+        var actv_common_mode = getprop("/flight-management/flight-modes/common/active");
+        var ap1 = getprop("/flight-management/control/ap1-master");
+        var ap2 = getprop("/flight-management/control/ap2-master");
+        var agl = getprop("/position/altitude-agl-ft");
+        var al_wrn = 0;
+        var land_mode = (actv_common_mode == "LAND");
+        if(land_mode and !me.should_check_autoland){
+            if (ap1 == 'eng' or ap2 == 'eng')
+                me.should_check_autoland = 1;
+        }
+        if (me.should_check_autoland and agl < 200){
+            if (ap1 != "eng" and ap2 != "eng"){
+                al_wrn = 1;
+            } else { 
+                if (agl > 100){
+                    var gs_dev = getprop('instrumentation/nav/gs-needle-deflection-norm');
+                    al_wrn = math.abs(gs_dev > 1);
+                }
+                if(agl > 15){
+                    var loc_dev = getprop("instrumentation/nav/heading-needle-deflection-norm");
+                    al_wrn = math.abs(loc_dev > 0.3);
+                }
+                if(getprop('/gear/gear/wow')){
+                    me.should_check_autoland = 0;
+                    al_wrn = 0;
+                }
+            }
+        }
+        setprop('/autoland/warn', al_wrn);
     },
     update : func {
     	
@@ -545,9 +738,38 @@ var warning_system = {
                             mem.disp = 0;
                     }
                 }
+        
+                # Check for T.O. Config
+
+                foreach(var cfg; me.to_config) {
+
+                    var conditionMet = cfg.condition();
+
+                    if (conditionMet) {
+                        cfg.trigger();
+                    } else {
+                        cfg.deactivate();
+                    }
+
+                }
+
+                # Check for LDG Config
+
+                foreach(var cfg; me.ldg_config) {
+
+                    var conditionMet = cfg.condition();
+
+                    if (conditionMet) {
+                        cfg.trigger();
+                    } else {
+                        cfg.deactivate();
+                    }
+
+                }
                 
                 me.updateECAM();
                 me.updateMEMO();
+                me.checkAutoland();
     	
 	},
 
