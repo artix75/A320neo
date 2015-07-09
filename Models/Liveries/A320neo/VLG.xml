@@ -3,8 +3,8 @@
 	<sim>
 		<model>
 			<livery>
-				<name>Lufthansa</name>
-				<neo-texture>Liveries/A320neo-DLH.png</neo-texture>
+				<name>Vueling</name>
+				<neo-texture>Liveries/A320neo-VLG.png</neo-texture>
 			</livery>
 		</model>
 	</sim>
