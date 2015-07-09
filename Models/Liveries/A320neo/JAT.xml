@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" ?>
+
 <PropertyList>
 	<sim>
 		<model>
 			<livery>
-				<name>Lufthansa</name>
-				<neo-texture>Liveries/A320neo-DLH.png</neo-texture>
+				<name>Air Serbia</name>
+				<neo-texture>Liveries/A320neo-JAT.png</neo-texture>
 			</livery>
 		</model>
 	</sim>
