@@ -327,7 +327,7 @@ kids 0
 OBJECT poly
 name "Border"
 loc -0.010885 0.0531432 -0.0618585
-texture "/home/bicyus/Documents/Desarrollo/A320neo/Models/Instruments/ECAM/res/flightdeck.png"
+texture "flightdeck.png"
 crease 45.000000
 numvert 10
 0.0120417 -0.12325 0.153461
@@ -361,7 +361,7 @@ kids 0
 OBJECT poly
 name "Border"
 loc 0.000843621 0.0123394 -0.000819031
-texture "/home/bicyus/Documents/Desarrollo/A320neo/Models/Instruments/ECAM/res/flightdeck.png"
+texture "flightdeck.png"
 crease 45.000000
 numvert 102
 5.96068e-05 -0.0945599 0.0811123
