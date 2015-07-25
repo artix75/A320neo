@@ -1,0 +1,430 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<PropertyList>
+
+	<name>airbus_rms</name>
+	<layout>vbox</layout>
+
+	<text>
+		<label>Airbus Radio Management</label>
+	</text>
+
+	<hrule />
+	
+	<text>
+		<label>Communication Frequencies</label>
+	</text>
+	
+	<group>
+		<layout>hbox</layout>
+		
+			<text>
+				<label>COM1</label>
+			</text>
+			
+			<input>
+				<name>com1_active</name>
+				<width>100</width>
+				<height>25</height>
+				<format>%3.2f</format>
+				<property>/instrumentation/comm/frequencies/selected-mhz</property>
+				<live>true</live>
+				<binding>
+					<command>dialog-apply</command>
+					<object-name>com1_active</object-name>
+				</binding>
+			</input>
+			
+			<button>
+		        <width>40</width>
+		        <height>25</height>
+		        <legend>&lt;-&gt;</legend>
+		        <binding>
+		            <command>property-swap</command>
+		            <property>/instrumentation/comm[0]/frequencies/selected-mhz</property>
+		            <property>/instrumentation/comm[0]/frequencies/standby-mhz</property>
+		        </binding>
+		        <binding>
+		            <command>dialog-update</command>
+		        </binding>
+		    </button>
+		    
+		    <input>
+				<name>com1_stby</name>
+				<width>100</width>
+				<height>25</height>
+				<format>%3.2f</format>
+				<property>/instrumentation/comm/frequencies/standby-mhz</property>
+				<live>true</live>
+				<binding>
+					<command>dialog-apply</command>
+					<object-name>com1_stby</object-name>
+				</binding>
+			</input>
+		
+		<vrule />
+		
+			<text>
+				<label>COM2</label>
+			</text>
+			
+			<input>
+				<name>com2_active</name>
+				<width>100</width>
+				<height>25</height>
+				<format>%3.2f</format>
+				<property>/instrumentation/comm[1]/frequencies/selected-mhz</property>
+				<live>true</live>
+				<binding>
+					<command>dialog-apply</command>
+					<object-name>com2_active</object-name>
+				</binding>
+			</input>
+			
+			<button>
+		        <width>40</width>
+		        <height>25</height>
+		        <legend>&lt;-&gt;</legend>
+		        <binding>
+		            <command>property-swap</command>
+		            <property>/instrumentation/comm[1]/frequencies/selected-mhz</property>
+		            <property>/instrumentation/comm[1]/frequencies/standby-mhz</property>
+		        </binding>
+		        <binding>
+		            <command>dialog-update</command>
+		        </binding>
+		    </button>
+		    
+		    <input>
+				<name>com2_stby</name>
+				<width>100</width>
+				<height>25</height>
+				<format>%3.2f</format>
+				<property>/instrumentation/comm[1]/frequencies/standby-mhz</property>
+				<live>true</live>
+				<binding>
+					<command>dialog-apply</command>
+					<object-name>com2_stby</object-name>
+				</binding>
+			</input>
+		
+	</group>
+	
+	<hrule />
+	
+	<group>
+		<layout>vbox</layout>
+	
+		<text>
+			<label>Navigational Frequencies</label>
+		</text>
+		
+		<group>
+			<layout>hbox</layout>
+		
+			<group>
+				<layout>table</layout>
+				
+				<text>
+					<row>0</row>
+					<col>1</col>
+					<label>VOR1</label>
+				</text>
+				
+				<text>
+					<row>1</row>
+					<col>1</col>
+					<label>ILS</label>
+				</text>
+				
+				<text>
+					<row>2</row>
+					<col>1</col>
+					<label>ADF1</label>
+				</text>
+				
+				<input>
+					<name>vor1</name>
+					<row>0</row>
+					<col>2</col>
+					<width>100</width>
+					<height>25</height>
+					<format>%3.2f</format>
+					<property>/flight-management/freq/vor1</property>
+					<live>true</live>
+					<binding>
+						<command>dialog-apply</command>
+						<object-name>vor1</object-name>
+					</binding>
+				</input>
+				
+				<input>
+					<name>ils</name>
+					<row>1</row>
+					<col>2</col>
+					<width>100</width>
+					<height>25</height>
+					<format>%3.2f</format>
+					<property>/flight-management/freq/ils</property>
+					<live>true</live>
+					<binding>
+						<command>dialog-apply</command>
+						<object-name>ils</object-name>
+					</binding>
+				</input>
+				
+				<input>
+					<name>adf1</name>
+					<row>2</row>
+					<col>2</col>
+					<width>100</width>
+					<height>25</height>
+					<format>%3.0f</format>
+					<property>/instrumentation/adf/frequencies/selected-mhz</property>
+					<live>true</live>
+					<binding>
+						<command>dialog-apply</command>
+						<object-name>adf1</object-name>
+					</binding>
+				</input>
+				
+				<input>
+					<name>vor1-crs</name>
+					<row>0</row>
+					<col>4</col>
+					<width>70</width>
+					<height>25</height>
+					<format>%3.0f</format>
+					<property>/flight-management/freq/vor1-crs</property>
+					<live>true</live>
+					<binding>
+						<command>dialog-apply</command>
+						<object-name>vor1-crs</object-name>
+					</binding>
+				</input>
+				
+				<input>
+					<name>ils-crs</name>
+					<row>1</row>
+					<col>4</col>
+					<width>70</width>
+					<height>25</height>
+					<format>%3.0f</format>
+					<property>/flight-management/freq/ils-crs</property>
+					<live>true</live>
+					<binding>
+						<command>dialog-apply</command>
+						<object-name>ils-crs</object-name>
+					</binding>
+				</input>
+				
+				<text>
+					<row>0</row>
+					<col>3</col>
+					<label>CRS</label>
+				</text>
+				
+				<text>
+					<row>1</row>
+					<col>3</col>
+					<label>CRS</label>
+				</text>
+				
+				<checkbox>
+					<width>16</width>
+					<height>16</height>
+					<row>1</row>
+					<col>0</col>
+					<property>/flight-management/freq/ils-mode</property>
+					<live>true</live>
+					<binding>
+						<command>nasal</command>
+						<script>
+						
+							var radio = "/flight-management/freq/";
+				
+							var ils_mode = getprop(radio~ "ils-mode");
+					
+							if (ils_mode) {
+					
+								setprop(radio~ "ils-mode", 0);
+						
+								mcdu.rad_nav.switch_nav1(0);
+					
+							} else {
+					
+								setprop(radio~ "ils-mode", 1);
+						
+								mcdu.rad_nav.switch_nav1(1);
+					
+							}
+						
+						</script>
+					</binding>
+				</checkbox>
+				
+			</group>
+			
+			<vrule />
+			
+			<group>
+				<layout>table</layout>
+				
+				<text>
+					<row>0</row>
+					<col>1</col>
+					<label>VOR2</label>
+				</text>
+				
+				<text>
+					<row>1</row>
+					<col>1</col>
+					<label>MLS</label>
+				</text>
+				
+				<text>
+					<row>2</row>
+					<col>1</col>
+					<label>ADF2</label>
+				</text>
+				
+				<text>
+					<row>0</row>
+					<col>3</col>
+					<label>CRS</label>
+				</text>
+				
+				<text>
+					<row>1</row>
+					<col>3</col>
+					<label>CRS</label>
+				</text>
+				
+				<input>
+					<name>vor2</name>
+					<row>0</row>
+					<col>2</col>
+					<width>100</width>
+					<height>25</height>
+					<format>%3.2f</format>
+					<property>/flight-management/freq/vor2</property>
+					<live>true</live>
+					<binding>
+						<command>dialog-apply</command>
+						<object-name>vor2</object-name>
+					</binding>
+				</input>
+				
+				<input>
+					<name>mls</name>
+					<row>1</row>
+					<col>2</col>
+					<width>100</width>
+					<height>25</height>
+					<format>%3.2f</format>
+					<property>/flight-management/freq/mls</property>
+					<live>true</live>
+					<binding>
+						<command>dialog-apply</command>
+						<object-name>mls</object-name>
+					</binding>
+				</input>
+				
+				<input>
+					<name>adf2</name>
+					<row>2</row>
+					<col>2</col>
+					<width>100</width>
+					<height>25</height>
+					<format>%3.0f</format>
+					<property>/instrumentation/adf/frequencies/selected-mhz</property>
+					<live>true</live>
+					<binding>
+						<command>dialog-apply</command>
+						<object-name>adf2</object-name>
+					</binding>
+				</input>
+				
+				<input>
+					<name>vor2-crs</name>
+					<row>0</row>
+					<col>4</col>
+					<width>70</width>
+					<height>25</height>
+					<format>%3.0f</format>
+					<property>/flight-management/freq/vor2-crs</property>
+					<live>true</live>
+					<binding>
+						<command>dialog-apply</command>
+						<object-name>vor2-crs</object-name>
+					</binding>
+				</input>
+				
+				<input>
+					<name>mls-crs</name>
+					<row>1</row>
+					<col>4</col>
+					<width>70</width>
+					<height>25</height>
+					<format>%3.0f</format>
+					<property>/flight-management/freq/mls-crs</property>
+					<live>true</live>
+					<binding>
+						<command>dialog-apply</command>
+						<object-name>mls-crs</object-name>
+					</binding>
+				</input>
+				
+				<checkbox>
+					<width>16</width>
+					<height>16</height>
+					<row>1</row>
+					<col>0</col>
+					<property>/flight-management/freq/mls-mode</property>
+					<live>true</live>
+					<binding>
+						<command>nasal</command>
+						<script>
+						
+							var radio = "/flight-management/freq/";
+				
+							var mls_mode = getprop(radio~ "mls-mode");
+					
+							if (mls_mode) {
+					
+								setprop(radio~ "mls-mode", 0);
+						
+								mcdu.rad_nav.switch_nav2(0);
+					
+							} else {
+					
+								setprop(radio~ "mls-mode", 1);
+						
+								mcdu.rad_nav.switch_nav2(1);
+					
+							}
+						
+						</script>
+					</binding>
+				</checkbox>
+				
+			</group>
+		
+		</group>
+		
+	<hrule />
+
+	<button>
+		<legend>Close</legend>
+		<default>true</default>
+		<key>Esc</key>
+	<padding>10</padding>
+		<binding>
+			<command>dialog-apply</command>
+		</binding>
+		<binding>
+			<command>dialog-close</command>
+		</binding>
+	</button>
+
+</PropertyList>

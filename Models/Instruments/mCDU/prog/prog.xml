@@ -1,0 +1,422 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+
+	<path>prog.ac</path>
+	
+	<!-- mCDU Display Brightness -->
+	
+	<animation>
+		<type>material</type>
+		<object-name>prog</object-name>
+		<emission>
+			<red>1</red>
+			<green>1</green>
+			<blue>1</blue>
+			<factor-prop>/instrumentation/mcdu/brt</factor-prop>
+		</emission>
+	</animation>
+	
+	<!-- GREEN -->
+	
+	<animation>
+		<type>material</type>
+		<object-name>flt-num</object-name>
+		<object-name>brg</object-name>
+		<object-name>dist</object-name>
+		<object-name>accur</object-name>
+		<object-name>crz-fl</object-name>
+		<emission>
+			<red>0</red>
+			<green>0.37</green>
+			<blue>0</blue>
+			<factor-prop>/instrumentation/mcdu/brt</factor-prop>
+		</emission>
+		<diffuse>
+			<red>0</red>
+			<green>0.37</green>
+			<blue>0</blue>
+		</diffuse>
+	</animation>
+	
+	<!-- CYAN -->
+	
+	<animation>
+		<type>material</type>
+		<object-name>to</object-name>
+		<emission>
+			<red>0</red>
+			<green>0.4823</green>
+			<blue>0.5372</blue>
+			<factor-prop>/instrumentation/mcdu/brt</factor-prop>
+		</emission>
+		<diffuse>
+			<red>0</red>
+			<green>0.4823</green>
+			<blue>0.5372</blue>
+		</diffuse>
+	</animation>
+	
+	<!-- Button Pick Animations -->
+	
+	<animation>
+		<type>pick</type>
+		<object-name>l4</object-name>
+		<action>
+            <button>0</button>
+	   		<repeatable type="bool">false</repeatable>
+            <binding>
+				<command>nasal</command>
+		 		<script>
+		 		
+		 			# Reset BRG/DIST
+		 			
+		 			var ident = getprop("/instrumentation/mcdu/prog/ident");
+		 			
+		 			var gps = "/instrumentation/gps/";
+		 			
+		 			if (size(ident) == 4)
+		 				setprop(gps~ "scratch/type", "airport");
+		 			elsif (size(ident) == 5)
+		 				setprop(gps~ "scratch/type", "fix");
+		 			else
+		 				setprop(gps~ "scratch/type", "vor");
+		 				
+		 			setprop(gps~ "scratch/query", ident);
+		 			
+		 			setprop(gps~ "command", "search");
+		 			
+		 			var brg = getprop("/instrumentation/gps/scratch/mag-bearing-deg");
+		 			
+		 			var dist = getprop("/instrumentation/gps/scratch/distance-nm");
+		 			
+		 			setprop("/instrumentation/mcdu/prog/brg", brg);
+		 			setprop("/instrumentation/mcdu/prog/dist", dist);		 				
+				</script>
+            </binding>
+        </action>
+	</animation>
+	
+	<animation>
+		<type>pick</type>
+		<object-name>l6</object-name>
+		<action>
+            <button>0</button>
+	   		<repeatable type="bool">false</repeatable>
+            <binding>
+				<command>nasal</command>
+		 		<script>
+		 		
+		 			var accur = getprop("/flight-management/settings/gps-accur");
+		 			
+		 			if (accur == "HIGH")
+		 				setprop("/flight-management/settings/gps-accur", "LOW");
+		 			else
+		 				setprop("/flight-management/settings/gps-accur", "HIGH");
+		 			
+				</script>
+            </binding>
+        </action>
+	</animation>
+	
+	<animation>
+		<type>pick</type>
+		<object-name>r4</object-name>
+		<action>
+            <button>0</button>
+	   		<repeatable type="bool">false</repeatable>
+            <binding>
+				<command>nasal</command>
+		 		<script>
+		 		
+		 			# Search for BRG and DIST with GPS
+		 			
+		 			var ident = getprop("/instrumentation/mcdu/input");
+		 			
+		 			var gps = "/instrumentation/gps/";
+		 			
+		 			if (size(ident) == 4)
+		 				setprop(gps~ "scratch/type", "airport");
+		 			elsif (size(ident) == 5)
+		 				setprop(gps~ "scratch/type", "fix");
+		 			else
+		 				setprop(gps~ "scratch/type", "vor");
+		 				
+		 			setprop(gps~ "scratch/query", ident);
+		 			
+		 			setprop(gps~ "command", "search");
+		 			
+		 			setprop("/instrumentation/mcdu/prog/ident", ident);
+		 			
+		 			var brg = getprop("/instrumentation/gps/scratch/mag-bearing-deg");
+		 			
+		 			var dist = getprop("/instrumentation/gps/scratch/distance-nm");
+		 			
+		 			setprop("/instrumentation/mcdu/prog/brg", brg);
+		 			setprop("/instrumentation/mcdu/prog/dist", dist);
+		 			
+				</script>
+            </binding>
+        </action>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>flt-num</object-name>
+		<condition>
+			<not>
+				<equals>
+					<property>/flight-management/active-rte/flight-num</property>
+					<value>empty</value>
+				</equals>
+			</not>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>flt-num-empty</object-name>
+		<condition>
+			<equals>
+				<property>/flight-management/active-rte/flight-num</property>
+				<value>empty</value>
+			</equals>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>to</object-name>
+		<condition>
+			<not>
+				<equals>
+					<property>/instrumentation/mcdu/prog/ident</property>
+					<value>empty</value>
+				</equals>
+			</not>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>to-empty</object-name>
+		<condition>
+			<equals>
+				<property>/instrumentation/mcdu/prog/ident</property>
+				<value>empty</value>
+			</equals>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>brg</object-name>
+		<condition>
+			<not>
+				<equals>
+					<property>/instrumentation/mcdu/prog/brg</property>
+					<value>empty</value>
+				</equals>
+			</not>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>brg-dist-empty</object-name>
+		<condition>
+			<equals>
+				<property>/instrumentation/mcdu/prog/brg</property>
+				<value>empty</value>
+			</equals>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>dist</object-name>
+		<condition>
+			<not>
+				<equals>
+					<property>/instrumentation/mcdu/prog/dist</property>
+					<value>empty</value>
+				</equals>
+			</not>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>crz-fl</object-name>
+		<condition>
+			<not>
+				<equals>
+					<property>/flight-management/crz_fl</property>
+					<value>0</value>
+				</equals>
+			</not>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>crz-fl-empty</object-name>
+		<condition>
+			<equals>
+				<property>/flight-management/crz_fl</property>
+				<value>0</value>
+			</equals>
+		</condition>
+	</animation>
+	
+	<text>
+		<name>flt-num</name>
+		<offsets>
+			<x-m>-0.0783</x-m>
+			<y-m>-0.0005</y-m>
+			<z-m>-0.0006</z-m>
+			<heading-deg>90</heading-deg>
+		</offsets>
+		<alignment>center-center</alignment>
+		<axis-alignment>xy-plane</axis-alignment>
+		<type type="string">text-value</type>
+		<format type="string">%s</format>
+		<property>/flight-management/active-rte/flight-num</property>
+		<truncate type="bool">false</truncate>
+		<font type="string">courier-bold.txf</font>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.004</character-size>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	
+	<text>
+		<name>to</name>
+		<offsets>
+			<x-m>-0.0433</x-m>
+			<y-m>0.0306</y-m>
+			<z-m>-0.0006</z-m>
+			<heading-deg>90</heading-deg>
+		</offsets>
+		<alignment>center-center</alignment>
+		<axis-alignment>xy-plane</axis-alignment>
+		<type type="string">text-value</type>
+		<format type="string">%s</format>
+		<property>/instrumentation/mcdu/prog/ident</property>
+		<truncate type="bool">false</truncate>
+		<font type="string">courier-bold.txf</font>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.004</character-size>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	
+	<text>
+		<name>accur</name>
+		<offsets>
+			<x-m>-0.0251</x-m>
+			<y-m>-0.0005</y-m>
+			<z-m>-0.0006</z-m>
+			<heading-deg>90</heading-deg>
+		</offsets>
+		<alignment>center-center</alignment>
+		<axis-alignment>xy-plane</axis-alignment>
+		<type type="string">text-value</type>
+		<format type="string">%s</format>
+		<property>/flight-management/settings/gps-accur</property>
+		<truncate type="bool">false</truncate>
+		<font type="string">courier-bold.txf</font>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.004</character-size>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	
+	<text>
+		<name>crz-fl</name>
+		<offsets>
+			<x-m>-0.0703</x-m>
+			<y-m>-0.0429</y-m>
+			<z-m>-0.0006</z-m>
+			<heading-deg>90</heading-deg>
+		</offsets>
+		<alignment>left-center</alignment>
+		<axis-alignment>xy-plane</axis-alignment>
+		<type type="string">number-value</type>
+		<format type="string">FL%3.0f</format>
+		<property>/flight-management/crz_fl</property>
+		<truncate type="bool">false</truncate>
+		<font type="string">courier-bold.txf</font>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.003</character-size>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	
+	<text>
+		<name>brg</name>
+		<offsets>
+			<x-m>-0.0429</x-m>
+			<y-m>-0.0326</y-m>
+			<z-m>-0.0006</z-m>
+			<heading-deg>90</heading-deg>
+		</offsets>
+		<alignment>right-center</alignment>
+		<axis-alignment>xy-plane</axis-alignment>
+		<type type="string">number-value</type>
+		<format type="string">%3.0f</format>
+		<property>/instrumentation/mcdu/prog/brg</property>
+		<truncate type="bool">false</truncate>
+		<font type="string">courier-bold.txf</font>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.004</character-size>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	
+	<text>
+		<name>dist</name>
+		<offsets>
+			<x-m>-0.0429</x-m>
+			<y-m>-0.0260</y-m>
+			<z-m>-0.0006</z-m>
+			<heading-deg>90</heading-deg>
+		</offsets>
+		<alignment>left-center</alignment>
+		<axis-alignment>xy-plane</axis-alignment>
+		<type type="string">number-value</type>
+		<format type="string">%4.1f NM</format>
+		<property>/instrumentation/mcdu/prog/dist</property>
+		<truncate type="bool">false</truncate>
+		<font type="string">courier-bold.txf</font>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.004</character-size>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	
+</PropertyList>

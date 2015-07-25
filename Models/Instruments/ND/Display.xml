@@ -1,5 +1,17 @@
 <?xml version="1.0"?>
 <PropertyList>
+	<params>
+		<!--display-mode>instrumentation/efis[0]/mfd/display-mode</display-mode>
+		<nd-mode>instrumentation/efis[0]/nd-mode</nd-mode-->
+		<radar-path>>Aircraft/A320neo/Models/Instruments/ND/res/od_ndradar_1.png</radar-path>
+		<!--inputs>
+			<lh-vor-adf>instrumentation/efis[0]/inputs/lh-vor-adf</lh-vor-adf>
+			<rh-vor-adf>instrumentation/efis[0]/inputs/rh-vor-adf</rh-vor-adf>
+			<terr>instrumentation/efis[0]/inputs/TERR</terr>
+			<taxi>instrumentation/efis[0]/inputs/taxi</taxi>
+		</inputs-->
+	</params>
+
 
 	<name>MFD Panel</name>
 	<background>Aircraft/A320neo/Models/Instruments/ND/res/transparent.png</background>

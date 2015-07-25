@@ -6,19 +6,19 @@
     <panel>
         <path>Aircraft/A320neo/Models/Instruments/ECAM/Display.xml</path>
         <bottom-left>
-            <x-m>0.000</x-m>
-            <y-m>-0.088</y-m>
-            <z-m>-0.078</z-m>
+            <x-m>0.001</x-m>
+            <y-m>-0.0813</y-m>
+            <z-m>-0.0760</z-m>
         </bottom-left>
         <bottom-right>
-            <x-m>0.000</x-m>
-            <y-m>0.088</y-m>
-            <z-m>-0.078</z-m>
+            <x-m>0.001</x-m>
+            <y-m>0.0813</y-m>
+            <z-m>-0.0760</z-m>
         </bottom-right>
         <top-left>
-            <x-m>-0.000</x-m>
-            <y-m>-0.088</y-m>
-            <z-m>0.097</z-m>
+            <x-m>-0.001</x-m>
+            <y-m>-0.0813</y-m>
+            <z-m>0.0760</z-m>
         </top-left>
     </panel>
 

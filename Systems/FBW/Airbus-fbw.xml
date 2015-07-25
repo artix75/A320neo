@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!-- Airbus Fly-by-Wire -->
+
+<PropertyList>
+
+	<!-- Basic Pitch and Roll Rate Controls -->
+
+	<pid-controller>
+		<name>FBW Pitch Rate G-force Control</name>
+		<debug type="bool">false</debug>
+		<enable>
+			<prop>/fbw/elevator/load-factor</prop>
+		</enable>
+		<input>
+			<prop>/accelerations/pilot-gdamped</prop>
+			<!-- prop>/orientation/pitch-rate-degps</prop -->
+		</input>
+		<reference>
+			<prop>/fbw/target-pitch-gforce</prop>
+			<!-- prop>/fbw/target-pitch-rate</prop -->
+		</reference>
+		<output>
+			<prop>/fdm/jsbsim/fcs/elevator-fbw-output</prop>
+		</output>
+		<config>
+			<Kp>-1</Kp>
+			<beta>1</beta>
+			<alpha>0.1</alpha>
+			<gamma>0</gamma>
+			<Ti>10</Ti>
+			<Td>0.00001</Td>
+			<u_min>-1</u_min>
+			<u_max>1</u_max>
+		</config>
+	</pid-controller>
+	
+	<pid-controller>
+		<name>FBW Pitch Rate Degps Control</name>
+		<debug type="bool">false</debug>
+		<enable>
+			<prop>/fbw/elevator/pitch-rate</prop>
+		</enable>
+		<input>
+			<prop>/orientation/pitch-rate-degps</prop>
+		</input>
+		<reference>
+			<prop>/fbw/target-pitch-rate</prop>
+		</reference>
+		<output>
+			<prop>/fdm/jsbsim/fcs/elevator-fbw-output</prop>
+		</output>
+		<config>
+			<Kp>-0.5</Kp>
+			<beta>1</beta>
+			<alpha>0.1</alpha>
+			<gamma>0</gamma>
+			<Ti>10</Ti>
+			<Td>0.00001</Td>
+			<u_min>-1</u_min>
+			<u_max>1</u_max>
+		</config>
+	</pid-controller>
+	
+	<pid-controller>
+		<name>FBW Roll Rate Control</name>
+		<debug type="bool">false</debug>
+		<enable>
+			<prop>/fbw/control/aileron</prop>
+		</enable>
+		<input>
+			<prop>/orientation/roll-rate-degps</prop>
+		</input>
+		<reference>
+			<prop>/fbw/target-roll-rate</prop>
+		</reference>
+		<output>
+			<prop>/fdm/jsbsim/fcs/aileron-fbw-output</prop>
+		</output>
+		<config>
+			<Kp>0.05</Kp>
+			<beta>1</beta>
+			<alpha>0.1</alpha>
+			<gamma>0</gamma>
+			<Ti>10</Ti>
+			<Td>0.000000001</Td>
+			<u_min>-1</u_min>
+			<u_max>1</u_max>
+		</config>
+	</pid-controller>
+	
+	<!-- Pitch and Bank Limiters -->
+	
+	<pid-controller>
+		<name>FBW Pitch Hold</name>
+		<debug type="bool">false</debug>
+		<enable>
+			<prop>/fbw/pitch-hold</prop>
+		</enable>
+		<input>
+			<prop>/orientation/pitch-deg</prop>
+		</input>
+		<reference>
+			<prop>/fbw/target-pitch</prop>
+		</reference>
+		<output>
+			<prop>/fdm/jsbsim/fcs/elevator-fbw-output</prop>
+		</output>
+		<config>
+			<Kp>-1</Kp>
+			<beta>1</beta>
+			<alpha>0.1</alpha>
+			<gamma>0</gamma>
+			<Ti>10</Ti>
+			<Td>0.00001</Td>
+			<u_min>-1</u_min>
+			<u_max>1</u_max>
+		</config>
+	</pid-controller>
+	
+	<pid-controller>
+		<name>FBW Bank Hold</name>
+		<debug type="bool">false</debug>
+		<enable>
+			<prop>/fbw/bank-hold</prop>
+		</enable>
+		<input>
+			<prop>/orientation/roll-deg</prop>
+		</input>
+		<reference>
+			<prop>/fbw/target-bank</prop>
+		</reference>
+		<output>
+			<prop>/fdm/jsbsim/fcs/aileron-fbw-output</prop>
+		</output>
+		<config>
+			<Kp>0.05</Kp>
+			<beta>1</beta>
+			<alpha>0.1</alpha>
+			<gamma>0</gamma>
+			<Ti>10</Ti>
+			<Td>0.000000001</Td>
+			<u_min>-1</u_min>
+			<u_max>1</u_max>
+		</config>
+	</pid-controller>
+	
+	<!-- Auto-stabilizer -->
+	
+	<pid-controller>
+		<name>FBW Stabilize Bank</name>
+		<debug type="bool">false</debug>
+		<enable>
+			<prop>/fbw/stable/aileron</prop>
+		</enable>
+		<input>
+			<prop>/orientation/roll-deg</prop>
+		</input>
+		<reference>
+			<prop>/fbw/stable/bank-deg</prop>
+		</reference>
+		<output>
+			<prop>/controls/flight/aileron-trim</prop>
+		</output>
+		<config>
+			<Kp>0.05</Kp>
+			<beta>1</beta>
+			<alpha>0.1</alpha>
+			<gamma>0</gamma>
+			<Ti>10</Ti>
+			<Td>0.000000001</Td>
+			<u_min>-1</u_min>
+			<u_max>1</u_max>
+		</config>
+	</pid-controller>
+	
+	<pid-controller>
+		<name>FBW Stabilize Pitch</name>
+		<debug type="bool">false</debug>
+		<enable>
+			<prop>/fbw/stable/elevator</prop>
+		</enable>
+		<input>
+			<prop>/orientation/pitch-deg</prop>
+		</input>
+		<reference>
+			<prop>/fbw/stable/pitch-deg</prop>
+		</reference>
+		<output>
+			<prop>/controls/flight/elevator-trim</prop>
+		</output>
+		<config>
+			<Kp>-0.15</Kp>
+			<beta>1</beta>
+			<alpha>0.1</alpha>
+			<gamma>0</gamma>
+			<Ti>10</Ti>
+			<Td>0.0000001</Td>
+			<u_min>-1</u_min>
+			<u_max>1</u_max>
+		</config>
+	</pid-controller>
+
+</PropertyList>

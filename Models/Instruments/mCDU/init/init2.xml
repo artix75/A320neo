@@ -1,0 +1,453 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+
+	<path>fuel.ac</path>
+	
+	<!-- mCDU Display Brightness -->
+	
+	<animation>
+		<type>material</type>
+		<object-name>fuel-white</object-name>
+		<emission>
+			<red>1</red>
+			<green>1</green>
+			<blue>1</blue>
+			<factor-prop>/instrumentation/mcdu/brt</factor-prop>
+		</emission>
+	</animation>
+	
+	<animation>
+		<type>material</type>
+		<object-name>text-cyan</object-name>
+		<emission>
+			<red>0</red>
+			<green>0.4823</green>
+			<blue>0.5372</blue>
+			<factor-prop>/instrumentation/mcdu/brt</factor-prop>
+		</emission>
+		<diffuse>
+			<red>0</red>
+			<green>0.4823</green>
+			<blue>0.5372</blue>
+		</diffuse>
+	</animation>
+	
+	<animation>
+		<type>material</type>
+		<object-name>text-green</object-name>
+		<emission>
+			<red>0</red>
+			<green>0.37</green>
+			<blue>0</blue>
+			<factor-prop>/instrumentation/mcdu/brt</factor-prop>
+		</emission>
+		<diffuse>
+			<red>0</red>
+			<green>0.37</green>
+			<blue>0</blue>
+		</diffuse>
+	</animation>
+	
+	<!-- Button Pick Animations -->
+	
+	<animation>
+		<type>pick</type>
+		<object-name>l1</object-name>
+		<action>
+            <button>0</button>
+	   		<repeatable type="bool">false</repeatable>
+            <binding>
+				<command>nasal</command>
+		 		<script>
+		 		
+		 			var fuel = "/instrumentation/mcdu/fuel/";
+					var fuel_disp = "/instrumentation/mcdu/fuel/disp/";
+		 		
+		 			var input = getprop("/instrumentation/mcdu/input");
+		 		
+		 			setprop(fuel~ "taxi", input);
+		 			
+		 			mcdu.init_B.update();
+		 			
+		 			mcdu.clear_inp();
+				</script>
+            </binding>
+        </action>
+	</animation>
+	
+	<animation>
+		<type>pick</type>
+		<object-name>l3</object-name>
+		<action>
+            <button>0</button>
+	   		<repeatable type="bool">false</repeatable>
+            <binding>
+				<command>nasal</command>
+		 		<script>
+		 		
+		 			var fuel = "/instrumentation/mcdu/fuel/";
+					var fuel_disp = "/instrumentation/mcdu/fuel/disp/";
+		 		
+		 			var input = getprop("/instrumentation/mcdu/input");
+		 			
+		 			var rsv = [];
+		 			
+		 			rsv = split("/", input);
+		 			
+		 			if (rsv[1] == "0") { # Blocks Entered
+		 				setprop(fuel~ "rte-rsv", rsv[0]);
+		 				setprop(fuel~ "rte-100", int((rsv[0] / 30.2) * 100));
+		 			} else { # Percentage Entered	
+		 				setprop(fuel~ "rte-100", rsv[1]);
+		 				setprop(fuel~ "rte-rsv", int((rsv[1] / 100) * 30.2));
+		 			}
+		 			
+		 			var rsvblk = getprop(fuel~ "rte-rsv");
+		 			var rsv100 = getprop(fuel~ "rte-100");
+		 			
+		 			setprop(fuel_disp~ "rsv", rsvblk ~ "/" ~ rsv100 ~ "%");
+		 			
+		 			mcdu.init_B.update();
+		 			
+		 			mcdu.clear_inp();
+				</script>
+            </binding>
+        </action>
+	</animation>
+	
+	<animation>
+		<type>pick</type>
+		<object-name>l5</object-name>
+		<action>
+            <button>0</button>
+	   		<repeatable type="bool">false</repeatable>
+            <binding>
+				<command>nasal</command>
+		 		<script>
+		 		
+		 			var fuel = "/instrumentation/mcdu/fuel/";
+					var fuel_disp = "/instrumentation/mcdu/fuel/disp/";
+		 		
+		 			var input = getprop("/instrumentation/mcdu/input");
+		 			
+		 			var final = [];
+		 			
+		 			final = split("/", input);
+		 		
+		 			setprop(fuel~ "final-f", final[0]);
+					setprop(fuel~ "final-t", final[1]);
+					
+					setprop(fuel_disp~ "fin", final[0] ~ "/" ~ final[1]);
+					
+					mcdu.init_B.update();
+					
+					mcdu.clear_inp();
+				</script>
+            </binding>
+        </action>
+	</animation>
+	
+	<animation>
+		<type>pick</type>
+		<object-name>r1</object-name>
+		<action>
+            <button>0</button>
+	   		<repeatable type="bool">false</repeatable>
+            <binding>
+				<command>nasal</command>
+		 		<script>
+		 		
+		 			var fuel = "/instrumentation/mcdu/fuel/";
+					var fuel_disp = "/instrumentation/mcdu/fuel/disp/";
+		 		
+		 			var input = getprop("/instrumentation/mcdu/input");
+		 			
+		 			var zfw = [];
+		 			
+		 			zfw = split("/", input);
+		 		
+		 			setprop(fuel~ "zfw", zfw[0]);
+					setprop(fuel~ "zfw-cg", zfw[1]);
+					
+					setprop(fuel_disp~ "zfw", zfw[0] ~ "/" ~ zfw[1]);
+					
+					mcdu.init_B.update();
+					
+					mcdu.clear_inp();
+				</script>
+            </binding>
+        </action>
+	</animation>
+	
+	<animation>
+		<type>pick</type>
+		<object-name>r2</object-name>
+		<action>
+            <button>0</button>
+	   		<repeatable type="bool">false</repeatable>
+            <binding>
+				<command>nasal</command>
+		 		<script>
+		 		
+		 			var fuel = "/instrumentation/mcdu/fuel/";
+					var fuel_disp = "/instrumentation/mcdu/fuel/disp/";
+		 		
+		 			var input = getprop("/instrumentation/mcdu/input");
+					
+					setprop(fuel_disp~ "blk", input);
+					
+					mcdu.init_B.update();
+					
+					mcdu.clear_inp();
+				</script>
+            </binding>
+        </action>
+	</animation>
+	
+	<animation>
+		<type>pick</type>
+		<object-name>l_arrow</object-name>
+		<object-name>r_arrow</object-name>
+		<action>
+            <button>0</button>
+	   		<repeatable type="bool">false</repeatable>
+            <binding>
+				<command>nasal</command>
+		 		<script>
+					setprop("/instrumentation/mcdu/page", "init");
+					
+					mcdu.clear_inp();
+				</script>
+            </binding>
+        </action>
+	</animation>
+	
+	<!-- OSGText for non-empty fields -->
+	
+	<text>
+		<name>text-cyan</name>
+		<offsets>
+			<x-m>-0.0701</x-m>
+			<y-m>-0.0427</y-m>
+			<z-m>-0.0006</z-m>
+			<heading-deg>90</heading-deg>
+		</offsets>
+		<alignment>left-center</alignment>
+		<axis-alignment>xy-plane</axis-alignment>
+		<type type="string">number-value</type>
+		<format type="string">%1.1f</format>
+		<property>instrumentation/mcdu/fuel/taxi</property>
+		<truncate type="bool">false</truncate>
+		<font type="string">courier-bold.txf</font>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.003</character-size>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	
+	<text>
+		<name>text-cyan</name>
+		<offsets>
+			<x-m>-0.0521</x-m>
+			<y-m>-0.0427</y-m>
+			<z-m>-0.0006</z-m>
+			<heading-deg>90</heading-deg>
+		</offsets>
+		<alignment>left-center</alignment>
+		<axis-alignment>xy-plane</axis-alignment>
+		<type type="string">text-value</type>
+		<format type="string">%s</format>
+		<property>instrumentation/mcdu/fuel/disp/rsv</property>
+		<truncate type="bool">false</truncate>
+		<font type="string">courier-bold.txf</font>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.003</character-size>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	
+	<text>
+		<name>text-cyan</name>
+		<offsets>
+			<x-m>-0.0336</x-m>
+			<y-m>-0.0427</y-m>
+			<z-m>-0.0006</z-m>
+			<heading-deg>90</heading-deg>
+		</offsets>
+		<alignment>left-center</alignment>
+		<axis-alignment>xy-plane</axis-alignment>
+		<type type="string">text-value</type>
+		<format type="string">%s</format>
+		<property>instrumentation/mcdu/fuel/disp/fin</property>
+		<truncate type="bool">false</truncate>
+		<font type="string">courier-bold.txf</font>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.003</character-size>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	
+	<text>
+		<name>text-cyan</name>
+		<offsets>
+			<x-m>-0.0701</x-m>
+			<y-m>0.0422</y-m>
+			<z-m>-0.0006</z-m>
+			<heading-deg>90</heading-deg>
+		</offsets>
+		<alignment>right-center</alignment>
+		<axis-alignment>xy-plane</axis-alignment>
+		<type type="string">text-value</type>
+		<format type="string">%s</format>
+		<property>instrumentation/mcdu/fuel/disp/zfw</property>
+		<truncate type="bool">false</truncate>
+		<font type="string">courier-bold.txf</font>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.003</character-size>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	
+	<text>
+		<name>text-cyan</name>
+		<offsets>
+			<x-m>-0.0609</x-m>
+			<y-m>0.0422</y-m>
+			<z-m>-0.0006</z-m>
+			<heading-deg>90</heading-deg>
+		</offsets>
+		<alignment>right-center</alignment>
+		<axis-alignment>xy-plane</axis-alignment>
+		<type type="string">number-value</type>
+		<format type="string">%2.1f</format>
+		<property>instrumentation/mcdu/fuel/disp/blk</property>
+		<truncate type="bool">false</truncate>
+		<font type="string">courier-bold.txf</font>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.003</character-size>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	
+	<text>
+		<name>text-green</name>
+		<offsets>
+			<x-m>-0.0609</x-m>
+			<y-m>-0.0427</y-m>
+			<z-m>-0.0006</z-m>
+			<heading-deg>90</heading-deg>
+		</offsets>
+		<alignment>left-center</alignment>
+		<axis-alignment>xy-plane</axis-alignment>
+		<type type="string">text-value</type>
+		<format type="string">%s</format>
+		<property>instrumentation/mcdu/fuel/disp/trp</property>
+		<truncate type="bool">false</truncate>
+		<font type="string">courier-bold.txf</font>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.003</character-size>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	
+	<text>
+		<name>text-green</name>
+		<offsets>
+			<x-m>-0.0249</x-m>
+			<y-m>-0.0427</y-m>
+			<z-m>-0.0006</z-m>
+			<heading-deg>90</heading-deg>
+		</offsets>
+		<alignment>left-center</alignment>
+		<axis-alignment>xy-plane</axis-alignment>
+		<type type="string">text-value</type>
+		<format type="string">%s</format>
+		<property>instrumentation/mcdu/fuel/disp/ext</property>
+		<truncate type="bool">false</truncate>
+		<font type="string">courier-bold.txf</font>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.003</character-size>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	
+	<text>
+		<name>text-green</name>
+		<offsets>
+			<x-m>-0.0429</x-m>
+			<y-m>0.0422</y-m>
+			<z-m>-0.0006</z-m>
+			<heading-deg>90</heading-deg>
+		</offsets>
+		<alignment>right-center</alignment>
+		<axis-alignment>xy-plane</axis-alignment>
+		<type type="string">text-value</type>
+		<format type="string">%s</format>
+		<property>instrumentation/mcdu/fuel/disp/tow</property>
+		<truncate type="bool">false</truncate>
+		<font type="string">courier-bold.txf</font>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.003</character-size>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	
+	<text>
+		<name>text-green</name>
+		<offsets>
+			<x-m>-0.0338</x-m>
+			<y-m>0.0422</y-m>
+			<z-m>-0.0006</z-m>
+			<heading-deg>90</heading-deg>
+		</offsets>
+		<alignment>right-center</alignment>
+		<axis-alignment>xy-plane</axis-alignment>
+		<type type="string">number-value</type>
+		<format type="string">%2.1f</format>
+		<property>instrumentation/mcdu/fuel/disp/fob</property>
+		<truncate type="bool">false</truncate>
+		<font type="string">courier-bold.txf</font>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.003</character-size>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	
+</PropertyList>

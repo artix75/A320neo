@@ -595,7 +595,7 @@ YAW MOI_________3950000______23089847_______24848934
 <flight_control name="FCS: A320">
 	<channel name="Pitch">
 	<summer name="Pitch Trim Sum">
-		<input>fcs/elevator-cmd-norm</input>
+		<input>fcs/elevator-fbw-output</input>
 		<input>fcs/pitch-trim-cmd-norm</input>
 		<clipto>
 		<min>-1</min>
@@ -628,7 +628,7 @@ YAW MOI_________3950000______23089847_______24848934
 	</channel>
 	<channel name="Roll">
 	<summer name="Roll Trim Sum">
-		<input>fcs/aileron-cmd-norm</input>
+		<input>fcs/aileron-fbw-output</input>
 		<input>fcs/roll-trim-cmd-norm</input>
 		<clipto>
 		<min>-1</min>

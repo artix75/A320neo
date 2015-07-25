@@ -1,929 +1,757 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
-<!-- Airbus A320 for FlightGear -->
 <!-- Primary Flight Display -->
 
 <PropertyList>
 
-	<path>res/PFD2.ac</path>
-
-	<!-- 3D TEXT -->
-	<text>
-		<name>Autopilot IAS setting</name>
-		<offsets>
-			<x-m>0.0001</x-m>
-			<y-m>-0.073</y-m>
-			<z-m>0.045</z-m>
-		</offsets>
-		<alignment>left-center</alignment>
-		<axis-alignment>yz-plane</axis-alignment>
-		<type type="string">number-value</type>
-		<format type="string">%3.0f</format>
-		<property>autopilot/settings/target-speed-kt</property>
-		<font>helvetica_bold.txf</font>
-		<character-size>0.005</character-size>
-		<character-aspect-ratio type="double">1.5</character-aspect-ratio>
-		<font-resolution>
-			<width type="int">32</width>
-			<height type="int">32</height>
-		</font-resolution>
-	</text>
-	<text>
-		<name>Autopilot Mach setting</name>
-		<offsets>
-			<x-m>0.0001</x-m>
-			<y-m>-0.073</y-m>
-			<z-m>0.045</z-m>
-		</offsets>
-		<alignment>left-center</alignment>
-		<axis-alignment>yz-plane</axis-alignment>
-		<type type="string">number-value</type>
-		<format type="string">%1.2f</format>
-		<property>autopilot/settings/target-speed-mach</property>
-		<font>helvetica_bold.txf</font>
-		<character-size>0.005</character-size>
-		<character-aspect-ratio type="double">1.5</character-aspect-ratio>
-		<font-resolution>
-			<width type="int">32</width>
-			<height type="int">32</height>
-		</font-resolution>
-	</text>
+	<path>res/pfd-3d.ac</path>
+	
+	<!-- AP Indicators Select -->
+	
+	<!-- AUTO-THROTTLE SECTION -->
+	
 	<animation>
-		<name>Autopilot IAS setting select</name>
 		<type>select</type>
-		<object-name>Autopilot IAS setting</object-name>
+		<object-name>spd-ias</object-name>
 		<condition>
 			<equals>
-				<property>autopilot/settings/speed-mode</property>
-				<value>0</value>
+				<property>/flight-management/control/spd-mode</property>
+				<value>ias</value>
 			</equals>
 		</condition>
 	</animation>
+	
 	<animation>
-		<name>Autopilot Mach setting select</name>
 		<type>select</type>
-		<object-name>Autopilot Mach setting</object-name>
+		<object-name>spd-mach</object-name>
 		<condition>
 			<equals>
-				<property>autopilot/settings/speed-mode</property>
-				<value>1</value>
-			</equals>
-		</condition>
-	</animation>
-
-	<text>
-		<name>Autopilot altitude setting</name>
-		<offsets>
-			<x-m>0.0001</x-m>
-			<y-m>0.045</y-m>
-			<z-m>0.045</z-m>
-		</offsets>
-		<alignment>left-center</alignment>
-		<axis-alignment>yz-plane</axis-alignment>
-		<type type="string">number-value</type>
-		<format type="string">%5.0f</format>
-		<property>autopilot/settings/target-altitude-ft</property>
-		<font>helvetica_bold.txf</font>
-		<character-size>0.005</character-size>
-		<character-aspect-ratio type="double">1.5</character-aspect-ratio>
-		<font-resolution>
-			<width type="int">32</width>
-			<height type="int">32</height>
-		</font-resolution>
-	</text>
-
-	<text>
-		<name>Autopilot heading setting</name>
-		<offsets>
-			<x-m>0.0001</x-m>
-			<y-m>-0.046</y-m>
-			<z-m>-0.065</z-m>
-		</offsets>
-		<alignment>left-center</alignment>
-		<axis-alignment>yz-plane</axis-alignment>
-		<type type="string">number-value</type>
-		<format type="string">%3.0f</format>
-		<property>autopilot/settings/heading-bug-deg</property>
-		<font>helvetica_bold.txf</font>
-		<character-size>0.005</character-size>
-		<character-aspect-ratio type="double">1.5</character-aspect-ratio>
-		<font-resolution>
-			<width type="int">32</width>
-			<height type="int">32</height>
-		</font-resolution>
-	</text>
-
-	<text>
-		<name>Mach indicator</name>
-		<offsets>
-			<x-m>0.0001</x-m>
-			<y-m>-0.073</y-m>
-			<z-m>-0.044</z-m>
-		</offsets>
-		<alignment>left-center</alignment>
-		<axis-alignment>yz-plane</axis-alignment>
-		<type type="string">number-value</type>
-		<format type="string">%1.2f</format>
-		<property>velocities/mach</property>
-		<font>helvetica_bold.txf</font>
-		<character-size>0.005</character-size>
-		<character-aspect-ratio type="double">1.5</character-aspect-ratio>
-		<font-resolution>
-			<width type="int">32</width>
-			<height type="int">32</height>
-		</font-resolution>
-	</text>
-
-	<text>
-		<name>Altimeter barometer setting</name>
-		<offsets>
-			<x-m>0.0001</x-m>
-			<y-m>0.044</y-m>
-			<z-m>-0.044</z-m>
-		</offsets>
-		<alignment>left-center</alignment>
-		<axis-alignment>yz-plane</axis-alignment>
-		<type type="string">number-value</type>
-		<format type="string">%2.2f IN</format>
-		<property>instrumentation/altimeter/setting-inhg</property>
-		<font>helvetica_bold.txf</font>
-		<character-size>0.005</character-size>
-		<character-aspect-ratio type="double">1.5</character-aspect-ratio>
-		<font-resolution>
-			<width type="int">32</width>
-			<height type="int">32</height>
-		</font-resolution>
-	</text>
-
-	<!-- Emission animations -->
-	<animation>
-		<name>Cyan text</name>
-		<type>material</type>
-		<object-name>Autopilot IAS setting</object-name>
-		<object-name>Autopilot Mach setting</object-name>
-		<object-name>Autopilot altitude setting</object-name>
-		<object-name>Autopilot heading setting</object-name>
-		<object-name>Mach indicator</object-name>
-		<object-name>Altimeter barometer setting</object-name>
-		<emission>
-			<red>0.2</red>
-			<green>0.79</green>
-			<blue>0.8</blue>
-		</emission>
-	</animation>
-
-	<!-- ANIMATIONS -->
-	<!-- Lighting -->
-	<animation>
-		<name>Dome illumination</name>
-		<type>material</type>
-		<object-name>Border</object-name>
-		<object-name>Off</object-name>
-		<emission>
-			<red>0.5</red>
-			<green>0.5</green>
-			<blue>0.5</blue>
-			<factor-prop>controls/lighting/dome-norm</factor-prop>
-		</emission>
-	</animation>
-
-	<!-- Power on/off -->
-	<animation>
-		<name>Power on/off</name>
-		<type>select</type>
-		<object-name>Off</object-name>
-		<condition>
-			<less-than>
-				<property>systems/electrical/outputs/efis</property>
-				<value>15</value>
-			</less-than>
-		</condition>
-	</animation>
-
-	<!-- Autopilot indicators -->
-	<animation>
-		<name>Autopilot engaged indicator</name>
-		<type>select</type>
-		<object-name>APEng</object-name>
-		<condition>
-			<property>autopilot/settings/engaged</property>
-		</condition>
-	</animation>
-	<animation>
-		<name>Flight director indicator</name>
-		<type>select</type>
-		<object-name>APFD</object-name>
-		<condition>
-			<property>autopilot/settings/flight-director</property>
-		</condition>
-	</animation>
-	<animation>
-		<name>Autothrottle indicator</name>
-		<type>select</type>
-		<object-name>APAT</object-name>
-		<condition>
-			<property>autopilot/settings/autothrottle</property>
-		</condition>
-	</animation>
-
-	<animation>
-		<name>Autopilot speed hold indicator</name>
-		<type>select</type>
-		<object-name>APSpeed</object-name>
-		<condition>
-			<and>
-				<property>autopilot/settings/autothrottle</property>
-				<equals>
-					<property>autopilot/settings/speed</property>
-					<value></value>
-				</equals>
-			</and>
-		</condition>
-	</animation>
-	<animation>
-		<name>Autopilot TO/GA hold indicator</name>
-		<type>select</type>
-		<object-name>APToGa</object-name>
-		<condition>
-			<equals>
-				<property>autopilot/settings/speed</property>
-				<value>speed-to-ga</value>
-			</equals>
-		</condition>
-	</animation>
-
-	<animation>
-		<name>Autopilot heading hold indicator</name>
-		<type>select</type>
-		<object-name>APHdg</object-name>
-		<condition>
-			<equals>
-				<property>autopilot/settings/heading</property>
-				<value>dg-heading-hold</value>
-			</equals>
-		</condition>
-	</animation>
-	<animation>
-		<name>Autopilot LOC hold indicator</name>
-		<type>select</type>
-		<object-name>APLoc</object-name>
-		<condition>
-			<equals>
-				<property>autopilot/settings/heading</property>
-				<value>nav1-hold</value>
-			</equals>
-		</condition>
-	</animation>
-	<animation>
-		<name>Autopilot LNAV hold indicator</name>
-		<type>select</type>
-		<object-name>APLnav</object-name>
-		<condition>
-			<equals>
-				<property>autopilot/settings/heading</property>
-				<value>true-heading-hold</value>
-			</equals>
-		</condition>
-	</animation>
-
-	<animation>
-		<name>Autopilot altitude hold indicator</name>
-		<type>select</type>
-		<object-name>APAlt</object-name>
-		<condition>
-			<equals>
-				<property>autopilot/settings/altitude</property>
-				<value>altitude-hold</value>
-			</equals>
-		</condition>
-	</animation>
-	<animation>
-		<name>Autopilot approach hold indicator</name>
-		<type>select</type>
-		<object-name>APApp</object-name>
-		<condition>
-			<!--and-->
-				<equals>
-					<property>autopilot/settings/altitude</property>
-					<value>gs1-hold</value>
-				</equals>
-				<!--equals>
-					<property>autopilot/settings/heading</property>
-					<value>nav1-hold</value>
-				</equals>
-			</and-->
-		</condition>
-	</animation>
-
-	<!-- Attitude indicator -->
-	<animation>
-		<name>Attitude indicator</name>
-		<type>texmultiple</type>
-		<object-name>AI</object-name>
-		<transform>
-			<subtype>textranslate</subtype>
-			<property>orientation/pitch-deg</property>
-			<factor>0.003095703</factor>
-			<axis>
-				<x>0</x>
-				<y>1</y>
-			</axis>
-		</transform>
-		<transform>
-			<subtype>texrotate</subtype>
-			<property>orientation/roll-deg</property>
-			<axis>
-				<x>0</x>
-				<y>0</y>
-				<z>-1</z>
-			</axis>
-			<center>
-				<x>0.25</x>
-				<y>0.5</y>
-			</center>
-		</transform>
-	</animation>
-
-	<animation>
-		<name>Attitude indicator roll pointer</name>
-		<type>rotate</type>
-		<object-name>RollPtr</object-name>
-		<property>orientation/roll-deg</property>
-		<axis>
-			<x>1</x>
-			<y>0</y>
-			<z>0</z>
-		</axis>
-		<center>
-			<x-m>0</x-m>
-			<y-m>-0.0079</y-m>
-			<z-m>0.003</z-m>
-		</center>
-	</animation>
-
-	<!-- Flight director -->
-	<animation>
-		<name>Flight director select</name>
-		<type>select</type>
-		<object-name>FDPitch</object-name>
-		<object-name>FDRoll</object-name>
-		<condition>
-			<property>autopilot/settings/flight-director</property>
-		</condition>
-	</animation>
-	<animation>
-		<name>Flight director pitch</name>
-		<type>translate</type>
-		<object-name>FDPitch</object-name>
-		<property>autopilot/internal/flight-director-pitch-deg</property>
-		<interpolation>
-			<entry><ind>-30</ind><dep>-0.0367</dep></entry>
-			<entry><ind>0</ind><dep>-0.0008</dep></entry>
-			<entry><ind>30</ind><dep>0.0352</dep></entry>
-		</interpolation>
-		<axis>
-			<x>0</x>
-			<y>0</y>
-			<z>1</z>
-		</axis>
-	</animation>
-	<animation>
-		<name>Flight director roll</name>
-		<type>translate</type>
-		<object-name>FDRoll</object-name>
-		<property>autopilot/internal/flight-director-roll-deg</property>
-		<interpolation>
-			<entry><ind>-30</ind><dep>-0.038</dep></entry>
-			<entry><ind>0</ind><dep>0</dep></entry>
-			<entry><ind>30</ind><dep>0.038</dep></entry>
-		</interpolation>
-		<axis>
-			<x>0</x>
-			<y>1</y>
-			<z>0</z>
-		</axis>
-	</animation>
-
-	<!-- AGL display -->
-	<animation>
-		<name>AGL display select</name>
-		<type>select</type>
-		<object-name>AGL</object-name>
-		<object-name>AGL1</object-name>
-		<object-name>AGL10</object-name>
-		<object-name>AGL100</object-name>
-		<object-name>AGL1000</object-name>
-		<condition>
-			<less-than-equals>
-				<property>position/altitude-agl-ft</property>
-				<value>2000</value>
-			</less-than-equals>
-		</condition>
-	</animation>
-
-	<animation>
-		<name>AGL display 1000's</name>
-		<type>textranslate</type>
-		<object-name>AGL1000</object-name>
-		<property>position/altitude-agl-ft</property>
-		<factor>0.0001</factor>
-		<step>1000</step>
-		<axis>
-			<x>0</x>
-			<y>1</y>
-		</axis>
-	</animation>
-	<animation>
-		<name>AGL display 100's</name>
-		<type>textranslate</type>
-		<object-name>AGL100</object-name>
-		<property>position/altitude-agl-ft</property>
-		<factor>0.001</factor>
-		<step>100</step>
-		<axis>
-			<x>0</x>
-			<y>1</y>
-		</axis>
-	</animation>
-	<animation>
-		<name>AGL display 10's</name>
-		<type>textranslate</type>
-		<object-name>AGL10</object-name>
-		<property>position/altitude-agl-ft</property>
-		<factor>0.01</factor>
-		<step>10</step>
-		<axis>
-			<x>0</x>
-			<y>1</y>
-		</axis>
-	</animation>
-	<animation>
-		<name>AGL display 1's</name>
-		<type>textranslate</type>
-		<object-name>AGL1</object-name>
-		<property>position/altitude-agl-ft</property>
-		<factor>0.1</factor>
-		<step>1</step>
-		<axis>
-			<x>0</x>
-			<y>1</y>
-		</axis>
-	</animation>
-
-	<!-- ILS guides -->
-	<animation>
-		<name>ILS guides select</name>
-		<type>select</type>
-		<object-name>ILS</object-name>
-		<object-name>ILSPtr</object-name>
-		<object-name>GSTrack</object-name>
-		<object-name>GSPtr</object-name>
-		<condition>
-			<property>instrumentation/pfd/ils</property>
-		</condition>
-	</animation>
-
-	<animation>
-		<name>ILS lateral guide pointer translate</name>
-		<type>translate</type>
-		<object-name>ILSPtr</object-name>
-		<property>instrumentation/nav[0]/heading-needle-deflection</property>
-		<factor>0.00321</factor>
-		<axis>
-			<x>0</x>
-			<y>1</y>
-			<z>0</z>
-		</axis>
-	</animation>
-
-	<animation>
-		<name>ILS glideslope guide pointer translate</name>
-		<type>translate</type>
-		<object-name>GSPtr</object-name>
-		<property>instrumentation/nav[0]/gs-needle-deflection</property>
-		<factor>0.00321</factor>
-		<axis>
-			<x>0</x>
-			<y>0</y>
-			<z>1</z>
-		</axis>
-	</animation>
-
-	<!-- IAS indicator -->
-	<animation>
-		<name>IAS indicator tape translate</name>
-		<type>textranslate</type>
-		<object-name>Spd</object-name>
-		<property>instrumentation/airspeed-indicator/indicated-speed-kt</property>
-		<interpolation>
-			<entry><ind>0</ind><dep>0</dep></entry>
-			<entry><ind>560</ind><dep>0.752929687</dep></entry>
-		</interpolation>
-		<axis>
-			<x>0</x>
-			<y>1</y>
-		</axis>
-	</animation>
-
-	<animation>
-		<name>IAS bug select</name>
-		<type>select</type>
-		<object-name>SpdIASAP</object-name>
-		<condition>
-			<and>
-				<not>
-					<equals>
-						<property>autopilot/settings/speed-mode</property>
-						<value>mach</value>
-					</equals>
-				</not>
-				<less-than-equals>
-					<property>sim/model/A320neo/ias-bug-kt-norm</property>
-					<value>72</value>
-				</less-than-equals>
-				<greater-than-equals>
-					<property>sim/model/A320neo/ias-bug-kt-norm</property>
-					<value>-72</value>
-				</greater-than-equals>
-			</and>
-		</condition>
-	</animation>
-	<animation>
-		<name>IAS bug translate</name>
-		<type>translate</type>
-		<object-name>SpdIASAP</object-name>
-		<property>sim/model/A320neo/ias-bug-kt-norm</property>
-		<factor>0.00059</factor>
-		<axis>
-			<x>0</x>
-			<y>0</y>
-			<z>1</z>
-		</axis>
-	</animation>
-
-	<animation>
-		<name>Mach bug select</name>
-		<type>select</type>
-		<object-name>SpdMachAP</object-name>
-		<condition>
-			<equals>
-				<property>autopilot/settings/speed-mode</property>
+				<property>/flight-management/control/spd-mode</property>
 				<value>mach</value>
 			</equals>
 		</condition>
 	</animation>
+	
+	<!-- VERTICAL NAVIGATION SECTION -->
+	
 	<animation>
-		<name>Mach bug translate</name>
-		<type>translate</type>
-		<object-name>SpdMachAP</object-name>
-		<property>sim/model/A320neo/mach-bug-kt-norm</property>
-		<factor>0.00059</factor>
-		<axis>
-			<x>0</x>
-			<y>0</y>
-			<z>1</z>
-		</axis>
+		<type>select</type>
+		<object-name>gs_</object-name>
+		<condition>
+		<and>
+			<equals>
+				<property>/flight-management/control/ver-mode</property>
+				<value>ils</value>
+			</equals>
+			<equals>
+				<property>/flight-management/control/ver-ctrl</property>
+				<value>man-set</value>
+			</equals>
+		</and>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>vnav</object-name>
+		<condition>
+			<equals>
+				<property>/flight-management/control/ver-ctrl</property>
+				<value>fmgc</value>
+			</equals>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>lvlch</object-name>
+		<condition>
+		<and>
+			<greater-than>
+				<property>/velocities/vertical-speed-fps</property>
+				<value>8</value>
+			</greater-than>
+			<equals>
+				<property>/flight-management/control/ver-mode</property>
+				<value>alt</value>
+			</equals>
+			<equals>
+				<property>/flight-management/control/ver-ctrl</property>
+				<value>man-set</value>
+			</equals>
+		</and>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>lvlch</object-name>
+		<condition>
+		<and>
+			<less-than-equals>
+				<property>/velocities/vertical-speed-fps</property>
+				<value>8</value>
+			</less-than-equals>
+			<equals>
+				<property>/flight-management/control/ver-mode</property>
+				<value>alt</value>
+			</equals>
+			<equals>
+				<property>/flight-management/control/ver-ctrl</property>
+				<value>man-set</value>
+			</equals>
+		</and>
+		</condition>
+	</animation>
+	
+	<!-- LATERAL NAVIGATION SECTION -->
+	
+	<animation>
+		<type>select</type>
+		<object-name>loc_</object-name>
+		<condition>
+		<and>
+			<equals>
+				<property>/flight-management/control/lat-mode</property>
+				<value>nav1</value>
+			</equals>
+			<equals>
+				<property>/flight-management/control/lat-ctrl</property>
+				<value>man-set</value>
+			</equals>
+		</and>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>lnav</object-name>
+		<condition>
+			<equals>
+				<property>/flight-management/control/lat-ctrl</property>
+				<value>fmgc</value>
+			</equals>
+		</condition>
 	</animation>
 
-	<!-- Altimeter -->
 	<animation>
-		<name>Altimeter readout 10000's</name>
-		<type>textranslate</type>
-		<object-name>Alt10000</object-name>
-		<property>instrumentation/altimeter/indicated-altitude-ft</property>
-		<factor>0.00001</factor>
-		<step>10000</step>
-		<axis>
-			<x>0</x>
-			<y>1</y>
-		</axis>
+		<type>select</type>
+		<object-name>hdg</object-name>
+		<condition>
+		<and>
+			<equals>
+				<property>/flight-management/control/lat-mode</property>
+				<value>hdg</value>
+			</equals>
+			<equals>
+				<property>/flight-management/control/lat-ctrl</property>
+				<value>man-set</value>
+			</equals>
+		</and>
+		</condition>
 	</animation>
+	
+	<!-- MASTER AUTOPILOT SECTION -->
+	
+	<!-- AUTOPILOT 1 & 2 -->
+	
 	<animation>
-		<name>Altimeter readout 1000's</name>
-		<type>textranslate</type>
-		<object-name>Alt1000</object-name>
-		<property>instrumentation/altimeter/indicated-altitude-ft</property>
-		<factor>0.0001</factor>
-		<step>1000</step>
-		<axis>
-			<x>0</x>
-			<y>1</y>
-		</axis>
+		<type>select</type>
+		<object-name>ap1_</object-name>
+		<condition>
+			<equals>
+				<property>/flight-management/control/ap1-master</property>
+				<value>eng</value>
+			</equals>
+		</condition>
 	</animation>
+	
 	<animation>
-		<name>Altimeter readout 100's</name>
-		<type>textranslate</type>
-		<object-name>Alt100</object-name>
-		<property>instrumentation/altimeter/indicated-altitude-ft</property>
-		<factor>0.001</factor>
-		<step>100</step>
+		<type>select</type>
+		<object-name>ap2_</object-name>
+		<condition>
+			<equals>
+				<property>/flight-management/control/ap2-master</property>
+				<value>eng</value>
+			</equals>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>ap</object-name>
+		<condition>
+		<or>
+			<equals>
+				<property>/flight-management/control/ap1-master</property>
+				<value>eng</value>
+			</equals>
+			<equals>
+				<property>/flight-management/control/ap2-master</property>
+				<value>eng</value>
+			</equals>
+		</or>
+		</condition>
+	</animation>
+	
+	<!-- FLIGHT DIRECTOR (COME BACK LATER) -->
+	
+	<!-- AUTO-THROTTLE -->
+	
+	<animation>
+		<type>select</type>
+		<object-name>a-thr_</object-name>
+		<condition>
+			<equals>
+				<property>/flight-management/control/a-thrust</property>
+				<value>eng</value>
+			</equals>
+		</condition>
+	</animation>
+	
+	<!-- ################################################################### -->
+
+	<!-- ARTIFICIAL HORIZON -->
+	
+	<animation>
+        <type>texmultiple</type>
+        <object-name>horizon</object-name>
+        <transform>
+            <property>orientation/pitch-deg</property>
+            <subtype>textranslate</subtype>
+            <factor>0.003955078</factor>
+            <axis>
+                <x>0</x>
+                <y>1</y>
+            </axis>
+        </transform>
+        <transform>
+            <property>orientation/roll-deg</property>
+            <subtype>texrotate</subtype>
+            <center>
+                <x>0.50</x>
+                <y>0.50</y>
+            </center>
+            <axis>
+                <x>0</x>
+                <y>0</y>
+                <z>-1</z>
+            </axis>
+        </transform>
+    </animation>
+    
+    <animation>
+    	<type>rotate</type>
+    	<object-name>bank</object-name>
+    	<property>orientation/roll-deg</property>
+    	<center>
+    		<x-m>0</x-m>
+    		<y-m>-0.0049</y-m>
+    		<z-m>0.0005</z-m>
+    	</center>
+    	<axis>
+    		<x>1</x>
+    		<y>0</y>
+    		<z>0</z>
+    	</axis>
+    </animation>
+    
+    <!-- SPEED TAPE (S) -->
+    
+    <animation>
+    	<type>textranslate</type>
+    	<object-name>spd-tape</object-name>
+    	<object-name>stall-tape</object-name>
+    	<property>/velocities/airspeed-kt</property>
+    	<factor>0.002001953</factor>
+    	<axis>
+    		<y>1</y>
+    	</axis>
+    </animation>
+    
+    <!-- Stall Speed Tape Select -->
+    
+    <animation>
+		<type>select</type>
+		<object-name>stall-tape</object-name>
 		<condition>
 			<greater-than-equals>
-				<property>instrumentation/altimeter/indicated-altitude-ft</property>
-				<value>0</value>
+				<property>/position/altitude-agl-ft</property>
+				<value>30</value>
 			</greater-than-equals>
 		</condition>
-		<axis>
-			<x>0</x>
-			<y>1</y>
-		</axis>
 	</animation>
+	
+	<!-- Max Flap Extension speeds (Vfe) -->
+	
 	<animation>
-		<name>Altimeter readout 10's</name>
-		<type>textranslate</type>
-		<object-name>Alt10</object-name>
-		<property>instrumentation/altimeter/indicated-altitude-ft</property>
-		<factor>0.01</factor>
-		<condition>
-			<greater-than-equals>
-				<property>instrumentation/altimeter/indicated-altitude-ft</property>
-				<value>0</value>
-			</greater-than-equals>
-		</condition>
-		<axis>
-			<x>0</x>
-			<y>1</y>
-		</axis>
+		<type>texmultiple</type>
+		<object-name>vfe-tape</object-name>
+		<transform>
+			<subtype>textranslate</subtype>
+			<property>/velocities/airspeed-kt</property>
+    		<factor>0.002001953</factor>
+			<axis>
+				<x>0</x>
+				<y>1</y>
+				<z>0</z>
+			</axis>
+			</transform>
+			<transform>
+			<property>/controls/flight/flaps</property>
+			<subtype>textranslate</subtype>
+			<interpolation>
+				<entry><ind>0</ind><dep>0</dep></entry>
+				<entry><ind>0.29</ind><dep>0.0703125</dep></entry>
+				<entry><ind>0.596</ind><dep>0.140625</dep></entry>
+				<entry><ind>0.645</ind><dep>0.2109375</dep></entry>
+				<entry><ind>1</ind><dep>0.28125</dep></entry>
+			</interpolation>
+			<axis>
+				<x>1</x>
+				<y>0</y>
+				<z>0</z>
+			</axis>
+		</transform>
 	</animation>
+	
+	<!-- ALT TAPE (s) -->
+	
 	<animation>
-		<name>Altimeter readout 1's</name>
-		<type>textranslate</type>
-		<object-name>Alt1</object-name>
-		<property>instrumentation/altimeter/indicated-altitude-ft</property>
-		<factor>0.1</factor>
-		<condition>
-			<greater-than-equals>
-				<property>instrumentation/altimeter/indicated-altitude-ft</property>
-				<value>0</value>
-			</greater-than-equals>
-		</condition>
-		<axis>
-			<x>0</x>
-			<y>1</y>
-		</axis>
-	</animation>
+    	<type>textranslate</type>
+    	<object-name>alt-tape-1</object-name>
+    	<property>instrumentation/altimeter/indicated-altitude-ft</property>
+    	<factor>0.000019141</factor>
+    	<axis>
+    		<y>1</y>
+    	</axis>
+    </animation>
+    
+    <animation>
+    	<type>textranslate</type>
+    	<object-name>alt-tape-2</object-name>
+    	<property>instrumentation/altimeter/indicated-altitude-ft</property>
+    	<factor>0.009765625</factor>
+    	<axis>
+    		<y>1</y>
+    	</axis>
+    </animation>
+    
+    <!-- Vertical Speed Indicator (range: -60 to 60 fps) -->
+    
+    <animation>
+    	<type>texrotate</type>
+    	<object-name>vsi</object-name>
+    	<property>/velocities/vertical-speed-fps</property>
+    	<factor>-0.75</factor>
+    	<center>
+            <x>0.76</x>
+            <y>0.463</y>
+        </center>
+        <axis>
+                <x>0</x>
+                <y>0</y>
+                <z>-1</z>
+            </axis>
+    </animation>
+    
+    <!-- HEADING TAPE -->
+    
+    <animation>
+    	<type>textranslate</type>
+    	<object-name>hdg-tape</object-name>
+    	<property>/orientation/heading-deg</property>
+    	<factor>0.002832031</factor>
+    	<axis>
+    		<x>1</x>
+    	</axis>
+    </animation>
+    
+    <!-- Glideslope pointer -->
 
-	<animation>
-		<name>Altimeter tape 1 select</name>
-		<type>select</type>
-		<object-name>AltTape1</object-name>
-		<condition>
-			<less-than>
-				<property>instrumentation/altimeter/indicated-altitude-ft</property>
-				<value>9600</value>
-			</less-than>
-		</condition>
-	</animation>
-	<animation>
-		<name>Altimeter tape 1 translate</name>
-		<type>textranslate</type>
-		<object-name>AltTape1</object-name>
-		<property>instrumentation/altimeter/indicated-altitude-ft</property>
-		<interpolation>
-			<entry><ind>0</ind><dep>0</dep></entry>
-			<entry><ind>9600</ind><dep>0.9035</dep></entry>
-		</interpolation>
-		<axis>
-			<x>0</x>
-			<y>1</y>
-		</axis>
-	</animation>
+    <animation>
+        <type>select</type>
+        <object-name>gsscale</object-name>
+        <condition>
+            <property>instrumentation/nav/has-gs</property>
+        </condition>
+    </animation>
 
-	<animation>
-		<name>Altimeter tape 2 select</name>
-		<type>select</type>
-		<object-name>AltTape2</object-name>
-		<condition>
-			<and>
-				<greater-than-equals>
-					<property>instrumentation/altimeter/indicated-altitude-ft</property>
-					<value>9600</value>
-				</greater-than-equals>
-				<less-than>
-					<property>instrumentation/altimeter/indicated-altitude-ft</property>
-					<value>19200</value>
-				</less-than>
-			</and>
-		</condition>
-	</animation>
-	<animation>
-		<name>Altimeter tape 2 translate</name>
-		<type>textranslate</type>
-		<object-name>AltTape2</object-name>
-		<property>instrumentation/altimeter/indicated-altitude-ft</property>
-		<interpolation>
-			<entry><ind>9600</ind><dep>0</dep></entry>
-			<entry><ind>19200</ind><dep>0.9035</dep></entry>
-		</interpolation>
-		<axis>
-			<x>0</x>
-			<y>1</y>
-		</axis>
-	</animation>
+    <animation>
+        <type>select</type>
+        <object-name>gspointer</object-name>
+        <condition>
+            <and>
+                <property>instrumentation/nav/gs-in-range</property>
+                <property>instrumentation/nav/has-gs</property>
+            </and>
+        </condition>
+    </animation>
 
-	<animation>
-		<name>Altimeter tape 3 select</name>
-		<type>select</type>
-		<object-name>AltTape3</object-name>
-		<condition>
-			<and>
-				<greater-than-equals>
-					<property>instrumentation/altimeter/indicated-altitude-ft</property>
-					<value>19200</value>
-				</greater-than-equals>
-				<less-than>
-					<property>instrumentation/altimeter/indicated-altitude-ft</property>
-					<value>28800</value>
-				</less-than>
-			</and>
-		</condition>
-	</animation>
-	<animation>
-		<name>Altimeter tape 3 translate</name>
-		<type>textranslate</type>
-		<object-name>AltTape3</object-name>
-		<property>instrumentation/altimeter/indicated-altitude-ft</property>
-		<interpolation>
-			<entry><ind>19200</ind><dep>0</dep></entry>
-			<entry><ind>28800</ind><dep>0.9035</dep></entry>
-		</interpolation>
-		<axis>
-			<x>0</x>
-			<y>1</y>
-		</axis>
-	</animation>
+    <animation>
+        <type>translate</type>
+        <object-name>gspointer</object-name>
+        <property>instrumentation/nav/gs-needle-deflection-norm</property>
+        <factor>0.0322</factor>
+        <axis>
+            <x>0</x>
+            <y>0</y>
+            <z>1</z>
+        </axis>
+    </animation>
 
-	<animation>
-		<name>Altimeter tape 4 select</name>
-		<type>select</type>
-		<object-name>AltTape4</object-name>
-		<condition>
-			<and>
-				<greater-than-equals>
-					<property>instrumentation/altimeter/indicated-altitude-ft</property>
-					<value>28800</value>
-				</greater-than-equals>
-				<less-than>
-					<property>instrumentation/altimeter/indicated-altitude-ft</property>
-					<value>38400</value>
-				</less-than>
-			</and>
-		</condition>
-	</animation>
-	<animation>
-		<name>Altimeter tape 4 translate</name>
-		<type>textranslate</type>
-		<object-name>AltTape4</object-name>
-		<property>instrumentation/altimeter/indicated-altitude-ft</property>
-		<interpolation>
-			<entry><ind>28800</ind><dep>0</dep></entry>
-			<entry><ind>38400</ind><dep>0.9035</dep></entry>
-		</interpolation>
-		<axis>
-			<x>0</x>
-			<y>1</y>
-		</axis>
-	</animation>
+<!-- LOC pointer -->
 
-	<animation>
-		<name>Altimeter tape 5 select</name>
-		<type>select</type>
-		<object-name>AltTape5</object-name>
-		<condition>
-			<and>
-				<greater-than-equals>
-					<property>instrumentation/altimeter/indicated-altitude-ft</property>
-					<value>38400</value>
-				</greater-than-equals>
-				<less-than>
-					<property>instrumentation/altimeter/indicated-altitude-ft</property>
-					<value>48000</value>
-				</less-than>
-			</and>
-		</condition>
-	</animation>
-	<animation>
-		<name>Altimeter tape 5 translate</name>
-		<type>textranslate</type>
-		<object-name>AltTape5</object-name>
-		<property>instrumentation/altimeter/indicated-altitude-ft</property>
-		<interpolation>
-			<entry><ind>38400</ind><dep>0</dep></entry>
-			<entry><ind>48000</ind><dep>0.9035</dep></entry>
-		</interpolation>
-		<axis>
-			<x>0</x>
-			<y>1</y>
-		</axis>
-	</animation>
+    <animation>
+        <type>select</type>
+        <object-name>locscale</object-name>
+        <condition>
+            <property>instrumentation/nav/nav-loc</property>
+        </condition>
+    </animation>
 
-	<animation>
-		<name>Altimeter tape 6 select</name>
-		<type>select</type>
-		<object-name>AltTape6</object-name>
-		<condition>
-			<and>
-				<greater-than-equals>
-					<property>instrumentation/altimeter/indicated-altitude-ft</property>
-					<value>48000</value>
-				</greater-than-equals>
-				<less-than>
-					<property>instrumentation/altimeter/indicated-altitude-ft</property>
-					<value>57600</value>
-				</less-than>
-			</and>
-		</condition>
-	</animation>
-	<animation>
-		<name>Altimeter tape 6 translate</name>
-		<type>textranslate</type>
-		<object-name>AltTape6</object-name>
-		<property>instrumentation/altimeter/indicated-altitude-ft</property>
-		<interpolation>
-			<entry><ind>48000</ind><dep>0</dep></entry>
-			<entry><ind>57600</ind><dep>0.9035</dep></entry>
-		</interpolation>
-		<axis>
-			<x>0</x>
-			<y>1</y>
-		</axis>
-	</animation>
+    <animation>
+        <type>select</type>
+        <object-name>locpointer</object-name>
+        <condition>
+            <and>
+                <property>instrumentation/nav/in-range</property>
+                <property>instrumentation/nav/nav-loc</property>
+            </and>
+        </condition>
+    </animation>
 
-	<!-- Heading display -->
-	<animation>
-		<name>Magnetic heading compass texrotate</name>
-		<type>texrotate</type>
-		<object-name>Hdg</object-name>
-		<property>orientation/heading-magnetic-deg</property>
-		<axis>
-			<x>0</x>
-			<y>0</y>
-			<z>-1</z>
-		</axis>
-		<center>
-			<x>0.75</x>
-			<y>0.75</y>
-		</center>
-	</animation>
+    <animation>
+        <type>translate</type>
+        <object-name>locpointer</object-name>
+        <property>instrumentation/nav/heading-needle-deflection-norm</property>
+        <factor>-0.0322</factor>
+        <axis>
+            <x>0</x>
+            <y>-1</y>
+            <z>0</z>
+        </axis>
+    </animation>
+    
+    <!-- OSGText -->
+    
+    <!-- Next WPT Info -->
+    
+    <text>
+		<name>osgtext-magenta</name>
+		<offsets>
+			<x-m>0.0010</x-m>
+			<y-m>-0.0583</y-m>
+			<z-m>-0.049</z-m>
+		</offsets>
+		<alignment>center-center</alignment>
+		<axis-alignment>yz-plane</axis-alignment>
+		<type type="string">text-value</type>
+		<format type="string">%s</format>
+		<property>instrumentation/nav/nav-id</property>
+		<truncate type="bool">false</truncate>
+		<font type="string">helvetica_bold.txf</font>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.006</character-size>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	
+	<text>
+		<name>osgtext-magenta</name>
+		<offsets>
+			<x-m>0.0010</x-m>
+			<y-m>-0.0583</y-m>
+			<z-m>-0.055</z-m>
+		</offsets>
+		<alignment>center-center</alignment>
+		<axis-alignment>yz-plane</axis-alignment>
+		<type type="string">number-value</type>
+		<format type="string">%3.2f</format>
+		<property>instrumentation/nav/frequencies/selected-mhz</property>
+		<truncate type="bool">false</truncate>
+		<font type="string">helvetica_bold.txf</font>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.006</character-size>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	
+	<text>
+		<name>osgtext-magenta</name>
+		<offsets>
+			<x-m>0.0010</x-m>
+			<y-m>-0.0583</y-m>
+			<z-m>-0.061</z-m>
+		</offsets>
+		<alignment>center-center</alignment>
+		<axis-alignment>yz-plane</axis-alignment>
+		<type type="string">number-value</type>
+		<format type="string">%3.0f°</format>
+		<property>instrumentation/nav/heading-deg</property>
+		<truncate type="bool">false</truncate>
+		<font type="string">helvetica_bold.txf</font>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.006</character-size>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+    
+    <!-- ONH -->
 
-	<animation>
-		<name>Heading bug translate</name>
-		<type>translate</type>
-		<object-name>HdgAP</object-name>
-		<property>sim/model/A320neo/heading-bug-pfd-deg</property>
-		<factor>0.0004933</factor>
-		<axis>
-			<x>0</x>
-			<y>-1</y>
-			<z>0</z>
-		</axis>
-	</animation>
+	<text>
+		<name>osgtext-cyan</name>
+		<offsets>
+			<x-m>0.0010</x-m>
+			<y-m>0.05</y-m>
+			<z-m>-0.049</z-m>
+		</offsets>
+		<alignment>center-center</alignment>
+		<axis-alignment>yz-plane</axis-alignment>
+		<type type="string">number-value</type>
+		<format type="string">%2.2f</format>
+		<property>instrumentation/altimeter/setting-inhg</property>
+		<truncate type="bool">false</truncate>
+		<font type="string">helvetica_bold.txf</font>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.006</character-size>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
 
-	<!-- Vertical speed indicator -->
+	<text>
+		<name>osgtext-cyan</name>
+		<offsets>
+			<x-m>0.0010</x-m>
+			<y-m>0.05</y-m>
+			<z-m>-0.055</z-m>
+		</offsets>
+		<alignment>center-center</alignment>
+		<axis-alignment>yz-plane</axis-alignment>
+		<type type="string">text-value</type>
+		<format type="string">%s</format>
+		<truncate type="bool">false</truncate>
+		<font type="string">helvetica_bold.txf</font>
+		<property>flight-management/text/qnh</property>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.006</character-size>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	
+	<!-- Altitude -->
+	
+	<!-- Current Altitude 100s -->
+	
+	<text>
+		<name>osgtext-green</name>
+		<offsets>
+			<x-m>0.0010</x-m>
+			<y-m>0.0553</y-m>
+			<z-m>0.0002</z-m>
+		</offsets>
+		<alignment>right-center</alignment>
+		<axis-alignment>yz-plane</axis-alignment>
+		<type type="string">number-value</type>
+		<format type="string">%3.0f</format>
+		<property>flight-management/fcu-values/alt-100</property>
+		<truncate type="bool">false</truncate>
+		<font type="string">helvetica_bold.txf</font>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.007</character-size>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	
+	<!-- Radio Altimeter -->
+	
+	<text>
+		<name>radio-alt</name>
+		<offsets>
+			<x-m>0.0010</x-m>
+			<y-m>-0.0051</y-m>
+			<z-m>-0.0342</z-m>
+		</offsets>
+		<alignment>center-center</alignment>
+		<axis-alignment>yz-plane</axis-alignment>
+		<type type="string">number-value</type>
+		<format type="string">%4.0f</format>
+		<property>position/altitude-agl-ft</property>
+		<truncate type="bool">false</truncate>
+		<font type="string">helvetica_bold.txf</font>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.007</character-size>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	
+	<!-- Manually Set Altitude -->
+	
+	<text>
+		<name>osgtext-cyan</name>
+		<offsets>
+			<x-m>0.0010</x-m>
+			<y-m>0.0553</y-m>
+			<z-m>0.0462</z-m>
+		</offsets>
+		<alignment>right-center</alignment>
+		<axis-alignment>yz-plane</axis-alignment>
+		<type type="string">number-value</type>
+		<format type="string">%5.0f</format>
+		<property>flight-management/fcu-values/alt</property>
+		<truncate type="bool">false</truncate>
+		<font type="string">helvetica_bold.txf</font>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.006</character-size>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	
+	<!-- Radio Altimeter shows only when under 10000 ft -->
+	
 	<animation>
-		<name>Vertical speed needle</name>
-		<type>translate</type>
-		<object-name>VSPtr</object-name>
-		<property>velocities/vertical-speed-fps</property>
-		<interpolation>
-			<entry><ind>100</ind><dep>0.0328</dep></entry>
-			<entry><ind>66.667</ind><dep>0.0275</dep></entry>
-			<entry><ind>33.333</ind><dep>0.0217</dep></entry>
-			<entry><ind>16.667</ind><dep>0.0106</dep></entry>
-			<entry><ind>0</ind><dep>0</dep></entry>
-			<entry><ind>-16.667</ind><dep>-0.0111</dep></entry>
-			<entry><ind>-33.333</ind><dep>-0.022</dep></entry>
-			<entry><ind>-66.667</ind><dep>-0.0275</dep></entry>
-			<entry><ind>-100</ind><dep>-0.033</dep></entry>
-		</interpolation>
-		<axis>
-			<x>0</x>
-			<y>0</y>
-			<z>1</z>
-		</axis>
+        <type>select</type>
+        <object-name>radio-alt</object-name>
+        <condition>
+        	<less-than>
+            	<property>position/altitude-agl-ft</property>
+            	<value>3000</value>
+            </less-than>
+        </condition>
+    </animation>
+	
+	<!-- Material Animation -->
+	
+	<animation>
+		<type>material</type>
+		<object-name>osgtext-magenta</object-name>
+		<diffuse>
+			<red>1</red>
+			<green>0</green>
+			<blue>1</blue>
+		</diffuse>
+		<ambient>
+			<red>0</red>
+			<green>0</green>
+			<blue>0</blue>
+		</ambient>
+		<specular>
+			<red>0</red>
+			<green>0</green>
+			<blue>0</blue>
+		</specular>
+		<emission>
+			<red>1</red>
+			<green>0</green>
+			<blue>1</blue>
+		</emission>
 	</animation>
-
+	
 	<animation>
-		<name>Vertical speed autopilot bug</name>
-		<type>translate</type>
-		<object-name>VSAP</object-name>
-		<property>autopilot/settings/vertical-speed-fpm</property>
-		<interpolation>
-			<entry><ind>6000</ind><dep>0.0328</dep></entry>
-			<entry><ind>4000</ind><dep>0.0275</dep></entry>
-			<entry><ind>2000</ind><dep>0.0217</dep></entry>
-			<entry><ind>1000</ind><dep>0.0106</dep></entry>
-			<entry><ind>0</ind><dep>0</dep></entry>
-			<entry><ind>-1000</ind><dep>-0.0111</dep></entry>
-			<entry><ind>-2000</ind><dep>-0.022</dep></entry>
-			<entry><ind>-4000</ind><dep>-0.0275</dep></entry>
-			<entry><ind>-6000</ind><dep>-0.033</dep></entry>
-		</interpolation>
-		<axis>
-			<x>0</x>
-			<y>0</y>
-			<z>1</z>
-		</axis>
+		<type>material</type>
+		<object-name>osgtext-cyan</object-name>
+		<diffuse>
+			<red>0</red>
+			<green>0.886</green>
+			<blue>0.933</blue>
+		</diffuse>
+		<ambient>
+			<red>0</red>
+			<green>0</green>
+			<blue>0</blue>
+		</ambient>
+		<specular>
+			<red>0</red>
+			<green>0</green>
+			<blue>0</blue>
+		</specular>
+		<emission>
+			<red>0</red>
+			<green>0.886</green>
+			<blue>0.933</blue>
+		</emission>
+	</animation>
+	
+	<animation>
+		<type>material</type>
+		<object-name>osgtext-green</object-name>
+		<diffuse>
+			<red>0</red>
+			<green>0.843</green>
+			<blue>0</blue>
+		</diffuse>
+		<ambient>
+			<red>0</red>
+			<green>0</green>
+			<blue>0</blue>
+		</ambient>
+		<specular>
+			<red>0</red>
+			<green>0</green>
+			<blue>0</blue>
+		</specular>
+		<emission>
+			<red>0</red>
+			<green>0.843</green>
+			<blue>0</blue>
+		</emission>
+	</animation>
+	
+	<animation>
+		<type>material</type>
+		<object-name>radio-alt</object-name>
+		<diffuse>
+			<red>1</red>
+			<green>0.745</green>
+			<blue>0</blue>
+		</diffuse>
+		<ambient>
+			<red>0</red>
+			<green>0</green>
+			<blue>0</blue>
+		</ambient>
+		<specular>
+			<red>0</red>
+			<green>0</green>
+			<blue>0</blue>
+		</specular>
+		<emission>
+			<red>1</red>
+			<green>0.745</green>
+			<blue>0</blue>
+		</emission>
 	</animation>
 
 </PropertyList>

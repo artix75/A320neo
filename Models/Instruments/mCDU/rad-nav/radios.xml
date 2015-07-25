@@ -1,0 +1,1003 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+
+	<path>radios.ac</path>
+	
+	<!-- mCDU Display Brightness -->
+	
+	<animation>
+		<type>material</type>
+		<object-name>rad-nav-disp</object-name>
+		<object-name>vor1-empty</object-name>
+		<object-name>vor1-crs-empty</object-name>
+		<object-name>ils-empty</object-name>
+		<object-name>ils-crs-empty</object-name>
+		<object-name>vor2-empty</object-name>
+		<object-name>vor2-crs-empty</object-name>
+		<object-name>mls-empty</object-name>
+		<object-name>mls-crs-empty</object-name>
+		<emission>
+			<red>1</red>
+			<green>1</green>
+			<blue>1</blue>
+			<factor-prop>/instrumentation/mcdu/brt</factor-prop>
+		</emission>
+	</animation>
+	
+	<animation>
+		<type>material</type>
+		<object-name>vor1</object-name>
+		<object-name>vor1-crs</object-name>
+		<object-name>ils-lbl</object-name>
+		<object-name>ils-crs</object-name>
+		<object-name>vor2</object-name>
+		<object-name>vor2-crs</object-name>
+		<object-name>mls-lbl</object-name>
+		<object-name>mls-crs</object-name>
+		<object-name>adf1</object-name>
+		<object-name>adf2</object-name>
+		<emission>
+			<red>0</red>
+			<green>0.4823</green>
+			<blue>0.5372</blue>
+			<factor-prop>/instrumentation/mcdu/brt</factor-prop>
+		</emission>
+		<diffuse>
+			<red>0</red>
+			<green>0.4823</green>
+			<blue>0.5372</blue>
+		</diffuse>
+	</animation>
+	
+	<!-- Button Pick Animations -->
+	
+	<animation>
+		<type>pick</type>
+		<object-name>l1</object-name>
+		<action>
+            <button>0</button>
+	   		<repeatable type="bool">false</repeatable>
+            <binding>
+				<command>nasal</command>
+		 		<script>
+		 		
+		 			var radio = "/flight-management/freq/";
+		 		
+		 			var input = getprop("/instrumentation/mcdu/input");
+		 			
+		 			# Check if a frequency was entered or text
+		 			
+		 			var str = "";
+		 			
+		 			# Change Input to String for Substring Check
+		 			
+		 			str = str~ input;
+		 			
+		 			if (typeof(input) == "scalar") {
+		 			
+		 				 if (substr(input, 0, 1) == "1") { # FREQ
+		 				 
+		 				 	setprop(radio~ "vor1", input);
+		 				 
+		 				 } else { # NAV ID
+		 				 
+		 				 	setprop(radio~ "vor1", mcdu.rad_nav.search_vor(input));
+		 				 	
+		 				 	setprop(radio~ "vor1-id", input);
+		 				 
+		 				 }
+		 				
+		 				mcdu.clear_inp();
+		 			
+		 			} else {
+		 			
+		 				setprop("/instrumentation/mcdu/input", "ERROR: WRONG FORMAT");
+		 			
+		 			}
+		 			
+		 			#mcdu.rad_nav.nav_ids_update();
+		 			
+		 			if (getprop(radio~ "ils-mode") != 1) {
+		 			
+		 				mcdu.rad_nav.switch_nav1(0);
+		 			
+		 			}
+		 			
+				</script>
+            </binding>
+        </action>
+	</animation>
+	
+	<animation>
+		<type>pick</type>
+		<object-name>r1</object-name>
+		<action>
+            <button>0</button>
+	   		<repeatable type="bool">false</repeatable>
+            <binding>
+				<command>nasal</command>
+		 		<script>
+		 		
+		 			var radio = "/flight-management/freq/";
+		 		
+		 			var input = getprop("/instrumentation/mcdu/input");
+		 			
+		 			# Check if a frequency was entered or text
+		 			
+		 			var str = "";
+		 			
+		 			# Change Input to String for Substring Check
+		 			
+		 			str = str~ input;
+		 			
+		 			if (typeof(input) == "scalar") {
+		 			
+		 				 if (substr(input, 0, 1) == "1") { # FREQ
+		 				 
+		 				 	setprop(radio~ "vor2", input);
+		 				 
+		 				 } else { # NAV ID
+		 				 
+		 				 	setprop(radio~ "vor2", mcdu.rad_nav.search_vor(input));
+		 				 	
+		 				 	setprop(radio~ "vor2-id", input);
+		 				 
+		 				 }
+		 				
+		 				mcdu.clear_inp();
+		 			
+		 			} else {
+		 			
+		 				setprop("/instrumentation/mcdu/input", "ERROR: WRONG FORMAT");
+		 			
+		 			}
+		 			
+		 			#mcdu.rad_nav.nav_ids_update();
+		 			
+		 			if (getprop(radio~ "mls-mode") != 1) {
+		 			
+		 				mcdu.rad_nav.switch_nav2(0);
+		 			
+		 			}
+		 			
+				</script>
+            </binding>
+        </action>
+	</animation>
+	
+	<animation>
+		<type>pick</type>
+		<object-name>l2</object-name>
+		<action>
+            <button>0</button>
+	   		<repeatable type="bool">false</repeatable>
+            <binding>
+				<command>nasal</command>
+		 		<script>
+		 		
+		 			var input = getprop("/instrumentation/mcdu/input");
+		 			
+		 			var radio = "/flight-management/freq/";
+		 			
+		 			# Check if a frequency was entered or text
+		 			
+		 			if (typeof(input) == "scalar") {
+		 			
+						setprop(radio~ "vor1-crs", input);
+						
+						mcdu.clear_inp();
+		 			
+		 			} else {
+		 			
+		 				setprop("/instrumentation/mcdu/input", "ERROR: WRONG FORMAT");
+		 			
+		 			}
+		 			
+		 			if (getprop(radio~ "ils-mode") != 1) {
+		 			
+		 				mcdu.rad_nav.switch_nav1(0);
+		 			
+		 			}
+		 			
+				</script>
+            </binding>
+        </action>
+	</animation>
+	
+	<animation>
+		<type>pick</type>
+		<object-name>r2</object-name>
+		<action>
+            <button>0</button>
+	   		<repeatable type="bool">false</repeatable>
+            <binding>
+				<command>nasal</command>
+		 		<script>
+		 		
+		 			var input = getprop("/instrumentation/mcdu/input");
+		 			
+		 			var radio = "/flight-management/freq/";
+		 			
+		 			# Check if a frequency was entered or text
+		 			
+		 			if (typeof(input) == "scalar") {
+		 			
+						setprop(radio~ "vor2-crs", input);
+						
+						mcdu.clear_inp();
+		 			
+		 			} else {
+		 			
+		 				setprop("/instrumentation/mcdu/input", "ERROR: WRONG FORMAT");
+		 			
+		 			}
+		 			
+		 			if (getprop(radio~ "mls-mode") != 1) {
+		 			
+		 				mcdu.rad_nav.switch_nav2(0);
+		 			
+		 			}
+		 			
+				</script>
+            </binding>
+        </action>
+	</animation>
+	
+	<animation>
+		<type>pick</type>
+		<object-name>l3</object-name>
+		<action>
+            <button>0</button>
+	   		<repeatable type="bool">false</repeatable>
+            <binding>
+				<command>nasal</command>
+		 		<script>
+		 		
+		 			var input = getprop("/instrumentation/mcdu/input");
+		 			
+		 			var radio = "/flight-management/freq/";
+		 			
+		 			# Check if a frequency was entered or text
+		 			
+		 			if (typeof(input) == "scalar") {
+		 			
+						setprop(radio~ "ils", input);
+						
+						mcdu.clear_inp();
+		 			
+		 			} else {
+		 			
+		 				setprop("/instrumentation/mcdu/input", "ERROR: WRONG FORMAT");
+		 			
+		 			}
+		 			
+		 			#mcdu.rad_nav.nav_ids_update();
+		 			
+		 			if (getprop(radio~ "ils-mode")) {
+		 			
+		 				mcdu.rad_nav.switch_nav1(1);
+		 			
+		 			}
+		 			
+				</script>
+            </binding>
+        </action>
+	</animation>
+	
+	<animation>
+		<type>pick</type>
+		<object-name>l4</object-name>
+		<action>
+            <button>0</button>
+	   		<repeatable type="bool">false</repeatable>
+            <binding>
+				<command>nasal</command>
+		 		<script>
+		 		
+		 			var input = getprop("/instrumentation/mcdu/input");
+		 			
+		 			var radio = "/flight-management/freq/";
+		 			
+		 			# Check if a frequency was entered or text
+		 			
+		 			if (typeof(input) == "scalar") {
+		 			
+						setprop(radio~ "ils-crs", input);
+						
+						mcdu.clear_inp();
+		 			
+		 			} else {
+		 			
+		 				setprop("/instrumentation/mcdu/input", "ERROR: WRONG FORMAT");
+		 			
+		 			}
+		 			
+		 			if (getprop(radio~ "ils-mode")) {
+		 			
+		 				mcdu.rad_nav.switch_nav1(1);
+		 			
+		 			}
+		 			
+				</script>
+            </binding>
+        </action>
+	</animation>
+	
+	<animation>
+		<type>pick</type>
+		<object-name>r3</object-name>
+		<action>
+            <button>0</button>
+	   		<repeatable type="bool">false</repeatable>
+            <binding>
+				<command>nasal</command>
+		 		<script>
+		 		
+		 			var input = getprop("/instrumentation/mcdu/input");
+		 			
+		 			var radio = "/flight-management/freq/";
+		 			
+		 			# Check if a frequency was entered or text
+		 			
+		 			if (typeof(input) == "scalar") {
+		 			
+						setprop(radio~ "mls", input);
+						
+						mcdu.clear_inp();
+		 			
+		 			} else {
+		 			
+		 				setprop("/instrumentation/mcdu/input", "ERROR: WRONG FORMAT");
+		 			
+		 			}
+		 			
+		 			#mcdu.rad_nav.nav_ids_update();
+		 			
+		 			if (getprop(radio~ "mls-mode")) {
+		 			
+		 				mcdu.rad_nav.switch_nav2(1);
+		 			
+		 			}
+		 			
+				</script>
+            </binding>
+        </action>
+	</animation>
+	
+	<animation>
+		<type>pick</type>
+		<object-name>r4</object-name>
+		<action>
+            <button>0</button>
+	   		<repeatable type="bool">false</repeatable>
+            <binding>
+				<command>nasal</command>
+		 		<script>
+		 		
+		 			var input = getprop("/instrumentation/mcdu/input");
+		 			
+		 			var radio = "/flight-management/freq/";
+		 			
+		 			# Check if a frequency was entered or text
+		 			
+		 			if (typeof(input) == "scalar") {
+		 			
+						setprop(radio~ "mls-crs", input);
+						
+						mcdu.clear_inp();
+		 			
+		 			} else {
+		 			
+		 				setprop("/instrumentation/mcdu/input", "ERROR: WRONG FORMAT");
+		 			
+		 			}
+		 			
+		 			if (getprop(radio~ "mls-mode")) {
+		 			
+		 				mcdu.rad_nav.switch_nav2(1);
+		 			
+		 			}
+		 			
+				</script>
+            </binding>
+        </action>
+	</animation>
+	
+	<animation>
+		<type>pick</type>
+		<object-name>l5</object-name>
+		<action>
+            <button>0</button>
+	   		<repeatable type="bool">false</repeatable>
+            <binding>
+				<command>nasal</command>
+		 		<script>
+		 		
+		 			var input = getprop("/instrumentation/mcdu/input");
+		 			
+		 			# Check if a frequency was entered or text
+		 			
+		 			if (typeof(input) == "scalar") {
+		 			
+						setprop("/instrumentation/adf[0]/frequencies/selected-khz", input);
+						
+						mcdu.clear_inp();
+		 			
+		 			} else {
+		 			
+		 				setprop("/instrumentation/mcdu/input", "ERROR: WRONG FORMAT");
+		 			
+		 			}
+		 			
+				</script>
+            </binding>
+        </action>
+	</animation>
+	
+	<animation>
+		<type>pick</type>
+		<object-name>r5</object-name>
+		<action>
+            <button>0</button>
+	   		<repeatable type="bool">false</repeatable>
+            <binding>
+				<command>nasal</command>
+		 		<script>
+		 		
+		 			var input = getprop("/instrumentation/mcdu/input");
+		 			
+		 			# Check if a frequency was entered or text
+		 			
+		 			if (typeof(input) == "scalar") {
+		 			
+						setprop("/instrumentation/adf[1]/frequencies/selected-khz", input);
+						
+						mcdu.clear_inp();
+		 			
+		 			} else {
+		 			
+		 				setprop("/instrumentation/mcdu/input", "ERROR: WRONG FORMAT");
+		 			
+		 			}
+		 			
+				</script>
+            </binding>
+        </action>
+	</animation>
+	
+	<!-- Select Fields if they're not 0 and empty brackets when they are -->
+	
+	<animation>
+		<type>select</type>
+		<object-name>vor1-empty</object-name>
+		<condition>
+			<equals>
+				<property>/flight-management/freq/vor1</property>
+				<value>0</value>
+			</equals>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>vor2-empty</object-name>
+		<condition>
+			<equals>
+				<property>/flight-management/freq/vor2</property>
+				<value>0</value>
+			</equals>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>vor1-crs-empty</object-name>
+		<condition>
+			<equals>
+				<property>/flight-management/freq/vor1-crs</property>
+				<value>0</value>
+			</equals>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>vor2-crs-empty</object-name>
+		<condition>
+			<equals>
+				<property>/flight-management/freq/vor2-crs</property>
+				<value>0</value>
+			</equals>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>ils-empty</object-name>
+		<condition>
+			<equals>
+				<property>/flight-management/freq/ils</property>
+				<value>0</value>
+			</equals>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>mls-empty</object-name>
+		<condition>
+			<equals>
+				<property>/flight-management/freq/mls</property>
+				<value>0</value>
+			</equals>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>ils-crs-empty</object-name>
+		<condition>
+			<equals>
+				<property>/flight-management/freq/ils-crs</property>
+				<value>0</value>
+			</equals>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>mls-crs-empty</object-name>
+		<condition>
+			<equals>
+				<property>/flight-management/freq/mls-crs</property>
+				<value>0</value>
+			</equals>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>vor1</object-name>
+		<condition>
+			<not><equals>
+				<property>/flight-management/freq/vor1</property>
+				<value>0</value>
+			</equals></not>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>vor2</object-name>
+		<condition>
+			<not><equals>
+				<property>/flight-management/freq/vor2</property>
+				<value>0</value>
+			</equals></not>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>vor1-crs</object-name>
+		<condition>
+			<not><equals>
+				<property>/flight-management/freq/vor1-crs</property>
+				<value>0</value>
+			</equals></not>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>vor2-crs</object-name>
+		<condition>
+			<not><equals>
+				<property>/flight-management/freq/vor2-crs</property>
+				<value>0</value>
+			</equals></not>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>ils-lbl</object-name>
+		<condition>
+			<not><equals>
+				<property>/flight-management/freq/ils</property>
+				<value>0</value>
+			</equals></not>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>mls-lbl</object-name>
+		<condition>
+			<not><equals>
+				<property>/flight-management/freq/mls</property>
+				<value>0</value>
+			</equals></not>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>ils-crs</object-name>
+		<condition>
+			<not><equals>
+				<property>/flight-management/freq/ils-crs</property>
+				<value>0</value>
+			</equals></not>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>mls-crs</object-name>
+		<condition>
+			<not><equals>
+				<property>/flight-management/freq/mls-crs</property>
+				<value>0</value>
+			</equals></not>
+		</condition>
+	</animation>
+	
+	<!-- OSGText for non-empty fields -->
+	
+	<!-- Left Side -->
+	
+	<text>
+		<name>vor1</name>
+		<offsets>
+			<x-m>-0.0696</x-m>
+			<y-m>-0.0345</y-m>
+			<z-m>-0.0006</z-m>
+			<heading-deg>90</heading-deg>
+		</offsets>
+		<alignment>right-center</alignment>
+		<axis-alignment>xy-plane</axis-alignment>
+		<type type="string">text-value</type>
+		<format type="string">%s</format>
+		<property>flight-management/freq/vor1-id</property>
+		<truncate type="bool">false</truncate>
+		<font type="string">courier-bold.txf</font>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.003</character-size>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	
+	<text>
+		<name>vor1</name>
+		<offsets>
+			<x-m>-0.0696</x-m>
+			<y-m>-0.0299</y-m>
+			<z-m>-0.0006</z-m>
+			<heading-deg>90</heading-deg>
+		</offsets>
+		<alignment>left-center</alignment>
+		<axis-alignment>xy-plane</axis-alignment>
+		<type type="string">number-value</type>
+		<format type="string">%3.2f</format>
+		<property>flight-management/freq/vor1</property>
+		<truncate type="bool">false</truncate>
+		<font type="string">courier-bold.txf</font>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.003</character-size>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	
+	<text>
+		<name>vor1-crs</name>
+		<offsets>
+			<x-m>-0.0610</x-m>
+			<y-m>-0.0422</y-m>
+			<z-m>-0.0006</z-m>
+			<heading-deg>90</heading-deg>
+		</offsets>
+		<alignment>left-center</alignment>
+		<axis-alignment>xy-plane</axis-alignment>
+		<type type="string">number-value</type>
+		<format type="string">%3.0f</format>
+		<property>flight-management/freq/vor1-crs</property>
+		<truncate type="bool">false</truncate>
+		<font type="string">courier-bold.txf</font>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.003</character-size>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	
+	<text>
+		<name>ils-lbl</name>
+		<offsets>
+			<x-m>-0.0515</x-m>
+			<y-m>-0.0345</y-m>
+			<z-m>-0.0006</z-m>
+			<heading-deg>90</heading-deg>
+		</offsets>
+		<alignment>right-center</alignment>
+		<axis-alignment>xy-plane</axis-alignment>
+		<type type="string">text-value</type>
+		<format type="string">%s</format>
+		<property>flight-management/freq/ils-id</property>
+		<truncate type="bool">false</truncate>
+		<font type="string">courier-bold.txf</font>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.003</character-size>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	
+	<text>
+		<name>ils-lbl</name>
+		<offsets>
+			<x-m>-0.0515</x-m>
+			<y-m>-0.0299</y-m>
+			<z-m>-0.0006</z-m>
+			<heading-deg>90</heading-deg>
+		</offsets>
+		<alignment>left-center</alignment>
+		<axis-alignment>xy-plane</axis-alignment>
+		<type type="string">number-value</type>
+		<format type="string">%3.2f</format>
+		<property>flight-management/freq/ils</property>
+		<truncate type="bool">false</truncate>
+		<font type="string">courier-bold.txf</font>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.003</character-size>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	
+	<text>
+		<name>ils-crs</name>
+		<offsets>
+			<x-m>-0.0427</x-m>
+			<y-m>-0.0422</y-m>
+			<z-m>-0.0006</z-m>
+			<heading-deg>90</heading-deg>
+		</offsets>
+		<alignment>left-center</alignment>
+		<axis-alignment>xy-plane</axis-alignment>
+		<type type="string">number-value</type>
+		<format type="string">%3.0f</format>
+		<property>flight-management/freq/ils-crs</property>
+		<truncate type="bool">false</truncate>
+		<font type="string">courier-bold.txf</font>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.003</character-size>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	
+	<text>
+		<name>adf1</name>
+		<offsets>
+			<x-m>-0.0336</x-m>
+			<y-m>-0.0309</y-m>
+			<z-m>-0.0006</z-m>
+			<heading-deg>90</heading-deg>
+		</offsets>
+		<alignment>left-center</alignment>
+		<axis-alignment>xy-plane</axis-alignment>
+		<type type="string">number-value</type>
+		<format type="string">%3.0f</format>
+		<property>instrumentation/adf/frequencies/selected-khz</property>
+		<truncate type="bool">false</truncate>
+		<font type="string">courier-bold.txf</font>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.003</character-size>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	
+	<!-- Right Side -->
+	
+	<text>
+		<name>vor2</name>
+		<offsets>
+			<x-m>-0.0696</x-m>
+			<y-m>0.0330</y-m>
+			<z-m>-0.0006</z-m>
+			<heading-deg>90</heading-deg>
+		</offsets>
+		<alignment>left-center</alignment>
+		<axis-alignment>xy-plane</axis-alignment>
+		<type type="string">text-value</type>
+		<format type="string">%s</format>
+		<property>flight-management/freq/vor2-id</property>
+		<truncate type="bool">false</truncate>
+		<font type="string">courier-bold.txf</font>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.003</character-size>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	
+	<text>
+		<name>vor2</name>
+		<offsets>
+			<x-m>-0.0696</x-m>
+			<y-m>0.0286</y-m>
+			<z-m>-0.0006</z-m>
+			<heading-deg>90</heading-deg>
+		</offsets>
+		<alignment>right-center</alignment>
+		<axis-alignment>xy-plane</axis-alignment>
+		<type type="string">number-value</type>
+		<format type="string">%3.2f</format>
+		<property>flight-management/freq/vor2</property>
+		<truncate type="bool">false</truncate>
+		<font type="string">courier-bold.txf</font>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.003</character-size>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	
+	<text>
+		<name>vor2-crs</name>
+		<offsets>
+			<x-m>-0.0610</x-m>
+			<y-m>0.0409</y-m>
+			<z-m>-0.0006</z-m>
+			<heading-deg>90</heading-deg>
+		</offsets>
+		<alignment>right-center</alignment>
+		<axis-alignment>xy-plane</axis-alignment>
+		<type type="string">number-value</type>
+		<format type="string">%3.0f</format>
+		<property>flight-management/freq/vor2-crs</property>
+		<truncate type="bool">false</truncate>
+		<font type="string">courier-bold.txf</font>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.003</character-size>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	
+	<text>
+		<name>mls-lbl</name>
+		<offsets>
+			<x-m>-0.0515</x-m>
+			<y-m>0.0330</y-m>
+			<z-m>-0.0006</z-m>
+			<heading-deg>90</heading-deg>
+		</offsets>
+		<alignment>left-center</alignment>
+		<axis-alignment>xy-plane</axis-alignment>
+		<type type="string">text-value</type>
+		<format type="string">%s</format>
+		<property>flight-management/freq/mls-id</property>
+		<truncate type="bool">false</truncate>
+		<font type="string">courier-bold.txf</font>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.003</character-size>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	
+	<text>
+		<name>mls-lbl</name>
+		<offsets>
+			<x-m>-0.0515</x-m>
+			<y-m>0.0286</y-m>
+			<z-m>-0.0006</z-m>
+			<heading-deg>90</heading-deg>
+		</offsets>
+		<alignment>right-center</alignment>
+		<axis-alignment>xy-plane</axis-alignment>
+		<type type="string">number-value</type>
+		<format type="string">%3.2f</format>
+		<property>flight-management/freq/mls</property>
+		<truncate type="bool">false</truncate>
+		<font type="string">courier-bold.txf</font>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.003</character-size>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	
+	<text>
+		<name>mls-crs</name>
+		<offsets>
+			<x-m>-0.0427</x-m>
+			<y-m>0.0409</y-m>
+			<z-m>-0.0006</z-m>
+			<heading-deg>90</heading-deg>
+		</offsets>
+		<alignment>right-center</alignment>
+		<axis-alignment>xy-plane</axis-alignment>
+		<type type="string">number-value</type>
+		<format type="string">%3.0f</format>
+		<property>flight-management/freq/mls-crs</property>
+		<truncate type="bool">false</truncate>
+		<font type="string">courier-bold.txf</font>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.003</character-size>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	
+	<text>
+		<name>adf2</name>
+		<offsets>
+			<x-m>-0.0336</x-m>
+			<y-m>0.0296</y-m>
+			<z-m>-0.0006</z-m>
+			<heading-deg>90</heading-deg>
+		</offsets>
+		<alignment>right-center</alignment>
+		<axis-alignment>xy-plane</axis-alignment>
+		<type type="string">number-value</type>
+		<format type="string">%3.0f</format>
+		<property>instrumentation/adf[1]/frequencies/selected-khz</property>
+		<truncate type="bool">false</truncate>
+		<font type="string">courier-bold.txf</font>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.003</character-size>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	
+</PropertyList>

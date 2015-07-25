@@ -2,741 +2,1292 @@
 
 <PropertyList>
 
-	<path>res/a320neo.flightdeck.ac</path>
-
-	<!-- EXTRA MODELS -->
+	<path>res/fd_complete.ac</path>
+	
+	<!-- Overhead Panel -->
+	
 	<model>
-		<path>Aircraft/A320neo/Models/Instruments/PFD/PFD.xml</path>
+		<path>Aircraft/A320neo/Models/Instruments/OHpanel/OHpanel.xml</path>
 		<offsets>
-			<x-m>-17.173</x-m>
-			<y-m>-0.55</y-m>
-			<z-m>-1.98</z-m>
-			<pitch-deg>-15.0</pitch-deg>
+			<x-m>-0.006166</x-m>
+			<y-m>0</y-m>
+			<z-m>0.752541</z-m>
+			<pitch-deg>62</pitch-deg>
+		</offsets>
+	</model>
+	
+	<!-- VOR Instrument -->
+	
+	<model>
+		<path>Aircraft/A320neo/Models/Instruments/VOR/VOR.xml</path>
+		<offsets>
+			<x-m>-0.5540</x-m>
+			<y-m>-0.1342</y-m>
+			<z-m>-0.1600</z-m>
+			<pitch-deg>-16</pitch-deg>
+		</offsets>
+	</model>
+	
+	<!-- Brakes Pressure Indicator -->
+	
+	<model>
+		<path>Aircraft/A320neo/Models/Instruments/Brakes/Brakes.xml</path>
+		<offsets>
+			<x-m>-0.5495</x-m>
+			<y-m>0.1841</y-m>
+			<z-m>-0.1792</z-m>
+			<pitch-deg>-15</pitch-deg>
+		</offsets>
+	</model>
+	
+	<!-- Multi-purpose Control and Display Units -->
+	
+	<model>
+		<path>Aircraft/A320neo/Models/Instruments/mCDU/mCDU.xml</path>
+		<offsets>
+			<x-m>-0.4144</x-m>
+			<y-m>-0.1633</y-m>
+			<z-m>-0.3098</z-m>
+			<pitch-deg>12</pitch-deg>
 		</offsets>
 	</model>
 	
 	<model>
-	<path>Aircraft/A320neo/Models/Instruments/ND/ND.xml</path>
+		<path>Aircraft/A320neo/Models/Instruments/mCDU/mCDU.xml</path>
 		<offsets>
-			<x-m>-17.173</x-m>
-			<y-m>-0.35</y-m>
-			<z-m>-1.98</z-m>
-			<pitch-deg>-15.0</pitch-deg>
+			<x-m>-0.4144</x-m>
+			<y-m>0.1633</y-m>
+			<z-m>-0.3098</z-m>
+			<pitch-deg>12</pitch-deg>
 		</offsets>
+	</model>
+	
+	<!-- Primary Flight Displays -->
+	
+	<model>
+		<path>Aircraft/A320neo/Models/Instruments/PFD/PFD.xml</path>
+		<offsets>
+			<x-m>-0.5807</x-m>
+			<y-m>-0.51115</y-m>
+			<z-m>-0.0442</z-m>
+			<pitch-deg>-15</pitch-deg>
+		</offsets>
+		<condition>
+			<greater-than-equals>
+				<property>/systems/electrical/outputs/efis</property>
+				<value>12</value>
+			</greater-than-equals>
+		</condition>
+	</model>
+	
+	<model>
+		<path>Aircraft/A320neo/Models/Instruments/PFD/PFD.xml</path>
+		<offsets>
+			<x-m>-0.5807</x-m>
+			<y-m>0.51115</y-m>
+			<z-m>-0.0442</z-m>
+			<pitch-deg>-15</pitch-deg>
+		</offsets>
+		<condition>
+			<greater-than-equals>
+				<property>/systems/electrical/outputs/efis</property>
+				<value>12</value>
+			</greater-than-equals>
+		</condition>
+	</model>
+	
+	<!-- Navigational Displays -->
+	
+	<model>
+		<path>Aircraft/A320neo/Models/Instruments/ND/ND.xml</path>
+		<offsets>
+			<x-m>-0.5807</x-m>
+			<y-m>-0.3227</y-m>
+			<z-m>-0.0442</z-m>
+			<pitch-deg>-15</pitch-deg>
+		</offsets>
+		<condition>
+			<greater-than-equals>
+				<property>/systems/electrical/outputs/efis</property>
+				<value>12</value>
+			</greater-than-equals>
+		</condition>
 	</model>
 	
 	<model>
 		<path>Aircraft/A320neo/Models/Instruments/ND/ND.xml</path>
 		<offsets>
-			<x-m>-17.173</x-m>
-			<y-m>0.35</y-m>
-			<z-m>-1.98</z-m>
-			<pitch-deg>-15.0</pitch-deg>
+			<x-m>-0.5807</x-m>
+			<y-m>0.3161</y-m>
+			<z-m>-0.0442</z-m>
+			<pitch-deg>-15</pitch-deg>
 		</offsets>
+		<condition>
+			<greater-than-equals>
+				<property>/systems/electrical/outputs/efis</property>
+				<value>12</value>
+			</greater-than-equals>
+		</condition>
 	</model>
 	
+	<!-- Engine Indications and Crew Alerting System (Upper ECAM) -->
+	
 	<model>
-		<path>Aircraft/A320neo/Models/Instruments/PFD/PFD.xml</path>
+		<path>Aircraft/A320neo/Models/Instruments/Upper-ECAM/Upper-ECAM.xml</path>
 		<offsets>
-			<x-m>-17.173</x-m>
-			<y-m>0.55</y-m>
-			<z-m>-1.98</z-m>
-			<pitch-deg>-15.0</pitch-deg>
-		</offsets>
-	</model>
-
-	<model>
-		<path>Aircraft/A320neo/Models/Instruments/EICAS/EICAS_Airbus.xml</path>
-		<offsets>
-			<x-m>-17.173</x-m><!-- -17.173 -->
+			<x-m>-0.5807</x-m>
 			<y-m>0</y-m>
-			<z-m>-1.98</z-m>
-			<pitch-deg>-15.0</pitch-deg>
+			<z-m>-0.0442</z-m>
+			<pitch-deg>-15</pitch-deg>
 		</offsets>
-
-
+		<condition>
+			<greater-than-equals>
+				<property>/systems/electrical/outputs/efis</property>
+				<value>12</value>
+			</greater-than-equals>
+		</condition>
 	</model>
-
+	
+	<!-- Lower ECAM -->
+	
 	<model>
 		<path>Aircraft/A320neo/Models/Instruments/ECAM/ECAM.xml</path>
 		<offsets>
-			<x-m>-17.122</x-m><!-- -17.125 -->
+			<x-m>-0.53631</x-m>
 			<y-m>0</y-m>
-			<z-m>-2.175</z-m>
-			<pitch-deg>-15.0</pitch-deg>
+			<z-m>-0.21132</z-m>
+			<pitch-deg>-15</pitch-deg>
 		</offsets>
-	</model>
-
-	<model>
-		<name>MCP</name>
-		<path>Aircraft/A320neo/Models/Instruments/MCP/MCP.xml</path>
-		<offsets>
-			<x-m>-16.907</x-m>
-			<y-m>0</y-m>
-			<z-m>-1.723</z-m>
-			<pitch-deg>-15.0</pitch-deg>
-		</offsets>
-	</model>
-
-	<model>
-		<path>Aircraft/A320neo/Models/Instruments/Stby-AI/Stby-AI.xml</path>
-		<offsets>
-			<x-m>-17.169</x-m>
-			<y-m>-0.15</y-m>
-			<z-m>-2.011</z-m>
-			<pitch-deg>-15.0</pitch-deg>
-		</offsets>
-	</model>
-
-	<!--model>
-		<path>Aircraft/A320neo/Models/Instruments/Stby-ASI/Stby-ASI.xml</path>
-		<offsets>
-			<x-m>-17.184</x-m>
-			<y-m>-0.215</y-m>
-			<z-m>-1.949</z-m>
-			<pitch-deg>-15.0</pitch-deg>
-		</offsets>
-	</model-->
-
-	<!--model>
-		<path>Aircraft/A320neo/Models/Instruments/Altimeter/altimeter.xml</path>
-		<offsets>
-			<x-m>-17.17</x-m>
-			<y-m>-0.215</y-m>
-			<z-m>-2.014</z-m>
-			<pitch-deg>-15.0</pitch-deg>
-		</offsets>
-	</model-->
-
-	<model>
-		<path>Aircraft/A320neo/Models/Instruments/VOR/VOR.xml</path>
-		<offsets>
-			<x-m>-17.140</x-m>
-			<y-m>-0.15</y-m>
-			<z-m>-2.116</z-m>
-			<pitch-deg>-15.0</pitch-deg>
-		</offsets>
-	</model>
-
-	<model>
-		<name>Pilot CDU</name>
-		<path>Aircraft/Instruments-3d/cdu/boeing.xml</path>
-		<offsets>
-			<x-m>-16.971</x-m>
-			<y-m>-0.186</y-m>
-			<z-m>-2.292</z-m>
-			<pitch-deg>-78</pitch-deg>
-		</offsets>
-		<overlay>
-			<texture>boeing_grey.png</texture>
-		</overlay>
-	</model>
-
-	<model>
-		<name>Copilot CDU</name>
-		<path>Aircraft/Instruments-3d/cdu/boeing.xml</path>
-		<offsets>
-			<x-m>-16.971</x-m>
-			<y-m>0.186</y-m>
-			<z-m>-2.292</z-m>
-			<pitch-deg>-78</pitch-deg>
-		</offsets>
-		<overlay>
-			<texture>boeing_grey.png</texture>
-		</overlay>
-	</model>
-
-	<model>
-		<path>Aircraft/A320neo/Models/Instruments/ECAM-Switches/ECAM-Switches.xml</path>
-		<offsets>
-			<x-m>-17.031</x-m>
-			<y-m>0</y-m>
-			<z-m>-2.278</z-m>
-			<pitch-deg>-78</pitch-deg>
-		</offsets>
-	</model>
-
-	<model>
-		<path>Aircraft/A320neo/Models/Instruments/OHpanel/OHpanel.xml</path>
-		<offsets>
-			<x-m>-16.55</x-m>
-			<y-m>0</y-m>
-			<z-m>-1.19</z-m>
-			<pitch-deg>58</pitch-deg>
-		</offsets>
-	</model>
-
-	<model>
-		<name>Pilot radio panel</name>
-		<path>Aircraft/A320neo/Models/Instruments/Radiopanel/Radiopanel.xml</path>
-		<offsets>
-			<x-m>-16.811</x-m>
-			<y-m>-0.187</y-m>
-			<z-m>-2.325</z-m>
-			<pitch-deg>-78</pitch-deg>
-		</offsets>
-		<overlay>
-			<params>
-				<selected-mhz>instrumentation/nav[0]/frequencies/selected-mhz</selected-mhz>
-				<standby-mhz>instrumentation/nav[0]/frequencies/standby-mhz</standby-mhz>
-				<script-small-step-up><![CDATA[
-				 var setting = getprop("instrumentation/nav[0]/frequencies/standby-mhz");
-				 var max = 117.95;
-				 if (setting < max)
-				  {
-				  setprop("instrumentation/nav[0]/frequencies/standby-mhz", setting + 0.05);
-				  }
-				 if (setting > max)
-				  {
-				  setprop("instrumentation/nav[0]/frequencies/standby-mhz", max);
-				  }
-				]]></script-small-step-up>
-				<script-small-step-down><![CDATA[
-				 var setting = getprop("instrumentation/nav[0]/frequencies/standby-mhz");
-				 var min = 108;
-				 if (setting > min)
-				  {
-				  setprop("instrumentation/nav[0]/frequencies/standby-mhz", setting - 0.05);
-				  }
-				 if (setting < min)
-				  {
-				  setprop("instrumentation/nav[0]/frequencies/standby-mhz", min);
-				  }
-				]]></script-small-step-down>
-				<script-big-step-up><![CDATA[
-				 var setting = getprop("instrumentation/nav[0]/frequencies/standby-mhz");
-				 var max = 117.95;
-				 if (setting < max)
-				  {
-				  setprop("instrumentation/nav[0]/frequencies/standby-mhz", setting + 1);
-				  }
-				 if (setting > max)
-				  {
-				  setprop("instrumentation/nav[0]/frequencies/standby-mhz", max);
-				  }
-				]]></script-big-step-up>
-				<script-big-step-down><![CDATA[
-				 var setting = getprop("instrumentation/nav[0]/frequencies/standby-mhz");
-				 var min = 108;
-				 if (setting > min)
-				  {
-				  setprop("instrumentation/nav[0]/frequencies/standby-mhz", setting - 1);
-				  }
-				 if (setting < min)
-				  {
-				  setprop("instrumentation/nav[0]/frequencies/standby-mhz", min);
-				  }
-				]]></script-big-step-down>
-				<script-swap>
-				 var setting1 = getprop("instrumentation/nav[0]/frequencies/selected-mhz");
-				 var setting2 = getprop("instrumentation/nav[0]/frequencies/standby-mhz");
-				 setprop("instrumentation/nav[0]/frequencies/standby-mhz", setting1);
-				 setprop("instrumentation/nav[0]/frequencies/selected-mhz", setting2);
-				</script-swap>
-			</params>
-		</overlay>
-	</model>
-
-	<model>
-		<name>Copilot radio panel</name>
-		<path>Aircraft/A320neo/Models/Instruments/Radiopanel/Radiopanel.xml</path>
-		<offsets>
-			<x-m>-16.811</x-m>
-			<y-m>0.187</y-m>
-			<z-m>-2.325</z-m>
-			<pitch-deg>-78</pitch-deg>
-		</offsets>
-		<overlay>
-			<params>
-				<selected-mhz>instrumentation/nav[1]/frequencies/selected-mhz</selected-mhz>
-				<standby-mhz>instrumentation/nav[1]/frequencies/standby-mhz</standby-mhz>
-				<script-small-step-up><![CDATA[
-				 var setting = getprop("instrumentation/nav[1]/frequencies/standby-mhz");
-				 var max = 117.95;
-				 if (setting < max)
-				  {
-				  setprop("instrumentation/nav[1]/frequencies/standby-mhz", setting + 0.05);
-				  }
-				 if (setting > max)
-				  {
-				  setprop("instrumentation/nav[1]/frequencies/standby-mhz", max);
-				  }
-				]]></script-small-step-up>
-				<script-small-step-down><![CDATA[
-				 var setting = getprop("instrumentation/nav[1]/frequencies/standby-mhz");
-				 var min = 108;
-				 if (setting > min)
-				  {
-				  setprop("instrumentation/nav[1]/frequencies/standby-mhz", setting - 0.05);
-				  }
-				 if (setting < min)
-				  {
-				  setprop("instrumentation/nav[1]/frequencies/standby-mhz", min);
-				  }
-				]]></script-small-step-down>
-				<script-big-step-up><![CDATA[
-				 var setting = getprop("instrumentation/nav[1]/frequencies/standby-mhz");
-				 var max = 117.95;
-				 if (setting < max)
-				  {
-				  setprop("instrumentation/nav[1]/frequencies/standby-mhz", setting + 1);
-				  }
-				 if (setting > max)
-				  {
-				  setprop("instrumentation/nav[1]/frequencies/standby-mhz", max);
-				  }
-				]]></script-big-step-up>
-				<script-big-step-down><![CDATA[
-				 var setting = getprop("instrumentation/nav[1]/frequencies/standby-mhz");
-				 var min = 108;
-				 if (setting > min)
-				  {
-				  setprop("instrumentation/nav[1]/frequencies/standby-mhz", setting - 1);
-				  }
-				 if (setting < min)
-				  {
-				  setprop("instrumentation/nav[1]/frequencies/standby-mhz", min);
-				  }
-				]]></script-big-step-down>
-				<script-swap>
-				 var setting1 = getprop("instrumentation/nav[1]/frequencies/selected-mhz");
-				 var setting2 = getprop("instrumentation/nav[1]/frequencies/standby-mhz");
-				 setprop("instrumentation/nav[1]/frequencies/standby-mhz", setting1);
-				 setprop("instrumentation/nav[1]/frequencies/selected-mhz", setting2);
-				</script-swap>
-			</params>
-		</overlay>
-	</model>
-
-	<!-- ANIMATIONS -->
-	<!-- Dome lighting -->
-	<animation>
-		<name>Dome illumination</name>
-		<type>material</type>
-		<object-name>Cockpit</object-name>
-		<object-name>MCP</object-name>
-<!--		<object-name>Pilot CDU</object-name>
-		<object-name>Copilot CDU</object-name>-->
-		<object-name>Pilot radio panel</object-name>
-		<object-name>Copilot radio panel</object-name>
-		<emission>
-			<red>0.5</red>
-			<green>0.5</green>
-			<blue>0.5</blue>
-			<factor-prop>controls/lighting/dome-norm</factor-prop>
-		</emission>
-	</animation>
-
-	<!-- Panel lighting -->
-	<animation>
-		<name>Panel lighting select</name>
-		<type>select</type>
-		<object-name>PanelMarkingLts</object-name>
 		<condition>
-			<or>
-				<not>
-					<property>controls/lighting/dome-norm</property>
-				</not>
-				<and>
-					<equals>
-						<property>controls/lighting/dome-norm</property>
-						<value>0.5</value>
-					</equals>
-					<greater-than>
-						<property>controls/lighting/main-panel-pedestal-norm</property>
-						<value>0.25</value>
-					</greater-than>
-				</and>
-				<and>
-					<equals>
-						<property>controls/lighting/dome-norm</property>
-						<value>1</value>
-					</equals>
-					<greater-than>
-						<property>controls/lighting/main-panel-pedestal-norm</property>
-						<value>0.5</value>
-					</greater-than>
-				</and>
-			</or>
+			<greater-than-equals>
+				<property>/systems/electrical/outputs/efis</property>
+				<value>12</value>
+			</greater-than-equals>
 		</condition>
-	</animation>
+	</model>
+	
+	<!-- Flight Control Unit Animations -->
+	
 	<animation>
-		<name>Panel no lighting select</name>
 		<type>select</type>
-		<object-name>PanelMarkings</object-name>
-		<condition>
-			<or>
-				<and>
-					<equals>
-						<property>controls/lighting/dome-norm</property>
-						<value>0.5</value>
-					</equals>
-					<less-than-equals>
-						<property>controls/lighting/main-panel-pedestal-norm</property>
-						<value>0.25</value>
-					</less-than-equals>
-				</and>
-				<and>
-					<equals>
-						<property>controls/lighting/dome-norm</property>
-						<value>1</value>
-					</equals>
-					<less-than-equals>
-						<property>controls/lighting/main-panel-pedestal-norm</property>
-						<value>0.5</value>
-					</less-than-equals>
-				</and>
-			</or>
-		</condition>
-	</animation>
-	<animation>
-		<name>Panel lighting</name>
-		<type>material</type>
-		<object-name>PanelMarkingLts</object-name>
-		<emission>
-			<red>1</red>
-			<green>1</green>
-			<blue>1</blue>
-			<factor-prop>controls/lighting/main-panel-pedestal-norm</factor-prop>
-		</emission>
-	</animation>
-
-	<!-- Master Warning -->
-	<animation>
-		<name>Master Warning pick</name>
-		<type>pick</type>
-		<object-name>MasterWarning</object-name>
-		<action>
-			<button>0</button>
-			<repeatable type="bool">false</repeatable>
-			<binding>
-				<command>property-toggle</command>
-				<property>sim/alarms/master-warning</property>
-			</binding>
-		</action>
-	</animation>
-	<animation>
-		<name>Master Warning textranslate</name>
-		<type>textranslate</type>
-		<object-name>MasterWarning</object-name>
-		<property>sim/alarms/master-warning</property>
-		<factor>0.25</factor>
-		<axis>
-			<x>-1</x>
-			<y>0</y>
-		</axis>
-<emissive>true</emissive>
-	</animation>
-
-	<!-- Master caution -->
-	<animation>
-		<name>Master caution pick</name>
-		<type>pick</type>
-		<object-name>MasterCaution</object-name>
-		<action>
-			<button>0</button>
-			<repeatable type="bool">false</repeatable>
-			<binding>
-				<command>property-toggle</command>
-				<property>sim/alarms/master-caution</property>
-			</binding>
-		</action>
-	</animation>
-	<animation>
-		<name>Master caution textranslate</name>
-		<type>textranslate</type>
-		<object-name>MasterCaution</object-name>
-		<property>sim/alarms/master-caution</property>
-		<factor>0.25</factor>
-		<axis>
-			<x>-1</x>
-			<y>0</y>
-		</axis>
-	</animation>
-
-	<!-- Landing gear indicator lights -->
-	<animation>
-		<name>Left landing gear unlocked</name>
-		<type>select</type>
-		<object-name>GearLTransit</object-name>
+		<object-name>spd.ind</object-name>
 		<condition>
 			<and>
-				<greater-than>
-					<property>gear/gear[1]/position-norm</property>
-					<value>0</value>
-				</greater-than>
-				<less-than>
-					<property>gear/gear[1]/position-norm</property>
-					<value>1</value>
-				</less-than>
-			</and>
-		</condition>
-	</animation>
-	<animation>
-		<name>Left landing gear down</name>
-		<type>select</type>
-		<object-name>GearLDown</object-name>
-		<condition>
-			<equals>
-				<property>gear/gear[1]/position-norm</property>
-				<value>1</value>
-			</equals>
-		</condition>
-	</animation>
-	<animation>
-		<name>Nose landing gear unlocked</name>
-		<type>select</type>
-		<object-name>GearNTransit</object-name>
-		<condition>
-			<and>
-				<greater-than>
-					<property>gear/gear[0]/position-norm</property>
-					<value>0</value>
-				</greater-than>
-				<less-than>
-					<property>gear/gear[0]/position-norm</property>
-					<value>1</value>
-				</less-than>
-			</and>
-		</condition>
-	</animation>
-	<animation>
-		<name>Nose landing gear down</name>
-		<type>select</type>
-		<object-name>GearNDown</object-name>
-		<condition>
-			<equals>
-				<property>gear/gear[0]/position-norm</property>
-				<value>1</value>
-			</equals>
-		</condition>
-	</animation>
-	<animation>
-		<name>Right landing gear unlocked</name>
-		<type>select</type>
-		<object-name>GearRTransit</object-name>
-		<condition>
-			<and>
-				<greater-than>
-					<property>gear/gear[2]/position-norm</property>
-					<value>0</value>
-				</greater-than>
-				<less-than>
-					<property>gear/gear[2]/position-norm</property>
-					<value>1</value>
-				</less-than>
-			</and>
-		</condition>
-	</animation>
-	<animation>
-		<name>Right landing gear down</name>
-		<type>select</type>
-		<object-name>GearRDown</object-name>
-		<condition>
-			<equals>
-				<property>gear/gear[2]/position-norm</property>
-				<value>1</value>
-			</equals>
-		</condition>
-	</animation>
-
-	<!-- Autobrake controls -->
-	<animation>
-		<name>Autobrake low pick</name>
-		<type>pick</type>
-		<object-name>AutobrakeLoBtn</object-name>
-		<object-name>AutobrakeLoDecel</object-name>
-		<object-name>AutobrakeLoOn</object-name>
-		<action>
-			<button>0</button>
-			<repeatable type="bool">false</repeatable>
-			<binding>
-				<command>property-cycle</command>
-				<property>autopilot/autobrake/step</property>
-				<value type="int">1</value>
-				<value type="int">0</value>
-			</binding>
-		</action>
-	</animation>
-	<animation>
-		<name>Autobrake low decel</name>
-		<type>select</type>
-		<object-name>AutobrakeLoDecel</object-name>
-		<condition>
-			<and>
-				<property>autopilot/autobrake/engaged</property>
 				<equals>
-					<property>autopilot/autobrake/step</property>
-					<value>1</value>
+					<property>/flight-management/control/spd-ctrl</property>
+					<value>man-set</value>
+				</equals>
+				<equals>
+					<property>/flight-management/control/spd-mode</property>
+					<value>ias</value>
 				</equals>
 			</and>
 		</condition>
 	</animation>
+	
 	<animation>
-		<name>Autobrake low on</name>
 		<type>select</type>
-		<object-name>AutobrakeLoOn</object-name>
-		<condition>
-			<equals>
-				<property>autopilot/autobrake/step</property>
-				<value>1</value>
-			</equals>
-		</condition>
-	</animation>
-
-	<animation>
-		<name>Autobrake medium pick</name>
-		<type>pick</type>
-		<object-name>AutobrakeMeBtn</object-name>
-		<object-name>AutobrakeMeDecel</object-name>
-		<object-name>AutobrakeMeOn</object-name>
-		<action>
-			<button>0</button>
-			<repeatable type="bool">false</repeatable>
-			<binding>
-				<command>property-cycle</command>
-				<property>autopilot/autobrake/step</property>
-				<value type="int">2</value>
-				<value type="int">0</value>
-			</binding>
-		</action>
-	</animation>
-	<animation>
-		<name>Autobrake medium decel</name>
-		<type>select</type>
-		<object-name>AutobrakeMeDecel</object-name>
+		<object-name>mach.ind</object-name>
 		<condition>
 			<and>
-				<property>autopilot/autobrake/engaged</property>
 				<equals>
-					<property>autopilot/autobrake/step</property>
-					<value>2</value>
+					<property>/flight-management/control/spd-ctrl</property>
+					<value>man-set</value>
+				</equals>
+				<equals>
+					<property>/flight-management/control/spd-mode</property>
+					<value>mach</value>
 				</equals>
 			</and>
 		</condition>
 	</animation>
+	
 	<animation>
-		<name>Autobrake medium on</name>
 		<type>select</type>
-		<object-name>AutobrakeMeOn</object-name>
-		<condition>
-			<equals>
-				<property>autopilot/autobrake/step</property>
-				<value>2</value>
-			</equals>
-		</condition>
-	</animation>
-
-	<animation>
-		<name>Autobrake maximum pick</name>
-		<type>pick</type>
-		<object-name>AutobrakeHiBtn</object-name>
-		<object-name>AutobrakeHiDecel</object-name>
-		<object-name>AutobrakeHiOn</object-name>
-		<action>
-			<button>0</button>
-			<repeatable type="bool">false</repeatable>
-			<binding>
-				<command>property-cycle</command>
-				<property>autopilot/autobrake/step</property>
-				<value type="int">3</value>
-				<value type="int">0</value>
-			</binding>
-		</action>
-	</animation>
-	<animation>
-		<name>Autobrake max decel</name>
-		<type>select</type>
-		<object-name>AutobrakeHiDecel</object-name>
+		<object-name>spd.ind</object-name>
 		<condition>
 			<and>
-				<property>autopilot/autobrake/engaged</property>
-				<property>autopilot/autobrake/max-selected</property>
+				<equals>
+					<property>/flight-management/control/spd-ctrl</property>
+					<value>man-set</value>
+				</equals>
+				<equals>
+					<property>/flight-management/control/spd-mode</property>
+					<value>ias</value>
+				</equals>
 			</and>
 		</condition>
 	</animation>
+	
 	<animation>
-		<name>Autobrake max on</name>
 		<type>select</type>
-		<object-name>AutobrakeHiOn</object-name>
+		<object-name>spd.fmgc</object-name>
 		<condition>
-			<property>autopilot/autobrake/max-selected</property>
+			<equals>
+				<property>/flight-management/control/spd-ctrl</property>
+				<value>fmgc</value>
+			</equals>
 		</condition>
 	</animation>
-
-	<!-- Landing gear lever -->
+	
 	<animation>
-		<name>Landing gear lever pick</name>
-		<type>pick</type>
-		<object-name>GearLever</object-name>
-		<action>
-			<button>0</button>
-			<repeatable type="bool">false</repeatable>
-			<binding>
-				<command>property-toggle</command>
-				<property>controls/gear/gear-down</property>
-			</binding>
-		</action>
+		<type>select</type>
+		<object-name>lat.fmgc</object-name>
+		<condition>
+			<equals>
+				<property>/flight-management/control/lat-ctrl</property>
+				<value>fmgc</value>
+			</equals>
+		</condition>
 	</animation>
+	
 	<animation>
-		<name>Landing gear lever rotate</name>
-		<type>rotate</type>
-		<object-name>GearLever</object-name>
-		<property>controls/gear/gear-down</property>
-		<factor>78</factor>
-		<center>
-			<x-m>-17.173</x-m>
-			<y-m>0</y-m>
-			<z-m>-2.125</z-m>
-		</center>
-		<axis>
-			<x>0</x>
-			<y>1</y>
-			<z>0</z>
-		</axis>
+		<type>select</type>
+		<object-name>ver.fmgc</object-name>
+		<condition>
+			<equals>
+				<property>/flight-management/control/ver-ctrl</property>
+				<value>fmgc</value>
+			</equals>
+		</condition>
 	</animation>
-
-	<!-- Flight controls -->
+	
 	<animation>
-		<name>Pitch trim wheel pick</name>
+		<type>select</type>
+		<object-name>vs.ind</object-name>
+		<condition>
+			<equals>
+				<property>/flight-management/control/ver-sub</property>
+				<value>vs</value>
+			</equals>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>fpa.ind</object-name>
+		<condition>
+			<equals>
+				<property>/flight-management/control/ver-sub</property>
+				<value>fpa</value>
+			</equals>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>lvlch.ind</object-name>
+		<condition>
+			<equals>
+				<property>/flight-management/fcu/level_ch</property>
+				<value>1</value>
+			</equals>
+		</condition>
+	</animation>
+	
+	<!-- Knobs' Pick Animations -->
+	
+	<!-- IMPORTANT - USE SCROLL WHEEL ON MOUSE OF TOUCH PAD EDGE TO SCROLL, AND CLICK TO SELECT -->
+	
+	<animation>
 		<type>pick</type>
-		<object-name>TrimWheel</object-name>
+		<object-name>spd-sel</object-name>
 		<action>
-			<button>0</button>
 			<button>3</button>
 			<repeatable type="bool">true</repeatable>
 			<binding>
-				<command>property-adjust</command>
-				<property>controls/flight/elevator-trim</property>
-				<step>0.005</step>
-				<max>1</max>
+				<command>nasal</command>
+				<script>
+					var spd_mode = getprop("/flight-management/control/spd-mode");
+					
+					if (spd_mode == "ias") {
+					
+						var ias = getprop("/flight-management/fcu-values/ias");
+						
+						if (350 > ias)
+							setprop("/flight-management/fcu-values/ias", ias + 1);
+					
+					} else {
+					
+						var mach = getprop("/flight-management/fcu-values/mach");
+						
+						if (0.82 > mach)
+							setprop("/flight-management/fcu-values/mach", mach + 0.01);
+					
+					}
+				</script>
 			</binding>
 		</action>
 		<action>
-			<button>1</button>
 			<button>4</button>
 			<repeatable type="bool">true</repeatable>
 			<binding>
-				<command>property-adjust</command>
-				<property>controls/flight/elevator-trim</property>
-				<step>-0.005</step>
-				<min>-1</min>
+				<command>nasal</command>
+				<script>
+					var spd_mode = getprop("/flight-management/control/spd-mode");
+					
+					if (spd_mode == "ias") {
+					
+						var ias = getprop("/flight-management/fcu-values/ias");
+						
+						if (ias > 0)
+							setprop("/flight-management/fcu-values/ias", ias - 1);
+					
+					} else {
+					
+						var mach = getprop("/flight-management/fcu-values/mach");
+						
+						if (mach > 0)
+							setprop("/flight-management/fcu-values/mach", mach - 0.01);
+					
+					}
+				</script>
+			</binding>
+		</action>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-cycle</command>
+				<property>/flight-management/control/spd-ctrl</property>
+				<value>man-set</value>
+				<value>fmgc</value>
 			</binding>
 		</action>
 	</animation>
+	
 	<animation>
-		<name>Pitch trim wheel rotate</name>
+		<type>pick</type>
+		<object-name>hdg-sel</object-name>
+		<action>
+			<button>3</button>
+			<repeatable type="bool">true</repeatable>
+			<binding>
+				<command>nasal</command>
+				<script>
+				
+					var hdg_prop = "/flight-management/fcu-values/hdg";
+				
+					if (359 > getprop(hdg_prop))
+						setprop(hdg_prop, getprop(hdg_prop) + 1);
+					else
+						setprop(hdg_prop, 0);
+					
+				</script>
+			</binding>
+		</action>
+		<action>
+			<button>4</button>
+			<repeatable type="bool">true</repeatable>
+			<binding>
+				<command>nasal</command>
+				<script>
+					
+					var hdg_prop = "/flight-management/fcu-values/hdg";
+				
+					if (getprop(hdg_prop) > 0)
+						setprop(hdg_prop, getprop(hdg_prop) - 1);
+					else
+						setprop(hdg_prop, 359);
+					
+				</script>
+			</binding>
+		</action>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-cycle</command>
+				<property>/flight-management/control/lat-ctrl</property>
+				<value>man-set</value>
+				<value>fmgc</value>
+			</binding>
+		</action>
+	</animation>
+	
+	<animation>
+		<type>pick</type>
+		<object-name>alt-sel</object-name>
+		<action>
+			<button>3</button>
+			<repeatable type="bool">true</repeatable>
+			<binding>
+				<command>nasal</command>
+				<script>
+				
+					var step = getprop("/flight-management/control/alt-sel-mode");
+				
+					var alt_prop = "/flight-management/fcu-values/alt";
+				
+					if (41000 > getprop(alt_prop))
+						setprop(alt_prop, getprop(alt_prop) + step);
+					
+				</script>
+			</binding>
+		</action>
+		<action>
+			<button>4</button>
+			<repeatable type="bool">true</repeatable>
+			<binding>
+				<command>nasal</command>
+				<script>
+					
+					var step = getprop("/flight-management/control/alt-sel-mode");
+					
+					var alt_prop = "/flight-management/fcu-values/alt";
+				
+					if (getprop(alt_prop) > 0)
+						setprop(alt_prop, getprop(alt_prop) - step);
+					
+				</script>
+			</binding>
+		</action>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-cycle</command>
+				<property>/flight-management/control/ver-ctrl</property>
+				<value>man-set</value>
+				<value>fmgc</value>
+			</binding>
+		</action>
+	</animation>
+	
+	<animation>
+		<type>pick</type>
+		<object-name>vs-sel</object-name>
+		<action>
+			<button>3</button>
+			<repeatable type="bool">true</repeatable>
+			<binding>
+				<command>nasal</command>
+				<script>
+				
+					var sub_mode = getprop("/flight-management/control/ver-sub");
+				
+					var vs_prop = "/flight-management/fcu-values/vs";
+					
+					var fpa_prop = "/flight-management/fcu-values/fpa";
+				
+					if (sub_mode == "vs") {
+					
+						if (3000 > getprop(vs_prop))
+							setprop(vs_prop, getprop(vs_prop) + 100);
+					
+					} else {
+					
+						if (15 > getprop(fpa_prop))
+							setprop(fpa_prop, getprop(fpa_prop) + 1);
+					
+					}
+					
+				</script>
+			</binding>
+		</action>
+		<action>
+			<button>4</button>
+			<repeatable type="bool">true</repeatable>
+			<binding>
+				<command>nasal</command>
+				<script>
+					
+					var sub_mode = getprop("/flight-management/control/ver-sub");
+				
+					var vs_prop = "/flight-management/fcu-values/vs";
+					
+					var fpa_prop = "/flight-management/fcu-values/fpa";
+				
+					if (sub_mode == "vs") {
+					
+						if (getprop(vs_prop) > -2500)
+							setprop(vs_prop, getprop(vs_prop) - 100);
+					
+					} else {
+					
+						if (getprop(fpa_prop) > -10)
+							setprop(fpa_prop, getprop(fpa_prop) - 1);
+					
+					}
+					
+				</script>
+			</binding>
+		</action>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>nasal</command>
+				<script>
+				
+					setprop("/flight-management/fcu-values/alt", getprop("/instrumentation/altimeter/indicated-altitude-ft"));
+					
+					setprop("/flight-management/fcu-values/vs", 0);
+					
+					setprop("/flight-management/fcu-values/fpa", 0);
+				
+					setprop("/flight-management/control/ver-ctrl", "man-set");
+					
+				</script>
+			</binding>
+		</action>
+	</animation>
+	
+	<!-- Button Pick Animations -->
+	
+	<animation>
+		<type>pick</type>
+		<object-name>loc</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>nasal</command>
+				<script>
+				
+					if (getprop("/flight-management/control/lat-mode") != "nav1") {
+				
+						setprop("/flight-management/control/lat-mode", "nav1");
+	
+						setprop("/flight-management/control/lat-ctrl", "man-set");
+						
+					} else
+					
+						setprop("/flight-management/control/lat-mode", "hdg");
+					
+				</script>
+			</binding>
+		</action>
+	</animation>
+	
+	<animation>
+		<type>pick</type>
+		<object-name>gs</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>nasal</command>
+				<script>
+				
+				if (getprop("/flight-management/control/ver-mode") != "ils") {
+				
+					setprop("/flight-management/control/ver-mode", "ils");
+	
+					setprop("/flight-management/control/ver-ctrl", "man-set");
+				
+				} else
+				
+					setprop("/flight-management/control/ver-mode", "alt");
+					
+				</script>
+			</binding>
+		</action>
+	</animation>
+	
+	<animation>
+		<type>pick</type>
+		<object-name>exped</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>nasal</command>
+				<script>
+				
+					var vs_fps = getprop("/velocities/vertical-speed-fps");
+				
+					if (vs_fps >= 0) {
+				
+						setprop("/flight-management/fcu-values/vs", 2800);
+					
+						setprop("/flight-management/fcu-values/fpa", 10);
+					
+					} else {
+					
+						setprop("/flight-management/fcu-values/vs", -2500);
+					
+						setprop("/flight-management/fcu-values/fpa", -10);
+					
+					}
+					
+				</script>
+			</binding>
+		</action>
+	</animation>
+	
+	<animation>
+		<type>pick</type>
+		<object-name>spd-mach</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-cycle</command>
+				<property>/flight-management/control/spd-mode</property>
+				<value>mach</value>
+				<value>ias</value>
+			</binding>
+		</action>
+	</animation>
+	
+	<animation>
+		<type>pick</type>
+		<object-name>vs-fpa</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-cycle</command>
+				<property>/flight-management/control/ver-sub</property>
+				<value>fpa</value>
+				<value>vs</value>
+			</binding>
+		</action>
+	</animation>
+	
+	<animation>
+		<type>pick</type>
+		<object-name>alt-sel-mode</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-cycle</command>
+				<property>/flight-management/control/alt-sel-mode</property>
+				<value>1000</value>
+				<value>100</value>
+			</binding>
+		</action>
+	</animation>
+	
+	<animation>
+		<type>pick</type>
+		<object-name>ap1</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-cycle</command>
+				<property>/flight-management/control/ap1-master</property>
+				<value>eng</value>
+				<value>off</value>
+			</binding>
+		</action>
+	</animation>
+	
+	<animation>
+		<type>pick</type>
+		<object-name>ap2</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-cycle</command>
+				<property>/flight-management/control/ap2-master</property>
+				<value>eng</value>
+				<value>off</value>
+			</binding>
+		</action>
+	</animation>
+	
+	<animation>
+		<type>pick</type>
+		<object-name>a-thr</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-cycle</command>
+				<property>/flight-management/control/a-thrust</property>
+				<value>eng</value>
+				<value>off</value>
+			</binding>
+		</action>
+	</animation>
+	
+	<!-- FCU Screen Power On -->
+	
+	<animation>
+		<type>select</type>
+		<object-name>fcu_screen</object-name>
+		<object-name>spd-text</object-name>
+		<object-name>mach-text</object-name>
+		<object-name>hdg-text</object-name>
+		<object-name>alt-text</object-name>
+		<object-name>vs-text</object-name>
+		<object-name>fpa-text</object-name>
+		<object-name>qnh-inhg</object-name>
+		<condition>
+			<greater-than-equals>
+				<property>/systems/electrical/outputs/efis</property>
+				<value>9</value>
+			</greater-than-equals>
+		</condition>
+	</animation>
+	
+	<!-- OSGText -->
+	
+	<!-- Show Text only in MAN-SET modes -->
+	
+	<animation>
+		<type>select</type>
+		<object-name>spd-text</object-name>
+		<condition>
+			<and>
+				<equals>
+					<property>/flight-management/control/spd-ctrl</property>
+					<value>man-set</value>
+				</equals>
+				<equals>
+					<property>/flight-management/control/spd-mode</property>
+					<value>ias</value>
+				</equals>
+			</and>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>mach-text</object-name>
+		<condition>
+			<and>
+				<equals>
+					<property>/flight-management/control/spd-ctrl</property>
+					<value>man-set</value>
+				</equals>
+				<equals>
+					<property>/flight-management/control/spd-mode</property>
+					<value>mach</value>
+				</equals>
+			</and>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>hdg-text</object-name>
+		<condition>
+			<equals>
+				<property>/flight-management/control/lat-ctrl</property>
+				<value>man-set</value>
+			</equals>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>alt-text</object-name>
+		<condition>
+			<equals>
+				<property>/flight-management/control/ver-ctrl</property>
+				<value>man-set</value>
+			</equals>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>vs-text</object-name>
+		<condition>
+			<and>
+				<equals>
+					<property>/flight-management/control/ver-ctrl</property>
+					<value>man-set</value>
+				</equals>
+				<equals>
+					<property>/flight-management/control/ver-sub</property>
+					<value>vs</value>
+				</equals>
+			</and>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>fpa-text</object-name>
+		<condition>
+			<and>
+				<equals>
+					<property>/flight-management/control/ver-ctrl</property>
+					<value>man-set</value>
+				</equals>
+				<equals>
+					<property>/flight-management/control/ver-sub</property>
+					<value>fpa</value>
+				</equals>
+			</and>
+		</condition>
+	</animation>
+	
+	<!-- Material Animation -->
+	
+	<animation>
+		<type>material</type>
+		<object-name>spd-text</object-name>
+		<object-name>mach-text</object-name>
+		<object-name>hdg-text</object-name>
+		<object-name>alt-text</object-name>
+		<object-name>vs-text</object-name>
+		<object-name>fpa-text</object-name>
+		<object-name>qnh-inhg</object-name>
+		<diffuse>
+			<red>0.89</red>
+			<green>0.37</green>
+			<blue>0.08</blue>
+		</diffuse>
+		<ambient>
+			<red>0</red>
+			<green>0</green>
+			<blue>0</blue>
+		</ambient>
+		<specular>
+			<red>0</red>
+			<green>0</green>
+			<blue>0</blue>
+		</specular>
+		<emission>
+			<red>0.89</red>
+			<green>0.37</green>
+			<blue>0.08</blue>
+		</emission>
+	</animation>
+	
+	<!-- Actual Text -->
+	
+	<text>
+		<name>spd-text</name>
+		<offsets>
+			<x-m>-0.4868</x-m>
+			<y-m>-0.0877</y-m>
+			<z-m>0.1756</z-m>
+			<heading-deg>90</heading-deg>
+			<roll-deg>76</roll-deg>
+		</offsets>
+		<alignment>center-center</alignment>
+		<axis-alignment>xy-plane</axis-alignment>
+		<type type="string">number-value</type>
+		<format type="string">%3.0f</format>
+		<property>/flight-management/fcu-values/ias</property>
+		<truncate type="bool">false</truncate>
+		<font type="string">helvetica_bold.txf</font>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.008</character-size>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	
+	<text>
+		<name>mach-text</name>
+		<offsets>
+			<x-m>-0.4868</x-m>
+			<y-m>-0.0877</y-m>
+			<z-m>0.1756</z-m>
+			<heading-deg>90</heading-deg>
+			<roll-deg>76</roll-deg>
+		</offsets>
+		<alignment>center-center</alignment>
+		<axis-alignment>xy-plane</axis-alignment>
+		<type type="string">number-value</type>
+		<format type="string">%1.2f</format>
+		<property>/flight-management/fcu-values/mach</property>
+		<truncate type="bool">false</truncate>
+		<font type="string">helvetica_bold.txf</font>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.008</character-size>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	
+	<text>
+		<name>hdg-text</name>
+		<offsets>
+			<x-m>-0.4868</x-m>
+			<y-m>-0.0469</y-m>
+			<z-m>0.1756</z-m>
+			<heading-deg>90</heading-deg>
+			<roll-deg>76</roll-deg>
+		</offsets>
+		<alignment>center-center</alignment>
+		<axis-alignment>xy-plane</axis-alignment>
+		<type type="string">text-value</type>
+		<format type="string">%s</format>
+		<property>/flight-management/fcu-values/hdg-disp</property>
+		<truncate type="bool">false</truncate>
+		<font type="string">helvetica_bold.txf</font>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.008</character-size>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	
+	<text>
+		<name>alt-text</name>
+		<offsets>
+			<x-m>-0.4868</x-m>
+			<y-m>0.0432</y-m>
+			<z-m>0.1756</z-m>
+			<heading-deg>90</heading-deg>
+			<roll-deg>76</roll-deg>
+		</offsets>
+		<alignment>center-center</alignment>
+		<axis-alignment>xy-plane</axis-alignment>
+		<type type="string">number-value</type>
+		<format type="string">%5.0f</format>
+		<property>/flight-management/fcu-values/alt</property>
+		<truncate type="bool">false</truncate>
+		<font type="string">helvetica_bold.txf</font>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.008</character-size>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	
+	<text>
+		<name>vs-text</name>
+		<offsets>
+			<x-m>-0.4868</x-m>
+			<y-m>0.0932</y-m>
+			<z-m>0.1756</z-m>
+			<heading-deg>90</heading-deg>
+			<roll-deg>76</roll-deg>
+		</offsets>
+		<alignment>center-center</alignment>
+		<axis-alignment>xy-plane</axis-alignment>
+		<type type="string">number-value</type>
+		<format type="string">%4.0f</format>
+		<property>/flight-management/fcu-values/vs</property>
+		<truncate type="bool">false</truncate>
+		<font type="string">helvetica_bold.txf</font>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.008</character-size>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	
+	<text>
+		<name>fpa-text</name>
+		<offsets>
+			<x-m>-0.4868</x-m>
+			<y-m>0.0932</y-m>
+			<z-m>0.1756</z-m>
+			<heading-deg>90</heading-deg>
+			<roll-deg>76</roll-deg>
+		</offsets>
+		<alignment>center-center</alignment>
+		<axis-alignment>xy-plane</axis-alignment>
+		<type type="string">number-value</type>
+		<format type="string">%2.0f</format>
+		<property>/flight-management/fcu-values/fpa</property>
+		<truncate type="bool">false</truncate>
+		<font type="string">helvetica_bold.txf</font>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.008</character-size>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	
+	<!-- Knobs Rotate -->
+	
+	<animation>
 		<type>rotate</type>
-		<object-name>TrimWheel</object-name>
-		<property>controls/flight/elevator-trim</property>
+		<object-name>hdg-sel</object-name>
+		<property>/flight-management/fcu-values/hdg</property>
+		<factor>11.25</factor>
+		<axis>
+			<x1-m>-0.4608</x1-m>
+			<y1-m>-0.0472</y1-m>
+			<z1-m>0.1526</z1-m>
+			<x2-m>-0.4807</x2-m>
+			<y2-m>-0.0472</y2-m>
+			<z2-m>0.1478</z2-m>
+		</axis>
+	</animation>
+	
+	<animation>
+		<type>rotate</type>
+		<object-name>spd-sel</object-name>
+		<property>/flight-management/fcu-values/spd-knob</property>
+		<factor>11.25</factor>
+		<axis>
+			<x1-m>-0.4608</x1-m>
+			<y1-m>-0.0874</y1-m>
+			<z1-m>0.1526</z1-m>
+			<x2-m>-0.4807</x2-m>
+			<y2-m>-0.0874</y2-m>
+			<z2-m>0.1478</z2-m>
+		</axis>
+	</animation>
+	
+	<animation>
+		<type>rotate</type>
+		<object-name>alt-sel</object-name>
+		<property>/flight-management/fcu-values/alt</property>
+		<factor>11.25</factor>
+		<axis>
+			<x1-m>-0.4738</x1-m>
+			<y1-m>0.0433</y1-m>
+			<z1-m>0.1485</z1-m>
+			<x2-m>-0.4806</x2-m>
+			<y2-m>0.0433</y2-m>
+			<z2-m>0.1468</z2-m>
+		</axis>
+	</animation>
+	
+	<animation>
+		<type>rotate</type>
+		<object-name>vs-sel</object-name>
+		<property>/flight-management/fcu-values/vs-knob</property>
+		<factor>11.25</factor>
+		<axis>
+			<x1-m>-0.4608</x1-m>
+			<y1-m>0.0924</y1-m>
+			<z1-m>0.1526</z1-m>
+			<x2-m>-0.4807</x2-m>
+			<y2-m>0.0924</y2-m>
+			<z2-m>0.1478</z2-m>
+		</axis>
+	</animation>
+	
+	<animation>
+		<type>rotate</type>
+		<object-name>alt-sel-mode</object-name>
+		<property>/flight-management/control/alt-sel-mode</property>
 		<interpolation>
-			<entry><ind>-1</ind><dep>0</dep></entry>
-			<entry><ind>1</ind><dep>-150</dep></entry>
+			<entry><ind>100</ind><dep>0</dep></entry>
+			<entry><ind>1000</ind><dep>90</dep></entry>
 		</interpolation>
+		<axis>
+			<x1-m>-0.4738</x1-m>
+			<y1-m>0.0433</y1-m>
+			<z1-m>0.1485</z1-m>
+			<x2-m>-0.4806</x2-m>
+			<y2-m>0.0433</y2-m>
+			<z2-m>0.1468</z2-m>
+		</axis>
+	</animation>
+	
+	<!-- AP1, AP2, LOC, APPR and A-THR Indicator Textranslate -->
+	
+	<animation>
+		<type>textranslate</type>
+		<object-name>ap1</object-name>
+		<property>/flight-management/control/fcu/ap1</property>
+		<factor>0.0625</factor>
+		<axis>
+			<x>0</x>
+			<y>1</y>
+			<z>0</z>
+		</axis>
+	</animation>
+	
+	<animation>
+		<type>textranslate</type>
+		<object-name>ap2</object-name>
+		<property>/flight-management/control/fcu/ap2</property>
+		<factor>0.0625</factor>
+		<axis>
+			<x>0</x>
+			<y>1</y>
+			<z>0</z>
+		</axis>
+	</animation>
+	
+	<animation>
+		<type>textranslate</type>
+		<object-name>a-thr</object-name>
+		<property>/flight-management/control/fcu/a-thrust</property>
+		<factor>0.0625</factor>
+		<axis>
+			<x>0</x>
+			<y>1</y>
+			<z>0</z>
+		</axis>
+	</animation>
+	
+	<animation>
+		<type>textranslate</type>
+		<object-name>loc</object-name>
+		<property>/flight-management/control/fcu/nav1</property>
+		<factor>0.0625</factor>
+		<axis>
+			<x>0</x>
+			<y>1</y>
+			<z>0</z>
+		</axis>
+	</animation>
+	
+	<animation>
+		<type>textranslate</type>
+		<object-name>gs</object-name>
+		<property>/flight-management/control/fcu/ils</property>
+		<factor>0.0625</factor>
+		<axis>
+			<x>0</x>
+			<y>1</y>
+			<z>0</z>
+		</axis>
+	</animation>
+	
+	<!-- QNH -->
+	
+	<!-- OSGText -->
+	
+	<text>
+		<name>qnh-inhg</name>
+		<offsets>
+			<x-m>-0.4856</x-m>
+			<y-m>-0.2589</y-m>
+			<z-m>0.1666</z-m>
+			<heading-deg>90</heading-deg>
+			<roll-deg>76</roll-deg>
+		</offsets>
+		<alignment>center-center</alignment>
+		<axis-alignment>xy-plane</axis-alignment>
+		<type type="string">number-value</type>
+		<format type="string">%2.2f</format>
+		<property>/instrumentation/altimeter/setting-inhg</property>
+		<truncate type="bool">false</truncate>
+		<font type="string">helvetica_bold.txf</font>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.009</character-size>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	
+	<text>
+		<name>qnh-inhg</name>
+		<offsets>
+			<x-m>-0.4856</x-m>
+			<y-m>0.2589</y-m>
+			<z-m>0.1666</z-m>
+			<heading-deg>90</heading-deg>
+			<roll-deg>76</roll-deg>
+		</offsets>
+		<alignment>center-center</alignment>
+		<axis-alignment>xy-plane</axis-alignment>
+		<type type="string">number-value</type>
+		<format type="string">%2.2f</format>
+		<property>/instrumentation/altimeter/setting-inhg</property>
+		<truncate type="bool">false</truncate>
+		<font type="string">helvetica_bold.txf</font>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.009</character-size>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	
+	<animation>
+		<type>pick</type>
+		<object-name>qnh-0.01</object-name>
+		<action>
+			<button>0</button>
+			<button>3</button>
+			<repeatable type="bool">true</repeatable>
+			<binding>
+				<command>nasal</command>
+				<script>
+				
+					var qnh = getprop("/instrumentation/altimeter/setting-inhg");
+					
+					setprop("/instrumentation/altimeter/setting-inhg", qnh + 0.01);
+					
+				</script>
+			</binding>
+		</action>
+		<action>
+			<button>1</button>
+			<button>4</button>
+			<repeatable type="bool">true</repeatable>
+			<binding>
+				<command>nasal</command>
+				<script>
+					
+					var qnh = getprop("/instrumentation/altimeter/setting-inhg");
+					
+					setprop("/instrumentation/altimeter/setting-inhg", qnh - 0.01);
+					
+				</script>
+			</binding>
+		</action>
+	</animation>
+	
+	<animation>
+		<type>pick</type>
+		<object-name>qnh</object-name>
+		<action>
+			<button>0</button>
+			<button>3</button>
+			<repeatable type="bool">true</repeatable>
+			<binding>
+				<command>nasal</command>
+				<script>
+				
+					var qnh = getprop("/instrumentation/altimeter/setting-inhg");
+					
+					setprop("/instrumentation/altimeter/setting-inhg", qnh + 0.1);
+					
+				</script>
+			</binding>
+		</action>
+		<action>
+			<button>1</button>
+			<button>4</button>
+			<repeatable type="bool">true</repeatable>
+			<binding>
+				<command>nasal</command>
+				<script>
+					
+					var qnh = getprop("/instrumentation/altimeter/setting-inhg");
+					
+					setprop("/instrumentation/altimeter/setting-inhg", qnh - 0.1);
+					
+				</script>
+			</binding>
+		</action>
+	</animation>
+	
+	<animation>
+		<type>rotate</type>
+		<object-name>gear_lever</object-name>
+		<property>/controls/gear/gear-down</property>
+		<factor>40</factor>
 		<center>
-			<x-m>-16.77082</x-m>
+			<x-m>-0.5810</x-m>
 			<y-m>0</y-m>
-			<z-m>-2.36997</z-m>
+			<z-m>-0.1765</z-m>
 		</center>
 		<axis>
 			<x>0</x>
@@ -746,9 +1297,75 @@
 	</animation>
 
 	<animation>
-		<name>Engine 1 thrust lever pick</name>
 		<type>pick</type>
-		<object-name>ThrottleLeft</object-name>
+		<object-name>gear_lever</object-name>
+		<action>
+			<button>0</button>
+			<repeatable>false</repeatable>
+			<binding>
+				<command>property-toggle</command>
+				<property>/controls/gear/gear-down</property>
+			</binding>
+		</action>
+	</animation>
+	
+	<animation>
+		<type>pick</type>
+		<object-name>trim_wheel</object-name>
+		<action>
+			<button>0</button>
+			<button>3</button>
+			<repeatable type="bool">true</repeatable>
+			<binding>
+				<command>nasal</command>
+				<script>
+				
+					var trim = getprop("/controls/flight/elevator-trim");
+					
+					setprop("/controls/flight/elevator-trim", trim + 0.01);
+					
+				</script>
+			</binding>
+		</action>
+		<action>
+			<button>1</button>
+			<button>4</button>
+			<repeatable type="bool">true</repeatable>
+			<binding>
+				<command>nasal</command>
+				<script>
+					
+					var trim = getprop("/controls/flight/elevator-trim");
+					
+					setprop("/controls/flight/elevator-trim", trim - 0.01);
+					
+				</script>
+			</binding>
+		</action>
+	</animation>
+	
+	<animation>
+		<type>rotate</type>
+		<object-name>trim_wheel</object-name>
+		<property>/controls/flight/elevator-trim</property>
+		<factor>-70</factor>
+		<center>
+			<x-m>-0.2373</x-m>
+			<y-m>0</y-m>
+			<z-m>-0.3811</z-m>
+		</center>
+		<axis>
+			<x>0</x>
+			<y>1</y>
+			<z>0</z>
+		</axis>
+	</animation>
+	
+	<!-- Throttle quadrant -->
+	<animation>
+		<name>Engine 1 throttle lever pick</name>
+		<type>pick</type>
+		<object-name>thr_l</object-name>
 		<action>
 			<button>0</button>
 			<button>3</button>
@@ -756,7 +1373,7 @@
 			<binding>
 				<command>property-adjust</command>
 				<property>controls/engines/engine[0]/throttle</property>
-				<step>0.01</step>
+				<step type="double">0.01</step>
 				<max>1</max>
 			</binding>
 		</action>
@@ -767,33 +1384,32 @@
 			<binding>
 				<command>property-adjust</command>
 				<property>controls/engines/engine[0]/throttle</property>
-				<step>-0.01</step>
+				<step type="double">-0.01</step>
 				<min>0</min>
 			</binding>
 		</action>
 	</animation>
 	<animation>
-		<name>Engine 1 thrust lever rotate</name>
+		<name>Engine 1 throttle lever</name>
 		<type>rotate</type>
-		<object-name>ThrottleLeft</object-name>
+		<object-name>thr_l</object-name>
 		<property>controls/engines/engine[0]/throttle</property>
-		<factor>-55</factor>
-		<center>
-			<x-m>-16.771</x-m>
-			<y-m>0</y-m>
-			<z-m>-2.370</z-m>
-		</center>
+		<factor>40</factor>
 		<axis>
 			<x>0</x>
-			<y>1</y>
+			<y>-1</y>
 			<z>0</z>
 		</axis>
+		<center>
+			<x-m>-0.2373</x-m>
+			<y-m>0</y-m>
+			<z-m>-0.3811</z-m>
+		</center>
 	</animation>
-	
 	<animation>
-		<name>Engine 2 thrust lever pick</name>
+		<name>Engine 2 throttle lever pick</name>
 		<type>pick</type>
-		<object-name>ThrottleRight</object-name>
+		<object-name>thr_r</object-name>
 		<action>
 			<button>0</button>
 			<button>3</button>
@@ -801,7 +1417,7 @@
 			<binding>
 				<command>property-adjust</command>
 				<property>controls/engines/engine[1]/throttle</property>
-				<step>0.01</step>
+				<step type="double">0.01</step>
 				<max>1</max>
 			</binding>
 		</action>
@@ -812,22 +1428,233 @@
 			<binding>
 				<command>property-adjust</command>
 				<property>controls/engines/engine[1]/throttle</property>
-				<step>-0.01</step>
+				<step type="double">-0.01</step>
 				<min>0</min>
 			</binding>
 		</action>
 	</animation>
 	<animation>
-		<name>Engine 2 thrust lever rotate</name>
+		<name>Engine 2 throttle lever</name>
 		<type>rotate</type>
-		<object-name>ThrottleRight</object-name>
+		<object-name>thr_r</object-name>
 		<property>controls/engines/engine[1]/throttle</property>
-		<factor>-55</factor>
+		<factor>40</factor>
+		<axis>
+			<x>0</x>
+			<y>-1</y>
+			<z>0</z>
+		</axis>
 		<center>
-			<x-m>-16.771</x-m>
+			<x-m>-0.2373</x-m>
 			<y-m>0</y-m>
-			<z-m>-2.370</z-m>
+			<z-m>-0.3811</z-m>
 		</center>
+	</animation>
+
+	<!-- Engine Cut-off Switches -->
+
+    <animation>
+        <type>rotate</type>
+        <object-name>Lcutoff</object-name>
+        <property>controls/engines/engine[0]/cutoff</property>
+        <factor>40</factor>
+        <center>
+            <x-m>-0.1064</x-m>
+            <y-m>0</y-m>
+            <z-m>-0.3795</z-m>
+        </center>
+        <axis>
+            <x>0</x>
+            <y>1</y>
+            <z>0</z>
+        </axis>
+    </animation>
+
+    <animation>
+        <type>rotate</type>
+        <object-name>Rcutoff</object-name>
+        <property>controls/engines/engine[1]/cutoff</property>
+        <factor>40</factor>
+        <center>
+            <x-m>-0.1064</x-m>
+            <y-m>0</y-m>
+            <z-m>-0.3795</z-m>
+        </center>
+        <axis>
+            <x>0</x>
+            <y>1</y>
+            <z>0</z>
+        </axis>
+    </animation>
+
+
+    <animation>
+        <type>pick</type>
+        <object-name>Lcutoff</object-name>
+        <action>
+            <button>0</button>
+            <binding>
+                <command>property-toggle</command>
+                <property>controls/engines/engine[0]/cutoff</property>
+            </binding>
+        </action>
+    </animation>
+
+    <animation>
+        <type>pick</type>
+        <object-name>Rcutoff</object-name>
+        <action>
+            <button>0</button>
+            <binding>
+                <command>property-toggle</command>
+                <property>controls/engines/engine[1]/cutoff</property>
+            </binding>
+        </action>
+    </animation>
+    
+    <!-- Side Stick Animations -->
+    
+    <animation>
+        <type>rotate</type>
+        <object-name>Rsidestick</object-name>
+        <property>controls/flight/aileron</property>
+        <factor>10</factor>
+        <center>
+            <x-m>0</x-m>
+            <y-m>0.9133</y-m>
+            <z-m>-0.2247</z-m>
+        </center>
+        <axis>
+            <x>-1</x>
+            <y>0</y>
+            <z>0</z>
+        </axis>
+    </animation>
+    
+    <animation>
+        <type>rotate</type>
+        <object-name>Rsidestick</object-name>
+        <property>controls/flight/elevator</property>
+        <factor>-10</factor>
+        <center>
+            <x-m>-0.1424</x-m>
+            <y-m>0</y-m>
+            <z-m>-0.2247</z-m>
+        </center>
+        <axis>
+            <x>0</x>
+            <y>1</y>
+            <z>0</z>
+        </axis>
+    </animation>
+    
+    <animation>
+        <type>rotate</type>
+        <object-name>Lsidestick</object-name>
+        <property>controls/flight/aileron</property>
+        <factor>10</factor>
+        <center>
+            <x-m>0</x-m>
+            <y-m>-0.9146</y-m>
+            <z-m>-0.2243</z-m>
+        </center>
+        <axis>
+            <x>-1</x>
+            <y>0</y>
+            <z>0</z>
+        </axis>
+    </animation>
+    
+    <animation>
+        <type>rotate</type>
+        <object-name>Lsidestick</object-name>
+        <property>controls/flight/elevator</property>
+        <factor>-10</factor>
+        <center>
+            <x-m>-0.1469</x-m>
+            <y-m>0</y-m>
+            <z-m>-0.2232</z-m>
+        </center>
+        <axis>
+            <x>0</x>
+            <y>1</y>
+            <z>0</z>
+        </axis>
+    </animation>
+    
+    <!-- ILS and MLS Toggle Buttons -->
+    
+    <animation>
+		<type>pick</type>
+		<object-name>ils</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>nasal</command>
+				<script>
+				
+					var radio = "/flight-management/freq/";
+				
+					var ils_mode = getprop(radio~ "ils-mode");
+					
+					if (ils_mode) {
+					
+						setprop(radio~ "ils-mode", 0);
+						
+						mcdu.rad_nav.switch_nav1(0);
+					
+					} else {
+					
+						setprop(radio~ "ils-mode", 1);
+						
+						mcdu.rad_nav.switch_nav1(1);
+					
+					}
+
+				</script>
+			</binding>
+		</action>
+	</animation>
+	
+	<animation>
+		<type>pick</type>
+		<object-name>mls</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>nasal</command>
+				<script>
+				
+					var radio = "/flight-management/freq/";
+				
+					var mls_mode = getprop(radio~ "mls-mode");
+					
+					if (mls_mode) {
+					
+						setprop(radio~ "mls-mode", 0);
+						
+						mcdu.rad_nav.switch_nav2(0);
+					
+					} else {
+					
+						setprop(radio~ "mls-mode", 1);
+						
+						mcdu.rad_nav.switch_nav2(1);
+					
+					}
+
+				</script>
+			</binding>
+		</action>
+	</animation>
+	
+	<animation>
+		<type>textranslate</type>
+		<object-name>ils</object-name>
+		<property>/flight-management/freq/ils-mode</property>
+		<factor>0.0625</factor>
 		<axis>
 			<x>0</x>
 			<y>1</y>
@@ -836,72 +1663,743 @@
 	</animation>
 	
 	<animation>
-		<type>translate</type>
-		<object-name>PedalLeft</object-name>
-		<property>controls/flight/rudder</property>
-		<factor>0.10</factor>
+		<type>textranslate</type>
+		<object-name>mls</object-name>
+		<property>/flight-management/freq/mls-mode</property>
+		<factor>0.0625</factor>
 		<axis>
-			<x>1.0</x>
-			<y>0.0</y>
-			<z>0.0</z>
+			<x>0</x>
+			<y>1</y>
+			<z>0</z>
+		</axis>
+	</animation>
+
+	<!-- ECAM and Switching panel -->
+	
+	<animation>
+		<type>pick</type>
+		<object-name>apu</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>nasal</command>
+				<script>
+				
+					setprop("instrumentation/efis/ecam/display-mode", "APU");
+					
+				</script>
+			</binding>
+		</action>
+	</animation>
+	
+	<animation>
+		<type>pick</type>
+		<object-name>bleed</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>nasal</command>
+				<script>
+				
+					setprop("instrumentation/efis/ecam/display-mode", "BLEED");
+					
+				</script>
+			</binding>
+		</action>
+	</animation>
+	
+	<animation>
+		<type>pick</type>
+		<object-name>press</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>nasal</command>
+				<script>
+				
+					setprop("instrumentation/efis/ecam/display-mode", "PRESS");
+					
+				</script>
+			</binding>
+		</action>
+	</animation>
+	
+	<animation>
+		<type>pick</type>
+		<object-name>elec</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>nasal</command>
+				<script>
+				
+					setprop("instrumentation/efis/ecam/display-mode", "ELEC");
+					
+				</script>
+			</binding>
+		</action>
+	</animation>
+	
+	<animation>
+		<type>pick</type>
+		<object-name>hyd</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>nasal</command>
+				<script>
+				
+					setprop("instrumentation/efis/ecam/display-mode", "HYD");
+					
+				</script>
+			</binding>
+		</action>
+	</animation>
+	
+	<animation>
+		<type>pick</type>
+		<object-name>fuel</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>nasal</command>
+				<script>
+				
+					setprop("instrumentation/efis/ecam/display-mode", "FUEL");
+					
+				</script>
+			</binding>
+		</action>
+	</animation>
+	
+	<animation>
+		<type>pick</type>
+		<object-name>eng</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>nasal</command>
+				<script>
+				
+					setprop("instrumentation/efis/ecam/display-mode", "ENG");
+					
+				</script>
+			</binding>
+		</action>
+	</animation>
+	
+	<animation>
+		<type>pick</type>
+		<object-name>cond</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>nasal</command>
+				<script>
+				
+					setprop("instrumentation/efis/ecam/display-mode", "COND");
+					
+				</script>
+			</binding>
+		</action>
+	</animation>
+	
+	<animation>
+		<type>pick</type>
+		<object-name>door</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>nasal</command>
+				<script>
+				
+					setprop("instrumentation/efis/ecam/display-mode", "DOOR");
+					
+				</script>
+			</binding>
+		</action>
+	</animation>
+	
+	<animation>
+		<type>pick</type>
+		<object-name>wheel</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>nasal</command>
+				<script>
+				
+					setprop("instrumentation/efis/ecam/display-mode", "WHEEL");
+					
+				</script>
+			</binding>
+		</action>
+	</animation>
+	
+	<animation>
+		<type>pick</type>
+		<object-name>fctl</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>nasal</command>
+				<script>
+				
+					setprop("instrumentation/efis/ecam/display-mode", "FCTL");
+					
+				</script>
+			</binding>
+		</action>
+	</animation>
+	
+	<!-- ECAM Buttons Textranslate -->
+	
+	<animation>
+		<type>textranslate</type>
+		<object-name>apu</object-name>
+		<condition>
+			<equals>
+				<property>instrumentation/efis/ecam/display-mode</property>
+				<value>APU</value>
+			</equals>
+		</condition>
+		<factor>0.086</factor>
+		<axis>
+			<x>0</x>
+			<y>1</y>
+			<z>0</z>
 		</axis>
 	</animation>
 	
 	<animation>
-		<type>translate</type>
-		<object-name>PedalRight</object-name>
-		<property>controls/flight/rudder</property>
-		<factor>-0.10</factor>
+		<type>textranslate</type>
+		<object-name>bleed</object-name>
+		<condition>
+			<equals>
+				<property>instrumentation/efis/ecam/display-mode</property>
+				<value>BLEED</value>
+			</equals>
+		</condition>
+		<factor>0.086</factor>
 		<axis>
-			<x>1.0</x>
-			<y>0.0</y>
-			<z>0.0</z>
+			<x>0</x>
+			<y>1</y>
+			<z>0</z>
+		</axis>
+	</animation>
+	
+	<animation>
+		<type>textranslate</type>
+		<object-name>press</object-name>
+		<condition>
+			<equals>
+				<property>instrumentation/efis/ecam/display-mode</property>
+				<value>PRESS</value>
+			</equals>
+		</condition>
+		<factor>0.086</factor>
+		<axis>
+			<x>0</x>
+			<y>1</y>
+			<z>0</z>
+		</axis>
+	</animation>
+	
+	<animation>
+		<type>textranslate</type>
+		<object-name>elec</object-name>
+		<condition>
+			<equals>
+				<property>instrumentation/efis/ecam/display-mode</property>
+				<value>ELEC</value>
+			</equals>
+		</condition>
+		<factor>0.086</factor>
+		<axis>
+			<x>0</x>
+			<y>1</y>
+			<z>0</z>
+		</axis>
+	</animation>
+	
+	<animation>
+		<type>textranslate</type>
+		<object-name>hyd</object-name>
+		<condition>
+			<equals>
+				<property>instrumentation/efis/ecam/display-mode</property>
+				<value>HYD</value>
+			</equals>
+		</condition>
+		<factor>0.086</factor>
+		<axis>
+			<x>0</x>
+			<y>1</y>
+			<z>0</z>
+		</axis>
+	</animation>
+	
+	<animation>
+		<type>textranslate</type>
+		<object-name>fuel</object-name>
+		<condition>
+			<equals>
+				<property>instrumentation/efis/ecam/display-mode</property>
+				<value>FUEL</value>
+			</equals>
+		</condition>
+		<factor>0.086</factor>
+		<axis>
+			<x>0</x>
+			<y>1</y>
+			<z>0</z>
+		</axis>
+	</animation>
+	
+	<animation>
+		<type>textranslate</type>
+		<object-name>eng</object-name>
+		<condition>
+			<equals>
+				<property>instrumentation/efis/ecam/display-mode</property>
+				<value>ENG</value>
+			</equals>
+		</condition>
+		<factor>0.086</factor>
+		<axis>
+			<x>0</x>
+			<y>1</y>
+			<z>0</z>
+		</axis>
+	</animation>
+	
+	<animation>
+		<type>textranslate</type>
+		<object-name>cond</object-name>
+		<condition>
+			<equals>
+				<property>instrumentation/efis/ecam/display-mode</property>
+				<value>COND</value>
+			</equals>
+		</condition>
+		<factor>0.086</factor>
+		<axis>
+			<x>0</x>
+			<y>1</y>
+			<z>0</z>
+		</axis>
+	</animation>
+	
+	<animation>
+		<type>textranslate</type>
+		<object-name>door</object-name>
+		<condition>
+			<equals>
+				<property>instrumentation/efis/ecam/display-mode</property>
+				<value>DOOR</value>
+			</equals>
+		</condition>
+		<factor>0.086</factor>
+		<axis>
+			<x>0</x>
+			<y>1</y>
+			<z>0</z>
+		</axis>
+	</animation>
+	
+	<animation>
+		<type>textranslate</type>
+		<object-name>wheel</object-name>
+		<condition>
+			<equals>
+				<property>instrumentation/efis/ecam/display-mode</property>
+				<value>WHEEL</value>
+			</equals>
+		</condition>
+		<factor>0.086</factor>
+		<axis>
+			<x>0</x>
+			<y>1</y>
+			<z>0</z>
+		</axis>
+	</animation>
+	
+	<animation>
+		<type>textranslate</type>
+		<object-name>fctl</object-name>
+		<condition>
+			<equals>
+				<property>instrumentation/efis/ecam/display-mode</property>
+				<value>FCTL</value>
+			</equals>
+		</condition>
+		<factor>0.086</factor>
+		<axis>
+			<x>0</x>
+			<y>1</y>
+			<z>0</z>
+		</axis>
+	</animation>
+	
+	<!-- EFIS Pick and Textranslate Animations -->
+	
+	<animation>
+		<type>pick</type>
+		<object-name>cstr</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-toggle</command>
+				<property>/instrumentation/efis/inputs/CSTR</property>
+			</binding>
+		</action>
+	</animation>
+	
+	<animation>
+		<type>pick</type>
+		<object-name>wpt</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-toggle</command>
+				<property>/instrumentation/efis/inputs/WPT</property>
+			</binding>
+		</action>
+	</animation>
+	
+	<animation>
+		<type>pick</type>
+		<object-name>vord</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-toggle</command>
+				<property>/instrumentation/efis/inputs/VORD</property>
+			</binding>
+		</action>
+	</animation>
+	
+	<animation>
+		<type>pick</type>
+		<object-name>ndb</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-toggle</command>
+				<property>/instrumentation/efis/inputs/NDB</property>
+			</binding>
+		</action>
+	</animation>
+	
+	<animation>
+		<type>pick</type>
+		<object-name>arpt</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-toggle</command>
+				<property>/instrumentation/efis/inputs/ARPT</property>
+			</binding>
+		</action>
+	</animation>
+	
+	<animation>
+		<type>textranslate</type>
+		<object-name>cstr</object-name>
+		<property>/instrumentation/efis/inputs/CSTR</property>
+		<factor>0.0625</factor>
+		<axis>
+			<x>0</x>
+			<y>1</y>
+			<z>0</z>
+		</axis>
+	</animation>
+	
+	<animation>
+		<type>textranslate</type>
+		<object-name>wpt</object-name>
+		<property>/instrumentation/efis/inputs/WPT</property>
+		<factor>0.0625</factor>
+		<axis>
+			<x>0</x>
+			<y>1</y>
+			<z>0</z>
+		</axis>
+	</animation>
+	
+	<animation>
+		<type>textranslate</type>
+		<object-name>vord</object-name>
+		<property>/instrumentation/efis/inputs/VORD</property>
+		<factor>0.0625</factor>
+		<axis>
+			<x>0</x>
+			<y>1</y>
+			<z>0</z>
+		</axis>
+	</animation>
+	
+	<animation>
+		<type>textranslate</type>
+		<object-name>ndb</object-name>
+		<property>/instrumentation/efis/inputs/NDB</property>
+		<factor>0.0625</factor>
+		<axis>
+			<x>0</x>
+			<y>1</y>
+			<z>0</z>
+		</axis>
+	</animation>
+	
+	<animation>
+		<type>textranslate</type>
+		<object-name>arpt</object-name>
+		<property>/instrumentation/efis/inputs/ARPT</property>
+		<factor>0.0625</factor>
+		<axis>
+			<x>0</x>
+			<y>1</y>
+			<z>0</z>
+		</axis>
+	</animation>
+	
+	<animation>
+		<type>pick</type>
+		<object-name>nd-mode</object-name>
+		<object-name>nd-mode-right</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-cycle</command>
+				<property>/instrumentation/efis/nd/display-mode</property>
+				<value>ILS</value>
+				<value>VOR</value>
+				<value>NAV</value>
+				<value>ARC</value>
+				<value>PLAN</value>
+			</binding>
+			<binding>
+				<command>nasal</command>
+				<script>
+				   var nd_disp = getprop("/instrumentation/efis/nd/display-mode");
+				   
+				   if (nd_disp == "ILS")
+					  setprop("/instrumentation/nd/y-center", 0.5);
+				   elsif (nd_disp == "VOR")
+					  setprop("/instrumentation/nd/y-center", 0.5);
+				   elsif (nd_disp == "NAV")
+					  setprop("/instrumentation/nd/y-center", 0.5);
+				   elsif (nd_disp == "ARC")
+					  setprop("/instrumentation/nd/y-center", 0.25);
+				   else
+					  setprop("/instrumentation/nd/y-center", 0.5);
+					  
+				</script>
+			 </binding>
+			<binding>
+				<command>nasal</command>
+				<script>
+					var nd_disp = getprop("/instrumentation/efis/nd/display-mode");
+					
+					if (nd_disp == "ILS")
+						setprop("/instrumentation/efis/nd/display-mode-num", 0);
+					elsif (nd_disp == "VOR")
+						setprop("/instrumentation/efis/nd/display-mode-num", 1);
+					elsif (nd_disp == "NAV")
+						setprop("/instrumentation/efis/nd/display-mode-num", 2);
+					elsif (nd_disp == "ARC")
+						setprop("/instrumentation/efis/nd/display-mode-num", 3);
+					else
+						setprop("/instrumentation/efis/nd/display-mode-num", 4);
+						
+				</script>
+			</binding>
+		</action>
+	</animation>
+	
+	<animation>
+		<type>pick</type>
+		<object-name>nd-range</object-name>
+		<object-name>nd-range-right</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-cycle</command>
+				<property>/instrumentation/nd/range</property>
+				<value>10</value>
+				<value>20</value>
+				<value>40</value>
+				<value>80</value>
+				<value>160</value>
+				<value>320</value>
+			</binding>
+		</action>
+	</animation>
+	
+	<animation>
+		<type>pick</type>
+		<object-name>vor-adf-1</object-name>
+		<object-name>vor-adf-1-right</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-cycle</command>
+				<property>/instrumentation/efis/input/vor-adf-1</property>
+				<value>0</value> <!-- OFF -->
+				<value>1</value> <!-- VOR -->
+				<value>2</value> <!-- ADF -->
+			</binding>
+		</action>
+	</animation>
+	
+	<animation>
+		<type>pick</type>
+		<object-name>vor-adf-2</object-name>
+		<object-name>vor-adf-2-right</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-cycle</command>
+				<property>/instrumentation/efis/input/vor-adf-2</property>
+				<value>0</value> <!-- OFF -->
+				<value>1</value> <!-- VOR -->
+				<value>2</value> <!-- ADF -->
+			</binding>
+		</action>
+	</animation>
+	
+	<!-- EFIS Rotate Animations -->
+	
+	<animation>
+		<type>rotate</type>
+		<object-name>nd-mode</object-name>
+		<property>/instrumentation/efis/nd/display-mode-num</property>
+		<factor>45</factor>
+		<axis>
+			<x1-m>-0.4668</x1-m>
+			<y1-m>-0.2124</y1-m>
+			<z1-m>0.1452</z1-m>
+			<x2-m>-0.4808</x2-m>
+			<y2-m>-0.2124</y2-m>
+			<z2-m>0.1419</z2-m>
 		</axis>
 	</animation>
 	
 	<animation>
 		<type>rotate</type>
-		<object-name>StickLeft</object-name>
-		<property>controls/flight/aileron</property>
-		<factor>25</factor>
-		<center>
-			<x-m>0</x-m>
-			<y-m>-0.86</y-m>
-			<z-m>-2.215</z-m>
-		</center>
+		<object-name>nd-mode-right</object-name>
+		<property>/instrumentation/efis/nd/display-mode-num</property>
+		<factor>45</factor>
 		<axis>
-			<x>-1</x>
-			<y>0</y>
-			<z>0</z>
+			<x1-m>-0.4668</x1-m>
+			<y1-m>0.1718</y1-m>
+			<z1-m>0.1452</z1-m>
+			<x2-m>-0.4808</x2-m>
+			<y2-m>0.1718</y2-m>
+			<z2-m>0.1419</z2-m>
 		</axis>
 	</animation>
+	
 	<animation>
 		<type>rotate</type>
-		<object-name>StickRight</object-name>
-		<property>controls/flight/aileron</property>
-		<factor>25</factor>
-		<center>
-			<x-m>0</x-m>
-			<y-m>0.86</y-m>
-			<z-m>-2.215</z-m>
-		</center>
+		<object-name>nd-range</object-name>
+		<property>/instrumentation/nd/range</property>
+		<interpolation>
+			<entry><ind>10</ind><dep>0</dep></entry>
+			<entry><ind>20</ind><dep>45</dep></entry>
+			<entry><ind>40</ind><dep>90</dep></entry>
+			<entry><ind>80</ind><dep>135</dep></entry>
+			<entry><ind>160</ind><dep>180</dep></entry>
+			<entry><ind>320</ind><dep>225</dep></entry>
+		</interpolation>
 		<axis>
-			<x>-1</x>
-			<y>0</y>
-			<z>0</z>
+			<x1-m>-0.4668</x1-m>
+			<y1-m>-0.1718</y1-m>
+			<z1-m>0.1452</z1-m>
+			<x2-m>-0.4808</x2-m>
+			<y2-m>-0.1718</y2-m>
+			<z2-m>0.1419</z2-m>
 		</axis>
 	</animation>
+	
 	<animation>
 		<type>rotate</type>
-		<object-name>StickLeft</object-name>
-		<object-name>StickRight</object-name>
-		<property>controls/flight/elevator</property>
-		<factor>20</factor>
-		<center>
-			<x-m>-16.801</x-m>
-			<y-m>0</y-m>
-			<z-m>-2.215</z-m>
-		</center>
+		<object-name>nd-range-right</object-name>
+		<property>/instrumentation/nd/range</property>
+		<interpolation>
+			<entry><ind>10</ind><dep>0</dep></entry>
+			<entry><ind>20</ind><dep>45</dep></entry>
+			<entry><ind>40</ind><dep>90</dep></entry>
+			<entry><ind>80</ind><dep>135</dep></entry>
+			<entry><ind>160</ind><dep>180</dep></entry>
+			<entry><ind>320</ind><dep>225</dep></entry>
+		</interpolation>
+		<axis>
+			<x1-m>-0.4668</x1-m>
+			<y1-m>0.2124</y1-m>
+			<z1-m>0.1452</z1-m>
+			<x2-m>-0.4808</x2-m>
+			<y2-m>0.2124</y2-m>
+			<z2-m>0.1419</z2-m>
+		</axis>
+	</animation>
+	
+	<!-- Standby Attitude Indicator -->
+	
+	<animation>
+        <type>texmultiple</type>
+        <object-name>stby-ai</object-name>
+        <transform>
+            <property>orientation/pitch-deg</property>
+            <subtype>textranslate</subtype>
+            <factor>0.003955078</factor>
+            <axis>
+                <x>0</x>
+                <y>1</y>
+            </axis>
+        </transform>
+        <transform>
+            <property>orientation/roll-deg</property>
+            <subtype>texrotate</subtype>
+            <center>
+                <x>0.50</x>
+                <y>0.50</y>
+            </center>
+            <axis>
+                <x>0</x>
+                <y>0</y>
+                <z>-1</z>
+            </axis>
+        </transform>
+    </animation>
+    
+    <!-- Autobrake System -->
+    
+    <animation>
+		<type>textranslate</type>
+		<object-name>abs_low</object-name>
+		<property>/hydraulics/brakes/indicator/low</property>
+		<factor>0.125</factor>
 		<axis>
 			<x>0</x>
 			<y>-1</y>
@@ -910,119 +2408,201 @@
 	</animation>
 	
 	<animation>
-		<type>rotate</type>
-		<object-name>FlapLever</object-name>
-		<property>controls/flight/flaps</property>
-		<factor>80</factor>
-		<center>
-			<x-m>-16.518</x-m>
-			<y-m>0.085</y-m>
-			<z-m>-2.401</z-m>
-		</center>
+		<type>textranslate</type>
+		<object-name>abs_med</object-name>
+		<property>/hydraulics/brakes/indicator/med</property>
+		<factor>0.125</factor>
 		<axis>
 			<x>0</x>
-			<y>1</y>
+			<y>-1</y>
+			<z>0</z>
+		</axis>
+	</animation>
+	
+	<animation>
+		<type>textranslate</type>
+		<object-name>abs_max</object-name>
+		<property>/hydraulics/brakes/indicator/max</property>
+		<factor>0.125</factor>
+		<axis>
+			<x>0</x>
+			<y>-1</y>
+			<z>0</z>
+		</axis>
+	</animation>
+	
+	<animation>
+		<type>textranslate</type>
+		<object-name>dec_low</object-name>
+		<property>/hydraulics/brakes/indicator/low-dec</property>
+		<factor>0.125</factor>
+		<axis>
+			<x>0</x>
+			<y>-1</y>
+			<z>0</z>
+		</axis>
+	</animation>
+	
+	<animation>
+		<type>textranslate</type>
+		<object-name>dec_med</object-name>
+		<property>/hydraulics/brakes/indicator/med-dec</property>
+		<factor>0.125</factor>
+		<axis>
+			<x>0</x>
+			<y>-1</y>
+			<z>0</z>
+		</axis>
+	</animation>
+	
+	<animation>
+		<type>textranslate</type>
+		<object-name>dec_max</object-name>
+		<property>/hydraulics/brakes/indicator/max-dec</property>
+		<factor>0.125</factor>
+		<axis>
+			<x>0</x>
+			<y>-1</y>
 			<z>0</z>
 		</axis>
 	</animation>
 
-	<!-- Lighting controls -->
 	<animation>
-		<name>Main panel/pedestal light knob pick</name>
 		<type>pick</type>
-		<object-name>MarkingsLtKnb</object-name>
+		<object-name>abs_low</object-name>
+		<object-name>dec_low</object-name>
 		<action>
 			<button>0</button>
+			<button>1</button>
 			<button>3</button>
-			<repeatable type="bool">true</repeatable>
-			<binding>
-				<command>property-adjust</command>
-				<property>controls/lighting/main-panel-pedestal-norm</property>
-				<step>0.05</step>
-				<max>1</max>
-			</binding>
-		</action>
-		<action>
-			<button>1</button>
 			<button>4</button>
-			<repeatable type="bool">true</repeatable>
+			<repeatable type="bool">false</repeatable>
 			<binding>
-				<command>property-adjust</command>
-				<property>controls/lighting/main-panel-pedestal-norm</property>
-				<step>-0.05</step>
-				<min>0</min>
+				<command>property-cycle</command>
+				<property>/hydraulics/brakes/autobrake-setting</property>
+				<value>1</value>
+				<value>0</value>
 			</binding>
 		</action>
 	</animation>
+	
 	<animation>
-		<name>Main panel/pedestal light knob rotate</name>
-		<type>rotate</type>
-		<object-name>MarkingsLtKnb</object-name>
-		<property>controls/lighting/main-panel-pedestal-norm</property>
-		<interpolation>
-			<entry><ind>0</ind><dep>-130</dep></entry>
-			<entry><ind>1</ind><dep>130</dep></entry>
-		</interpolation>
-		<axis>
-			<x1-m>-16.64802</x1-m>
-			<y1-m>-0.183</y1-m>
-			<z1-m>-2.34536</z1-m>
-			<x2-m>-16.65106</x2-m>
-			<y2-m>-0.183</y2-m>
-			<z2-m>-2.35964</z2-m>
-		</axis>
-	</animation>
-
-	<!-- Engine controls -->
-	<animation>
-		<name>Engine start knob pick</name>
 		<type>pick</type>
-		<object-name>EngStartKnob</object-name>
+		<object-name>abs_med</object-name>
+		<object-name>dec_med</object-name>
 		<action>
 			<button>0</button>
-			<repeatable type="bool">false</repeatable>
-			<binding>
-				<command>property-adjust</command>
-				<property>controls/engines/engine-start-switch</property>
-				<step>1</step>
-				<max>2</max>
-			</binding>
-		</action>
-		<action>
 			<button>1</button>
+			<button>3</button>
+			<button>4</button>
 			<repeatable type="bool">false</repeatable>
 			<binding>
-				<command>property-adjust</command>
-				<property>controls/engines/engine-start-switch</property>
-				<step>-1</step>
-				<min>0</min>
+				<command>property-cycle</command>
+				<property>/hydraulics/brakes/autobrake-setting</property>
+				<value>2</value>
+				<value>0</value>
 			</binding>
 		</action>
 	</animation>
+	
 	<animation>
-		<name>Engine start knob rotate</name>
-		<type>rotate</type>
-		<object-name>EngStartKnob</object-name>
-		<property>controls/engines/engine-start-switch</property>
-		<interpolation>
-			<entry><ind>0</ind><dep>-55</dep></entry>
-			<entry><ind>1</ind><dep>0</dep></entry>
-			<entry><ind>2</ind><dep>55</dep></entry>
-		</interpolation>
+		<type>pick</type>
+		<object-name>abs_max</object-name>
+		<object-name>dec_max</object-name>
+		<action>
+			<button>0</button>
+			<button>1</button>
+			<button>3</button>
+			<button>4</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-cycle</command>
+				<property>/hydraulics/brakes/autobrake-setting</property>
+				<value>3</value>
+				<value>0</value>
+			</binding>
+		</action>
+	</animation>
+	
+	<!-- Landing Gear Unlock and down Indicators -->
+
+	<animation>
+		<type>textranslate</type>
+		<object-name>ngear_unlk</object-name>
+		<property>/indicators/gear-panel/gear[0]/unlk</property>
+		<factor>0.125</factor>
 		<axis>
-			<x1-m>-16.5926</x1-m>
-			<y1-m>0</y1-m>
-			<z1-m>-2.3629</z1-m>
-			<x2-m>-16.59445</x2-m>
-			<y2-m>0</y2-m>
-			<z2-m>-2.37173</z2-m>
+			<x>0</x>
+			<y>-1</y>
+			<z>0</z>
+		</axis>
+	</animation>
+	
+	<animation>
+		<type>textranslate</type>
+		<object-name>ngear_down</object-name>
+		<property>/indicators/gear-panel/gear[0]/down</property>
+		<factor>0.125</factor>
+		<axis>
+			<x>0</x>
+			<y>-1</y>
+			<z>0</z>
 		</axis>
 	</animation>
 
 	<animation>
-		<name>Engine 1 cutoff switch pick</name>
+		<type>textranslate</type>
+		<object-name>lgear_unlk</object-name>
+		<property>/indicators/gear-panel/gear[1]/unlk</property>
+		<factor>0.125</factor>
+		<axis>
+			<x>0</x>
+			<y>-1</y>
+			<z>0</z>
+		</axis>
+	</animation>
+	
+	<animation>
+		<type>textranslate</type>
+		<object-name>lgear_down</object-name>
+		<property>/indicators/gear-panel/gear[1]/down</property>
+		<factor>0.125</factor>
+		<axis>
+			<x>0</x>
+			<y>-1</y>
+			<z>0</z>
+		</axis>
+	</animation>
+	
+	<animation>
+		<type>textranslate</type>
+		<object-name>rgear_unlk</object-name>
+		<property>/indicators/gear-panel/gear[2]/unlk</property>
+		<factor>0.125</factor>
+		<axis>
+			<x>0</x>
+			<y>-1</y>
+			<z>0</z>
+		</axis>
+	</animation>
+	
+	<animation>
+		<type>textranslate</type>
+		<object-name>rgear_down</object-name>
+		<property>/indicators/gear-panel/gear[2]/down</property>
+		<factor>0.125</factor>
+		<axis>
+			<x>0</x>
+			<y>-1</y>
+			<z>0</z>
+		</axis>
+	</animation>
+	
+	<!-- Engine Cutoff Switches -->
+	
+	<animation>
 		<type>pick</type>
-		<object-name>Eng1Cutoff</object-name>
+		<object-name>Lcutoff</object-name>
 		<action>
 			<button>0</button>
 			<repeatable type="bool">false</repeatable>
@@ -1032,19 +2612,16 @@
 			</binding>
 		</action>
 	</animation>
+	
 	<animation>
-		<name>Engine 1 cutoff switch rotate</name>
 		<type>rotate</type>
-		<object-name>Eng1Cutoff</object-name>
+		<object-name>Lcutoff</object-name>
 		<property>controls/engines/engine[0]/cutoff-switch</property>
-		<interpolation>
-			<entry><ind>0</ind><dep>-40</dep></entry>
-			<entry><ind>1</ind><dep>0</dep></entry>
-		</interpolation>
+		<factor>20</factor>
 		<center>
-			<x-m>-16.629</x-m>
+			<x-m>-0.1067</x-m>
 			<y-m>0</y-m>
-			<z-m>-2.366</z-m>
+			<z-m>-0.3796</z-m>
 		</center>
 		<axis>
 			<x>0</x>
@@ -1052,10 +2629,10 @@
 			<z>0</z>
 		</axis>
 	</animation>
+	
 	<animation>
-		<name>Engine 2 cutoff switch pick</name>
 		<type>pick</type>
-		<object-name>Eng2Cutoff</object-name>
+		<object-name>Rcutoff</object-name>
 		<action>
 			<button>0</button>
 			<repeatable type="bool">false</repeatable>
@@ -1065,19 +2642,16 @@
 			</binding>
 		</action>
 	</animation>
+	
 	<animation>
-		<name>Engine 2 cutoff switch rotate</name>
 		<type>rotate</type>
-		<object-name>Eng2Cutoff</object-name>
+		<object-name>Rcutoff</object-name>
 		<property>controls/engines/engine[1]/cutoff-switch</property>
-		<interpolation>
-			<entry><ind>0</ind><dep>-40</dep></entry>
-			<entry><ind>1</ind><dep>0</dep></entry>
-		</interpolation>
+		<factor>20</factor>
 		<center>
-			<x-m>-16.629</x-m>
+			<x-m>-0.1067</x-m>
 			<y-m>0</y-m>
-			<z-m>-2.366</z-m>
+			<z-m>-0.3796</z-m>
 		</center>
 		<axis>
 			<x>0</x>
@@ -1085,278 +2659,85 @@
 			<z>0</z>
 		</axis>
 	</animation>
-
+	
 	<animation>
-		<name>Speedbrake lever pick</name>
 		<type>pick</type>
-		<object-name>SpeedbrakeLever</object-name>
-		<object-name>SpeedbrakeLeverTrack</object-name>
+		<object-name>EngMode</object-name>
 		<action>
 			<button>0</button>
 			<repeatable type="bool">false</repeatable>
 			<binding>
 				<command>property-cycle</command>
-				<property>controls/flight/speedbrake-lever</property>
+				<property>controls/engines/engine-start-switch</property>
 				<value>0</value>
-				<value>0.5</value>
 				<value>1</value>
-			</binding>
-		</action>
-		<action>
-			<button>1</button>
-			<repeatable type="bool">false</repeatable>
-			<binding>
-				<command>property-toggle</command>
-				<property>controls/flight/ground-spoilers-armed</property>
+				<value>2</value>
 			</binding>
 		</action>
 	</animation>
+	
 	<animation>
-		<name>Speedbrake lever x translate</name>
+		<type>rotate</type>
+		<object-name>EngMode</object-name>
+		<property>controls/engines/engine-start-switch</property>
+		<interpolation>
+			<entry><ind>1</ind><dep>0</dep></entry>
+			<entry><ind>0</ind><dep>40</dep></entry>
+			<entry><ind>2</ind><dep>-40</dep></entry>
+		</interpolation>
+		<axis>
+			<x1-m>-0.0787</x1-m>
+			<y1-m>-0.0048</y1-m>
+			<z1-m>-0.3844</z1-m>
+			<x2-m>-0.0771</x2-m>
+			<y2-m>-0.0048</y2-m>
+			<z2-m>-0.3767</z2-m>
+		</axis>
+	</animation>
+	
+	<animation>
 		<type>translate</type>
-		<object-name>SpeedbrakeLever</object-name>
-		<property>controls/flight/speedbrake-lever</property>
-		<factor>0.048</factor>
+		<object-name>SpdBrk</object-name>
+		<property>/controls/flight/speedbrake</property>
+		<factor>0.045</factor>
 		<axis>
-			<x1-m>-16.548</x1-m>
-			<y1-m>0</y1-m>
-			<z1-m>-2.378</z1-m>
-			<x2-m>-16.49</x2-m>
-			<y2-m>0</y2-m>
-			<z2-m>-2.383</z2-m>
+			<x>1</x>
+			<y>0</y>
+			<z>0</z>
 		</axis>
 	</animation>
+	
 	<animation>
-		<name>Speedbrake lever z translate</name>
-		<type>translate</type>
-		<object-name>SpeedbrakeLever</object-name>
-		<property>controls/flight/ground-spoilers-armed</property>
-		<factor>0.005</factor>
-		<axis>
-			<x1-m>-16.543</x1-m>
-			<y1-m>0</y1-m>
-			<z1-m>-2.384</z1-m>
-			<x2-m>-16.541</x2-m>
-			<y2-m>0</y2-m>
-			<z2-m>-2.358</z2-m>
-		</axis>
-	</animation>
-
-	<!-- Rudder trim -->
-	<animation>
-		<name>Rudder trim knob pick</name>
-		<type>pick</type>
-		<object-name>RudTrimKnob</object-name>
-		<action>
-			<button>0</button>
-			<button>3</button>
-			<repeatable type="bool">true</repeatable>
-			<binding>
-				<command>property-adjust</command>
-				<property>controls/flight/rudder-trim</property>
-				<step>0.05</step>
-				<max>1</max>
-			</binding>
-		</action>
-		<action>
-			<button>1</button>
-			<button>4</button>
-			<repeatable type="bool">true</repeatable>
-			<binding>
-				<command>property-adjust</command>
-				<property>controls/flight/rudder-trim</property>
-				<step>-0.05</step>
-				<min>-1</min>
-			</binding>
-		</action>
-	</animation>
-	<animation>
-		<name>Rudder trim knob rotate</name>
 		<type>rotate</type>
-		<object-name>RudTrimKnob</object-name>
-		<property>controls/flight/rudder-trim</property>
-		<factor>37</factor>
-		<axis>
-			<x1-m>-16.491</x1-m>
-			<y1-m>0.017</y1-m>
-			<z1-m>-2.371</z1-m>
-			<x2-m>-16.492</x2-m>
-			<y2-m>0.017</y2-m>
-			<z2-m>-2.383</z2-m>
-		</axis>
-	</animation>
-
-	<animation>
-		<name>Rudder trim reset</name>
-		<type>pick</type>
-		<object-name>RudTrimReset</object-name>
-		<action>
-			<button>0</button>
-			<repeatable type="bool">false</repeatable>
-			<binding>
-				<command>property-assign</command>
-				<property>controls/flight/rudder-trim</property>
-				<value>0</value>
-			</binding>
-		</action>
-	</animation>
-
-	<animation>
-		<name>Rudder trim direction select</name>
-		<type>select</type>
-		<object-name>RudTrimL</object-name>
-		<object-name>RudTrimR</object-name>
-		<condition>
-			<or>
-				<greater-than>
-					<property>controls/flight/rudder-trim</property>
-					<value>0</value>
-				</greater-than>
-				<less-than>
-					<property>controls/flight/rudder-trim</property>
-					<value>0</value>
-				</less-than>
-			</or>
-		</condition>
-	</animation>
-
-	<animation>
-		<name>Rudder trim left select</name>
-		<type>select</type>
-		<object-name>RudTrim10L</object-name>
-		<object-name>RudTrim1L</object-name>
-		<object-name>RudTrimL</object-name>
-		<condition>
-			<less-than>
-				<property>controls/flight/rudder-trim</property>
-				<value>0</value>
-			</less-than>
-		</condition>
-	</animation>
-	<animation>
-		<name>Rudder trim left display 10's</name>
-		<type>textranslate</type>
-		<object-name>RudTrim10L</object-name>
-		<property>controls/flight/rudder-trim</property>
-		<factor>0.2</factor>
-		<step>0.5</step>
-		<axis>
-			<x>0</x>
-			<y>-1</y>
-		</axis>
-	</animation>
-	<animation>
-		<name>Rudder trim left display 1's</name>
-		<type>textranslate</type>
-		<object-name>RudTrim1L</object-name>
-		<property>controls/flight/rudder-trim</property>
-		<factor>2</factor>
-		<step>0.05</step>
-		<axis>
-			<x>0</x>
-			<y>-1</y>
-		</axis>
-	</animation>
-
-	<animation>
-		<name>Rudder trim right select</name>
-		<type>select</type>
-		<object-name>RudTrim10R</object-name>
-		<object-name>RudTrim1R</object-name>
-		<object-name>RudTrimR</object-name>
-		<condition>
-			<greater-than-equals>
-				<property>controls/flight/rudder-trim</property>
-				<value>0</value>
-			</greater-than-equals>
-		</condition>
-	</animation>
-	<animation>
-		<name>Rudder trim right display 10's</name>
-		<type>textranslate</type>
-		<object-name>RudTrim10R</object-name>
-		<property>controls/flight/rudder-trim</property>
-		<factor>0.2</factor>
-		<step>0.5</step>
-		<axis>
-			<x>0</x>
-			<y>1</y>
-		</axis>
-	</animation>
-	<animation>
-		<name>Rudder trim right display 1's</name>
-		<type>textranslate</type>
-		<object-name>RudTrim1R</object-name>
-		<property>controls/flight/rudder-trim</property>
-		<factor>2</factor>
-		<step>0.05</step>
-		<axis>
-			<x>0</x>
-			<y>1</y>
-		</axis>
-	</animation>
-
-	<!-- Parking brake -->
-	<animation>
-		<name>Parking brake pick</name>
-		<type>pick</type>
-		<object-name>ParkingBrake</object-name>
-		<action>
-			<button>0</button>
-			<repeatable type="bool">false</repeatable>
-			<binding>
-				<command>property-toggle</command>
-				<property>controls/gear/brake-parking</property>
-			</binding>
-		</action>
-	</animation>
-	<animation>
-		<name>Parking brake rotate</name>
-		<type>rotate</type>
-		<object-name>ParkingBrake</object-name>
-		<property>controls/gear/brake-parking</property>
-		<factor>90</factor>
-		<axis>
-			<x1-m>-16.415</x1-m>
-			<y1-m>0.013</y1-m>
-			<z1-m>-2.386</z1-m>
-			<x2-m>-16.415</x2-m>
-			<y2-m>0.013</y2-m>
-			<z2-m>-2.39</z2-m>
-		</axis>
-	</animation>
-
-	<!-- Seats -->
-	<animation>
-		<name>Armrests pick</name>
-		<type>pick</type>
-		<object-name>Armrests</object-name>
-		<action>
-			<button>0</button>
-			<repeatable type="bool">false</repeatable>
-			<binding>
-				<command>nasal</command>
-				<script>
-				 systems.armrests.toggle();
-				</script>
-			</binding>
-		</action>
-	</animation>
-	<animation>
-		<name>Armrests rotate</name>
-		<type>rotate</type>
-		<object-name>Armrests</object-name>
-		<property>sim/model/door-positions/armrests/position-norm</property>
-		<factor>97</factor>
+		<object-name>FlapsLever</object-name>
+		<property>controls/flight/flaps</property>
+		<factor>60</factor>
 		<center>
-			<x-m>-15.96</x-m>
+			<x-m>-0.0020</x-m>
 			<y-m>0</y-m>
-			<z-m>-2.116</z-m>
+			<z-m>-0.4056</z-m>
 		</center>
 		<axis>
 			<x>0</x>
 			<y>1</y>
 			<z>0</z>
+		</axis>
+	</animation>
+	
+	<animation>
+		<type>rotate</type>
+		<object-name>ParkBrk</object-name>
+		<property>controls/parking-brake</property>
+		<factor>-90</factor>
+		<center>
+			<x-m>0.1270</x-m>
+			<y-m>0.0078</y-m>
+			<z-m>0</z-m>
+		</center>
+		<axis>
+			<x>0</x>
+			<y>0</y>
+			<z>1</z>
 		</axis>
 	</animation>
 

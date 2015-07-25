@@ -21,15 +21,15 @@
 		<name>Flightdeck</name>
 		<path>Aircraft/A320neo/Models/FlightDeck/a320neo.flightdeck.xml</path>
 		<offsets>
-			<x-m>21.32</x-m>
-			<z-m>2.137</z-m>
+			<x-m>4.7881</x-m>
+			<z-m>0.2399</z-m>
 		</offsets>
 	</model>
 
-	<model>
+	<!-- model>
 		<name>Interior</name>
 		<path>Aircraft/A320neo/Models/Interior/a320neo.interior.xml</path>
-	</model>
+	</model -->
 
 	<model>
 		<name>Nose Gear</name>
@@ -216,7 +216,6 @@
 		<object-name>Fuselage</object-name>
 		<object-name>Vstab</object-name>
 		<!-- Wings -->
-		<object-name>Wings</object-name>
 		<object-name>WingletL</object-name>
 		<object-name>WingletR</object-name>
 		<!-- Engines -->

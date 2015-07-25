@@ -4,77 +4,6 @@
 
 	<path>res/ohpanel.ac</path>
 
-	<model>
-		<name>Radio panel</name>
-		<path>Aircraft/A320neo/Models/Instruments/Radiopanel/Radiopanel.xml</path>
-		<offsets>
-			<x-m>0.001</x-m>
-			<y-m>0.244</y-m>
-			<z-m>0.284</z-m>
-			<heading-deg>-7.125</heading-deg>
-		</offsets>
-		<overlay>
-			<params>
-				<selected-mhz>instrumentation/nav[0]/frequencies/selected-mhz</selected-mhz>
-				<standby-mhz>instrumentation/nav[0]/frequencies/standby-mhz</standby-mhz>
-				<script-small-step-up><![CDATA[
-				 var setting = getprop("instrumentation/nav[0]/frequencies/standby-mhz");
-				 var max = 117.95;
-				 if (setting < max)
-				  {
-				  setprop("instrumentation/nav[0]/frequencies/standby-mhz", setting + 0.05);
-				  }
-				 if (setting > max)
-				  {
-				  setprop("instrumentation/nav[0]/frequencies/standby-mhz", max);
-				  }
-				]]></script-small-step-up>
-				<script-small-step-down><![CDATA[
-				 var setting = getprop("instrumentation/nav[0]/frequencies/standby-mhz");
-				 var min = 108;
-				 if (setting > min)
-				  {
-				  setprop("instrumentation/nav[0]/frequencies/standby-mhz", setting - 0.05);
-				  }
-				 if (setting < min)
-				  {
-				  setprop("instrumentation/nav[0]/frequencies/standby-mhz", min);
-				  }
-				]]></script-small-step-down>
-				<script-big-step-up><![CDATA[
-				 var setting = getprop("instrumentation/nav[0]/frequencies/standby-mhz");
-				 var max = 117.95;
-				 if (setting < max)
-				  {
-				  setprop("instrumentation/nav[0]/frequencies/standby-mhz", setting + 1);
-				  }
-				 if (setting > max)
-				  {
-				  setprop("instrumentation/nav[0]/frequencies/standby-mhz", max);
-				  }
-				]]></script-big-step-up>
-				<script-big-step-down><![CDATA[
-				 var setting = getprop("instrumentation/nav[0]/frequencies/standby-mhz");
-				 var min = 108;
-				 if (setting > min)
-				  {
-				  setprop("instrumentation/nav[0]/frequencies/standby-mhz", setting - 1);
-				  }
-				 if (setting < min)
-				  {
-				  setprop("instrumentation/nav[0]/frequencies/standby-mhz", min);
-				  }
-				]]></script-big-step-down>
-				<script-swap>
-				 var setting1 = getprop("instrumentation/nav[0]/frequencies/selected-mhz");
-				 var setting2 = getprop("instrumentation/nav[0]/frequencies/standby-mhz");
-				 setprop("instrumentation/nav[0]/frequencies/standby-mhz", setting1);
-				 setprop("instrumentation/nav[0]/frequencies/selected-mhz", setting2);
-				</script-swap>
-			</params>
-		</overlay>
-	</model>
-
 	<!-- ANIMATIONS -->
 	<!-- Dome lighting -->
 	<animation>
@@ -1508,6 +1437,164 @@
 		<type>textranslate</type>
 		<object-name>Eng2ManStartBtn2</object-name>
 		<property>controls/engines/engine[1]/starter-switch</property>
+		<factor>0.5</factor>
+		<axis>
+			<x>1</x>
+			<y>0</y>
+		</axis>
+	</animation>
+	
+	<!-- Hydraulics Control Panel -->
+	
+	<animation>
+		<name>Engine 1 Hydraulic Pump</name>
+		<type>pick</type>
+		<object-name>e1-pump-fault</object-name>
+		<object-name>e1-pump</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-toggle</command>
+				<property>hydraulics/control/eng1-pump</property>
+			</binding>
+		</action>
+	</animation>
+	
+	<animation>
+		<name>Engine 2 Hydraulic Pump</name>
+		<type>pick</type>
+		<object-name>e2-pump-fault</object-name>
+		<object-name>e2-pump</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-toggle</command>
+				<property>hydraulics/control/eng2-pump</property>
+			</binding>
+		</action>
+	</animation>
+	
+	<animation>
+		<name>Electric Hydraulic Pump</name>
+		<type>pick</type>
+		<object-name>elec-pump-fault</object-name>
+		<object-name>elec-pump</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-toggle</command>
+				<property>hydraulics/control/elec-pump</property>
+			</binding>
+		</action>
+	</animation>
+	
+	<animation>
+		<name>Backup Electric Hydraulic Pump</name>
+		<type>pick</type>
+		<object-name>y-elec-pump-fault</object-name>
+		<object-name>y-elec-pump</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-toggle</command>
+				<property>hydraulics/control/y-elec-pump</property>
+			</binding>
+		</action>
+	</animation>
+	
+	<animation>
+		<name>Unlock Ram Air Turbine</name>
+		<type>pick</type>
+		<object-name>rat-fault</object-name>
+		<object-name>rat</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-cycle</command>
+				<property>hydraulics/control/rat-unlck</property>
+				<value>1</value>
+			</binding>
+		</action>
+	</animation>
+	
+	<animation>
+		<name>Hydraulic Power Transfer Unit (PTU)</name>
+		<type>pick</type>
+		<object-name>ptu</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-toggle</command>
+				<property>hydraulics/control/ptu</property>
+			</binding>
+		</action>
+	</animation>
+	
+	<animation>
+		<type>textranslate</type>
+		<object-name>e1-pump</object-name>
+		<property>hydraulics/control/eng1-pump</property>
+		<factor>0.5</factor>
+		<axis>
+			<x>1</x>
+			<y>0</y>
+		</axis>
+	</animation>
+	
+	<animation>
+		<type>textranslate</type>
+		<object-name>e2-pump</object-name>
+		<property>hydraulics/control/eng2-pump</property>
+		<factor>0.5</factor>
+		<axis>
+			<x>1</x>
+			<y>0</y>
+		</axis>
+	</animation>
+	
+	<animation>
+		<type>textranslate</type>
+		<object-name>elec-pump</object-name>
+		<property>hydraulics/control/elec-pump</property>
+		<factor>0.5</factor>
+		<axis>
+			<x>1</x>
+			<y>0</y>
+		</axis>
+	</animation>
+	
+	<animation>
+		<type>textranslate</type>
+		<object-name>y-elec-pump</object-name>
+		<property>hydraulics/control/y-elec-pump</property>
+		<factor>0.5</factor>
+		<axis>
+			<x>1</x>
+			<y>0</y>
+		</axis>
+	</animation>
+	
+	<animation>
+		<type>textranslate</type>
+		<object-name>rat</object-name>
+		<property>hydraulics/control/rat-unlck</property>
+		<factor>0.5</factor>
+		<axis>
+			<x>1</x>
+			<y>0</y>
+		</axis>
+	</animation>
+	
+	<animation>
+		<type>textranslate</type>
+		<object-name>ptu</object-name>
+		<property>hydraulics/control/ptu</property>
 		<factor>0.5</factor>
 		<axis>
 			<x>1</x>

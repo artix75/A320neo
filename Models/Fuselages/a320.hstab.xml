@@ -9,7 +9,7 @@
 		<name>Left elevator</name>
 		<type>rotate</type>
 		<object-name>ElevatorL</object-name>
-		<property>controls/flight/elevator</property>
+		<property>/fdm/jsbsim/fcs/elevator-fbw-output</property>
 		<interpolation>
 			<entry><ind>-1.0</ind><dep>-30.0</dep></entry>
 			<entry><ind>0.0</ind><dep>0.0</dep></entry>
@@ -28,7 +28,7 @@
 		<name>Right elevator</name>
 		<type>rotate</type>
 		<object-name>ElevatorR</object-name>
-		<property>controls/flight/elevator</property>
+		<property>/fdm/jsbsim/fcs/elevator-fbw-output</property>
 		<interpolation>
 			<entry><ind>-1.0</ind><dep>-30.0</dep></entry>
 			<entry><ind>0.0</ind><dep>0.0</dep></entry>
@@ -48,7 +48,7 @@
 	<animation>
 		<name>Horizontal Stabilizer</name>
 		<type>rotate</type>
-		<property>controls/flight/elevator-trim</property>
+		<property>/fdm/jsbsim/fcs/elevator-fbw-output-trim</property>
 		<interpolation>
 			<entry><ind>-1.0</ind><dep>-4.0</dep></entry>
 			<entry><ind>1.0</ind><dep>14.0</dep></entry>

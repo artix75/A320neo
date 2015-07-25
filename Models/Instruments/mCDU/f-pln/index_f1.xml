@@ -1,0 +1,106 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+
+	<path>index_f1.ac</path>
+	
+	<!-- mCDU Display Brightness -->
+	
+	<animation>
+		<type>material</type>
+		<object-name>white</object-name>
+		<emission>
+			<red>1</red>
+			<green>1</green>
+			<blue>1</blue>
+			<factor-prop>/instrumentation/mcdu/brt</factor-prop>
+		</emission>
+	</animation>
+	
+	<!-- Button Pick Animations -->
+	
+	<animation>
+		<type>pick</type>
+		<object-name>l1</object-name>
+		<action>
+            <button>0</button>
+	   		<repeatable type="bool">false</repeatable>
+            <binding>
+				<command>nasal</command>
+		 		<script>
+		 			setprop("/autopilot/route-manager/destination/airport", "");
+		 		
+					setprop("/autopilot/route-manager/input", "@CLEAR");
+				</script>
+            </binding>
+        </action>
+	</animation>
+	
+	<animation>
+		<type>pick</type>
+		<object-name>l6</object-name>
+		<action>
+            <button>0</button>
+	   		<repeatable type="bool">false</repeatable>
+            <binding>
+				<command>nasal</command>
+		 		<script>
+					setprop("/instrumentation/mcdu/page", "f-pln");
+					
+					mcdu.f_pln.update_disp();
+				</script>
+            </binding>
+        </action>
+	</animation>
+	
+	<animation>
+		<type>pick</type>
+		<object-name>l2</object-name>
+		<action>
+            <button>0</button>
+	   		<repeatable type="bool">false</repeatable>
+            <binding>
+				<command>nasal</command>
+		 		<script>
+		 		
+		 			var last_wp = getprop("/autopilot/route-manager/route/num") - 1;
+		 		
+					setprop("/autopilot/route-manager/input", "@INSERT" ~ last_wp ~ ":" ~ getprop("/instrumentation/mcdu/input"));
+					
+					mcdu.clear_inp();
+				</script>
+            </binding>
+        </action>
+	</animation>
+	
+	<animation>
+		<type>pick</type>
+		<object-name>l3</object-name>
+		<action>
+            <button>0</button>
+	   		<repeatable type="bool">false</repeatable>
+            <binding>
+				<command>nasal</command>
+		 		<script>
+					setprop("/autopilot/route-manager/input", "@ACTIVATE");
+					
+					setprop("/autopilot/route-manager/input", "@JUMP1"); # Assumes WP0 is Departure ICAO
+					
+					setprop("/flight-management/current-wp", 1); # Backup Waypoint holder for confirmed transition
+				</script>
+            </binding>
+        </action>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>active</object-name>
+		<condition>
+			<equals>
+				<property>/autopilot/route-manager/active</property>
+				<value>0</value>
+			</equals>
+		</condition>
+	</animation>
+	
+</PropertyList>
