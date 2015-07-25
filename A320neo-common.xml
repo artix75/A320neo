@@ -450,7 +450,6 @@
 							<command>nasal</command>
 							<script>
 							 dual_control_tools.copilot_dialog.show(aircraft_dual_control.copilot_type);
-                             aircraft_dual_control.copilot_type = "Aircraft/A320neo/A320-copilot-set.xml";
 							</script>
 						</binding>
 					</item>
@@ -1434,13 +1433,13 @@
 		</walk>
 		<!-- Dual control -->
 		<dual_control_tools>
-			<file>Aircraft/Generic/DualControl/dual-control-tools.nas</file>
+			<file>Aircraft/A320neo/DualControl/dual-control-tools.nas</file>
 		</dual_control_tools>
 		<aircraft_dual_control>
 			<file>Aircraft/A320neo/DualControl/a320-dual-control.nas</file>
 		</aircraft_dual_control>
 		<dual_control>
-			<file>Aircraft/Generic/DualControl/pilot-dual-control.nas</file>
+			<file>Aircraft/A320neo/DualControl/pilot-dual-control.nas</file>
 		</dual_control>
 		<terrain-map><file>Aircraft/A320neo/Nasal/terrain-map.nas</file></terrain-map>
         <warnings>
