@@ -83,35 +83,15 @@
 		<menubar>
 			<default>
 				<menu n="100">
-					<label>Airbus A320 Family Copilot</label>
+					<label>Airbus A320neo Copilot</label>
 					<enabled type="bool">true</enabled>
-
-					<item>
-						<label>Select MP A319neo Pilot</label>
-						<binding>
-							<command>nasal</command>
-							<script>
-							 aircraft_dual_control.pilot_type = "Aircraft/A320neo/Models/A319neo.xml";
-							 dual_control_tools.copilot_dialog.show(aircraft_dual_control.pilot_type);
-							</script>
-						</binding>
-					</item>
+                    <!-- Reenabling co-pilot functions:: hkminegod JULY 2015 -->
 					<item>
 						<label>Select MP A320neo Pilot</label>
 						<binding>
 							<command>nasal</command>
 							<script>
 							 aircraft_dual_control.pilot_type = "Aircraft/A320neo/Models/A320neo.xml";
-							 dual_control_tools.copilot_dialog.show(aircraft_dual_control.pilot_type);
-							</script>
-						</binding>
-					</item>
-					<item>
-						<label>Select MP A321neo Pilot</label>
-						<binding>
-							<command>nasal</command>
-							<script>
-							 aircraft_dual_control.pilot_type = "Aircraft/A320neo/Models/A321neo.xml";
 							 dual_control_tools.copilot_dialog.show(aircraft_dual_control.pilot_type);
 							</script>
 						</binding>
