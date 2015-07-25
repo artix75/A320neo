@@ -1,0 +1,339 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+
+	<path>hold.ac</path>
+	
+	<!-- mCDU Display Brightness -->
+	
+	<animation>
+		<type>material</type>
+		<object-name>hold</object-name>
+		<emission>
+			<red>1</red>
+			<green>1</green>
+			<blue>1</blue>
+			<factor-prop>/instrumentation/mcdu/brt</factor-prop>
+		</emission>
+	</animation>
+	
+	<animation>
+		<type>material</type>
+		<object-name>wp</object-name>
+		<emission>
+			<red>0</red>
+			<green>0.37</green>
+			<blue>0</blue>
+			<factor-prop>/instrumentation/mcdu/brt</factor-prop>
+		</emission>
+		<diffuse>
+			<red>0</red>
+			<green>0.37</green>
+			<blue>0</blue>
+		</diffuse>
+	</animation>
+	
+	<animation>
+		<type>material</type>
+		<object-name>text</object-name>
+		<emission>
+			<red>0</red>
+			<green>0.4823</green>
+			<blue>0.5372</blue>
+			<factor-prop>/instrumentation/mcdu/brt</factor-prop>
+		</emission>
+		<diffuse>
+			<red>0</red>
+			<green>0.4823</green>
+			<blue>0.5372</blue>
+		</diffuse>
+	</animation>
+	
+	<!-- Button Pick Animations -->
+	
+	<animation>
+		<type>pick</type>
+		<object-name>l1</object-name>
+		<action>
+            <button>0</button>
+	   		<repeatable type="bool">false</repeatable>
+            <binding>
+				<command>nasal</command>
+		 		<script>
+		 		
+		 			setprop("/flight-management/hold/crs", getprop("/instrumentation/mcdu/input"));
+		 			
+		 			setprop("/instrumentation/mcdu/input", "");
+		 			
+				</script>
+            </binding>
+        </action>
+	</animation>
+	
+	<animation>
+		<type>pick</type>
+		<object-name>l2</object-name>
+		<action>
+            <button>0</button>
+	   		<repeatable type="bool">false</repeatable>
+            <binding>
+				<command>nasal</command>
+		 		<script>
+		 		
+		 			if (getprop("/flight-management/hold/turn") == "L") {
+		 			
+		 				setprop("/flight-management/hold/turn", "R");
+		 			
+		 			} else {
+		 			
+		 				setprop("/flight-management/hold/turn", "L");
+		 			
+		 			}
+		 			
+				</script>
+            </binding>
+        </action>
+	</animation>
+	
+	<animation>
+		<type>pick</type>
+		<object-name>l3</object-name>
+		<action>
+            <button>0</button>
+	   		<repeatable type="bool">false</repeatable>
+            <binding>
+				<command>nasal</command>
+		 		<script>
+		 		
+		 			var input = getprop("/instrumentation/mcdu/input");
+		 			
+		 			if (substr(input, 0, 1) == "/") {
+		 			
+		 				var dist = substr(input, 1,5);
+		 				
+		 				var gs = getprop("/velocities/groundspeed-kt");
+		 				
+		 				if (100 > gs)
+		 					gs = 250;
+		 				
+		 				setprop("/flight-management/hold/dist", dist);
+		 				
+		 				var time = (dist / gs) * 60;
+		 				
+		 				setprop("/flight-management/hold/time", time);
+		 			
+		 			} else {
+		 			
+		 				var time = input;
+		 				
+		 				var gs = getprop("/velocities/groundspeed-kt");
+		 				
+		 				if (100 > gs)
+		 					gs = 250;
+		 				
+		 				var dist = (time / 60) * gs;
+		 				
+		 				setprop("/flight-management/hold/time", time);
+		 				
+		 				setprop("/flight-management/hold/dist", dist);
+		 			
+		 			}
+		 			
+		 			setprop("/instrumentation/mcdu/input", "");
+		 			
+				</script>
+            </binding>
+        </action>
+	</animation>
+
+	<animation>
+		<type>pick</type>
+		<object-name>l6</object-name>
+		<action>
+            <button>0</button>
+	   		<repeatable type="bool">false</repeatable>
+            <binding>
+				<command>nasal</command>
+		 		<script>
+		 		
+		 			setprop("/instrumentation/mcdu/page", "f-pln");
+		 			
+		 			setprop("/instrumentation/mcdu/f-pln/show-hold", 0);
+		
+					var first = getprop("/instrumentation/mcdu/f-pln/disp/first");
+			
+					var hold = getprop("/flight-management/hold/wp_id");
+			
+					var hold_id = 0;
+			
+					if ((hold >= first) and (first + 4 > hold) and (hold != 0)) {
+			
+						setprop("/instrumentation/mcdu/f-pln/show-hold", 1);
+				
+						hold_id = (hold - first) + 1;
+			
+					}
+			
+					setprop("/instrumentation/mcdu/f-pln/hold-id", hold_id);
+					
+					mcdu.f_pln.update_disp();
+		 			
+				</script>
+            </binding>
+        </action>
+	</animation>
+	
+	<animation>
+		<type>pick</type>
+		<object-name>r6</object-name>
+		<action>
+            <button>0</button>
+	   		<repeatable type="bool">false</repeatable>
+            <binding>
+				<command>nasal</command>
+		 		<script>
+		 		
+		 			setprop("/flight-management/hold/wp", getprop("/instrumentation/mcdu/hold/wp"));
+		 			
+		 			setprop("/flight-management/hold/wp_id", getprop("/instrumentation/mcdu/hold/wp_id"));
+		 			
+				</script>
+            </binding>
+        </action>
+	</animation>
+	
+	<animation>
+		<type>pick</type>
+		<object-name>r5</object-name>
+		<action>
+            <button>0</button>
+	   		<repeatable type="bool">false</repeatable>
+            <binding>
+				<command>nasal</command>
+		 		<script>
+		 		
+		 			setprop("/flight-management/hold/wp", "L");
+		 			setprop("/flight-management/hold/time", 60);
+		 			setprop("/flight-management/hold/dist", 4);
+		 			
+		 			var wp = getprop("/instrumentation/mcdu/hold/wp");
+		 			
+		 			setprop("/instrumentation/gps/scratch/query", wp);
+		 			
+		 			if (size(wp) == 2)
+		 				setprop("/instrumentation/gps/scratch/type", "ndb");
+		 			elsif ( size(wp) == 3)
+		 				setprop("/instrumentation/gps/scratch/type", "vor");
+		 			else
+		 				setprop("/instrumentation/gps/scratch/type", "fix");
+		 				
+		 			setprop("/instrumentation/gps/command", "search");
+		 			
+		 			setprop("/flight-management/hold/crs", getprop("/instrumentation/gps/scratch/mag-bearing-deg"));
+		 			
+				</script>
+            </binding>
+        </action>
+	</animation>
+	
+	<text>
+		<name>wp</name>
+		<offsets>
+			<x-m>-0.0801</x-m>
+			<y-m>0.0213</y-m>
+			<z-m>-0.0006</z-m>
+			<heading-deg>90</heading-deg>
+		</offsets>
+		<alignment>left-center</alignment>
+		<axis-alignment>xy-plane</axis-alignment>
+		<type type="string">text-value</type>
+		<format type="string">%s</format>
+		<property>/instrumentation/mcdu/hold/wp</property>
+		<truncate type="bool">false</truncate>
+		<font type="string">courier-bold.txf</font>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.004</character-size>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	
+	<text>
+		<name>text</name>
+		<offsets>
+			<x-m>-0.0705</x-m>
+			<y-m>-0.0419</y-m>
+			<z-m>-0.0006</z-m>
+			<heading-deg>90</heading-deg>
+		</offsets>
+		<alignment>left-center</alignment>
+		<axis-alignment>xy-plane</axis-alignment>
+		<type type="string">number-value</type>
+		<format type="string">%3.0f</format>
+		<property>/flight-management/hold/crs</property>
+		<truncate type="bool">false</truncate>
+		<font type="string">courier-bold.txf</font>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.003</character-size>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	
+	<text>
+		<name>text</name>
+		<offsets>
+			<x-m>-0.0611</x-m>
+			<y-m>-0.0419</y-m>
+			<z-m>-0.0006</z-m>
+			<heading-deg>90</heading-deg>
+		</offsets>
+		<alignment>left-center</alignment>
+		<axis-alignment>xy-plane</axis-alignment>
+		<type type="string">text-value</type>
+		<format type="string">%s</format>
+		<property>/flight-management/hold/turn</property>
+		<truncate type="bool">false</truncate>
+		<font type="string">courier-bold.txf</font>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.003</character-size>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	
+	<text>
+		<name>text</name>
+		<offsets>
+			<x-m>-0.0524</x-m>
+			<y-m>-0.0419</y-m>
+			<z-m>-0.0006</z-m>
+			<heading-deg>90</heading-deg>
+		</offsets>
+		<alignment>left-center</alignment>
+		<axis-alignment>xy-plane</axis-alignment>
+		<type type="string">text-value</type>
+		<format type="string">%s</format>
+		<property>/flight-management/hold/time-dist-string</property>
+		<truncate type="bool">false</truncate>
+		<font type="string">courier-bold.txf</font>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.003</character-size>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	
+</PropertyList>

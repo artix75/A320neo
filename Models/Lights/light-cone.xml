@@ -8,5 +8,22 @@
 		<inherits-from>Effects/light-cone</inherits-from>
 		<object-name>Cone</object-name>
 	</effect>
+    
+    <animation>
+        <type>select</type>
+        <object-name>Cone</object-name>
+        <object-name>Cone-texture</object-name>
+        <condition>
+            <and>
+                <greater-than>
+                    <property>sim/time/sun-angle-rad</property>
+                    <value>1.45</value>
+                </greater-than>
+                <not>
+                    <property>sim/rendering/shaders/skydome</property>
+                </not>
+            </and>
+        </condition>
+    </animation>
 
 </PropertyList>

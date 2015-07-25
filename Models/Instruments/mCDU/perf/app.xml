@@ -3,12 +3,14 @@
 <PropertyList>
 
 	<path>app.ac</path>
-	
+
 	<!-- mCDU Display Brightness -->
-	
+
 	<animation>
 		<type>material</type>
 		<object-name>perf</object-name>
+		<object-name>white</object-name>
+		<object-name>title-white</object-name>
 		<emission>
 			<red>1</red>
 			<green>1</green>
@@ -16,10 +18,14 @@
 			<factor-prop>/instrumentation/mcdu/brt</factor-prop>
 		</emission>
 	</animation>
-	
+
 	<animation>
 		<type>material</type>
 		<object-name>green</object-name>
+		<object-name>title-green</object-name>
+		<object-name>vls</object-name>
+		<object-name>final</object-name>
+		<object-name>vapp-managed</object-name>
 		<emission>
 			<red>0</red>
 			<green>0.37</green>
@@ -32,10 +38,22 @@
 			<blue>0</blue>
 		</diffuse>
 	</animation>
-	
+
 	<animation>
 		<type>material</type>
 		<object-name>cyan</object-name>
+		<object-name>qnh-placeholder</object-name>
+		<object-name>qnh-hp</object-name>
+		<object-name>qnh-inhg</object-name>
+		<object-name>temp-placeholder</object-name>
+		<object-name>magwind-placeholder</object-name>
+		<object-name>vapp-placeholder</object-name>
+		<object-name>vapp-selected</object-name>
+		<object-name>magwind</object-name>
+		<object-name>ldg-conf3</object-name>
+		<object-name>ldg-conf3-inactive</object-name>
+		<object-name>ldg-conf-full</object-name>
+		<object-name>ldg-conf-full-inactive</object-name>
 		<emission>
 			<red>0</red>
 			<green>0.4823</green>
@@ -49,91 +67,747 @@
 		</diffuse>
 	</animation>
 	
-	<!-- Button Pick Animations -->
+	<!-- Select Animations -->
+
+	<animation>
+		<type>select</type>
+		<!--object-name>managed-prompt</object-name-->
+		<object-name>title-white</object-name>
+		<condition>
+			<or>
+				<equals>
+					<property>flight-management/phase</property>
+					<value>T/O</value>
+				</equals>
+				<equals>
+					<property>flight-management/phase</property>
+					<value>CLB</value>
+				</equals>
+				<equals>
+					<property>flight-management/phase</property>
+					<value>CRZ</value>
+				</equals>
+				<equals>
+					<property>flight-management/phase</property>
+					<value>DES</value>
+				</equals>
+			</or>
+		</condition>
+	</animation>
+
+	<animation>
+		<type>select</type>
+		<object-name>title-green</object-name>
+		<condition>
+			<equals>
+				<property>flight-management/phase</property>
+				<value>APP</value>
+			</equals>
+		</condition>
+	</animation>
 	
+	<animation>
+		<type>select</type>
+		<object-name>qnh-placeholder</object-name>
+		<condition>
+			<not>
+				<property>/instrumentation/fmc/appr-qnh</property>
+			</not>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>qnh-hp</object-name>
+		<object-name>qnh-inhg</object-name>
+		<condition>
+			<property>/instrumentation/fmc/appr-qnh</property>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>qnh-hp</object-name>
+		<condition>
+			<greater-than>
+				<property>/instrumentation/fmc/appr-qnh</property>
+				<value>900</value>
+			</greater-than>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>qnh-inhg</object-name>
+		<condition>
+			<less-than>
+				<property>/instrumentation/fmc/appr-qnh</property>
+				<value>100</value>
+			</less-than>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>vapp-placeholder</object-name>
+		<condition>
+			<and>
+				<not>
+					<property>/flight-management/spd-manager/approach/app-spd</property>
+				</not>
+				<not>
+					<equals>
+						<property>flight-management/phase</property>
+						<value>APP</value>
+					</equals>
+				</not>
+			</and>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>vapp-selected</object-name>
+		<condition>
+			<property>/flight-management/spd-manager/approach/app-spd</property>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>vapp-managed</object-name>
+		<condition>
+			<and>
+				<not>
+					<property>/flight-management/spd-manager/approach/app-spd</property>
+				</not>
+				<or>
+					<equals>
+						<property>flight-management/phase</property>
+						<value>APP</value>
+					</equals>
+					<property>/flight-management/fmgc-values/vapp</property>
+				</or>
+			</and>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>magwind</object-name>
+		<condition>
+			<property>/flight-management/settings/mag-wind</property>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>magwind-placeholder</object-name>
+		<condition>
+			<not>
+				<property>/flight-management/settings/mag-wind</property>
+			</not>
+		</condition>
+	</animation>
+
+	<animation>
+		<type>select</type>
+		<object-name>ldg-conf-full</object-name>
+		<condition>
+			<greater-than-equals>
+				<property>/flight-management/settings/ldg-conf-flaps</property>
+				<value>4</value>
+			</greater-than-equals>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>ldg-conf-full-inactive</object-name>
+		<condition>
+			<less-than>
+				<property>/flight-management/settings/ldg-conf-flaps</property>
+				<value>4</value>
+			</less-than>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>ldg-conf3</object-name>
+		<condition>
+			<less-than>
+				<property>/flight-management/settings/ldg-conf-flaps</property>
+				<value>4</value>
+			</less-than>
+		</condition>
+	</animation>
+
+	<animation>
+		<type>select</type>
+		<object-name>ldg-conf3-inactive</object-name>
+		<condition>
+			<greater-than-equals>
+				<property>/flight-management/settings/ldg-conf-flaps</property>
+				<value>4</value>
+			</greater-than-equals>
+		</condition>
+	</animation>
+	
+	<!-- Button Pick Animations -->
+
 	<animation>
 		<type>pick</type>
 		<object-name>l1</object-name>
 		<action>
-            <button>0</button>
-	   		<repeatable type="bool">false</repeatable>
-            <binding>
+			<button>0</button>
+			   <repeatable type="bool">false</repeatable>
+			<binding>
 				<command>nasal</command>
-		 		<script>
-		 		
-		 			if (getprop("/flight-management/spd-manager/approach/mode") == "MANAGED (F-PLN)")
-		 				setprop("/flight-management/spd-manager/approach/mode", "MANAGED (PERF)");
-		 			else
-		 				setprop("/flight-management/spd-manager/approach/mode", "MANAGED (F-PLN)");
-		 			
+				 <script>
+					 var input = getprop("/instrumentation/mcdu/input");
+					 if(input == nil or input == '') input = 0;
+					 var qnh = num(input);
+					 if(qnh != nil){
+					 	if(qnh > 100) qnh = int(qnh);
+					 	setprop('/instrumentation/fmc/appr-qnh', qnh);
+					 }
+
+					 setprop("/instrumentation/mcdu/input", "");
 				</script>
-            </binding>
-        </action>
+			</binding>
+		</action>
 	</animation>
-	
+    
+	<animation>
+		<type>pick</type>
+		<object-name>l3</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>nasal</command>
+				<script>
+
+					var input = getprop("/instrumentation/mcdu/input");
+					var wind_comp = split('/', input);
+					if(size(wind_comp) == 2){
+						var wnd_dir = num(string.trim(wind_comp[0]));
+						var wnd_kt = num(string.trim(wind_comp[1]));
+						if(wnd_dir != nil and wnd_kt != nil)
+							setprop('/flight-management/settings/mag-wind', input);
+					}
+					setprop("/instrumentation/mcdu/input", "");
+
+				</script>
+			</binding>
+		</action>
+	</animation>
+
 	<animation>
 		<type>pick</type>
 		<object-name>l4</object-name>
 		<action>
-            <button>0</button>
-	   		<repeatable type="bool">false</repeatable>
-            <binding>
+			<button>0</button>
+			   <repeatable type="bool">false</repeatable>
+			<binding>
 				<command>nasal</command>
-		 		<script>
-		 		
-		 			var input = getprop("/instrumentation/mcdu/input");
-		 			
-		 			setprop("/flight-management/spd-manager/approach/app-spd", input);
-		 			
-		 			setprop("/instrumentation/mcdu/input", "");
-		 			
+				 <script>
+				 
+					var input = getprop("/instrumentation/mcdu/input");
+					var trans_alt = num(input);
+					if(trans_alt != nil){
+						setprop("/instrumentation/fmc/appr-trans-alt", trans_alt);
+						var phase = getprop('flight-management/phase');
+						if(phase != 'T/O' and phase != 'CLB' and phase != 'CRZ')
+							setprop('flight-management/fmgc-values/trans-alt', trans_alt);
+					}
+					 #setprop("/flight-management/spd-manager/approach/app-spd", input);
+					 
+					setprop("/instrumentation/mcdu/input", "");
+					 
 				</script>
-            </binding>
-        </action>
+			</binding>
+		</action>
 	</animation>
-	
+
 	<animation>
 		<type>pick</type>
 		<object-name>l5</object-name>
 		<action>
-            <button>0</button>
-	   		<repeatable type="bool">false</repeatable>
-            <binding>
+			<button>0</button>
+			   <repeatable type="bool">false</repeatable>
+			<binding>
 				<command>nasal</command>
-		 		<script>
-		 		
-		 			var input = getprop("/instrumentation/mcdu/input");
-		 			
-		 			setprop("/flight-management/spd-manager/approach/flare-spd", input);
-		 			
-		 			setprop("/instrumentation/mcdu/input", "");
-		 			
+				 <script>
+				 
+					 var input = getprop("/instrumentation/mcdu/input");
+					 
+					 setprop("/flight-management/spd-manager/approach/app-spd", input);
+					 
+					 setprop("/instrumentation/mcdu/input", "");
+					 
 				</script>
-            </binding>
-        </action>
+			</binding>
+		</action>
 	</animation>
-	
+
 	<animation>
 		<type>pick</type>
 		<object-name>l6</object-name>
 		<action>
-            <button>0</button>
-	   		<repeatable type="bool">false</repeatable>
-            <binding>
+			<button>0</button>
+			   <repeatable type="bool">false</repeatable>
+			<binding>
 				<command>nasal</command>
-		 		<script>
-		 		
-		 			setprop("/instrumentation/mcdu/page", "perf-des");
-		 			
+				 <script>
+					 var phase = getprop('flight-management/phase');
+					 if(phase != 'APP')
+						 setprop("/instrumentation/mcdu/page", "perf-des");
+					 
 				</script>
-            </binding>
-        </action>
+			</binding>
+		</action>
 	</animation>
+
+	<animation>
+		<type>pick</type>
+		<object-name>r2</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>nasal</command>
+				<script>
+					var input = getprop("/instrumentation/mcdu/input");
+					if(typeof(num(input)) != nil){
+						setprop('/instrumentation/mk-viii/inputs/arinc429/decision-height', input);
+					}
+					setprop("/instrumentation/mcdu/input", "");
+
+				</script>
+			</binding>
+		</action>
+	</animation>
+
+	<animation>
+		<type>pick</type>
+		<object-name>r3</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>nasal</command>
+				<script>
+					var input = getprop("/instrumentation/mcdu/input");
+					if(typeof(num(input)) != nil){
+					setprop('/instrumentation/mk-viii/inputs/arinc429/decision-height', input);
+					}
+					setprop("/instrumentation/mcdu/input", "");
+
+				</script>
+			</binding>
+		</action>
+	</animation>
+	
+	<animation>
+		<type>pick</type>
+		<object-name>r4</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>nasal</command>
+				<script>
+					setprop('flight-management/settings/ldg-conf-flaps', 3);
+				</script>
+			</binding>
+		</action>
+	</animation>
+	
+	<animation>
+		<type>pick</type>
+		<object-name>r5</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>nasal</command>
+				<script>
+					setprop('flight-management/settings/ldg-conf-flaps', 4);
+				</script>
+			</binding>
+		</action>
+	</animation>
+	
+	<animation>
+		<type>pick</type>
+		<object-name>r6</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>nasal</command>
+				<script>
+					
+					setprop("/instrumentation/mcdu/page", "perf-ga");
+
+				</script>
+			</binding>
+		</action>
+	</animation>
+	
+	<!-- Text -->
+
+	<text>
+		<name>title-white</name>
+		<offsets>
+			<x-m>-0.0816</x-m>
+			<y-m>0</y-m>
+			<z-m>-0.0006</z-m>
+			<heading-deg>90</heading-deg>
+		</offsets>
+		<alignment>center-center</alignment>
+		<axis-alignment>xy-plane</axis-alignment>
+		<type type="string">literal</type>
+		<text>APPR</text>
+		<font type="string">courier-bold.txf</font>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.0045</character-size>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+
+	<text>
+		<name>title-green</name>
+		<offsets>
+			<x-m>-0.0816</x-m>
+			<y-m>0</y-m>
+			<z-m>-0.0006</z-m>
+			<heading-deg>90</heading-deg>
+		</offsets>
+		<alignment>center-center</alignment>
+		<axis-alignment>xy-plane</axis-alignment>
+		<type type="string">literal</type>
+		<text>APPR</text>
+		<font type="string">courier-bold.txf</font>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.0045</character-size>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	
+	<text>
+		<name>white</name>
+		<offsets>
+			<x-m>-0.0742</x-m>
+			<y-m>-0.0392</y-m>
+			<z-m>-0.0006</z-m>
+			<heading-deg>90</heading-deg>
+		</offsets>
+		<alignment>left-center</alignment>
+		<axis-alignment>xy-plane</axis-alignment>
+		<type type="string">literal</type>
+		<text>QNH</text>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.003</character-size>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	
+	<text>
+		<name>qnh-placeholder</name>
+		<offsets>
+			<x-m>-0.0704</x-m>
+			<y-m>-0.0432</y-m>
+			<z-m>-0.0006</z-m>
+			<heading-deg>90</heading-deg>
+		</offsets>
+		<alignment>left-center</alignment>
+		<axis-alignment>xy-plane</axis-alignment>
+		<type type="string">literal</type>
+		<text>[     ]</text>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.003</character-size>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	
+	<text>
+		<name>qnh-hp</name>
+		<offsets>
+			<x-m>-0.0704</x-m>
+			<y-m>-0.0432</y-m>
+			<z-m>-0.0006</z-m>
+			<heading-deg>90</heading-deg>
+		</offsets>
+		<alignment>left-center</alignment>
+		<axis-alignment>xy-plane</axis-alignment>
+		<type type="string">number-value</type>
+		<format type="string">%4.0f</format>
+		<property>/instrumentation/fmc/appr-qnh</property>
+		<truncate type="bool">false</truncate>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.003</character-size>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	
+	<text>
+		<name>qnh-inhg</name>
+		<offsets>
+			<x-m>-0.0704</x-m>
+			<y-m>-0.0432</y-m>
+			<z-m>-0.0006</z-m>
+			<heading-deg>90</heading-deg>
+		</offsets>
+		<alignment>left-center</alignment>
+		<axis-alignment>xy-plane</axis-alignment>
+		<type type="string">number-value</type>
+		<format type="string">%3.2f</format>
+		<property>/instrumentation/fmc/appr-qnh</property>
+		<truncate type="bool">false</truncate>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.003</character-size>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	
+	<text>
+		<name>white</name>
+		<offsets>
+			<x-m>-0.0661</x-m>
+			<y-m>-0.0392</y-m>
+			<z-m>-0.0006</z-m>
+			<heading-deg>90</heading-deg>
+		</offsets>
+		<alignment>left-center</alignment>
+		<axis-alignment>xy-plane</axis-alignment>
+		<type type="string">literal</type>
+		<text>TEMP</text>
+		<font type="string">courier-bold.txf</font>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.003</character-size>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	
+	<text>
+		<name>temp-placeholder</name>
+		<offsets>
+			<x-m>-0.0609</x-m>
+			<y-m>-0.0432</y-m>
+			<z-m>-0.0006</z-m>
+			<heading-deg>90</heading-deg>
+		</offsets>
+		<alignment>left-center</alignment>
+		<axis-alignment>xy-plane</axis-alignment>
+		<type type="string">literal</type>
+		<text>[     ]°</text>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.003</character-size>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	
+	<text>
+		<name>white</name>
+		<offsets>
+			<x-m>-0.0570</x-m>
+			<y-m>-0.0392</y-m>
+			<z-m>-0.0006</z-m>
+			<heading-deg>90</heading-deg>
+		</offsets>
+		<alignment>left-center</alignment>
+		<axis-alignment>xy-plane</axis-alignment>
+		<type type="string">literal</type>
+		<text>MAG WIND</text>
+		<font type="string">courier-bold.txf</font>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.003</character-size>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	
+	<text>
+		<name>magwind-placeholder</name>
+		<offsets>
+			<x-m>-0.0521</x-m>
+			<y-m>-0.0432</y-m>
+			<z-m>-0.0006</z-m>
+			<heading-deg>90</heading-deg>
+		</offsets>
+		<alignment>left-center</alignment>
+		<axis-alignment>xy-plane</axis-alignment>
+		<type type="string">literal</type>
+		<text>[   ]°/[   ]</text>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.003</character-size>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	
+	<text>
+		<name>magwind</name>
+		<offsets>
+			<x-m>-0.0521</x-m>
+			<y-m>-0.0432</y-m>
+			<z-m>-0.0006</z-m>
+			<heading-deg>90</heading-deg>
+		</offsets>
+		<alignment>left-center</alignment>
+		<axis-alignment>xy-plane</axis-alignment>
+		<type type="string">text-value</type>
+		<format type="string">%s</format>
+		<property>/flight-management/settings/mag-wind</property>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.003</character-size>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	
+	<text>
+		<name>white</name>
+		<offsets>
+			<x-m>-0.0469</x-m>
+			<y-m>-0.0392</y-m>
+			<z-m>-0.0006</z-m>
+			<heading-deg>90</heading-deg>
+		</offsets>
+		<alignment>left-center</alignment>
+		<axis-alignment>xy-plane</axis-alignment>
+		<type type="string">literal</type>
+		<text>TRANS ALT</text>
+		<font type="string">courier-bold.txf</font>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.003</character-size>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
 	
 	<text>
 		<name>cyan</name>
 		<offsets>
 			<x-m>-0.0431</x-m>
+			<y-m>-0.0432</y-m>
+			<z-m>-0.0006</z-m>
+			<heading-deg>90</heading-deg>
+		</offsets>
+		<alignment>left-center</alignment>
+		<axis-alignment>xy-plane</axis-alignment>
+		<type type="string">number-value</type>
+		<format type="string">%3.0f</format>
+		<property>/instrumentation/fmc/appr-trans-alt</property>
+		<truncate type="bool">false</truncate>
+		<font type="string">courier-bold.txf</font>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.003</character-size>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	
+	<text>
+		<name>white</name>
+		<offsets>
+			<x-m>-0.0379</x-m>
+			<y-m>-0.0392</y-m>
+			<z-m>-0.0006</z-m>
+			<heading-deg>90</heading-deg>
+		</offsets>
+		<alignment>left-center</alignment>
+		<axis-alignment>xy-plane</axis-alignment>
+		<type type="string">literal</type>
+		<text>VAPP</text>
+		<font type="string">courier-bold.txf</font>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.003</character-size>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	
+	<text>
+		<name>vapp-placeholder</name>
+		<offsets>
+			<x-m>-0.0341</x-m>
+			<y-m>-0.0432</y-m>
+			<z-m>-0.0006</z-m>
+			<heading-deg>90</heading-deg>
+		</offsets>
+		<alignment>left-center</alignment>
+		<axis-alignment>xy-plane</axis-alignment>
+		<type type="string">literal</type>
+		<text>---</text>
+		<font type="string">courier-bold.txf</font>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.003</character-size>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	
+	<text>
+		<name>vapp-selected</name>
+		<offsets>
+			<x-m>-0.0341</x-m>
 			<y-m>-0.0432</y-m>
 			<z-m>-0.0006</z-m>
 			<heading-deg>90</heading-deg>
@@ -156,6 +830,384 @@
 	</text>
 	
 	<text>
+		<name>vapp-managed</name>
+		<offsets>
+			<x-m>-0.0341</x-m>
+			<y-m>-0.0432</y-m>
+			<z-m>-0.0006</z-m>
+			<heading-deg>90</heading-deg>
+		</offsets>
+		<alignment>left-center</alignment>
+		<axis-alignment>xy-plane</axis-alignment>
+		<type type="string">number-value</type>
+		<format type="string">%3.0f</format>
+		<property>/flight-management/fmgc-values/vapp</property>
+		<truncate type="bool">false</truncate>
+		<font type="string">courier-bold.txf</font>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.003</character-size>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	
+	<text>
+		<name>white</name>
+		<offsets>
+			<x-m>-0.0379</x-m>
+			<y-m>0</y-m>
+			<z-m>-0.0006</z-m>
+			<heading-deg>90</heading-deg>
+		</offsets>
+		<alignment>left-center</alignment>
+		<axis-alignment>xy-plane</axis-alignment>
+		<type type="string">literal</type>
+		<text>VLS</text>
+		<font type="string">courier-bold.txf</font>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.003</character-size>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+    
+	<text>
+		<name>vls</name>
+		<offsets>
+			<x-m>-0.0341</x-m>
+			<y-m>0</y-m>
+			<z-m>-0.0006</z-m>
+			<heading-deg>90</heading-deg>
+		</offsets>
+		<alignment>left-center</alignment>
+		<axis-alignment>xy-plane</axis-alignment>
+		<type type="string">number-value</type>
+		<format type="string">%3.0f</format>
+		<property>/flight-management/fmgc-values/appr-vls</property>
+		<truncate type="bool">false</truncate>
+		<font type="string">courier-bold.txf</font>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.003</character-size>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+    
+	<text>
+		<name>white</name>
+		<offsets>
+			<x-m>-0.0469</x-m>
+			<y-m>0.0432</y-m>
+			<z-m>-0.0006</z-m>
+			<heading-deg>90</heading-deg>
+		</offsets>
+		<alignment>right-center</alignment>
+		<axis-alignment>xy-plane</axis-alignment>
+		<type type="string">literal</type>
+		<text>LDG CONF</text>
+		<font type="string">courier-bold.txf</font>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.003</character-size>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	
+	<text>
+		<name>ldg-conf3-inactive</name>
+		<offsets>
+			<x-m>-0.0431</x-m>
+			<y-m>0.0432</y-m>
+			<z-m>-0.0006</z-m>
+			<heading-deg>90</heading-deg>
+		</offsets>
+		<alignment>right-center</alignment>
+		<axis-alignment>xy-plane</axis-alignment>
+		<type type="string">literal</type>
+		<text>CONF3*</text>
+		<font type="string">courier-bold.txf</font>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.0026</character-size>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	
+	<text>
+		<name>ldg-conf3</name>
+		<offsets>
+			<x-m>-0.0431</x-m>
+			<y-m>0.0432</y-m>
+			<z-m>-0.0006</z-m>
+			<heading-deg>90</heading-deg>
+		</offsets>
+		<alignment>right-center</alignment>
+		<axis-alignment>xy-plane</axis-alignment>
+		<type type="string">literal</type>
+		<text>CONF3</text>
+		<font type="string">courier-bold.txf</font>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.003</character-size>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	
+	<text>
+		<name>ldg-conf-full-inactive</name>
+		<offsets>
+			<x-m>-0.0341</x-m>
+			<y-m>0.0432</y-m>
+			<z-m>-0.0006</z-m>
+			<heading-deg>90</heading-deg>
+		</offsets>
+		<alignment>right-center</alignment>
+		<axis-alignment>xy-plane</axis-alignment>
+		<type type="string">literal</type>
+		<text>FULL*</text>
+		<font type="string">courier-bold.txf</font>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.0026</character-size>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	
+	<text>
+		<name>ldg-conf-full</name>
+		<offsets>
+			<x-m>-0.0341</x-m>
+			<y-m>0.0432</y-m>
+			<z-m>-0.0006</z-m>
+			<heading-deg>90</heading-deg>
+		</offsets>
+		<alignment>right-center</alignment>
+		<axis-alignment>xy-plane</axis-alignment>
+		<type type="string">literal</type>
+		<text>FULL</text>
+		<font type="string">courier-bold.txf</font>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.003</character-size>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	
+	<text>
+		<name>white</name>
+		<offsets>
+			<x-m>-0.0293</x-m>
+			<y-m>0.0422</y-m>
+			<z-m>-0.0006</z-m>
+			<heading-deg>90</heading-deg>
+		</offsets>
+		<alignment>right-center</alignment>
+		<axis-alignment>xy-plane</axis-alignment>
+		<type type="string">literal</type>
+		<text>NEXT</text>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.0025</character-size>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	
+	<text>
+		<name>white</name>
+		<offsets>
+			<x-m>-0.0261</x-m>
+			<y-m>0.0432</y-m>
+			<z-m>-0.0006</z-m>
+			<heading-deg>90</heading-deg>
+		</offsets>
+		<alignment>right-center</alignment>
+		<axis-alignment>xy-plane</axis-alignment>
+		<type type="string">literal</type>
+		<text>PHASE&gt;</text>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.003</character-size>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	
+	<text>
+		<name>white</name>
+		<offsets>
+			<x-m>-0.0742</x-m>
+			<y-m>0.0432</y-m>
+			<z-m>-0.0006</z-m>
+			<heading-deg>90</heading-deg>
+		</offsets>
+		<alignment>right-center</alignment>
+		<axis-alignment>xy-plane</axis-alignment>
+		<type type="string">literal</type>
+		<text>FINAL</text>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.003</character-size>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	
+	<text>
+		<name>green</name>
+		<offsets>
+			<x-m>-0.0704</x-m>
+			<y-m>0.0432</y-m>
+			<z-m>-0.0006</z-m>
+			<heading-deg>90</heading-deg>
+		</offsets>
+		<alignment>right-center</alignment>
+		<axis-alignment>xy-plane</axis-alignment>
+		<type type="string">text-value</type>
+		<format type="string">%s</format>
+		<property>/autopilot/route-manager/destination/runway</property>
+		<truncate type="bool">false</truncate>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.003</character-size>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+
+	<text>
+		<name>white</name>
+		<offsets>
+			<x-m>-0.0661</x-m>
+			<y-m>0.0432</y-m>
+			<z-m>-0.0006</z-m>
+			<heading-deg>90</heading-deg>
+		</offsets>
+		<alignment>right-center</alignment>
+		<axis-alignment>xy-plane</axis-alignment>
+		<type type="string">text-value</type>
+		<format type="string">%s</format>
+		<property>/instrumentation/mcdu/texts/MDA</property>
+		<truncate type="bool">false</truncate>
+		<font type="string">courier-bold.txf</font>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.003</character-size>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+
+	<text>
+		<name>cyan</name>
+		<offsets>
+			<x-m>-0.0609</x-m>
+			<y-m>0.0432</y-m>
+			<z-m>-0.0006</z-m>
+			<heading-deg>90</heading-deg>
+		</offsets>
+		<alignment>right-center</alignment>
+		<axis-alignment>xy-plane</axis-alignment>
+		<type type="string">number-value</type>
+		<format type="string">[ %3.0f ]</format>
+		<property>/instrumentation/mk-viii/inputs/arinc429/decision-height</property>
+		<truncate type="bool">false</truncate>
+		<font type="string">courier-bold.txf</font>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.003</character-size>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+
+	<text>
+		<name>white</name>
+		<offsets>
+			<x-m>-0.0573</x-m>
+			<y-m>0.0432</y-m>
+			<z-m>-0.0006</z-m>
+			<heading-deg>90</heading-deg>
+		</offsets>
+		<alignment>right-center</alignment>
+		<axis-alignment>xy-plane</axis-alignment>
+		<type type="string">text-value</type>
+		<format type="string">%s</format>
+		<property>/instrumentation/mcdu/texts/DH</property>
+		<truncate type="bool">false</truncate>
+		<font type="string">courier-bold.txf</font>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.003</character-size>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+
+	<text>
+		<name>cyan</name>
+		<offsets>
+			<x-m>-0.0521</x-m>
+			<y-m>0.0432</y-m>
+			<z-m>-0.0006</z-m>
+			<heading-deg>90</heading-deg>
+		</offsets>
+		<alignment>right-center</alignment>
+		<axis-alignment>xy-plane</axis-alignment>
+		<type type="string">number-value</type>
+		<format type="string">[ %3.0f ]</format>
+		<property>/instrumentation/mk-viii/inputs/arinc429/decision-height</property>
+		<truncate type="bool">false</truncate>
+		<font type="string">courier-bold.txf</font>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.003</character-size>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+
+	<!--text>
 		<name>cyan</name>
 		<offsets>
 			<x-m>-0.0343</x-m>
@@ -179,7 +1231,7 @@
 			<height type="int">32</height>
 		</font-resolution>
 	</text>
-	
+
 	<text>
 		<name>green</name>
 		<offsets>
@@ -203,6 +1255,6 @@
 			<width type="int">32</width>
 			<height type="int">32</height>
 		</font-resolution>
-	</text>
+	</text-->
 
 </PropertyList>

@@ -1,0 +1,731 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+
+	<path>init-sec.ac</path>
+	
+	<!-- mCDU Display Brightness -->
+	
+	<animation>
+		<type>material</type>
+		<object-name>init-disp</object-name>
+		<emission>
+			<red>1</red>
+			<green>1</green>
+			<blue>1</blue>
+			<factor-prop>/instrumentation/mcdu/brt</factor-prop>
+		</emission>
+	</animation>
+	
+	<animation>
+		<type>material</type>
+		<object-name>co_rte</object-name>
+		<object-name>from-to</object-name>
+		<object-name>altn</object-name>
+		<object-name>flt_num</object-name>
+		<object-name>ci</object-name>
+		<object-name>crz</object-name>
+		<object-name>other</object-name>
+		<object-name>white</object-name>
+		<emission>
+			<red>1</red>
+			<green>1</green>
+			<blue>1</blue>
+			<factor-prop>/instrumentation/mcdu/brt</factor-prop>
+		</emission>
+		<diffuse>
+			<red>1</red>
+			<green>1</green>
+			<blue>1</blue>
+		</diffuse>
+	</animation>
+	
+	<!-- Button Pick Animations -->
+	
+	<animation>
+		<type>pick</type>
+		<object-name>l1</object-name>
+		<action>
+            <button>0</button>
+	   		<repeatable type="bool">false</repeatable>
+            <binding>
+				<command>nasal</command>
+		 		<script>
+		 			if (size(getprop("/instrumentation/mcdu/input")) == 10) {
+		 		
+						mcdu.mCDU_init.co_rte(0, getprop("/instrumentation/mcdu/input"),1);
+					
+						mcdu.clear_inp();
+					
+					} else {
+					
+						mcdu.display_message("ERROR: WRONG FORMAT");
+					
+					}
+				</script>
+            </binding>
+        </action>
+	</animation>
+	
+	<animation>
+		<type>pick</type>
+		<object-name>l2</object-name>
+		<action>
+            <button>0</button>
+	   		<repeatable type="bool">false</repeatable>
+            <binding>
+				<command>nasal</command>
+		 		<script>
+		 			var input = getprop("/instrumentation/mcdu/input");
+		 		
+		 			var icao = substr(input, 0, 4);
+		 			
+		 			var rte_id = substr(input, 5, 10);
+		 		
+		 			if (substr(input, 4, 1) == "/") {
+		 		
+						mcdu.mCDU_init.altn_co_rte(0, icao, rte_id, 1);
+					
+						mcdu.clear_inp();
+					
+					} else {
+					
+						mcdu.display_message("ERROR: WRONG FORMAT");
+					
+					}
+				</script>
+            </binding>
+        </action>
+	</animation>
+	
+	<!--animation>
+		<type>pick</type>
+		<object-name>l3</object-name>
+		<action>
+            <button>0</button>
+	   		<repeatable type="bool">false</repeatable>
+            <binding>
+				<command>nasal</command>
+		 		<script>
+					# mcdu.mCDU_init.flt_num(0, getprop("/instrumentation/mcdu/input"));
+					
+					setprop("/flight-management/secondary-rte/flight-num", getprop("/instrumentation/mcdu/input"));
+					
+					mcdu.clear_inp();
+					
+				</script>
+            </binding>
+        </action>
+	</animation>
+	
+	<animation>
+		<type>pick</type>
+		<object-name>l5</object-name>
+		<action>
+            <button>0</button>
+	   		<repeatable type="bool">false</repeatable>
+            <binding>
+				<command>nasal</command>
+		 		<script>
+	 setprop("/flight-management/secondary-rte/cost-index", getprop("/instrumentation/mcdu/input"));
+					
+					mcdu.clear_inp();
+				</script>
+            </binding>
+        </action>
+	</animation-->
+	
+	<animation>
+		<type>pick</type>
+		<object-name>l6</object-name>
+		<action>
+            <button>0</button>
+	   		<repeatable type="bool">false</repeatable>
+            <binding>
+				<command>nasal</command>
+		 		<script>
+		 			var input = getprop("/instrumentation/mcdu/input");
+		 		
+		 			if (substr(input, 3, 1) == "/") {
+		 		
+			 			var crz_fl = substr(input, 0, 3);
+			 			
+						setprop("/flight-management/secondary-rte/crz_fl", crz_fl);
+			 			
+			 			var temp = substr(input, 4, 3);
+					
+						setprop("/flight-management/secondary-rte/temp", temp);
+					
+						#if (getprop("/flight-management/secondary-rte/id") != "----------")
+					
+						#	mcdu.mCDU_init.co_rte(0, getprop("/flight-management/secondary-rte/id"));
+						#var fl_lvl = int(crz_fl) * 100;
+                        #setprop("autopilot/route-manager/cruise/altitude-ft", fl_lvl);
+						
+						mcdu.clear_inp();
+					
+					} else {
+					
+						mcdu.display_message("ERROR: WRONG FORMAT");
+					
+					}
+				</script>
+            </binding>
+        </action>
+	</animation>
+	
+	<animation>
+		<type>pick</type>
+		<object-name>r1</object-name>
+		<action>
+            <button>0</button>
+	   		<repeatable type="bool">false</repeatable>
+            <binding>
+				<command>nasal</command>
+		 		<script>
+		 			var input = getprop("/instrumentation/mcdu/input");
+		 		
+		 			if (substr(input, 4, 1) == "/") {
+		 		
+			 			var from = substr(input, 0, 4);
+			 			
+			 			var to = substr(input, 5, 4);
+			 		
+						mcdu.mCDU_init.from_to(0, from, to, 1);
+					
+						mcdu.clear_inp();
+					
+					} else {
+					
+						mcdu.display_message("ERROR: WRONG FORMAT");
+					
+					}
+				</script>
+            </binding>
+        </action>
+	</animation>
+	
+	<animation>
+		<type>pick</type>
+		<object-name>r5</object-name>
+		<action>
+            <button>0</button>
+	   		<repeatable type="bool">false</repeatable>
+            <binding>
+				<command>nasal</command>
+		 		<script>
+					setprop("/instrumentation/mcdu/page", "wind");
+				</script>
+            </binding>
+        </action>
+	</animation>
+	
+	<animation>
+		<type>pick</type>
+		<object-name>l_arrow</object-name>
+		<object-name>r_arrow</object-name>
+		<action>
+            <button>0</button>
+	   		<repeatable type="bool">false</repeatable>
+            <binding>
+				<command>nasal</command>
+		 		<script>
+					setprop("/instrumentation/mcdu/page", "fuel-pred");
+					
+					mcdu.init_B.update();
+				</script>
+            </binding>
+        </action>
+	</animation>
+	
+	<animation>
+		<type>pick</type>
+		<object-name>r6</object-name>
+		<action>
+            <button>0</button>
+	   		<repeatable type="bool">false</repeatable>
+            <binding>
+				<command>nasal</command>
+		 		<script>
+					setprop("/flight-management/tropo", getprop("/instrumentation/mcdu/input"));
+					
+					mcdu.clear_inp();
+				</script>
+            </binding>
+        </action>
+	</animation>
+	
+	<!-- Select Empty Field Symbols -->
+	
+	<animation>
+		<type>select</type>
+		<object-name>co_rte_empty</object-name>
+		<condition>
+			<equals>
+				<property>/flight-management/secondary-rte/id</property>
+				<value>empty</value>
+			</equals>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>from-to_empty</object-name>
+		<condition>
+			<equals>
+				<property>/flight-management/secondary-rte/depicao</property>
+				<value>empty</value>
+			</equals>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>altn_empty</object-name>
+		<condition>
+			<equals>
+				<property>/flight-management/alternate/secondary/icao</property>
+				<value>empty</value>
+			</equals>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>flt_num_empty</object-name>
+		<condition>
+			<equals>
+				<property>/flight-management/active-rte/flight-num</property>
+				<value>empty</value>
+			</equals>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>ci_empty</object-name>
+		<condition>
+			<equals>
+				<property>/flight-management/secondary-rte/cost-index</property>
+				<value>0</value>
+			</equals>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>crz_empty</object-name>
+		<condition>
+			<equals>
+				<property>/flight-management/secondary-rte/crz_fl</property>
+				<value>0</value>
+			</equals>
+		</condition>
+	</animation>
+	
+	<!-- Select Field Values if they're NOT empty -->
+	
+	<animation>
+		<type>select</type>
+		<object-name>co_rte</object-name>
+		<condition>
+			<not>
+				<equals>
+					<property>/flight-management/secondary-rte/id</property>
+					<value>empty</value>
+				</equals>
+			</not>	
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>from-to</object-name>
+		<condition>
+			<not>
+				<equals>
+					<property>/flight-management/secondary-rte/depicao</property>
+					<value>empty</value>
+				</equals>
+			</not>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>altn</object-name>
+		<condition>
+			<not>
+				<equals>
+					<property>/flight-management/alternate/secondary/icao</property>
+					<value>empty</value>
+				</equals>
+			</not>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>flt_num</object-name>
+		<condition>
+			<not>
+				<equals>
+					<property>/flight-management/active-rte/flight-num</property>
+					<value>empty</value>
+				</equals>
+			</not>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>ci</object-name>
+		<condition>
+			<not>
+				<equals>
+					<property>/flight-management/secondary-rte/cost-index</property>
+					<value>0</value>
+				</equals>
+			</not>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>crz</object-name>
+		<condition>
+			<not>
+				<equals>
+					<property>/flight-management/secondary-rte/crz_fl</property>
+					<value>0</value>
+				</equals>
+			</not>
+		</condition>
+	</animation>
+	
+	<!-- OSGText for non-empty fields -->
+	
+	<text>
+		<name>white</name>
+		<offsets>
+			<x-m>-0.0812</x-m>
+			<y-m>-0.0357</y-m>
+			<z-m>-0.0006</z-m>
+			<heading-deg>90</heading-deg>
+		</offsets>
+		<alignment>left-center</alignment>
+		<axis-alignment>xy-plane</axis-alignment>
+		<type type="string">literal</type>
+		<text>SEC</text>
+		<font type="string">courier-bold.txf</font>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.0045</character-size>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	
+	<text>
+		<name>co_rte</name>
+		<offsets>
+			<x-m>-0.0709</x-m>
+			<y-m>-0.0457</y-m>
+			<z-m>-0.0006</z-m>
+			<heading-deg>90</heading-deg>
+		</offsets>
+		<alignment>left-center</alignment>
+		<axis-alignment>xy-plane</axis-alignment>
+		<type type="string">text-value</type>
+		<format type="string">%s</format>
+		<property>flight-management/secondary-rte/id</property>
+		<truncate type="bool">false</truncate>
+		<font type="string">courier-bold.txf</font>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.003</character-size>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	
+	<text>
+		<name>from-to</name> <!-- DEP ICAO -->
+		<offsets>
+			<x-m>-0.0709</x-m>
+			<y-m>0.0306</y-m>
+			<z-m>-0.0006</z-m>
+			<heading-deg>90</heading-deg>
+		</offsets>
+		<alignment>right-center</alignment>
+		<axis-alignment>xy-plane</axis-alignment>
+		<type type="string">text-value</type>
+		<format type="string">%s</format>
+		<property>flight-management/secondary-rte/depicao</property>
+		<truncate type="bool">false</truncate>
+		<font type="string">courier-bold.txf</font>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.003</character-size>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	
+	<text>
+		<name>from-to</name> <!-- ARR ICAO -->
+		<offsets>
+			<x-m>-0.0709</x-m>
+			<y-m>0.0329</y-m>
+			<z-m>-0.0006</z-m>
+			<heading-deg>90</heading-deg>
+		</offsets>
+		<alignment>left-center</alignment>
+		<axis-alignment>xy-plane</axis-alignment>
+		<type type="string">text-value</type>
+		<format type="string">%s</format>
+		<property>flight-management/secondary-rte/arricao</property>
+		<truncate type="bool">false</truncate>
+		<font type="string">courier-bold.txf</font>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.003</character-size>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	
+	<text>
+		<name>altn</name> <!-- ALTN ICAO -->
+		<offsets>
+			<x-m>-0.0610</x-m>
+			<y-m>-0.0379</y-m>
+			<z-m>-0.0006</z-m>
+			<heading-deg>90</heading-deg>
+		</offsets>
+		<alignment>right-center</alignment>
+		<axis-alignment>xy-plane</axis-alignment>
+		<type type="string">text-value</type>
+		<format type="string">%s</format>
+		<property>/flight-management/alternate/secondary/icao</property>
+		<truncate type="bool">false</truncate>
+		<font type="string">courier-bold.txf</font>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.003</character-size>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	
+	<text>
+		<name>altn</name> <!-- ALTN CO RTE -->
+		<offsets>
+			<x-m>-0.0610</x-m>
+			<y-m>-0.0353</y-m>
+			<z-m>-0.0006</z-m>
+			<heading-deg>90</heading-deg>
+		</offsets>
+		<alignment>left-center</alignment>
+		<axis-alignment>xy-plane</axis-alignment>
+		<type type="string">text-value</type>
+		<format type="string">%s</format>
+		<property>/flight-management/alternate/secondary/route/id</property>
+		<truncate type="bool">false</truncate>
+		<font type="string">courier-bold.txf</font>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.003</character-size>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	
+	<text>
+		<name>flt_num</name>
+		<offsets>
+			<x-m>-0.0519</x-m>
+			<y-m>-0.0457</y-m>
+			<z-m>-0.0006</z-m>
+			<heading-deg>90</heading-deg>
+		</offsets>
+		<alignment>left-center</alignment>
+		<axis-alignment>xy-plane</axis-alignment>
+		<type type="string">text-value</type>
+		<format type="string">%s</format>
+		<property>/flight-management/secondary-rte/flight-num</property>
+		<truncate type="bool">false</truncate>
+		<font type="string">courier-bold.txf</font>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.003</character-size>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	
+	<text>
+		<name>other</name> <!-- LAT -->
+		<offsets>
+			<x-m>-0.0429</x-m>
+			<y-m>-0.0457</y-m>
+			<z-m>-0.0006</z-m>
+			<heading-deg>90</heading-deg>
+		</offsets>
+		<alignment>left-center</alignment>
+		<axis-alignment>xy-plane</axis-alignment>
+		<type type="string">text-value</type>
+		<format type="string">%s</format>
+		<property>/position/latitude-string</property>
+		<truncate type="bool">false</truncate>
+		<font type="string">courier-bold.txf</font>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.003</character-size>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	
+	<text>
+		<name>other</name> <!-- LONG -->
+		<offsets>
+			<x-m>-0.0429</x-m>
+			<y-m>0.0438</y-m>
+			<z-m>-0.0006</z-m>
+			<heading-deg>90</heading-deg>
+		</offsets>
+		<alignment>right-center</alignment>
+		<axis-alignment>xy-plane</axis-alignment>
+		<type type="string">text-value</type>
+		<format type="string">%s</format>
+		<property>/position/longitude-string</property>
+		<truncate type="bool">false</truncate>
+		<font type="string">courier-bold.txf</font>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.003</character-size>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	
+	<text>
+		<name>ci</name>
+		<offsets>
+			<x-m>-0.0332</x-m>
+			<y-m>-0.0457</y-m>
+			<z-m>-0.0006</z-m>
+			<heading-deg>90</heading-deg>
+		</offsets>
+		<alignment>left-center</alignment>
+		<axis-alignment>xy-plane</axis-alignment>
+		<type type="string">text-value</type>
+		<format type="string">%s</format>
+		<property>/flight-management/secondary-rte/cost-index</property>
+		<truncate type="bool">false</truncate>
+		<font type="string">courier-bold.txf</font>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.003</character-size>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	
+	<text>
+		<name>crz</name> <!-- CRZ FL -->
+		<offsets>
+			<x-m>-0.0242</x-m>
+			<y-m>-0.0457</y-m>
+			<z-m>-0.0006</z-m>
+			<heading-deg>90</heading-deg>
+		</offsets>
+		<alignment>left-center</alignment>
+		<axis-alignment>xy-plane</axis-alignment>
+		<type type="string">text-value</type>
+		<format type="string">FL%s</format>
+		<property>/flight-management/secondary-rte/crz_fl</property>
+		<truncate type="bool">false</truncate>
+		<font type="string">courier-bold.txf</font>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.003</character-size>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	
+	<text>
+		<name>crz</name> <!-- CRZ TEMP -->
+		<offsets>
+			<x-m>-0.0242</x-m>
+			<y-m>-0.0314</y-m>
+			<z-m>-0.0006</z-m>
+			<heading-deg>90</heading-deg>
+		</offsets>
+		<alignment>left-center</alignment>
+		<axis-alignment>xy-plane</axis-alignment>
+		<type type="string">text-value</type>
+		<format type="string">%s C</format>
+		<property>/flight-management/secondary-rte/temp</property>
+		<truncate type="bool">false</truncate>
+		<font type="string">courier-bold.txf</font>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.003</character-size>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	
+	<text>
+		<name>other</name> <!-- TROPO -->
+		<offsets>
+			<x-m>-0.0242</x-m>
+			<y-m>0.0438</y-m>
+			<z-m>-0.0006</z-m>
+			<heading-deg>90</heading-deg>
+		</offsets>
+		<alignment>right-center</alignment>
+		<axis-alignment>xy-plane</axis-alignment>
+		<type type="string">text-value</type>
+		<format type="string">%s</format>
+		<property>/flight-management/secondary-rte/tropo</property>
+		<truncate type="bool">false</truncate>
+		<font type="string">courier-bold.txf</font>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.003</character-size>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	
+</PropertyList>

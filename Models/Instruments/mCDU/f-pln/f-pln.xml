@@ -3,13 +3,21 @@
 <PropertyList>
 
 	<path>f-pln.ac</path>
-	
+
 	<!-- mCDU Display Brightness -->
-	
+
 	<animation>
 		<type>material</type>
 		<object-name>white</object-name>
 		<object-name>unavail</object-name>
+		<object-name>hold</object-name>
+		<object-name>holdL</object-name>
+		<object-name>holdR</object-name>
+		<object-name>white-l1</object-name>
+		<object-name>white-l2</object-name>
+		<object-name>white-l3</object-name>
+		<object-name>white-l4</object-name>
+		<object-name>white-l5</object-name>
 		<emission>
 			<red>1</red>
 			<green>1</green>
@@ -17,10 +25,15 @@
 			<factor-prop>/instrumentation/mcdu/brt</factor-prop>
 		</emission>
 	</animation>
-	
+
 	<animation>
 		<type>material</type>
 		<object-name>green</object-name>
+		<object-name>green-l1</object-name>
+		<object-name>green-l2</object-name>
+		<object-name>green-l3</object-name>
+		<object-name>green-l4</object-name>
+		<object-name>green-l5</object-name>
 		<emission>
 			<red>0</red>
 			<green>0.37</green>
@@ -34,431 +47,687 @@
 		</diffuse>
 	</animation>
 	
-	<!-- Button Pick Animations -->
+	<animation>
+		<type>material</type>
+		<object-name>yellow-l1</object-name>
+		<object-name>yellow-l2</object-name>
+		<object-name>yellow-l3</object-name>
+		<object-name>yellow-l4</object-name>
+		<object-name>yellow-l5</object-name>
+		<object-name>fpln-title</object-name>
+		<emission>
+			<red>1</red>
+			<green>1</green>
+			<blue>0</blue>
+			<factor-prop>/instrumentation/mcdu/brt</factor-prop>
+		</emission>
+		<diffuse>
+			<red>1</red>
+			<green>1</green>
+			<blue>0</blue>
+		</diffuse>
+	</animation>
 	
+	<animation>
+		<type>material</type>
+		<object-name>blue-l1</object-name>
+		<object-name>blue-l2</object-name>
+		<object-name>blue-l3</object-name>
+		<object-name>blue-l4</object-name>
+		<object-name>blue-l5</object-name>
+		<emission>
+			<red>0</red>
+			<green>0.62</green>
+			<blue>0.84</blue>
+			<factor-prop>/instrumentation/mcdu/brt</factor-prop>
+		</emission>
+		<diffuse>
+			<red>0</red>
+			<green>0.62</green>
+			<blue>0.84</blue>
+		</diffuse>
+	</animation>
+
+	<!-- Button Pick Animations -->
+
 	<animation>
 		<type>pick</type>
 		<object-name>r1</object-name>
 		<action>
-            <button>0</button>
+			<button>0</button>
 	   		<repeatable type="bool">false</repeatable>
-            <binding>
+			<binding>
 				<command>nasal</command>
 		 		<script>
-		 		
+
 		 			# IAS Ex. - 250/8000
 		 			# MACH Ex. - 0.80/35000
-		 		
+
 		 			var first = getprop("/instrumentation/mcdu/f-pln/disp/first");
-		 			
+
 					var input = getprop("/instrumentation/mcdu/input");
-					
-					var spd = substr(input, 0, 3);
-					
-					var alt = substr(input, 4, 5);
-					
-					if (first == 0) {
-					
-						setprop("/instrumentation/mcdu/input", "ERROR: VER REV NOT POSSIBLE");
-					
-					} else {
-					
-						setprop("autopilot/route-manager/route/wp[" ~ first ~ "]/ias-mach", spd);
-					
-						setprop("autopilot/route-manager/route/wp[" ~ first ~ "]/altitude-ft", alt);
-					
+					var comps = split('/', input);
+					var spd = nil;
+
+					var alt = nil;
+					var ncomps = size(comps);
+					if(ncomps == 1){
+						alt = num(comps[0]);
 					}
-					
+					elsif(ncomps == 2){
+						spd = num(comps[0]);
+						alt = num(comps[1]);
+					}
+					if (first == 0) {
+
+						setprop("/instrumentation/mcdu/input", "ERROR: VER REV NOT POSSIBLE");
+
+					} else {
+						mcdu.f_pln.set_restriction(1, alt, spd);
+						mcdu.clear_inp();
+					}
+
 					mcdu.f_pln.update_disp();
 				</script>
-            </binding>
-        </action>
+			</binding>
+		</action>
 	</animation>
-	
+
 	<animation>
 		<type>pick</type>
 		<object-name>r2</object-name>
 		<action>
-            <button>0</button>
-	   		<repeatable type="bool">false</repeatable>
-            <binding>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
 				<command>nasal</command>
 		 		<script>
-		 		
+
 		 			# IAS Ex. - 250/8000
 		 			# MACH Ex. - 0.80/35000
-		 		
+
 		 			var first = getprop("/instrumentation/mcdu/f-pln/disp/first");
-		 			
+
 					var input = getprop("/instrumentation/mcdu/input");
-					
-					var spd = substr(input, 0, 3);
-					
-					var alt = substr(input, 4, 5);
-					
-					if (first == 0) {
-					
-						setprop("/instrumentation/mcdu/input", "ERROR: VER REV NOT POSSIBLE");
-					
-					} else {
-					
-						setprop("autopilot/route-manager/route/wp[" ~ (first + 1) ~ "]/ias-mach", spd);
-					
-						setprop("autopilot/route-manager/route/wp[" ~ (first + 1) ~ "]/altitude-ft", alt);
-					
+
+					var comps = split('/', input);
+					var spd = nil;
+
+					var alt = nil;
+					var ncomps = size(comps);
+					if(ncomps == 1){
+						alt = num(comps[0]);
 					}
-					
+					elsif(ncomps == 2){
+						spd = num(comps[0]);
+						alt = num(comps[1]);
+					}
+
+					mcdu.f_pln.set_restriction(2, alt, spd);
+					mcdu.clear_inp();
+
 					mcdu.f_pln.update_disp();
 				</script>
-            </binding>
-        </action>
+			</binding>
+		</action>
 	</animation>
-	
+
 	<animation>
 		<type>pick</type>
 		<object-name>r3</object-name>
 		<action>
-            <button>0</button>
-	   		<repeatable type="bool">false</repeatable>
-            <binding>
+			<button>0</button>
+			
+			<repeatable type="bool">false</repeatable>
+			<binding>
 				<command>nasal</command>
 		 		<script>
-		 		
+
 		 			# IAS Ex. - 250/8000
 		 			# MACH Ex. - 0.80/35000
-		 		
+
 		 			var first = getprop("/instrumentation/mcdu/f-pln/disp/first");
-		 			
+
 					var input = getprop("/instrumentation/mcdu/input");
-					
-					var spd = substr(input, 0, 3);
-					
-					var alt = substr(input, 4, 5);
-					
-					if (first == 0) {
-					
-						setprop("autopilot/route-manager/route/wp[1]/ias-mach", spd);
-					
-						setprop("autopilot/route-manager/route/wp[1]/altitude-ft", alt);
-					
-					} else {
-					
-						setprop("autopilot/route-manager/route/wp[" ~ (first + 2) ~ "]/ias-mach", spd);
-					
-						setprop("autopilot/route-manager/route/wp[" ~ (first + 2) ~ "]/altitude-ft", alt);
-					
+
+					var comps = split('/', input);
+					var spd = nil;
+
+					var alt = nil;
+					var ncomps = size(comps);
+					if(ncomps == 1){
+						alt = num(comps[0]);
 					}
-					
+					elsif(ncomps == 2){
+						spd = num(comps[0]);
+						alt = num(comps[1]);
+					}
+
+					mcdu.f_pln.set_restriction(3, alt, spd);
 					mcdu.clear_inp();
-					
+
 					mcdu.f_pln.update_disp();
 				</script>
-            </binding>
-        </action>
+			</binding>
+		</action>
 	</animation>
-	
+
 	<animation>
 		<type>pick</type>
 		<object-name>r4</object-name>
 		<action>
-            <button>0</button>
+			<button>0</button>
 	   		<repeatable type="bool">false</repeatable>
-            <binding>
+			<binding>
 				<command>nasal</command>
 		 		<script>
-		 		
+
 		 			# IAS Ex. - 250/8000
 		 			# MACH Ex. - 0.80/35000
-		 		
+
 		 			var first = getprop("/instrumentation/mcdu/f-pln/disp/first");
-		 			
+
 					var input = getprop("/instrumentation/mcdu/input");
-					
-					var spd = substr(input, 0, 3);
-					
-					var alt = substr(input, 4, 5);
-					
-					if (first == 0) {
-					
-						setprop("autopilot/route-manager/route/wp[2]/ias-mach", spd);
-					
-						setprop("autopilot/route-manager/route/wp[2]/altitude-ft", alt);
-					
-					} else {
-					
-						setprop("autopilot/route-manager/route/wp[" ~ (first + 3) ~ "]/ias-mach", spd);
-					
-						setprop("autopilot/route-manager/route/wp[" ~ (first + 3) ~ "]/altitude-ft", alt);
-					
+
+					var comps = split('/', input);
+					var spd = nil;
+
+					var alt = nil;
+					var ncomps = size(comps);
+					if(ncomps == 1){
+						alt = num(comps[0]);
 					}
-					
+					elsif(ncomps == 2){
+						spd = num(comps[0]);
+						alt = num(comps[1]);
+					}
+
+					mcdu.f_pln.set_restriction(4, alt, spd);
 					mcdu.clear_inp();
-					
+
 					mcdu.f_pln.update_disp();
 				</script>
-            </binding>
-        </action>
+			</binding>
+		</action>
 	</animation>
-	
+
 	<animation>
 		<type>pick</type>
 		<object-name>r5</object-name>
 		<action>
-            <button>0</button>
+			<button>0</button>
 	   		<repeatable type="bool">false</repeatable>
-            <binding>
+			<binding>
 				<command>nasal</command>
 		 		<script>
-		 		
+
 		 			# IAS Ex. - 250/8000
 		 			# MACH Ex. - 0.80/35000
-		 		
+
 		 			var first = getprop("/instrumentation/mcdu/f-pln/disp/first");
-		 			
+
 					var input = getprop("/instrumentation/mcdu/input");
-					
-					var spd = substr(input, 0, 3);
-					
-					var alt = substr(input, 4, 5);
-					
-					if (first == 0) {
-					
-						setprop("autopilot/route-manager/route/wp[3]/ias-mach", spd);
-					
-						setprop("autopilot/route-manager/route/wp[3]/altitude-ft", alt);
-					
-					} else {
-					
-						setprop("autopilot/route-manager/route/wp[" ~ (first + 4) ~ "]/ias-mach", spd);
-					
-						setprop("autopilot/route-manager/route/wp[" ~ (first + 4) ~ "]/altitude-ft", alt);
-					
+
+					var comps = split('/', input);
+					var spd = nil;
+
+					var alt = nil;
+					var ncomps = size(comps);
+					if(ncomps == 1){
+						alt = num(comps[0]);
 					}
-					
+					elsif(ncomps == 2){
+						spd = num(comps[0]);
+						alt = num(comps[1]);
+					}
+
+					mcdu.f_pln.set_restriction(5, alt, spd);
 					mcdu.clear_inp();
-					
+
 					mcdu.f_pln.update_disp();
 				</script>
-            </binding>
-        </action>
+			</binding>
+		</action>
 	</animation>
-	
+
 	<animation>
 		<type>pick</type>
 		<object-name>l_arrow</object-name>
 		<object-name>r_arrow</object-name>
 		<action>
-            <button>0</button>
+			<button>0</button>
 	   		<repeatable type="bool">false</repeatable>
-            <binding>
+			<binding>
 				<command>nasal</command>
 		 		<script>
 		 			mcdu.f_pln.cpy_to_active();
-		 		
+
 					setprop("/instrumentation/mcdu/page", "f-pln2");
-					
+
 					mcdu.f_pln.init_f_pln2();
 				</script>
-            </binding>
-        </action>
+			</binding>
+		</action>
 	</animation>
-	
+
 	<animation>
 		<type>pick</type>
 		<object-name>u_arrow</object-name>
 		<action>
-            <button>0</button>
+			<button>0</button>
 	   		<repeatable type="bool">false</repeatable>
-            <binding>
+			<binding>
 				<command>nasal</command>
 		 		<script>
 		 			var first = getprop("/instrumentation/mcdu/f-pln/disp/first");
-		 		
-					if (first != 0)
-						setprop("/instrumentation/mcdu/f-pln/disp/first", first - 5);
-						
+					var invert = getprop('aircraft-config/saved/mcdu/invert-arrow-keys') or 0;
+					if(!invert){
+						if (first != 0)
+							setprop("/instrumentation/mcdu/f-pln/disp/first", first - 1);
+					} else {
+						var wpts = mcdu.f_pln['waypoints'];
+						var max = size(wpts);
+
+						if (max - 1 > first)
+							setprop("/instrumentation/mcdu/f-pln/disp/first", first + 1);
+					}
+
+					var first = getprop("/instrumentation/mcdu/f-pln/disp/first");
+
 					mcdu.f_pln.update_disp();
+					var wp = mcdu.f_pln.first_displayed_wp();
+					if(wp != nil){
+						setprop("instrumentation/efis/inputs/plan-wpt-index", first);
+						setprop("instrumentation/efis[1]/inputs/plan-wpt-index", first);
+					}
+
 				</script>
-            </binding>
-        </action>
+			</binding>
+		</action>
 	</animation>
-	
+
 	<animation>
 		<type>pick</type>
 		<object-name>d_arrow</object-name>
 		<action>
-            <button>0</button>
-	   		<repeatable type="bool">false</repeatable>
-            <binding>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
 				<command>nasal</command>
-		 		<script>
-		 			var first = getprop("/instrumentation/mcdu/f-pln/disp/first");
-		 		
-		 			var max = getprop("/autopilot/route-manager/route/num");
-		 		
-					if (max - 5 > first)
-						setprop("/instrumentation/mcdu/f-pln/disp/first", first + 5);
-						
+				<script>
+					var first = getprop("/instrumentation/mcdu/f-pln/disp/first");
+					var invert = getprop('aircraft-config/saved/mcdu/invert-arrow-keys') or 0;
+					if(!invert){
+						var wpts = mcdu.f_pln['waypoints'];
+						var max = size(wpts);
+
+						if (max - 1 > first)
+							setprop("/instrumentation/mcdu/f-pln/disp/first", first + 1);
+					} else {
+						if (first != 0)
+							setprop("/instrumentation/mcdu/f-pln/disp/first", first - 1);
+					}
+
+					var first = getprop("/instrumentation/mcdu/f-pln/disp/first");
+
 					mcdu.f_pln.update_disp();
+					var wp = mcdu.f_pln.first_displayed_wp();
+					if(wp != nil){
+						setprop("instrumentation/efis/inputs/plan-wpt-index", first);
+						setprop("instrumentation/efis[1]/inputs/plan-wpt-index", first);
+					}
+					
 				</script>
-            </binding>
-        </action>
+			</binding>
+		</action>
 	</animation>
-	
+
 	<animation>
 		<type>pick</type>
 		<object-name>r6</object-name>
 		<action>
-            <button>0</button>
+			<button>0</button>
 	   		<repeatable type="bool">false</repeatable>
-            <binding>
+			<binding>
 				<command>nasal</command>
 		 		<script>
-		 			setprop("/instrumentation/mcdu/page", "index_f1");
+					var cur = getprop("/instrumentation/mcdu/f-pln/disp/current-flightplan");
+					if(cur != 'secondary')
+		 				setprop("/instrumentation/mcdu/page", "index_f1");
+					else
+						setprop("/instrumentation/mcdu/page", "f-pln2");
 				</script>
-            </binding>
-        </action>
+			</binding>
+		</action>
 	</animation>
-	
+
 	<animation>
 		<type>pick</type>
 		<object-name>l1</object-name>
 		<action>
-            <button>0</button>
+			<button>0</button>
 	   		<repeatable type="bool">false</repeatable>
-            <binding>
+			<binding>
 				<command>nasal</command>
 		 		<script>
-		 		
-		 			var first = getprop("/instrumentation/mcdu/f-pln/disp/first");
-		 			
-		 			
-		 			if (first != 0)
-			 			mcdu.lat_rev.revise(first - 1);
-			 		else
-			 			mcdu.lat_rev.revise(0);
-		 					 		
+					var line = 1;
+					var is_altn = getprop('/instrumentation/mcdu/f-pln/disp/l'~line~'/alternate');
+					var input = string.trim(getprop("/instrumentation/mcdu/input"));
+					
+					if(getprop('/instrumentation/mcdu/overfly-mode'))
+						mcdu.f_pln.toggle_overfly(line);
+					elsif(getprop('/instrumentation/mcdu/clear-mode'))
+						mcdu.f_pln.del_wp(line);
+					else {
+						if(size(input)){
+							mcdu.f_pln.insert_wp(input, line);
+							setprop("/instrumentation/mcdu/input", '');
+						} else {
+							var wp = mcdu.f_pln.get_wp_at_line(line);
+							if(wp != nil)
+								mcdu.lat_rev.revise(wp.index, is_altn);
+						}
+					}
+					setprop('/instrumentation/mcdu/clear-mode', 0);
 				</script>
-            </binding>
-        </action>
+			</binding>
+		</action>
 	</animation>
-	
+
 	<animation>
 		<type>pick</type>
 		<object-name>l2</object-name>
 		<action>
-            <button>0</button>
+			<button>0</button>
 	   		<repeatable type="bool">false</repeatable>
-            <binding>
+			<binding>
 				<command>nasal</command>
 		 		<script>
-		 		
-		 			var first = getprop("/instrumentation/mcdu/f-pln/disp/first");
-		 			
-		 			if (first != 0)
-		 			
-		 				mcdu.lat_rev.revise(first);
-		 				
-		 			else
-		 				
-		 				setprop("/instrumentation/mcdu/input", "ERROR: LAT REV NOT POSSIBLE");
-		 					 		
+
+					var line = 2;
+					var is_altn = getprop('/instrumentation/mcdu/f-pln/disp/l'~line~'/alternate');
+					var input = string.trim(getprop("/instrumentation/mcdu/input"));
+
+					if(getprop('/instrumentation/mcdu/overfly-mode'))
+						mcdu.f_pln.toggle_overfly(line);
+					elsif(getprop('/instrumentation/mcdu/clear-mode'))
+						mcdu.f_pln.del_wp(line);
+					else {
+						if(size(input)){
+							mcdu.f_pln.insert_wp(input, line);
+							setprop("/instrumentation/mcdu/input", '');
+						} else {
+							var wp = mcdu.f_pln.get_wp_at_line(line);
+							if(wp != nil)
+								mcdu.lat_rev.revise(wp.index, is_altn);
+						}
+					}
+					setprop('/instrumentation/mcdu/clear-mode', 0);
 				</script>
-            </binding>
-        </action>
+			</binding>
+		</action>
 	</animation>
-	
+
 	<animation>
 		<type>pick</type>
 		<object-name>l3</object-name>
 		<action>
-            <button>0</button>
+			<button>0</button>
 	   		<repeatable type="bool">false</repeatable>
-            <binding>
+			<binding>
 				<command>nasal</command>
 		 		<script>
-		 		
-		 			var first = getprop("/instrumentation/mcdu/f-pln/disp/first");
-		 			
-		 			if (first != 0)
-			 			mcdu.lat_rev.revise(first + 1);
-			 		else
-			 			mcdu.lat_rev.revise(1);
-		 					 		
+					var line = 3;
+					var is_altn = getprop('/instrumentation/mcdu/f-pln/disp/l'~line~'/alternate');
+					var input = string.trim(getprop("/instrumentation/mcdu/input"));
+
+					if(getprop('/instrumentation/mcdu/overfly-mode'))
+						mcdu.f_pln.toggle_overfly(line);
+					elsif(getprop('/instrumentation/mcdu/clear-mode'))
+						mcdu.f_pln.del_wp(line);
+					else {
+						if(size(input)){
+							mcdu.f_pln.insert_wp(input, line);
+							setprop("/instrumentation/mcdu/input", '');
+						} else {
+							var wp = mcdu.f_pln.get_wp_at_line(line);
+							if(wp != nil)
+								mcdu.lat_rev.revise(wp.index, is_altn);
+						}
+					}
+					setprop('/instrumentation/mcdu/clear-mode', 0);
 				</script>
-            </binding>
-        </action>
+			</binding>
+		</action>
 	</animation>
-	
+
 	<animation>
 		<type>pick</type>
 		<object-name>l4</object-name>
 		<action>
-            <button>0</button>
+			<button>0</button>
 	   		<repeatable type="bool">false</repeatable>
-            <binding>
+			<binding>
 				<command>nasal</command>
 		 		<script>
-		 		
-		 			var first = getprop("/instrumentation/mcdu/f-pln/disp/first");
-		 			
-		 			if (first != 0)
-			 			mcdu.lat_rev.revise(first + 2);
-			 		else
-			 			mcdu.lat_rev.revise(2);
-		 					 		
+
+					var line = 4;
+					var is_altn = getprop('/instrumentation/mcdu/f-pln/disp/l'~line~'/alternate');
+					var input = string.trim(getprop("/instrumentation/mcdu/input"));
+
+					if(getprop('/instrumentation/mcdu/overfly-mode'))
+						mcdu.f_pln.toggle_overfly(line);
+					elsif(getprop('/instrumentation/mcdu/clear-mode'))
+						mcdu.f_pln.del_wp(line);
+					else {
+						if(size(input)){
+							mcdu.f_pln.insert_wp(input, line);
+							setprop("/instrumentation/mcdu/input", '');
+						} else {
+							var wp = mcdu.f_pln.get_wp_at_line(line);
+							if(wp != nil)
+								mcdu.lat_rev.revise(wp.index, is_altn);
+						}
+					}
+					setprop('/instrumentation/mcdu/clear-mode', 0);
 				</script>
-            </binding>
-        </action>
+			</binding>
+		</action>
 	</animation>
-	
+
 	<animation>
 		<type>pick</type>
 		<object-name>l5</object-name>
 		<action>
-            <button>0</button>
+			<button>0</button>
 	   		<repeatable type="bool">false</repeatable>
-            <binding>
+			<binding>
 				<command>nasal</command>
 		 		<script>
-		 		
-		 			var first = getprop("/instrumentation/mcdu/f-pln/disp/first");
-		 			
-		 			if (first != 0)
-			 			mcdu.lat_rev.revise(first + 3);
-			 		else
-			 			mcdu.lat_rev.revise(3);
-		 					 		
+
+					var line = 5;
+					var is_altn = getprop('/instrumentation/mcdu/f-pln/disp/l'~line~'/alternate');
+					var input = string.trim(getprop("/instrumentation/mcdu/input"));
+
+					if(getprop('/instrumentation/mcdu/overfly-mode'))
+						mcdu.f_pln.toggle_overfly(line);
+					elsif(getprop('/instrumentation/mcdu/clear-mode'))
+						mcdu.f_pln.del_wp(line);
+					else {
+						if(size(input)){
+							mcdu.f_pln.insert_wp(input, line);
+							setprop("/instrumentation/mcdu/input", '');
+						} else {
+							var wp = mcdu.f_pln.get_wp_at_line(line);
+							if(wp != nil)
+								mcdu.lat_rev.revise(wp.index, is_altn);
+						}
+					}
+					setprop('/instrumentation/mcdu/clear-mode', 0);
 				</script>
-            </binding>
-        </action>
+			</binding>
+		</action>
 	</animation>
-	
+
 	<animation>
 		<type>pick</type>
 		<object-name>l6</object-name>
 		<action>
-            <button>0</button>
+			<button>0</button>
 	   		<repeatable type="bool">false</repeatable>
-            <binding>
+			<binding>
 				<command>nasal</command>
 		 		<script>
-		 		
-		 			var first = getprop("/instrumentation/mcdu/f-pln/disp/first");
-		 			
+
 		 			mcdu.lat_rev.revise_dest();
-		 					 		
+
 				</script>
-            </binding>
-        </action>
+			</binding>
+		</action>
 	</animation>
-	
+
+	<!-- Show Hold Data if available -->
+
+	<animation>
+		<type>select</type>
+		<object-name>hold0</object-name>
+		<condition>
+			<and>
+				<equals>
+					<property>/instrumentation/mcdu/f-pln/hold-id</property>
+					<value>0</value>
+				</equals>
+				<equals>
+					<property>/instrumentation/mcdu/f-pln/show-hold</property>
+					<value>1</value>
+				</equals>
+			</and>
+		</condition>
+	</animation>
+
+	<animation>
+		<type>select</type>
+		<object-name>hold1</object-name>
+		<condition>
+			<and>
+				<equals>
+					<property>/instrumentation/mcdu/f-pln/hold-id</property>
+					<value>1</value>
+				</equals>
+				<equals>
+					<property>/instrumentation/mcdu/f-pln/show-hold</property>
+					<value>1</value>
+				</equals>
+			</and>
+		</condition>
+	</animation>
+
+	<animation>
+		<type>select</type>
+		<object-name>hold2</object-name>
+		<condition>
+			<and>
+				<equals>
+					<property>/instrumentation/mcdu/f-pln/hold-id</property>
+					<value>2</value>
+				</equals>
+				<equals>
+					<property>/instrumentation/mcdu/f-pln/show-hold</property>
+					<value>1</value>
+				</equals>
+			</and>
+		</condition>
+	</animation>
+
+	<animation>
+		<type>select</type>
+		<object-name>hold3</object-name>
+		<condition>
+			<and>
+				<equals>
+					<property>/instrumentation/mcdu/f-pln/hold-id</property>
+					<value>3</value>
+				</equals>
+				<equals>
+					<property>/instrumentation/mcdu/f-pln/show-hold</property>
+					<value>1</value>
+				</equals>
+			</and>
+		</condition>
+	</animation>
+
+	<animation>
+		<type>select</type>
+		<object-name>hold4</object-name>
+		<condition>
+			<and>
+				<equals>
+					<property>/instrumentation/mcdu/f-pln/hold-id</property>
+					<value>4</value>
+				</equals>
+				<equals>
+					<property>/instrumentation/mcdu/f-pln/show-hold</property>
+					<value>1</value>
+				</equals>
+			</and>
+		</condition>
+	</animation>
+
+	<!-- Hold Directions -->
+
+	<animation>
+		<type>select</type>
+		<object-name>holdL</object-name>
+		<condition>
+			<equals>
+				<property>/flight-management/hold/turn</property>
+				<value>L</value>
+			</equals>
+		</condition>
+	</animation>
+
+	<animation>
+		<type>select</type>
+		<object-name>holdR</object-name>
+		<condition>
+			<equals>
+				<property>/flight-management/hold/turn</property>
+				<value>R</value>
+			</equals>
+		</condition>
+	</animation>
+
 	<!-- Show flightplan only if initialized -->
-	
+
 	<animation>
 		<type>select</type>
 		<object-name>white</object-name>
 		<object-name>green</object-name>
+		<object-name>green-l1</object-name>
+		<object-name>green-l2</object-name>
+		<object-name>green-l3</object-name>
+		<object-name>green-l4</object-name>
+		<object-name>green-l5</object-name>
+		<object-name>yellow-l1</object-name>
+		<object-name>yellow-l2</object-name>
+		<object-name>yellow-l3</object-name>
+		<object-name>yellow-l4</object-name>
+		<object-name>yellow-l5</object-name>
+		<object-name>white-l1</object-name>
+		<object-name>white-l2</object-name>
+		<object-name>white-l3</object-name>
+		<object-name>white-l4</object-name>
+		<object-name>white-l5</object-name>
+		<object-name>blue-l1</object-name>
+		<object-name>blue-l2</object-name>
+		<object-name>blue-l3</object-name>
+		<object-name>blue-l4</object-name>
+		<object-name>blue-l5</object-name>
+		<object-name>hold0</object-name>
+		<object-name>hold1</object-name>
+		<object-name>hold2</object-name>
+		<object-name>hold3</object-name>
+		<object-name>hold4</object-name>
 		<condition>
 			<and>
 				<not>
@@ -479,10 +748,10 @@
 						<value>0</value>
 					</equals>
 				</not>
-			</and>	
+			</and>
 		</condition>
 	</animation>
-	
+
 	<animation>
 		<type>select</type>
 		<object-name>unavail</object-name>
@@ -500,14 +769,14 @@
 					<property>/flight-management/crz_fl</property>
 					<value>0</value>
 				</equals>
-			</or>	
+			</or>
 		</condition>
 	</animation>
-	
+
 	<animation>
 		<type>select</type>
 		<object-name>from</object-name>
-		<object-name>disc</object-name>
+		<!--object-name>disc</object-name-->
 		<condition>
 			<equals>
 				<property>/instrumentation/mcdu/f-pln/disp/first</property>
@@ -516,6 +785,17 @@
 		</condition>
 	</animation>
 	
+	<animation>
+		<type>select</type>
+		<object-name>disc</object-name>
+		<condition>
+			<equals>
+				<property>/instrumentation/mcdu/f-pln/disp/disc</property>
+				<value>1</value>
+			</equals>
+		</condition>
+	</animation>
+
 	<animation>
 		<type>select</type>
 		<object-name>eof</object-name>
@@ -527,10 +807,678 @@
 		</condition>
 	</animation>
 	
+	<animation>
+		<type>select</type>
+		<object-name>green-l1</object-name>
+		<condition>
+			<and>
+				<property>autopilot/route-manager/active</property>
+				<not>
+					<equals>
+						<property>/instrumentation/mcdu/f-pln/disp/current-flightplan</property>
+						<value>temporary</value>
+					</equals>
+				</not>
+				<not>
+					<equals>
+						<property>/instrumentation/mcdu/f-pln/disp/current-flightplan</property>
+						<value>secondary</value>
+					</equals>
+				</not>
+				<not>
+					<property>/instrumentation/mcdu/f-pln/disp/l1/to-wpt</property>
+				</not>
+				<not>
+					<property>/instrumentation/mcdu/f-pln/disp/l1/discontinuity-marker</property>
+				</not>
+				<not>
+					<property>/instrumentation/mcdu/f-pln/disp/l1/end-marker</property>
+				</not>
+				<not>
+					<property>/instrumentation/mcdu/f-pln/disp/l1/missed</property>
+				</not>
+				<not>
+					<property>/instrumentation/mcdu/f-pln/disp/l1/alternate</property>
+				</not>
+			</and>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>green-l2</object-name>
+		<condition>
+			<and>
+				<property>autopilot/route-manager/active</property>
+				<not>
+					<equals>
+						<property>/instrumentation/mcdu/f-pln/disp/current-flightplan</property>
+						<value>temporary</value>
+					</equals>
+				</not>
+				<not>
+					<equals>
+						<property>/instrumentation/mcdu/f-pln/disp/current-flightplan</property>
+						<value>secondary</value>
+					</equals>
+				</not>
+				<not>
+					<property>/instrumentation/mcdu/f-pln/disp/l2/to-wpt</property>
+				</not>
+				<not>
+					<property>/instrumentation/mcdu/f-pln/disp/l2/discontinuity-marker</property>
+				</not>
+				<not>
+					<property>/instrumentation/mcdu/f-pln/disp/l2/end-marker</property>
+				</not>
+				<not>
+					<property>/instrumentation/mcdu/f-pln/disp/l2/missed</property>
+				</not>
+				<not>
+					<property>/instrumentation/mcdu/f-pln/disp/l2/alternate</property>
+				</not>
+			</and>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>green-l3</object-name>
+		<condition>
+			<and>
+				<property>autopilot/route-manager/active</property>
+				<not>
+					<equals>
+						<property>/instrumentation/mcdu/f-pln/disp/current-flightplan</property>
+						<value>temporary</value>
+					</equals>
+				</not>
+				<not>
+					<equals>
+						<property>/instrumentation/mcdu/f-pln/disp/current-flightplan</property>
+						<value>secondary</value>
+					</equals>
+				</not>
+				<not>
+					<property>/instrumentation/mcdu/f-pln/disp/l3/to-wpt</property>
+				</not>
+				<not>
+					<property>/instrumentation/mcdu/f-pln/disp/l3/discontinuity-marker</property>
+				</not>
+				<not>
+					<property>/instrumentation/mcdu/f-pln/disp/l3/end-marker</property>
+				</not>
+				<not>
+					<property>/instrumentation/mcdu/f-pln/disp/l3/missed</property>
+				</not>
+				<not>
+					<property>/instrumentation/mcdu/f-pln/disp/l3/alternate</property>
+				</not>
+			</and>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>green-l4</object-name>
+		<condition>
+			<and>
+				<property>autopilot/route-manager/active</property>
+				<not>
+					<equals>
+						<property>/instrumentation/mcdu/f-pln/disp/current-flightplan</property>
+						<value>temporary</value>
+					</equals>
+				</not>
+				<not>
+					<equals>
+						<property>/instrumentation/mcdu/f-pln/disp/current-flightplan</property>
+						<value>secondary</value>
+					</equals>
+				</not>
+				<not>
+					<property>/instrumentation/mcdu/f-pln/disp/l4/to-wpt</property>
+				</not>
+				<not>
+					<property>/instrumentation/mcdu/f-pln/disp/l4/discontinuity-marker</property>
+				</not>
+				<not>
+					<property>/instrumentation/mcdu/f-pln/disp/l4/end-marker</property>
+				</not>
+				<not>
+					<property>/instrumentation/mcdu/f-pln/disp/l4/missed</property>
+				</not>
+				<not>
+					<property>/instrumentation/mcdu/f-pln/disp/l4/alternate</property>
+				</not>
+			</and>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>green-l5</object-name>
+		<condition>
+			<and>
+				<property>autopilot/route-manager/active</property>
+				<not>
+					<equals>
+						<property>/instrumentation/mcdu/f-pln/disp/current-flightplan</property>
+						<value>temporary</value>
+					</equals>
+				</not>
+				<not>
+					<equals>
+						<property>/instrumentation/mcdu/f-pln/disp/current-flightplan</property>
+						<value>secondary</value>
+					</equals>
+				</not>
+				<not>
+					<property>/instrumentation/mcdu/f-pln/disp/l5/to-wpt</property>
+				</not>
+				<not>
+					<property>/instrumentation/mcdu/f-pln/disp/l5/discontinuity-marker</property>
+				</not>
+				<not>
+					<property>/instrumentation/mcdu/f-pln/disp/l5/end-marker</property>
+				</not>
+				<not>
+					<property>/instrumentation/mcdu/f-pln/disp/l5/missed</property>
+				</not>
+				<not>
+					<property>/instrumentation/mcdu/f-pln/disp/l5/alternate</property>
+				</not>
+			</and>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>white-l1</object-name>
+		<condition>
+			<or>
+				<and>
+					<property>autopilot/route-manager/active</property>
+					<not>
+						<equals>
+							<property>/instrumentation/mcdu/f-pln/disp/current-flightplan</property>
+							<value>temporary</value>
+						</equals>
+					</not>
+					<not>
+						<equals>
+							<property>/instrumentation/mcdu/f-pln/disp/current-flightplan</property>
+							<value>secondary</value>
+						</equals>
+					</not>
+					<property>/instrumentation/mcdu/f-pln/disp/l1/to-wpt</property>
+				</and>
+				<equals>
+					<property>/instrumentation/mcdu/f-pln/disp/current-flightplan</property>
+					<value>secondary</value>
+				</equals>
+				<property>/instrumentation/mcdu/f-pln/disp/l1/discontinuity-marker</property>
+				<property>/instrumentation/mcdu/f-pln/disp/l1/end-marker</property>
+			</or>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>white-l2</object-name>
+		<condition>
+			<or>
+				<and>
+					<property>autopilot/route-manager/active</property>
+					<not>
+						<equals>
+							<property>/instrumentation/mcdu/f-pln/disp/current-flightplan</property>
+							<value>temporary</value>
+						</equals>
+					</not>
+					<not>
+						<equals>
+							<property>/instrumentation/mcdu/f-pln/disp/current-flightplan</property>
+							<value>secondary</value>
+						</equals>
+					</not>
+					<property>/instrumentation/mcdu/f-pln/disp/l2/to-wpt</property>
+				</and>
+				<equals>
+					<property>/instrumentation/mcdu/f-pln/disp/current-flightplan</property>
+					<value>secondary</value>
+				</equals>
+				<property>/instrumentation/mcdu/f-pln/disp/l2/discontinuity-marker</property>
+				<property>/instrumentation/mcdu/f-pln/disp/l2/end-marker</property>
+			</or>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>white-l3</object-name>
+		<condition>
+			<or>
+				<and>
+					<property>autopilot/route-manager/active</property>
+					<not>
+						<equals>
+							<property>/instrumentation/mcdu/f-pln/disp/current-flightplan</property>
+							<value>temporary</value>
+						</equals>
+					</not>
+					<not>
+						<equals>
+							<property>/instrumentation/mcdu/f-pln/disp/current-flightplan</property>
+							<value>secondary</value>
+						</equals>
+					</not>
+					<property>/instrumentation/mcdu/f-pln/disp/l3/to-wpt</property>
+				</and>
+				<equals>
+					<property>/instrumentation/mcdu/f-pln/disp/current-flightplan</property>
+					<value>secondary</value>
+				</equals>
+				<property>/instrumentation/mcdu/f-pln/disp/l3/discontinuity-marker</property>
+				<property>/instrumentation/mcdu/f-pln/disp/l3/end-marker</property>
+			</or>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>white-l4</object-name>
+		<condition>
+			<or>
+				<and>
+					<property>autopilot/route-manager/active</property>
+					<not>
+						<equals>
+							<property>/instrumentation/mcdu/f-pln/disp/current-flightplan</property>
+							<value>temporary</value>
+						</equals>
+					</not>
+					<not>
+						<equals>
+							<property>/instrumentation/mcdu/f-pln/disp/current-flightplan</property>
+							<value>secondary</value>
+						</equals>
+					</not>
+					<property>/instrumentation/mcdu/f-pln/disp/l4/to-wpt</property>
+				</and>
+				<equals>
+					<property>/instrumentation/mcdu/f-pln/disp/current-flightplan</property>
+					<value>secondary</value>
+				</equals>
+				<property>/instrumentation/mcdu/f-pln/disp/l4/discontinuity-marker</property>
+				<property>/instrumentation/mcdu/f-pln/disp/l4/end-marker</property>
+			</or>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>white-l5</object-name>
+		<condition>
+			<or>
+				<and>
+					<property>autopilot/route-manager/active</property>
+					<not>
+						<equals>
+							<property>/instrumentation/mcdu/f-pln/disp/current-flightplan</property>
+							<value>temporary</value>
+						</equals>
+					</not>
+					<not>
+						<equals>
+							<property>/instrumentation/mcdu/f-pln/disp/current-flightplan</property>
+							<value>secondary</value>
+						</equals>
+					</not>
+					<property>/instrumentation/mcdu/f-pln/disp/l5/to-wpt</property>
+				</and>
+				<equals>
+					<property>/instrumentation/mcdu/f-pln/disp/current-flightplan</property>
+					<value>secondary</value>
+				</equals>
+				<property>/instrumentation/mcdu/f-pln/disp/l5/discontinuity-marker</property>
+				<property>/instrumentation/mcdu/f-pln/disp/l5/end-marker</property>
+			</or>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>yellow-l1</object-name>
+		<condition>
+			<and>
+				<or>
+					<not>
+						<property>autopilot/route-manager/active</property>
+					</not>
+					<equals>
+						<property>/instrumentation/mcdu/f-pln/disp/current-flightplan</property>
+						<value>temporary</value>
+					</equals>
+				</or>
+				<not>
+					<equals>
+						<property>/instrumentation/mcdu/f-pln/disp/current-flightplan</property>
+						<value>secondary</value>
+					</equals>
+				</not>
+				<not>
+					<property>/instrumentation/mcdu/f-pln/disp/l1/discontinuity-marker</property>
+				</not>
+				<not>
+					<property>/instrumentation/mcdu/f-pln/disp/l1/end-marker</property>
+				</not>
+			</and>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>yellow-l2</object-name>
+		<condition>
+			<and>
+				<or>
+					<not>
+						<property>autopilot/route-manager/active</property>
+					</not>
+					<equals>
+						<property>/instrumentation/mcdu/f-pln/disp/current-flightplan</property>
+						<value>temporary</value>
+					</equals>
+				</or>
+				<not>
+					<equals>
+						<property>/instrumentation/mcdu/f-pln/disp/current-flightplan</property>
+						<value>secondary</value>
+					</equals>
+				</not>
+				<not>
+					<property>/instrumentation/mcdu/f-pln/disp/l2/discontinuity-marker</property>
+				</not>
+				<not>
+					<property>/instrumentation/mcdu/f-pln/disp/l2/end-marker</property>
+				</not>
+			</and>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>yellow-l3</object-name>
+		<condition>
+			<and>
+				<or>
+					<not>
+						<property>autopilot/route-manager/active</property>
+					</not>
+					<equals>
+						<property>/instrumentation/mcdu/f-pln/disp/current-flightplan</property>
+						<value>temporary</value>
+					</equals>
+				</or>
+				<not>
+					<equals>
+						<property>/instrumentation/mcdu/f-pln/disp/current-flightplan</property>
+						<value>secondary</value>
+					</equals>
+				</not>
+				<not>
+					<property>/instrumentation/mcdu/f-pln/disp/l3/discontinuity-marker</property>
+				</not>
+				<not>
+					<property>/instrumentation/mcdu/f-pln/disp/l3/end-marker</property>
+				</not>
+			</and>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>yellow-l4</object-name>
+		<condition>
+			<and>
+				<or>
+					<not>
+						<property>autopilot/route-manager/active</property>
+					</not>
+					<equals>
+						<property>/instrumentation/mcdu/f-pln/disp/current-flightplan</property>
+						<value>temporary</value>
+					</equals>
+				</or>
+				<not>
+					<equals>
+						<property>/instrumentation/mcdu/f-pln/disp/current-flightplan</property>
+						<value>secondary</value>
+					</equals>
+				</not>
+				<not>
+					<property>/instrumentation/mcdu/f-pln/disp/l4/discontinuity-marker</property>
+				</not>
+				<not>
+					<property>/instrumentation/mcdu/f-pln/disp/l4/end-marker</property>
+				</not>
+			</and>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>yellow-l5</object-name>
+		<condition>
+			<and>
+				<or>
+					<not>
+						<property>autopilot/route-manager/active</property>
+					</not>
+					<equals>
+						<property>/instrumentation/mcdu/f-pln/disp/current-flightplan</property>
+						<value>temporary</value>
+					</equals>
+				</or>
+				<not>
+					<equals>
+						<property>/instrumentation/mcdu/f-pln/disp/current-flightplan</property>
+						<value>secondary</value>
+					</equals>
+				</not>
+				<not>
+					<property>/instrumentation/mcdu/f-pln/disp/l5/discontinuity-marker</property>
+				</not>
+				<not>
+					<property>/instrumentation/mcdu/f-pln/disp/l5/end-marker</property>
+				</not>
+			</and>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>blue-l1</object-name>
+		<condition>
+			<and>
+				<property>autopilot/route-manager/active</property>
+				<not>
+					<equals>
+						<property>/instrumentation/mcdu/f-pln/disp/current-flightplan</property>
+						<value>temporary</value>
+					</equals>
+				</not>
+				<not>
+					<equals>
+						<property>/instrumentation/mcdu/f-pln/disp/current-flightplan</property>
+						<value>secondary</value>
+					</equals>
+				</not>
+				<not>
+					<property>/instrumentation/mcdu/f-pln/disp/l1/to-wpt</property>
+				</not>
+				<not>
+					<property>/instrumentation/mcdu/f-pln/disp/l1/discontinuity-marker</property>
+				</not>
+				<not>
+					<property>/instrumentation/mcdu/f-pln/disp/l1/end-marker</property>
+				</not>
+				<or>
+					<property>/instrumentation/mcdu/f-pln/disp/l1/missed</property>
+					<property>/instrumentation/mcdu/f-pln/disp/l1/alternate</property>
+				</or>
+			</and>
+		</condition>
+	</animation>
+
+	<animation>
+		<type>select</type>
+		<object-name>blue-l2</object-name>
+		<condition>
+			<and>
+				<property>autopilot/route-manager/active</property>
+				<not>
+					<equals>
+						<property>/instrumentation/mcdu/f-pln/disp/current-flightplan</property>
+						<value>temporary</value>
+					</equals>
+				</not>
+				<not>
+					<equals>
+						<property>/instrumentation/mcdu/f-pln/disp/current-flightplan</property>
+						<value>secondary</value>
+					</equals>
+				</not>
+				<not>
+					<property>/instrumentation/mcdu/f-pln/disp/l2/to-wpt</property>
+				</not>
+				<not>
+					<property>/instrumentation/mcdu/f-pln/disp/l2/discontinuity-marker</property>
+				</not>
+				<not>
+					<property>/instrumentation/mcdu/f-pln/disp/l2/end-marker</property>
+				</not>
+				<or>
+					<property>/instrumentation/mcdu/f-pln/disp/l2/missed</property>
+					<property>/instrumentation/mcdu/f-pln/disp/l2/alternate</property>
+				</or>
+			</and>
+		</condition>
+	</animation>
+
+	<animation>
+		<type>select</type>
+		<object-name>blue-l3</object-name>
+		<condition>
+			<and>
+				<property>autopilot/route-manager/active</property>
+				<not>
+					<equals>
+						<property>/instrumentation/mcdu/f-pln/disp/current-flightplan</property>
+						<value>temporary</value>
+					</equals>
+				</not>
+				<not>
+					<equals>
+						<property>/instrumentation/mcdu/f-pln/disp/current-flightplan</property>
+						<value>secondary</value>
+					</equals>
+				</not>
+				<not>
+					<property>/instrumentation/mcdu/f-pln/disp/l3/to-wpt</property>
+				</not>
+				<not>
+					<property>/instrumentation/mcdu/f-pln/disp/l3/discontinuity-marker</property>
+				</not>
+				<not>
+					<property>/instrumentation/mcdu/f-pln/disp/l3/end-marker</property>
+				</not>
+				<or>
+					<property>/instrumentation/mcdu/f-pln/disp/l3/missed</property>
+					<property>/instrumentation/mcdu/f-pln/disp/l3/alternate</property>
+				</or>
+			</and>
+		</condition>
+	</animation>
+
+	<animation>
+		<type>select</type>
+		<object-name>blue-l4</object-name>
+		<condition>
+			<and>
+				<property>autopilot/route-manager/active</property>
+				<not>
+					<equals>
+						<property>/instrumentation/mcdu/f-pln/disp/current-flightplan</property>
+						<value>temporary</value>
+					</equals>
+				</not>
+				<not>
+					<equals>
+						<property>/instrumentation/mcdu/f-pln/disp/current-flightplan</property>
+						<value>secondary</value>
+					</equals>
+				</not>
+				<not>
+					<property>/instrumentation/mcdu/f-pln/disp/l4/to-wpt</property>
+				</not>
+				<not>
+					<property>/instrumentation/mcdu/f-pln/disp/l4/discontinuity-marker</property>
+				</not>
+				<not>
+					<property>/instrumentation/mcdu/f-pln/disp/l4/end-marker</property>
+				</not>
+				<or>
+					<property>/instrumentation/mcdu/f-pln/disp/l4/missed</property>
+					<property>/instrumentation/mcdu/f-pln/disp/l4/alternate</property>
+				</or>
+			</and>
+		</condition>
+	</animation>
+
+	<animation>
+		<type>select</type>
+		<object-name>blue-l5</object-name>
+		<condition>
+			<and>
+				<property>autopilot/route-manager/active</property>
+				<not>
+					<equals>
+						<property>/instrumentation/mcdu/f-pln/disp/current-flightplan</property>
+						<value>temporary</value>
+					</equals>
+				</not>
+				<not>
+					<equals>
+						<property>/instrumentation/mcdu/f-pln/disp/current-flightplan</property>
+						<value>secondary</value>
+					</equals>
+				</not>
+				<not>
+					<property>/instrumentation/mcdu/f-pln/disp/l5/to-wpt</property>
+				</not>
+				<not>
+					<property>/instrumentation/mcdu/f-pln/disp/l5/discontinuity-marker</property>
+				</not>
+				<not>
+					<property>/instrumentation/mcdu/f-pln/disp/l5/end-marker</property>
+				</not>
+				<or>
+					<property>/instrumentation/mcdu/f-pln/disp/l5/missed</property>
+					<property>/instrumentation/mcdu/f-pln/disp/l5/alternate</property>
+				</or>
+			</and>
+		</condition>
+	</animation>
+	
+
 	<!-- OSGText -->
 	
+	
+
 	<text>
-		<name>green</name>
+		<name>green-l1</name>
 		<offsets>
 			<x-m>-0.0703</x-m>
 			<y-m>-0.0409</y-m>
@@ -553,9 +1501,9 @@
 			<height type="int">32</height>
 		</font-resolution>
 	</text>
-	
+
 	<text>
-		<name>green</name>
+		<name>green-l2</name>
 		<offsets>
 			<x-m>-0.0612</x-m>
 			<y-m>-0.0409</y-m>
@@ -578,9 +1526,9 @@
 			<height type="int">32</height>
 		</font-resolution>
 	</text>
-	
+
 	<text>
-		<name>green</name>
+		<name>green-l3</name>
 		<offsets>
 			<x-m>-0.0524</x-m>
 			<y-m>-0.0409</y-m>
@@ -603,9 +1551,9 @@
 			<height type="int">32</height>
 		</font-resolution>
 	</text>
-	
+
 	<text>
-		<name>green</name>
+		<name>green-l4</name>
 		<offsets>
 			<x-m>-0.0430</x-m>
 			<y-m>-0.0409</y-m>
@@ -628,9 +1576,384 @@
 			<height type="int">32</height>
 		</font-resolution>
 	</text>
+
+	<text>
+		<name>green-l5</name>
+		<offsets>
+			<x-m>-0.0336</x-m>
+			<y-m>-0.0409</y-m>
+			<z-m>-0.0006</z-m>
+			<heading-deg>90</heading-deg>
+		</offsets>
+		<alignment>left-center</alignment>
+		<axis-alignment>xy-plane</axis-alignment>
+		<type type="string">text-value</type>
+		<format type="string">%s</format>
+		<property>/instrumentation/mcdu/f-pln/disp/l5/id</property>
+		<truncate type="bool">false</truncate>
+		<font type="string">courier-bold.txf</font>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.003</character-size>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
 	
 	<text>
-		<name>green</name>
+		<name>blue-l1</name>
+		<offsets>
+			<x-m>-0.0703</x-m>
+			<y-m>-0.0409</y-m>
+			<z-m>-0.0006</z-m>
+			<heading-deg>90</heading-deg>
+		</offsets>
+		<alignment>left-center</alignment>
+		<axis-alignment>xy-plane</axis-alignment>
+		<type type="string">text-value</type>
+		<format type="string">%s</format>
+		<property>/instrumentation/mcdu/f-pln/disp/l1/id</property>
+		<truncate type="bool">false</truncate>
+		<font type="string">courier-bold.txf</font>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.003</character-size>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+
+	<text>
+		<name>blue-l2</name>
+		<offsets>
+			<x-m>-0.0612</x-m>
+			<y-m>-0.0409</y-m>
+			<z-m>-0.0006</z-m>
+			<heading-deg>90</heading-deg>
+		</offsets>
+		<alignment>left-center</alignment>
+		<axis-alignment>xy-plane</axis-alignment>
+		<type type="string">text-value</type>
+		<format type="string">%s</format>
+		<property>/instrumentation/mcdu/f-pln/disp/l2/id</property>
+		<truncate type="bool">false</truncate>
+		<font type="string">courier-bold.txf</font>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.003</character-size>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+
+	<text>
+		<name>blue-l3</name>
+		<offsets>
+			<x-m>-0.0524</x-m>
+			<y-m>-0.0409</y-m>
+			<z-m>-0.0006</z-m>
+			<heading-deg>90</heading-deg>
+		</offsets>
+		<alignment>left-center</alignment>
+		<axis-alignment>xy-plane</axis-alignment>
+		<type type="string">text-value</type>
+		<format type="string">%s</format>
+		<property>/instrumentation/mcdu/f-pln/disp/l3/id</property>
+		<truncate type="bool">false</truncate>
+		<font type="string">courier-bold.txf</font>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.003</character-size>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+
+	<text>
+		<name>blue-l4</name>
+		<offsets>
+			<x-m>-0.0430</x-m>
+			<y-m>-0.0409</y-m>
+			<z-m>-0.0006</z-m>
+			<heading-deg>90</heading-deg>
+		</offsets>
+		<alignment>left-center</alignment>
+		<axis-alignment>xy-plane</axis-alignment>
+		<type type="string">text-value</type>
+		<format type="string">%s</format>
+		<property>/instrumentation/mcdu/f-pln/disp/l4/id</property>
+		<truncate type="bool">false</truncate>
+		<font type="string">courier-bold.txf</font>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.003</character-size>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+
+	<text>
+		<name>blue-l5</name>
+		<offsets>
+			<x-m>-0.0336</x-m>
+			<y-m>-0.0409</y-m>
+			<z-m>-0.0006</z-m>
+			<heading-deg>90</heading-deg>
+		</offsets>
+		<alignment>left-center</alignment>
+		<axis-alignment>xy-plane</axis-alignment>
+		<type type="string">text-value</type>
+		<format type="string">%s</format>
+		<property>/instrumentation/mcdu/f-pln/disp/l5/id</property>
+		<truncate type="bool">false</truncate>
+		<font type="string">courier-bold.txf</font>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.003</character-size>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	
+	<text>
+		<name>yellow-l1</name>
+		<offsets>
+			<x-m>-0.0703</x-m>
+			<y-m>-0.0409</y-m>
+			<z-m>-0.0006</z-m>
+			<heading-deg>90</heading-deg>
+		</offsets>
+		<alignment>left-center</alignment>
+		<axis-alignment>xy-plane</axis-alignment>
+		<type type="string">text-value</type>
+		<format type="string">%s</format>
+		<property>/instrumentation/mcdu/f-pln/disp/l1/id</property>
+		<truncate type="bool">false</truncate>
+		<font type="string">courier-bold.txf</font>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.003</character-size>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+
+	<text>
+		<name>yellow-l2</name>
+		<offsets>
+			<x-m>-0.0612</x-m>
+			<y-m>-0.0409</y-m>
+			<z-m>-0.0006</z-m>
+			<heading-deg>90</heading-deg>
+		</offsets>
+		<alignment>left-center</alignment>
+		<axis-alignment>xy-plane</axis-alignment>
+		<type type="string">text-value</type>
+		<format type="string">%s</format>
+		<property>/instrumentation/mcdu/f-pln/disp/l2/id</property>
+		<truncate type="bool">false</truncate>
+		<font type="string">courier-bold.txf</font>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.003</character-size>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+
+	<text>
+		<name>yellow-l3</name>
+		<offsets>
+			<x-m>-0.0524</x-m>
+			<y-m>-0.0409</y-m>
+			<z-m>-0.0006</z-m>
+			<heading-deg>90</heading-deg>
+		</offsets>
+		<alignment>left-center</alignment>
+		<axis-alignment>xy-plane</axis-alignment>
+		<type type="string">text-value</type>
+		<format type="string">%s</format>
+		<property>/instrumentation/mcdu/f-pln/disp/l3/id</property>
+		<truncate type="bool">false</truncate>
+		<font type="string">courier-bold.txf</font>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.003</character-size>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+
+	<text>
+		<name>yellow-l4</name>
+		<offsets>
+			<x-m>-0.0430</x-m>
+			<y-m>-0.0409</y-m>
+			<z-m>-0.0006</z-m>
+			<heading-deg>90</heading-deg>
+		</offsets>
+		<alignment>left-center</alignment>
+		<axis-alignment>xy-plane</axis-alignment>
+		<type type="string">text-value</type>
+		<format type="string">%s</format>
+		<property>/instrumentation/mcdu/f-pln/disp/l4/id</property>
+		<truncate type="bool">false</truncate>
+		<font type="string">courier-bold.txf</font>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.003</character-size>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+
+	<text>
+		<name>yellow-l5</name>
+		<offsets>
+			<x-m>-0.0336</x-m>
+			<y-m>-0.0409</y-m>
+			<z-m>-0.0006</z-m>
+			<heading-deg>90</heading-deg>
+		</offsets>
+		<alignment>left-center</alignment>
+		<axis-alignment>xy-plane</axis-alignment>
+		<type type="string">text-value</type>
+		<format type="string">%s</format>
+		<property>/instrumentation/mcdu/f-pln/disp/l5/id</property>
+		<truncate type="bool">false</truncate>
+		<font type="string">courier-bold.txf</font>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.003</character-size>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	
+	<text>
+		<name>white-l1</name>
+		<offsets>
+			<x-m>-0.0703</x-m>
+			<y-m>-0.0409</y-m>
+			<z-m>-0.0006</z-m>
+			<heading-deg>90</heading-deg>
+		</offsets>
+		<alignment>left-center</alignment>
+		<axis-alignment>xy-plane</axis-alignment>
+		<type type="string">text-value</type>
+		<format type="string">%s</format>
+		<property>/instrumentation/mcdu/f-pln/disp/l1/id</property>
+		<truncate type="bool">false</truncate>
+		<font type="string">courier-bold.txf</font>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.003</character-size>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+
+	<text>
+		<name>white-l2</name>
+		<offsets>
+			<x-m>-0.0612</x-m>
+			<y-m>-0.0409</y-m>
+			<z-m>-0.0006</z-m>
+			<heading-deg>90</heading-deg>
+		</offsets>
+		<alignment>left-center</alignment>
+		<axis-alignment>xy-plane</axis-alignment>
+		<type type="string">text-value</type>
+		<format type="string">%s</format>
+		<property>/instrumentation/mcdu/f-pln/disp/l2/id</property>
+		<truncate type="bool">false</truncate>
+		<font type="string">courier-bold.txf</font>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.003</character-size>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+
+	<text>
+		<name>white-l3</name>
+		<offsets>
+			<x-m>-0.0524</x-m>
+			<y-m>-0.0409</y-m>
+			<z-m>-0.0006</z-m>
+			<heading-deg>90</heading-deg>
+		</offsets>
+		<alignment>left-center</alignment>
+		<axis-alignment>xy-plane</axis-alignment>
+		<type type="string">text-value</type>
+		<format type="string">%s</format>
+		<property>/instrumentation/mcdu/f-pln/disp/l3/id</property>
+		<truncate type="bool">false</truncate>
+		<font type="string">courier-bold.txf</font>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.003</character-size>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+
+	<text>
+		<name>white-l4</name>
+		<offsets>
+			<x-m>-0.0430</x-m>
+			<y-m>-0.0409</y-m>
+			<z-m>-0.0006</z-m>
+			<heading-deg>90</heading-deg>
+		</offsets>
+		<alignment>left-center</alignment>
+		<axis-alignment>xy-plane</axis-alignment>
+		<type type="string">text-value</type>
+		<format type="string">%s</format>
+		<property>/instrumentation/mcdu/f-pln/disp/l4/id</property>
+		<truncate type="bool">false</truncate>
+		<font type="string">courier-bold.txf</font>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.003</character-size>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+
+	<text>
+		<name>white-l5</name>
 		<offsets>
 			<x-m>-0.0336</x-m>
 			<y-m>-0.0409</y-m>
@@ -658,6 +1981,131 @@
 		<name>green</name>
 		<offsets>
 			<x-m>-0.0703</x-m>
+			<y-m>-0.0184</y-m>
+			<z-m>-0.0006</z-m>
+			<heading-deg>90</heading-deg>
+		</offsets>
+		<alignment>left-center</alignment>
+		<axis-alignment>xy-plane</axis-alignment>
+		<type type="string">text-value</type>
+		<format type="string">%s</format>
+		<property>/instrumentation/mcdu/f-pln/disp/l1/ovfly</property>
+		<truncate type="bool">false</truncate>
+		<font type="string">symbol.txf</font>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.003</character-size>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+
+	<text>
+		<name>green</name>
+		<offsets>
+			<x-m>-0.0612</x-m>
+			<y-m>-0.0184</y-m>
+			<z-m>-0.0006</z-m>
+			<heading-deg>90</heading-deg>
+		</offsets>
+		<alignment>left-center</alignment>
+		<axis-alignment>xy-plane</axis-alignment>
+		<type type="string">text-value</type>
+		<format type="string">%s</format>
+		<property>/instrumentation/mcdu/f-pln/disp/l2/ovfly</property>
+		<truncate type="bool">false</truncate>
+		<font type="string">symbol.txf</font>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.003</character-size>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+
+	<text>
+		<name>green</name>
+		<offsets>
+			<x-m>-0.0524</x-m>
+			<y-m>-0.0184</y-m>
+			<z-m>-0.0006</z-m>
+			<heading-deg>90</heading-deg>
+		</offsets>
+		<alignment>left-center</alignment>
+		<axis-alignment>xy-plane</axis-alignment>
+		<type type="string">text-value</type>
+		<format type="string">%s</format>
+		<property>/instrumentation/mcdu/f-pln/disp/l3/ovfly</property>
+		<truncate type="bool">false</truncate>
+		<font type="string">symbol.txf</font>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.003</character-size>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+
+	<text>
+		<name>green</name>
+		<offsets>
+			<x-m>-0.0430</x-m>
+			<y-m>-0.0184</y-m>
+			<z-m>-0.0006</z-m>
+			<heading-deg>90</heading-deg>
+		</offsets>
+		<alignment>left-center</alignment>
+		<axis-alignment>xy-plane</axis-alignment>
+		<type type="string">text-value</type>
+		<format type="string">%s</format>
+		<property>/instrumentation/mcdu/f-pln/disp/l4/ovfly</property>
+		<truncate type="bool">false</truncate>
+		<font type="string">symbol.txf</font>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.003</character-size>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+
+	<text>
+		<name>green</name>
+		<offsets>
+			<x-m>-0.0336</x-m>
+			<y-m>-0.0184</y-m>
+			<z-m>-0.0006</z-m>
+			<heading-deg>90</heading-deg>
+		</offsets>
+		<alignment>left-center</alignment>
+		<axis-alignment>xy-plane</axis-alignment>
+		<type type="string">text-value</type>
+		<format type="string">%s</format>
+		<property>/instrumentation/mcdu/f-pln/disp/l5/ovfly</property>
+		<truncate type="bool">false</truncate>
+		<font type="string">symbol.txf</font>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.003</character-size>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+
+	<text>
+		<name>green-l1</name>
+		<offsets>
+			<x-m>-0.0703</x-m>
 			<y-m>-0.0094</y-m>
 			<z-m>-0.0006</z-m>
 			<heading-deg>90</heading-deg>
@@ -678,9 +2126,9 @@
 			<height type="int">32</height>
 		</font-resolution>
 	</text>
-	
+
 	<text>
-		<name>green</name>
+		<name>green-l2</name>
 		<offsets>
 			<x-m>-0.0612</x-m>
 			<y-m>-0.0094</y-m>
@@ -703,9 +2151,9 @@
 			<height type="int">32</height>
 		</font-resolution>
 	</text>
-	
+
 	<text>
-		<name>green</name>
+		<name>green-l3</name>
 		<offsets>
 			<x-m>-0.0524</x-m>
 			<y-m>-0.0094</y-m>
@@ -728,9 +2176,9 @@
 			<height type="int">32</height>
 		</font-resolution>
 	</text>
-	
+
 	<text>
-		<name>green</name>
+		<name>green-l4</name>
 		<offsets>
 			<x-m>-0.0430</x-m>
 			<y-m>-0.0094</y-m>
@@ -753,9 +2201,9 @@
 			<height type="int">32</height>
 		</font-resolution>
 	</text>
-	
+
 	<text>
-		<name>green</name>
+		<name>green-l5</name>
 		<offsets>
 			<x-m>-0.0336</x-m>
 			<y-m>-0.0094</y-m>
@@ -780,7 +2228,382 @@
 	</text>
 	
 	<text>
-		<name>green</name>
+		<name>blue-l1</name>
+		<offsets>
+			<x-m>-0.0703</x-m>
+			<y-m>-0.0094</y-m>
+			<z-m>-0.0006</z-m>
+			<heading-deg>90</heading-deg>
+		</offsets>
+		<alignment>center-center</alignment>
+		<axis-alignment>xy-plane</axis-alignment>
+		<type type="string">text-value</type>
+		<format type="string">%s</format>
+		<property>/instrumentation/mcdu/f-pln/disp/l1/time</property>
+		<truncate type="bool">false</truncate>
+		<font type="string">courier-bold.txf</font>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.003</character-size>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+
+	<text>
+		<name>blue-l2</name>
+		<offsets>
+			<x-m>-0.0612</x-m>
+			<y-m>-0.0094</y-m>
+			<z-m>-0.0006</z-m>
+			<heading-deg>90</heading-deg>
+		</offsets>
+		<alignment>center-center</alignment>
+		<axis-alignment>xy-plane</axis-alignment>
+		<type type="string">text-value</type>
+		<format type="string">%s</format>
+		<property>/instrumentation/mcdu/f-pln/disp/l2/time</property>
+		<truncate type="bool">false</truncate>
+		<font type="string">courier-bold.txf</font>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.003</character-size>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+
+	<text>
+		<name>blue-l3</name>
+		<offsets>
+			<x-m>-0.0524</x-m>
+			<y-m>-0.0094</y-m>
+			<z-m>-0.0006</z-m>
+			<heading-deg>90</heading-deg>
+		</offsets>
+		<alignment>center-center</alignment>
+		<axis-alignment>xy-plane</axis-alignment>
+		<type type="string">text-value</type>
+		<format type="string">%s</format>
+		<property>/instrumentation/mcdu/f-pln/disp/l3/time</property>
+		<truncate type="bool">false</truncate>
+		<font type="string">courier-bold.txf</font>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.003</character-size>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+
+	<text>
+		<name>blue-l4</name>
+		<offsets>
+			<x-m>-0.0430</x-m>
+			<y-m>-0.0094</y-m>
+			<z-m>-0.0006</z-m>
+			<heading-deg>90</heading-deg>
+		</offsets>
+		<alignment>center-center</alignment>
+		<axis-alignment>xy-plane</axis-alignment>
+		<type type="string">text-value</type>
+		<format type="string">%s</format>
+		<property>/instrumentation/mcdu/f-pln/disp/l4/time</property>
+		<truncate type="bool">false</truncate>
+		<font type="string">courier-bold.txf</font>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.003</character-size>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+
+	<text>
+		<name>blue-l5</name>
+		<offsets>
+			<x-m>-0.0336</x-m>
+			<y-m>-0.0094</y-m>
+			<z-m>-0.0006</z-m>
+			<heading-deg>90</heading-deg>
+		</offsets>
+		<alignment>center-center</alignment>
+		<axis-alignment>xy-plane</axis-alignment>
+		<type type="string">text-value</type>
+		<format type="string">%s</format>
+		<property>/instrumentation/mcdu/f-pln/disp/l5/time</property>
+		<truncate type="bool">false</truncate>
+		<font type="string">courier-bold.txf</font>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.003</character-size>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	
+	<text>
+		<name>yellow-l1</name>
+		<offsets>
+			<x-m>-0.0703</x-m>
+			<y-m>-0.0094</y-m>
+			<z-m>-0.0006</z-m>
+			<heading-deg>90</heading-deg>
+		</offsets>
+		<alignment>center-center</alignment>
+		<axis-alignment>xy-plane</axis-alignment>
+		<type type="string">text-value</type>
+		<format type="string">%s</format>
+		<property>/instrumentation/mcdu/f-pln/disp/l1/time</property>
+		<truncate type="bool">false</truncate>
+		<font type="string">courier-bold.txf</font>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.003</character-size>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+
+	<text>
+		<name>yellow-l2</name>
+		<offsets>
+			<x-m>-0.0612</x-m>
+			<y-m>-0.0094</y-m>
+			<z-m>-0.0006</z-m>
+			<heading-deg>90</heading-deg>
+		</offsets>
+		<alignment>center-center</alignment>
+		<axis-alignment>xy-plane</axis-alignment>
+		<type type="string">text-value</type>
+		<format type="string">%s</format>
+		<property>/instrumentation/mcdu/f-pln/disp/l2/time</property>
+		<truncate type="bool">false</truncate>
+		<font type="string">courier-bold.txf</font>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.003</character-size>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+
+	<text>
+		<name>yellow-l3</name>
+		<offsets>
+			<x-m>-0.0524</x-m>
+			<y-m>-0.0094</y-m>
+			<z-m>-0.0006</z-m>
+			<heading-deg>90</heading-deg>
+		</offsets>
+		<alignment>center-center</alignment>
+		<axis-alignment>xy-plane</axis-alignment>
+		<type type="string">text-value</type>
+		<format type="string">%s</format>
+		<property>/instrumentation/mcdu/f-pln/disp/l3/time</property>
+		<truncate type="bool">false</truncate>
+		<font type="string">courier-bold.txf</font>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.003</character-size>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+
+	<text>
+		<name>yellow-l4</name>
+		<offsets>
+			<x-m>-0.0430</x-m>
+			<y-m>-0.0094</y-m>
+			<z-m>-0.0006</z-m>
+			<heading-deg>90</heading-deg>
+		</offsets>
+		<alignment>center-center</alignment>
+		<axis-alignment>xy-plane</axis-alignment>
+		<type type="string">text-value</type>
+		<format type="string">%s</format>
+		<property>/instrumentation/mcdu/f-pln/disp/l4/time</property>
+		<truncate type="bool">false</truncate>
+		<font type="string">courier-bold.txf</font>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.003</character-size>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+
+	<text>
+		<name>yellow-l5</name>
+		<offsets>
+			<x-m>-0.0336</x-m>
+			<y-m>-0.0094</y-m>
+			<z-m>-0.0006</z-m>
+			<heading-deg>90</heading-deg>
+		</offsets>
+		<alignment>center-center</alignment>
+		<axis-alignment>xy-plane</axis-alignment>
+		<type type="string">text-value</type>
+		<format type="string">%s</format>
+		<property>/instrumentation/mcdu/f-pln/disp/l5/time</property>
+		<truncate type="bool">false</truncate>
+		<font type="string">courier-bold.txf</font>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.003</character-size>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	
+	<text>
+		<name>white-l1</name>
+		<offsets>
+			<x-m>-0.0703</x-m>
+			<y-m>-0.0094</y-m>
+			<z-m>-0.0006</z-m>
+			<heading-deg>90</heading-deg>
+		</offsets>
+		<alignment>center-center</alignment>
+		<axis-alignment>xy-plane</axis-alignment>
+		<type type="string">text-value</type>
+		<format type="string">%s</format>
+		<property>/instrumentation/mcdu/f-pln/disp/l1/time</property>
+		<truncate type="bool">false</truncate>
+		<font type="string">courier-bold.txf</font>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.003</character-size>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+
+	<text>
+		<name>white-l2</name>
+		<offsets>
+			<x-m>-0.0612</x-m>
+			<y-m>-0.0094</y-m>
+			<z-m>-0.0006</z-m>
+			<heading-deg>90</heading-deg>
+		</offsets>
+		<alignment>center-center</alignment>
+		<axis-alignment>xy-plane</axis-alignment>
+		<type type="string">text-value</type>
+		<format type="string">%s</format>
+		<property>/instrumentation/mcdu/f-pln/disp/l2/time</property>
+		<truncate type="bool">false</truncate>
+		<font type="string">courier-bold.txf</font>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.003</character-size>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+
+	<text>
+		<name>white-l3</name>
+		<offsets>
+			<x-m>-0.0524</x-m>
+			<y-m>-0.0094</y-m>
+			<z-m>-0.0006</z-m>
+			<heading-deg>90</heading-deg>
+		</offsets>
+		<alignment>center-center</alignment>
+		<axis-alignment>xy-plane</axis-alignment>
+		<type type="string">text-value</type>
+		<format type="string">%s</format>
+		<property>/instrumentation/mcdu/f-pln/disp/l3/time</property>
+		<truncate type="bool">false</truncate>
+		<font type="string">courier-bold.txf</font>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.003</character-size>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+
+	<text>
+		<name>white-l4</name>
+		<offsets>
+			<x-m>-0.0430</x-m>
+			<y-m>-0.0094</y-m>
+			<z-m>-0.0006</z-m>
+			<heading-deg>90</heading-deg>
+		</offsets>
+		<alignment>center-center</alignment>
+		<axis-alignment>xy-plane</axis-alignment>
+		<type type="string">text-value</type>
+		<format type="string">%s</format>
+		<property>/instrumentation/mcdu/f-pln/disp/l4/time</property>
+		<truncate type="bool">false</truncate>
+		<font type="string">courier-bold.txf</font>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.003</character-size>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+
+	<text>
+		<name>white-l5</name>
+		<offsets>
+			<x-m>-0.0336</x-m>
+			<y-m>-0.0094</y-m>
+			<z-m>-0.0006</z-m>
+			<heading-deg>90</heading-deg>
+		</offsets>
+		<alignment>center-center</alignment>
+		<axis-alignment>xy-plane</axis-alignment>
+		<type type="string">text-value</type>
+		<format type="string">%s</format>
+		<property>/instrumentation/mcdu/f-pln/disp/l5/time</property>
+		<truncate type="bool">false</truncate>
+		<font type="string">courier-bold.txf</font>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.003</character-size>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+
+	<text>
+		<name>green-l1</name>
 		<offsets>
 			<x-m>-0.0703</x-m>
 			<y-m>0.0417</y-m>
@@ -803,9 +2626,9 @@
 			<height type="int">32</height>
 		</font-resolution>
 	</text>
-	
+
 	<text>
-		<name>green</name>
+		<name>green-l2</name>
 		<offsets>
 			<x-m>-0.0612</x-m>
 			<y-m>0.0417</y-m>
@@ -828,9 +2651,9 @@
 			<height type="int">32</height>
 		</font-resolution>
 	</text>
-	
+
 	<text>
-		<name>green</name>
+		<name>green-l3</name>
 		<offsets>
 			<x-m>-0.0524</x-m>
 			<y-m>0.0417</y-m>
@@ -853,9 +2676,9 @@
 			<height type="int">32</height>
 		</font-resolution>
 	</text>
-	
+
 	<text>
-		<name>green</name>
+		<name>green-l4</name>
 		<offsets>
 			<x-m>-0.0430</x-m>
 			<y-m>0.0417</y-m>
@@ -878,9 +2701,9 @@
 			<height type="int">32</height>
 		</font-resolution>
 	</text>
-	
+
 	<text>
-		<name>green</name>
+		<name>green-l5</name>
 		<offsets>
 			<x-m>-0.0336</x-m>
 			<y-m>0.0417</y-m>
@@ -905,18 +2728,118 @@
 	</text>
 	
 	<text>
-		<name>white</name>
+		<name>blue-l1</name>
 		<offsets>
-			<x-m>-0.0249</x-m>
-			<y-m>-0.0409</y-m>
+			<x-m>-0.0703</x-m>
+			<y-m>0.0417</y-m>
 			<z-m>-0.0006</z-m>
 			<heading-deg>90</heading-deg>
 		</offsets>
-		<alignment>left-center</alignment>
+		<alignment>right-center</alignment>
 		<axis-alignment>xy-plane</axis-alignment>
 		<type type="string">text-value</type>
 		<format type="string">%s</format>
-		<property>/instrumentation/mcdu/f-pln/disp/dest</property>
+		<property>/instrumentation/mcdu/f-pln/disp/l1/spd_alt</property>
+		<truncate type="bool">false</truncate>
+		<font type="string">courier-bold.txf</font>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.003</character-size>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+
+	<text>
+		<name>blue-l2</name>
+		<offsets>
+			<x-m>-0.0612</x-m>
+			<y-m>0.0417</y-m>
+			<z-m>-0.0006</z-m>
+			<heading-deg>90</heading-deg>
+		</offsets>
+		<alignment>right-center</alignment>
+		<axis-alignment>xy-plane</axis-alignment>
+		<type type="string">text-value</type>
+		<format type="string">%s</format>
+		<property>/instrumentation/mcdu/f-pln/disp/l2/spd_alt</property>
+		<truncate type="bool">false</truncate>
+		<font type="string">courier-bold.txf</font>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.003</character-size>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+
+	<text>
+		<name>blue-l3</name>
+		<offsets>
+			<x-m>-0.0524</x-m>
+			<y-m>0.0417</y-m>
+			<z-m>-0.0006</z-m>
+			<heading-deg>90</heading-deg>
+		</offsets>
+		<alignment>right-center</alignment>
+		<axis-alignment>xy-plane</axis-alignment>
+		<type type="string">text-value</type>
+		<format type="string">%s</format>
+		<property>/instrumentation/mcdu/f-pln/disp/l3/spd_alt</property>
+		<truncate type="bool">false</truncate>
+		<font type="string">courier-bold.txf</font>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.003</character-size>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+
+	<text>
+		<name>blue-l4</name>
+		<offsets>
+			<x-m>-0.0430</x-m>
+			<y-m>0.0417</y-m>
+			<z-m>-0.0006</z-m>
+			<heading-deg>90</heading-deg>
+		</offsets>
+		<alignment>right-center</alignment>
+		<axis-alignment>xy-plane</axis-alignment>
+		<type type="string">text-value</type>
+		<format type="string">%s</format>
+		<property>/instrumentation/mcdu/f-pln/disp/l4/spd_alt</property>
+		<truncate type="bool">false</truncate>
+		<font type="string">courier-bold.txf</font>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.003</character-size>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+
+	<text>
+		<name>blue-l5</name>
+		<offsets>
+			<x-m>-0.0336</x-m>
+			<y-m>0.0417</y-m>
+			<z-m>-0.0006</z-m>
+			<heading-deg>90</heading-deg>
+		</offsets>
+		<alignment>right-center</alignment>
+		<axis-alignment>xy-plane</axis-alignment>
+		<type type="string">text-value</type>
+		<format type="string">%s</format>
+		<property>/instrumentation/mcdu/f-pln/disp/l5/spd_alt</property>
 		<truncate type="bool">false</truncate>
 		<font type="string">courier-bold.txf</font>
 		<draw-text type="bool">true</draw-text>
@@ -929,6 +2852,281 @@
 		</font-resolution>
 	</text>
 	
+	<text>
+		<name>yellow-l1</name>
+		<offsets>
+			<x-m>-0.0703</x-m>
+			<y-m>0.0417</y-m>
+			<z-m>-0.0006</z-m>
+			<heading-deg>90</heading-deg>
+		</offsets>
+		<alignment>right-center</alignment>
+		<axis-alignment>xy-plane</axis-alignment>
+		<type type="string">text-value</type>
+		<format type="string">%s</format>
+		<property>/instrumentation/mcdu/f-pln/disp/l1/spd_alt</property>
+		<truncate type="bool">false</truncate>
+		<font type="string">courier-bold.txf</font>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.003</character-size>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+
+	<text>
+		<name>yellow-l2</name>
+		<offsets>
+			<x-m>-0.0612</x-m>
+			<y-m>0.0417</y-m>
+			<z-m>-0.0006</z-m>
+			<heading-deg>90</heading-deg>
+		</offsets>
+		<alignment>right-center</alignment>
+		<axis-alignment>xy-plane</axis-alignment>
+		<type type="string">text-value</type>
+		<format type="string">%s</format>
+		<property>/instrumentation/mcdu/f-pln/disp/l2/spd_alt</property>
+		<truncate type="bool">false</truncate>
+		<font type="string">courier-bold.txf</font>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.003</character-size>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+
+	<text>
+		<name>yellow-l3</name>
+		<offsets>
+			<x-m>-0.0524</x-m>
+			<y-m>0.0417</y-m>
+			<z-m>-0.0006</z-m>
+			<heading-deg>90</heading-deg>
+		</offsets>
+		<alignment>right-center</alignment>
+		<axis-alignment>xy-plane</axis-alignment>
+		<type type="string">text-value</type>
+		<format type="string">%s</format>
+		<property>/instrumentation/mcdu/f-pln/disp/l3/spd_alt</property>
+		<truncate type="bool">false</truncate>
+		<font type="string">courier-bold.txf</font>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.003</character-size>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+
+	<text>
+		<name>yellow-l4</name>
+		<offsets>
+			<x-m>-0.0430</x-m>
+			<y-m>0.0417</y-m>
+			<z-m>-0.0006</z-m>
+			<heading-deg>90</heading-deg>
+		</offsets>
+		<alignment>right-center</alignment>
+		<axis-alignment>xy-plane</axis-alignment>
+		<type type="string">text-value</type>
+		<format type="string">%s</format>
+		<property>/instrumentation/mcdu/f-pln/disp/l4/spd_alt</property>
+		<truncate type="bool">false</truncate>
+		<font type="string">courier-bold.txf</font>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.003</character-size>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+
+	<text>
+		<name>yellow-l5</name>
+		<offsets>
+			<x-m>-0.0336</x-m>
+			<y-m>0.0417</y-m>
+			<z-m>-0.0006</z-m>
+			<heading-deg>90</heading-deg>
+		</offsets>
+		<alignment>right-center</alignment>
+		<axis-alignment>xy-plane</axis-alignment>
+		<type type="string">text-value</type>
+		<format type="string">%s</format>
+		<property>/instrumentation/mcdu/f-pln/disp/l5/spd_alt</property>
+		<truncate type="bool">false</truncate>
+		<font type="string">courier-bold.txf</font>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.003</character-size>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	
+	<text>
+		<name>white-l1</name>
+		<offsets>
+			<x-m>-0.0703</x-m>
+			<y-m>0.0417</y-m>
+			<z-m>-0.0006</z-m>
+			<heading-deg>90</heading-deg>
+		</offsets>
+		<alignment>right-center</alignment>
+		<axis-alignment>xy-plane</axis-alignment>
+		<type type="string">text-value</type>
+		<format type="string">%s</format>
+		<property>/instrumentation/mcdu/f-pln/disp/l1/spd_alt</property>
+		<truncate type="bool">false</truncate>
+		<font type="string">courier-bold.txf</font>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.003</character-size>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+
+	<text>
+		<name>white-l2</name>
+		<offsets>
+			<x-m>-0.0612</x-m>
+			<y-m>0.0417</y-m>
+			<z-m>-0.0006</z-m>
+			<heading-deg>90</heading-deg>
+		</offsets>
+		<alignment>right-center</alignment>
+		<axis-alignment>xy-plane</axis-alignment>
+		<type type="string">text-value</type>
+		<format type="string">%s</format>
+		<property>/instrumentation/mcdu/f-pln/disp/l2/spd_alt</property>
+		<truncate type="bool">false</truncate>
+		<font type="string">courier-bold.txf</font>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.003</character-size>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+
+	<text>
+		<name>white-l3</name>
+		<offsets>
+			<x-m>-0.0524</x-m>
+			<y-m>0.0417</y-m>
+			<z-m>-0.0006</z-m>
+			<heading-deg>90</heading-deg>
+		</offsets>
+		<alignment>right-center</alignment>
+		<axis-alignment>xy-plane</axis-alignment>
+		<type type="string">text-value</type>
+		<format type="string">%s</format>
+		<property>/instrumentation/mcdu/f-pln/disp/l3/spd_alt</property>
+		<truncate type="bool">false</truncate>
+		<font type="string">courier-bold.txf</font>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.003</character-size>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+
+	<text>
+		<name>white-l4</name>
+		<offsets>
+			<x-m>-0.0430</x-m>
+			<y-m>0.0417</y-m>
+			<z-m>-0.0006</z-m>
+			<heading-deg>90</heading-deg>
+		</offsets>
+		<alignment>right-center</alignment>
+		<axis-alignment>xy-plane</axis-alignment>
+		<type type="string">text-value</type>
+		<format type="string">%s</format>
+		<property>/instrumentation/mcdu/f-pln/disp/l4/spd_alt</property>
+		<truncate type="bool">false</truncate>
+		<font type="string">courier-bold.txf</font>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.003</character-size>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+
+	<text>
+		<name>white-l5</name>
+		<offsets>
+			<x-m>-0.0336</x-m>
+			<y-m>0.0417</y-m>
+			<z-m>-0.0006</z-m>
+			<heading-deg>90</heading-deg>
+		</offsets>
+		<alignment>right-center</alignment>
+		<axis-alignment>xy-plane</axis-alignment>
+		<type type="string">text-value</type>
+		<format type="string">%s</format>
+		<property>/instrumentation/mcdu/f-pln/disp/l5/spd_alt</property>
+		<truncate type="bool">false</truncate>
+		<font type="string">courier-bold.txf</font>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.003</character-size>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+
+	<text>
+		<name>white</name>
+		<offsets>
+			<x-m>-0.0249</x-m>
+			<y-m>-0.0409</y-m>
+			<z-m>-0.0006</z-m>
+			<heading-deg>90</heading-deg>
+		</offsets>
+		<alignment>left-center</alignment>
+		<axis-alignment>xy-plane</axis-alignment>
+		<type type="string">text-value</type>
+		<format type="string">%s</format>
+		<property>/instrumentation/mcdu/f-pln/disp/destination</property>
+		<truncate type="bool">false</truncate>
+		<font type="string">courier-bold.txf</font>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.003</character-size>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+
 	<text>
 		<name>white</name>
 		<offsets>
@@ -953,7 +3151,7 @@
 			<height type="int">32</height>
 		</font-resolution>
 	</text>
-	
+
 	<text>
 		<name>white</name>
 		<offsets>
@@ -979,4 +3177,29 @@
 		</font-resolution>
 	</text>
 	
+	<text>
+		<name>fpln-title</name>
+		<offsets>
+			<x-m>-0.0803</x-m>
+			<y-m>-0.0399</y-m>
+			<z-m>-0.0006</z-m>
+			<heading-deg>90</heading-deg>
+		</offsets>
+		<alignment>left-center</alignment>
+		<axis-alignment>xy-plane</axis-alignment>
+		<type type="string">text-value</type>
+		<format type="string">%s</format>
+		<property>/instrumentation/mcdu/f-pln/disp/pln-title</property>
+		<truncate type="bool">false</truncate>
+		<font type="string">courier-bold.txf</font>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.003</character-size>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+
 </PropertyList>

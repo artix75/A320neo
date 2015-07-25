@@ -1,0 +1,607 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+
+
+    <path>runways.ac</path>
+
+    <!-- mCDU Display Brightness -->
+
+    <!--animation>
+        <type>material</type>
+        <object-name>data_2</object-name>
+        <emission>
+            <red>0</red>
+            <green>0</green>
+            <blue>0</blue>
+        </emission>
+        <diffuse>
+            <red>0</red>
+            <green>0</green>
+            <blue>0</blue>
+        </diffuse>
+    </animation-->
+    
+    <animation>
+        <type>material</type>
+        <object-name>page_title</object-name>
+        <object-name>ident_lbl</object-name>
+        <object-name>latlng_lbl</object-name>
+        <object-name>rwylen_lbl</object-name>
+        <object-name>crs_lbl</object-name>
+        <object-name>frq_lbl</object-name>
+        <emission>
+            <red>1</red>
+            <green>1</green>
+            <blue>1</blue>
+            <factor-prop>/instrumentation/mcdu/brt</factor-prop>
+        </emission>
+        <diffuse>
+            <red>1</red>
+            <green>1</green>
+            <blue>1</blue>
+        </diffuse>
+    </animation>
+    
+    <!-- GREEN -->
+	
+	<animation>
+		<type>material</type>
+        <object-name>latlng</object-name>
+        <object-name>rwylen</object-name>
+        <object-name>ils-frq</object-name>
+        <object-name>ils-crs</object-name>
+		<emission>
+			<red>0</red>
+			<green>0.37</green>
+			<blue>0</blue>
+			<factor-prop>/instrumentation/mcdu/brt</factor-prop>
+		</emission>
+		<diffuse>
+			<red>0</red>
+			<green>0.37</green>
+			<blue>0</blue>
+		</diffuse>
+	</animation>
+    
+    <!-- CYAN -->
+	
+	<animation>
+		<type>material</type>
+		<object-name>ident</object-name>
+		<emission>
+			<red>0</red>
+			<green>0.4823</green>
+			<blue>0.5372</blue>
+			<factor-prop>/instrumentation/mcdu/brt</factor-prop>
+		</emission>
+		<diffuse>
+			<red>0</red>
+			<green>0.4823</green>
+			<blue>0.5372</blue>
+		</diffuse>
+	</animation>
+    
+    <animation>
+        <type>select</type>
+        <object-name>page_title</object-name>
+        <condition>
+            <equals>
+                <property>/instrumentation/mcdu/page</property>
+                <value>RUNWAYS</value>
+            </equals>
+        </condition>
+        
+    </animation>
+    
+    <animation>
+        <type>select</type>
+        <object-name>ident</object-name>
+        <condition>
+            <equals>
+                <property>/instrumentation/mcdu/page</property>
+                <value>RUNWAYS</value>
+            </equals>
+        </condition>
+        
+    </animation>
+    
+    <animation>
+        <type>select</type>
+        <object-name>ident_lbl</object-name>
+        <condition>
+            <equals>
+                <property>/instrumentation/mcdu/page</property>
+                <value>RUNWAYS</value>
+            </equals>
+        </condition>
+        
+    </animation>
+    
+    <animation>
+        <type>select</type>
+        <object-name>latlng</object-name>
+        <condition>
+            <equals>
+                <property>/instrumentation/mcdu/page</property>
+                <value>RUNWAYS</value>
+            </equals>
+        </condition>
+        
+    </animation>
+    
+    <animation>
+        <type>select</type>
+        <object-name>latlng_lbl</object-name>
+        <condition>
+            <equals>
+                <property>/instrumentation/mcdu/page</property>
+                <value>RUNWAYS</value>
+            </equals>
+        </condition>
+        
+    </animation>
+    
+    <animation>
+        <type>select</type>
+        <object-name>rwylen</object-name>
+        <condition>
+            <equals>
+                <property>/instrumentation/mcdu/page</property>
+                <value>RUNWAYS</value>
+            </equals>
+        </condition>
+        
+    </animation>
+    
+    <animation>
+        <type>select</type>
+        <object-name>ils-frq</object-name>
+        <condition>
+            <equals>
+                <property>/instrumentation/mcdu/runways/has-ils</property>
+                <value>1</value>
+            </equals>
+        </condition>
+        
+    </animation>
+    
+    <animation>
+        <type>select</type>
+        <object-name>ils-crs</object-name>
+        <condition>
+            <equals>
+                <property>/instrumentation/mcdu/page</property>
+                <value>RUNWAYS</value>
+            </equals>
+        </condition>
+        
+    </animation>
+    
+    <!-- Button Pick Animations -->
+	
+	<animation>
+        <type>pick</type>
+        <object-name>l1</object-name>
+        <action>
+            <button>0</button>
+            <repeatable type="bool">false</repeatable>
+            <binding>
+                <command>nasal</command>
+                <script>
+                    var ipt = getprop("/instrumentation/mcdu/input");
+                    if(size(ipt) > 7){
+                        mcdu.display_message(mcdu.MSG.FORMAT_ERROR);
+                    } else {
+                        var icao = substr(ipt,0,4);
+                        var info = airportinfo(icao);
+                        if(info == nil){
+                            mcdu.display_message(mcdu.MSG.NOT_IN_DB);
+                        } else {
+                            setprop("/instrumentation/mcdu/runways/ident", ipt);
+                            var rwy_id = substr(ipt, 4, size(ipt) - 4);
+                            var rwy = info.runways[rwy_id];
+                            if(rwy != nil){
+                                var pos = sprintf('%.5fN/%.5fW', rwy.lat, rwy.lon);
+                                setprop('/instrumentation/mcdu/runways/latlng',pos);
+                                setprop('/instrumentation/mcdu/runways/length', sprintf('%d', rwy.length));
+                                var ils = rwy.ils;
+                                if(ils != nil){
+                                    var frq = ils.frequency / 100;
+                                    var crs = ils.course;
+                                    setprop('/instrumentation/mcdu/runways/ils-frq', frq);
+                                    setprop('/instrumentation/mcdu/runways/ils-crs', int(crs));
+                                    setprop('/instrumentation/mcdu/runways/has-ils', 1);
+                                } else {
+                                    setprop('/instrumentation/mcdu/runways/has-ils', 0);
+                                }
+                            }
+                        }
+                    }
+                    
+                </script>
+            </binding>
+        </action>
+    </animation>
+    
+	<text>
+        <name>page_title</name>
+        <offsets>
+            <x-m>-0.0783</x-m>
+            <y-m>-0.0005</y-m>
+            <z-m>-0.0006</z-m>
+            <heading-deg>90</heading-deg>
+        </offsets>
+        <alignment>center-center</alignment>
+        <axis-alignment>xy-plane</axis-alignment>
+        <type type="string">text-value</type>
+        <format type="string">%s</format>
+        <property>/instrumentation/mcdu/page</property>
+        <truncate type="bool">false</truncate>
+        <font type="string">courier-bold.txf</font>
+        <draw-text type="bool">true</draw-text>
+        <draw-alignment type="bool">false</draw-alignment>
+        <draw-boundingbox type="bool">false</draw-boundingbox>
+        <character-size>0.004</character-size>
+        <font-resolution>
+            <width type="int">32</width>
+            <height type="int">32</height>
+        </font-resolution>
+    </text>
+    
+	<text>
+		<name>ident</name>
+		<offsets>
+			<x-m>-0.0703</x-m>
+			<y-m>-0.0416</y-m>
+			<z-m>-0.0006</z-m>
+			<heading-deg>90</heading-deg>
+		</offsets>
+		<alignment>left-center</alignment>
+		<axis-alignment>xy-plane</axis-alignment>
+		<type type="string">text-value</type>
+		<format type="string">%s</format>
+		<property>/instrumentation/mcdu/runways/ident</property>
+		<truncate type="bool">false</truncate>
+		<font type="string">courier-bold.txf</font>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.003</character-size>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+    
+    <text>
+		<name>latlng</name>
+		<offsets>
+			<x-m>-0.0608</x-m>
+			<y-m>-0.0416</y-m>
+			<z-m>-0.0006</z-m>
+			<heading-deg>90</heading-deg>
+		</offsets>
+		<alignment>left-center</alignment>
+		<axis-alignment>xy-plane</axis-alignment>
+		<type type="string">text-value</type>
+		<format type="string">%s</format>
+		<property>/instrumentation/mcdu/runways/latlng</property>
+		<truncate type="bool">false</truncate>
+		<font type="string">courier-bold.txf</font>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.003</character-size>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+    
+    <text>
+		<name>rwylen</name>
+		<offsets>
+			<x-m>-0.0425</x-m>
+			<y-m>-0.0416</y-m>
+			<z-m>-0.0006</z-m>
+			<heading-deg>90</heading-deg>
+		</offsets>
+		<alignment>left-center</alignment>
+		<axis-alignment>xy-plane</axis-alignment>
+		<type type="string">text-value</type>
+		<format type="string">%s</format>
+		<property>/instrumentation/mcdu/runways/length</property>
+		<truncate type="bool">false</truncate>
+		<font type="string">courier-bold.txf</font>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.003</character-size>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+    
+    <text>
+		<name>ils-crs</name>
+		<offsets>
+			
+            <x-m>-0.0330</x-m>
+			<y-m>-0.0416</y-m>
+			<z-m>-0.0006</z-m>
+			<heading-deg>90</heading-deg>
+		</offsets>
+		<alignment>left-center</alignment>
+		<axis-alignment>xy-plane</axis-alignment>
+		<type type="string">text-value</type>
+		<format type="string">%s</format>
+		<property>/instrumentation/mcdu/runways/ils-crs</property>
+		<truncate type="bool">false</truncate>
+		<font type="string">courier-bold.txf</font>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.003</character-size>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+    
+    <text>
+		<name>ils-frq</name>
+		<offsets>
+			<x-m>-0.0235</x-m>
+			<y-m>-0.0416</y-m>
+			<z-m>-0.0006</z-m>
+			<heading-deg>90</heading-deg>
+		</offsets>
+		<alignment>left-center</alignment>
+		<axis-alignment>xy-plane</axis-alignment>
+		<type type="string">number-value</type>
+		<format type="string">%.2f</format>
+		<property>/instrumentation/mcdu/runways/ils-frq</property>
+		<truncate type="bool">false</truncate>
+		<font type="string">courier-bold.txf</font>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.003</character-size>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+
+    
+    <!-- LABELS -->
+    
+	<text>
+		<name>ident_lbl</name>
+		<offsets>
+			<x-m>-0.0743</x-m>
+			<y-m>-0.0386</y-m>
+			<z-m>-0.0006</z-m>
+			<heading-deg>90</heading-deg>
+		</offsets>
+		<alignment>left-center</alignment>
+		<axis-alignment>xy-plane</axis-alignment>
+		<type type="string">text-value</type>
+		<format type="string">%s</format>
+		<property>/instrumentation/mcdu/texts/ident</property>
+		<truncate type="bool">false</truncate>
+		<font type="string">courier-bold.txf</font>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.003</character-size>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+    
+    <text>
+		<name>latlng_lbl</name>
+		<offsets>
+			<x-m>-0.0648</x-m>
+			<y-m>-0.0386</y-m>
+			<z-m>-0.0006</z-m>
+			<heading-deg>90</heading-deg>
+		</offsets>
+		<alignment>left-center</alignment>
+		<axis-alignment>xy-plane</axis-alignment>
+		<type type="string">text-value</type>
+		<format type="string">%s</format>
+		<property>/instrumentation/mcdu/texts/latlng</property>
+		<truncate type="bool">false</truncate>
+		<font type="string">courier-bold.txf</font>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.003</character-size>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+    
+    <text>
+		<name>rwylen_lbl</name>
+		<offsets>
+			<x-m>-0.0465</x-m>
+			<y-m>-0.0386</y-m>
+			<z-m>-0.0006</z-m>
+			<heading-deg>90</heading-deg>
+		</offsets>
+		<alignment>left-center</alignment>
+		<axis-alignment>xy-plane</axis-alignment>
+		<type type="string">text-value</type>
+		<format type="string">%s</format>
+		<property>/instrumentation/mcdu/texts/length</property>
+		<truncate type="bool">false</truncate>
+		<font type="string">courier-bold.txf</font>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.003</character-size>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+    
+    <text>
+		<name>crs_lbl</name>
+		<offsets>
+			<x-m>-0.0370</x-m>
+			<y-m>-0.0386</y-m>
+			<z-m>-0.0006</z-m>
+			<heading-deg>90</heading-deg>
+		</offsets>
+		<alignment>left-center</alignment>
+		<axis-alignment>xy-plane</axis-alignment>
+		<type type="string">text-value</type>
+		<format type="string">%s</format>
+		<property>/instrumentation/mcdu/texts/ils-crs</property>
+		<truncate type="bool">false</truncate>
+		<font type="string">courier-bold.txf</font>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.003</character-size>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+    
+    <text>
+		<name>frq_lbl</name>
+		<offsets>
+			<x-m>-0.0275</x-m>
+			<y-m>-0.0386</y-m>
+			<z-m>-0.0006</z-m>
+			<heading-deg>90</heading-deg>
+		</offsets>
+		<alignment>left-center</alignment>
+		<axis-alignment>xy-plane</axis-alignment>
+		<type type="string">text-value</type>
+		<format type="string">%s</format>
+		<property>/instrumentation/mcdu/texts/ils-frq</property>
+		<truncate type="bool">false</truncate>
+		<font type="string">courier-bold.txf</font>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.003</character-size>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+    
+    <!--text>
+		<name>latlng</name>
+		<offsets>
+			<x-m>-0.0608</x-m>
+			<y-m>-0.0416</y-m>
+			<z-m>-0.0006</z-m>
+			<heading-deg>90</heading-deg>
+		</offsets>
+		<alignment>left-center</alignment>
+		<axis-alignment>xy-plane</axis-alignment>
+		<type type="string">text-value</type>
+		<format type="string">%s</format>
+		<property>/instrumentation/mcdu/runways/latlng</property>
+		<truncate type="bool">false</truncate>
+		<font type="string">courier-bold.txf</font>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.003</character-size>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+    
+    <text>
+		<name>rwylen</name>
+		<offsets>
+			<x-m>-0.0425</x-m>
+			<y-m>-0.0416</y-m>
+			<z-m>-0.0006</z-m>
+			<heading-deg>90</heading-deg>
+		</offsets>
+		<alignment>left-center</alignment>
+		<axis-alignment>xy-plane</axis-alignment>
+		<type type="string">text-value</type>
+		<format type="string">%s</format>
+		<property>/instrumentation/mcdu/runways/length</property>
+		<truncate type="bool">false</truncate>
+		<font type="string">courier-bold.txf</font>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.003</character-size>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+    
+    <text>
+		<name>ils-frq</name>
+		<offsets>
+			<x-m>-0.0330</x-m>
+			<y-m>-0.0416</y-m>
+			<z-m>-0.0006</z-m>
+			<heading-deg>90</heading-deg>
+		</offsets>
+		<alignment>left-center</alignment>
+		<axis-alignment>xy-plane</axis-alignment>
+		<type type="string">number-value</type>
+		<format type="string">%.2f</format>
+		<property>/instrumentation/mcdu/runways/ils-frq</property>
+		<truncate type="bool">false</truncate>
+		<font type="string">courier-bold.txf</font>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.003</character-size>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+    
+    <text>
+		<name>ils-crs</name>
+		<offsets>
+			<x-m>-0.0235</x-m>
+			<y-m>-0.0416</y-m>
+			<z-m>-0.0006</z-m>
+			<heading-deg>90</heading-deg>
+		</offsets>
+		<alignment>left-center</alignment>
+		<axis-alignment>xy-plane</axis-alignment>
+		<type type="string">text-value</type>
+		<format type="string">%s</format>
+		<property>/instrumentation/mcdu/runways/ils-crs</property>
+		<truncate type="bool">false</truncate>
+		<font type="string">courier-bold.txf</font>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.003</character-size>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text-->
+
+    
+</PropertyList>

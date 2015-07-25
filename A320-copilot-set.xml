@@ -3,6 +3,7 @@
 <PropertyList>
 
 	<sim>
+        <description>Airbus A320neo With Sharklets and CFM LEAP-X High ByPass Turbofan Engine (co-pilot)</description>
 		<author>Ampere K Hardraade (3d, FDM), Skyop (systems, instruments, etc.)</author>
 		<status>beta</status>
 		<flight-model>null</flight-model>
@@ -82,86 +83,15 @@
 		<menubar>
 			<default>
 				<menu n="100">
-					<label>Airbus A320 Family Copilot</label>
+					<label>Airbus A320neo Copilot</label>
 					<enabled type="bool">true</enabled>
-
+                    <!-- Reenabling co-pilot functions:: hkminegod JULY 2015 -->
 					<item>
-						<label>Select MP A318-111 Pilot</label>
+						<label>Select MP A320neo Pilot</label>
 						<binding>
 							<command>nasal</command>
 							<script>
-							 aircraft_dual_control.pilot_type = "Aircraft/A320neo/XMLs/A318-111.xml";
-							 dual_control_tools.copilot_dialog.show(aircraft_dual_control.pilot_type);
-							</script>
-						</binding>
-					</item>
-					<item>
-						<label>Select MP A319-111 Pilot</label>
-						<binding>
-							<command>nasal</command>
-							<script>
-							 aircraft_dual_control.pilot_type = "Aircraft/A320neo/XMLs/A319-111.xml";
-							 dual_control_tools.copilot_dialog.show(aircraft_dual_control.pilot_type);
-							</script>
-						</binding>
-					</item>
-					<item>
-						<label>Select MP A319-131 Pilot</label>
-						<binding>
-							<command>nasal</command>
-							<script>
-							 aircraft_dual_control.pilot_type = "Aircraft/A320neo/XMLs/A319-131.xml";
-							 dual_control_tools.copilot_dialog.show(aircraft_dual_control.pilot_type);
-							</script>
-						</binding>
-					</item>
-					<item>
-						<label>Select MP A320-111 Pilot</label>
-						<binding>
-							<command>nasal</command>
-							<script>
-							 aircraft_dual_control.pilot_type = "Aircraft/A320neo/XMLs/A320-111.xml";
-							 dual_control_tools.copilot_dialog.show(aircraft_dual_control.pilot_type);
-							</script>
-						</binding>
-					</item>
-					<item>
-						<label>Select MP A320-211 Pilot</label>
-						<binding>
-							<command>nasal</command>
-							<script>
-							 aircraft_dual_control.pilot_type = "Aircraft/A320neo/XMLs/A320-211.xml";
-							 dual_control_tools.copilot_dialog.show(aircraft_dual_control.pilot_type);
-							</script>
-						</binding>
-					</item>
-					<item>
-						<label>Select MP A320-231 Pilot</label>
-						<binding>
-							<command>nasal</command>
-							<script>
-							 aircraft_dual_control.pilot_type = "Aircraft/A320neo/XMLs/A320-231.xml";
-							 dual_control_tools.copilot_dialog.show(aircraft_dual_control.pilot_type);
-							</script>
-						</binding>
-					</item>
-					<item>
-						<label>Select MP A321-211 Pilot</label>
-						<binding>
-							<command>nasal</command>
-							<script>
-							 aircraft_dual_control.pilot_type = "Aircraft/A320neo/XMLs/A321-211.xml";
-							 dual_control_tools.copilot_dialog.show(aircraft_dual_control.pilot_type);
-							</script>
-						</binding>
-					</item>
-					<item>
-						<name>mppilot</name>
-						<label>Select MP A321-231 Pilot</label>
-						<binding>
-							<command>nasal</command>
-							<script>
-							 aircraft_dual_control.pilot_type = "Aircraft/A320neo/XMLs/A321-231.xml";
+							 aircraft_dual_control.pilot_type = "Aircraft/A320neo/Models/A320neo.xml";
 							 dual_control_tools.copilot_dialog.show(aircraft_dual_control.pilot_type);
 							</script>
 						</binding>

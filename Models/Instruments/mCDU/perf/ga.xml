@@ -1,0 +1,282 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+
+	<path>ga.ac</path>
+
+	<!-- mCDU Display Brightness -->
+
+	<animation>
+		<type>material</type>
+		<object-name>perf</object-name>
+		<object-name>white</object-name>
+		<object-name>title-white</object-name>
+		<emission>
+			<red>1</red>
+			<green>1</green>
+			<blue>1</blue>
+			<factor-prop>/instrumentation/mcdu/brt</factor-prop>
+		</emission>
+	</animation>
+
+	<animation>
+		<type>material</type>
+		<object-name>green</object-name>
+		<object-name>title-green</object-name>
+		<object-name>thr-red-alt</object-name>
+		<emission>
+			<red>0</red>
+			<green>0.37</green>
+			<blue>0</blue>
+			<factor-prop>/instrumentation/mcdu/brt</factor-prop>
+		</emission>
+		<diffuse>
+			<red>0</red>
+			<green>0.37</green>
+			<blue>0</blue>
+		</diffuse>
+	</animation>
+
+	<animation>
+		<type>material</type>
+		<object-name>cyan</object-name>
+		<emission>
+			<red>0</red>
+			<green>0.4823</green>
+			<blue>0.5372</blue>
+			<factor-prop>/instrumentation/mcdu/brt</factor-prop>
+		</emission>
+		<diffuse>
+			<red>0</red>
+			<green>0.4823</green>
+			<blue>0.5372</blue>
+		</diffuse>
+	</animation>
+	
+	<!-- Select Animations -->
+
+	<animation>
+		<type>select</type>
+		<!--object-name>managed-prompt</object-name-->
+		<object-name>title-white</object-name>
+		<condition>
+			<or>
+				<equals>
+					<property>flight-management/phase</property>
+					<value>T/O</value>
+				</equals>
+				<equals>
+					<property>flight-management/phase</property>
+					<value>CLB</value>
+				</equals>
+				<equals>
+					<property>flight-management/phase</property>
+					<value>CRZ</value>
+				</equals>
+				<equals>
+					<property>flight-management/phase</property>
+					<value>DES</value>
+				</equals>
+				<equals>
+					<property>flight-management/phase</property>
+					<value>APP</value>
+				</equals>
+				<equals>
+					<property>flight-management/phase</property>
+					<value>LANDED</value>
+				</equals>
+			</or>
+		</condition>
+	</animation>
+
+	<animation>
+		<type>select</type>
+		<object-name>title-green</object-name>
+		<condition>
+			<equals>
+				<property>flight-management/phase</property>
+				<value>G/A</value>
+			</equals>
+		</condition>
+	</animation>
+	
+	
+	<!-- Button Pick Animations -->
+	
+
+	<animation>
+		<type>pick</type>
+		<object-name>l5</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>nasal</command>
+				<script>
+
+					var input = getprop("/instrumentation/mcdu/input");
+					if(size(input) == 0){
+						setprop("/flight-management/settings/ga-acc-alt", 1500);
+						setprop("/flight-management/settings/ga-thr-red", 1500);
+					} else {
+						var alts = split('/', input);
+						var thr_red = num(string.trim(alts[0]));
+						if(thr_red != nil){
+							if(thr_red > 0){
+								var acc_alt = thr_red;
+								if(size(alts) > 1)
+									acc_alt = num(string.trim(alts[1]));
+								if(acc_alt == nil or !acc_alt) acc_alt = thr_red;
+								setprop("/flight-management/settings/ga-acc-alt", acc_alt);
+								setprop("/flight-management/settings/ga-thr-red", thr_red);
+							}
+						}
+					}
+
+					setprop("/instrumentation/mcdu/input", "");
+
+
+				</script>
+			</binding>
+		</action>
+	</animation>
+
+	<animation>
+		<type>pick</type>
+		<object-name>l6</object-name>
+		<action>
+			<button>0</button>
+			   <repeatable type="bool">false</repeatable>
+			<binding>
+				<command>nasal</command>
+				 <script>
+					 var phase = getprop('flight-management/phase');
+					 if(phase != 'G/A')
+						 setprop("/instrumentation/mcdu/page", "perf-app");
+					 
+				</script>
+			</binding>
+		</action>
+	</animation>
+	
+	<!-- Text -->
+
+	<text>
+		<name>title-white</name>
+		<offsets>
+			<x-m>-0.0816</x-m>
+			<y-m>0</y-m>
+			<z-m>-0.0006</z-m>
+			<heading-deg>90</heading-deg>
+		</offsets>
+		<alignment>center-center</alignment>
+		<axis-alignment>xy-plane</axis-alignment>
+		<type type="string">literal</type>
+		<text>GO AROUND</text>
+		<font type="string">courier-bold.txf</font>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.0045</character-size>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+
+	<text>
+		<name>title-green</name>
+		<offsets>
+			<x-m>-0.0816</x-m>
+			<y-m>0</y-m>
+			<z-m>-0.0006</z-m>
+			<heading-deg>90</heading-deg>
+		</offsets>
+		<alignment>center-center</alignment>
+		<axis-alignment>xy-plane</axis-alignment>
+		<type type="string">literal</type>
+		<text>GO AROUND</text>
+		<font type="string">courier-bold.txf</font>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.0045</character-size>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	
+	
+	<text>
+		<name>white</name>
+		<offsets>
+			<x-m>-0.0379</x-m>
+			<y-m>-0.0392</y-m>
+			<z-m>-0.0006</z-m>
+			<heading-deg>90</heading-deg>
+		</offsets>
+		<alignment>left-center</alignment>
+		<axis-alignment>xy-plane</axis-alignment>
+		<type type="string">literal</type>
+		<text>THR RED/ACC</text>
+		<font type="string">courier-bold.txf</font>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.003</character-size>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	
+	<!--text>
+		<name>thr-red-alt-placeholder</name>
+		<offsets>
+			<x-m>-0.0341</x-m>
+			<y-m>-0.0432</y-m>
+			<z-m>-0.0006</z-m>
+			<heading-deg>90</heading-deg>
+		</offsets>
+		<alignment>left-center</alignment>
+		<axis-alignment>xy-plane</axis-alignment>
+		<type type="string">literal</type>
+		<text>[     ] / [     ]</text>
+		<font type="string">courier-bold.txf</font>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.003</character-size>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text-->
+	
+	<text>
+		<name>thr-red-alt</name>
+		<offsets>
+			<x-m>-0.0341</x-m>
+			<y-m>-0.0432</y-m>
+			<z-m>-0.0006</z-m>
+			<heading-deg>90</heading-deg>
+		</offsets>
+		<alignment>left-center</alignment>
+		<axis-alignment>xy-plane</axis-alignment>
+		<type type="string">text-value</type>
+		<format type="string">%s</format>
+		<property>/instrumentation/fmc/ga-thr-red-acc</property>
+		<truncate type="bool">false</truncate>
+		<font type="string">courier-bold.txf</font>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.003</character-size>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+
+</PropertyList>

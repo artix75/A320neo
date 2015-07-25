@@ -1,0 +1,74 @@
+<?xml version="1.0"?>
+<PropertyList>
+    <name>Ground Call</name>
+    <layout>vbox</layout>
+    <default-padding>3</default-padding>
+
+    <text>
+        <label>Ground Call</label>
+    </text>
+    <hrule/>
+
+    <group>
+        <layout>vbox</layout>
+        <halign>left</halign>
+        <button>
+            <legend>Ground Services</legend>
+            <default>true</default>
+            <binding>
+                <command>nasal</command>
+                <script>
+                    var gs = gui.Dialog.new("sim/gui/dialogs/gs/dialog", "Aircraft/A320neo/Systems/ground-services-dlg.xml");
+                    gs.open();
+                </script>
+            </binding>
+        </button>
+        <button>
+            <legend>Fuel Truck</legend>
+            <default>true</default>
+            <binding>
+                <command>nasal</command>
+                <script>
+                    var fuel = gui.Dialog.new("sim/gui/dialogs/fuel/dialog", "Aircraft/A320neo/Systems/fuel-truck.xml");
+                    fuel.open();
+                </script>
+            </binding>
+        </button>
+        <button>
+            <legend>Stairs</legend>
+            <default>true</default>
+            <binding>
+                <command>nasal</command>
+                <script>
+                    var stair = gui.Dialog.new("sim/gui/dialogs/stairs/dialog", "Aircraft/A320neo/Systems/stairs.xml");
+                    stair.open();
+                </script>
+            </binding>
+        </button>
+        <button>
+            <legend>Pushback</legend>
+            <default>true</default>
+            <binding>
+                <command>dialog-show</command>
+                <dialog-name>pushback</dialog-name>
+            </binding>
+        </button>
+    </group>
+
+    <group>
+        <layout>hbox</layout>
+        <empty><stretch>true</stretch></empty>
+
+        <button>
+            <legend>Close</legend>
+            <default>true</default>
+            <key>Esc</key>
+            <binding>
+                <command>dialog-close</command>
+            </binding>
+        </button>
+
+        <empty><stretch>true</stretch></empty>
+    </group>
+
+</PropertyList>

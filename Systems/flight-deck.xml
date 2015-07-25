@@ -1,0 +1,109 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+
+    <filter>
+        <name>Sidestick Y (Manual)</name>
+        <type>gain</type>
+        <gain>1.0</gain>
+        <input>
+            <property>/controls/flight/elevator</property>
+        </input>
+        <reference>0</reference>
+        <output>aircraft/sidestick-y</output>
+        <enable>
+            <condition>
+                <and>
+                    <not>
+                        <equals>
+                            <property>/flight-management/control/ap1-master</property>
+                            <value>eng</value>
+                        </equals>
+                    </not>
+                    <not>
+                        <equals>
+                            <property>/flight-management/control/ap2-master</property>
+                            <value>eng</value>
+                        </equals>
+                    </not>
+                </and>
+            </condition>
+        </enable>
+    </filter>
+    
+    <filter>
+        <name>Sidestick Y (A/P)</name>
+        <type>gain</type>
+        <gain>1.0</gain>
+        <input>0</input>
+        <reference>0</reference>
+        <output>aircraft/sidestick-y</output>
+        <enable>
+            <condition>
+                <or>
+                    <equals>
+                        <property>/flight-management/control/ap1-master</property>
+                        <value>eng</value>
+                    </equals>
+                    <equals>
+                        <property>/flight-management/control/ap2-master</property>
+                        <value>eng</value>
+                    </equals>
+                </or>
+            </condition>
+        </enable>
+    </filter>
+    
+    <filter>
+        <name>Sidestick X (Manual)</name>
+        <type>gain</type>
+        <gain>1.0</gain>
+        <input>
+            <property>/controls/flight/aileron</property>
+        </input>
+        <reference>0</reference>
+        <output>aircraft/sidestick-x</output>
+        <enable>
+            <condition>
+                <and>
+                    <not>
+                        <equals>
+                            <property>/flight-management/control/ap1-master</property>
+                            <value>eng</value>
+                        </equals>
+                    </not>
+                    <not>
+                        <equals>
+                            <property>/flight-management/control/ap2-master</property>
+                            <value>eng</value>
+                        </equals>
+                    </not>
+                </and>
+            </condition>
+        </enable>
+    </filter>
+
+    <filter>
+        <name>Sidestick X (A/P)</name>
+        <type>gain</type>
+        <gain>1.0</gain>
+        <input>0</input>
+        <reference>0</reference>
+        <output>aircraft/sidestick-x</output>
+        <enable>
+            <condition>
+                <or>
+                    <equals>
+                        <property>/flight-management/control/ap1-master</property>
+                        <value>eng</value>
+                    </equals>
+                    <equals>
+                        <property>/flight-management/control/ap2-master</property>
+                        <value>eng</value>
+                    </equals>
+                </or>
+            </condition>
+        </enable>
+    </filter>
+    
+</PropertyList>

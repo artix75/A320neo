@@ -47,7 +47,7 @@
 				</script>
             </binding>
         </action>
-	</animation>
+	</animation-->
 	
 	<animation>
 		<type>pick</type>
@@ -58,11 +58,19 @@
             <binding>
 				<command>nasal</command>
 		 		<script>
+                                        var ident = getprop("/instrumentation/mcdu/runways/ident");
+                                        if(ident == nil)
+                                            setprop("/instrumentation/mcdu/runways/ident",'------');
+                                        setprop('/instrumentation/mcdu/texts/ident', 'IDENT');
+                                        setprop('/instrumentation/mcdu/texts/latlng', 'LAT/LON');
+                                        setprop('/instrumentation/mcdu/texts/length', 'LENGTH');
+                                        setprop('/instrumentation/mcdu/texts/ils-crs', 'CRS');
+                                        setprop('/instrumentation/mcdu/texts/ils-frq', 'ILS FREQ');
 					setprop("/instrumentation/mcdu/page", "RUNWAYS");
 				</script>
             </binding>
         </action>
-	</animation -->
+	</animation>
 	
 	<animation>
 		<type>pick</type>

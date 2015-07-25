@@ -1,0 +1,277 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<PropertyList>
+
+    <!-- Manually apply thrust with levers position -->
+    <filter> 
+        <name>Left Throttle Position</name>
+        <debug>false</debug>
+        <type>gain</type>
+        <gain>1.0</gain>
+        <enable><!-- Disabled when auho-thrust is active or thrust reverser active-->
+            <condition>
+                <and>
+                    <not>
+                        <equals>
+                            <property>/flight-management/control/a-thrust</property>
+                            <value>eng</value>
+                        </equals>
+                    </not>
+                    <not>
+                        <property>controls/engines/engine/reverser</property>
+                    </not>
+                    <not>
+                        <property>flight-management/thrust-lock</property>
+                    </not>
+                </and>
+            </condition>
+        </enable>
+        <!-- If levers between FLEX and CLB apply fixed thrust (FLEX/MCT) -->
+        <input>
+            <condition>
+                <and>
+                    <less-than-equals>
+                        <property>controls/engines/engine[0]/throttle-pos</property>
+                        <property>controls/engines/detents/flex</property>
+                    </less-than-equals>
+                    <greater-than>
+                        <property>controls/engines/engine[0]/throttle-pos</property>
+                        <property>controls/engines/detents/clb</property>                  
+                    </greater-than>
+                    <equals>
+                        <property>/flight-management/control/a-thrust</property>
+                        <value>armed</value>
+                    </equals>
+                </and>
+            </condition>
+            <property>controls/engines/engine[0]/throttle-pos</property>
+            <scale>1.3055555555555556</scale>
+            <min>0.94</min>
+            <max><property>engines/thrust-control/flex-thr</property></max>
+        </input>
+        <!-- Else directly apply thrust -->
+        <input>controls/engines/engine[0]/throttle-pos</input>
+        <reference>0</reference>
+        <output>controls/engines/engine[0]/throttle</output>
+    </filter>
+    
+    <filter>
+        <name>Right Throttle Position</name>
+        <type>gain</type>
+        <gain>1.0</gain>
+        <enable><!-- Disabled when auho-thrust is active or thrust reverser active-->
+            <condition>
+                <and>
+                    <not>
+                        <equals>
+                            <property>/flight-management/control/a-thrust</property>
+                            <value>eng</value>
+                        </equals>
+                    </not>
+                    <not>
+                        <property>controls/engines/engine/reverser</property>
+                    </not>
+                    <not>
+                        <property>flight-management/thrust-lock</property>
+                    </not>
+                </and>
+            </condition>
+        </enable>
+        <!-- If levers between FLEX and CLB apply fixed thrust (FLEX/MCT) -->
+        <input>
+            <condition>
+                <and>
+                    <less-than-equals>
+                        <property>controls/engines/engine[1]/throttle-pos</property>
+                        <property>controls/engines/detents/flex</property>
+                    </less-than-equals>
+                    <greater-than>
+                        <property>controls/engines/engine[1]/throttle-pos</property>
+                        <property>controls/engines/detents/clb</property>                  
+                    </greater-than>
+                    <equals>
+                        <property>/flight-management/control/a-thrust</property>
+                        <value>armed</value>
+                    </equals>
+                </and>
+            </condition>
+            <property>controls/engines/engine[1]/throttle-pos</property>
+            <scale>1.3055555555555556</scale>
+            <min>0.94</min>
+            <max><property>engines/thrust-control/flex-thr</property></max>
+        </input>
+        <!-- Else directly apply thrust -->
+        <input>controls/engines/engine[1]/throttle-pos</input>
+        <reference>0</reference>
+        <output>controls/engines/engine[1]/throttle</output>
+    </filter>
+    
+    <!-- Levers used to apply max thrust to Auto-Thrust when fixed-thrust mode -->
+    
+    <filter>
+        <name>Left Throttle Position (ATHR active)</name>
+        <type>gain</type>
+        <gain>
+            <condition>
+                <greater-than>
+                    <property>controls/engines/engine[0]/throttle-pos</property>
+                    <value>0.47</value>
+                </greater-than>
+            </condition>
+            <value>1.0</value>
+        </gain>
+        <gain>
+            <condition>
+                <less-than-equals>
+                    <property>controls/engines/engine[0]/throttle-pos</property>
+                    <value>0.47</value>
+                </less-than-equals>
+            </condition>
+            <value>2.0</value>
+        </gain>
+        <enable>
+            <condition>
+                <and>
+                    <equals>
+                        <property>/flight-management/control/a-thrust</property>
+                        <value>eng</value>
+                    </equals>
+                    <greater-than-equals>
+                        <property>controls/engines/engine[0]/throttle-pos</property>
+                        <value>0</value>
+                    </greater-than-equals>
+                    <less-than-equals>
+                        <property>controls/engines/engine[0]/throttle-pos</property>
+                        <property>controls/engines/detents/clb</property>
+                    </less-than-equals>
+                </and>
+            </condition>
+        </enable>
+        <input>
+            <condition>
+                <greater-than>
+                    <property>controls/engines/engine[0]/throttle-pos</property>
+                    <value>0.47</value>
+                </greater-than>
+            </condition>
+            <value>0.94</value>
+        </input>
+        <input>controls/engines/engine[0]/throttle-pos</input>
+        <reference>0</reference>
+        <output>controls/engines/engine[0]/max-athr-thrust</output>
+    </filter>
+
+    <filter>
+        <name>Right Throttle Position (ATHR active)</name>
+        <type>gain</type>
+        <gain>
+            <condition>
+                <greater-than>
+                    <property>controls/engines/engine[1]/throttle-pos</property>
+                    <value>0.47</value>
+                </greater-than>
+            </condition>
+            <value>1.0</value>
+        </gain>
+        <gain>
+            <condition>
+                <less-than-equals>
+                    <property>controls/engines/engine[1]/throttle-pos</property>
+                    <value>0.47</value>
+                </less-than-equals>
+            </condition>
+            <value>2.0</value>
+        </gain>
+        <enable>
+            <condition>
+                <and>
+                    <equals>
+                        <property>/flight-management/control/a-thrust</property>
+                        <value>eng</value>
+                    </equals>
+                    <greater-than-equals>
+                        <property>controls/engines/engine[1]/throttle-pos</property>
+                        <value>0</value>
+                    </greater-than-equals>
+                    <less-than-equals>
+                        <property>controls/engines/engine[1]/throttle-pos</property>
+                        <property>controls/engines/detents/clb</property>
+                    </less-than-equals>
+                </and>
+            </condition>
+        </enable>
+        <input>
+            <condition>
+                <greater-than>
+                    <property>controls/engines/engine[1]/throttle-pos</property>
+                    <value>0.47</value>
+                </greater-than>
+            </condition>
+            <value>0.94</value>
+        </input>
+        <input>controls/engines/engine[1]/throttle-pos</input>
+        <reference>0</reference>
+        <output>controls/engines/engine[1]/max-athr-thrust</output>
+    </filter>
+    
+    <!-- Reversed Thrust (Left)-->
+    
+    <filter>
+        <type>gain</type>
+        <gain>-1.5555</gain>
+        <enable>
+            <condition>
+                <and>
+                    <property>controls/engines/engine/reverser</property>
+                    <equals>
+                        <property>/flight-management/control/a-thrust</property>
+                        <value>off</value>
+                    </equals>
+                </and>
+            </condition>
+        </enable>
+        <input>
+            <condition>
+                <greater-than>
+                    <property>controls/engines/engine[0]/throttle-pos</property>
+                    <value>-0.15</value>
+                </greater-than>
+            </condition>
+            <value>0</value>
+        </input>
+        <input>controls/engines/engine[0]/throttle-pos</input>
+        <reference>0</reference>
+        <output>controls/engines/engine[0]/throttle</output>
+    </filter>
+    
+    <!-- Reversed Thrust (Right)-->
+
+    <filter>
+        <type>gain</type>
+        <gain>-1.5555</gain>
+        <enable>
+            <condition>
+                <and>
+                    <property>controls/engines/engine/reverser</property>
+                    <equals>
+                        <property>/flight-management/control/a-thrust</property>
+                        <value>off</value>
+                    </equals>
+                </and>
+            </condition>
+        </enable>
+        <input>
+            <condition>
+                <greater-than>
+                    <property>controls/engines/engine[1]/throttle-pos</property>
+                    <value>-0.15</value>
+                </greater-than>
+            </condition>
+            <value>0</value>
+        </input>
+        <input>controls/engines/engine[1]/throttle-pos</input>
+        <reference>0</reference>
+        <output>controls/engines/engine[1]/throttle</output>
+    </filter>
+
+</PropertyList>

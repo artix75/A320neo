@@ -5,7 +5,7 @@ kids 2
 OBJECT poly
 name "perf"
 loc -0.0112286 -0.0788433 -0.000642333
-texture "clb-crz.png"
+texture "clb-crz2.png"
 crease 45.000000
 numvert 4
 -0.0124748 0.0782193 -0.0427173
@@ -544,7 +544,7 @@ kids 0
 OBJECT poly
 name "perf"
 loc -0.0249548 -0.0572847 -0.00782874
-texture "clb-crz.png"
+texture "clb-crz2.png"
 crease 45.000000
 numvert 4
 -0.0052371 0.0782163 0.0115153

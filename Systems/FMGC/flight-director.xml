@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!-- Airbus A320neo Elevator Control -->
+
+<PropertyList>
+    
+
+    <predict-simple>
+        <name>vertical speed in 5 seconds predictor</name>
+        <debug>false</debug>
+        <input>velocities/vertical-speed-fps</input>
+        <output>autopilot/internal/lookahead-5-sec-vs-fps</output>
+        <seconds>5.0</seconds>
+        <filter-gain>0.0</filter-gain>
+    </predict-simple>
+    
+    <!-- VERTICAL -->
+    
+    <pid-controller>
+        <name>FD V/S Target Pitch</name>
+        <debug type="bool">false</debug>
+        <enable>
+            <condition>
+                <and>
+                    <property>/flight-management/fd/pitch-vs</property>
+                    <not>
+                        <property>/flight-management/control/spd-with-pitch</property>
+                    </not>
+                </and>
+            </condition>
+        </enable>
+        <input>
+            <prop>/velocities/vertical-speed-fps</prop>
+            <!--prop>autopilot/internal/lookahead-5-sec-vs-fps</prop-->
+        </input>
+        <reference>
+            <prop>/flight-management/fd/target-vs</prop>
+        </reference>
+        <output>
+            <prop>/flight-management/fd/target-pitch</prop> 
+        </output>
+        <config>
+            <Kp>0.12</Kp>
+            <!--Kp>0.55</Kp-->
+            <beta>1</beta>
+            <alpha>0.1</alpha>
+            <gamma>0</gamma>
+            <Ti>3</Ti>
+            <!--Ti>50</Ti-->
+            <!--Ti>6</Ti-->
+            <Td>0.00001</Td>
+            <!--Td>0.00001</Td-->
+            <u_min>-15</u_min>
+            <u_max>30</u_max>
+        </config>
+    </pid-controller>
+    
+    <pid-controller>
+        <name>FD G/S Target Pitch</name>
+        <debug type="bool">false</debug>
+        <enable>
+            <condition>
+                <and>
+                    <property>/flight-management/fd/pitch-gs</property>
+                    <not>
+                        <property>/flight-management/control/spd-with-pitch</property>
+                    </not>
+                </and>
+            </condition>
+        </enable>
+        <input>
+            <prop>/velocities/vertical-speed-fps</prop>
+            <!--prop>autopilot/internal/lookahead-5-sec-vs-fps</prop-->
+        </input>
+        <reference><!-- When the aircraft is below glideslope keep level -->
+            <condition>
+                <greater-than>
+                    <property>instrumentation/nav/gs-needle-deflection-norm</property>
+                    <value>0.15</value>
+                </greater-than>
+            </condition>
+            <value>0</value>
+        </reference>
+        <reference>
+            <prop>/instrumentation/nav[0]/gs-rate-of-climb</prop>
+        </reference>
+        <output>
+            <prop>/flight-management/fd/target-pitch</prop> 
+        </output>
+        <config>
+            <Kp>0.12</Kp>
+            <!--Kp>0.63</Kp-->
+            <beta>1</beta>
+            <alpha>0.1</alpha>
+            <gamma>0</gamma>
+            <Ti>3</Ti>
+            <!--Ti>50</Ti-->
+            <Td>0.00001</Td>
+            <!--Td>0.00001</Td-->
+            <u_min>-15</u_min>
+            <u_max>30</u_max>
+        </config>
+    </pid-controller>
+    
+    <!-- LATERAL -->
+
+    <pid-controller>
+        <name>FCU/FD Aileron Control</name>
+        <debug type="bool">false</debug>
+        <enable>
+            <prop>/flight-management/fd/aileron</prop>
+        </enable>
+        <input>
+            <prop>/orientation/roll-deg</prop>
+        </input>
+        <reference>
+            <prop>/flight-management/fd/target-bank</prop>
+        </reference>
+        <output>
+            <prop>/instrumentation/pfd/fd_bank</prop> <!-- This is basically the fbw input prop -->
+        </output>
+        <config>
+            <Kp>0.05</Kp>
+            <beta>1</beta>
+            <alpha>0.1</alpha>
+            <gamma>0</gamma>
+            <Ti>10</Ti>
+            <Td>0.00001</Td>
+            <u_min>-0.3</u_min>
+            <u_max>0.3</u_max>
+        </config>
+    </pid-controller>
+
+    <pid-controller>
+        <name>FCU/FD Aileron NAV1 Control</name>
+        <debug type="bool">false</debug>
+        <enable>
+            <prop>/flight-management/fd/aileron-nav1</prop>
+        </enable>
+        <input>
+            <prop>/orientation/roll-deg</prop>
+        </input>
+        <reference>
+            <prop>/flight-management/fd/target-bank</prop>
+        </reference>
+        <output>
+            <prop>/instrumentation/pfd/fd_bank</prop> <!-- This is basically the fbw input prop -->
+        </output>
+        <config>
+            <Kp>0.1</Kp>
+            <beta>1</beta>
+            <alpha>0.1</alpha>
+            <gamma>0</gamma>
+            <Ti>10</Ti>
+            <Td>0.00001</Td>
+            <u_min>-0.5</u_min>
+            <u_max>0.5</u_max>
+        </config>
+    </pid-controller>
+    
+    <pi-simple-controller>
+        <name>ILS Rudder</name>
+        <debug type="bool">false</debug>
+        <enable>
+            <and>
+                <property>/instrumentation/nav[0]/nav-loc</property>
+                <property>/instrumentation/nav[0]/in-range</property>
+                <property>/gear/gear[2]/wow</property>
+            </and>
+        </enable>
+        <input>
+            <property>/autopilot/internal/nav1-heading-error-deg</property>
+        </input>
+        <reference>
+            <value>0.0</value>
+        </reference>
+        <output>
+            <property>/flight-management/fd/target-rudder</property>
+        </output>
+        <config>
+            <Kp>-0.07</Kp>
+            <Ki>0.0</Ki>
+            <u_min>
+                <property>/flight-management/settings/min-rudder</property>
+            </u_min>
+            <u_max>
+                <property>/flight-management/settings/max-rudder</property>
+            </u_max>
+        </config>
+    </pi-simple-controller>
+    
+</PropertyList>  

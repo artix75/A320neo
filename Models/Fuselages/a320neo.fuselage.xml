@@ -9,6 +9,14 @@
 		<inherits-from>Aircraft/A320neo/Models/Effects/NEOreflect</inherits-from>
 		<object-name>Fuselage</object-name>
 	</effect-->
+    
+	<animation>
+		<type>select</type>
+		<object-name>Windsheild</object-name>
+		<condition>
+			<property>aircraft/render/interior-windows</property>
+		</condition>
+	</animation>
 
 	<!-- APU fire -->
 	<model>

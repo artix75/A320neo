@@ -1,0 +1,44 @@
+AC3Db
+MATERIAL "black" rgb 0 0 0  amb 0 0 0  emis 0 0 0  spec 0 0 0  shi 0  trans 0
+MATERIAL "buttonlights" rgb 1 1 1  amb 1 1 1  emis 1 1 1  spec 0.33 0.33 0.33  shi 32  trans 0
+OBJECT world
+kids 2
+OBJECT poly
+name "Power.off"
+loc 0.000614383 0.000708947 8.23349e-05
+data 9
+Plane.009
+crease 30.000000
+numvert 4
+0.00367261 0.0793233 0.0796429
+0.00367261 -0.0720039 0.0796429
+0.00367261 -0.0720039 -0.078912
+0.00367261 0.0793233 -0.078912
+numsurf 1
+SURF 0x20
+mat 0
+refs 4
+3 0 0
+0 0 0
+1 0 0
+2 0 0
+kids 0
+OBJECT poly
+name "ND.screen"
+loc 0.000703464 0.00085881 7.61527e-05
+texture "screen.png"
+crease 30.000000
+numvert 4
+0.00169254 0.0788742 -0.0787579
+0.00169254 -0.0731794 -0.0787579
+0.00169254 -0.0731794 0.078523
+0.00169254 0.0788742 0.078523
+numsurf 1
+SURF 0x0
+mat 1
+refs 4
+0 1.00067 0.999407
+3 4.45843e-05 0.999407
+2 4.45843e-05 0.000756443
+1 1.00067 0.000756443
+kids 0

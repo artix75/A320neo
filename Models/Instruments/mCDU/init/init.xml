@@ -50,7 +50,7 @@
             <binding>
 				<command>nasal</command>
 		 		<script>
-		 			if (size(getprop("/instrumentation/mcdu/input")) == 10) {
+		 			if (size(getprop("/instrumentation/mcdu/input")) >= 10) {
 		 		
 						mcdu.mCDU_init.co_rte(0, getprop("/instrumentation/mcdu/input"));
 					
@@ -58,7 +58,7 @@
 					
 					} else {
 					
-						setprop("/instrumentation/mcdu/input", "ERROR: WRONG FORMAT");
+						mcdu.display_message(mcdu.MSG.FORMAT_ERROR);
 					
 					}
 				</script>
@@ -89,7 +89,7 @@
 					
 					} else {
 					
-						setprop("/instrumentation/mcdu/input", "ERROR: WRONG FORMAT");
+						mcdu.display_message(mcdu.MSG.FORMAT_ERROR);
 					
 					}
 				</script>
@@ -155,15 +155,17 @@
 					
 						setprop("/flight-management/temp", temp);
 					
-						if (getprop("/flight-management/active-rte/id") != "----------")
+						#if (getprop("/flight-management/active-rte/id") != "----------")
 					
-							mcdu.mCDU_init.co_rte(0, getprop("/flight-management/active-rte/id"));
+						#	mcdu.mCDU_init.co_rte(0, getprop("/flight-management/active-rte/id"));
+                        var fl_lvl = int(crz_fl) * 100;
+                        setprop("autopilot/route-manager/cruise/altitude-ft", fl_lvl);
 						
 						mcdu.clear_inp();
 					
 					} else {
 					
-						setprop("/instrumentation/mcdu/input", "ERROR: WRONG FORMAT");
+						mcdu.display_message(mcdu.MSG.FORMAT_ERROR);
 					
 					}
 				</script>
@@ -194,7 +196,7 @@
 					
 					} else {
 					
-						setprop("/instrumentation/mcdu/input", "ERROR: WRONG FORMAT");
+						mcdu.display_message(mcdu.MSG.FORMAT_ERROR);
 					
 					}
 				</script>

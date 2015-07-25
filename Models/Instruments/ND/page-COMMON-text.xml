@@ -179,7 +179,7 @@
 			<w>10</w>
 			<h>25</h>
 			<texture>
-				<path>Aircraft/A320neo/Models/Instruments/ND/res/A320neo_symbols.png</path>
+				<path>Aircraft/A330-200/Models/Instruments/ND/res/A320neo_symbols.png</path>
 
 				<!-- Orign is down left-->
 				<x1>0.763</x1>

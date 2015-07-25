@@ -3,11 +3,42 @@
 <!-- Airbus A320neo Aileron Control -->
 
 <PropertyList>
+	
+	<!--pi-simple-controller>
+		<name>LNAV</name>
+		<debug>false</debug>
+		<enable>
+			<prop>/servo-control/aileron-lnav</prop>
+		</enable>
+		<input>
+			<property>autopilot/internal/course-error-deg</property>
+		</input>
+		<reference>
+			<value>0.0</value>
+		</reference>
+		<output>
+			<property>/servo-control/target-bank</property>
+		</output>
+		<config>
+			<Kp>-1.75</Kp>
+			<Ki>0.0</Ki>
+			<u_min>
+				-25
+			</u_min>
+			<u_max>
+				25
+			</u_max>
+		</config>
+	</pi-simple-controller-->
 
 	<pid-controller>
 		<name>FCU/AP Aileron Control</name>
 		<debug type="bool">false</debug>
 		<enable>
+			<!--or>
+				<property>/servo-control/aileron</property>
+				<property>/servo-control/aileron-lnav</property>
+			</or-->
 			<prop>/servo-control/aileron</prop>
 		</enable>
 		<input>
@@ -57,5 +88,6 @@
 			<u_max>0.5</u_max>
 		</config>
 	</pid-controller>
+
 
 </PropertyList>

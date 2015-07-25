@@ -23,6 +23,186 @@
 			<emissive>true</emissive>
 		</layer>
 
+		<layer>
+
+			<type>text</type>
+			<name>BAT1</name>
+			<color>
+				<red>0</red>
+				<green>1.0</green>
+				<blue>0</blue>
+			</color>
+			<font>helvetica_bold</font>
+			<point-size>11</point-size>
+			<chunks>
+				<chunk>
+					<type>number-value</type>
+					<property>/systems/electrical/suppliers/battery</property><!-- There is no TAT temperature property-->
+					<format type="string">%3.1f</format>
+				</chunk>
+			</chunks>
+			<transformations>
+				<transformation>
+					<type>y-shift</type>
+					<offset>99</offset>
+				</transformation>
+				<transformation>
+					<type>x-shift</type>
+					<offset>-68	</offset>
+				</transformation>
+			</transformations>
+		</layer>
+		
+		<layer>
+
+			<type>text</type>
+			<name>BAT2</name>
+			<color>
+				<red>0</red>
+				<green>1.0</green>
+				<blue>0</blue>
+			</color>
+			<font>helvetica_bold</font>
+			<point-size>11</point-size>
+			<chunks>
+				<chunk>
+					<type>number-value</type>
+					<property>/systems/electrical/suppliers/battery</property><!-- There is no TAT temperature property-->
+					<format type="string">%3.1f</format>
+				</chunk>
+			</chunks>
+			<transformations>
+				<transformation>
+					<type>y-shift</type>
+					<offset>99</offset>
+				</transformation>
+				<transformation>
+					<type>x-shift</type>
+					<offset>38	</offset>
+				</transformation>
+			</transformations>
+		</layer>
+		
+		<layer>
+
+			<type>text</type>
+			<name>GEN1</name>
+			<color>
+				<red>0</red>
+				<green>1.0</green>
+				<blue>0</blue>
+			</color>
+			<font>helvetica_bold</font>
+			<point-size>11</point-size>
+			<chunks>
+				<chunk>
+					<type>number-value</type>
+					<property>/systems/electrical/suppliers/gen1-v</property><!-- There is no TAT temperature property-->
+					<format type="string">%3.0f</format>
+				</chunk>
+			</chunks>
+			<transformations>
+				<transformation>
+					<type>y-shift</type>
+					<offset>-57</offset>
+				</transformation>
+				<transformation>
+					<type>x-shift</type>
+					<offset>-116</offset>
+				</transformation>
+			</transformations>
+		</layer>
+		
+		<layer>
+
+			<type>text</type>
+			<name>GEN2</name>
+			<color>
+				<red>0</red>
+				<green>1.0</green>
+				<blue>0</blue>
+			</color>
+			<font>helvetica_bold</font>
+			<point-size>11</point-size>
+			<chunks>
+				<chunk>
+					<type>number-value</type>
+					<property>/systems/electrical/suppliers/gen2-v</property><!-- There is no TAT temperature property-->
+					<format type="string">%3.0f</format>
+				</chunk>
+			</chunks>
+			<transformations>
+				<transformation>
+					<type>y-shift</type>
+					<offset>-57</offset>
+				</transformation>
+				<transformation>
+					<type>x-shift</type>
+					<offset>92</offset>
+				</transformation>
+			</transformations>
+		</layer>
+		
+		<layer>
+
+			<type>text</type>
+			<name>APU-V</name>
+			<color>
+				<red>0</red>
+				<green>1.0</green>
+				<blue>0</blue>
+			</color>
+			<font>helvetica_bold</font>
+			<point-size>11</point-size>
+			<chunks>
+				<chunk>
+					<type>number-value</type>
+					<property>/systems/electrical/suppliers/apu-v</property><!-- There is no TAT temperature property-->
+					<format type="string">%3.0f</format>
+				</chunk>
+			</chunks>
+			<transformations>
+				<transformation>
+					<type>y-shift</type>
+					<offset>-66</offset>
+				</transformation>
+				<transformation>
+					<type>x-shift</type>
+					<offset>-24</offset>
+				</transformation>
+			</transformations>
+		</layer>
+		
+		<layer>
+
+			<type>text</type>
+			<name>EXT-V</name>
+			<color>
+				<red>0</red>
+				<green>1.0</green>
+				<blue>0</blue>
+			</color>
+			<font>helvetica_bold</font>
+			<point-size>11</point-size>
+			<chunks>
+				<chunk>
+					<type>number-value</type>
+					<property>/systems/electrical/suppliers/ext-power-v</property><!-- There is no TAT temperature property-->
+					<format type="string">%3.0f</format>
+				</chunk>
+			</chunks>
+			<transformations>
+				<transformation>
+					<type>y-shift</type>
+					<offset>-54</offset>
+				</transformation>
+				<transformation>
+					<type>x-shift</type>
+					<offset>37</offset>
+				</transformation>
+			</transformations>
+		</layer>
+		
 <!-- ################################## Bottom  #################################-->
 
 		<layer>

@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+	<api-key type="string"></api-key>
+	<layer-type type="string">radar</layer-type>
+	<resolution type="int">2048</resolution>
+	<fetch-radius type="int">240</fetch-radius>
+	<smooth type="bool">true</smooth>
+	<enabled type="bool">false</enabled>
+</PropertyList>

@@ -1,0 +1,290 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+    <filter>
+        <name>Ground level diff</name>
+        <type>gain</type>
+        <update-interval-secs type="double">0.05</update-interval-secs>
+        <gain>1.0</gain>
+        <input>
+            <property>/position/altitude-agl-ft</property>
+        </input>
+        <reference>
+            <property>/instrumentation/altimeter/indicated-altitude-ft</property>
+        </reference>
+        <output>instrumentation/pfd/ground-level-diff</output>
+    </filter>
+    
+    <filter>
+        <name>Target speed diff (selected)</name>
+        <type>gain</type>
+        <update-interval-secs type="double">0.05</update-interval-secs>
+        <gain>1.0</gain>
+        <input>
+            <property>/flight-management/fcu-values/ias</property>
+        </input>
+        <reference>
+            <property>instrumentation/airspeed-indicator/indicated-speed-kt</property>
+        </reference>
+        <output>instrumentation/pfd/sel-speed-diff</output>
+        <enable>
+            <condition>
+                <and>
+                    <equals>
+                        <property>/flight-management/control/spd-mode</property>
+                        <value>ias</value>
+                    </equals>
+                    <equals>
+                        <property>/flight-management/control/spd-ctrl</property>
+                        <value>man-set</value>
+                    </equals>
+                </and>
+            </condition>
+        </enable>
+    </filter>
+    
+    <filter>
+        <name>Target speed diff (managed)</name>
+        <type>gain</type>
+        <update-interval-secs type="double">0.05</update-interval-secs>
+        <gain>1.0</gain>
+        <input>
+            <property>instrumentation/pfd/target-spd</property>
+        </input>
+        <reference>
+            <property>instrumentation/airspeed-indicator/indicated-speed-kt</property>
+        </reference>
+        <output>instrumentation/pfd/fmgc-speed-diff</output>
+        <enable>
+            <condition>
+                <and>
+                    <equals>
+                        <property>/flight-management/control/spd-mode</property>
+                        <value>ias</value>
+                    </equals>
+                    <equals>
+                        <property>/flight-management/control/spd-ctrl</property>
+                        <value>fmgc</value>
+                    </equals>
+                </and>
+            </condition>
+        </enable>
+    </filter>
+    
+    <filter>
+        <name>V1 speed diff</name>
+        <type>gain</type>
+        <update-interval-secs type="double">0.05</update-interval-secs>
+        <gain>1.0</gain>
+        <input>
+            <property>instrumentation/fmc/vspeeds/V1</property>
+        </input>
+        <reference>
+            <property>instrumentation/airspeed-indicator/indicated-speed-kt</property>
+        </reference>
+        <output>instrumentation/pfd/v1-speed-diff</output>
+        <enable>
+            <condition>
+                <greater-than>
+                    <property>instrumentation/fmc/vspeeds/V1</property>
+                    <value>0</value>
+                </greater-than>
+            </condition>
+        </enable>
+    </filter>
+    
+    <filter>
+        <name>Target alt diff (selected)</name>
+        <type>gain</type>
+        <update-interval-secs type="double">0.05</update-interval-secs>
+        <gain>1.0</gain>
+        <input>
+            <property>/flight-management/fcu-values/fcu-alt</property>
+        </input>
+        <reference>
+            <property>instrumentation/altimeter/indicated-altitude-ft</property>
+        </reference>
+        <output>instrumentation/pfd/sel-alt-diff</output>
+        <enable>
+            <condition>
+                <or>
+                    <not>
+                        <property>/flight-management/control/is-alt-constraint</property>
+                    </not>
+                    <equals>
+                        <property>/flight-management/control/ver-ctrl</property>
+                        <value>man-set</value>
+                    </equals>
+                </or>
+            </condition>
+        </enable>
+    </filter>
+    
+    <filter>
+        <name>Target alt diff (managed)</name>
+        <type>gain</type>
+        <update-interval-secs type="double">0.05</update-interval-secs>
+        <gain>1.0</gain>
+        <input>
+            <property>/flight-management/fmgc-values/vnav-target-alt</property>
+        </input>
+        <reference>
+            <property>instrumentation/altimeter/indicated-altitude-ft</property>
+        </reference>
+        <output>instrumentation/pfd/fmgc-alt-diff</output>
+        <enable>
+            <condition>
+                <and>
+                    <equals>
+                        <property>/flight-management/control/ver-ctrl</property>
+                        <value>fmgc</value>
+                    </equals>
+                    <property>/flight-management/control/is-alt-constraint</property>
+                </and>
+            </condition>
+        </enable>
+    </filter>
+    
+    <filter>
+        <name>Heading Deg</name>
+        <type>gain</type>
+        <update-interval-secs type="double">0.05</update-interval-secs>
+        <gain>1.0</gain>
+        <input>
+            <property>/orientation/heading-deg</property>
+            <condition>
+                <property>instrumentation/efis/mfd/true-north</property>
+            </condition>
+        </input>
+        <input>
+            <property>/orientation/heading-magnetic-deg</property>
+        </input>
+        <reference>0</reference>
+        <output>instrumentation/pfd/heading-deg</output>
+        <enable>
+            <equals>
+                <property>/flight-management/control/lat-ctrl</property>
+                <value>man-set</value>
+            </equals>
+        </enable>
+    </filter>
+    
+    <filter>
+        <name>Track Deg</name>
+        <type>gain</type>
+        <update-interval-secs type="double">0.05</update-interval-secs>
+        <gain>1.0</gain>
+        <input>
+            <property>/orientation/track-deg</property>
+            <condition>
+                <property>instrumentation/efis/mfd/true-north</property>
+            </condition>
+        </input>
+        <input>
+            <property>/orientation/track-magnetic-deg</property>
+        </input>
+        <reference>0</reference>
+        <output>instrumentation/pfd/track-deg</output>
+        <enable>
+            <equals>
+                <property>/flight-management/control/lat-ctrl</property>
+                <value>man-set</value>
+            </equals>
+        </enable>
+    </filter>
+    
+    <filter>
+        <name>Track heading diff</name>
+        <type>gain</type>
+        <update-interval-secs type="double">0.05</update-interval-secs>
+        <gain>1.0</gain>
+        <input>
+            <condition>
+                <property>instrumentation/efis/mfd/true-north</property>
+            </condition>
+            <property>/orientation/track-deg</property>
+        </input>
+        <input>
+            <property>/orientation/track-magnetic-deg</property>
+        </input>
+        <reference>
+            <property>instrumentation/pfd/heading-deg</property>
+        </reference>
+        <output>instrumentation/pfd/track-diff</output>
+        <enable>
+            <equals>
+                <property>/flight-management/control/ver-sub</property>
+                <value>fpa</value>
+            </equals>
+        </enable>
+    </filter>
+    
+    <filter>
+        <name>Heading bug diff</name>
+        <type>gain</type>
+        <update-interval-secs type="double">0.05</update-interval-secs>
+        <gain>1.0</gain>
+        <input>
+            <property>/autopilot/settings/heading-bug-deg</property>
+            <period>
+                <min>-180.0</min>
+                <max>180.0</max>
+            </period>
+        </input>
+        <reference>
+            <property>instrumentation/pfd/heading-deg</property>
+            <period>
+                <min>-180.0</min>
+                <max>180.0</max>
+            </period>
+        </reference>
+        <output>instrumentation/pfd/hdg-diff</output>
+        <period>
+            <min>-180.0</min>
+            <max>180.0</max>
+        </period>
+        <enable>
+            <equals>
+                <property>/flight-management/control/lat-ctrl</property>
+                <value>man-set</value>
+            </equals>
+        </enable>
+    </filter>
+    
+    
+    <filter>
+        <name>Localizer course diff</name>
+        <type>gain</type>
+        <update-interval-secs type="double">0.05</update-interval-secs>
+        <gain>1.0</gain>
+        <input>
+            <property>/instrumentation/nav/radials/selected-deg</property>
+            <period>
+                <min>-180.0</min>
+                <max>180.0</max>
+            </period>
+        </input>
+        <reference>
+            <property>instrumentation/pfd/heading-deg</property>
+            <period>
+                <min>-180.0</min>
+                <max>180.0</max>
+            </period>
+        </reference>
+        <output>instrumentation/pfd/loc-crs-diff</output>
+        <period>
+            <min>-180.0</min>
+            <max>180.0</max>
+        </period>
+        <enable>
+            <property>/flight-management/freq/ils-mode</property>
+            <not>
+                <equals>
+                    <property>/instrumentation/nav/nav-id</property>
+                    <value></value>
+                </equals>
+            </not>
+        </enable>
+    </filter>
+    
+</PropertyList>

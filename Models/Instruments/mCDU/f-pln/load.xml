@@ -1,0 +1,313 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+
+	<path>load.ac</path>
+	
+	<!-- mCDU Display Brightness -->
+	
+	<animation>
+		<type>material</type>
+		<object-name>white</object-name>
+		<emission>
+			<red>1</red>
+			<green>1</green>
+			<blue>1</blue>
+			<factor-prop>/instrumentation/mcdu/brt</factor-prop>
+		</emission>
+	</animation>
+	
+	<!-- Button Pick Animations -->
+	
+	<animation>
+		<type>pick</type>
+		<object-name>l1</object-name>
+		<action>
+            <button>0</button>
+	   		<repeatable type="bool">false</repeatable>
+            <binding>
+				<command>nasal</command>
+		 		<script>
+		 			var n = getprop("/instrumentation/mcdu/load_rtes/first") + 0;
+		 			
+		 			var name = getprop("/instrumentation/mcdu/load_rtes/list/name["~n~"]");
+		 			
+		 			mcdu.user.load_user_rte(name);
+		 			
+		 			setprop("/instrumentation/mcdu/page", "index_f1");
+				</script>
+            </binding>
+        </action>
+	</animation>
+	
+	<animation>
+		<type>pick</type>
+		<object-name>l2</object-name>
+		<action>
+            <button>0</button>
+	   		<repeatable type="bool">false</repeatable>
+            <binding>
+				<command>nasal</command>
+		 		<script>
+		 			var n = getprop("/instrumentation/mcdu/load_rtes/first") + 1;
+		 			
+		 			var name = getprop("/instrumentation/mcdu/load_rtes/list/name["~n~"]");
+		 			
+		 			mcdu.user.load_user_rte(name);
+		 			
+		 			setprop("/instrumentation/mcdu/page", "index_f1");
+				</script>
+            </binding>
+        </action>
+	</animation>
+	
+	<animation>
+		<type>pick</type>
+		<object-name>l3</object-name>
+		<action>
+            <button>0</button>
+	   		<repeatable type="bool">false</repeatable>
+            <binding>
+				<command>nasal</command>
+		 		<script>
+		 			var n = getprop("/instrumentation/mcdu/load_rtes/first") + 2;
+		 			
+		 			var name = getprop("/instrumentation/mcdu/load_rtes/list/name["~n~"]");
+		 			
+		 			mcdu.user.load_user_rte(name);
+		 			
+		 			setprop("/instrumentation/mcdu/page", "index_f1");
+				</script>
+            </binding>
+        </action>
+	</animation>
+	
+	<animation>
+		<type>pick</type>
+		<object-name>l4</object-name>
+		<action>
+            <button>0</button>
+	   		<repeatable type="bool">false</repeatable>
+            <binding>
+				<command>nasal</command>
+		 		<script>
+		 			var n = getprop("/instrumentation/mcdu/load_rtes/first") + 3;
+		 			
+		 			var name = getprop("/instrumentation/mcdu/load_rtes/list/name["~n~"]");
+		 			
+		 			mcdu.user.load_user_rte(name);
+		 			
+		 			setprop("/instrumentation/mcdu/page", "index_f1");
+				</script>
+            </binding>
+        </action>
+	</animation>
+	
+	<animation>
+		<type>pick</type>
+		<object-name>l5</object-name>
+		<action>
+            <button>0</button>
+	   		<repeatable type="bool">false</repeatable>
+            <binding>
+				<command>nasal</command>
+		 		<script>
+		 			var n = getprop("/instrumentation/mcdu/load_rtes/first") + 4;
+		 			
+		 			var name = getprop("/instrumentation/mcdu/load_rtes/list/name["~n~"]");
+		 			
+		 			mcdu.user.load_user_rte(name);
+		 			
+		 			setprop("/instrumentation/mcdu/page", "index_f1");
+				</script>
+            </binding>
+        </action>
+	</animation>
+	
+	<animation>
+		<type>pick</type>
+		<object-name>l6</object-name>
+		<action>
+            <button>0</button>
+	   		<repeatable type="bool">false</repeatable>
+            <binding>
+				<command>nasal</command>
+		 		<script>
+		 			setprop("/instrumentation/mcdu/page", "index_f1");
+				</script>
+            </binding>
+        </action>
+	</animation>
+	
+	<animation>
+		<type>pick</type>
+		<object-name>u_arrow</object-name>
+		<action>
+            <button>0</button>
+	   		<repeatable type="bool">false</repeatable>
+            <binding>
+				<command>nasal</command>
+		 		<script>
+					var first = getprop("/instrumentation/mcdu/load_rtes/first");
+					var invert = getprop('aircraft-config/saved/mcdu/invert-arrow-keys') or 0;
+					if(!invert){
+						if (first != 0) setprop("/instrumentation/mcdu/load_rtes/first", first - 5);
+					} else {
+						setprop("/instrumentation/mcdu/load_rtes/first", first + 5);
+					}
+					mcdu.user.update_disp();
+				</script>
+            </binding>
+        </action>
+	</animation>
+	
+	<animation>
+		<type>pick</type>
+		<object-name>d_arrow</object-name>
+		<action>
+            <button>0</button>
+	   		<repeatable type="bool">false</repeatable>
+            <binding>
+				<command>nasal</command>
+		 		<script>
+					var first = getprop("/instrumentation/mcdu/load_rtes/first");
+					var invert = getprop('aircraft-config/saved/mcdu/invert-arrow-keys') or 0;
+					if(!invert)
+						setprop("/instrumentation/mcdu/load_rtes/first", first + 5);
+					else {
+						if (first != 0) setprop("/instrumentation/mcdu/load_rtes/first", first - 5);
+					}
+					mcdu.user.update_disp();
+				</script>
+            </binding>
+        </action>
+	</animation>
+	
+	<!-- OSGText -->
+	
+	<text>
+		<name>white</name>
+		<offsets>
+			<x-m>-0.0703</x-m>
+			<y-m>-0.0409</y-m>
+			<z-m>-0.0006</z-m>
+			<heading-deg>90</heading-deg>
+		</offsets>
+		<alignment>left-center</alignment>
+		<axis-alignment>xy-plane</axis-alignment>
+		<type type="string">text-value</type>
+		<format type="string">%s</format>
+		<property>/instrumentation/mcdu/load_rtes/list/name</property>
+		<truncate type="bool">false</truncate>
+		<font type="string">courier-bold.txf</font>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.003</character-size>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	
+	<text>
+		<name>white</name>
+		<offsets>
+			<x-m>-0.0612</x-m>
+			<y-m>-0.0409</y-m>
+			<z-m>-0.0006</z-m>
+			<heading-deg>90</heading-deg>
+		</offsets>
+		<alignment>left-center</alignment>
+		<axis-alignment>xy-plane</axis-alignment>
+		<type type="string">text-value</type>
+		<format type="string">%s</format>
+		<property>/instrumentation/mcdu/load_rtes/list/name[1]</property>
+		<truncate type="bool">false</truncate>
+		<font type="string">courier-bold.txf</font>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.003</character-size>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	
+	<text>
+		<name>white</name>
+		<offsets>
+			<x-m>-0.0524</x-m>
+			<y-m>-0.0409</y-m>
+			<z-m>-0.0006</z-m>
+			<heading-deg>90</heading-deg>
+		</offsets>
+		<alignment>left-center</alignment>
+		<axis-alignment>xy-plane</axis-alignment>
+		<type type="string">text-value</type>
+		<format type="string">%s</format>
+		<property>/instrumentation/mcdu/load_rtes/list/name[2]</property>
+		<truncate type="bool">false</truncate>
+		<font type="string">courier-bold.txf</font>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.003</character-size>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	
+	<text>
+		<name>white</name>
+		<offsets>
+			<x-m>-0.0430</x-m>
+			<y-m>-0.0409</y-m>
+			<z-m>-0.0006</z-m>
+			<heading-deg>90</heading-deg>
+		</offsets>
+		<alignment>left-center</alignment>
+		<axis-alignment>xy-plane</axis-alignment>
+		<type type="string">text-value</type>
+		<format type="string">%s</format>
+		<property>/instrumentation/mcdu/load_rtes/list/name[3]</property>
+		<truncate type="bool">false</truncate>
+		<font type="string">courier-bold.txf</font>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.003</character-size>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	
+	<text>
+		<name>white</name>
+		<offsets>
+			<x-m>-0.0336</x-m>
+			<y-m>-0.0409</y-m>
+			<z-m>-0.0006</z-m>
+			<heading-deg>90</heading-deg>
+		</offsets>
+		<alignment>left-center</alignment>
+		<axis-alignment>xy-plane</axis-alignment>
+		<type type="string">text-value</type>
+		<format type="string">%s</format>
+		<property>/instrumentation/mcdu/load_rtes/list/name[4]</property>
+		<truncate type="bool">false</truncate>
+		<font type="string">courier-bold.txf</font>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.003</character-size>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	
+</PropertyList>

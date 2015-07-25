@@ -80,6 +80,54 @@
 			<height type="int">32</height>
 		</font-resolution>
 	</text>
+
+	<text>
+		<name>osgtext-green</name>
+		<offsets>
+			<x-m>0.0004</x-m>
+			<y-m>-0.0373</y-m>
+			<z-m>0.0585</z-m>
+		</offsets>
+		<alignment>center-center</alignment>
+		<axis-alignment>yz-plane</axis-alignment>
+		<type type="string">text-value</type>
+		<format type="string">%s</format>
+		<property>warnings/ecam/rev-thr/msg</property>
+		<truncate type="bool">false</truncate>
+		<font type="string">helvetica_bold.txf</font>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.008</character-size>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+
+	<text>
+		<name>osgtext-green</name>
+		<offsets>
+			<x-m>0.0004</x-m>
+			<y-m>0.0366</y-m>
+			<z-m>0.0585</z-m>
+		</offsets>
+		<alignment>center-center</alignment>
+		<axis-alignment>yz-plane</axis-alignment>
+		<type type="string">text-value</type>
+		<format type="string">%s</format>
+		<property>warnings/ecam/rev-thr/msg</property>
+		<truncate type="bool">false</truncate>
+		<font type="string">helvetica_bold.txf</font>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.008</character-size>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
 	
 	<!-- EGT -->
 	
@@ -299,7 +347,7 @@
     	<type>rotate</type>
     	<object-name>egt1</object-name>
     	<property>engines/engine/egt-degc</property>
-    	<factor>0.06</factor>
+    	<factor>0.19</factor>
     	<center>
     		<x-m>0</x-m>
     		<y-m>-0.0374</y-m>
@@ -316,7 +364,7 @@
     	<type>rotate</type>
     	<object-name>egt2</object-name>
     	<property>engines/engine[1]/egt-degc</property>
-    	<factor>0.06</factor>
+    	<factor>0.19</factor>
     	<center>
     		<x-m>0</x-m>
     		<y-m>0.0369</y-m>
@@ -386,6 +434,2028 @@
     	</axis>
     </animation>
 	
-	<!-- AIRBUS SYS INFO DISP (COME BACK LATER) -->
+	<!-- AIRBUS WARNINGS AND CAUTION OSG TEXT -->
+	
+	<!-- LEFT SIDE -->
+	
+	<text>
+		<name>warn0</name>
+		<offsets>
+			<x-m>0.0004</x-m>
+			<y-m>-0.0758</y-m>
+			<z-m>-0.0466</z-m>
+		</offsets>
+		<alignment>left-center</alignment>
+		<axis-alignment>yz-plane</axis-alignment>
+		<type type="string">text-value</type>
+		<format type="string">%s</format>
+		<property>warnings/ecam/warn[0]/msg</property>
+		<truncate type="bool">false</truncate>
+		<font type="string">helvetica_bold.txf</font>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.004</character-size>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	
+	<text>
+		<name>warn1</name>
+		<offsets>
+			<x-m>0.0004</x-m>
+			<y-m>-0.0758</y-m>
+			<z-m>-0.0521</z-m>
+		</offsets>
+		<alignment>left-center</alignment>
+		<axis-alignment>yz-plane</axis-alignment>
+		<type type="string">text-value</type>
+		<format type="string">%s</format>
+		<property>warnings/ecam/warn[1]/msg</property>
+		<truncate type="bool">false</truncate>
+		<font type="string">helvetica_bold.txf</font>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.004</character-size>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	
+	<text>
+		<name>warn2</name>
+		<offsets>
+			<x-m>0.0004</x-m>
+			<y-m>-0.0758</y-m>
+			<z-m>-0.0575</z-m>
+		</offsets>
+		<alignment>left-center</alignment>
+		<axis-alignment>yz-plane</axis-alignment>
+		<type type="string">text-value</type>
+		<format type="string">%s</format>
+		<property>warnings/ecam/warn[2]/msg</property>
+		<truncate type="bool">false</truncate>
+		<font type="string">helvetica_bold.txf</font>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.004</character-size>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	
+	<text>
+		<name>warn3</name>
+		<offsets>
+			<x-m>0.0004</x-m>
+			<y-m>-0.0758</y-m>
+			<z-m>-0.0630</z-m>
+		</offsets>
+		<alignment>left-center</alignment>
+		<axis-alignment>yz-plane</axis-alignment>
+		<type type="string">text-value</type>
+		<format type="string">%s</format>
+		<property>warnings/ecam/warn[3]/msg</property>
+		<truncate type="bool">false</truncate>
+		<font type="string">helvetica_bold.txf</font>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.004</character-size>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	
+	<text>
+		<name>warn4</name>
+		<offsets>
+			<x-m>0.0004</x-m>
+			<y-m>-0.0758</y-m>
+			<z-m>-0.0684</z-m>
+		</offsets>
+		<alignment>left-center</alignment>
+		<axis-alignment>yz-plane</axis-alignment>
+		<type type="string">text-value</type>
+		<format type="string">%s</format>
+		<property>warnings/ecam/warn[4]/msg</property>
+		<truncate type="bool">false</truncate>
+		<font type="string">helvetica_bold.txf</font>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.004</character-size>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	
+	<text>
+		<name>warn5</name>
+		<offsets>
+			<x-m>0.0004</x-m>
+			<y-m>-0.0758</y-m>
+			<z-m>-0.0739</z-m>
+		</offsets>
+		<alignment>left-center</alignment>
+		<axis-alignment>yz-plane</axis-alignment>
+		<type type="string">text-value</type>
+		<format type="string">%s</format>
+		<property>warnings/ecam/warn[5]/msg</property>
+		<truncate type="bool">false</truncate>
+		<font type="string">helvetica_bold.txf</font>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.004</character-size>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	
+	<!-- RIGHT SIDE -->
+	
+	<text>
+		<name>warn6</name>
+		<offsets>
+			<x-m>0.0004</x-m>
+			<y-m>-0.0313</y-m>
+			<z-m>-0.0466</z-m>
+		</offsets>
+		<alignment>left-center</alignment>
+		<axis-alignment>yz-plane</axis-alignment>
+		<type type="string">text-value</type>
+		<format type="string">%s</format>
+		<property>warnings/ecam/warn[6]/msg</property>
+		<truncate type="bool">false</truncate>
+		<font type="string">helvetica_bold.txf</font>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.004</character-size>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	
+	<text>
+		<name>warn7</name>
+		<offsets>
+			<x-m>0.0004</x-m>
+			<y-m>-0.0313</y-m>
+			<z-m>-0.0521</z-m>
+		</offsets>
+		<alignment>left-center</alignment>
+		<axis-alignment>yz-plane</axis-alignment>
+		<type type="string">text-value</type>
+		<format type="string">%s</format>
+		<property>warnings/ecam/warn[7]/msg</property>
+		<truncate type="bool">false</truncate>
+		<font type="string">helvetica_bold.txf</font>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.004</character-size>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	
+	<text>
+		<name>warn8</name>
+		<offsets>
+			<x-m>0.0004</x-m>
+			<y-m>-0.0313</y-m>
+			<z-m>-0.0575</z-m>
+		</offsets>
+		<alignment>left-center</alignment>
+		<axis-alignment>yz-plane</axis-alignment>
+		<type type="string">text-value</type>
+		<format type="string">%s</format>
+		<property>warnings/ecam/warn[8]/msg</property>
+		<truncate type="bool">false</truncate>
+		<font type="string">helvetica_bold.txf</font>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.004</character-size>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	
+	<text>
+		<name>warn9</name>
+		<offsets>
+			<x-m>0.0004</x-m>
+			<y-m>-0.0313</y-m>
+			<z-m>-0.0630</z-m>
+		</offsets>
+		<alignment>left-center</alignment>
+		<axis-alignment>yz-plane</axis-alignment>
+		<type type="string">text-value</type>
+		<format type="string">%s</format>
+		<property>warnings/ecam/warn[9]/msg</property>
+		<truncate type="bool">false</truncate>
+		<font type="string">helvetica_bold.txf</font>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.004</character-size>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	
+	<text>
+		<name>warn10</name>
+		<offsets>
+			<x-m>0.0004</x-m>
+			<y-m>-0.0313</y-m>
+			<z-m>-0.0684</z-m>
+		</offsets>
+		<alignment>left-center</alignment>
+		<axis-alignment>yz-plane</axis-alignment>
+		<type type="string">text-value</type>
+		<format type="string">%s</format>
+		<property>warnings/ecam/warn[9]/msg</property>
+		<truncate type="bool">false</truncate>
+		<font type="string">helvetica_bold.txf</font>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.004</character-size>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	
+	<text>
+		<name>warn11</name>
+		<offsets>
+			<x-m>0.0004</x-m>
+			<y-m>-0.0313</y-m>
+			<z-m>-0.0739</z-m>
+		</offsets>
+		<alignment>left-center</alignment>
+		<axis-alignment>yz-plane</axis-alignment>
+		<type type="string">text-value</type>
+		<format type="string">%s</format>
+		<property>warnings/ecam/warn[9]/msg</property>
+		<truncate type="bool">false</truncate>
+		<font type="string">helvetica_bold.txf</font>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.004</character-size>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	
+	<!-- MEMOS -->
+	
+	<!-- RIGHT SIDE -->
+	
+	<text>
+		<name>memo0</name>
+		<offsets>
+			<x-m>0.0004</x-m>
+			<y-m>0.025</y-m>
+			<z-m>-0.0466</z-m>
+		</offsets>
+		<alignment>left-center</alignment>
+		<axis-alignment>yz-plane</axis-alignment>
+		<type type="string">text-value</type>
+		<format type="string">%s</format>
+		<property>warnings/ecam/memo[0]/msg</property>
+		<truncate type="bool">false</truncate>
+		<font type="string">helvetica_bold.txf</font>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.004</character-size>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	
+	<text>
+		<name>memo1</name>
+		<offsets>
+			<x-m>0.0004</x-m>
+			<y-m>0.025</y-m>
+			<z-m>-0.0521</z-m>
+		</offsets>
+		<alignment>left-center</alignment>
+		<axis-alignment>yz-plane</axis-alignment>
+		<type type="string">text-value</type>
+		<format type="string">%s</format>
+		<property>warnings/ecam/memo[1]/msg</property>
+		<truncate type="bool">false</truncate>
+		<font type="string">helvetica_bold.txf</font>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.004</character-size>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	
+	<text>
+		<name>memo2</name>
+		<offsets>
+			<x-m>0.0004</x-m>
+			<y-m>0.025</y-m>
+			<z-m>-0.0575</z-m>
+		</offsets>
+		<alignment>left-center</alignment>
+		<axis-alignment>yz-plane</axis-alignment>
+		<type type="string">text-value</type>
+		<format type="string">%s</format>
+		<property>warnings/ecam/memo[2]/msg</property>
+		<truncate type="bool">false</truncate>
+		<font type="string">helvetica_bold.txf</font>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.004</character-size>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	
+	<text>
+		<name>memo3</name>
+		<offsets>
+			<x-m>0.0004</x-m>
+			<y-m>0.025</y-m>
+			<z-m>-0.0630</z-m>
+		</offsets>
+		<alignment>left-center</alignment>
+		<axis-alignment>yz-plane</axis-alignment>
+		<type type="string">text-value</type>
+		<format type="string">%s</format>
+		<property>warnings/ecam/memo[3]/msg</property>
+		<truncate type="bool">false</truncate>
+		<font type="string">helvetica_bold.txf</font>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.004</character-size>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	
+	<text>
+		<name>memo4</name>
+		<offsets>
+			<x-m>0.0004</x-m>
+			<y-m>0.025</y-m>
+			<z-m>-0.0684</z-m>
+		</offsets>
+		<alignment>left-center</alignment>
+		<axis-alignment>yz-plane</axis-alignment>
+		<type type="string">text-value</type>
+		<format type="string">%s</format>
+		<property>warnings/ecam/memo[4]/msg</property>
+		<truncate type="bool">false</truncate>
+		<font type="string">helvetica_bold.txf</font>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.004</character-size>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	
+	<text>
+		<name>memo5</name>
+		<offsets>
+			<x-m>0.0004</x-m>
+			<y-m>0.025</y-m>
+			<z-m>-0.0739</z-m>
+		</offsets>
+		<alignment>left-center</alignment>
+		<axis-alignment>yz-plane</axis-alignment>
+		<type type="string">text-value</type>
+		<format type="string">%s</format>
+		<property>warnings/ecam/memo[5]/msg</property>
+		<truncate type="bool">false</truncate>
+		<font type="string">helvetica_bold.txf</font>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.004</character-size>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	
+	<!-- OSG TEXT COLOR -->
+	
+	<animation>
+		<type>material</type>
+		<object-name>warn0</object-name>
+		<diffuse>
+			<red>1</red>
+			<green>0.5</green>
+			<blue>0</blue>
+		</diffuse>
+		<ambient>
+			<red>1</red>
+			<green>0.5</green>
+			<blue>0</blue>
+		</ambient>
+		<specular>
+			<red>0</red>
+			<green>0</green>
+			<blue>0</blue>
+		</specular>
+		<emission>
+			<red>1</red>
+			<green>0.5</green>
+			<blue>0</blue>
+		</emission>
+		<condition>
+			<equals>
+				<property>/warnings/ecam/warn/type</property>
+				<value>caution</value>
+			</equals>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>material</type>
+		<object-name>warn1</object-name>
+		<diffuse>
+			<red>1</red>
+			<green>0.5</green>
+			<blue>0</blue>
+		</diffuse>
+		<ambient>
+			<red>1</red>
+			<green>0.5</green>
+			<blue>0</blue>
+		</ambient>
+		<specular>
+			<red>0</red>
+			<green>0</green>
+			<blue>0</blue>
+		</specular>
+		<emission>
+			<red>1</red>
+			<green>0.5</green>
+			<blue>0</blue>
+		</emission>
+		<condition>
+			<equals>
+				<property>/warnings/ecam/warn[1]/type</property>
+				<value>caution</value>
+			</equals>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>material</type>
+		<object-name>warn2</object-name>
+		<diffuse>
+			<red>1</red>
+			<green>0.5</green>
+			<blue>0</blue>
+		</diffuse>
+		<ambient>
+			<red>1</red>
+			<green>0.5</green>
+			<blue>0</blue>
+		</ambient>
+		<specular>
+			<red>0</red>
+			<green>0</green>
+			<blue>0</blue>
+		</specular>
+		<emission>
+			<red>1</red>
+			<green>0.5</green>
+			<blue>0</blue>
+		</emission>
+		<condition>
+			<equals>
+				<property>/warnings/ecam/warn[2]/type</property>
+				<value>caution</value>
+			</equals>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>material</type>
+		<object-name>warn3</object-name>
+		<diffuse>
+			<red>1</red>
+			<green>0.5</green>
+			<blue>0</blue>
+		</diffuse>
+		<ambient>
+			<red>1</red>
+			<green>0.5</green>
+			<blue>0</blue>
+		</ambient>
+		<specular>
+			<red>0</red>
+			<green>0</green>
+			<blue>0</blue>
+		</specular>
+		<emission>
+			<red>1</red>
+			<green>0.5</green>
+			<blue>0</blue>
+		</emission>
+		<condition>
+			<equals>
+				<property>/warnings/ecam/warn[3]/type</property>
+				<value>caution</value>
+			</equals>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>material</type>
+		<object-name>warn4</object-name>
+		<diffuse>
+			<red>1</red>
+			<green>0.5</green>
+			<blue>0</blue>
+		</diffuse>
+		<ambient>
+			<red>1</red>
+			<green>0.5</green>
+			<blue>0</blue>
+		</ambient>
+		<specular>
+			<red>0</red>
+			<green>0</green>
+			<blue>0</blue>
+		</specular>
+		<emission>
+			<red>1</red>
+			<green>0.5</green>
+			<blue>0</blue>
+		</emission>
+		<condition>
+			<equals>
+				<property>/warnings/ecam/warn[4]/type</property>
+				<value>caution</value>
+			</equals>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>material</type>
+		<object-name>warn5</object-name>
+		<diffuse>
+			<red>1</red>
+			<green>0.5</green>
+			<blue>0</blue>
+		</diffuse>
+		<ambient>
+			<red>1</red>
+			<green>0.5</green>
+			<blue>0</blue>
+		</ambient>
+		<specular>
+			<red>0</red>
+			<green>0</green>
+			<blue>0</blue>
+		</specular>
+		<emission>
+			<red>1</red>
+			<green>0.5</green>
+			<blue>0</blue>
+		</emission>
+		<condition>
+			<equals>
+				<property>/warnings/ecam/warn[5]/type</property>
+				<value>caution</value>
+			</equals>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>material</type>
+		<object-name>warn6</object-name>
+		<diffuse>
+			<red>1</red>
+			<green>0.5</green>
+			<blue>0</blue>
+		</diffuse>
+		<ambient>
+			<red>1</red>
+			<green>0.5</green>
+			<blue>0</blue>
+		</ambient>
+		<specular>
+			<red>0</red>
+			<green>0</green>
+			<blue>0</blue>
+		</specular>
+		<emission>
+			<red>1</red>
+			<green>0.5</green>
+			<blue>0</blue>
+		</emission>
+		<condition>
+			<equals>
+				<property>/warnings/ecam/warn[6]/type</property>
+				<value>caution</value>
+			</equals>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>material</type>
+		<object-name>warn7</object-name>
+		<diffuse>
+			<red>1</red>
+			<green>0.5</green>
+			<blue>0</blue>
+		</diffuse>
+		<ambient>
+			<red>1</red>
+			<green>0.5</green>
+			<blue>0</blue>
+		</ambient>
+		<specular>
+			<red>0</red>
+			<green>0</green>
+			<blue>0</blue>
+		</specular>
+		<emission>
+			<red>1</red>
+			<green>0.5</green>
+			<blue>0</blue>
+		</emission>
+		<condition>
+			<equals>
+				<property>/warnings/ecam/warn[7]/type</property>
+				<value>caution</value>
+			</equals>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>material</type>
+		<object-name>warn8</object-name>
+		<diffuse>
+			<red>1</red>
+			<green>0.5</green>
+			<blue>0</blue>
+		</diffuse>
+		<ambient>
+			<red>1</red>
+			<green>0.5</green>
+			<blue>0</blue>
+		</ambient>
+		<specular>
+			<red>0</red>
+			<green>0</green>
+			<blue>0</blue>
+		</specular>
+		<emission>
+			<red>1</red>
+			<green>0.5</green>
+			<blue>0</blue>
+		</emission>
+		<condition>
+			<equals>
+				<property>/warnings/ecam/warn[8]/type</property>
+				<value>caution</value>
+			</equals>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>material</type>
+		<object-name>warn9</object-name>
+		<diffuse>
+			<red>1</red>
+			<green>0.5</green>
+			<blue>0</blue>
+		</diffuse>
+		<ambient>
+			<red>1</red>
+			<green>0.5</green>
+			<blue>0</blue>
+		</ambient>
+		<specular>
+			<red>0</red>
+			<green>0</green>
+			<blue>0</blue>
+		</specular>
+		<emission>
+			<red>1</red>
+			<green>0.5</green>
+			<blue>0</blue>
+		</emission>
+		<condition>
+			<equals>
+				<property>/warnings/ecam/warn[9]/type</property>
+				<value>caution</value>
+			</equals>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>material</type>
+		<object-name>warn10</object-name>
+		<diffuse>
+			<red>1</red>
+			<green>0.5</green>
+			<blue>0</blue>
+		</diffuse>
+		<ambient>
+			<red>1</red>
+			<green>0.5</green>
+			<blue>0</blue>
+		</ambient>
+		<specular>
+			<red>0</red>
+			<green>0</green>
+			<blue>0</blue>
+		</specular>
+		<emission>
+			<red>1</red>
+			<green>0.5</green>
+			<blue>0</blue>
+		</emission>
+		<condition>
+			<equals>
+				<property>/warnings/ecam/warn[10]/type</property>
+				<value>caution</value>
+			</equals>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>material</type>
+		<object-name>warn11</object-name>
+		<diffuse>
+			<red>1</red>
+			<green>0.5</green>
+			<blue>0</blue>
+		</diffuse>
+		<ambient>
+			<red>1</red>
+			<green>0.5</green>
+			<blue>0</blue>
+		</ambient>
+		<specular>
+			<red>0</red>
+			<green>0</green>
+			<blue>0</blue>
+		</specular>
+		<emission>
+			<red>1</red>
+			<green>0.5</green>
+			<blue>0</blue>
+		</emission>
+		<condition>
+			<equals>
+				<property>/warnings/ecam/warn[11]/type</property>
+				<value>caution</value>
+			</equals>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>material</type>
+		<object-name>warn0</object-name>
+		<diffuse>
+			<red>1</red>
+			<green>0.05</green>
+			<blue>0</blue>
+		</diffuse>
+		<ambient>
+			<red>1</red>
+			<green>0.05</green>
+			<blue>0</blue>
+		</ambient>
+		<specular>
+			<red>0</red>
+			<green>0</green>
+			<blue>0</blue>
+		</specular>
+		<emission>
+			<red>1</red>
+			<green>0.05</green>
+			<blue>0</blue>
+		</emission>
+		<condition>
+			<equals>
+				<property>/warnings/ecam/warn/type</property>
+				<value>warning</value>
+			</equals>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>material</type>
+		<object-name>warn1</object-name>
+		<diffuse>
+			<red>1</red>
+			<green>0.05</green>
+			<blue>0</blue>
+		</diffuse>
+		<ambient>
+			<red>1</red>
+			<green>0.05</green>
+			<blue>0</blue>
+		</ambient>
+		<specular>
+			<red>0</red>
+			<green>0</green>
+			<blue>0</blue>
+		</specular>
+		<emission>
+			<red>1</red>
+			<green>0.05</green>
+			<blue>0</blue>
+		</emission>
+		<condition>
+			<equals>
+				<property>/warnings/ecam/warn[1]/type</property>
+				<value>warning</value>
+			</equals>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>material</type>
+		<object-name>warn2</object-name>
+		<diffuse>
+			<red>1</red>
+			<green>0.05</green>
+			<blue>0</blue>
+		</diffuse>
+		<ambient>
+			<red>1</red>
+			<green>0.05</green>
+			<blue>0</blue>
+		</ambient>
+		<specular>
+			<red>0</red>
+			<green>0</green>
+			<blue>0</blue>
+		</specular>
+		<emission>
+			<red>1</red>
+			<green>0.05</green>
+			<blue>0</blue>
+		</emission>
+		<condition>
+			<equals>
+				<property>/warnings/ecam/warn[2]/type</property>
+				<value>warning</value>
+			</equals>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>material</type>
+		<object-name>warn3</object-name>
+		<diffuse>
+			<red>1</red>
+			<green>0.05</green>
+			<blue>0</blue>
+		</diffuse>
+		<ambient>
+			<red>1</red>
+			<green>0.05</green>
+			<blue>0</blue>
+		</ambient>
+		<specular>
+			<red>0</red>
+			<green>0</green>
+			<blue>0</blue>
+		</specular>
+		<emission>
+			<red>1</red>
+			<green>0.05</green>
+			<blue>0</blue>
+		</emission>
+		<condition>
+			<equals>
+				<property>/warnings/ecam/warn[3]/type</property>
+				<value>warning</value>
+			</equals>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>material</type>
+		<object-name>warn4</object-name>
+		<diffuse>
+			<red>1</red>
+			<green>0.05</green>
+			<blue>0</blue>
+		</diffuse>
+		<ambient>
+			<red>1</red>
+			<green>0.05</green>
+			<blue>0</blue>
+		</ambient>
+		<specular>
+			<red>0</red>
+			<green>0</green>
+			<blue>0</blue>
+		</specular>
+		<emission>
+			<red>1</red>
+			<green>0.05</green>
+			<blue>0</blue>
+		</emission>
+		<condition>
+			<equals>
+				<property>/warnings/ecam/warn[4]/type</property>
+				<value>warning</value>
+			</equals>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>material</type>
+		<object-name>warn5</object-name>
+		<diffuse>
+			<red>1</red>
+			<green>0.05</green>
+			<blue>0</blue>
+		</diffuse>
+		<ambient>
+			<red>1</red>
+			<green>0.05</green>
+			<blue>0</blue>
+		</ambient>
+		<specular>
+			<red>0</red>
+			<green>0</green>
+			<blue>0</blue>
+		</specular>
+		<emission>
+			<red>1</red>
+			<green>0.05</green>
+			<blue>0</blue>
+		</emission>
+		<condition>
+			<equals>
+				<property>/warnings/ecam/warn[5]/type</property>
+				<value>warning</value>
+			</equals>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>material</type>
+		<object-name>warn6</object-name>
+		<diffuse>
+			<red>1</red>
+			<green>0.05</green>
+			<blue>0</blue>
+		</diffuse>
+		<ambient>
+			<red>1</red>
+			<green>0.05</green>
+			<blue>0</blue>
+		</ambient>
+		<specular>
+			<red>0</red>
+			<green>0</green>
+			<blue>0</blue>
+		</specular>
+		<emission>
+			<red>1</red>
+			<green>0.05</green>
+			<blue>0</blue>
+		</emission>
+		<condition>
+			<equals>
+				<property>/warnings/ecam/warn[6]/type</property>
+				<value>warning</value>
+			</equals>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>material</type>
+		<object-name>warn7</object-name>
+		<diffuse>
+			<red>1</red>
+			<green>0.05</green>
+			<blue>0</blue>
+		</diffuse>
+		<ambient>
+			<red>1</red>
+			<green>0.05</green>
+			<blue>0</blue>
+		</ambient>
+		<specular>
+			<red>0</red>
+			<green>0</green>
+			<blue>0</blue>
+		</specular>
+		<emission>
+			<red>1</red>
+			<green>0.05</green>
+			<blue>0</blue>
+		</emission>
+		<condition>
+			<equals>
+				<property>/warnings/ecam/warn[7]/type</property>
+				<value>warning</value>
+			</equals>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>material</type>
+		<object-name>warn8</object-name>
+		<diffuse>
+			<red>1</red>
+			<green>0.05</green>
+			<blue>0</blue>
+		</diffuse>
+		<ambient>
+			<red>1</red>
+			<green>0.05</green>
+			<blue>0</blue>
+		</ambient>
+		<specular>
+			<red>0</red>
+			<green>0</green>
+			<blue>0</blue>
+		</specular>
+		<emission>
+			<red>1</red>
+			<green>0.05</green>
+			<blue>0</blue>
+		</emission>
+		<condition>
+			<equals>
+				<property>/warnings/ecam/warn[8]/type</property>
+				<value>warning</value>
+			</equals>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>material</type>
+		<object-name>warn9</object-name>
+		<diffuse>
+			<red>1</red>
+			<green>0.05</green>
+			<blue>0</blue>
+		</diffuse>
+		<ambient>
+			<red>1</red>
+			<green>0.05</green>
+			<blue>0</blue>
+		</ambient>
+		<specular>
+			<red>0</red>
+			<green>0</green>
+			<blue>0</blue>
+		</specular>
+		<emission>
+			<red>1</red>
+			<green>0.05</green>
+			<blue>0</blue>
+		</emission>
+		<condition>
+			<equals>
+				<property>/warnings/ecam/warn[9]/type</property>
+				<value>warning</value>
+			</equals>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>material</type>
+		<object-name>warn10</object-name>
+		<diffuse>
+			<red>1</red>
+			<green>0.05</green>
+			<blue>0</blue>
+		</diffuse>
+		<ambient>
+			<red>1</red>
+			<green>0.05</green>
+			<blue>0</blue>
+		</ambient>
+		<specular>
+			<red>0</red>
+			<green>0</green>
+			<blue>0</blue>
+		</specular>
+		<emission>
+			<red>1</red>
+			<green>0.05</green>
+			<blue>0</blue>
+		</emission>
+		<condition>
+			<equals>
+				<property>/warnings/ecam/warn[10]/type</property>
+				<value>warning</value>
+			</equals>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>material</type>
+		<object-name>warn11</object-name>
+		<diffuse>
+			<red>1</red>
+			<green>0.05</green>
+			<blue>0</blue>
+		</diffuse>
+		<ambient>
+			<red>1</red>
+			<green>0.05</green>
+			<blue>0</blue>
+		</ambient>
+		<specular>
+			<red>0</red>
+			<green>0</green>
+			<blue>0</blue>
+		</specular>
+		<emission>
+			<red>1</red>
+			<green>0.05</green>
+			<blue>0</blue>
+		</emission>
+		<condition>
+			<equals>
+				<property>/warnings/ecam/warn[11]/type</property>
+				<value>warning</value>
+			</equals>
+		</condition>
+	</animation>
+
+	<!-- AIRBUS MEMO MESSAGES -->
+	
+	<animation>
+		<type>material</type>
+		<object-name>memo0</object-name>
+		<diffuse>
+			<red>1</red>
+			<green>0.5</green>
+			<blue>0</blue>
+		</diffuse>
+		<ambient>
+			<red>1</red>
+			<green>0.5</green>
+			<blue>0</blue>
+		</ambient>
+		<specular>
+			<red>0</red>
+			<green>0</green>
+			<blue>0</blue>
+		</specular>
+		<emission>
+			<red>1</red>
+			<green>0.5</green>
+			<blue>0</blue>
+		</emission>
+		<condition>
+			<equals>
+				<property>/warnings/ecam/memo/color</property>
+				<value>amber</value>
+			</equals>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>material</type>
+		<object-name>memo1</object-name>
+		<diffuse>
+			<red>1</red>
+			<green>0.5</green>
+			<blue>0</blue>
+		</diffuse>
+		<ambient>
+			<red>1</red>
+			<green>0.5</green>
+			<blue>0</blue>
+		</ambient>
+		<specular>
+			<red>0</red>
+			<green>0</green>
+			<blue>0</blue>
+		</specular>
+		<emission>
+			<red>1</red>
+			<green>0.5</green>
+			<blue>0</blue>
+		</emission>
+		<condition>
+			<equals>
+				<property>/warnings/ecam/memo[1]/color</property>
+				<value>amber</value>
+			</equals>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>material</type>
+		<object-name>memo2</object-name>
+		<diffuse>
+			<red>1</red>
+			<green>0.5</green>
+			<blue>0</blue>
+		</diffuse>
+		<ambient>
+			<red>1</red>
+			<green>0.5</green>
+			<blue>0</blue>
+		</ambient>
+		<specular>
+			<red>0</red>
+			<green>0</green>
+			<blue>0</blue>
+		</specular>
+		<emission>
+			<red>1</red>
+			<green>0.5</green>
+			<blue>0</blue>
+		</emission>
+		<condition>
+			<equals>
+				<property>/warnings/ecam/memo[2]/color</property>
+				<value>amber</value>
+			</equals>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>material</type>
+		<object-name>memo3</object-name>
+		<diffuse>
+			<red>1</red>
+			<green>0.5</green>
+			<blue>0</blue>
+		</diffuse>
+		<ambient>
+			<red>1</red>
+			<green>0.5</green>
+			<blue>0</blue>
+		</ambient>
+		<specular>
+			<red>0</red>
+			<green>0</green>
+			<blue>0</blue>
+		</specular>
+		<emission>
+			<red>1</red>
+			<green>0.5</green>
+			<blue>0</blue>
+		</emission>
+		<condition>
+			<equals>
+				<property>/warnings/ecam/memo[3]/color</property>
+				<value>amber</value>
+			</equals>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>material</type>
+		<object-name>memo4</object-name>
+		<diffuse>
+			<red>1</red>
+			<green>0.5</green>
+			<blue>0</blue>
+		</diffuse>
+		<ambient>
+			<red>1</red>
+			<green>0.5</green>
+			<blue>0</blue>
+		</ambient>
+		<specular>
+			<red>0</red>
+			<green>0</green>
+			<blue>0</blue>
+		</specular>
+		<emission>
+			<red>1</red>
+			<green>0.5</green>
+			<blue>0</blue>
+		</emission>
+		<condition>
+			<equals>
+				<property>/warnings/ecam/memo[4]/color</property>
+				<value>amber</value>
+			</equals>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>material</type>
+		<object-name>memo5</object-name>
+		<diffuse>
+			<red>1</red>
+			<green>0.5</green>
+			<blue>0</blue>
+		</diffuse>
+		<ambient>
+			<red>1</red>
+			<green>0.5</green>
+			<blue>0</blue>
+		</ambient>
+		<specular>
+			<red>0</red>
+			<green>0</green>
+			<blue>0</blue>
+		</specular>
+		<emission>
+			<red>1</red>
+			<green>0.5</green>
+			<blue>0</blue>
+		</emission>
+		<condition>
+			<equals>
+				<property>/warnings/ecam/memo[5]/color</property>
+				<value>amber</value>
+			</equals>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>material</type>
+		<object-name>memo0</object-name>
+		<diffuse>
+			<red>0</red>
+			<green>0.543</green>
+			<blue>0</blue>
+		</diffuse>
+		<ambient>
+			<red>0</red>
+			<green>0.543</green>
+			<blue>0</blue>
+		</ambient>
+		<specular>
+			<red>0</red>
+			<green>0</green>
+			<blue>0</blue>
+		</specular>
+		<emission>
+			<red>0</red>
+			<green>0.543</green>
+			<blue>0</blue>
+		</emission>
+		<condition>
+			<equals>
+				<property>/warnings/ecam/memo/color</property>
+				<value>green</value>
+			</equals>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>material</type>
+		<object-name>memo1</object-name>
+		<diffuse>
+			<red>0</red>
+			<green>0.543</green>
+			<blue>0</blue>
+		</diffuse>
+		<ambient>
+			<red>0</red>
+			<green>0.543</green>
+			<blue>0</blue>
+		</ambient>
+		<specular>
+			<red>0</red>
+			<green>0</green>
+			<blue>0</blue>
+		</specular>
+		<emission>
+			<red>0</red>
+			<green>0.543</green>
+			<blue>0</blue>
+		</emission>
+		<condition>
+			<equals>
+				<property>/warnings/ecam/memo[1]/color</property>
+				<value>green</value>
+			</equals>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>material</type>
+		<object-name>memo2</object-name>
+		<diffuse>
+			<red>0</red>
+			<green>0.543</green>
+			<blue>0</blue>
+		</diffuse>
+		<ambient>
+			<red>0</red>
+			<green>0.543</green>
+			<blue>0</blue>
+		</ambient>
+		<specular>
+			<red>0</red>
+			<green>0</green>
+			<blue>0</blue>
+		</specular>
+		<emission>
+			<red>0</red>
+			<green>0.543</green>
+			<blue>0</blue>
+		</emission>
+		<condition>
+			<equals>
+				<property>/warnings/ecam/memo[2]/color</property>
+				<value>green</value>
+			</equals>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>material</type>
+		<object-name>memo3</object-name>
+		<diffuse>
+			<red>0</red>
+			<green>0.543</green>
+			<blue>0</blue>
+		</diffuse>
+		<ambient>
+			<red>0</red>
+			<green>0.543</green>
+			<blue>0</blue>
+		</ambient>
+		<specular>
+			<red>0</red>
+			<green>0</green>
+			<blue>0</blue>
+		</specular>
+		<emission>
+			<red>0</red>
+			<green>0.543</green>
+			<blue>0</blue>
+		</emission>
+		<condition>
+			<equals>
+				<property>/warnings/ecam/memo[3]/color</property>
+				<value>green</value>
+			</equals>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>material</type>
+		<object-name>memo4</object-name>
+		<diffuse>
+			<red>0</red>
+			<green>0.543</green>
+			<blue>0</blue>
+		</diffuse>
+		<ambient>
+			<red>0</red>
+			<green>0.543</green>
+			<blue>0</blue>
+		</ambient>
+		<specular>
+			<red>0</red>
+			<green>0</green>
+			<blue>0</blue>
+		</specular>
+		<emission>
+			<red>0</red>
+			<green>0.543</green>
+			<blue>0</blue>
+		</emission>
+		<condition>
+			<equals>
+				<property>/warnings/ecam/memo[4]/color</property>
+				<value>green</value>
+			</equals>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>material</type>
+		<object-name>memo5</object-name>
+		<diffuse>
+			<red>0</red>
+			<green>0.543</green>
+			<blue>0</blue>
+		</diffuse>
+		<ambient>
+			<red>0</red>
+			<green>0.543</green>
+			<blue>0</blue>
+		</ambient>
+		<specular>
+			<red>0</red>
+			<green>0</green>
+			<blue>0</blue>
+		</specular>
+		<emission>
+			<red>0</red>
+			<green>0.543</green>
+			<blue>0</blue>
+		</emission>
+		<condition>
+			<equals>
+				<property>/warnings/ecam/memo[5]/color</property>
+				<value>green</value>
+			</equals>
+		</condition>
+	</animation>
+    
+    <!-- TO/LDF CONFIG WARNS -->
+    
+    <text>
+		<name>to_cfg_label</name>
+		<offsets>
+			<x-m>0.0004</x-m>
+			<y-m>-0.0758</y-m>
+			<z-m>-0.0466</z-m>
+		</offsets>
+		<alignment>left-center</alignment>
+		<axis-alignment>yz-plane</axis-alignment>
+		<type type="string">text-value</type>
+		<format type="string">%s</format>
+		<property>warnings/texts/to_cfg</property>
+		<truncate type="bool">false</truncate>
+		<font type="string">helvetica_bold.txf</font>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.004</character-size>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+    
+    <text>
+		<name>ldg_cfg_label</name>
+		<offsets>
+			<x-m>0.0004</x-m>
+			<y-m>-0.0758</y-m>
+			<z-m>-0.0466</z-m>
+		</offsets>
+		<alignment>left-center</alignment>
+		<axis-alignment>yz-plane</axis-alignment>
+		<type type="string">text-value</type>
+		<format type="string">%s</format>
+		<property>warnings/texts/ldg_cfg</property>
+		<truncate type="bool">false</truncate>
+		<font type="string">helvetica_bold.txf</font>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.004</character-size>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+    
+    <animation>
+		<type>material</type>
+		<object-name>to_cfg_label</object-name>
+        <object-name>ldg_cfg_label</object-name>
+		<diffuse>
+			<red>0</red>
+			<green>0.543</green>
+			<blue>0</blue>
+		</diffuse>
+		<ambient>
+			<red>0</red>
+			<green>0</green>
+			<blue>0</blue>
+		</ambient>
+		<specular>
+			<red>0</red>
+			<green>0</green>
+			<blue>0</blue>
+		</specular>
+		<emission>
+			<red>0</red>
+			<green>0.543</green>
+			<blue>0</blue>
+		</emission>
+	</animation>
+    
+    <animation>
+        <type>select</type>
+        <object-name>to_cfg_label</object-name>
+        <condition>
+            <equals>
+                <property>warnings/to-config</property>
+                <value>1</value>
+            </equals>
+        </condition>
+    </animation>
+    
+    <animation>
+        <type>select</type>
+        <object-name>ldg_cfg_label</object-name>
+        <condition>
+            <equals>
+                <property>warnings/ldg-config</property>
+                <value>1</value>
+            </equals>
+        </condition>
+    </animation>
+    
+    <text>
+		<name>cfg0</name>
+		<offsets>
+			<x-m>0.0004</x-m>
+			<y-m>-0.0458</y-m>
+			<z-m>-0.0466</z-m>
+		</offsets>
+		<alignment>left-center</alignment>
+		<axis-alignment>yz-plane</axis-alignment>
+		<type type="string">text-value</type>
+		<format type="string">%s</format>
+		<property>warnings/ecam/cfg[0]/msg</property>
+		<truncate type="bool">false</truncate>
+		<font type="string">helvetica_bold.txf</font>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.004</character-size>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+    
+    <text>
+		<name>cfg1</name>
+		<offsets>
+			<x-m>0.0004</x-m>
+			<y-m>-0.0458</y-m>
+			<z-m>-0.0521</z-m>
+		</offsets>
+		<alignment>left-center</alignment>
+		<axis-alignment>yz-plane</axis-alignment>
+		<type type="string">text-value</type>
+		<format type="string">%s</format>
+		<property>warnings/ecam/cfg[1]/msg</property>
+		<truncate type="bool">false</truncate>
+		<font type="string">helvetica_bold.txf</font>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.004</character-size>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+    
+    <text>
+		<name>cfg2</name>
+		<offsets>
+			<x-m>0.0004</x-m>
+			<y-m>-0.0458</y-m>
+			<z-m>-0.0576</z-m>
+		</offsets>
+		<alignment>left-center</alignment>
+		<axis-alignment>yz-plane</axis-alignment>
+		<type type="string">text-value</type>
+		<format type="string">%s</format>
+		<property>warnings/ecam/cfg[2]/msg</property>
+		<truncate type="bool">false</truncate>
+		<font type="string">helvetica_bold.txf</font>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.004</character-size>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+    
+    <text>
+		<name>cfg3</name>
+		<offsets>
+			<x-m>0.0004</x-m>
+			<y-m>-0.0458</y-m>
+			<z-m>-0.0631</z-m>
+		</offsets>
+		<alignment>left-center</alignment>
+		<axis-alignment>yz-plane</axis-alignment>
+		<type type="string">text-value</type>
+		<format type="string">%s</format>
+		<property>warnings/ecam/cfg[3]/msg</property>
+		<truncate type="bool">false</truncate>
+		<font type="string">helvetica_bold.txf</font>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.004</character-size>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+    
+    <animation>
+        <type>select</type>
+        <object-name>cfg0</object-name>
+        <object-name>cfg1</object-name>
+        <object-name>cfg2</object-name>
+        <object-name>cfg3</object-name>
+        <condition>
+            <or>
+                <equals>
+                    <property>warnings/to-config</property>
+                    <value>1</value>
+                </equals>
+                <equals>
+                    <property>warnings/ldg-config</property>
+                    <value>1</value>
+                </equals>
+            </or>
+        </condition>
+    </animation>
+    
+    <animation>
+		<type>material</type>
+		<object-name>cfg0</object-name>
+		<diffuse>
+			<red>0</red>
+			<green>0.543</green>
+			<blue>0</blue>
+		</diffuse>
+		<ambient>
+			<red>0</red>
+			<green>0</green>
+			<blue>0</blue>
+		</ambient>
+		<specular>
+			<red>0</red>
+			<green>0</green>
+			<blue>0</blue>
+		</specular>
+		<emission>
+			<red>0</red>
+			<green>0.543</green>
+			<blue>0</blue>
+		</emission>
+		<condition>
+			<equals>
+				<property>/warnings/ecam/cfg/type</property>
+				<value>cfg_ok</value>
+			</equals>
+		</condition>
+	</animation>
+    
+    <animation>
+		<type>material</type>
+		<object-name>cfg0</object-name>
+		<diffuse>
+            <red>0</red>
+            <green>0.4823</green>
+            <blue>0.5372</blue>
+		</diffuse>
+		<ambient>
+			<red>0</red>
+			<green>0</green>
+			<blue>0</blue>
+		</ambient>
+		<specular>
+			<red>0</red>
+			<green>0</green>
+			<blue>0</blue>
+		</specular>
+		<emission>
+            <red>0</red>
+            <green>0.4823</green>
+            <blue>0.5372</blue>
+		</emission>
+		<condition>
+			<equals>
+				<property>/warnings/ecam/cfg/type</property>
+				<value>cfg_fail</value>
+			</equals>
+		</condition>
+	</animation>
+    
+    <animation>
+		<type>material</type>
+		<object-name>cfg1</object-name>
+		<diffuse>
+			<red>0</red>
+			<green>0.543</green>
+			<blue>0</blue>
+		</diffuse>
+		<ambient>
+			<red>0</red>
+			<green>0</green>
+			<blue>0</blue>
+		</ambient>
+		<specular>
+			<red>0</red>
+			<green>0</green>
+			<blue>0</blue>
+		</specular>
+		<emission>
+			<red>0</red>
+			<green>0.543</green>
+			<blue>0</blue>
+		</emission>
+		<condition>
+			<equals>
+				<property>/warnings/ecam/cfg[1]/type</property>
+				<value>cfg_ok</value>
+			</equals>
+		</condition>
+	</animation>
+    
+    <animation>
+		<type>material</type>
+		<object-name>cfg1</object-name>
+		<diffuse>
+            <red>0</red>
+            <green>0.4823</green>
+            <blue>0.5372</blue>
+		</diffuse>
+		<ambient>
+			<red>0</red>
+			<green>0</green>
+			<blue>0</blue>
+		</ambient>
+		<specular>
+			<red>0</red>
+			<green>0</green>
+			<blue>0</blue>
+		</specular>
+		<emission>
+            <red>0</red>
+            <green>0.4823</green>
+            <blue>0.5372</blue>
+		</emission>
+		<condition>
+			<equals>
+				<property>/warnings/ecam/cfg[1]/type</property>
+				<value>cfg_fail</value>
+			</equals>
+		</condition>
+	</animation>
+    
+    <animation>
+		<type>material</type>
+		<object-name>cfg2</object-name>
+		<diffuse>
+			<red>0</red>
+			<green>0.543</green>
+			<blue>0</blue>
+		</diffuse>
+		<ambient>
+			<red>0</red>
+			<green>0</green>
+			<blue>0</blue>
+		</ambient>
+		<specular>
+			<red>0</red>
+			<green>0</green>
+			<blue>0</blue>
+		</specular>
+		<emission>
+			<red>0</red>
+			<green>0.543</green>
+			<blue>0</blue>
+		</emission>
+		<condition>
+			<equals>
+				<property>/warnings/ecam/cfg[2]/type</property>
+				<value>cfg_ok</value>
+			</equals>
+		</condition>
+	</animation>
+    
+    <animation>
+		<type>material</type>
+		<object-name>cfg2</object-name>
+		<diffuse>
+            <red>0</red>
+            <green>0.4823</green>
+            <blue>0.5372</blue>
+		</diffuse>
+		<ambient>
+			<red>0</red>
+			<green>0</green>
+			<blue>0</blue>
+		</ambient>
+		<specular>
+			<red>0</red>
+			<green>0</green>
+			<blue>0</blue>
+		</specular>
+		<emission>
+            <red>0</red>
+            <green>0.4823</green>
+            <blue>0.5372</blue>
+		</emission>
+		<condition>
+			<equals>
+				<property>/warnings/ecam/cfg[2]/type</property>
+				<value>cfg_fail</value>
+			</equals>
+		</condition>
+	</animation>
+    
+    <animation>
+		<type>material</type>
+		<object-name>cfg3</object-name>
+		<diffuse>
+			<red>0</red>
+			<green>0.543</green>
+			<blue>0</blue>
+		</diffuse>
+		<ambient>
+			<red>0</red>
+			<green>0</green>
+			<blue>0</blue>
+		</ambient>
+		<specular>
+			<red>0</red>
+			<green>0</green>
+			<blue>0</blue>
+		</specular>
+		<emission>
+			<red>0</red>
+			<green>0.543</green>
+			<blue>0</blue>
+		</emission>
+		<condition>
+			<equals>
+				<property>/warnings/ecam/cfg[3]/type</property>
+				<value>cfg_ok</value>
+			</equals>
+		</condition>
+	</animation>
+    
+    <animation>
+		<type>material</type>
+		<object-name>cfg3</object-name>
+		<diffuse>
+            <red>0</red>
+            <green>0.4823</green>
+            <blue>0.5372</blue>
+		</diffuse>
+		<ambient>
+			<red>0</red>
+			<green>0</green>
+			<blue>0</blue>
+		</ambient>
+		<specular>
+			<red>0</red>
+			<green>0</green>
+			<blue>0</blue>
+		</specular>
+		<emission>
+            <red>0</red>
+            <green>0.4823</green>
+            <blue>0.5372</blue>
+		</emission>
+		<condition>
+			<equals>
+				<property>/warnings/ecam/cfg[3]/type</property>
+				<value>cfg_fail</value>
+			</equals>
+		</condition>
+	</animation>
 
 </PropertyList>

@@ -1,8 +1,8 @@
 <?xml version="1.0"?>
 <PropertyList>
 
- <path>res/nd-empty.ac</path>
-	<!-- model>
+ <path>res/ND.ac</path>
+	<model>
 		<path>Aircraft/A320neo/Models/Instruments/ND/terrain-map-pixel.xml</path>
 		<condition>
 			<and>
@@ -11,7 +11,7 @@
 					<value>15</value>
 				</greater-than>
 
-				<property>/instrumentation/efis/input/TERR</property>
+				<property>/instrumentation/efis/nd/terrain-on-nd</property>
 
 			</and>
 		</condition>
@@ -19,8 +19,8 @@
 		<offsets>
 			<x-m>0.001</x-m>
 		</offsets>
-	</model -->
-    <panel>
+	</model>
+    <!--panel>
         <path>Aircraft/A320neo/Models/Instruments/ND/Display.xml</path>
 	<condition>
 		<greater-than>
@@ -43,25 +43,38 @@
             <y-m>-0.0771</y-m>
             <z-m>0.0739</z-m>
         </top-left>
-    </panel>
-    
-    <!--panel>
-        <path>Aircraft/A320neo/Models/Instruments/ND/Display-text.xml</path>
-        <bottom-left>
-            <x-m>0.002</x-m>
-            <y-m>-0.088</y-m>
-            <z-m>-0.078</z-m>
-        </bottom-left>
-        <bottom-right>
-            <x-m>0.002</x-m>
-            <y-m>0.088</y-m>
-            <z-m>-0.078</z-m>
-        </bottom-right>
-        <top-left>
-            <x-m>0.002</x-m>
-            <y-m>-0.088</y-m>
-            <z-m>0.097</z-m>
-        </top-left>
     </panel-->
+    <animation>
+        <type>select</type>
+        <object-name>Power.off</object-name>
+        <condition>
+            <less-than>
+                <property>systems/electrical/outputs/efis</property>
+                <value>15</value>
+            </less-than>
+        </condition>
+    </animation>
+    <animation>
+        <type>select</type>
+        <object-name>ND.screen</object-name>
+        <condition>
+            <greater-than>
+                <property>systems/electrical/outputs/efis</property>
+                <value>15</value>
+            </greater-than>
+        </condition>
+    </animation>
+    <animation>
+        <type>pick</type>
+        <object-name>ND.screen</object-name>
+        <action>
+                <button>0</button>
+                <repeatable>false</repeatable>
+                <binding>
+                        <command>nasal</command>
+                        <script>canvas_nd.showNd();</script>
+                </binding>
+        </action>
+</animation>    
    
 </PropertyList>

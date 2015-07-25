@@ -22,8 +22,7 @@ var fcs = "/fdm/jsbsim/fcs/";
 var input = "/controls/flight/";
 var deg = "/orientation/";
 
-var fbw_loop = {
-	
+var fbw_loop = {	
 	init : func { 
 		me.UPDATE_INTERVAL = 0.001; 
 		me.loopid = 0; 
@@ -91,6 +90,8 @@ var fbw_loop = {
 		
 		me.stick_pitch = getprop(input~ "elevator");
 		me.stick_roll = getprop(input~ "aileron");
+        if(fmgc.fmgc_loop.alpha_floor_mode)
+            me.pitch_limit = 0;
 
 	}, 
 	get_alpha_prot : func{
@@ -129,11 +130,11 @@ var fbw_loop = {
 		# Find out the current flight phase (Ground/Flight/Flare)
 		
 				
-		if (me.agl > 50)
+		if (me.agl > 35)
 			setprop("/fbw/flight-phase", "Flight Mode");
 			
-		if ((me.phase == "Flight Mode") and (me.agl <= 50))
-			setprop("/fbw/flight-phase", "Flare Mode");
+	#	if ((me.phase == "Flight Mode") and (me.agl <= 50))
+	#		setprop("/fbw/flight-phase", "Flare Mode");
 			
 		if (getprop("/gear/gear/wow"))
 			setprop("/fbw/flight-phase", "Ground Mode");
@@ -148,11 +149,13 @@ var fbw_loop = {
 			setprop("/fbw/control/elevator", 0);
 			
 			setprop("/fbw/protect-mode", 1);
+            setprop("/fbw/stable/elevator", 0);
+            setprop("/fbw/stable/aileron", 0);
 		
 		} else {
 		
-			setprop("/fbw/protect-mode", 0);
-	
+            setprop("/fbw/protect-mode", 0);
+
 			# Ground Mode
 	
 			if (me.mode == "Ground Mode") {
@@ -181,7 +184,7 @@ var fbw_loop = {
 						# setprop("/fbw/control/elevator", 0);
 						setprop("/fbw/stable/elevator", 1);
 					
-					}
+					} 
 					
 				}
 				
@@ -309,6 +312,7 @@ var fbw_loop = {
 		me.flight_phase();
 
 		# Bring Stabilizers to 0 gradually when stabilizer mode is turned off
+                #print("FBW UPD");
 		
 		if ((getprop("/fbw/stable/elevator") != 1) and (me.mode == "Flight Mode") and (me.law == "NORMAL LAW"))
 			me.neutralize_trim("elevator");
@@ -363,15 +367,7 @@ var fbw_loop = {
 			 
 			 # ROLL AXIS 
 			 
-			 if ((getprop("/fbw/bank-hold") == 1) and (me.bank >= me.manual_bank) and (me.stick_roll < 0)) {
-			 
-				setprop("/fbw/bank-hold", 0);
-			 
-			 } elsif ((getprop("/fbw/bank-hold") == 1) and (me.bank <= -1 * me.manual_bank) and (me.stick_roll > 0)) {
-			 
-				setprop("/fbw/bank-hold", 0);
-			 
-			 } elsif ((me.stick_roll >= 0.5) and (me.bank > me.manual_bank)) {
+			 if ((me.stick_roll >= 0.5) and (me.bank > me.manual_bank)) {
 			 
 			 	setprop("/fbw/target-bank", me.manual_bank);
 				setprop("/fbw/bank-hold", 1);
@@ -395,7 +391,9 @@ var fbw_loop = {
 			 
 			 	setprop("/fbw/bank-hold", 0);
 		
-		}
+		} else {
+            setprop("/fbw/pitch-hold", 0);
+        }
 		
 #####################################################################
 

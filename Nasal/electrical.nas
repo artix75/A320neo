@@ -157,13 +157,13 @@ var init_switches = func{
     setprop("controls/lighting/efis-norm",0.8);
     setprop("controls/lighting/panel-norm",0.8);
 
-    append(lights_input,props.globals.initNode("controls/lighting/landing-light[0]",0,"BOOL"));
+    append(lights_input,props.globals.initNode("controls/lighting/landing-lights[0]",0,"BOOL"));
     append(lights_output,props.globals.initNode("systems/electrical/outputs/landing-light[0]",0,"DOUBLE"));
     append(lights_load,1);
-    append(lights_input,props.globals.initNode("controls/lighting/landing-light[1]",0,"BOOL"));
+    append(lights_input,props.globals.initNode("controls/lighting/landing-lights[1]",0,"BOOL"));
     append(lights_output,props.globals.initNode("systems/electrical/outputs/landing-light[1]",0,"DOUBLE"));
     append(lights_load,1);
-    append(lights_input,props.globals.initNode("controls/lighting/landing-light[2]",0,"BOOL"));
+    append(lights_input,props.globals.initNode("controls/lighting/landing-lights[2]",0,"BOOL"));
     append(lights_output,props.globals.initNode("systems/electrical/outputs/landing-light[2]",0,"DOUBLE"));
     append(lights_load,1);
     append(lights_input,props.globals.initNode("controls/lighting/nav-lights",0,"BOOL"));
@@ -258,6 +258,10 @@ update_virtual_bus = func( dt ) {
     var xtie=0;
     load = 0.0;
     power_source = nil;
+    var ext_v = 0;
+    var alternator1_volts = alternator1.get_output_volts();
+    var alternator2_volts = alternator2.get_output_volts();
+    var alternator3_volts = alternator3.get_output_volts();
     if(count==0){
         var battery_volts = battery.get_output_volts();
         lbus_volts = battery_volts;
@@ -266,14 +270,13 @@ update_virtual_bus = func( dt ) {
         {
             power_source = "external";
             lbus_volts = 28;
+            ext_v = lbus_volts;
         }
         elsif (APUgen.getValue())
         {
             power_source = "APU";
-            var alternator3_volts = alternator3.get_output_volts();
             lbus_volts = alternator3_volts;
         }
-        var alternator1_volts = alternator1.get_output_volts();
         if (alternator1_volts > lbus_volts) {
             lbus_volts = alternator1_volts;
             power_source = "alternator1";
@@ -290,14 +293,13 @@ update_virtual_bus = func( dt ) {
         {
             power_source = "external";
             rbus_volts = 28;
+            ext_v = rbus_volts;
         }
         elsif (APUgen.getValue())
         {
             power_source = "APU";
-            var alternator3_volts = alternator3.get_output_volts();
             rbus_volts = alternator3_volts;
         }
-        var alternator2_volts = alternator2.get_output_volts();
         if (alternator2_volts > rbus_volts) {
             rbus_volts = alternator2_volts;
             power_source = "alternator2";
@@ -307,6 +309,10 @@ update_virtual_bus = func( dt ) {
         load += rh_bus(rbus_volts);
         alternator2.apply_load(load);
     }
+    setprop('systems/electrical/suppliers/apu-v', alternator3_volts);
+    setprop('systems/electrical/suppliers/ext-power-v', ext_v);
+    setprop('systems/electrical/suppliers/gen1-v', alternator1_volts);
+    setprop('systems/electrical/suppliers/gen2-v', alternator2_volts);
     count=1-count;
     if(rbus_volts > 5 and  lbus_volts>5) xtie=1;
     XTie.setValue(xtie);
@@ -361,5 +367,66 @@ return load;
 update_electrical = func {
     var scnd = getprop("sim/time/delta-sec");
     update_virtual_bus( scnd );
-settimer(update_electrical, 0);
+    if(getprop("sim/rendering/shaders/skydome") and 
+        getprop("systems/electrical/outputs/efis") >= 9 and 
+        getprop('sim/current-view/internal')){
+        var land_light_l = getprop("systems/electrical/outputs/landing-light[0]");
+        var land_light_r = getprop("systems/electrical/outputs/landing-light[2]");
+        var taxi_light = getprop("systems/electrical/outputs/landing-light[1]");
+        var tiller= getprop("/controls/gear/tiller-cmd-norm");
+        var taxi_l_deg = tiller * 5;
+        if(land_light_l and land_light_r)
+        {
+            setprop("sim/rendering/als-secondary-lights/use-landing-light", 1);
+            setprop("sim/rendering/als-secondary-lights/use-alt-landing-light", 1);
+            setprop("sim/rendering/als-secondary-lights/landing-light1-offset-deg", -5);
+            setprop("sim/rendering/als-secondary-lights/landing-light2-offset-deg", 5);
+        }
+        else
+        {
+            if(land_light_l and taxi_light)
+            {
+                setprop("sim/rendering/als-secondary-lights/use-landing-light", 1);
+                setprop("sim/rendering/als-secondary-lights/use-alt-landing-light", 1);
+                setprop("sim/rendering/als-secondary-lights/landing-light1-offset-deg", -5);
+                setprop("sim/rendering/als-secondary-lights/landing-light2-offset-deg", taxi_l_deg);
+            }
+            elsif(land_light_r and taxi_light)
+            {
+                setprop("sim/rendering/als-secondary-lights/use-landing-light", 1);
+                setprop("sim/rendering/als-secondary-lights/use-alt-landing-light", 1);
+                setprop("sim/rendering/als-secondary-lights/landing-light1-offset-deg", taxi_l_deg);
+                setprop("sim/rendering/als-secondary-lights/landing-light2-offset-deg",5);
+            }
+            elsif(land_light_l)
+            {
+                setprop("sim/rendering/als-secondary-lights/use-landing-light", 1);
+                setprop("sim/rendering/als-secondary-lights/use-alt-landing-light", 0);
+                setprop("sim/rendering/als-secondary-lights/landing-light1-offset-deg", -5);
+                setprop("sim/rendering/als-secondary-lights/landing-light2-offset-deg",0);
+            }
+            elsif(land_light_r)
+            {
+                setprop("sim/rendering/als-secondary-lights/use-landing-light", 0);
+                setprop("sim/rendering/als-secondary-lights/use-alt-landing-light", 1);
+                setprop("sim/rendering/als-secondary-lights/landing-light1-offset-deg", 0);
+                setprop("sim/rendering/als-secondary-lights/landing-light2-offset-deg",5);
+            }
+            elsif(taxi_light)
+            {
+                setprop("sim/rendering/als-secondary-lights/use-landing-light", 1);
+                setprop("sim/rendering/als-secondary-lights/use-alt-landing-light", 0);
+                setprop("sim/rendering/als-secondary-lights/landing-light1-offset-deg", taxi_l_deg);
+            }
+            else
+            {
+                setprop("sim/rendering/als-secondary-lights/use-landing-light", 0);
+                setprop("sim/rendering/als-secondary-lights/use-alt-landing-light", 0);
+            }
+        }
+    } else {
+        setprop("sim/rendering/als-secondary-lights/use-landing-light", 0);
+        setprop("sim/rendering/als-secondary-lights/use-alt-landing-light", 0);
+    }
+    settimer(update_electrical, 0);
 }

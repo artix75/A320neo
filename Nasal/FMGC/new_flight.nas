@@ -42,6 +42,9 @@ var new_flight = func() {
     setprop(fmgc~ "ap2-master", "off");
     setprop(fmgc~ "a-thrust", "off");
     
+
+    setprop(fmgc~ 'exped-mode', 0);
+    
     # Rate/Load Factor Configuration
     
     setprop(settings~ "pitch-norm", 0.1);

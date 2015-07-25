@@ -1,6 +1,10 @@
 var procedure = {
 
 	check : func() {
+                if(getprop("/flight-management/procedures/sid/active-sid/name") == 'DEFAULT')
+                    return 'off';
+                if(getprop("/flight-management/procedures/iap/active-iap/name") == 'DEFAULT')
+                    return 'off';
 	
 		var rte_len = getprop("/autopilot/route-manager/route/num");
 	
@@ -44,10 +48,12 @@ var procedure = {
 		
 		var target_lon = getprop("/flight-management/procedures/sid/active-sid/wp[" ~ current_wp ~ "]/longitude-deg");
 		
-		if ((target_lat == 0) or (target_lon == 0))
-			setprop("/flight-management/procedures/sid-current", current_wp + 1);
+		if ((target_lat == 0) or (target_lon == 0)){
+            setprop("/flight-management/procedures/sid-current", current_wp + 1);
+            return;
+        }
 			
-		var current_wp = getprop("/flight-management/procedures/sid-current");
+		#var current_wp = getprop("/flight-management/procedures/sid-current");
 		
 		setprop("/flight-management/procedures/sid/course", me.course_to(target_lat, target_lon));
 		
@@ -174,7 +180,7 @@ var procedure = {
 	
 	},
 	
-	course_to : func(lat,lon) {
+	course_to : func(lat = 0,lon = 0) {
 	
 		var aircraft_pos = geo.aircraft_position();
 	
