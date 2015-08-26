@@ -3134,7 +3134,7 @@ var fmgc_loop = {
     },
     _loop_ : func(id) {
         id == me.loopid or return;
-        me.update();
+        utils.catch(func me.update());
         settimer(func { me._loop_(id); }, me.UPDATE_INTERVAL);
     }
 
