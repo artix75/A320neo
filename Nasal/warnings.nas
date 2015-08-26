@@ -131,7 +131,7 @@ var warning_system = {
             
             ## APU
             
-            apu_emer = warning.new("APU EMER SHUT DOWN", "chime", "caution", "apu-emer");
+            var apu_emer = warning.new("APU EMER SHUT DOWN", "chime", "caution", "apu-emer");
             apu_emer.condition = func() {
                 return getprop("/engines/apu/on-fire");
             };
