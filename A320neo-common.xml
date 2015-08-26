@@ -1393,7 +1393,7 @@
 			<file>Aircraft/A320neo/Nasal/copilot.nas</file>
                         <file>Aircraft/A320neo/Nasal/ground-services.nas</file>
 			<file>Aircraft/A320neo/Nasal/general_loop.nas</file>
-			<file>Aircraft/A330-200/Nasal/autoannunciator.nas</file>
+			<file>Aircraft/A320neo/Nasal/autoannunciator.nas</file>
 		</a320neo>
 		<a332_gui>
 			<file>Aircraft/A320neo/Nasal/GUI/WXRLiveDialog.nas</file>
