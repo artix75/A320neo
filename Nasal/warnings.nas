@@ -373,11 +373,16 @@ var warning_system = {
             
             var ap_off = warning.new("AP 1+2 OFF", "ap_disc", "caution", "ap-off");
             ap_off.condition = func() {
-                return ((getprop("/flight-management/control/ap1-master") == "off") and 
-                    (getprop("/flight-management/control/ap2-master") == "off") and 
-                    (((getprop("/position/altitude-agl-ft") > 400) and (getprop("/velocities/vertical-speed-fps") < -5)) or 
-                    ((getprop("/position/altitude-agl-ft") > 10000) and (getprop("/velocities/vertical-speed-fps") > 5)) or 
-                    ((getprop('flight-management/phase') == 'APP') and (getprop("/velocities/airspeed-kt") > 70))));
+                if((getprop("/flight-management/control/ap1-master") == "off") and
+                   (getprop("/flight-management/control/ap2-master") == "off")) {
+                    if(var armed = getprop(me.prop~"armed")) {
+                        setprop(me.prop~"armed", armed - 1);
+                        return 1;
+                    }
+                } else {
+                    setprop(me.prop~"armed", 5);
+                }
+                return 0;
             };
             
             var athr_off = warning.new("A/THR OFF", "chime", "caution", "athr-off");
