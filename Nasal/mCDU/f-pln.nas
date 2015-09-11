@@ -47,6 +47,44 @@ var f_pln = {
 		me.route_manager.deleteFlightPlan('temporary');
 		me.route_manager.deleteAlternateDestination();
 		
+		## Set Departure and Destination from active RTE
+		
+		var dep = getprop(active_rte~ "depicao");
+		
+		var arr = getprop(active_rte~ "arricao");
+		
+		var fp = flightplan();
+
+		var depAp = findAirportsByICAO(dep)[0];
+		var arrAp = findAirportsByICAO(arr)[0];
+
+		# FG3.7 (version/3.7.0-7-gf4fa687) returns NaN for distance
+		# without departure runway, so pick a default.
+		var depRwy = depAp.findBestRunwayForPos(geo.aircraft_position());
+		# FG as far back as 3.4 and as recent as 3.7 return
+		# nonsensical (though finite) distance without destination
+		# runway, so pick a default as well.
+		var arrRwy = arrAp.findBestRunwayForPos(geo.aircraft_position());
+
+		fp.departure = depAp;
+		fp.departure_runway = depRwy;
+
+		fp.destination = arrAp;
+		fp.destination_runway = arrRwy;
+		
+		setprop(f_pln_disp~ 'departure', dep);
+		setprop(f_pln_disp~ 'destination', arr);
+
+		if(getprop("/flight-management/alternate/icao") == "empty") {
+			# artix: disabled this
+                        #setprop(rm_route~ "input", "@INSERT99:" ~ dep ~ "@0");
+		
+		} else {
+		
+			#setprop(rm_route~ "input", "@INSERT99:" ~ getprop("/flight-management/alternate/icao") ~ "@0");
+		
+		}
+		
 		## Copy Waypoints and altitudes from active-rte
 		
 		for (var index = 0; getprop(active_rte~ "route/wp[" ~ index ~ "]/wp-id") != nil; index += 1) {
@@ -58,7 +96,7 @@ var f_pln = {
 			if (wp_alt == nil)
 				wp_alt = 10000;
 		
-			setprop(rm_route~ "input", "@INSERT99:" ~ wp_id ~ "@" ~ wp_alt);
+			setprop(rm_route~ "input", "@INSERT" ~ (index + 1) ~ ":" ~ wp_id ~ "@" ~ wp_alt);
 		
 		}
 		
@@ -72,28 +110,6 @@ var f_pln = {
 			
 			if (wp_spd != nil)
 				setprop(rm_route~ "route/wp[" ~ wp ~ "]/ias-mach", wp_spd);
-		
-		}
-		
-		## Reset Departure and Destination from active RTE
-		
-		var dep = getprop(active_rte~ "depicao");
-		
-		var arr = getprop(active_rte~ "arricao");
-		
-		setprop(rm_route~ "departure/airport", dep);
-		setprop(rm_route~ "destination/airport", arr);
-		
-		setprop(f_pln_disp~ 'departure', dep);
-		setprop(f_pln_disp~ 'destination', arr);
-
-		if(getprop("/flight-management/alternate/icao") == "empty") {
-			# artix: disabled this
-                        #setprop(rm_route~ "input", "@INSERT99:" ~ dep ~ "@0");
-		
-		} else {
-		
-			#setprop(rm_route~ "input", "@INSERT99:" ~ getprop("/flight-management/alternate/icao") ~ "@0");
 		
 		}
 		
