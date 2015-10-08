@@ -1360,11 +1360,12 @@
 		
 		<fmgc>
 			<file>Aircraft/A320neo/Nasal/FMGC/autoland.nas</file>
-			<file>Aircraft/A320neo/Nasal/FMGC/new_flight.nas</file>
-			<file>Aircraft/A320neo/Nasal/FMGC/manage-speeds.nas</file>
 			<file>Aircraft/A320neo/Nasal/FMGC/deflection.nas</file>
-			<file>Aircraft/A320neo/Nasal/FMGC/procedure.nas</file>
 			<file>Aircraft/A320neo/Nasal/FMGC/fmgc_loop.nas</file>
+			<file>Aircraft/A320neo/Nasal/FMGC/hold-pattern.nas</file>
+			<file>Aircraft/A320neo/Nasal/FMGC/manage-speeds.nas</file>
+			<file>Aircraft/A320neo/Nasal/FMGC/new_flight.nas</file>
+			<file>Aircraft/A320neo/Nasal/FMGC/procedure.nas</file>
 			<file>Aircraft/A320neo/Nasal/FMGC/route.nas</file>
 			<file>Aircraft/A320neo/Nasal/FMGC/wp_transit.nas</file>
 		</fmgc>
