@@ -551,7 +551,7 @@
 					<property>sim/sound/passengers</property>
 					<less-than>
 						<property>sim/current-view/view-number</property>
-						<value>10</value>
+						<value>17</value>
 					</less-than>
 					<greater-than-equals>
 						<property>sim/current-view/view-number</property>
