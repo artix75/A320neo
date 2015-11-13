@@ -1589,7 +1589,7 @@
 			<reference-dist>10.0</reference-dist>
 			<max-dist>100.0</max-dist>
 		</announcement>
-
+<!--
 		<announcement>
 			<name>boarding1</name>
 			<path>Aircraft/A320neo/Sounds/announce/music.wav</path>
@@ -1608,7 +1608,7 @@
 			<reference-dist>10.0</reference-dist>
 			<max-dist>100.0</max-dist>
 		</announcement>
-
+-->
 		<announcement>
 			<name>boarding2</name>
 			<path>Aircraft/A320neo/Sounds/announce/music2.wav</path>
@@ -1627,7 +1627,7 @@
 			<reference-dist>10.0</reference-dist>
 			<max-dist>100.0</max-dist>
 		</announcement>
-
+<!--
 		<announcement>
 			<name>boarding3</name>
 			<path>Aircraft/A320neo/Sounds/announce/etihad-board.wav</path>
@@ -1665,7 +1665,7 @@
 			<reference-dist>10.0</reference-dist>
 			<max-dist>100.0</max-dist>
 		</announcement>
-
+-->
 		<announcement>
 			<name>brace</name>
 			<path>Aircraft/A320neo/Sounds/announce/brace.wav</path>
