@@ -42,6 +42,7 @@
 				    <value>dark-red.png</value>
 				    <value>green-orange.png</value>
 				    <value>blank.png</value>
+					<value>Air-Canada.png</value>
 				    <binding>
 				        <command>dialog-apply</command>
 				    </binding>
