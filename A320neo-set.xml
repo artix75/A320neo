@@ -28,6 +28,7 @@
 			<splash-texture>Aircraft/A320neo/A320neo-splash.png</splash-texture>
 			<splash-texture>Aircraft/A320neo/Splash/splashACA.png</splash-texture>
 			<splash-texture>Aircraft/A320neo/Splash/splashEIN.png</splash-texture>
+			<splash-texture>Aircraft/A320neo/Splash/splashDAL.png</splash-texture>
 		</startup>
 		<!-- Plus A320neo-common.xml Tutorial -->
 
