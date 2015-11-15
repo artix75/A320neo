@@ -1,12 +1,16 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!--under CC-BY 4.0; see THANKS file-->
+<!--
+:copyright 2015, David Bjorkman
+murderbybox@gmail.com
+License: GPL3+
+-->
 <PropertyList>
-	<sim>
-		<model>
-			<livery>
-				<name>Aer Lingus</name>
-				<neo-texture>Liveries/A320neo-EIN.png</neo-texture>
-			</livery>
-		</model>
-	</sim>
+  <sim>
+    <model>
+      <livery>
+	<name>Aer Lingus</name>
+	<neo-texture>Liveries/A320neo-EIN.png</neo-texture>
+      </livery>
+    </model>
+  </sim>
 </PropertyList>
