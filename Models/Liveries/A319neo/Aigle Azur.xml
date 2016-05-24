@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<PropertyList>
+	<sim>
+		<model>
+			<livery>
+				<name>Aigle Azur</name>
+				<neo-texture>Liveries/A319neo-AAR.png</neo-texture>
+			</livery>
+		</model>
+	</sim>
+</PropertyList>

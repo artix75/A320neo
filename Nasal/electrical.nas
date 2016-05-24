@@ -142,7 +142,7 @@ var alternator3 = Alternator.new(2,"controls/electric/APU-generator","/engines/a
 #####################################
 setlistener("/sim/signals/fdm-initialized", func {
     init_switches();
-    settimer(update_electrical,5);
+    settimer(func utils.catch(update_electrical),5);
     print("Electrical System ... ok");
 });
 
@@ -428,5 +428,5 @@ update_electrical = func {
         setprop("sim/rendering/als-secondary-lights/use-landing-light", 0);
         setprop("sim/rendering/als-secondary-lights/use-alt-landing-light", 0);
     }
-    settimer(update_electrical, 0);
+    settimer(func utils.catch(update_electrical), 0);
 }

@@ -128,10 +128,17 @@ var warning_system = {
             setprop("/warnings/master-caution-light", 0);
             
             # Create Warnings #########################
+
+	    ## Simulator
+
+	    var bugs = warning.new("SIMULATOR BUG", "crc", "warning", "simulator-bug");
+	    bugs.condition = func() {
+	        getprop("/warnings/simulator-bug-count", 0);
+	    };
             
             ## APU
             
-            apu_emer = warning.new("APU EMER SHUT DOWN", "chime", "caution", "apu-emer");
+            var apu_emer = warning.new("APU EMER SHUT DOWN", "chime", "caution", "apu-emer");
             apu_emer.condition = func() {
                 return getprop("/engines/apu/on-fire");
             };
@@ -366,11 +373,16 @@ var warning_system = {
             
             var ap_off = warning.new("AP 1+2 OFF", "ap_disc", "caution", "ap-off");
             ap_off.condition = func() {
-                return ((getprop("/flight-management/control/ap1-master") == "off") and 
-                    (getprop("/flight-management/control/ap2-master") == "off") and 
-                    (((getprop("/position/altitude-agl-ft") > 400) and (getprop("/velocities/vertical-speed-fps") < -5)) or 
-                    ((getprop("/position/altitude-agl-ft") > 10000) and (getprop("/velocities/vertical-speed-fps") > 5)) or 
-                    ((getprop('flight-management/phase') == 'APP') and (getprop("/velocities/airspeed-kt") > 70))));
+                if((getprop("/flight-management/control/ap1-master") == "off") and
+                   (getprop("/flight-management/control/ap2-master") == "off")) {
+                    if(var armed = getprop(me.prop~"armed")) {
+                        setprop(me.prop~"armed", armed - 1);
+                        return 1;
+                    }
+                } else {
+                    setprop(me.prop~"armed", 5);
+                }
+                return 0;
             };
             
             var athr_off = warning.new("A/THR OFF", "chime", "caution", "athr-off");
@@ -385,7 +397,7 @@ var warning_system = {
 
             # All warnings into a hash for easier use
             
-            me.warnings = [stall, spdbrk_stillout, apu_emer, to_cfg_pbrk, to_cfg_flaps, to_cfg_spdbrk, to_cfg_ptrim, to_cfg_rtrim, elv_fault, ail_fault, rud_fault, spdbrk_fault, flaps_fault, direct_law, altn_law, abn_law , engd_fail, eng1_fail, eng2_fail, engd_oilp, eng1_oilp, eng2_oilp, engd_shut, eng1_shut, eng2_shut, hydall, hydby, hydbg, hydgy, hydb_lopr, hydy_lopr, hydg_lopr, ptu_fault, fuel_1lo, fuel_2lo, fuel_clo, fuel_wlo, fuel_bal, apugen_fault, gen1_fault, gen2_fault, emer_conf, ap_off, athr_off, athr_limited];
+            me.warnings = [bugs, stall, spdbrk_stillout, apu_emer, to_cfg_pbrk, to_cfg_flaps, to_cfg_spdbrk, to_cfg_ptrim, to_cfg_rtrim, elv_fault, ail_fault, rud_fault, spdbrk_fault, flaps_fault, direct_law, altn_law, abn_law , engd_fail, eng1_fail, eng2_fail, engd_oilp, eng1_oilp, eng2_oilp, engd_shut, eng1_shut, eng2_shut, hydall, hydby, hydbg, hydgy, hydb_lopr, hydy_lopr, hydg_lopr, ptu_fault, fuel_1lo, fuel_2lo, fuel_clo, fuel_wlo, fuel_bal, apugen_fault, gen1_fault, gen2_fault, emer_conf, ap_off, athr_off, athr_limited];
 
             #TO CONFIG
 

@@ -28,7 +28,7 @@ name "N1LPtr"
 loc 0.001085 0.0790818 0.0326813
 data 9
 Plane.008
-texture "/home/bicyus/Documents/Desarrollo/A320neo/Models/Instruments/EICAS/eicas.png"
+texture "eicas.png"
 crease 30.000000
 numvert 4
 0.000146106 -0.00246428 0.0328261
@@ -49,7 +49,7 @@ name "N1RPtr"
 loc 0.00123111 0.073232 -0.0145519
 data 9
 Plane.008
-texture "/home/bicyus/Documents/Desarrollo/A320neo/Models/Instruments/EICAS/eicas.png"
+texture "eicas.png"
 crease 30.000000
 numvert 4
 0 0.00246428 0.033412
@@ -70,7 +70,7 @@ name "EGTRPtr"
 loc 0.001085 0.039553 0.0326845
 data 9
 Plane.012
-texture "/home/bicyus/Documents/Desarrollo/A320neo/Models/Instruments/EICAS/eicas.png"
+texture "eicas.png"
 crease 30.000000
 numvert 4
 0.000146106 -0.00936565 -0.0142974
@@ -91,7 +91,7 @@ name "EGTLPtr"
 loc 0.001085 0.039553 0.0326845
 data 9
 Plane.012
-texture "/home/bicyus/Documents/Desarrollo/A320neo/Models/Instruments/EICAS/eicas.png"
+texture "eicas.png"
 crease 30.000000
 numvert 4
 0.000146106 -0.00977372 0.052607
@@ -172,7 +172,7 @@ name "APURunAlert"
 loc 0.000985203 0.00912667 -0.00853543
 data 9
 Plane.004
-texture "/home/bicyus/Documents/Desarrollo/A320neo/Models/Instruments/EICAS/eicas.png"
+texture "eicas.png"
 crease 30.000000
 numvert 4
 9.98005e-05 -0.0437303 0.0610512
@@ -193,7 +193,7 @@ name "APUStartAlert"
 loc 0.000985203 0.00912667 -0.00853543
 data 9
 Plane.001
-texture "/home/bicyus/Documents/Desarrollo/A320neo/Models/Instruments/EICAS/eicas.png"
+texture "eicas.png"
 crease 30.000000
 numvert 4
 9.98005e-05 -0.03786 0.0598772
@@ -234,7 +234,7 @@ name "FOB"
 loc 0.000985203 0.0620969 -0.11757
 data 9
 Plane.019
-texture "/home/bicyus/Documents/Desarrollo/A320neo/Models/Instruments/EICAS/eicas.png"
+texture "eicas.png"
 crease 30.000000
 numvert 8
 9.98005e-05 -0.0155129 0.0706856
@@ -266,7 +266,7 @@ name "Flaps"
 loc 0.000985203 0.0400557 0.00492155
 data 9
 Plane.018
-texture "/home/bicyus/Documents/Desarrollo/A320neo/Models/Instruments/EICAS/eicas.png"
+texture "eicas.png"
 crease 30.000000
 numvert 4
 9.98005e-05 -0.0155129 -0.0570606
@@ -287,7 +287,7 @@ name "SpeedbrakeAlert"
 loc 0.000985203 0.00912667 -0.00853543
 data 9
 Plane.005
-texture "/home/bicyus/Documents/Desarrollo/A320neo/Models/Instruments/EICAS/eicas.png"
+texture "eicas.png"
 crease 30.000000
 numvert 4
 9.98005e-05 -0.0259984 0.0644642
@@ -308,7 +308,7 @@ name "SpoilerArmedAlert"
 loc 0.000985203 0.00912667 -0.00853543
 data 9
 Plane.006
-texture "/home/bicyus/Documents/Desarrollo/A320neo/Models/Instruments/EICAS/eicas.png"
+texture "eicas.png"
 crease 30.000000
 numvert 4
 9.98005e-05 -0.0319897 0.0504847
@@ -327,7 +327,7 @@ kids 0
 OBJECT poly
 name "Border"
 loc -0.010885 0.0531432 -0.0618585
-texture "/home/bicyus/Documents/Desarrollo/A320neo/Models/Instruments/ECAM/res/flightdeck.png"
+texture "flightdeck.png"
 crease 45.000000
 numvert 10
 0.0120417 -0.12325 0.153461
@@ -361,7 +361,7 @@ kids 0
 OBJECT poly
 name "Border"
 loc 0.000843621 0.0123394 -0.000819031
-texture "/home/bicyus/Documents/Desarrollo/A320neo/Models/Instruments/ECAM/res/flightdeck.png"
+texture "flightdeck.png"
 crease 45.000000
 numvert 102
 5.96068e-05 -0.0945599 0.0811123
@@ -1153,7 +1153,7 @@ name "N2"
 loc 0.00114538 0.0133556 0.0335472
 data 9
 Plane.013
-texture "/home/bicyus/Documents/Desarrollo/A320neo/Models/Instruments/EICAS/eicas.png"
+texture "eicas.png"
 crease 30.000000
 numvert 16
 6.03795e-05 -0.00312839 -0.0225653
@@ -1207,7 +1207,7 @@ name "FF"
 loc 0.00114538 -0.00176086 0.033731
 data 9
 Plane.017
-texture "/home/bicyus/Documents/Desarrollo/A320neo/Models/Instruments/EICAS/eicas.png"
+texture "eicas.png"
 crease 30.000000
 numvert 16
 6.03795e-05 6.70855e-05 0.00747754
@@ -1261,7 +1261,7 @@ name "EGT"
 loc 0.00101194 0.039553 0.0326845
 data 9
 Plane.012
-texture "/home/bicyus/Documents/Desarrollo/A320neo/Models/Instruments/EICAS/eicas.png"
+texture "eicas.png"
 crease 30.000000
 numvert 16
 -7.30564e-05 0.0118418 -0.054362
@@ -1315,7 +1315,7 @@ name "N1"
 loc 0.00101194 0.0790818 0.0326813
 data 9
 Plane.008
-texture "/home/bicyus/Documents/Desarrollo/A320neo/Models/Instruments/EICAS/eicas.png"
+texture "eicas.png"
 crease 30.000000
 numvert 16
 -7.30564e-05 0.0184211 -0.0120662

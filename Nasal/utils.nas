@@ -222,3 +222,16 @@ var reload_nasal = func(path, namespace){
 	io.load_nasal(ac_dir~ '/' ~ path, namespace);
 }
 
+var catch = func(fn){
+	var res = call(fn, nil, var e = []);
+	if(size(e)){
+		debug.printerror(e);
+		print("You have encountered a bug in the A320neo model.");
+		print("Please, report it along with the above message and description of what you");
+		print("were doing when it happened to https://github.com/FGMEMBERS/A320neo/issues");
+		var prop = "/warnings/simulator-bug-count";
+		setprop(prop, (getprop(prop) or 0) + 1);
+	}
+	return res;
+}
+

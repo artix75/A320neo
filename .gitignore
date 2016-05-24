@@ -1,5 +1,3 @@
-Models/FlightDeck/res.old
-Models/Instruments/PFD.old
-tmp
-Database/Procedures/*
-Database/Company/*
+#ignore generated backup files
+*.*~
+.*~
