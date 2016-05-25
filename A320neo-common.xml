@@ -305,6 +305,10 @@
 				<path>Aircraft/A320neo/Systems/flight-deck.xml</path>
 			</autopilot>
 			
+			<property-rule n="101">	
+				<path>Aircraft/A320neo/Systems/fl2070_sound.xml</path>
+			</property-rule>
+			
 		</systems>
 
 		<chase-distance-m>-60</chase-distance-m>
