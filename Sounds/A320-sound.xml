@@ -1178,7 +1178,7 @@
 		<gear>
 			<name>gear0</name>
 			<mode>in-transit</mode>
-			<path>FL2070/320gear</path>
+			<path>FL2070/320gear.wav</path>
 			<property>gear/gear[0]/position-norm</property>
 			<volume>
 				<property>sim/sound/other/gear</property>
@@ -1188,7 +1188,7 @@
 		<gear>
 			<name>gear1</name>
 			<mode>in-transit</mode>
-			<path>FL2070/320gear</path>
+			<path>FL2070/320gear.wav</path>
 			<property>gear/gear[1]/position-norm</property>
 			<volume>
 				<property>sim/sound/other/gear</property>
@@ -1198,7 +1198,7 @@
 		<gear>
 			<name>gear2</name>
 			<mode>in-transit</mode>
-			<path>FL2070/320gear</path>
+			<path>FL2070/320gear.wav</path>
 			<property>gear/gear[2]/position-norm</property>
 			<volume>
 				<property>sim/sound/other/gear</property>
@@ -1282,7 +1282,7 @@
 		<callout>
 			<name>V1</name>
 			<mode>once</mode>
-			<path>FL2070/v1.wav</path>
+			<path>FL2070/V1.wav</path>
 			<condition>
 				<greater-than>
 					<property>velocities/airspeed-kt</property>
@@ -1300,7 +1300,7 @@
 		<callout>
 			<name>VR</name>
 			<mode>once</mode>
-			<path>FL2070/vr.wav</path>
+			<path>FL2070/VR.wav</path>
 			<condition>
 				<greater-than>
 					<property>velocities/airspeed-kt</property>
@@ -1318,7 +1318,7 @@
 		<callout>
 			<name>V2</name>
 			<mode>once</mode>
-			<path>FL2070/v2.wav</path>
+			<path>FL2070/V2.wav</path>
 			<condition>
 				<greater-than>
 					<property>velocities/airspeed-kt</property>
