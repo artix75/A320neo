@@ -31,7 +31,6 @@
 			<splash-texture>Aircraft/A320neo/Splash/splashDAL.png</splash-texture>
 			<splash-texture>Aircraft/A320neo/Splash/splashJBU.png</splash-texture>
 			<splash-texture>Aircraft/A320neo/Splash/splashLAN.png</splash-texture>
-			<splash-texture>Aircraft/A320neo/Splash/splashEZY.png</splash-texture>
 		</startup>
 		<!-- Plus A320neo-common.xml Tutorial -->
 
