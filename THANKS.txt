@@ -1,0 +1,6 @@
+Thanks to David Björkman for his work on the A320neo's liveries, specifically:
+Air Canada
+Air Canada Stairs
+Aer Lingus
+murderbybox@gmail.com
+These liveries are liscenced as GNU GPL.

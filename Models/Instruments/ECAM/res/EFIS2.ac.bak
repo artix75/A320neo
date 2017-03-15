@@ -6,7 +6,7 @@ kids 76
 OBJECT poly
 name "EFIS.bezel"
 loc 0 -0.00223368 0.0809274
-texture "/home/bicyus/Documents/Desarrollo/TEST/747-400/Models/Cockpit/Instruments/PFD/efis-frame.png"
+texture "efis-frame.png"
 crease 40.000000
 numvert 4
 0.003134 0.089522 0.094697
@@ -25,7 +25,7 @@ kids 0
 OBJECT poly
 name "EFIS.bezel"
 loc 0 -0.00223025 0.0810292
-texture "/home/bicyus/Documents/Desarrollo/TEST/747-400/Models/Cockpit/Instruments/PFD/efis-frame.png"
+texture "efis-frame.png"
 crease 40.000000
 numvert 3
 0.006699 0.093912 -0.101335
@@ -42,7 +42,7 @@ kids 0
 OBJECT poly
 name "EFIS.bezel"
 loc 0 -0.00223025 0.0810292
-texture "/home/bicyus/Documents/Desarrollo/TEST/747-400/Models/Cockpit/Instruments/PFD/efis-frame.png"
+texture "efis-frame.png"
 crease 40.000000
 numvert 3
 0.006698 0.0999982 -0.101344
@@ -59,7 +59,7 @@ kids 0
 OBJECT poly
 name "EFIS.bezel"
 loc 0 -0.00223025 0.0810292
-texture "/home/bicyus/Documents/Desarrollo/TEST/747-400/Models/Cockpit/Instruments/PFD/efis-frame.png"
+texture "efis-frame.png"
 crease 40.000000
 numvert 3
 0.006698 0.0999982 -0.101344
@@ -76,7 +76,7 @@ kids 0
 OBJECT poly
 name "EFIS.bezel"
 loc 0 -0.00223025 0.0810292
-texture "/home/bicyus/Documents/Desarrollo/TEST/747-400/Models/Cockpit/Instruments/PFD/efis-frame.png"
+texture "efis-frame.png"
 crease 40.000000
 numvert 4
 -1e-06 -0.109206 -0.111853
@@ -95,7 +95,7 @@ kids 0
 OBJECT poly
 name "EFIS.bezel"
 loc 0 -0.00223025 0.0810292
-texture "/home/bicyus/Documents/Desarrollo/TEST/747-400/Models/Cockpit/Instruments/PFD/efis-frame.png"
+texture "efis-frame.png"
 crease 40.000000
 numvert 4
 0.008898 -0.092315 -0.088996
@@ -114,7 +114,7 @@ kids 0
 OBJECT poly
 name "EFIS.bezel"
 loc 0 -0.00223025 0.0810292
-texture "/home/bicyus/Documents/Desarrollo/TEST/747-400/Models/Cockpit/Instruments/PFD/efis-frame.png"
+texture "efis-frame.png"
 crease 40.000000
 numvert 4
 0.008897 -0.090666 -0.08565
@@ -133,7 +133,7 @@ kids 0
 OBJECT poly
 name "EFIS.bezel"
 loc 0 -0.00223025 0.0810292
-texture "/home/bicyus/Documents/Desarrollo/TEST/747-400/Models/Cockpit/Instruments/PFD/efis-frame.png"
+texture "efis-frame.png"
 crease 40.000000
 numvert 4
 0.008897 -0.090912 -0.081928
@@ -152,7 +152,7 @@ kids 0
 OBJECT poly
 name "EFIS.bezel"
 loc 0 -0.00223025 0.0810292
-texture "/home/bicyus/Documents/Desarrollo/TEST/747-400/Models/Cockpit/Instruments/PFD/efis-frame.png"
+texture "efis-frame.png"
 crease 40.000000
 numvert 4
 0.008898 -0.092986 -0.078828
@@ -171,7 +171,7 @@ kids 0
 OBJECT poly
 name "EFIS.bezel"
 loc 0 -0.00223025 0.0810292
-texture "/home/bicyus/Documents/Desarrollo/TEST/747-400/Models/Cockpit/Instruments/PFD/efis-frame.png"
+texture "efis-frame.png"
 crease 40.000000
 numvert 4
 0.008898 -0.096331 -0.077178
@@ -190,7 +190,7 @@ kids 0
 OBJECT poly
 name "EFIS.bezel"
 loc 0 -0.00223025 0.0810292
-texture "/home/bicyus/Documents/Desarrollo/TEST/747-400/Models/Cockpit/Instruments/PFD/efis-frame.png"
+texture "efis-frame.png"
 crease 40.000000
 numvert 4
 0.008898 -0.100054 -0.077424
@@ -209,7 +209,7 @@ kids 0
 OBJECT poly
 name "EFIS.bezel"
 loc 0 -0.00223025 0.0810292
-texture "/home/bicyus/Documents/Desarrollo/TEST/747-400/Models/Cockpit/Instruments/PFD/efis-frame.png"
+texture "efis-frame.png"
 crease 40.000000
 numvert 4
 0.008897 -0.103155 -0.079499
@@ -228,7 +228,7 @@ kids 0
 OBJECT poly
 name "EFIS.bezel"
 loc 0 -0.00223025 0.0810292
-texture "/home/bicyus/Documents/Desarrollo/TEST/747-400/Models/Cockpit/Instruments/PFD/efis-frame.png"
+texture "efis-frame.png"
 crease 40.000000
 numvert 4
 0.008896 -0.104803 -0.082844
@@ -247,7 +247,7 @@ kids 0
 OBJECT poly
 name "EFIS.bezel"
 loc 0 -0.00223025 0.0810292
-texture "/home/bicyus/Documents/Desarrollo/TEST/747-400/Models/Cockpit/Instruments/PFD/efis-frame.png"
+texture "efis-frame.png"
 crease 40.000000
 numvert 4
 0.008896 -0.104557 -0.086567
@@ -266,7 +266,7 @@ kids 0
 OBJECT poly
 name "EFIS.bezel"
 loc 0 -0.00223025 0.0810292
-texture "/home/bicyus/Documents/Desarrollo/TEST/747-400/Models/Cockpit/Instruments/PFD/efis-frame.png"
+texture "efis-frame.png"
 crease 40.000000
 numvert 4
 0.008897 -0.102484 -0.089667
@@ -285,7 +285,7 @@ kids 0
 OBJECT poly
 name "EFIS.bezel"
 loc 0 -0.00223025 0.0810292
-texture "/home/bicyus/Documents/Desarrollo/TEST/747-400/Models/Cockpit/Instruments/PFD/efis-frame.png"
+texture "efis-frame.png"
 crease 40.000000
 numvert 4
 0.008898 -0.099137 -0.091316
@@ -304,7 +304,7 @@ kids 0
 OBJECT poly
 name "EFIS.bezel"
 loc 0 -0.00223025 0.0810292
-texture "/home/bicyus/Documents/Desarrollo/TEST/747-400/Models/Cockpit/Instruments/PFD/efis-frame.png"
+texture "efis-frame.png"
 crease 40.000000
 numvert 4
 0.008898 -0.095415 -0.091071
@@ -323,7 +323,7 @@ kids 0
 OBJECT poly
 name "EFIS.bezel"
 loc 0 -0.00223025 0.0810292
-texture "/home/bicyus/Documents/Desarrollo/TEST/747-400/Models/Cockpit/Instruments/PFD/efis-frame.png"
+texture "efis-frame.png"
 crease 40.000000
 numvert 3
 0.012619 -0.090666 -0.08565
@@ -340,7 +340,7 @@ kids 0
 OBJECT poly
 name "EFIS.bezel"
 loc 0 -0.00223025 0.0810292
-texture "/home/bicyus/Documents/Desarrollo/TEST/747-400/Models/Cockpit/Instruments/PFD/efis-frame.png"
+texture "efis-frame.png"
 crease 40.000000
 numvert 3
 0.008898 -0.092315 -0.088996
@@ -357,7 +357,7 @@ kids 0
 OBJECT poly
 name "EFIS.bezel"
 loc 0 -0.00223025 0.0810292
-texture "/home/bicyus/Documents/Desarrollo/TEST/747-400/Models/Cockpit/Instruments/PFD/efis-frame.png"
+texture "efis-frame.png"
 crease 40.000000
 numvert 3
 0.012619 -0.090912 -0.081928
@@ -374,7 +374,7 @@ kids 0
 OBJECT poly
 name "EFIS.bezel"
 loc 0 -0.00223025 0.0810292
-texture "/home/bicyus/Documents/Desarrollo/TEST/747-400/Models/Cockpit/Instruments/PFD/efis-frame.png"
+texture "efis-frame.png"
 crease 40.000000
 numvert 3
 0.008897 -0.090666 -0.08565
@@ -391,7 +391,7 @@ kids 0
 OBJECT poly
 name "EFIS.bezel"
 loc 0 -0.00223025 0.0810292
-texture "/home/bicyus/Documents/Desarrollo/TEST/747-400/Models/Cockpit/Instruments/PFD/efis-frame.png"
+texture "efis-frame.png"
 crease 40.000000
 numvert 3
 0.012618 -0.092985 -0.078827
@@ -408,7 +408,7 @@ kids 0
 OBJECT poly
 name "EFIS.bezel"
 loc 0 -0.00223025 0.0810292
-texture "/home/bicyus/Documents/Desarrollo/TEST/747-400/Models/Cockpit/Instruments/PFD/efis-frame.png"
+texture "efis-frame.png"
 crease 40.000000
 numvert 3
 0.008897 -0.090912 -0.081928
@@ -425,7 +425,7 @@ kids 0
 OBJECT poly
 name "EFIS.bezel"
 loc 0 -0.00223025 0.0810292
-texture "/home/bicyus/Documents/Desarrollo/TEST/747-400/Models/Cockpit/Instruments/PFD/efis-frame.png"
+texture "efis-frame.png"
 crease 40.000000
 numvert 3
 0.012618 -0.096331 -0.077178
@@ -442,7 +442,7 @@ kids 0
 OBJECT poly
 name "EFIS.bezel"
 loc 0 -0.00223025 0.0810292
-texture "/home/bicyus/Documents/Desarrollo/TEST/747-400/Models/Cockpit/Instruments/PFD/efis-frame.png"
+texture "efis-frame.png"
 crease 40.000000
 numvert 3
 0.008898 -0.092986 -0.078828
@@ -459,7 +459,7 @@ kids 0
 OBJECT poly
 name "EFIS.bezel"
 loc 0 -0.00223025 0.0810292
-texture "/home/bicyus/Documents/Desarrollo/TEST/747-400/Models/Cockpit/Instruments/PFD/efis-frame.png"
+texture "efis-frame.png"
 crease 40.000000
 numvert 3
 0.012618 -0.100053 -0.077424
@@ -476,7 +476,7 @@ kids 0
 OBJECT poly
 name "EFIS.bezel"
 loc 0 -0.00223025 0.0810292
-texture "/home/bicyus/Documents/Desarrollo/TEST/747-400/Models/Cockpit/Instruments/PFD/efis-frame.png"
+texture "efis-frame.png"
 crease 40.000000
 numvert 3
 0.008898 -0.096331 -0.077178
@@ -493,7 +493,7 @@ kids 0
 OBJECT poly
 name "EFIS.bezel"
 loc 0 -0.00223025 0.0810292
-texture "/home/bicyus/Documents/Desarrollo/TEST/747-400/Models/Cockpit/Instruments/PFD/efis-frame.png"
+texture "efis-frame.png"
 crease 40.000000
 numvert 3
 0.012617 -0.103155 -0.079499
@@ -510,7 +510,7 @@ kids 0
 OBJECT poly
 name "EFIS.bezel"
 loc 0 -0.00223025 0.0810292
-texture "/home/bicyus/Documents/Desarrollo/TEST/747-400/Models/Cockpit/Instruments/PFD/efis-frame.png"
+texture "efis-frame.png"
 crease 40.000000
 numvert 3
 0.008898 -0.100054 -0.077424
@@ -527,7 +527,7 @@ kids 0
 OBJECT poly
 name "EFIS.bezel"
 loc 0 -0.00223025 0.0810292
-texture "/home/bicyus/Documents/Desarrollo/TEST/747-400/Models/Cockpit/Instruments/PFD/efis-frame.png"
+texture "efis-frame.png"
 crease 40.000000
 numvert 3
 0.012619 -0.104803 -0.082844
@@ -544,7 +544,7 @@ kids 0
 OBJECT poly
 name "EFIS.bezel"
 loc 0 -0.00223025 0.0810292
-texture "/home/bicyus/Documents/Desarrollo/TEST/747-400/Models/Cockpit/Instruments/PFD/efis-frame.png"
+texture "efis-frame.png"
 crease 40.000000
 numvert 3
 0.008897 -0.103155 -0.079499
@@ -561,7 +561,7 @@ kids 0
 OBJECT poly
 name "EFIS.bezel"
 loc 0 -0.00223025 0.0810292
-texture "/home/bicyus/Documents/Desarrollo/TEST/747-400/Models/Cockpit/Instruments/PFD/efis-frame.png"
+texture "efis-frame.png"
 crease 40.000000
 numvert 3
 0.012619 -0.104558 -0.086567
@@ -578,7 +578,7 @@ kids 0
 OBJECT poly
 name "EFIS.bezel"
 loc 0 -0.00223025 0.0810292
-texture "/home/bicyus/Documents/Desarrollo/TEST/747-400/Models/Cockpit/Instruments/PFD/efis-frame.png"
+texture "efis-frame.png"
 crease 40.000000
 numvert 3
 0.008896 -0.104803 -0.082844
@@ -595,7 +595,7 @@ kids 0
 OBJECT poly
 name "EFIS.bezel"
 loc 0 -0.00223025 0.0810292
-texture "/home/bicyus/Documents/Desarrollo/TEST/747-400/Models/Cockpit/Instruments/PFD/efis-frame.png"
+texture "efis-frame.png"
 crease 40.000000
 numvert 3
 0.012617 -0.102484 -0.089667
@@ -612,7 +612,7 @@ kids 0
 OBJECT poly
 name "EFIS.bezel"
 loc 0 -0.00223025 0.0810292
-texture "/home/bicyus/Documents/Desarrollo/TEST/747-400/Models/Cockpit/Instruments/PFD/efis-frame.png"
+texture "efis-frame.png"
 crease 40.000000
 numvert 3
 0.008896 -0.104557 -0.086567
@@ -629,7 +629,7 @@ kids 0
 OBJECT poly
 name "EFIS.bezel"
 loc 0 -0.00223025 0.0810292
-texture "/home/bicyus/Documents/Desarrollo/TEST/747-400/Models/Cockpit/Instruments/PFD/efis-frame.png"
+texture "efis-frame.png"
 crease 40.000000
 numvert 3
 0.012618 -0.099136 -0.091316
@@ -646,7 +646,7 @@ kids 0
 OBJECT poly
 name "EFIS.bezel"
 loc 0 -0.00223025 0.0810292
-texture "/home/bicyus/Documents/Desarrollo/TEST/747-400/Models/Cockpit/Instruments/PFD/efis-frame.png"
+texture "efis-frame.png"
 crease 40.000000
 numvert 3
 0.008897 -0.102484 -0.089667
@@ -663,7 +663,7 @@ kids 0
 OBJECT poly
 name "EFIS.bezel"
 loc 0 -0.00223025 0.0810292
-texture "/home/bicyus/Documents/Desarrollo/TEST/747-400/Models/Cockpit/Instruments/PFD/efis-frame.png"
+texture "efis-frame.png"
 crease 40.000000
 numvert 3
 0.012618 -0.095414 -0.091071
@@ -680,7 +680,7 @@ kids 0
 OBJECT poly
 name "EFIS.bezel"
 loc 0 -0.00223025 0.0810292
-texture "/home/bicyus/Documents/Desarrollo/TEST/747-400/Models/Cockpit/Instruments/PFD/efis-frame.png"
+texture "efis-frame.png"
 crease 40.000000
 numvert 3
 0.008898 -0.099137 -0.091316
@@ -697,7 +697,7 @@ kids 0
 OBJECT poly
 name "EFIS.bezel"
 loc 0 -0.00223025 0.0810292
-texture "/home/bicyus/Documents/Desarrollo/TEST/747-400/Models/Cockpit/Instruments/PFD/efis-frame.png"
+texture "efis-frame.png"
 crease 40.000000
 numvert 3
 0.012618 -0.092314 -0.088996
@@ -714,7 +714,7 @@ kids 0
 OBJECT poly
 name "EFIS.bezel"
 loc 0 -0.00223025 0.0810292
-texture "/home/bicyus/Documents/Desarrollo/TEST/747-400/Models/Cockpit/Instruments/PFD/efis-frame.png"
+texture "efis-frame.png"
 crease 40.000000
 numvert 3
 0.008898 -0.095415 -0.091071
@@ -731,7 +731,7 @@ kids 0
 OBJECT poly
 name "EFIS.bezel"
 loc 0 -0.00223025 0.0810292
-texture "/home/bicyus/Documents/Desarrollo/TEST/747-400/Models/Cockpit/Instruments/PFD/efis-frame.png"
+texture "efis-frame.png"
 crease 40.000000
 numvert 4
 0.009371 -0.088229 0.112211
@@ -750,7 +750,7 @@ kids 0
 OBJECT poly
 name "EFIS.bezel"
 loc 0 -0.00223025 0.0810292
-texture "/home/bicyus/Documents/Desarrollo/TEST/747-400/Models/Cockpit/Instruments/PFD/efis-frame.png"
+texture "efis-frame.png"
 crease 40.000000
 numvert 4
 0.0067 0.109206 0.111405
@@ -769,7 +769,7 @@ kids 0
 OBJECT poly
 name "EFIS.bezel"
 loc 0 -0.00223025 0.0810292
-texture "/home/bicyus/Documents/Desarrollo/TEST/747-400/Models/Cockpit/Instruments/PFD/efis-frame.png"
+texture "efis-frame.png"
 crease 40.000000
 numvert 4
 0.006699 0.093912 -0.101335
@@ -788,7 +788,7 @@ kids 0
 OBJECT poly
 name "EFIS.bezel"
 loc 0 -0.00223025 0.0810292
-texture "/home/bicyus/Documents/Desarrollo/TEST/747-400/Models/Cockpit/Instruments/PFD/efis-frame.png"
+texture "efis-frame.png"
 crease 40.000000
 numvert 4
 0.006727 -0.088229 -0.111853
@@ -807,7 +807,7 @@ kids 0
 OBJECT poly
 name "EFIS.bezel"
 loc 0 -0.00223025 0.0810292
-texture "/home/bicyus/Documents/Desarrollo/TEST/747-400/Models/Cockpit/Instruments/PFD/efis-frame.png"
+texture "efis-frame.png"
 crease 40.000000
 numvert 4
 0.009371 -0.08823 -0.101481
@@ -826,7 +826,7 @@ kids 0
 OBJECT poly
 name "EFIS.bezel"
 loc 0 -0.00223025 0.0810292
-texture "/home/bicyus/Documents/Desarrollo/TEST/747-400/Models/Cockpit/Instruments/PFD/efis-frame.png"
+texture "efis-frame.png"
 crease 40.000000
 numvert 4
 0.009371 -0.08823 0.101838
@@ -845,7 +845,7 @@ kids 0
 OBJECT poly
 name "EFIS.bezel"
 loc 0 -0.00223025 0.0810292
-texture "/home/bicyus/Documents/Desarrollo/TEST/747-400/Models/Cockpit/Instruments/PFD/efis-frame.png"
+texture "efis-frame.png"
 crease 40.000000
 numvert 4
 -1e-06 -0.109206 -0.111853
@@ -864,7 +864,7 @@ kids 0
 OBJECT poly
 name "EFIS.bezel"
 loc 0 -0.00223025 0.0810292
-texture "/home/bicyus/Documents/Desarrollo/TEST/747-400/Models/Cockpit/Instruments/PFD/efis-frame.png"
+texture "efis-frame.png"
 crease 40.000000
 numvert 4
 -1e-06 -0.109206 0.112211
@@ -883,7 +883,7 @@ kids 0
 OBJECT poly
 name "EFIS.bezel"
 loc 0 -0.00223025 0.0810292
-texture "/home/bicyus/Documents/Desarrollo/TEST/747-400/Models/Cockpit/Instruments/PFD/efis-frame.png"
+texture "efis-frame.png"
 crease 40.000000
 numvert 4
 1e-06 0.109207 -0.111763
@@ -902,7 +902,7 @@ kids 0
 OBJECT poly
 name "EFIS.bezel"
 loc 0 -0.00223025 0.0810292
-texture "/home/bicyus/Documents/Desarrollo/TEST/747-400/Models/Cockpit/Instruments/PFD/efis-frame.png"
+texture "efis-frame.png"
 crease 40.000000
 numvert 3
 0.009371 -0.088229 -0.111853
@@ -919,7 +919,7 @@ kids 0
 OBJECT poly
 name "EFIS.bezel"
 loc 0 -0.00223025 0.0810292
-texture "/home/bicyus/Documents/Desarrollo/TEST/747-400/Models/Cockpit/Instruments/PFD/efis-frame.png"
+texture "efis-frame.png"
 crease 40.000000
 numvert 3
 0.009371 -0.08823 0.101838
@@ -936,7 +936,7 @@ kids 0
 OBJECT poly
 name "EFIS.bezel"
 loc 0 -0.00223025 0.0810292
-texture "/home/bicyus/Documents/Desarrollo/TEST/747-400/Models/Cockpit/Instruments/PFD/efis-frame.png"
+texture "efis-frame.png"
 crease 40.000000
 numvert 4
 0.009371 -0.08823 -0.101481
@@ -955,7 +955,7 @@ kids 0
 OBJECT poly
 name "EFIS.bezel"
 loc 0 -0.00223025 0.0810292
-texture "/home/bicyus/Documents/Desarrollo/TEST/747-400/Models/Cockpit/Instruments/PFD/efis-frame.png"
+texture "efis-frame.png"
 crease 40.000000
 numvert 4
 0.0067 0.109206 0.111405
@@ -974,7 +974,7 @@ kids 0
 OBJECT poly
 name "EFIS.bezel"
 loc 0 -0.00223025 0.0810292
-texture "/home/bicyus/Documents/Desarrollo/TEST/747-400/Models/Cockpit/Instruments/PFD/efis-frame.png"
+texture "efis-frame.png"
 crease 40.000000
 numvert 3
 0.006698 0.10176 -0.0995141
@@ -991,7 +991,7 @@ kids 0
 OBJECT poly
 name "EFIS.bezel"
 loc 0 -0.00223025 0.0810292
-texture "/home/bicyus/Documents/Desarrollo/TEST/747-400/Models/Cockpit/Instruments/PFD/efis-frame.png"
+texture "efis-frame.png"
 crease 40.000000
 numvert 3
 0.0067 0.101703 -0.093217
@@ -1008,7 +1008,7 @@ kids 0
 OBJECT poly
 name "EFIS.bezel"
 loc 0 -0.00223369 0.0809274
-texture "/home/bicyus/Documents/Desarrollo/TEST/747-400/Models/Cockpit/Instruments/PFD/efis-frame.png"
+texture "efis-frame.png"
 crease 40.000000
 numvert 3
 0.006698 0.0985843 0.101587
@@ -1025,7 +1025,7 @@ kids 0
 OBJECT poly
 name "EFIS.bezel"
 loc 0 -0.00223025 0.0810292
-texture "/home/bicyus/Documents/Desarrollo/TEST/747-400/Models/Cockpit/Instruments/PFD/efis-frame.png"
+texture "efis-frame.png"
 crease 40.000000
 numvert 3
 0.006699 0.093912 0.101663
@@ -1042,7 +1042,7 @@ kids 0
 OBJECT poly
 name "EFIS.bezel"
 loc 0 -0.00223025 0.0810292
-texture "/home/bicyus/Documents/Desarrollo/TEST/747-400/Models/Cockpit/Instruments/PFD/efis-frame.png"
+texture "efis-frame.png"
 crease 40.000000
 numvert 3
 0.006699 0.093912 -0.101335
@@ -1059,7 +1059,7 @@ kids 0
 OBJECT poly
 name "EFIS.bezel"
 loc 0 -0.00223025 0.0810292
-texture "/home/bicyus/Documents/Desarrollo/TEST/747-400/Models/Cockpit/Instruments/PFD/efis-frame.png"
+texture "efis-frame.png"
 crease 40.000000
 numvert 3
 0.006698 0.0999982 -0.101344
@@ -1076,7 +1076,7 @@ kids 0
 OBJECT poly
 name "EFIS.bezel"
 loc 0 -0.00223025 0.0810292
-texture "/home/bicyus/Documents/Desarrollo/TEST/747-400/Models/Cockpit/Instruments/PFD/efis-frame.png"
+texture "efis-frame.png"
 crease 40.000000
 numvert 4
 0.003134 0.094912 -0.089
@@ -1095,7 +1095,7 @@ kids 0
 OBJECT poly
 name "EFIS.bezel"
 loc 0 -0.00223369 0.0809274
-texture "/home/bicyus/Documents/Desarrollo/TEST/747-400/Models/Cockpit/Instruments/PFD/efis-frame.png"
+texture "efis-frame.png"
 crease 40.000000
 numvert 4
 0.006699 0.093912 0.101663
@@ -1114,7 +1114,7 @@ kids 0
 OBJECT poly
 name "EFIS.bezel"
 loc 0 -0.00223025 0.0810292
-texture "/home/bicyus/Documents/Desarrollo/TEST/747-400/Models/Cockpit/Instruments/PFD/efis-frame.png"
+texture "efis-frame.png"
 crease 40.000000
 numvert 3
 0.003134 -0.084651 0.093654
@@ -1131,7 +1131,7 @@ kids 0
 OBJECT poly
 name "EFIS.bezel"
 loc 0 -0.00223025 0.0810292
-texture "/home/bicyus/Documents/Desarrollo/TEST/747-400/Models/Cockpit/Instruments/PFD/efis-frame.png"
+texture "efis-frame.png"
 crease 40.000000
 numvert 3
 0.003134 -0.086543 -0.091932
@@ -1148,7 +1148,7 @@ kids 0
 OBJECT poly
 name "EFIS.bezel"
 loc 0 -0.00223025 0.0810292
-texture "/home/bicyus/Documents/Desarrollo/TEST/747-400/Models/Cockpit/Instruments/PFD/efis-frame.png"
+texture "efis-frame.png"
 crease 40.000000
 numvert 3
 0.003134 -0.084651 -0.093859
@@ -1165,7 +1165,7 @@ kids 0
 OBJECT poly
 name "EFIS.bezel"
 loc 0 -0.00223025 0.0810292
-texture "/home/bicyus/Documents/Desarrollo/TEST/747-400/Models/Cockpit/Instruments/PFD/efis-frame.png"
+texture "efis-frame.png"
 crease 40.000000
 numvert 3
 0.003135 -0.082177 -0.094901
@@ -1182,7 +1182,7 @@ kids 0
 OBJECT poly
 name "EFIS.bezel"
 loc 0 -0.00223025 0.0810292
-texture "/home/bicyus/Documents/Desarrollo/TEST/747-400/Models/Cockpit/Instruments/PFD/efis-frame.png"
+texture "efis-frame.png"
 crease 40.000000
 numvert 4
 0.003134 0.089522 -0.095
@@ -1201,7 +1201,7 @@ kids 0
 OBJECT poly
 name "EFIS.bezel"
 loc 0 -0.00223025 0.0810292
-texture "/home/bicyus/Documents/Desarrollo/TEST/747-400/Models/Cockpit/Instruments/PFD/efis-frame.png"
+texture "efis-frame.png"
 crease 40.000000
 numvert 4
 0.003135 -0.087568 0.08921
@@ -1220,7 +1220,7 @@ kids 0
 OBJECT poly
 name "EFIS.bezel"
 loc 0 -0.00223025 0.0810292
-texture "/home/bicyus/Documents/Desarrollo/TEST/747-400/Models/Cockpit/Instruments/PFD/efis-frame.png"
+texture "efis-frame.png"
 crease 40.000000
 numvert 3
 0.003135 -0.087568 0.08921
@@ -1237,7 +1237,7 @@ kids 0
 OBJECT poly
 name "EFIS.bezel"
 loc 0 -0.00223025 0.0810292
-texture "/home/bicyus/Documents/Desarrollo/TEST/747-400/Models/Cockpit/Instruments/PFD/efis-frame.png"
+texture "efis-frame.png"
 crease 40.000000
 numvert 3
 0.003134 -0.084651 0.093654
@@ -1271,7 +1271,7 @@ kids 0
 OBJECT poly
 name "EFIS.bezel"
 loc 0 -0.00223369 0.0809274
-texture "/home/bicyus/Documents/Desarrollo/TEST/747-400/Models/Cockpit/Instruments/PFD/efis-frame.png"
+texture "efis-frame.png"
 crease 40.000000
 numvert 3
 0.006698 0.101506 0.0992304
@@ -1288,7 +1288,7 @@ kids 0
 OBJECT poly
 name "EFIS.bezel"
 loc 0 -0.00223369 0.0809274
-texture "/home/bicyus/Documents/Desarrollo/TEST/747-400/Models/Cockpit/Instruments/PFD/efis-frame.png"
+texture "efis-frame.png"
 crease 40.000000
 numvert 4
 0.0067 0.101703 0.093546
@@ -1307,7 +1307,7 @@ kids 0
 OBJECT poly
 name "EFIS.bezel"
 loc 0 -0.00223368 0.0809274
-texture "/home/bicyus/Documents/Desarrollo/TEST/747-400/Models/Cockpit/Instruments/PFD/efis-frame.png"
+texture "efis-frame.png"
 crease 40.000000
 numvert 4
 0.003134 0.0942394 0.0946363
@@ -1326,7 +1326,7 @@ kids 0
 OBJECT poly
 name "EFIS.bezel"
 loc 0 -0.00223368 0.0809274
-texture "/home/bicyus/Documents/Desarrollo/TEST/747-400/Models/Cockpit/Instruments/PFD/efis-frame.png"
+texture "efis-frame.png"
 crease 40.000000
 numvert 4
 0.003135 0.0948231 0.0939335
@@ -1345,7 +1345,7 @@ kids 0
 OBJECT poly
 name "EFIS.bezel"
 loc 0 -0.00223369 0.0809274
-texture "/home/bicyus/Documents/Desarrollo/TEST/747-400/Models/Cockpit/Instruments/PFD/efis-frame.png"
+texture "efis-frame.png"
 crease 40.000000
 numvert 4
 0.003134 0.094912 0.08921

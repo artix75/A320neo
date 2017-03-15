@@ -64,12 +64,12 @@
 		</view>
 
 		
-		<multiplay>
-			<generic>
-				<float n="0" type="double">2</float>
-				<float n="1" type="double">2</float>
-			</generic>
-		</multiplay>
+ 		<multiplay>
+ 			<generic>
+ 				<float n="0" type="double">2</float>
+ 				<float n="1" type="double">2</float>
+ 			</generic>
+ 		</multiplay>
         
         <flight-recorder>
             <replay-config type="int">0</replay-config>
@@ -219,7 +219,6 @@
 
             </config>
 
-
         </flight-recorder>
 
 		<gui>
@@ -231,9 +230,9 @@
 						<blue>0.31</blue>
 					</splash-font>
 					<splash-screen>
-						<red>0.363</red>
-						<green>0.476</green>
-						<blue>0.671</blue>
+						<red>1</red>
+						<green>0.349</green>
+						<blue>0.1725</blue>
 					</splash-screen>
 				</colors>
 			</style>
@@ -304,6 +303,10 @@
 				<name>Flight Deck</name>
 				<path>Aircraft/A320neo/Systems/flight-deck.xml</path>
 			</autopilot>
+			
+			<property-rule n="101">	
+				<path>Aircraft/A320neo/Systems/fl2070_sound.xml</path>
+			</property-rule>
 			
 		</systems>
 
@@ -594,6 +597,8 @@
 	<copilot>
 		<lights type="bool">0</lights>
 	</copilot>
+
+
 	
 	<flight-management>
 		<phase type="string">T/O</phase>
@@ -675,7 +680,6 @@
 			</tank>
 		</fuel>
 	</consumables>
-
 
 	<autopilot>
 		<autobrake>
@@ -759,7 +763,6 @@
 			<strobe type="bool">false</strobe>
 		</lighting>
 		<switches>
-			<!-- Smoking is bad :P -->
 			<no-smoking-sign type="bool">true</no-smoking-sign>
 			<seatbelt-sign type="bool">false</seatbelt-sign>
 		</switches>
@@ -857,7 +860,6 @@
 				<wxr type="bool">true</wxr>
 				<tfc type="bool">true</tfc>
 			</inputs>
-
 
 		</efis>
 	
@@ -1360,11 +1362,12 @@
 		
 		<fmgc>
 			<file>Aircraft/A320neo/Nasal/FMGC/autoland.nas</file>
-			<file>Aircraft/A320neo/Nasal/FMGC/new_flight.nas</file>
-			<file>Aircraft/A320neo/Nasal/FMGC/manage-speeds.nas</file>
 			<file>Aircraft/A320neo/Nasal/FMGC/deflection.nas</file>
-			<file>Aircraft/A320neo/Nasal/FMGC/procedure.nas</file>
 			<file>Aircraft/A320neo/Nasal/FMGC/fmgc_loop.nas</file>
+			<file>Aircraft/A320neo/Nasal/FMGC/hold-pattern.nas</file>
+			<file>Aircraft/A320neo/Nasal/FMGC/manage-speeds.nas</file>
+			<file>Aircraft/A320neo/Nasal/FMGC/new_flight.nas</file>
+			<file>Aircraft/A320neo/Nasal/FMGC/procedure.nas</file>
 			<file>Aircraft/A320neo/Nasal/FMGC/route.nas</file>
 			<file>Aircraft/A320neo/Nasal/FMGC/wp_transit.nas</file>
 		</fmgc>
@@ -1393,7 +1396,7 @@
 			<file>Aircraft/A320neo/Nasal/copilot.nas</file>
                         <file>Aircraft/A320neo/Nasal/ground-services.nas</file>
 			<file>Aircraft/A320neo/Nasal/general_loop.nas</file>
-			<file>Aircraft/A330-200/Nasal/autoannunciator.nas</file>
+			<file>Aircraft/A320neo/Nasal/autoannunciator.nas</file>
 		</a320neo>
 		<a332_gui>
 			<file>Aircraft/A320neo/Nasal/GUI/WXRLiveDialog.nas</file>
@@ -1433,13 +1436,13 @@
 		</walk>
 		<!-- Dual control -->
 		<dual_control_tools>
-			<file>Aircraft/Generic/DualControl/dual-control-tools.nas</file>
+			<file>Aircraft/A320neo/DualControl/dual-control-tools.nas</file>
 		</dual_control_tools>
 		<aircraft_dual_control>
 			<file>Aircraft/A320neo/DualControl/a320-dual-control.nas</file>
 		</aircraft_dual_control>
 		<dual_control>
-			<file>Aircraft/Generic/DualControl/pilot-dual-control.nas</file>
+			<file>Aircraft/A320neo/DualControl/pilot-dual-control.nas</file>
 		</dual_control>
 		<terrain-map><file>Aircraft/A320neo/Nasal/terrain-map.nas</file></terrain-map>
         <warnings>

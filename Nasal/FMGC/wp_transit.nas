@@ -13,7 +13,8 @@ var wp_transit = {
 		var end_flight = getprop("/flight-management/end-flight");
 		var cur_wp = getprop("/autopilot/route-manager/current-wp");
 		if (wp_count > 1 and fbw_phase == "Flight Mode" and end_flight != 1 and 
-			cur_wp != getprop("/flight-management/hold/hold-id")) {
+			cur_wp != getprop("/flight-management/hold/hold-id")
+			and cur_wp >= 0 and getprop("/flight-management/current-wp") >= 0) {
 		
 			me.current_wp = getprop("/flight-management/current-wp");
 			var gps_accur = getprop(settings~ "gps-accur");
@@ -124,7 +125,7 @@ var wp_transit = {
 	},
 	_loop_ : func(id) {
 		id == me.loopid or return;
-		me.update();
+		utils.catch(func me.update());
 		settimer(func { me._loop_(id); }, me.UPDATE_INTERVAL);
 	}
 };

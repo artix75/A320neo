@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<PropertyList>
+	<sim>
+		<model>
+			<livery>
+				<name>Norwegian Air Shuttle</name>
+				<neo-texture>Liveries/A320neo-NAX.png</neo-texture>
+			</livery>
+		</model>
+	</sim>
+</PropertyList>

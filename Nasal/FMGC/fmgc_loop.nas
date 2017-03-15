@@ -2965,7 +2965,7 @@ var fmgc_loop = {
         var adf1_id = getprop(radio~ 'adf1-id');
         me.autotuned_adf1 = getprop(radio~'autotuned-adf') or 0;
         var cur_wp = (me.flplan_active ? me.current_wp : 0);
-        var wp_id = (cur_wp ? getprop(actrte~ 'wp['~cur_wp~']/id') : nil);
+        var wp_id = (cur_wp > 0 ? getprop(actrte~ 'wp['~cur_wp~']/id') : nil);
         var wp_lat = 0;
         var wp_lon = 0;
         if(wp_id != nil){
@@ -3134,7 +3134,7 @@ var fmgc_loop = {
     },
     _loop_ : func(id) {
         id == me.loopid or return;
-        me.update();
+        utils.catch(func me.update());
         settimer(func { me._loop_(id); }, me.UPDATE_INTERVAL);
     }
 

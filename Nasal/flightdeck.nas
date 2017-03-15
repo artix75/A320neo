@@ -9,17 +9,19 @@ var fcu = {
         me.update();
     },
     update: func(){
-        foreach(var knob; ['spd','hdg','alt','vs']){
-            var sec = getprop('/flight-management/fcu/'~knob~'-rotation-time');
-            if(sec > 0){
-                var cur_sec = int(getprop('sim/time/elapsed-sec'));
-                var elapsed = cur_sec - sec;
-                var disp = (elapsed <= me.FCU_DISPLAY_TIMEOUT);
-                setprop('/flight-management/fcu/display-'~knob, disp);
-            } else {
-                setprop('/flight-management/fcu/display-'~knob, 0);
-            }     
-        }
+	utils.catch(func() {
+            foreach(var knob; ['spd','hdg','alt','vs']){
+                var sec = getprop('/flight-management/fcu/'~knob~'-rotation-time');
+                if(sec > 0){
+                    var cur_sec = int(getprop('sim/time/elapsed-sec'));
+                    var elapsed = cur_sec - sec;
+                    var disp = (elapsed <= me.FCU_DISPLAY_TIMEOUT);
+                    setprop('/flight-management/fcu/display-'~knob, disp);
+                } else {
+                    setprop('/flight-management/fcu/display-'~knob, 0);
+                }
+            }
+        });
         settimer(func { me.update(); }, me.UPDATE_INTERVAL);
     },
     get_type: func(name){
